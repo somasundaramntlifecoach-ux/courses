@@ -81,8 +81,8 @@
   <div id="moduleList"></div>
 
   <div class="cert-box">
-    <h3 data-en="Course Certificate" data-ta="பாட சான்றிதழ்">Course Certificate</h3>
-    <p data-en="Complete all 10 modules to unlock your certificate of completion." data-ta="உங்கள் முடிவு சான்றிதழைப் பெற அனைத்து 10 பாடங்களையும் முடிக்கவும்.">Complete all 10 modules to unlock your certificate of completion.</p>
+    <h3 data-en="Course Completion" data-ta="Course Completion">Course Certificate</h3>
+    <p data-en="Complete all 10 modules for completion." data-ta=" அனைத்து 10 பாடங்களையும் முடிக்கவும்.">Complete all 10 modules forcompletion.</p>
     <button class="btn-cert" id="certBtn" onclick="viewCertificate()" disabled data-en="Complete All Modules First" data-ta="முதலில் அனைத்து பாடங்களையும் முடிக்கவும்">Complete All Modules First</button>
   </div>
 </div>
@@ -129,7 +129,7 @@ function renderModules(){
   const certBtn = document.getElementById('certBtn');
   if(doneCount === 10){
     certBtn.disabled = false;
-    certBtn.textContent = currentLang==='ta' ? 'சான்றிதழைப் பார்' : 'View Certificate';
+    certBtn.textContent = currentLang==='ta' ? 'பார்' : 'View';
   } else {
     certBtn.disabled = true;
     certBtn.textContent = currentLang==='ta' ? 'முதலில் அனைத்து பாடங்களையும் முடிக்கவும்' : 'Complete All Modules First';
