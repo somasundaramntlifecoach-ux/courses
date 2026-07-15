@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 7: Managing Group Dynamics & Peer Conflict | Classroom Behaviour Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="passGate">
+  <div class="gate-card">
+    <h2 data-en>Enter Passcode</h2>
+    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
+    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
+    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
+    <button id="gateSubmit" data-en>Unlock Module</button>
+    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
+    <div class="gate-error" id="gateError"></div>
+    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
+    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
+  </div>
+</div>
+<div class="progress-bar"></div>
+<div class="topbar">
+  <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button>
+    <button data-lang="ta">தமிழ்</button>
+  </div>
+</div>
+
+<div class="container">
+  <p data-en style="color:var(--muted);">Module 7 of 10</p>
+  <p data-ta class="ta-text" style="color:var(--muted);">பாடம் 7 / 10</p>
+  <h1 data-en>Managing Group Dynamics & Peer Conflict</h1>
+  <h1 data-ta class="ta-text">குழு இயக்கவியல் மற்றும் சக மாணவர் மோதலை நிர்வகித்தல்</h1>
+
+  <div class="metaphor-card">
+    <p data-en>🌱 <strong>Think of it this way:</strong> Peer conflict spreads through a class like a single spark in dry grass — it doesn't stay contained to two people for long. The teacher's job is less firefighter, more forest ranger: controlled early clearing prevents the wildfire.</p>
+    <p data-ta class="ta-text">🌱 <strong>இப்படி நினையுங்கள்:</strong> சக மாணவர் மோதல் வகுப்பில் உலர் புல்லில் ஒரு தீப்பொறி போல பரவும் — அது இரண்டு பேரிடையே நீண்ட நேரம் நிற்காது. ஆசிரியரின் வேலை தீயணைப்பாளர் அல்ல, வன அதிகாரி — முன்கூட்டியே கட்டுப்படுத்தப்பட்ட சுத்தம் காட்டுத்தீயைத் தடுக்கும்.</p>
+  </div>
+
+  <div data-en>
+    <p>Bullying and clique conflict thrive in the gaps a teacher doesn't see — corridors, group work, online chats. Prevention means naming acceptable and unacceptable behaviour explicitly (not assuming students know the difference between teasing and bullying), building in structured group-work roles so power isn't left to informal hierarchies, and creating simple, low-stakes ways for students to report concerns without feeling like they're 'telling.' When conflict does surface, address the behaviour with each student privately before ever bringing them together, so no one is cornered in front of the group they're trying to save face in front of.</p>
+  </div>
+  <div data-ta class="ta-text">
+    <p>கொடுமைப்படுத்தல் மற்றும் கும்பல் மோதல் ஆசிரியர் பார்க்காத இடைவெளிகளில் — நடைபாதைகள், குழு வேலை, ஆன்லைன் அரட்டைகளில் — வளர்கிறது. தடுப்பு என்பது ஏற்றுக்கொள்ளத்தக்க மற்றும் ஏற்றுக்கொள்ள முடியாத நடத்தையை தெளிவாக பெயரிடுவது, குழு வேலையில் கட்டமைக்கப்பட்ட பாத்திரங்களை உருவாக்குவது, மாணவர்கள் 'சொல்லிக் கொடுப்பது' போல் உணராமல் கவலைகளை தெரிவிக்க எளிய வழிகளை உருவாக்குவது ஆகும். மோதல் வெளிப்படும்போது, ஒன்றாக கொண்டு வருவதற்கு முன் ஒவ்வொரு மாணவருடனும் தனிப்பட்ட முறையில் நடத்தையை நிவர்த்தி செய்யுங்கள்.</p>
+  </div>
+
+  <details class="deep-dive">
+    <summary><span data-en>Real Classroom Example</span><span data-ta class="ta-text">உண்மையான வகுப்பறை உதாரணம்</span></summary>
+    <div class="example-card">
+      <p data-en>Two girls have been excluding a third from group work for weeks, none of it visible in class discussion. A teacher who has built a two-minute weekly 'anonymous concern slip' habit catches it early, speaks to each girl privately about how the excluded student might be feeling, and rebuilds the group dynamic before it hardens into open bullying.</p>
+      <p data-ta class="ta-text">இரண்டு பெண்கள் மூன்றாவது பெண்ணை பல வாரங்களாக குழு வேலையிலிருந்து விலக்கி வைத்துள்ளனர், அது வகுப்பு விவாதத்தில் தெரியவில்லை. வாராந்திர 'அநாமதேய கவலை சீட்டு' பழக்கத்தை உருவாக்கிய ஆசிரியர் இதை முன்கூட்டியே கண்டறிந்து, விலக்கப்பட்ட மாணவி எப்படி உணரலாம் என்பது பற்றி ஒவ்வொரு பெண்ணுடனும் தனிப்பட்ட முறையில் பேசி, திறந்த கொடுமைப்படுத்தலாக மாறுவதற்கு முன் குழு இயக்கவியலை மீண்டும் கட்டமைக்கிறார்.</p>
+    </div>
+  </details>
+
+  <details class="deep-dive" open>
+    <summary><span data-en>Practical Tips for Tomorrow</span><span data-ta class="ta-text">நாளைக்கான நடைமுறை குறிப்புகள்</span></summary>
+    <div class="tips-list" data-en><ul><li>Explicitly teach the difference between teasing, conflict, and bullying — don't assume students already know it.</li><li>Build a simple, low-stakes way for students to flag concerns weekly.</li><li>Always speak to each student privately before bringing conflicting parties together.</li></ul></div>
+    <div class="tips-list ta-text" data-ta><ul><li>கிண்டல், மோதல், கொடுமைப்படுத்தல் ஆகியவற்றுக்கு இடையேயான வேறுபாட்டை தெளிவாகக் கற்பியுங்கள்.</li><li>மாணவர்கள் வாராந்திரம் கவலைகளைத் தெரிவிக்க எளிய வழியை உருவாக்குங்கள்.</li><li>மோதலில் உள்ளவர்களை ஒன்றாகக் கொண்டு வருவதற்கு முன் எப்போதும் ஒவ்வொருவருடனும் தனிப்பட்ட முறையில் பேசுங்கள்.</li></ul></div>
+  </details>
+
+  <h2 data-en>Quick Check</h2>
+  <h2 data-ta class="ta-text">விரைவு சரிபார்ப்பு</h2>
+  
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q1.</strong> Peer conflict most often escalates in spaces that are:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 1.</strong> சக மாணவர் மோதல் பெரும்பாலும் அதிகரிப்பது எந்த இடங்களில்:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Directly supervised</button><button class='quiz-opt' data-idx='1'>Not directly seen by the teacher</button><button class='quiz-opt' data-idx='2'>Only online</button><button class='quiz-opt' data-idx='3'>Only during exams</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>நேரடியாக மேற்பார்வையிடப்படும்</button><button class='quiz-opt ta-text' data-idx='1'>ஆசிரியரால் நேரடியாக பார்க்கப்படாதவை</button><button class='quiz-opt ta-text' data-idx='2'>ஆன்லைனில் மட்டும்</button><button class='quiz-opt ta-text' data-idx='3'>தேர்வுகளின் போது மட்டும்</button></div>
+        </div>
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q2.</strong> Before bringing two conflicting students together, a teacher should first:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 2.</strong> இரண்டு மோதலில் உள்ள மாணவர்களை ஒன்றாகக் கொண்டு வருவதற்கு முன் ஆசிரியர் முதலில் என்ன செய்ய வேண்டும்:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Punish both immediately</button><button class='quiz-opt' data-idx='1'>Speak to each privately first</button><button class='quiz-opt' data-idx='2'>Ignore it and hope it resolves</button><button class='quiz-opt' data-idx='3'>Announce it to the class</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>இருவரையும் உடனே தண்டித்தல்</button><button class='quiz-opt ta-text' data-idx='1'>முதலில் ஒவ்வொருவருடனும் தனிப்பட்ட முறையில் பேசுதல்</button><button class='quiz-opt ta-text' data-idx='2'>புறக்கணித்து தீரும் என நம்புதல்</button><button class='quiz-opt ta-text' data-idx='3'>வகுப்பிற்கு அறிவித்தல்</button></div>
+        </div>
+
+  <div class="nav-buttons">
+    <a href="module6-defiance-power-struggles.html" class="btn btn-outline" data-en>← Previous</a>
+    <a href="module8-restorative-conversations.html" class="btn btn-primary" data-en>Next Module →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20training" class="whatsapp-cta" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <p>NT Somasundaram · Certified Master Trainer &amp; Life Skills Educator</p>
+  <p>"God is always with u"</p>
+</footer>
+
+<script src="../app.js"></script>
+<script>initQuiz('group-dynamics-peer-conflict');</script>
+<script>initGate();</script>
+</body>
+</html>

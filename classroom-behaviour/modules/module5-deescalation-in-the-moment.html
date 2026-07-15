@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5: De-escalation Techniques in the Moment | Classroom Behaviour Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="passGate">
+  <div class="gate-card">
+    <h2 data-en>Enter Passcode</h2>
+    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
+    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
+    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
+    <button id="gateSubmit" data-en>Unlock Module</button>
+    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
+    <div class="gate-error" id="gateError"></div>
+    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
+    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
+  </div>
+</div>
+<div class="progress-bar"></div>
+<div class="topbar">
+  <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button>
+    <button data-lang="ta">தமிழ்</button>
+  </div>
+</div>
+
+<div class="container">
+  <p data-en style="color:var(--muted);">Module 5 of 10</p>
+  <p data-ta class="ta-text" style="color:var(--muted);">பாடம் 5 / 10</p>
+  <h1 data-en>De-escalation Techniques in the Moment</h1>
+  <h1 data-ta class="ta-text">உடனடி தணிப்பு நுட்பங்கள்</h1>
+
+  <div class="metaphor-card">
+    <p data-en>🌱 <strong>Think of it this way:</strong> De-escalating a heated student is like landing a plane, not slamming the brakes on a car. You don't stop instantly — you bring it down gradually, adjusting angle and speed until it touches ground safely.</p>
+    <p data-ta class="ta-text">🌱 <strong>இப்படி நினையுங்கள்:</strong> கோபமான மாணவரை தணிப்பது கார் பிரேக் அழுத்துவது போல் அல்ல, விமானத்தை தரையிறக்குவது போன்றது. உடனடியாக நிறுத்துவதில்லை — கோணத்தையும் வேகத்தையும் சரிசெய்து படிப்படியாகக் கீழே கொண்டு வருகிறீர்கள்.</p>
+  </div>
+
+  <div data-en>
+    <p>In the moment, three levers matter most: voice (lower and slower, never matching volume), body positioning (angled, not squared off — squared-off stance reads as confrontation), and timing (give a moment of silence before speaking; don't fire back instantly). Avoid audiences — a student who feels watched by peers must save face, making compliance much harder. Offer a face-saving exit: a task, an errand, a choice between two acceptable options. Never issue an ultimatum you can't or won't enforce.</p>
+  </div>
+  <div data-ta class="ta-text">
+    <p>அந்த நேரத்தில், மூன்று விஷயங்கள் மிக முக்கியம்: குரல் (தாழ்வாகவும் மெதுவாகவும், ஒருபோதும் சப்தத்திற்கு பொருந்தாதே), உடல் நிலை (கோணமாக, நேராக அல்ல — நேரான நிலை மோதலாக தெரியும்), நேரம் (பேசுவதற்கு முன் ஒரு தருணம் அமைதி). பார்வையாளர்களைத் தவிருங்கள் — தோழர்கள் பார்க்கிறார்கள் என உணரும் மாணவன் முகத்தைக் காப்பாற்ற வேண்டும். முகத்தைக் காப்பாற்றும் வெளியேறும் வழியை வழங்குங்கள்: ஒரு பணி, ஒரு வேலை, இரண்டு ஏற்றுக்கொள்ளத்தக்க தேர்வுகளுக்கு இடையே தேர்வு.</p>
+  </div>
+
+  <details class="deep-dive">
+    <summary><span data-en>Real Classroom Example</span><span data-ta class="ta-text">உண்மையான வகுப்பறை உதாரணம்</span></summary>
+    <div class="example-card">
+      <p data-en>A student stands up, shouting that the assignment is unfair. Instead of demanding he sit down in front of everyone, the teacher steps slightly to the side (not directly facing him), lowers her voice, and says, 'I hear you — walk with me to the door for a second.' Away from the audience, he calms down within a minute.</p>
+      <p data-ta class="ta-text">ஒரு மாணவன் எழுந்து, பணி நியாயமற்றது என்று கத்துகிறான். எல்லோர் முன்னிலையிலும் உட்காரச் சொல்வதற்குப் பதிலாக, ஆசிரியர் சற்று பக்கவாட்டில் நகர்ந்து, குரலைத் தாழ்த்தி, 'எனக்குப் புரிகிறது — கதவு வரை என்னுடன் வா' என்கிறார். பார்வையாளர்களிடமிருந்து விலகி, ஒரு நிமிடத்தில் அவன் அமைதியாகிறான்.</p>
+    </div>
+  </details>
+
+  <details class="deep-dive" open>
+    <summary><span data-en>Practical Tips for Tomorrow</span><span data-ta class="ta-text">நாளைக்கான நடைமுறை குறிப்புகள்</span></summary>
+    <div class="tips-list" data-en><ul><li>Never de-escalate in front of an audience if you can help it — move the conversation aside.</li><li>Offer two acceptable choices instead of one command: 'You can finish this here or at the side desk.'</li><li>Silence is a tool — a pause often does more than another sentence.</li></ul></div>
+    <div class="tips-list ta-text" data-ta><ul><li>முடிந்தால் பார்வையாளர்கள் முன் தணிக்காதீர்கள் — உரையாடலை ஒதுக்கில் நகர்த்துங்கள்.</li><li>ஒரு கட்டளைக்கு பதிலாக இரண்டு தேர்வுகளை வழங்குங்கள்: 'இதை இங்கே முடிக்கலாம் அல்லது பக்க மேசையில்.'</li><li>மௌனம் ஒரு கருவி — ஒரு இடைவெளி பல வாக்கியங்களை விட அதிகம் செய்யும்.</li></ul></div>
+  </details>
+
+  <h2 data-en>Quick Check</h2>
+  <h2 data-ta class="ta-text">விரைவு சரிபார்ப்பு</h2>
+  
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q1.</strong> Facing a heated student directly, squared-off, tends to:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 1.</strong> கோபமான மாணவனை நேராக, நேரான நிலையில் எதிர்கொள்வது பொதுவாக:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Calm them down</button><button class='quiz-opt' data-idx='1'>Read as confrontation</button><button class='quiz-opt' data-idx='2'>Show authority effectively</button><button class='quiz-opt' data-idx='3'>Have no effect</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>அவர்களை அமைதிப்படுத்தும்</button><button class='quiz-opt ta-text' data-idx='1'>மோதலாக தெரியும்</button><button class='quiz-opt ta-text' data-idx='2'>அதிகாரத்தை காட்டும்</button><button class='quiz-opt ta-text' data-idx='3'>எந்த விளைவும் இல்லை</button></div>
+        </div>
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q2.</strong> A face-saving exit means:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 2.</strong> முகத்தைக் காப்பாற்றும் வெளியேறும் வழி என்பது:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Publicly punishing the student</button><button class='quiz-opt' data-idx='1'>Giving them a way to comply without humiliation</button><button class='quiz-opt' data-idx='2'>Ignoring the behaviour completely</button><button class='quiz-opt' data-idx='3'>Sending them home immediately</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>மாணவனை பொதுவில் தண்டித்தல்</button><button class='quiz-opt ta-text' data-idx='1'>அவமானமின்றி ஏற்க ஒரு வழியை கொடுத்தல்</button><button class='quiz-opt ta-text' data-idx='2'>நடத்தையை முற்றிலும் புறக்கணித்தல்</button><button class='quiz-opt ta-text' data-idx='3'>உடனே வீட்டிற்கு அனுப்புதல்</button></div>
+        </div>
+
+  <div class="nav-buttons">
+    <a href="module4-warning-signs.html" class="btn btn-outline" data-en>← Previous</a>
+    <a href="module6-defiance-power-struggles.html" class="btn btn-primary" data-en>Next Module →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20training" class="whatsapp-cta" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <p>NT Somasundaram · Certified Master Trainer &amp; Life Skills Educator</p>
+  <p>"God is always with u"</p>
+</footer>
+
+<script src="../app.js"></script>
+<script>initQuiz('deescalation-in-the-moment');</script>
+<script>initGate();</script>
+</body>
+</html>

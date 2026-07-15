@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positive Discipline for Teachers | NT Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.6;}
+  body.ta, .ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:36px 20px; text-align:center; position:relative;}
+  header h1{font-size:1.7rem; font-weight:700; margin-bottom:6px;}
+  header p{opacity:.9; font-size:.95rem;}
+  .lang-toggle{position:absolute; top:16px; right:16px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  .container{max-width:880px; margin:0 auto; padding:28px 18px 60px;}
+  .progress-wrap{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 22px; margin-bottom:24px; display:flex; align-items:center; gap:16px;}
+  .progress-bar{flex:1; height:10px; background:#e6ecf2; border-radius:6px; overflow:hidden;}
+  .progress-fill{height:100%; background:var(--success); width:0%; transition:width .3s;}
+  .progress-label{font-size:.85rem; color:var(--muted); white-space:nowrap;}
+  .module{background:var(--card); border:1px solid var(--border); border-radius:14px; margin-bottom:16px; overflow:hidden;}
+  .module-head{padding:18px 20px; display:flex; align-items:center; gap:14px; cursor:pointer;}
+  .module-num{width:34px; height:34px; border-radius:50%; background:var(--primary); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:.9rem; flex-shrink:0;}
+  .module-title{flex:1; font-weight:600; font-size:1.02rem;}
+  .module-check{width:20px; height:20px; accent-color:var(--success); cursor:pointer;}
+  .chevron{transition:transform .25s; color:var(--muted);}
+  .module.open .chevron{transform:rotate(90deg);}
+  .module-body{max-height:0; overflow:hidden; transition:max-height .3s ease;}
+  .module.open .module-body{max-height:400px;}
+  .subtopics{list-style:none; padding:0 20px 18px 68px;}
+  .subtopics li{padding:6px 0; color:var(--muted); font-size:.92rem; position:relative;}
+  .subtopics li::before{content:"›"; color:var(--accent); font-weight:700; margin-right:8px;}
+  .cta{margin-top:32px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:22px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:10px 26px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:10px;}
+  footer{text-align:center; padding:24px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <h1><span data-en>Positive Discipline for Teachers</span><span data-ta>ஆசிரியர்களுக்கான நேர்மறை ஒழுக்க பயிற்சி</span></h1>
+  <p><span data-en>A 10-module course by N T Somasundaram &mdash; Life Skills &amp; Classroom Management</span><span data-ta>என்.டி. சோமசுந்தரம் வழங்கும் 10 பாட வரிசை &mdash; வாழ்க்கை திறன்கள் &amp; வகுப்பறை மேலாண்மை</span></p>
+</header>
+
+<div class="container">
+  <div class="progress-wrap">
+    <div class="progress-label"><span data-en>Your progress</span><span data-ta>உங்கள் முன்னேற்றம்</span>: <span id="progressText">0/10</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  </div>
+
+  <div id="modulesContainer"></div>
+
+  <div class="cta">
+    <div style="font-weight:600; font-size:1.05rem;">
+      <span data-en>Want live guidance applying this in your classroom?</span>
+      <span data-ta>உங்கள் வகுப்பறையில் இதை செயல்படுத்த நேரடி வழிகாட்டுதல் வேண்டுமா?</span>
+    </div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank">
+      <span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div><span data-en>&copy; N T Somasundaram &mdash; Life Skills Program</span><span data-ta>&copy; என்.டி. சோமசுந்தரம் &mdash; வாழ்க்கை திறன் திட்டம்</span></div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+const modules = [
+  { en:"Foundations of Positive Discipline", ta:"நேர்மறை ஒழுக்கத்தின் அடிப்படைகள்",
+    subs:[
+      {en:"Adlerian Roots: Belonging and Significance", ta:"அட்லேரியன் அடிப்படைகள்: சேர்ந்திருத்தல் மற்றும் முக்கியத்துவம்"},
+      {en:"Long-Term vs Short-Term Discipline Goals", ta:"நீண்டகால Vs குறுகியகால ஒழுக்க இலக்குகள்"},
+      {en:"The Four Discipline Styles: Permissive, Punitive, Neglectful, Positive", ta:"நான்கு ஒழுக்க பாணிகள்: அனுமதி, தண்டனை, அலட்சியம், நேர்மறை"}
+    ]},
+  { en:"Kind and Firm at the Same Time", ta:"கருணையும் உறுதியும் ஒரே நேரத்தில்",
+    subs:[
+      {en:"What \"Kind and Firm\" Really Means", ta:"\"கருணையும் உறுதியும்\" என்பதன் உண்மையான பொருள்"},
+      {en:"Avoiding the Permissive-Punitive Pendulum", ta:"அனுமதி-தண்டனை ஊசலாட்டத்தை தவிர்த்தல்"},
+      {en:"Setting Boundaries Without Shaming", ta:"அவமானப்படுத்தாமல் எல்லைகளை நிர்ணயித்தல்"}
+    ]},
+  { en:"Connection Before Correction", ta:"திருத்தத்திற்கு முன் தொடர்பு",
+    subs:[
+      {en:"Why Relationship Comes First", ta:"உறவு ஏன் முதலிடம் பெறுகிறது"},
+      {en:"Quick Connection Rituals for the Classroom", ta:"வகுப்பறைக்கான விரைவான தொடர்பு பழக்கங்கள்"},
+      {en:"De-escalating Through Empathy", ta:"பரிவு மூலம் பதற்றத்தைக் குறைத்தல்"}
+    ]},
+  { en:"Understanding Mistaken Goals of Behaviour", ta:"தவறான நடத்தை இலக்குகளை புரிந்துகொள்ளுதல்",
+    subs:[
+      {en:"The Four Mistaken Goals: Attention, Power, Revenge, Inadequacy", ta:"நான்கு தவறான இலக்குகள்: கவனம், அதிகாரம், பழிவாங்கல், போதாமை"},
+      {en:"Reading Your Own Emotional Reaction as a Clue", ta:"உங்கள் சொந்த உணர்ச்சி எதிர்வினையை ஒரு குறிப்பாக பயன்படுத்துதல்"},
+      {en:"Responding to Each Goal Differently", ta:"ஒவ்வொரு இலக்கிற்கும் வித்தியாசமாக பதிலளித்தல்"}
+    ]},
+  { en:"Encouragement Over Praise", ta:"பாராட்டை விட ஊக்கமளித்தல்",
+    subs:[
+      {en:"Encouragement vs Praise: The Key Differences", ta:"ஊக்கமளித்தல் Vs பாராட்டு: முக்கிய வேறுபாடுகள்"},
+      {en:"Building Internal Motivation in Students", ta:"மாணவர்களில் உள்ளார்ந்த ஊக்கத்தை வளர்த்தல்"},
+      {en:"Encouraging Language for Everyday Moments", ta:"அன்றாட தருணங்களுக்கான ஊக்கமளிக்கும் மொழி"}
+    ]},
+  { en:"Natural and Logical Consequences", ta:"இயற்கையான மற்றும் தர்க்கரீதியான விளைவுகள்",
+    subs:[
+      {en:"Related, Respectful, Reasonable: The 3 R's", ta:"தொடர்புடைய, மரியாதைக்குரிய, நியாயமான: 3 R கள்"},
+      {en:"Natural Consequences vs Logical Consequences", ta:"இயற்கையான விளைவுகள் Vs தர்க்கரீதியான விளைவுகள்"},
+      {en:"Common Consequence Mistakes to Avoid", ta:"தவிர்க்க வேண்டிய பொதுவான தவறுகள்"}
+    ]},
+  { en:"Solution-Focused Classroom Management", ta:"தீர்வு மையப்படுத்திய வகுப்பறை மேலாண்மை",
+    subs:[
+      {en:"The Solution-Focused Mindset", ta:"தீர்வு மையப்படுத்திய மனநிலை"},
+      {en:"Involving Students in Problem-Solving", ta:"மாணவர்களை பிரச்சனை தீர்வில் ஈடுபடுத்துதல்"},
+      {en:"Following Up After a Conflict", ta:"முரண்பாட்டிற்குப் பிறகு பின்தொடர்தல்"}
+    ]},
+  { en:"Class Meetings and Classroom Community", ta:"வகுப்பு கூட்டங்களும் வகுப்பறை சமூகமும்",
+    subs:[
+      {en:"Structuring an Effective Class Meeting", ta:"திறமையான வகுப்பு கூட்டத்தை கட்டமைத்தல்"},
+      {en:"Building Belonging Through Appreciation", ta:"பாராட்டு மூலம் சேர்ந்திருத்தலை வளர்த்தல்"},
+      {en:"Solving Recurring Problems Together", ta:"தொடர்ச்சியான பிரச்சனைகளை ஒன்றாக தீர்த்தல்"}
+    ]},
+  { en:"Time-In, Calm-Down Corners and Self-Regulation", ta:"டைம்-இன், அமைதி மூலைகள் மற்றும் சுய கட்டுப்பாடு",
+    subs:[
+      {en:"Designing a Calm-Down Space", ta:"அமைதி இடத்தை வடிவமைத்தல்"},
+      {en:"Time-In vs Time-Out", ta:"டைம்-இன் Vs டைம்-அவுட்"},
+      {en:"Teaching Students to Self-Regulate", ta:"மாணவர்களுக்கு சுய கட்டுப்பாட்டை கற்பித்தல்"}
+    ]},
+  { en:"Sustaining Positive Discipline", ta:"நேர்மறை ஒழுக்கத்தை நிலைநிறுத்துதல்",
+    subs:[
+      {en:"Creating Classroom Agreements Collaboratively", ta:"கூட்டாக வகுப்பறை ஒப்பந்தங்களை உருவாக்குதல்"},
+      {en:"Staying Consistent Under Pressure", ta:"அழுத்தத்தின் கீழ் நிலைத்தன்மையுடன் இருத்தல்"},
+      {en:"Teacher Self-Care and Avoiding Burnout", ta:"ஆசிரியர் சுய பராமரிப்பு மற்றும் சோர்வைத் தவிர்த்தல்"}
+    ]}
+];
+
+const STORAGE_KEY = 'pd_teachers_progress';
+
+function loadProgress(){
+  try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; }
+}
+function saveProgress(p){ localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
+
+function render(){
+  const progress = loadProgress();
+  const wrap = document.getElementById('modulesContainer');
+  wrap.innerHTML = '';
+  modules.forEach((m, i)=>{
+    const div = document.createElement('div');
+    div.className = 'module';
+    div.innerHTML = `
+      <div class="module-head" onclick="toggle(${i})">
+        <div class="module-num">${i+1}</div>
+        <div class="module-title"><span data-en>${m.en}</span><span data-ta>${m.ta}</span></div>
+        <input type="checkbox" class="module-check" ${progress[i]?'checked':''} onclick="event.stopPropagation(); markDone(${i}, this.checked)">
+        <span class="chevron">&#8250;</span>
+      </div>
+      <div class="module-body">
+        <ul class="subtopics">
+          ${m.subs.map(s=>`<li><span data-en>${s.en}</span><span data-ta>${s.ta}</span></li>`).join('')}
+        </ul>
+        <div style="padding:0 20px 18px 68px;">
+          <a href="modules/module-${String(i+1).padStart(2,'0')}.html" style="display:inline-block; background:var(--primary); color:#fff; padding:8px 18px; border-radius:20px; text-decoration:none; font-size:.85rem; font-weight:600;">
+            <span data-en>Open Full Lesson &rarr;</span><span data-ta>முழு பாடத்தைத் திற &rarr;</span>
+          </a>
+        </div>
+      </div>
+    `;
+    wrap.appendChild(div);
+  });
+  applyLangDisplay();
+  updateProgressBar();
+}
+
+function toggle(i){
+  document.querySelectorAll('.module')[i].classList.toggle('open');
+}
+function markDone(i, checked){
+  const p = loadProgress();
+  p[i] = checked;
+  saveProgress(p);
+  updateProgressBar();
+}
+function updateProgressBar(){
+  const p = loadProgress();
+  const done = Object.values(p).filter(Boolean).length;
+  document.getElementById('progressFill').style.width = (done/10*100)+'%';
+  document.getElementById('progressText').textContent = done+'/10';
+}
+
+let currentLang = 'en';
+function setLang(lang){
+  currentLang = lang;
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  applyLangDisplay();
+}
+function applyLangDisplay(){ /* handled via CSS body.ta rules */ }
+
+render();
+</script>
+</body>
+</html>

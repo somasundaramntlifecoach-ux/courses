@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2: The Teacher's Mindset — Responding vs Reacting | Classroom Behaviour Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="passGate">
+  <div class="gate-card">
+    <h2 data-en>Enter Passcode</h2>
+    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
+    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
+    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
+    <button id="gateSubmit" data-en>Unlock Module</button>
+    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
+    <div class="gate-error" id="gateError"></div>
+    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
+    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
+  </div>
+</div>
+<div class="progress-bar"></div>
+<div class="topbar">
+  <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button>
+    <button data-lang="ta">தமிழ்</button>
+  </div>
+</div>
+
+<div class="container">
+  <p data-en style="color:var(--muted);">Module 2 of 10</p>
+  <p data-ta class="ta-text" style="color:var(--muted);">பாடம் 2 / 10</p>
+  <h1 data-en>The Teacher's Mindset — Responding vs Reacting</h1>
+  <h1 data-ta class="ta-text">ஆசிரியரின் மனநிலை — எதிர்வினையா, விளைவா</h1>
+
+  <div class="metaphor-card">
+    <p data-en>🌱 <strong>Think of it this way:</strong> Think of yourself as a thermostat, not a thermometer. A thermometer just reflects the temperature of the room — if the class is heated, it rises too. A thermostat sets the temperature regardless of what's happening around it. Your calm is the setting the whole room eventually adjusts to.</p>
+    <p data-ta class="ta-text">🌱 <strong>இப்படி நினையுங்கள்:</strong> நீங்கள் தெர்மோமீட்டர் அல்ல, தெர்மோஸ்டாட் என்று நினையுங்கள். தெர்மோமீட்டர் அறையின் வெப்பநிலையை பிரதிபலிக்கிறது — வகுப்பு சூடானால், அதுவும் உயரும். தெர்மோஸ்டாட் சுற்றி என்ன நடந்தாலும் வெப்பநிலையை அமைக்கிறது. உங்கள் அமைதியே முழு அறையும் இறுதியில் சரிசெய்யும் அமைப்பு.</p>
+  </div>
+
+  <div data-en>
+    <p>Reacting is automatic and driven by your own stress response — raised voice, sarcasm, ultimatums. Responding is a chosen action, filtered through a half-second pause. That pause is where professional skill lives. Teachers who react tend to escalate conflicts because the student mirrors the teacher's rising energy. Teachers who respond de-escalate because they refuse to match the intensity. Self-regulation isn't about suppressing frustration — it's about noticing your trigger (a raised voice, being ignored, a smirk) and choosing your next move deliberately rather than letting the trigger choose it for you.</p>
+  </div>
+  <div data-ta class="ta-text">
+    <p>எதிர்வினை தானாக நடப்பது, உங்கள் சொந்த மன அழுத்த எதிர்வினையால் இயக்கப்படுவது — உரத்த குரல், கிண்டல், இறுதி எச்சரிக்கைகள். விளைவு என்பது தேர்ந்தெடுக்கப்பட்ட செயல், அரை வினாடி இடைவெளி வழியாக வடிகட்டப்படுவது. அந்த இடைவெளியே தொழில்முறை திறமை வாழும் இடம். எதிர்வினையாற்றும் ஆசிரியர்கள் மோதல்களை அதிகரிக்கிறார்கள், ஏனெனில் மாணவன் ஆசிரியரின் அதிகரிக்கும் ஆற்றலை பிரதிபலிக்கிறான். விளைவளிக்கும் ஆசிரியர்கள் அமைதிப்படுத்துகிறார்கள், ஏனெனில் அவர்கள் அந்த தீவிரத்திற்கு பொருந்த மறுக்கிறார்கள்.</p>
+  </div>
+
+  <details class="deep-dive">
+    <summary><span data-en>Real Classroom Example</span><span data-ta class="ta-text">உண்மையான வகுப்பறை உதாரணம்</span></summary>
+    <div class="example-card">
+      <p data-en>A teacher tells a student to sit down. He mutters 'this is stupid' under his breath. Reacting looks like: 'What did you say? Say it to my face!' — instantly a public power struggle. Responding looks like the teacher taking a breath, ignoring the mutter, continuing the lesson, and quietly checking in with the student one-on-one after class.</p>
+      <p data-ta class="ta-text">ஒரு ஆசிரியர் மாணவனிடம் உட்காரச் சொல்கிறார். அவன் 'இது முட்டாள்தனம்' என்று முணுமுணுக்கிறான். எதிர்வினை: 'என்ன சொன்னாய்? முகத்திற்கு நேரே சொல்!' — உடனே பொது அதிகாரப் போராட்டம். விளைவு: ஆசிரியர் ஒரு மூச்சு எடுத்து, முணுமுணுப்பை புறக்கணித்து, பாடத்தைத் தொடர்ந்து, வகுப்பிற்குப் பிறகு தனியாக அந்த மாணவனுடன் பேசுகிறார்.</p>
+    </div>
+  </details>
+
+  <details class="deep-dive" open>
+    <summary><span data-en>Practical Tips for Tomorrow</span><span data-ta class="ta-text">நாளைக்கான நடைமுறை குறிப்புகள்</span></summary>
+    <div class="tips-list" data-en><ul><li>Build a personal 'pause phrase' you say silently before responding: e.g. 'Not now, not here.'</li><li>Lower your voice, not raise it, when tension increases — it forces the room to lean in and listen.</li><li>Debrief your own reactions after a hard day: what triggered you, and what will you do differently next time?</li></ul></div>
+    <div class="tips-list ta-text" data-ta><ul><li>பதிலளிக்கும் முன் மௌனமாகச் சொல்லும் தனிப்பட்ட 'இடைவெளி வாக்கியம்' உருவாக்குங்கள்: 'இப்போது இல்லை, இங்கே இல்லை.'</li><li>பதற்றம் அதிகரிக்கும் போது குரலை உயர்த்தாமல் தாழ்த்துங்கள் — இது அறையை கவனிக்க வைக்கும்.</li><li>கடினமான நாளுக்குப் பிறகு உங்கள் சொந்த எதிர்வினைகளை மதிப்பாய்வு செய்யுங்கள்: என்ன தூண்டியது, அடுத்த முறை என்ன வேறுபடச் செய்வீர்கள்?</li></ul></div>
+  </details>
+
+  <h2 data-en>Quick Check</h2>
+  <h2 data-ta class="ta-text">விரைவு சரிபார்ப்பு</h2>
+  
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q1.</strong> The half-second pause before responding to a student is best described as:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 1.</strong> மாணவனுக்கு பதிலளிக்கும் முன் அரை வினாடி இடைவெளி எதைக் குறிக்கிறது:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Weakness</button><button class='quiz-opt' data-idx='1'>Where professional skill lives</button><button class='quiz-opt' data-idx='2'>A sign of not caring</button><button class='quiz-opt' data-idx='3'>Unnecessary delay</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>பலவீனம்</button><button class='quiz-opt ta-text' data-idx='1'>தொழில்முறை திறமை வாழும் இடம்</button><button class='quiz-opt ta-text' data-idx='2'>அக்கறையின்மை</button><button class='quiz-opt ta-text' data-idx='3'>தேவையற்ற தாமதம்</button></div>
+        </div>
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q2.</strong> Lowering your voice when tension rises works because it:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 2.</strong> பதற்றம் அதிகரிக்கும்போது குரலைத் தாழ்த்துவது ஏன் பயனளிக்கிறது:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Shows fear</button><button class='quiz-opt' data-idx='1'>Forces the room to lean in and listen</button><button class='quiz-opt' data-idx='2'>Ends the lesson</button><button class='quiz-opt' data-idx='3'>Signals surrender</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>பயத்தைக் காட்டுகிறது</button><button class='quiz-opt ta-text' data-idx='1'>அறையை கவனிக்க வைக்கிறது</button><button class='quiz-opt ta-text' data-idx='2'>பாடத்தை முடிக்கிறது</button><button class='quiz-opt ta-text' data-idx='3'>சரணடைவதைக் காட்டுகிறது</button></div>
+        </div>
+
+  <div class="nav-buttons">
+    <a href="module1-roots-not-symptoms.html" class="btn btn-outline" data-en>← Previous</a>
+    <a href="module3-classroom-culture.html" class="btn btn-primary" data-en>Next Module →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20training" class="whatsapp-cta" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <p>NT Somasundaram · Certified Master Trainer &amp; Life Skills Educator</p>
+  <p>"God is always with u"</p>
+</footer>
+
+<script src="../app.js"></script>
+<script>initQuiz('teacher-mindset');</script>
+<script>initGate();</script>
+</body>
+</html>

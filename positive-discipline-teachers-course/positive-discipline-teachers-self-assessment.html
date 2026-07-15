@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positive Discipline for Teachers | Self-Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --warn:#d9822b; --danger:#d64545; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.6;}
+  body.ta, .ta{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:32px 20px; text-align:center; position:relative;}
+  header h1{font-size:1.5rem; font-weight:700; margin-bottom:6px;}
+  header p{opacity:.9; font-size:.9rem;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:18px;}
+  .field{margin-bottom:14px;}
+  label{display:block; font-size:.88rem; color:var(--muted); margin-bottom:5px; font-weight:500;}
+  input[type=text], input[type=tel], select{width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:8px; font-family:inherit; font-size:.95rem;}
+  .dim-title{font-weight:700; color:var(--primary-dark); font-size:1.05rem; margin:22px 0 8px;}
+  .dim-title:first-child{margin-top:0;}
+  .q{padding:14px 0; border-bottom:1px solid var(--border);}
+  .q:last-child{border-bottom:none;}
+  .q-text{font-size:.95rem; margin-bottom:10px;}
+  .scale{display:flex; justify-content:space-between; gap:6px;}
+  .scale label.opt{flex:1; text-align:center; font-size:.72rem; color:var(--muted); cursor:pointer; padding:8px 2px; border:1px solid var(--border); border-radius:8px; transition:.15s;}
+  .scale input{display:none;}
+  .scale input:checked + label.opt, .scale label.opt.sel{background:var(--primary); color:#fff; border-color:var(--primary);}
+  .progress-bar{height:8px; background:#e6ecf2; border-radius:6px; overflow:hidden; margin-bottom:20px;}
+  .progress-fill{height:100%; background:var(--success); width:0%; transition:width .25s;}
+  .btn{display:inline-block; background:var(--primary); color:#fff; border:none; padding:13px 28px; border-radius:26px; font-weight:600; font-size:1rem; cursor:pointer; font-family:inherit;}
+  .btn:hover{background:var(--primary-dark);}
+  .btn-wa{background:#25D366;}
+  .btn-wa:hover{background:#1ea952;}
+  .btn-outline{background:transparent; border:1px solid var(--primary); color:var(--primary);}
+  .center{text-align:center;}
+  .hidden{display:none !important;}
+  .bar-row{margin-bottom:16px;}
+  .bar-label{display:flex; justify-content:space-between; font-size:.88rem; margin-bottom:5px; font-weight:500;}
+  .bar-track{height:16px; background:#e6ecf2; border-radius:8px; overflow:hidden;}
+  .bar-fill{height:100%; border-radius:8px;}
+  .band-tag{display:inline-block; padding:2px 10px; border-radius:12px; font-size:.72rem; font-weight:600; color:#fff; margin-left:6px;}
+  .overall-score{font-size:2.4rem; font-weight:700; color:var(--primary); text-align:center;}
+  .overall-label{text-align:center; color:var(--muted); font-size:.9rem; margin-bottom:6px;}
+  .report-page{page-break-after:always;}
+  .interp-box{background:#f0f5fa; border-left:4px solid var(--primary); padding:12px 16px; border-radius:6px; font-size:.88rem; margin-top:6px;}
+  .motto{text-align:center; color:var(--primary); font-weight:600; margin-top:18px;}
+  .page-letterhead{border-bottom:2px solid var(--primary); padding-bottom:10px; margin-bottom:6px;}
+  .lh-title{font-weight:700; color:var(--primary-dark); font-size:1.05rem;}
+  .lh-sub{font-size:.8rem; color:var(--muted); font-weight:500;}
+  .page-letterhead-small{font-size:.78rem; color:var(--muted); text-transform:uppercase; letter-spacing:.4px; border-bottom:1px solid var(--border); padding-bottom:8px; margin-bottom:14px;}
+  .page-footer{text-align:center; font-size:.75rem; color:var(--muted); margin-top:22px; padding-top:10px; border-top:1px dashed var(--border);}
+  .cover-meta{display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; background:#f4f7fa; border-radius:10px; padding:14px 16px; font-size:.85rem; margin-top:6px;}
+  .cover-meta .cm-label{color:var(--muted); font-weight:500;}
+  .cover-meta .cm-value{font-weight:600; color:var(--text);}
+  .strength-item, .priority-item{padding:10px 14px; border-radius:8px; margin-bottom:8px; font-size:.9rem;}
+  .strength-item{background:#eaf6ee; border-left:4px solid var(--success);}
+  .priority-item{background:#fdeeea; border-left:4px solid var(--danger, #d64545);}
+  .focus-week{display:flex; gap:12px; padding:10px 0; border-bottom:1px dashed var(--border); font-size:.88rem;}
+  .focus-week:last-child{border-bottom:none;}
+  .focus-week .fw-num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:.78rem; flex-shrink:0;}
+  @media print{
+    .report-page{page-break-after:always;}
+  }
+  @media print{
+    .no-print{display:none !important;}
+    body{background:#fff;}
+    .card{border:1px solid #ccc; box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+<header class="no-print">
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <h1><span data-en>Positive Discipline Self-Assessment</span><span data-ta>நேர்மறை ஒழுக்க சுய மதிப்பீடு</span></h1>
+  <p><span data-en>For Teachers &mdash; N T Somasundaram Life Skills Program</span><span data-ta>ஆசிரியர்களுக்காக &mdash; என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்</span></p>
+</header>
+
+<div class="container">
+
+  <!-- INTAKE -->
+  <div id="intakeScreen">
+    <div class="card">
+      <div class="field">
+        <label><span data-en>Full Name</span><span data-ta>முழு பெயர்</span> *</label>
+        <input type="text" id="fName" required>
+      </div>
+      <div class="field">
+        <label><span data-en>School Name</span><span data-ta>பள்ளியின் பெயர்</span></label>
+        <input type="text" id="fSchool">
+      </div>
+      <div class="field">
+        <label><span data-en>WhatsApp Number</span><span data-ta>வாட்ஸ்அப் எண்</span> *</label>
+        <input type="tel" id="fPhone" required placeholder="+91">
+      </div>
+      <div class="field">
+        <label><span data-en>Grade Level You Teach</span><span data-ta>நீங்கள் கற்பிக்கும் வகுப்பு</span></label>
+        <select id="fGrade">
+          <option value="Primary (1-5)" data-label-en="Primary (1-5)" data-label-ta="ஆரம்ப (1-5)">Primary (1-5)</option>
+          <option value="Middle (6-8)" data-label-en="Middle (6-8)" data-label-ta="நடுநிலை (6-8)">Middle (6-8)</option>
+          <option value="High School (9-10)" data-label-en="High School (9-10)" data-label-ta="மேல்நிலை (9-10)">High School (9-10)</option>
+          <option value="Higher Secondary (11-12)" data-label-en="Higher Secondary (11-12)" data-label-ta="மேல்நிலைப் பள்ளி (11-12)">Higher Secondary (11-12)</option>
+        </select>
+      </div>
+      <div class="center">
+        <button class="btn" onclick="startAssessment()"><span data-en>Start Assessment</span><span data-ta>மதிப்பீட்டைத் தொடங்கவும்</span></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ASSESSMENT -->
+  <div id="assessmentScreen" class="hidden">
+    <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
+    <div id="questionsContainer"></div>
+    <div class="center" style="margin-top:20px;">
+      <button class="btn" onclick="submitAssessment()"><span data-en>See My Report</span><span data-ta>எனது அறிக்கையைப் பார்க்கவும்</span></button>
+    </div>
+  </div>
+
+  <!-- REPORT -->
+  <div id="reportScreen" class="hidden">
+
+    <!-- PAGE 1: COVER -->
+    <div class="card report-page">
+      <div class="page-letterhead">
+        <div class="lh-title">N T Somasundaram <span class="lh-sub">— Life Skills Program</span></div>
+        <div class="lh-sub"><span data-en>Positive Discipline for Teachers</span><span data-ta>ஆசிரியர்களுக்கான நேர்மறை ஒழுக்கம்</span></div>
+      </div>
+      <h2 class="center" style="color:var(--primary-dark); margin-top:10px;"><span data-en>Self-Assessment Report</span><span data-ta>சுய மதிப்பீட்டு அறிக்கை</span></h2>
+      <div class="cover-meta" id="coverMeta"></div>
+      <div class="overall-label" style="margin-top:18px;"><span data-en>Overall Score</span><span data-ta>மொத்த மதிப்பெண்</span></div>
+      <div class="overall-score" id="overallScore">--</div>
+      <div class="center" id="overallBand"></div>
+      <div id="barsContainer" style="margin-top:24px;"></div>
+      <div class="page-footer"><span data-en>Page 1 of 5</span><span data-ta>பக்கம் 1 / 5</span></div>
+    </div>
+
+    <!-- PAGE 2: DIMENSIONS 1-4 -->
+    <div class="card report-page">
+      <div class="page-letterhead-small"><span data-en>Positive Discipline Self-Assessment Report</span><span data-ta>நேர்மறை ஒழுக்க சுய மதிப்பீட்டு அறிக்கை</span></div>
+      <h3 style="color:var(--primary-dark); margin-bottom:14px;"><span data-en>Dimension Guidance (1–4)</span><span data-ta>பரிமாண வழிகாட்டுதல் (1–4)</span></h3>
+      <div id="detailContainer1"></div>
+      <div class="page-footer"><span data-en>Page 2 of 5</span><span data-ta>பக்கம் 2 / 5</span></div>
+    </div>
+
+    <!-- PAGE 3: DIMENSIONS 5-8 -->
+    <div class="card report-page">
+      <div class="page-letterhead-small"><span data-en>Positive Discipline Self-Assessment Report</span><span data-ta>நேர்மறை ஒழுக்க சுய மதிப்பீட்டு அறிக்கை</span></div>
+      <h3 style="color:var(--primary-dark); margin-bottom:14px;"><span data-en>Dimension Guidance (5–8)</span><span data-ta>பரிமாண வழிகாட்டுதல் (5–8)</span></h3>
+      <div id="detailContainer2"></div>
+      <div class="page-footer"><span data-en>Page 3 of 5</span><span data-ta>பக்கம் 3 / 5</span></div>
+    </div>
+
+    <!-- PAGE 4: ACTION PLAN -->
+    <div class="card report-page">
+      <div class="page-letterhead-small"><span data-en>Positive Discipline Self-Assessment Report</span><span data-ta>நேர்மறை ஒழுக்க சுய மதிப்பீட்டு அறிக்கை</span></div>
+      <h3 style="color:var(--primary-dark); margin-bottom:14px;"><span data-en>Your Personalised Action Plan</span><span data-ta>உங்கள் தனிப்பயனாக்கப்பட்ட செயல் திட்டம்</span></h3>
+
+      <div class="block-label"><span data-en>Your Strengths</span><span data-ta>உங்கள் பலங்கள்</span></div>
+      <div id="strengthsContainer" style="margin-bottom:18px;"></div>
+
+      <div class="block-label"><span data-en>Priority Focus Areas</span><span data-ta>முன்னுரிமை கவன பகுதிகள்</span></div>
+      <div id="prioritiesContainer" style="margin-bottom:18px;"></div>
+
+      <div class="block-label"><span data-en>Suggested 4-Week Focus</span><span data-ta>பரிந்துரைக்கப்பட்ட 4-வார கவனம்</span></div>
+      <div id="focusPlanContainer"></div>
+
+      <div class="page-footer"><span data-en>Page 4 of 5</span><span data-ta>பக்கம் 4 / 5</span></div>
+    </div>
+
+    <!-- PAGE 5: TRAINING PROGRAM PROMOTION -->
+    <div class="card">
+      <div class="page-letterhead-small"><span data-en>Positive Discipline Self-Assessment Report</span><span data-ta>நேர்மறை ஒழுக்க சுய மதிப்பீட்டு அறிக்கை</span></div>
+      <h3 style="color:var(--primary-dark); margin-bottom:10px;" id="promoTitle"></h3>
+      <p style="font-size:.92rem; color:var(--muted); margin-bottom:14px;" id="promoBody"></p>
+      <ul class="list" id="promoFeatures"></ul>
+      <div class="center no-print" style="margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+        <button class="btn btn-outline" onclick="window.print()"><span data-en>Print / Save PDF</span><span data-ta>அச்சிடு / PDF சேமி</span></button>
+        <a id="waLink" class="btn btn-wa" style="text-decoration:none;" href="#" target="_blank"></a>
+      </div>
+      <div class="motto">"God is always with u"</div>
+      <div class="page-footer"><span data-en>Page 5 of 5</span><span data-ta>பக்கம் 5 / 5</span></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+/* ---------- CONFIG ---------- */
+const GAS_URL = "https://script.google.com/macros/s/AKfycbwS8PKMiM6tcL7za20o1aBR9Vle3K1nJj8lhlOLwqgsmp71q2_sbhsR8p5TeWt_CbEY/exec";
+const WHATSAPP_NUMBER = "919843702244";
+
+/* ---------- DATA ---------- */
+const scaleLabels = [
+  {en:"Strongly Disagree", ta:"முற்றிலும் மாறுபடுகிறேன்", val:1},
+  {en:"Disagree", ta:"மாறுபடுகிறேன்", val:2},
+  {en:"Neutral", ta:"நடுநிலை", val:3},
+  {en:"Agree", ta:"ஒப்புக்கொள்கிறேன்", val:4},
+  {en:"Strongly Agree", ta:"முற்றிலும் ஒப்புக்கொள்கிறேன்", val:5}
+];
+
+const dimensions = [
+  { key:"kindFirm", en:"Kind & Firm Balance", ta:"கருணை & உறுதி சமநிலை", color:"#2c5f8a",
+    items:[
+      {en:"I hold clear limits while remaining warm and respectful toward students.", ta:"மாணவர்களிடம் அன்பாகவும் மரியாதையாகவும் இருந்தபடியே தெளிவான எல்லைகளை நான் பேணுகிறேன்."},
+      {en:"I avoid being either too permissive or too harsh when responding to misbehavior.", ta:"தவறான நடத்தைக்கு பதிலளிக்கும்போது மிக அனுமதியாகவோ மிக கடுமையாகவோ இருப்பதைத் தவிர்க்கிறேன்."},
+      {en:"Students know what to expect from me because my boundaries are consistent.", ta:"எனது எல்லைகள் நிலையானவை என்பதால் மாணவர்கள் என்னிடமிருந்து என்ன எதிர்பார்க்கலாம் என்று அறிவார்கள்."},
+      {en:"I can say \"no\" to a request while still validating the student's feelings.", ta:"மாணவரின் உணர்வுகளை ஏற்றுக்கொண்டே ஒரு கோரிக்கைக்கு \"இல்லை\" என்று என்னால் சொல்ல முடியும்."},
+      {en:"I stay calm and firm even when a student challenges my authority.", ta:"ஒரு மாணவர் எனது அதிகாரத்தை சவால் செய்யும்போதும் நான் அமைதியாகவும் உறுதியாகவும் இருக்கிறேன்."}
+    ]},
+  { key:"encourage", en:"Encouragement over Praise", ta:"பாராட்டை விட ஊக்கமளித்தல்", color:"#3fa66b",
+    items:[
+      {en:"I notice and comment on effort and progress, not just final results.", ta:"இறுதி முடிவை மட்டும் அல்லாமல் முயற்சியையும் முன்னேற்றத்தையும் நான் கவனித்து குறிப்பிடுகிறேன்."},
+      {en:"I use encouraging language that builds a student's internal motivation.", ta:"மாணவரின் உள்ளார்ந்த ஊக்கத்தை வளர்க்கும் ஊக்கமளிக்கும் மொழியை பயன்படுத்துகிறேன்."},
+      {en:"I avoid comparing students to their peers when giving feedback.", ta:"கருத்து தெரிவிக்கும்போது மாணவர்களை அவர்களது சக மாணவர்களுடன் ஒப்பிடுவதை தவிர்க்கிறேன்."},
+      {en:"I help students recognize their own growth rather than relying on my approval.", ta:"எனது ஒப்புதலை நம்பாமல் தங்கள் சொந்த வளர்ச்சியை மாணவர்கள் அடையாளம் காண உதவுகிறேன்."},
+      {en:"My feedback focuses on the process a student used, not just whether they succeeded.", ta:"மாணவர் வெற்றி பெற்றாரா என்பதை மட்டும் அல்லாமல் அவர் பயன்படுத்திய செயல்முறையில் எனது கருத்து கவனம் செலுத்துகிறது."}
+    ]},
+  { key:"solution", en:"Solution-Focused Approach", ta:"தீர்வு மையப்படுத்திய அணுகுமுறை", color:"#e8a33d",
+    items:[
+      {en:"When a problem happens, I ask \"what can we do to fix this?\" rather than just assigning blame.", ta:"ஒரு பிரச்சனை ஏற்படும்போது, குற்றம் சாட்டுவதற்கு பதிலாக \"இதை சரிசெய்ய நாம் என்ன செய்யலாம்?\" என்று கேட்கிறேன்."},
+      {en:"I involve students in finding solutions to classroom problems.", ta:"வகுப்பறை பிரச்சனைகளுக்கு தீர்வு காண்பதில் மாணவர்களை ஈடுபடுத்துகிறேன்."},
+      {en:"I look for the root cause of misbehavior rather than reacting only to the surface behavior.", ta:"மேலோட்டமான நடத்தைக்கு மட்டும் எதிர்வினையாற்றாமல் தவறான நடத்தையின் மூல காரணத்தைத் தேடுகிறேன்."},
+      {en:"I use mistakes as teaching moments rather than opportunities for punishment.", ta:"தவறுகளை தண்டனைக்கான வாய்ப்புகளாக அல்லாமல் கற்பிக்கும் தருணங்களாக பயன்படுத்துகிறேன்."},
+      {en:"I follow up with students after a conflict to check whether the solution worked.", ta:"தீர்வு பலனளித்ததா என்பதை சரிபார்க்க முரண்பாட்டிற்குப் பிறகு மாணவர்களை நான் பின்தொடர்கிறேன்."}
+    ]},
+  { key:"mistakenGoals", en:"Understanding Mistaken Goals", ta:"தவறான இலக்குகளை புரிந்துகொள்ளுதல்", color:"#8a5fc2",
+    items:[
+      {en:"I can usually identify whether misbehavior is driven by attention-seeking, power, revenge, or a sense of inadequacy.", ta:"தவறான நடத்தை கவனம் ஈர்த்தல், அதிகாரம், பழிவாங்கல் அல்லது போதாமை உணர்வால் இயக்கப்படுகிறதா என்பதை நான் பொதுவாக அடையாளம் காண முடியும்."},
+      {en:"I respond differently depending on the underlying reason for a student's behavior.", ta:"மாணவரின் நடத்தைக்கான அடிப்படை காரணத்தைப் பொறுத்து நான் வித்தியாசமாக பதிலளிக்கிறேன்."},
+      {en:"I notice my own emotional reaction as a clue to what's driving a student's behavior.", ta:"மாணவரின் நடத்தையை இயக்குவது என்ன என்பதற்கான குறிப்பாக எனது சொந்த உணர்ச்சி எதிர்வினையை கவனிக்கிறேன்."},
+      {en:"I address the root need behind the behavior, not just the behavior itself.", ta:"நடத்தையை மட்டும் அல்லாமல் அதன் பின்னணியில் உள்ள மூல தேவையை நான் கையாள்கிறேன்."},
+      {en:"I avoid escalating power struggles with students who challenge me.", ta:"என்னை சவால் செய்யும் மாணவர்களுடன் அதிகாரப் போட்டியை அதிகரிப்பதை தவிர்க்கிறேன்."}
+    ]},
+  { key:"consequences", en:"Consequences vs Punishment", ta:"விளைவுகள் Vs தண்டனை", color:"#d9822b",
+    items:[
+      {en:"The consequences I use are directly related to the misbehavior.", ta:"நான் பயன்படுத்தும் விளைவுகள் தவறான நடத்தையுடன் நேரடியாக தொடர்புடையவை."},
+      {en:"I explain the reasoning behind a consequence rather than just imposing it.", ta:"ஒரு விளைவை வெறுமனே திணிக்காமல் அதன் பின்னணியிலான காரணத்தை நான் விளக்குகிறேன்."},
+      {en:"I avoid consequences that shame or humiliate a student.", ta:"மாணவரை அவமானப்படுத்தும் அல்லது இழிவுபடுத்தும் விளைவுகளை தவிர்க்கிறேன்."},
+      {en:"My consequences are reasonable in proportion to what happened.", ta:"நடந்ததற்கு ஏற்ப எனது விளைவுகள் நியாயமானவை."},
+      {en:"I involve students in understanding why a consequence makes sense.", ta:"ஒரு விளைவு ஏன் பொருத்தமானது என்பதை புரிந்துகொள்வதில் மாணவர்களை ஈடுபடுத்துகிறேன்."}
+    ]},
+  { key:"community", en:"Class Meetings & Community", ta:"வகுப்பு கூட்டங்கள் & சமூகம்", color:"#3fa696",
+    items:[
+      {en:"I hold regular meetings or circles where students can raise concerns.", ta:"மாணவர்கள் தங்கள் கவலைகளை எழுப்ப முடியும் வண்ணம் நான் தொடர்ந்து கூட்டங்கள் நடத்துகிறேன்."},
+      {en:"My students have opportunities to appreciate or acknowledge each other.", ta:"எனது மாணவர்களுக்கு ஒருவரையொருவர் பாராட்ட அல்லது அங்கீகரிக்க வாய்ப்புகள் உள்ளன."},
+      {en:"Recurring classroom problems get solved collaboratively rather than only by me.", ta:"தொடர்ச்சியான வகுப்பறை பிரச்சனைகள் என்னால் மட்டும் அல்லாமல் கூட்டாக தீர்க்கப்படுகின்றன."},
+      {en:"Students feel a sense of belonging and significance in my classroom.", ta:"எனது வகுப்பறையில் மாணவர்கள் சேர்ந்திருக்கிறோம் மற்றும் முக்கியத்துவம் வாய்ந்தவர்கள் என்ற உணர்வைப் பெறுகிறார்கள்."},
+      {en:"I use class discussions to build shared classroom agreements.", ta:"பகிரப்பட்ட வகுப்பறை ஒப்பந்தங்களை உருவாக்க வகுப்பு விவாதங்களை நான் பயன்படுத்துகிறேன்."}
+    ]},
+  { key:"selfReg", en:"Self-Regulation Support", ta:"சுய கட்டுப்பாட்டு ஆதரவு", color:"#d64545",
+    items:[
+      {en:"I have a calm-down space or strategy for students who are dysregulated.", ta:"கட்டுப்பாடு இழந்த மாணவர்களுக்கு அமைதி இடம் அல்லது உத்தி எனக்கு உள்ளது."},
+      {en:"I stay connected with a student during a time-out rather than isolating them completely.", ta:"டைம்-அவுட் நேரத்தில் மாணவரை முழுவதுமாக தனிமைப்படுத்தாமல் அவருடன் தொடர்பில் இருக்கிறேன்."},
+      {en:"I teach students specific strategies to calm themselves down.", ta:"தங்களை அமைதிப்படுத்திக் கொள்ள குறிப்பிட்ட உத்திகளை மாணவர்களுக்கு கற்பிக்கிறேன்."},
+      {en:"I model calm behavior even when I am frustrated.", ta:"நான் விரக்தியடையும்போதும் அமைதியான நடத்தையை முன்மாதிரியாக காட்டுகிறேன்."},
+      {en:"I check in with a student after they've calmed down to talk it through.", ta:"மாணவர் அமைதியடைந்த பிறகு அவருடன் விவரமாக பேச நான் விசாரிக்கிறேன்."}
+    ]},
+  { key:"consistency", en:"Consistency & Routines", ta:"நிலைத்தன்மை & வழக்கங்கள்", color:"#6b7c93",
+    items:[
+      {en:"My classroom rules were created with input from students.", ta:"எனது வகுப்பறை விதிகள் மாணவர்களின் கருத்துக்களுடன் உருவாக்கப்பட்டன."},
+      {en:"My routines and expectations are clear and consistently applied.", ta:"எனது வழக்கங்களும் எதிர்பார்ப்புகளும் தெளிவாகவும் நிலையாகவும் பயன்படுத்தப்படுகின்றன."},
+      {en:"Students know the consequences of choices in advance.", ta:"தேர்வுகளின் விளைவுகளை மாணவர்கள் முன்கூட்டியே அறிவார்கள்."},
+      {en:"I revisit and adjust classroom agreements when they aren't working.", ta:"வகுப்பறை ஒப்பந்தங்கள் வேலை செய்யாதபோது அவற்றை மறுபரிசீலனை செய்து சரிசெய்கிறேன்."},
+      {en:"My expectations are visible and easy for students to reference.", ta:"எனது எதிர்பார்ப்புகள் காணக்கூடியதாகவும் மாணவர்கள் எளிதாக பார்க்கக்கூடியதாகவும் உள்ளன."}
+    ]}
+];
+
+/* ---------- REPORT CONTENT: guidance, tips, improvements per dimension ---------- */
+const DIMENSION_CONTENT = {
+  kindFirm: {
+    guidance: {en:"This measures whether you can hold clear, consistent boundaries while staying warm and respectful — the foundation every other Positive Discipline skill builds on.",
+                ta:"தெளிவான, நிலையான எல்லைகளை பேணும்போது அன்பாகவும் மரியாதையாகவும் இருக்க முடியுமா என்பதை இது அளவிடுகிறது — மற்ற அனைத்து நேர்மறை ஒழுக்க திறன்களும் இதன் அடிப்படையில் கட்டமைக்கப்படுகின்றன."},
+    tips: [
+      {en:"Use 'I understand X, AND Y stays' instead of 'but' when a boundary is challenged.", ta:"எல்லை சவால் செய்யப்படும்போது 'ஆனால்' என்பதற்கு பதிலாக 'எனக்கு X புரிகிறது, மேலும் Y நிலைக்கிறது' என்பதை பயன்படுத்துங்கள்."},
+      {en:"Keep your tone calm and even — consistency should come from repetition, not volume.", ta:"உங்கள் தொனியை அமைதியாகவும் சமமாகவும் வையுங்கள் — நிலைத்தன்மை ஒலியளவிலிருந்து அல்ல, மீண்டும் செய்வதிலிருந்து வர வேண்டும்."},
+      {en:"Set a personal 'reset' phrase (e.g. 'kind and firm, not fed up') to use before responding when frustrated.", ta:"விரக்தியடையும்போது பயன்படுத்த ஒரு தனிப்பட்ட 'மீட்டமைப்பு' சொற்றொடரை (எ.கா. 'கருணையும் உறுதியும், சலிப்பு அல்ல') அமைக்கவும்."}
+    ],
+    improvements: [
+      {en:"Watch for sarcasm or eye-rolling — they undermine warmth even when your words stay calm.", ta:"நையாண்டி அல்லது கண் உருட்டலை கவனியுங்கள் — உங்கள் வார்த்தைகள் அமைதியாக இருந்தாலும் அவை அன்பை குறைமதிப்பிற்கு உட்படுத்துகின்றன."},
+      {en:"If you swing between too soft and too strict, that's usually stress-driven — build a short recovery ritual before entering class.", ta:"மிக மென்மைக்கும் மிக கண்டிப்பிற்கும் இடையே ஊசலாடினால், அது பொதுவாக மன அழுத்தத்தால் தூண்டப்படுகிறது — வகுப்பறைக்குள் நுழைவதற்கு முன் ஒரு குறுகிய மீட்பு பழக்கத்தை உருவாக்குங்கள்."},
+      {en:"Ask a trusted colleague to observe one lesson and give honest feedback on your kind-firm balance.", ta:"உங்கள் கருணை-உறுதி சமநிலை பற்றி நேர்மையான கருத்து தர ஒரு நம்பகமான சக ஆசிரியரிடம் ஒரு பாடத்தை கவனிக்குமாறு கேளுங்கள்."}
+    ]
+  },
+  encourage: {
+    guidance: {en:"This measures whether your feedback builds lasting internal motivation (encouragement) or short-term approval-seeking (praise).",
+                ta:"உங்கள் கருத்து நீடிக்கும் உள்ளார்ந்த ஊக்கத்தை (ஊக்கமளித்தல்) அல்லது குறுகியகால ஒப்புதல்-தேடலை (பாராட்டு) உருவாக்குகிறதா என்பதை இது அளவிடுகிறது."},
+    tips: [
+      {en:"Replace 'You're so smart' with 'You worked hard on that' in daily feedback.", ta:"தினசரி கருத்தில் 'நீ மிகவும் புத்திசாலி' என்பதற்கு பதிலாக 'நீ அதில் கடினமாக உழைத்தாய்' என்று சொல்லுங்கள்."},
+      {en:"Describe the specific effort or strategy a student used, not just the result.", ta:"முடிவை மட்டும் அல்ல, மாணவர் பயன்படுத்திய குறிப்பிட்ட முயற்சி அல்லது உத்தியை விவரிக்கவும்."},
+      {en:"Ask a reflective question ('What helped you figure that out?') before giving your own opinion.", ta:"உங்கள் சொந்த கருத்தை கொடுப்பதற்கு முன் ஒரு பிரதிபலிக்கும் கேள்வியை ('அதை கண்டுபிடிக்க உனக்கு என்ன உதவியது?') கேளுங்கள்."}
+    ],
+    improvements: [
+      {en:"Watch for empty, repeated praise ('Good job!') which loses meaning over time.", ta:"காலப்போக்கில் அர்த்தத்தை இழக்கும் வெற்று, மீண்டும் மீண்டும் வரும் பாராட்டை ('நல்லது!') கவனியுங்கள்."},
+      {en:"Avoid comparative praise ('Best in class') which can create anxiety or resentment.", ta:"கவலை அல்லது வருத்தத்தை உருவாக்கக்கூடிய ஒப்பீட்டு பாராட்டை ('வகுப்பில் சிறந்தது') தவிர்க்கவும்."},
+      {en:"If a student only tries when told they'll be praised, shift deliberately toward process-focused encouragement.", ta:"பாராட்டப்படுவேன் எனும்போது மட்டுமே ஒரு மாணவர் முயற்சித்தால், வேண்டுமென்றே செயல்முறை-மையப்படுத்திய ஊக்கமளிப்பிற்கு மாறுங்கள்."}
+    ]
+  },
+  solution: {
+    guidance: {en:"This measures whether you default to blame-finding or to collaborative, forward-looking problem-solving when issues arise.",
+                ta:"பிரச்சனைகள் எழும்போது நீங்கள் குற்றம் கண்டுபிடிப்பதை நோக்கியா அல்லது கூட்டு, முன்னோக்கு பிரச்சனை தீர்த்தலை நோக்கியா இயல்பாக செல்கிறீர்கள் என்பதை இது அளவிடுகிறது."},
+    tips: [
+      {en:"Catch yourself before asking 'who did this?' and ask 'what do we need to fix this?' instead.", ta:"'இதை யார் செய்தது?' என்று கேட்பதற்கு முன் உங்களை பிடித்து, அதற்கு பதிலாக 'இதை சரிசெய்ய நமக்கு என்ன தேவை?' என்று கேளுங்கள்."},
+      {en:"Involve affected students directly in proposing the fix rather than imposing one.", ta:"ஒன்றை திணிப்பதற்கு பதிலாக, தீர்வை முன்மொழிவதில் பாதிக்கப்பட்ட மாணவர்களை நேரடியாக ஈடுபடுத்துங்கள்."},
+      {en:"Follow up on any agreed solution within a few days to check it's actually working.", ta:"ஒப்புக்கொள்ளப்பட்ட எந்த தீர்வையும் சில நாட்களில் பின்தொடர்ந்து அது உண்மையில் வேலை செய்கிறதா என்று சரிபார்க்கவும்."}
+    ],
+    improvements: [
+      {en:"Don't reserve solution-focus for 'serious' incidents only — everyday friction benefits from the same mindset.", ta:"'கடுமையான' சம்பவங்களுக்கு மட்டும் தீர்வு-மையத்தை ஒதுக்க வேண்டாம் — அன்றாட உராய்வுகளும் அதே மனநிலையிலிருந்து பயனடைகின்றன."},
+      {en:"Avoid reverting to blame-seeking when short on time; the solution conversation can be brief.", ta:"நேரம் குறைவாக இருக்கும்போது குற்றம் தேடுவதற்கு திரும்புவதை தவிர்க்கவும்; தீர்வு உரையாடல் சுருக்கமாக இருக்கலாம்."},
+      {en:"If a student-proposed solution seems impractical, guide it rather than dismissing it outright.", ta:"மாணவர் முன்மொழிந்த தீர்வு நடைமுறைக்கு பொருந்தாதது போல் தோன்றினால், அதை உடனடியாக நிராகரிக்காமல் வழிநடத்துங்கள்."}
+    ]
+  },
+  mistakenGoals: {
+    guidance: {en:"This measures how well you can read the real need (attention, power, revenge, or inadequacy) behind a student's misbehaviour, rather than reacting to the surface behaviour alone.",
+                ta:"மேலோட்டமான நடத்தைக்கு மட்டும் எதிர்வினையாற்றுவதற்கு பதிலாக, ஒரு மாணவரின் தவறான நடத்தையின் பின்னால் உள்ள உண்மையான தேவையை (கவனம், அதிகாரம், பழிவாங்கல், அல்லது போதாமை) எவ்வளவு நன்றாக நீங்கள் படிக்க முடிகிறது என்பதை இது அளவிடுகிறது."},
+    tips: [
+      {en:"Use your own gut emotional reaction as a clue: annoyed usually signals attention, challenged signals power, hurt signals revenge, helpless signals inadequacy.", ta:"உங்கள் சொந்த உள்ளுணர்வு உணர்ச்சி எதிர்வினையை ஒரு குறிப்பாக பயன்படுத்துங்கள்: எரிச்சல் பொதுவாக கவனத்தை, சவால் அதிகாரத்தை, காயம் பழிவாங்கலை, உதவியின்மை போதாமையை குறிக்கிறது."},
+      {en:"Match your response to the goal — proactive attention, offered choices, calm non-retaliation, or small achievable wins.", ta:"உங்கள் பதிலை இலக்குக்கு பொருத்துங்கள் — முன்கூட்டிய கவனம், வழங்கப்பட்ட தேர்வுகள், அமைதியான திரும்ப-தாக்காமை, அல்லது சிறிய அடையக்கூடிய வெற்றிகள்."},
+      {en:"Remember one student can show different goals in different situations — don't apply one label everywhere.", ta:"ஒரு மாணவர் வெவ்வேறு சூழ்நிலைகளில் வெவ்வேறு இலக்குகளை காட்டக்கூடும் என்பதை நினைவில் கொள்ளுங்கள் — ஒரு முத்திரையை எல்லா இடங்களிலும் பயன்படுத்த வேண்டாம்."}
+    ],
+    improvements: [
+      {en:"Don't default to assuming every disruption is attention-seeking — quiet withdrawal is often assumed inadequacy, not laziness.", ta:"ஒவ்வொரு குழப்பமும் கவனம் தேடுவது என்று இயல்பாக கருத வேண்டாம் — அமைதியான பின்வாங்கல் பெரும்பாலும் சோம்பேறித்தனம் அல்ல, கருதப்பட்ட போதாமையாகும்."},
+      {en:"Avoid public power struggles; move the conversation private to remove the 'audience' effect.", ta:"பொது அதிகாரப் போராட்டங்களை தவிர்க்கவும்; 'பார்வையாளர்' விளைவை நீக்க உரையாடலை தனிப்பட்டதாக்குங்கள்."},
+      {en:"If you find yourself frequently feeling helpless about one student, involve a counsellor rather than continuing to react alone.", ta:"ஒரு மாணவரைப் பற்றி அடிக்கடி உதவியற்றதாக உணர்ந்தால், தனியாக தொடர்ந்து எதிர்வினையாற்றுவதற்கு பதிலாக ஒரு ஆலோசகரை ஈடுபடுத்துங்கள்."}
+    ]
+  },
+  consequences: {
+    guidance: {en:"This measures whether your consequences are Related, Respectful, and Reasonable (the 3 R's) or drift into punishment.",
+                ta:"உங்கள் விளைவுகள் தொடர்புடையதாகவும், மரியாதைக்குரியதாகவும், நியாயமானதாகவும் (3 R கள்) இருக்கிறதா அல்லது தண்டனையை நோக்கி நகர்கிறதா என்பதை இது அளவிடுகிறது."},
+    tips: [
+      {en:"Before assigning a consequence, run it through the 3 R's: Related? Respectful? Reasonable?", ta:"ஒரு விளைவை வழங்குவதற்கு முன், அதை 3 R கள் மூலம் இயக்குங்கள்: தொடர்புடையதா? மரியாதைக்குரியதா? நியாயமானதா?"},
+      {en:"Deliver consequences in a calm, neutral tone — the same words with anger become punishment in a student's mind.", ta:"விளைவுகளை அமைதியான, நடுநிலையான தொனியில் வழங்குங்கள் — கோபத்துடன் அதே வார்த்தைகள் மாணவரின் மனதில் தண்டனையாக மாறுகின்றன."},
+      {en:"Let natural consequences do the teaching wherever safe, and reserve logical consequences for when they're needed.", ta:"பாதுகாப்பான இடங்களில் இயற்கையான விளைவுகள் கற்பிக்க அனுமதிக்கவும், தேவைப்படும்போது மட்டும் தர்க்கரீதியான விளைவுகளை ஒதுக்கி வையுங்கள்."}
+    ],
+    improvements: [
+      {en:"Watch for consequences that are technically related but disproportionate (e.g. a week's detention for a small issue).", ta:"தொழில்நுட்ப ரீதியாக தொடர்புடையது ஆனால் விகிதாசாரமற்ற விளைவுகளை கவனியுங்கள் (எ.கா., ஒரு சிறிய பிரச்சனைக்கு ஒரு வார தடுப்புக்காவல்)."},
+      {en:"Apply the same standard to every student for the same behaviour, regardless of your mood that day.", ta:"அன்று உங்கள் மனநிலையை பொருட்படுத்தாமல், ஒவ்வொரு மாணவருக்கும் அதே நடத்தைக்கு அதே தரத்தை பயன்படுத்துங்கள்."},
+      {en:"Avoid whole-class consequences for individual misbehaviour — target the response to those actually involved.", ta:"தனிநபர் தவறான நடத்தைக்கு முழு-வகுப்பு விளைவுகளை தவிர்க்கவும் — உண்மையில் ஈடுபட்டவர்களை இலக்காக்குங்கள்."}
+    ]
+  },
+  community: {
+    guidance: {en:"This measures how much structured belonging and shared problem-solving your classroom offers through regular class meetings and appreciation rituals.",
+                ta:"வழக்கமான வகுப்பு கூட்டங்கள் மற்றும் பாராட்டு பழக்கங்கள் மூலம் உங்கள் வகுப்பறை எவ்வளவு கட்டமைக்கப்பட்ட சேர்ந்திருத்தலையும் பகிரப்பட்ட பிரச்சனை தீர்த்தலையும் வழங்குகிறது என்பதை இது அளவிடுகிறது."},
+    tips: [
+      {en:"Hold a short, consistently structured class meeting weekly: appreciation, agenda review, problem-solving, closing.", ta:"வாரந்தோறும் தொடர்ந்து கட்டமைக்கப்பட்ட ஒரு குறுகிய வகுப்பு கூட்டத்தை நடத்துங்கள்: பாராட்டு, நிகழ்ச்சி நிரல் மறுஆய்வு, பிரச்சனை தீர்த்தல், முடிவு."},
+      {en:"Use a simple agenda box so students can raise concerns throughout the week, not just in the moment.", ta:"மாணவர்கள் தருணத்தில் மட்டுமல்லாமல் வாரம் முழுவதும் கவலைகளை எழுப்ப ஒரு எளிய நிகழ்ச்சி நிரல் பெட்டியை பயன்படுத்துங்கள்."},
+      {en:"Keep appreciation rounds brief, specific, and voluntary rather than a forced 'say something nice' exercise.", ta:"பாராட்டு சுற்றுகளை சுருக்கமாகவும், குறிப்பிட்டதாகவும், தன்னார்வமாகவும் வையுங்கள், கட்டாய பயிற்சியாக அல்ல."}
+    ],
+    improvements: [
+      {en:"Don't let meetings become complaint sessions without moving to solutions — always end with an agreed next step.", ta:"தீர்வுகளுக்கு நகராமல் கூட்டங்கள் புகார் அமர்வாக மாற அனுமதிக்க வேண்டாம் — எப்போதும் ஒப்புக்கொள்ளப்பட்ட அடுத்த படியுடன் முடிக்கவும்."},
+      {en:"Watch for the same few students appreciating only each other — gently broaden participation over time.", ta:"அதே சிலர் மட்டும் ஒருவரையொருவர் பாராட்டுவதை கவனியுங்கள் — காலப்போக்கில் பங்கேற்பை மென்மையாக விரிவுபடுத்துங்கள்."},
+      {en:"If meetings feel chaotic at first, simplify rather than abandon them — even a 2-step format is a good start.", ta:"கூட்டங்கள் ஆரம்பத்தில் குழப்பமாக உணரப்பட்டால், அவற்றை கைவிடுவதற்கு பதிலாக எளிமையாக்குங்கள் — ஒரு 2-படி வடிவம் கூட ஒரு நல்ல தொடக்கம்."}
+    ]
+  },
+  selfReg: {
+    guidance: {en:"This measures how well you help dysregulated students calm down through connection ('time-in') rather than isolation, and how much you teach self-regulation as a life skill.",
+                ta:"தனிமைப்படுத்துவதற்கு பதிலாக தொடர்பு ('டைம்-இன்') மூலம் கட்டுப்பாடிழந்த மாணவர்களை அமைதிப்படுத்த நீங்கள் எவ்வளவு நன்றாக உதவுகிறீர்கள், மற்றும் சுய-கட்டுப்பாட்டை ஒரு வாழ்க்கை திறனாக எவ்வளவு கற்பிக்கிறீர்கள் என்பதை இது அளவிடுகிறது."},
+    tips: [
+      {en:"Set up a calm-down space introduced positively to the whole class before it's ever needed.", ta:"தேவைப்படுவதற்கு முன்பே முழு வகுப்பிற்கும் நேர்மறையாக அறிமுகப்படுத்தப்பட்ட ஒரு அமைதி இடத்தை அமைக்கவும்."},
+      {en:"Stay physically near a dysregulated student rather than sending them away alone; save the behaviour conversation for after they're calm.", ta:"கட்டுப்பாடிழந்த ஒரு மாணவரை தனியாக அனுப்புவதற்கு பதிலாக உடல் ரீதியாக அருகில் இருங்கள்; அவர்கள் அமைதியடைந்த பிறகுதான் நடத்தை உரையாடலை வையுங்கள்."},
+      {en:"Teach 2-3 simple self-regulation strategies explicitly to the whole class during calm moments.", ta:"அமைதியான தருணங்களில் முழு வகுப்பிற்கும் 2-3 எளிய சுய-கட்டுப்பாட்டு உத்திகளை வெளிப்படையாக கற்பிக்கவும்."}
+    ],
+    improvements: [
+      {en:"Never use the calm-down space as a punishment — that defeats its purpose entirely.", ta:"அமைதி இடத்தை தண்டனையாக ஒருபோதும் பயன்படுத்த வேண்டாம் — அது அதன் நோக்கத்தை முழுவதுமாக தோற்கடிக்கும்."},
+      {en:"Avoid lecturing or problem-solving during the calming phase itself; wait until the student can process language again.", ta:"அமைதிப்படுத்தும் கட்டத்திலேயே விரிவுரை செய்யவோ பிரச்சனை தீர்க்கவோ வேண்டாம்; மாணவர் மீண்டும் மொழியை செயலாக்க முடியும் வரை காத்திருங்கள்."},
+      {en:"If a student's dysregulation is frequent and severe, involve a counsellor rather than relying on classroom strategies alone.", ta:"ஒரு மாணவரின் கட்டுப்பாடின்மை அடிக்கடி மற்றும் கடுமையானதாக இருந்தால், வகுப்பறை உத்திகளை மட்டும் நம்பாமல் ஒரு ஆலோசகரை ஈடுபடுத்துங்கள்."}
+    ]
+  },
+  consistency: {
+    guidance: {en:"This measures whether your classroom rules were built collaboratively and are applied consistently, especially under pressure.",
+                ta:"உங்கள் வகுப்பறை விதிகள் கூட்டாக கட்டமைக்கப்பட்டு, குறிப்பாக அழுத்தத்தின் கீழ் நிலையாக பயன்படுத்தப்படுகிறதா என்பதை இது அளவிடுகிறது."},
+    tips: [
+      {en:"Start the term with a collaborative agreement-building conversation instead of a pre-written rule list.", ta:"முன்-எழுதப்பட்ட விதி பட்டியலுக்கு பதிலாக ஒரு கூட்டு ஒப்பந்தம்-கட்டமைக்கும் உரையாடலுடன் காலகட்டத்தை தொடங்குங்கள்."},
+      {en:"Keep the final list of agreements short — five or six shared expectations are more memorable than fifteen.", ta:"ஒப்பந்தங்களின் இறுதி பட்டியலை குறுகியதாக வையுங்கள் — ஐந்து அல்லது ஆறு பகிரப்பட்ட எதிர்பார்ப்புகள் பதினைந்தை விட நினைவில் வைத்திருக்கக்கூடியவை."},
+      {en:"Build a short personal reset ritual to use before entering a classroom on a stressful day.", ta:"ஒரு மன அழுத்த நாளில் வகுப்பறைக்குள் நுழைவதற்கு முன் பயன்படுத்த ஒரு குறுகிய தனிப்பட்ட மீட்டமைப்பு பழக்கத்தை உருவாக்குங்கள்."}
+    ],
+    improvements: [
+      {en:"Don't let 'collaborative' become a rubber stamp on rules you'd already decided — genuinely incorporate student input.", ta:"'கூட்டு' என்பது நீங்கள் ஏற்கனவே தீர்மானித்த விதிகளுக்கு ஒரு ரப்பர் முத்திரையாக மாற அனுமதிக்க வேண்டாம் — மாணவர் உள்ளீட்டை உண்மையிலேயே இணைக்கவும்."},
+      {en:"Don't let a single hard day become an excuse to abandon consistency entirely — one inconsistent day is recoverable, a pattern is not.", ta:"ஒரு கடினமான நாள் நிலைத்தன்மையை முழுவதுமாக கைவிட ஒரு காரணமாக மாற அனுமதிக்க வேண்டாம் — ஒரு நிலையற்ற நாள் மீட்கக்கூடியது, ஒரு வடிவம் அல்ல."},
+      {en:"If external stress is affecting your classroom regularly, address the root stressor rather than only managing its symptoms.", ta:"வெளிப்புற மன அழுத்தம் தொடர்ந்து உங்கள் வகுப்பறையை பாதித்தால், அறிகுறிகளை மட்டும் நிர்வகிப்பதற்கு பதிலாக மூல அழுத்தத்தை நிவர்த்தி செய்யுங்கள்."}
+    ]
+  }
+};
+
+/* ---------- TEACHER TRAINING PROGRAM PROMOTION ---------- */
+const TRAINING_PROGRAM = {
+  title: {en:"About the Positive Discipline Teacher Training Program", ta:"நேர்மறை ஒழுக்க ஆசிரியர் பயிற்சி திட்டம் பற்றி"},
+  body: {en:"This self-assessment is just the starting point. The full 10-module Positive Discipline for Teachers program — delivered by N T Somasundaram, Certified Master Trainer and Life Skills Educator — goes deeper into every dimension above with live sessions, classroom-tested worksheets, and ongoing WhatsApp support. Teachers who complete the program report calmer classrooms, stronger student relationships, and a clear, repeatable framework they can rely on even on hard days.",
+         ta:"இந்த சுய மதிப்பீடு தொடக்க புள்ளி மட்டுமே. சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்றுநரும் வாழ்க்கை திறன் கல்வியாளருமான என்.டி. சோமசுந்தரம் வழங்கும் முழு 10-பாட நேர்மறை ஒழுக்க ஆசிரியர் பயிற்சி திட்டம், மேலே உள்ள ஒவ்வொரு பரிமாணத்தையும் நேரடி அமர்வுகள், வகுப்பறையில் சோதிக்கப்பட்ட பயிற்சித்தாள்கள், மற்றும் தொடர்ச்சியான வாட்ஸ்அப் ஆதரவுடன் ஆழமாக ஆராய்கிறது. இந்த திட்டத்தை முடிக்கும் ஆசிரியர்கள் அமைதியான வகுப்பறைகளையும், வலுவான மாணவர் உறவுகளையும், கடினமான நாட்களிலும் நம்பியிருக்கக்கூடிய ஒரு தெளிவான, மீண்டும் பயன்படுத்தக்கூடிய கட்டமைப்பையும் புகாரளிக்கின்றனர்."},
+  features: [
+    {en:"10 live/recorded modules mapped directly to this assessment's 8 dimensions", ta:"இந்த மதிப்பீட்டின் 8 பரிமாணங்களுக்கும் நேரடியாக இணைக்கப்பட்ட 10 நேரடி/பதிவு செய்யப்பட்ட பாடங்கள்"},
+    {en:"Daily, weekly, and monthly implementation worksheets for real classroom use", ta:"உண்மையான வகுப்பறை பயன்பாட்டிற்கான தினசரி, வாராந்திர, மாதாந்திர செயல்படுத்தல் பயிற்சித்தாள்கள்"},
+    {en:"Personalised feedback on your assessment results", ta:"உங்கள் மதிப்பீட்டு முடிவுகளுக்கான தனிப்பயனாக்கப்பட்ட கருத்து"},
+    {en:"Ongoing WhatsApp support group with fellow teachers", ta:"சக ஆசிரியர்களுடன் தொடர்ச்சியான வாட்ஸ்அப் ஆதரவு குழு"}
+  ],
+  cta: {en:"Message on WhatsApp to Enroll", ta:"பதிவு செய்ய வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்"}
+};
+
+let answers = {}; // key: "dimKey_itemIdx" -> value 1-5
+
+/* ---------- BUILD QUESTIONS ---------- */
+function buildQuestions(){
+  const container = document.getElementById('questionsContainer');
+  container.innerHTML = '';
+  dimensions.forEach(dim=>{
+    const dimTitle = document.createElement('div');
+    dimTitle.className = 'dim-title';
+    dimTitle.innerHTML = `<span data-en>${dim.en}</span><span data-ta>${dim.ta}</span>`;
+    container.appendChild(dimTitle);
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    dim.items.forEach((item, idx)=>{
+      const qid = `${dim.key}_${idx}`;
+      const q = document.createElement('div');
+      q.className = 'q';
+      q.innerHTML = `
+        <div class="q-text"><span data-en>${item.en}</span><span data-ta>${item.ta}</span></div>
+        <div class="scale">
+          ${scaleLabels.map(s=>`
+            <input type="radio" name="${qid}" id="${qid}_${s.val}" value="${s.val}" onclick="setAnswer('${qid}', ${s.val})">
+            <label class="opt" for="${qid}_${s.val}"><span data-en>${s.en}</span><span data-ta>${s.ta}</span></label>
+          `).join('')}
+        </div>
+      `;
+      card.appendChild(q);
+    });
+    container.appendChild(card);
+  });
+}
+
+function setAnswer(qid, val){
+  answers[qid] = val;
+  updateProgress();
+}
+
+function updateProgress(){
+  const total = dimensions.reduce((a,d)=>a+d.items.length,0);
+  const done = Object.keys(answers).length;
+  document.getElementById('progFill').style.width = (done/total*100)+'%';
+}
+
+/* ---------- FLOW ---------- */
+function startAssessment(){
+  const name = document.getElementById('fName').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  if(!name || !phone){
+    alert(currentLang==='ta' ? 'பெயர் மற்றும் வாட்ஸ்அப் எண்ணை நிரப்பவும்.' : 'Please fill in your name and WhatsApp number.');
+    return;
+  }
+  buildQuestions();
+  document.getElementById('intakeScreen').classList.add('hidden');
+  document.getElementById('assessmentScreen').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+function bandFor(score){
+  if(score < 2.0) return {en:"Beginning", ta:"ஆரம்பம்", color:"#d64545"};
+  if(score < 3.0) return {en:"Developing", ta:"வளர்ந்து வருகிறது", color:"#d9822b"};
+  if(score < 4.0) return {en:"Practicing", ta:"பயிற்சி செய்கிறது", color:"#e8a33d"};
+  return {en:"Mastering", ta:"தேர்ச்சி பெற்றது", color:"#3fa66b"};
+}
+
+function submitAssessment(){
+  const total = dimensions.reduce((a,d)=>a+d.items.length,0);
+  const done = Object.keys(answers).length;
+  if(done < total){
+    alert(currentLang==='ta' ? `தயவுசெய்து அனைத்து கேள்விகளுக்கும் பதிலளிக்கவும் (${done}/${total} முடிந்தது).` : `Please answer all questions (${done}/${total} completed).`);
+    return;
+  }
+
+  const dimScores = dimensions.map(dim=>{
+    const sum = dim.items.reduce((a,_,idx)=> a + answers[`${dim.key}_${idx}`], 0);
+    const avg = sum / dim.items.length;
+    return {...dim, avg};
+  });
+  const overall = dimScores.reduce((a,d)=>a+d.avg,0) / dimScores.length;
+
+  renderReport(dimScores, overall);
+  logResult(dimScores, overall);
+
+  document.getElementById('assessmentScreen').classList.add('hidden');
+  document.getElementById('reportScreen').classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+function renderReport(dimScores, overall){
+  // --- PAGE 1: Cover meta + score + bars ---
+  const name = document.getElementById('fName').value.trim();
+  const school = document.getElementById('fSchool').value.trim();
+  const gradeSelect = document.getElementById('fGrade');
+  const gradeLabel = gradeSelect.options[gradeSelect.selectedIndex].getAttribute(currentLang==='ta' ? 'data-label-ta' : 'data-label-en');
+  const dateStr = new Date().toLocaleDateString(currentLang==='ta' ? 'ta-IN' : 'en-IN', {year:'numeric', month:'long', day:'numeric'});
+
+  const cmLabels = {
+    name: {en:"Teacher", ta:"ஆசிரியர்"},
+    school: {en:"School", ta:"பள்ளி"},
+    grade: {en:"Grade Level", ta:"வகுப்பு நிலை"},
+    date: {en:"Date", ta:"தேதி"}
+  };
+  document.getElementById('coverMeta').innerHTML = `
+    <div class="cm-label"><span data-en>${cmLabels.name.en}</span><span data-ta>${cmLabels.name.ta}</span></div><div class="cm-value">${name || '—'}</div>
+    <div class="cm-label"><span data-en>${cmLabels.school.en}</span><span data-ta>${cmLabels.school.ta}</span></div><div class="cm-value">${school || '—'}</div>
+    <div class="cm-label"><span data-en>${cmLabels.grade.en}</span><span data-ta>${cmLabels.grade.ta}</span></div><div class="cm-value">${gradeLabel || '—'}</div>
+    <div class="cm-label"><span data-en>${cmLabels.date.en}</span><span data-ta>${cmLabels.date.ta}</span></div><div class="cm-value">${dateStr}</div>
+  `;
+
+  document.getElementById('overallScore').textContent = overall.toFixed(1) + ' / 5';
+  const ob = bandFor(overall);
+  document.getElementById('overallBand').innerHTML = `<span class="band-tag" style="background:${ob.color}"><span data-en>${ob.en}</span><span data-ta>${ob.ta}</span></span>`;
+
+  const bars = document.getElementById('barsContainer');
+  bars.innerHTML = '';
+  dimScores.forEach(d=>{
+    const band = bandFor(d.avg);
+    const pct = (d.avg/5*100).toFixed(0);
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `
+      <div class="bar-label">
+        <span><span data-en>${d.en}</span><span data-ta>${d.ta}</span></span>
+        <span>${d.avg.toFixed(1)} <span class="band-tag" style="background:${band.color}"><span data-en>${band.en}</span><span data-ta>${band.ta}</span></span></span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:${pct}%; background:${d.color}"></div></div>
+    `;
+    bars.appendChild(row);
+  });
+
+  // --- PAGES 2 & 3: Dimension guidance, tips, improvements ---
+  function renderDimensionBlock(d){
+    const band = bandFor(d.avg);
+    const content = DIMENSION_CONTENT[d.key];
+    const tipsHtml = content.tips.map(t=>`<li><span data-en>${t.en}</span><span data-ta>${t.ta}</span></li>`).join('');
+    const impHtml = content.improvements.map(t=>`<li><span data-en>${t.en}</span><span data-ta>${t.ta}</span></li>`).join('');
+    const div = document.createElement('div');
+    div.className = 'subtopic';
+    div.style.marginBottom = '22px';
+    div.innerHTML = `
+      <h4 style="color:var(--primary-dark); display:flex; justify-content:space-between; align-items:center; font-size:1rem; margin-bottom:6px;">
+        <span><span data-en>${d.en}</span><span data-ta>${d.ta}</span></span>
+        <span class="band-tag" style="background:${band.color}">${d.avg.toFixed(1)}/5 &middot; <span data-en>${band.en}</span><span data-ta>${band.ta}</span></span>
+      </h4>
+      <p style="font-size:.88rem; color:var(--muted); margin-bottom:8px;"><span data-en>${content.guidance.en}</span><span data-ta>${content.guidance.ta}</span></p>
+      <div class="block-label" style="font-size:.72rem;"><span data-en>Tips</span><span data-ta>குறிப்புகள்</span></div>
+      <ul class="list" style="margin-bottom:6px;">${tipsHtml}</ul>
+      <div class="block-label" style="font-size:.72rem;"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+      <ul class="list improve">${impHtml}</ul>
+    `;
+    return div;
+  }
+
+  const detail1 = document.getElementById('detailContainer1');
+  const detail2 = document.getElementById('detailContainer2');
+  detail1.innerHTML = '';
+  detail2.innerHTML = '';
+  dimScores.slice(0,4).forEach(d=> detail1.appendChild(renderDimensionBlock(d)));
+  dimScores.slice(4,8).forEach(d=> detail2.appendChild(renderDimensionBlock(d)));
+
+  // --- PAGE 4: Action plan ---
+  const sorted = [...dimScores].sort((a,b)=> b.avg - a.avg);
+  const strengths = sorted.slice(0,2);
+  const priorities = [...dimScores].sort((a,b)=> a.avg - b.avg).slice(0,2);
+
+  const strengthsEl = document.getElementById('strengthsContainer');
+  strengthsEl.innerHTML = strengths.map(d=>`
+    <div class="strength-item"><strong><span data-en>${d.en}</span><span data-ta>${d.ta}</span></strong> — ${d.avg.toFixed(1)}/5</div>
+  `).join('');
+
+  const prioritiesEl = document.getElementById('prioritiesContainer');
+  prioritiesEl.innerHTML = priorities.map(d=>`
+    <div class="priority-item"><strong><span data-en>${d.en}</span><span data-ta>${d.ta}</span></strong> — ${d.avg.toFixed(1)}/5</div>
+  `).join('');
+
+  const focusWeeks = [
+    {en:"Focus on your #1 priority area. Pick just one tip from that section and practice it every day this week.", ta:"உங்கள் #1 முன்னுரிமை பகுதியில் கவனம் செலுத்துங்கள். அந்த பகுதியிலிருந்து ஒரே ஒரு குறிப்பை தேர்ந்தெடுத்து இந்த வாரம் தினமும் பயிற்சி செய்யுங்கள்."},
+    {en:"Continue practicing week 1's tip, and add one improvement suggestion from the same priority area.", ta:"1வது வார குறிப்பை தொடர்ந்து பயிற்சி செய்யுங்கள், அதே முன்னுரிமை பகுதியிலிருந்து ஒரு மேம்பாட்டு பரிந்துரையை சேர்க்கவும்."},
+    {en:"Move to your #2 priority area. Pick one tip from that section and practice it daily.", ta:"உங்கள் #2 முன்னுரிமை பகுதிக்கு செல்லுங்கள். அந்த பகுதியிலிருந்து ஒரு குறிப்பை தேர்ந்தெடுத்து தினமும் பயிற்சி செய்யுங்கள்."},
+    {en:"Reflect on the month: what changed in your classroom? Ask a colleague for honest feedback on your progress.", ta:"மாதத்தை பிரதிபலிக்கவும்: உங்கள் வகுப்பறையில் என்ன மாறியது? உங்கள் முன்னேற்றம் பற்றி நேர்மையான கருத்துக்கு ஒரு சக ஆசிரியரிடம் கேளுங்கள்."}
+  ];
+  document.getElementById('focusPlanContainer').innerHTML = focusWeeks.map((w,i)=>`
+    <div class="focus-week"><div class="fw-num">${i+1}</div><div><span data-en>${w.en}</span><span data-ta>${w.ta}</span></div></div>
+  `).join('');
+
+  // --- PAGE 5: Training program promotion ---
+  document.getElementById('promoTitle').innerHTML = `<span data-en>${TRAINING_PROGRAM.title.en}</span><span data-ta>${TRAINING_PROGRAM.title.ta}</span>`;
+  document.getElementById('promoBody').innerHTML = `<span data-en>${TRAINING_PROGRAM.body.en}</span><span data-ta>${TRAINING_PROGRAM.body.ta}</span>`;
+  document.getElementById('promoFeatures').innerHTML = TRAINING_PROGRAM.features.map(f=>`<li><span data-en>${f.en}</span><span data-ta>${f.ta}</span></li>`).join('');
+
+  const waLink = document.getElementById('waLink');
+  waLink.innerHTML = `<span data-en>${TRAINING_PROGRAM.cta.en}</span><span data-ta>${TRAINING_PROGRAM.cta.ta}</span>`;
+  const waText = encodeURIComponent(`Hi, I completed the Positive Discipline Self-Assessment (score: ${overall.toFixed(1)}/5). I'd like to know more about the Teacher Training Program.`);
+  waLink.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
+}
+
+/* ---------- LOGGING (Google Apps Script pixel GET) ---------- */
+function logResult(dimScores, overall){
+  if(!GAS_URL || GAS_URL.indexOf('YOUR_') === 0){ return; } // not configured yet
+  try{
+    const params = new URLSearchParams({
+      name: document.getElementById('fName').value.trim(),
+      school: document.getElementById('fSchool').value.trim(),
+      phone: document.getElementById('fPhone').value.trim(),
+      grade: document.getElementById('fGrade').value,
+      overall: overall.toFixed(2),
+      timestamp: new Date().toISOString()
+    });
+    dimScores.forEach(d=> params.append(d.key, d.avg.toFixed(2)));
+    const img = new Image();
+    img.src = `${GAS_URL}?${params.toString()}`;
+  }catch(e){ /* fail silently, don't block the report */ }
+}
+
+/* ---------- LANGUAGE ---------- */
+let currentLang = 'en';
+function setLang(lang){
+  currentLang = lang;
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('#fGrade option').forEach(opt=>{
+    opt.textContent = lang==='ta' ? opt.getAttribute('data-label-ta') : opt.getAttribute('data-label-en');
+  });
+}
+setLang('en');
+</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Solution-Focused Classroom Management | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 7 of 10</span><span data-ta>பாடம் 7 / 10</span></div>
+  <h1><span data-en>Solution-Focused Classroom Management</span><span data-ta>தீர்வு மையப்படுத்திய வகுப்பறை மேலாண்மை</span></h1>
+  <p><span data-en>Rather than asking 'What punishment fits this?', solution-focused management asks 'What needs to happen to fix this and prevent it next time?' This shifts the classroom conversation from blame to problem-solving, and — crucially — invites students into finding the solution themselves, which builds far more lasting change.</span><span data-ta>'இதற்கு என்ன தண்டனை பொருந்தும்?' என்று கேட்பதற்கு பதிலாக, தீர்வு மையப்படுத்திய மேலாண்மை 'இதை சரிசெய்து அடுத்த முறை தடுக்க என்ன நடக்க வேண்டும்?' என்று கேட்கிறது. இது வகுப்பறை உரையாடலை குற்றம் சாட்டுவதிலிருந்து பிரச்சனை தீர்ப்பதற்கு மாற்றுகிறது, மற்றும் — முக்கியமாக — மாணவர்களே தீர்வை கண்டுபிடிக்க அழைக்கிறது, இது மிக அதிக நீடித்த மாற்றத்தை உருவாக்குகிறது.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 7</span><span data-ta>பாடம் 7</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>The Solution-Focused Mindset</span><span data-ta>தீர்வு மையப்படுத்திய மனநிலை</span></h2>
+          <p class="explain"><span data-en>A blame-focused mindset asks 'Whose fault is this and what do they deserve?' A solution-focused mindset asks 'What do we need to do now, and how do we prevent it happening again?' This is a genuine mental shift, not just a new script — it requires letting go of the need to assign fault before moving forward.</span><span data-ta>குற்றம்-மையப்படுத்திய மனநிலை 'இது யாருடைய தவறு, அவர்களுக்கு என்ன தகுதி?' என்று கேட்கிறது. தீர்வு-மையப்படுத்திய மனநிலை 'இப்போது நாம் என்ன செய்ய வேண்டும், அது மீண்டும் நடப்பதை எப்படி தடுப்பது?' என்று கேட்கிறது. இது ஒரு புதிய வரிகள் மட்டுமல்ல, ஒரு உண்மையான மனரீதியான மாற்றம் — முன்னேறுவதற்கு முன் தவறை ஒதுக்கும் தேவையை விட்டுவிட வேண்டும்.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>Two students are caught fighting over a shared resource (a single classroom laptop). A blame-focused teacher spends ten minutes determining who started it and punishes accordingly. A solution-focused teacher asks both students: 'What do we need so this doesn't happen again — a sign-up sheet, a timer, something else?' The second approach produces a durable system; the first produces only a temporary truce.</span><span data-ta>இரண்டு மாணவர்கள் ஒரு பகிரப்பட்ட வளத்தை (ஒரு வகுப்பறை மடிக்கணினி) பற்றி சண்டையிடுவது கண்டுபிடிக்கப்படுகிறது. குற்றம்-மையப்படுத்திய ஆசிரியர் யார் தொடங்கினார் என்பதை தீர்மானிக்க பத்து நிமிடங்களை செலவிட்டு அதற்கேற்ப தண்டிக்கிறார். தீர்வு-மையப்படுத்திய ஆசிரியர் இரு மாணவர்களிடமும் கேட்கிறார்: 'இது மீண்டும் நடக்காமல் இருக்க நமக்கு என்ன தேவை — ஒரு பதிவு பட்டியலா, ஒரு டைமரா, வேறு ஏதாவதா?' இரண்டாவது அணுகுமுறை ஒரு நீடிக்கும் அமைப்பை உருவாக்குகிறது; முதலாவது ஒரு தற்காலிக சமாதானத்தை மட்டுமே உருவாக்குகிறது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>When a conflict arises, catch yourself before asking 'who did this?' and instead ask 'what do we need to fix this?'</span><span data-ta>ஒரு முரண்பாடு எழும்போது, 'இதை யார் செய்தது?' என்று கேட்பதற்கு முன் உங்களை பிடித்து, அதற்கு பதிலாக 'இதை சரிசெய்ய நமக்கு என்ன தேவை?' என்று கேளுங்கள்.</span></li><li><span data-en>Involve the affected students directly in proposing the fix, rather than imposing one unilaterally.</span><span data-ta>ஒருதலைப்பட்சமாக ஒன்றை திணிப்பதற்கு பதிலாக, தீர்வை முன்மொழிவதில் பாதிக்கப்பட்ட மாணவர்களை நேரடியாக ஈடுபடுத்துங்கள்.</span></li><li><span data-en>Accept that determining exact blame is sometimes impossible or unnecessary — the solution can move forward without it.</span><span data-ta>சரியான தவறை தீர்மானிப்பது சில நேரங்களில் சாத்தியமற்றது அல்லது தேவையற்றது என்பதை ஏற்றுக்கொள்ளுங்கள் — தீர்வு அது இல்லாமலேயே முன்னேறலாம்.</span></li><li><span data-en>Keep a running list of 'systems' your class has invented this way (sign-up sheets, rotas, agreed signals) as evidence of what solution-focus builds over time.</span><span data-ta>தீர்வு-மையம் காலப்போக்கில் என்ன உருவாக்குகிறது என்பதற்கான சான்றாக, உங்கள் வகுப்பு இந்த வழியில் கண்டுபிடித்த 'அமைப்புகளின்' (பதிவு பட்டியல்கள், சுழற்சிகள், ஒப்புக்கொள்ளப்பட்ட சமிக்ஞைகள்) நடப்பு பட்டியலை வையுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't skip solution-focus for so-called 'serious' incidents only — even minor daily friction benefits from the same mindset.</span><span data-ta>'கடுமையான' என்று அழைக்கப்படும் சம்பவங்களுக்கு மட்டும் தீர்வு-மையத்தை தவிர்க்க வேண்டாம் — சிறிய அன்றாட உராய்வுகள் கூட அதே மனநிலையிலிருந்து பயனடைகின்றன.</span></li><li><span data-en>Avoid reverting to blame-seeking when you're short on time — the solution conversation can be brief and still effective.</span><span data-ta>நேரம் குறைவாக இருக்கும்போது குற்றம் தேடுவதற்கு திரும்புவதை தவிர்க்கவும் — தீர்வு உரையாடல் சுருக்கமாக இருந்தும் திறம்படமாக இருக்க முடியும்.</span></li><li><span data-en>If a proposed student solution seems impractical, guide it rather than dismissing it outright; ownership matters more than perfection.</span><span data-ta>ஒரு மாணவர் முன்மொழிந்த தீர்வு நடைமுறைக்கு பொருந்தாதது போல தோன்றினால், அதை உடனடியாக நிராகரிக்காமல் வழிநடத்துங்கள்; சொந்தமாக்கல் முழுமையை விட முக்கியமானது.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Involving Students in Problem-Solving</span><span data-ta>மாணவர்களை பிரச்சனை தீர்வில் ஈடுபடுத்துதல்</span></h2>
+          <p class="explain"><span data-en>Students are far more likely to follow through on a solution they helped design than one imposed on them. Involving them isn't about giving up authority — it's about using their insight and building their sense of ownership and responsibility, both classroom skills that last well beyond any single incident.</span><span data-ta>மாணவர்கள் தங்கள் மீது திணிக்கப்பட்ட ஒரு தீர்வை விட, தாங்கள் வடிவமைக்க உதவிய தீர்வை பின்பற்ற அதிக வாய்ப்புள்ளது. அவர்களை ஈடுபடுத்துவது அதிகாரத்தை விட்டுக்கொடுப்பதைப் பற்றியது அல்ல — அவர்களின் நுண்ணறிவை பயன்படுத்துவதையும், ஒரு தனிப்பட்ட சம்பவத்தை விட நீடிக்கும் இரு வகுப்பறை திறன்களான சொந்தமாக்கல் மற்றும் பொறுப்புணர்ச்சி உணர்வை வளர்ப்பதையும் பற்றியது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A class keeps losing time during transitions between activities. Instead of imposing a rule, the teacher asks the class: 'We're losing about five minutes every transition — what could help us move faster?' Students propose a countdown timer and a 'transition captain' role that rotates weekly. Because they designed it, compliance is far higher than if the teacher had simply announced a new rule.</span><span data-ta>ஒரு வகுப்பு நடவடிக்கைகளுக்கு இடையிலான மாற்றங்களின் போது தொடர்ந்து நேரத்தை இழக்கிறது. ஒரு விதியை திணிப்பதற்கு பதிலாக, ஆசிரியர் வகுப்பிடம் கேட்கிறார்: 'ஒவ்வொரு மாற்றத்திலும் நாம் சுமார் ஐந்து நிமிடங்களை இழக்கிறோம் — வேகமாக நகர நமக்கு என்ன உதவும்?' மாணவர்கள் ஒரு கவுண்ட்டவுன் டைமரையும், வாரந்தோறும் சுழலும் 'மாற்ற தலைவர்' பாத்திரத்தையும் முன்மொழிகிறார்கள். அவர்கள் அதை வடிவமைத்ததால், ஆசிரியர் வெறுமனே ஒரு புதிய விதியை அறிவித்திருந்தால் இருந்திருக்கும் நிலையை விட இணக்கம் மிக அதிகமாக உள்ளது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>When a recurring classroom problem arises, bring it to the students directly and ask for their ideas before proposing your own.</span><span data-ta>ஒரு தொடர்ச்சியான வகுப்பறை பிரச்சனை எழும்போது, உங்கள் சொந்த யோசனைகளை முன்மொழிவதற்கு முன் அதை நேரடியாக மாணவர்களிடம் கொண்டு சென்று அவர்களின் யோசனைகளை கேளுங்கள்.</span></li><li><span data-en>Give students real decision-making power over the details of a solution, even if you set the overall goal.</span><span data-ta>ஒட்டுமொத்த இலக்கை நீங்கள் நிர்ணயித்தாலும், ஒரு தீர்வின் விவரங்கள் மீது மாணவர்களுக்கு உண்மையான முடிவெடுக்கும் அதிகாரத்தை கொடுங்கள்.</span></li><li><span data-en>Follow up on student-generated solutions publicly — acknowledging when their idea worked builds their confidence in the process.</span><span data-ta>மாணவர்கள் உருவாக்கிய தீர்வுகளை பொதுவில் பின்தொடருங்கள் — அவர்களின் யோசனை வேலை செய்தபோது ஒப்புக்கொள்வது செயல்முறையில் அவர்களின் நம்பிக்கையை வளர்க்கிறது.</span></li><li><span data-en>Use small group or whole-class brainstorming for classroom-wide issues, and private conversations for individual behaviour.</span><span data-ta>வகுப்பறை அளவிலான பிரச்சனைகளுக்கு சிறு குழு அல்லது முழு-வகுப்பு சிந்தனையையும், தனிப்பட்ட நடத்தைக்கு தனிப்பட்ட உரையாடல்களையும் பயன்படுத்துங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't ask for student input only to override it with your own predetermined answer — that undermines trust in the process.</span><span data-ta>உங்கள் சொந்த முன்னரே தீர்மானிக்கப்பட்ட பதிலால் அதை மேலெழுத மட்டும் மாணவர் உள்ளீட்டை கேட்க வேண்டாம் — அது செயல்முறையில் நம்பிக்கையை குறைமதிப்பிற்கு உட்படுத்துகிறது.</span></li><li><span data-en>Avoid limiting problem-solving conversations to only your 'good' students; the students most involved in the problem often have the most useful insight.</span><span data-ta>பிரச்சனை தீர்க்கும் உரையாடல்களை உங்கள் 'நல்ல' மாணவர்களுக்கு மட்டும் வரம்பிட வேண்டாம்; பிரச்சனையில் அதிகம் ஈடுபட்ட மாணவர்களே பெரும்பாலும் மிகவும் பயனுள்ள நுண்ணறிவை கொண்டுள்ளனர்.</span></li><li><span data-en>If a student-generated solution doesn't work, revisit it together rather than abandoning the collaborative approach altogether.</span><span data-ta>மாணவர் உருவாக்கிய தீர்வு வேலை செய்யவில்லை என்றால், கூட்டு அணுகுமுறையை முழுவதுமாக கைவிடுவதற்கு பதிலாக ஒன்றாக அதை மறுபரிசீலனை செய்யுங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>Following Up After a Conflict</span><span data-ta>முரண்பாட்டிற்குப் பிறகு பின்தொடர்தல்</span></h2>
+          <p class="explain"><span data-en>A solution-focused conversation is not complete the moment an agreement is reached — following up afterward, to check whether the solution actually worked, closes the loop and reinforces that classroom problem-solving is a genuine, ongoing process, not a one-time fix.</span><span data-ta>ஒரு ஒப்பந்தம் எட்டப்படும் தருணத்தில் தீர்வு-மையப்படுத்திய உரையாடல் முழுமையடையவில்லை — தீர்வு உண்மையில் வேலை செய்ததா என்று சரிபார்க்க பின்னர் பின்தொடர்வது, சுழற்சியை மூடி, வகுப்பறை பிரச்சனை தீர்ப்பது ஒரு உண்மையான, தொடர்ச்சியான செயல்முறை என்பதை வலுப்படுத்துகிறது, ஒரு முறை தீர்வு அல்ல.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>After two students agree to alternate turns on classroom equipment, the teacher checks in briefly a few days later: 'How's the new turn-taking system working for you two?' This small follow-up signals that the solution matters and gives an easy opening to adjust it if it isn't working — rather than letting a broken system silently fail and the original conflict quietly resurface.</span><span data-ta>வகுப்பறை உபகரணங்களில் மாறி மாறி முறை எடுக்க இரண்டு மாணவர்கள் ஒப்புக்கொண்ட பிறகு, ஆசிரியர் சில நாட்களுக்குப் பிறகு சுருக்கமாக சரிபார்க்கிறார்: 'உங்கள் இருவருக்கும் புதிய முறை-எடுக்கும் அமைப்பு எப்படி வேலை செய்கிறது?' இந்த சிறிய பின்தொடர்தல் தீர்வு முக்கியமானது என்பதை சமிக்ஞை செய்கிறது, மேலும் வேலை செய்யாவிட்டால் அதை சரிசெய்ய ஒரு எளிதான வாய்ப்பை கொடுக்கிறது — உடைந்த அமைப்பு அமைதியாக தோற்கடிக்கப்பட்டு, அசல் முரண்பாடு அமைதியாக மீண்டும் தோன்றுவதற்கு பதிலாக.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Set a mental or written reminder to check back on any agreed solution within a few days to a week.</span><span data-ta>ஒப்புக்கொள்ளப்பட்ட எந்த தீர்வையும் சில நாட்கள் முதல் ஒரு வாரத்திற்குள் மீண்டும் சரிபார்க்க ஒரு மனதளவு அல்லது எழுதப்பட்ட நினைவூட்டலை அமைக்கவும்.</span></li><li><span data-en>Ask specifically: 'Is this working the way we hoped, or does it need adjusting?' rather than a vague 'How's it going?'</span><span data-ta>தெளிவற்ற 'எப்படி போகிறது?' என்பதற்கு பதிலாக குறிப்பாக கேளுங்கள்: 'நாம் நம்பிய வழியில் இது வேலை செய்கிறதா, அல்லது சரிசெய்தல் தேவையா?'</span></li><li><span data-en>If a solution isn't working, treat that as useful information, not failure — revise it together rather than reverting to a punitive fallback.</span><span data-ta>ஒரு தீர்வு வேலை செய்யவில்லை என்றால், அதை தோல்வியாக அல்ல, பயனுள்ள தகவலாக கருதுங்கள் — தண்டனை காப்பு நடவடிக்கைக்கு திரும்புவதற்கு பதிலாக ஒன்றாக அதை திருத்துங்கள்.</span></li><li><span data-en>Celebrate small follow-through wins publicly when appropriate, to reinforce that student-designed solutions are taken seriously.</span><span data-ta>மாணவர் வடிவமைத்த தீர்வுகள் தீவிரமாக எடுத்துக்கொள்ளப்படுகின்றன என்பதை வலுப்படுத்த, பொருத்தமான போது சிறிய தொடர்ச்சி வெற்றிகளை பொதுவில் கொண்டாடுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't assume a solution is working just because the conflict hasn't resurfaced loudly — check in directly.</span><span data-ta>முரண்பாடு சத்தமாக மீண்டும் தோன்றவில்லை என்பதற்காக மட்டும் ஒரு தீர்வு வேலை செய்கிறது என்று கருதாதீர்கள் — நேரடியாக சரிபார்க்கவும்.</span></li><li><span data-en>Avoid abandoning follow-up when you're busy; even a 30-second check-in maintains the credibility of the process.</span><span data-ta>பிஸியாக இருக்கும்போது பின்தொடர்தலை கைவிடுவதை தவிர்க்கவும்; ஒரு 30-வினாடி சரிபார்ப்பு கூட செயல்முறையின் நம்பகத்தன்மையை பராமரிக்கிறது.</span></li><li><span data-en>If the same conflict keeps recurring despite an agreed solution, consider whether the root need (not just the surface issue) was actually addressed.</span><span data-ta>ஒப்புக்கொள்ளப்பட்ட தீர்வு இருந்தும் அதே முரண்பாடு தொடர்ந்து நிகழ்ந்தால், மேலோட்டமான பிரச்சனை மட்டுமல்ல, மூல தேவை உண்மையில் நிவர்த்தி செய்யப்பட்டதா என்பதை பரிசீலியுங்கள்.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Note one moment today you asked 'what's the solution?' instead of 'whose fault is this?'</span><span data-ta>'இது யாருடைய தவறு?' என்பதற்கு பதிலாக 'தீர்வு என்ன?' என்று கேட்ட இன்றைய ஒரு தருணத்தை குறிப்பிடவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Involve at least one student today in designing a fix for a small classroom friction point.</span><span data-ta>ஒரு சிறிய வகுப்பறை உராய்வு புள்ளிக்கு தீர்வை வடிவமைப்பதில் இன்று குறைந்தது ஒரு மாணவரையாவது ஈடுபடுத்தவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Follow up today on any solution agreed upon earlier this week.</span><span data-ta>இந்த வாரம் முன்னதாக ஒப்புக்கொள்ளப்பட்ட எந்த தீர்வையும் இன்று பின்தொடரவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Notice one moment you were tempted to assign blame quickly — did you pause for a solution-focused approach instead?</span><span data-ta>விரைவாக குற்றம் சாட்ட நீங்கள் தூண்டப்பட்ட ஒரு தருணத்தை கவனிக்கவும் — அதற்கு பதிலாக தீர்வு-மையப்படுத்திய அணுகுமுறைக்காக நிறுத்தினீர்களா?</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Review: which recurring classroom problem this week would benefit most from a student-designed solution?</span><span data-ta>மறுபரிசீலனை செய்யுங்கள்: இந்த வாரத்தில் எந்த தொடர்ச்சியான வகுப்பறை பிரச்சனை மாணவர் வடிவமைத்த தீர்வால் அதிகம் பயனடையும்?</span></span></li><li><input type="checkbox"><span><span data-en>Plan a specific problem-solving conversation (individual or class-wide) for next week.</span><span data-ta>அடுத்த வாரத்திற்கு ஒரு குறிப்பிட்ட பிரச்சனை தீர்க்கும் உரையாடலை (தனிநபர் அல்லது வகுப்பு-அளவில்) திட்டமிடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Check in on any solutions implemented in the past two weeks — are they still working?</span><span data-ta>கடந்த இரண்டு வாரங்களில் செயல்படுத்தப்பட்ட எந்த தீர்வுகளையும் சரிபார்க்கவும் — அவை இன்னும் வேலை செய்கின்றனவா?</span></span></li><li><input type="checkbox"><span><span data-en>Note whether you involved a good mix of students in problem-solving, not just the same few each time.</span><span data-ta>ஒவ்வொரு முறையும் அதே சிலரை மட்டும் அல்லாமல், பிரச்சனை தீர்ப்பதில் நல்ல கலவையான மாணவர்களை ஈடுபடுத்தினீர்களா என்பதை குறிப்பிடவும்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: how many lasting classroom systems has the class co-designed this month (rotas, signals, agreements)?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் வகுப்பு எத்தனை நீடிக்கும் வகுப்பறை அமைப்புகளை கூட்டாக வடிவமைத்துள்ளது (சுழற்சிகள், சமிக்ஞைகள், ஒப்பந்தங்கள்)?</span></span></li><li><input type="checkbox"><span><span data-en>Set a goal to bring one significant recurring issue to the whole class for a collaborative solution next month.</span><span data-ta>அடுத்த மாதம் ஒரு குறிப்பிடத்தக்க தொடர்ச்சியான பிரச்சனையை கூட்டு தீர்வுக்காக முழு வகுப்பிடமும் கொண்டு வர ஒரு இலக்கை நிர்ணயிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Review which student-designed solutions have held up over the month, and celebrate that with the class.</span><span data-ta>மாதம் முழுவதும் எந்த மாணவர் வடிவமைத்த தீர்வுகள் நிலைத்திருந்தன என்பதை மறுபரிசீலனை செய்து, அதை வகுப்புடன் கொண்டாடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Identify any solution that quietly failed, and revisit it together rather than letting the original conflict resurface unaddressed.</span><span data-ta>அமைதியாக தோல்வியடைந்த எந்த தீர்வையும் அடையாளம் கண்டு, அசல் முரண்பாடு நிவர்த்தி செய்யப்படாமல் மீண்டும் தோன்ற அனுமதிப்பதற்கு பதிலாக ஒன்றாக அதை மறுபரிசீலனை செய்யுங்கள்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-06.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-next" href="module-08.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%207%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

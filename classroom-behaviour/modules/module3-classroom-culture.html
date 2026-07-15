@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3: Classroom Culture & Preventive Structures | Classroom Behaviour Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="passGate">
+  <div class="gate-card">
+    <h2 data-en>Enter Passcode</h2>
+    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
+    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
+    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
+    <button id="gateSubmit" data-en>Unlock Module</button>
+    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
+    <div class="gate-error" id="gateError"></div>
+    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
+    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
+  </div>
+</div>
+<div class="progress-bar"></div>
+<div class="topbar">
+  <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button>
+    <button data-lang="ta">தமிழ்</button>
+  </div>
+</div>
+
+<div class="container">
+  <p data-en style="color:var(--muted);">Module 3 of 10</p>
+  <p data-ta class="ta-text" style="color:var(--muted);">பாடம் 3 / 10</p>
+  <h1 data-en>Classroom Culture & Preventive Structures</h1>
+  <h1 data-ta class="ta-text">வகுப்பறை பண்பாடு மற்றும் தடுப்பு அமைப்புகள்</h1>
+
+  <div class="metaphor-card">
+    <p data-en>🌱 <strong>Think of it this way:</strong> A well-designed classroom is like a well-designed road — clear lane markings, visible signage, and predictable turns prevent most accidents before they happen. You don't need a traffic police officer at every junction if the road itself guides behaviour.</p>
+    <p data-ta class="ta-text">🌱 <strong>இப்படி நினையுங்கள்:</strong> நன்கு வடிவமைக்கப்பட்ட வகுப்பறை நன்கு வடிவமைக்கப்பட்ட சாலை போன்றது — தெளிவான வழி குறியீடுகள், தெரியும் அறிகுறிகள், கணிக்கக்கூடிய திருப்பங்கள் பெரும்பாலான விபத்துகளை நடப்பதற்கு முன்பே தடுக்கின்றன.</p>
+  </div>
+
+  <div data-en>
+    <p>Most behaviour problems are prevented, not managed. Co-created classroom agreements (not teacher-dictated rules) increase ownership — students defend a rule they helped write. Predictable routines for entering, transitions, and materials reduce the 'dead time' where mischief thrives. Physical seating design matters too: proximity to distraction sources, sightlines, and even where the teacher stands all shape behaviour before a single word is spoken. Investing time in September on culture-building pays back all year in fewer incidents in February.</p>
+  </div>
+  <div data-ta class="ta-text">
+    <p>பெரும்பாலான நடத்தைப் பிரச்சினைகள் நிர்வகிக்கப்படுவதில்லை, தடுக்கப்படுகின்றன. ஆசிரியர் மட்டும் நிர்ணயிக்காமல் மாணவர்களுடன் இணைந்து உருவாக்கிய வகுப்பறை ஒப்பந்தங்கள் உரிமையை அதிகரிக்கின்றன. நுழைவு, மாற்றங்கள், பொருட்களுக்கான கணிக்கக்கூடிய வழக்கங்கள் குறும்பு வளரும் 'வெறுமையான நேரத்தை' குறைக்கின்றன. இருக்கை அமைப்பும் முக்கியம் — கவனச்சிதறல் ஆதாரங்களுக்கு அருகாமை, பார்வை கோடுகள், ஆசிரியர் நிற்கும் இடம் ஆகியவை ஒரு வார்த்தை பேசுவதற்கு முன்பே நடத்தையை வடிவமைக்கின்றன.</p>
+  </div>
+
+  <details class="deep-dive">
+    <summary><span data-en>Real Classroom Example</span><span data-ta class="ta-text">உண்மையான வகுப்பறை உதாரணம்</span></summary>
+    <div class="example-card">
+      <p data-en>A teacher who lets students help draft the 'Our Classroom Agreements' poster in week one — including consequences they think are fair — finds far less resistance in week ten, because students refer back to 'our rule,' not 'the teacher's rule.'</p>
+      <p data-ta class="ta-text">முதல் வாரத்திலேயே 'எங்கள் வகுப்பறை ஒப்பந்தங்கள்' சுவரொட்டியை மாணவர்களுடன் இணைந்து உருவாக்கும் ஆசிரியர், பத்தாம் வாரத்தில் மிகக் குறைவான எதிர்ப்பைக் காண்கிறார், ஏனெனில் மாணவர்கள் 'ஆசிரியரின் விதி' அல்ல, 'எங்கள் விதி' என்று குறிப்பிடுகிறார்கள்.</p>
+    </div>
+  </details>
+
+  <details class="deep-dive" open>
+    <summary><span data-en>Practical Tips for Tomorrow</span><span data-ta class="ta-text">நாளைக்கான நடைமுறை குறிப்புகள்</span></summary>
+    <div class="tips-list" data-en><ul><li>Co-create 3-5 classroom agreements with students in the first week, not more.</li><li>Rehearse routines (entering, handing in work, group transitions) like a fire drill until they're automatic.</li><li>Seat known distraction pairs apart, but don't isolate — proximity to you, not isolation from peers, works best.</li></ul></div>
+    <div class="tips-list ta-text" data-ta><ul><li>முதல் வாரத்தில் மாணவர்களுடன் இணைந்து 3-5 வகுப்பறை ஒப்பந்தங்களை உருவாக்குங்கள்.</li><li>நுழைவு, வேலை ஒப்படைத்தல், குழு மாற்றங்கள் போன்ற வழக்கங்களை தீ பயிற்சி போல தானியங்கியாக மாறும் வரை பயிற்சி செய்யுங்கள்.</li><li>கவனச்சிதறல் ஜோடிகளை பிரித்து அமர்த்துங்கள், ஆனால் தனிமைப்படுத்த வேண்டாம் — உங்களுக்கு அருகாமை சிறப்பாக செயல்படும்.</li></ul></div>
+  </details>
+
+  <h2 data-en>Quick Check</h2>
+  <h2 data-ta class="ta-text">விரைவு சரிபார்ப்பு</h2>
+  
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q1.</strong> Classroom agreements work best when they are:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 1.</strong> வகுப்பறை ஒப்பந்தங்கள் சிறப்பாக செயல்படுவது எப்போது:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Dictated by the teacher</button><button class='quiz-opt' data-idx='1'>Co-created with students</button><button class='quiz-opt' data-idx='2'>Posted but never discussed</button><button class='quiz-opt' data-idx='3'>Changed daily</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>ஆசிரியரால் நிர்ணயிக்கப்படும்போது</button><button class='quiz-opt ta-text' data-idx='1'>மாணவர்களுடன் இணைந்து உருவாக்கப்படும்போது</button><button class='quiz-opt ta-text' data-idx='2'>ஒட்டப்பட்டு விவாதிக்கப்படாதபோது</button><button class='quiz-opt ta-text' data-idx='3'>தினமும் மாற்றப்படும்போது</button></div>
+        </div>
+        <div class="quiz-q" data-answer="0">
+          <p data-en><strong>Q2.</strong> Predictable routines reduce misbehaviour mainly by:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 2.</strong> கணிக்கக்கூடிய வழக்கங்கள் தவறான நடத்தையை முக்கியமாக குறைப்பது:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Reducing 'dead time' for mischief</button><button class='quiz-opt' data-idx='1'>Punishing faster</button><button class='quiz-opt' data-idx='2'>Removing all choice</button><button class='quiz-opt' data-idx='3'>Increasing homework</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>குறும்புக்கான 'வெறுமையான நேரத்தை' குறைத்தல்</button><button class='quiz-opt ta-text' data-idx='1'>வேகமாக தண்டித்தல்</button><button class='quiz-opt ta-text' data-idx='2'>அனைத்து தேர்வையும் நீக்குதல்</button><button class='quiz-opt ta-text' data-idx='3'>வீட்டுப்பாடத்தை அதிகரித்தல்</button></div>
+        </div>
+
+  <div class="nav-buttons">
+    <a href="module2-teacher-mindset.html" class="btn btn-outline" data-en>← Previous</a>
+    <a href="module4-warning-signs.html" class="btn btn-primary" data-en>Next Module →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20training" class="whatsapp-cta" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <p>NT Somasundaram · Certified Master Trainer &amp; Life Skills Educator</p>
+  <p>"God is always with u"</p>
+</footer>
+
+<script src="../app.js"></script>
+<script>initQuiz('classroom-culture');</script>
+<script>initGate();</script>
+</body>
+</html>

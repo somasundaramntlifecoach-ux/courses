@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emotional Intelligence for Teachers | N T Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2044; --navy2:#16305e; --gold:#c8a250; --gold-light:#e8d5a3;
+  --cream:#fbf8f2; --ink:#1c2333; --muted:#5a6478; --line:#e4e2da; --card:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);color:var(--ink);font-family:'Poppins',sans-serif;line-height:1.65;}
+[data-ta]{display:none;}
+html[lang="ta"] [data-en]{display:none;}
+html[lang="ta"] [data-ta]{display:inline;}
+html[lang="ta"] body{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+a{color:inherit;}
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.lang-toggle{display:flex;background:rgba(255,255,255,.12);border-radius:20px;padding:3px;}
+.lang-toggle button{border:none;background:transparent;color:#fff;padding:6px 14px;border-radius:16px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;}
+.lang-toggle button.active{background:var(--gold);color:var(--navy);}
+
+.hero{background:radial-gradient(circle at 20% 20%, #1a3562, var(--navy) 60%);color:#fff;padding:70px 24px 60px;text-align:center;}
+.hero .eyebrow{color:var(--gold-light);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+.hero h1{font-size:clamp(28px,5vw,46px);margin:0 0 16px;}
+.hero p{max-width:640px;margin:0 auto 28px;color:#d9e2f1;font-size:16px;}
+.hero .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5);}
+
+.section{max-width:960px;margin:0 auto;padding:56px 24px;}
+.section h2{font-size:clamp(22px,3.5vw,30px);margin-bottom:10px;color:var(--navy);}
+.section .sub{color:var(--muted);margin-bottom:32px;font-size:15px;}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px;max-width:900px;margin:0 auto;padding:0 24px 20px;}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;}
+.stat .num{font-size:26px;font-weight:800;color:var(--navy);}
+.stat .lbl{font-size:12.5px;color:var(--muted);margin-top:4px;}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;}
+.card .ic{font-size:26px;margin-bottom:10px;}
+.card h3{font-size:16px;color:var(--navy);margin-bottom:8px;}
+.card p{font-size:13.5px;color:var(--muted);}
+
+.modlist{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+.modlist .mod{display:flex;gap:14px;align-items:flex-start;padding:16px 20px;border-bottom:1px solid var(--line);}
+.modlist .mod:last-child{border-bottom:none;}
+.modlist .n{background:var(--navy);color:var(--gold-light);font-weight:800;font-size:13px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.modlist .t{font-size:14.5px;color:var(--ink);font-weight:600;}
+
+.audience{background:var(--navy);color:#fff;border-radius:18px;padding:36px 28px;}
+.audience h2{color:#fff;}
+.audience ul{list-style:none;margin-top:14px;}
+.audience li{padding:8px 0;font-size:14.5px;color:#dce4f3;display:flex;gap:10px;}
+.audience li::before{content:"✓";color:var(--gold);font-weight:800;}
+
+.cta-final{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;text-align:center;padding:60px 24px;}
+.cta-final h2{color:#fff;margin-bottom:12px;}
+.cta-final p{color:#d9e2f1;margin-bottom:26px;}
+
+footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:26px 20px;font-size:13px;}
+footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span> N T Somasundaram <span data-en>Life Skills Program</span><span data-ta>வாழ்க்கை திறன் திட்டம்</span></div>
+  <div class="lang-toggle">
+    <button class="active" onclick="setLang('en')">EN</button>
+    <button onclick="setLang('ta')">தமிழ்</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="eyebrow" data-en>Teacher Training Program</div>
+  <div class="eyebrow" data-ta>ஆசிரியர் பயிற்சி திட்டம்</div>
+  <h1 data-en>Emotional Intelligence for Teachers</h1>
+  <h1 data-ta>ஆசிரியர்களுக்கான உணர்வு நுண்ணறிவு</h1>
+  <p data-en>A practical, bilingual self-paced course to help you understand your emotions, connect better with students, and lead a calmer, more effective classroom.</p>
+  <p data-ta>உங்கள் உணர்வுகளை புரிந்துகொள்ளவும், மாணவர்களுடன் சிறப்பாக இணையவும், அமைதியான வகுப்பறையை நடத்தவும் உதவும் ஒரு நடைமுறை, இருமொழி சுய-வேக பயிற்சி.</p>
+  <div class="cta-row">
+    <a href="course.html" class="btn btn-gold" data-en>Start the Course →</a>
+    <a href="course.html" class="btn btn-gold" data-ta>பயிற்சியைத் தொடங்கு →</a>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Emotional%20Intelligence%20for%20Teachers%20course" class="btn btn-outline">WhatsApp Us</a>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">10</div><div class="lbl" data-en>Modules</div><div class="lbl" data-ta>பாடங்கள்</div></div>
+  <div class="stat"><div class="num">30</div><div class="lbl" data-en>Self-Assessment Qs</div><div class="lbl" data-ta>சுய மதிப்பீட்டு கேள்விகள்</div></div>
+  <div class="stat"><div class="num">EN/TA</div><div class="lbl" data-en>Bilingual</div><div class="lbl" data-ta>இருமொழி</div></div>
+  <div class="stat"><div class="num">Self-Paced</div><div class="lbl" data-en>Learn Anytime</div><div class="lbl" data-ta>எந்நேரமும் கற்கவும்</div></div>
+</div>
+
+<div class="section">
+  <h2 data-en>Why Emotional Intelligence Matters for Teachers</h2>
+  <h2 data-ta>ஆசிரியர்களுக்கு உணர்வு நுண்ணறிவு ஏன் முக்கியம்</h2>
+  <p class="sub" data-en>Teaching is one of the most emotionally demanding professions. This course gives you practical tools to manage stress, stay calm under pressure, and build genuine connection with students.</p>
+  <p class="sub" data-ta>கற்பித்தல் என்பது உணர்வு ரீதியாக மிகவும் கோரிக்கை கொண்ட தொழில்களில் ஒன்று. இந்த பயிற்சி அழுத்தத்தை நிர்வகிக்கவும், அழுத்தத்தின் கீழ் அமைதியாக இருக்கவும், மாணவர்களுடன் உண்மையான தொடர்பை உருவாக்கவும் நடைமுறை கருவிகளை வழங்குகிறது.</p>
+  <div class="cards">
+    <div class="card"><div class="ic">🧠</div><h3 data-en>Self-Awareness</h3><h3 data-ta>சுய-விழிப்புணர்வு</h3><p data-en>Recognize your emotional triggers before they control your classroom response.</p><p data-ta>வகுப்பறை பதிலை கட்டுப்படுத்துவதற்கு முன் உங்கள் உணர்ச்சி தூண்டுதல்களை அறியவும்.</p></div>
+    <div class="card"><div class="ic">🌬️</div><h3 data-en>Self-Regulation</h3><h3 data-ta>சுய-கட்டுப்பாடு</h3><p data-en>Stay composed under pressure instead of reacting impulsively.</p><p data-ta>உணர்ச்சிவசப்பட்டு நடவடிக்கை எடுப்பதற்கு பதிலாக அழுத்தத்தின் கீழ் அமைதியாக இருங்கள்.</p></div>
+    <div class="card"><div class="ic">🤝</div><h3 data-en>Empathy</h3><h3 data-ta>பச்சாதாபம்</h3><p data-en>Understand what's really behind a student's behaviour.</p><p data-ta>மாணவரின் நடத்தைக்கு பின்னால் உண்மையில் என்ன இருக்கிறது என்பதை புரிந்துகொள்ளுங்கள்.</p></div>
+    <div class="card"><div class="ic">💬</div><h3 data-en>Social Skills</h3><h3 data-ta>சமூக திறன்கள்</h3><p data-en>Communicate confidently with students, parents, and colleagues.</p><p data-ta>மாணவர்கள், பெற்றோர்கள் மற்றும் சக ஊழியர்களுடன் நம்பிக்கையுடன் தொடர்பு கொள்ளுங்கள்.</p></div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <h2 data-en>What You'll Learn — 10 Modules</h2>
+  <h2 data-ta>நீங்கள் கற்றுக்கொள்வது — 10 பாடங்கள்</h2>
+  <p class="sub" data-en>Each module is short, practical, and built for busy teachers.</p>
+  <p class="sub" data-ta>ஒவ்வொரு பாடமும் சுருக்கமாகவும், நடைமுறையாகவும், பரபரப்பான ஆசிரியர்களுக்காகவும் வடிவமைக்கப்பட்டுள்ளது.</p>
+  <div class="modlist">
+    <div class="mod"><div class="n">1</div><div class="t"><span data-en>What is Emotional Intelligence & Why It Matters for Teachers</span><span data-ta>உணர்வு நுண்ணறிவு என்றால் என்ன & ஆசிரியர்களுக்கு ஏன் முக்கியம்</span></div></div>
+    <div class="mod"><div class="n">2</div><div class="t"><span data-en>Self-Awareness in the Classroom</span><span data-ta>வகுப்பறையில் சுய-விழிப்புணர்வு</span></div></div>
+    <div class="mod"><div class="n">3</div><div class="t"><span data-en>Managing Your Own Emotions Under Pressure</span><span data-ta>அழுத்தத்தின் கீழ் உங்கள் சொந்த உணர்வுகளை நிர்வகித்தல்</span></div></div>
+    <div class="mod"><div class="n">4</div><div class="t"><span data-en>Empathy & Understanding Student Emotions</span><span data-ta>பச்சாதாபம் & மாணவர் உணர்வுகளைப் புரிந்துகொள்ளுதல்</span></div></div>
+    <div class="mod"><div class="n">5</div><div class="t"><span data-en>Emotional Regulation Techniques for Stressful Moments</span><span data-ta>அழுத்தமான தருணங்களுக்கான உணர்ச்சி கட்டுப்பாட்டு நுட்பங்கள்</span></div></div>
+    <div class="mod"><div class="n">6</div><div class="t"><span data-en>Building Rapport & Trust with Students</span><span data-ta>மாணவர்களுடன் நல்லுறவு & நம்பிக்கையை உருவாக்குதல்</span></div></div>
+    <div class="mod"><div class="n">7</div><div class="t"><span data-en>EQ in Classroom Discipline & Conflict Resolution</span><span data-ta>வகுப்பறை ஒழுக்கம் & மோதல் தீர்வில் EQ</span></div></div>
+    <div class="mod"><div class="n">8</div><div class="t"><span data-en>Social Skills & Positive Communication with Colleagues/Parents</span><span data-ta>சக ஊழியர்கள்/பெற்றோருடன் சமூக திறன்கள் & நேர்மறை தொடர்பு</span></div></div>
+    <div class="mod"><div class="n">9</div><div class="t"><span data-en>Motivating Yourself & Preventing Burnout</span><span data-ta>உங்களை ஊக்குவித்தல் & சோர்வைத் தடுத்தல்</span></div></div>
+    <div class="mod"><div class="n">10</div><div class="t"><span data-en>Creating an Emotionally Safe Classroom Culture</span><span data-ta>உணர்வு ரீதியாக பாதுகாப்பான வகுப்பறை கலாச்சாரத்தை உருவாக்குதல்</span></div></div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:0;">
+  <div class="audience">
+    <h2 data-en>Who Is This For?</h2>
+    <h2 data-ta>இது யாருக்கானது?</h2>
+    <ul>
+      <li><span data-en>School teachers at any level — primary, middle, or high school</span><span data-ta>எந்த நிலையிலும் உள்ள பள்ளி ஆசிரியர்கள் — தொடக்க, நடுநிலை, அல்லது உயர்நிலை</span></li>
+      <li><span data-en>Teachers who want to manage classroom stress more effectively</span><span data-ta>வகுப்பறை அழுத்தத்தை மிகவும் திறம்பட நிர்வகிக்க விரும்பும் ஆசிரியர்கள்</span></li>
+      <li><span data-en>Educators looking to build stronger relationships with students</span><span data-ta>மாணவர்களுடன் வலுவான உறவுகளை உருவாக்க விரும்பும் கல்வியாளர்கள்</span></li>
+      <li><span data-en>School leaders wanting to build a positive staff culture</span><span data-ta>நேர்மறையான ஊழியர் கலாச்சாரத்தை உருவாக்க விரும்பும் பள்ளி தலைவர்கள்</span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta-final">
+  <h2 data-en>Start Building Your Emotional Intelligence Today</h2>
+  <h2 data-ta>இன்றே உங்கள் உணர்வு நுண்ணறிவை உருவாக்கத் தொடங்குங்கள்</h2>
+  <p data-en>Free self-paced course + self-assessment with a personalised report.</p>
+  <p data-ta>இலவச சுய-வேக பயிற்சி + தனிப்பயனாக்கப்பட்ட அறிக்கையுடன் சுய மதிப்பீடு.</p>
+  <div class="cta-row">
+    <a href="course.html" class="btn btn-gold" data-en>Begin Module 1 →</a>
+    <a href="course.html" class="btn btn-gold" data-ta>பாடம் 1ஐத் தொடங்கு →</a>
+    <a href="assessment.html" class="btn btn-outline" data-en>Take the EQ Self-Assessment</a>
+    <a href="assessment.html" class="btn btn-outline" data-ta>EQ சுய மதிப்பீட்டை எடுங்கள்</a>
+  </div>
+</div>
+
+<footer>
+  <div>N T Somasundaram — Certified Master Trainer | Life Skills Educator | +91 98437 02244</div>
+  <div class="motto">God is always with u</div>
+</footer>
+
+<script>
+function setLang(l){
+  document.documentElement.setAttribute('lang', l);
+  document.querySelectorAll('.lang-toggle button').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+  localStorage.setItem('eqt_lang', l);
+}
+(function(){
+  const saved = localStorage.getItem('eqt_lang');
+  if(saved==='ta'){
+    document.documentElement.setAttribute('lang','ta');
+    window.addEventListener('DOMContentLoaded', ()=>{
+      document.querySelectorAll('.lang-toggle button')[1].classList.add('active');
+      document.querySelectorAll('.lang-toggle button')[0].classList.remove('active');
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

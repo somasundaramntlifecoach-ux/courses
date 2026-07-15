@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 8: Restorative Conversations After an Incident | Classroom Behaviour Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="passGate">
+  <div class="gate-card">
+    <h2 data-en>Enter Passcode</h2>
+    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
+    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
+    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
+    <button id="gateSubmit" data-en>Unlock Module</button>
+    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
+    <div class="gate-error" id="gateError"></div>
+    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
+    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
+  </div>
+</div>
+<div class="progress-bar"></div>
+<div class="topbar">
+  <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button>
+    <button data-lang="ta">தமிழ்</button>
+  </div>
+</div>
+
+<div class="container">
+  <p data-en style="color:var(--muted);">Module 8 of 10</p>
+  <p data-ta class="ta-text" style="color:var(--muted);">பாடம் 8 / 10</p>
+  <h1 data-en>Restorative Conversations After an Incident</h1>
+  <h1 data-ta class="ta-text">சம்பவத்திற்குப் பிறகு மீட்டெடுக்கும் உரையாடல்கள்</h1>
+
+  <div class="metaphor-card">
+    <p data-en>🌱 <strong>Think of it this way:</strong> Punishment closes a door; restoration repairs the room behind it. A suspended student learns to avoid getting caught next time. A student walked through a restorative conversation learns what to do differently — the difference between a locked door and a rebuilt one.</p>
+    <p data-ta class="ta-text">🌱 <strong>இப்படி நினையுங்கள்:</strong> தண்டனை கதவை மூடுகிறது; மீட்பு அதற்குப் பின்னால் உள்ள அறையை சரிசெய்கிறது. இடைநீக்கம் செய்யப்பட்ட மாணவன் அடுத்த முறை பிடிபடாமல் இருக்க கற்றுக்கொள்கிறான். மீட்டெடுக்கும் உரையாடல் மூலம் வழிநடத்தப்பட்ட மாணவன் என்ன வித்தியாசமாக செய்ய வேண்டும் என்று கற்கிறான்.</p>
+  </div>
+
+  <div data-en>
+    <p>A restorative conversation is short and structured, not a lecture: 'What happened?' (their account, not yours first), 'What were you thinking at the time?', 'Who was affected, and how?', 'What needs to happen to make this right?', 'What will you do differently next time?' This sequence moves the student from defensiveness to reflection because it starts with curiosity, not accusation. It also models accountability without shame — the goal is repair, not humiliation, which is what actually changes future behaviour.</p>
+  </div>
+  <div data-ta class="ta-text">
+    <p>மீட்டெடுக்கும் உரையாடல் குறுகியது மற்றும் கட்டமைக்கப்பட்டது, விரிவுரை அல்ல: 'என்ன நடந்தது?' (உங்களுடையது முதலில் அல்ல, அவர்களுடைய கணக்கு), 'அப்போது என்ன நினைத்தீர்கள்?', 'யார் பாதிக்கப்பட்டனர், எப்படி?', 'இதை சரிசெய்ய என்ன நடக்க வேண்டும்?', 'அடுத்த முறை என்ன வித்தியாசமாக செய்வீர்கள்?'. இந்த வரிசை மாணவனை பாதுகாப்பிலிருந்து சிந்தனைக்கு நகர்த்துகிறது, ஏனெனில் இது குற்றச்சாட்டிலிருந்து அல்ல, ஆர்வத்திலிருந்து தொடங்குகிறது.</p>
+  </div>
+
+  <details class="deep-dive">
+    <summary><span data-en>Real Classroom Example</span><span data-ta class="ta-text">உண்மையான வகுப்பறை உதாரணம்</span></summary>
+    <div class="example-card">
+      <p data-en>After a shoving incident in the corridor, instead of an immediate detention slip, the teacher sits both boys down separately, asks each to describe what happened in their own words, then brings them together to agree what 'making it right' looks like — an apology and helping the injured boy's group finish their overdue project together.</p>
+      <p data-ta class="ta-text">நடைபாதையில் தள்ளுதல் சம்பவத்திற்குப் பிறகு, உடனடி தண்டனை சீட்டுக்குப் பதிலாக, ஆசிரியர் இரு சிறுவர்களையும் தனித்தனியாக அமர்த்தி, ஒவ்வொருவரையும் தங்கள் சொந்த வார்த்தைகளில் நடந்ததை விவரிக்கச் சொல்கிறார், பின்னர் அவர்களை ஒன்றாகக் கொண்டு வந்து 'சரிசெய்தல்' எப்படி இருக்க வேண்டும் என்பதை ஒப்புக்கொள்கிறார்.</p>
+    </div>
+  </details>
+
+  <details class="deep-dive" open>
+    <summary><span data-en>Practical Tips for Tomorrow</span><span data-ta class="ta-text">நாளைக்கான நடைமுறை குறிப்புகள்</span></summary>
+    <div class="tips-list" data-en><ul><li>Ask questions in this order: what happened, what were you thinking, who was affected, how to make it right, what next time looks like.</li><li>Let the student speak first — resist the urge to state your version before asking.</li><li>End every restorative conversation with a concrete, specific next action, not a vague promise.</li></ul></div>
+    <div class="tips-list ta-text" data-ta><ul><li>இந்த வரிசையில் கேளுங்கள்: என்ன நடந்தது, என்ன நினைத்தீர்கள், யார் பாதிக்கப்பட்டனர், எப்படி சரிசெய்வது, அடுத்த முறை எப்படி.</li><li>மாணவனை முதலில் பேச விடுங்கள் — உங்கள் பதிப்பை முதலில் சொல்லும் ஆசையை கட்டுப்படுத்துங்கள்.</li><li>ஒவ்வொரு மீட்டெடுக்கும் உரையாடலையும் ஒரு உறுதியான, குறிப்பிட்ட அடுத்த செயலுடன் முடிக்கவும்.</li></ul></div>
+  </details>
+
+  <h2 data-en>Quick Check</h2>
+  <h2 data-ta class="ta-text">விரைவு சரிபார்ப்பு</h2>
+  
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q1.</strong> In a restorative conversation, whose account should be heard first?</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 1.</strong> மீட்டெடுக்கும் உரையாடலில், யாருடைய கணக்கு முதலில் கேட்கப்பட வேண்டும்?</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>The teacher's version first</button><button class='quiz-opt' data-idx='1'>The student's own account first</button><button class='quiz-opt' data-idx='2'>No account is needed</button><button class='quiz-opt' data-idx='3'>Only the affected party's account</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>முதலில் ஆசிரியரின் பதிப்பு</button><button class='quiz-opt ta-text' data-idx='1'>முதலில் மாணவரின் சொந்த கணக்கு</button><button class='quiz-opt ta-text' data-idx='2'>கணக்கு தேவையில்லை</button><button class='quiz-opt ta-text' data-idx='3'>பாதிக்கப்பட்டவரின் கணக்கு மட்டும்</button></div>
+        </div>
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q2.</strong> The main goal of a restorative conversation is:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 2.</strong> மீட்டெடுக்கும் உரையாடலின் முக்கிய நோக்கம்:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Humiliation</button><button class='quiz-opt' data-idx='1'>Repair and accountability without shame</button><button class='quiz-opt' data-idx='2'>Faster punishment</button><button class='quiz-opt' data-idx='3'>Avoiding parents</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>அவமானம்</button><button class='quiz-opt ta-text' data-idx='1'>அவமானமின்றி சரிசெய்தலும் பொறுப்புணர்வும்</button><button class='quiz-opt ta-text' data-idx='2'>வேகமான தண்டனை</button><button class='quiz-opt ta-text' data-idx='3'>பெற்றோரைத் தவிர்த்தல்</button></div>
+        </div>
+
+  <div class="nav-buttons">
+    <a href="module7-group-dynamics-peer-conflict.html" class="btn btn-outline" data-en>← Previous</a>
+    <a href="module9-escalate-parents-counselors.html" class="btn btn-primary" data-en>Next Module →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20training" class="whatsapp-cta" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <p>NT Somasundaram · Certified Master Trainer &amp; Life Skills Educator</p>
+  <p>"God is always with u"</p>
+</footer>
+
+<script src="../app.js"></script>
+<script>initQuiz('restorative-conversations');</script>
+<script>initGate();</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustaining Positive Discipline | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 10 of 10</span><span data-ta>பாடம் 10 / 10</span></div>
+  <h1><span data-en>Sustaining Positive Discipline</span><span data-ta>நேர்மறை ஒழுக்கத்தை நிலைநிறுத்துதல்</span></h1>
+  <p><span data-en>The final module addresses the reality that positive discipline is not a one-time fix but an ongoing practice — one that requires collaboratively built agreements, consistency under real classroom pressure, and a teacher who is looking after their own wellbeing enough to keep showing up calm and firm, day after day.</span><span data-ta>நேர்மறை ஒழுக்கம் ஒரு முறை தீர்வு அல்ல, ஒரு தொடர்ச்சியான பயிற்சி என்ற உண்மையை இறுதி பாடம் நிவர்த்தி செய்கிறது — கூட்டாக கட்டமைக்கப்பட்ட ஒப்பந்தங்கள், உண்மையான வகுப்பறை அழுத்தத்தின் கீழ் நிலைத்தன்மை, மற்றும் நாள்தோறும் அமைதியாகவும் உறுதியாகவும் தொடர்ந்து இருக்க போதுமான அளவு தனது சொந்த நல்வாழ்வை கவனிக்கும் ஒரு ஆசிரியர் தேவை.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 10</span><span data-ta>பாடம் 10</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>Creating Classroom Agreements Collaboratively</span><span data-ta>கூட்டாக வகுப்பறை ஒப்பந்தங்களை உருவாக்குதல்</span></h2>
+          <p class="explain"><span data-en>Rules imposed from above are followed out of compliance; agreements built together are followed out of ownership. At the start of a term (and periodically afterward), involving students in creating the classroom's core agreements builds far deeper buy-in than a list of rules posted by the teacher alone.</span><span data-ta>மேலிருந்து திணிக்கப்பட்ட விதிகள் இணக்கத்தால் பின்பற்றப்படுகின்றன; ஒன்றாக கட்டமைக்கப்பட்ட ஒப்பந்தங்கள் சொந்தமாக்கலால் பின்பற்றப்படுகின்றன. ஒரு காலகட்டத்தின் தொடக்கத்தில் (மற்றும் பின்னர் அவ்வப்போது), வகுப்பறையின் முக்கிய ஒப்பந்தங்களை உருவாக்குவதில் மாணவர்களை ஈடுபடுத்துவது, ஆசிரியர் மட்டும் இடும் விதிகளின் பட்டியலை விட மிக ஆழமான ஏற்பை உருவாக்குகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>Instead of posting a ready-made list of classroom rules on day one, a teacher asks the class: 'What do we need from each other to make this a good place to learn?' Students propose ideas like 'listen when someone's talking' and 'it's okay to make mistakes here.' The teacher shapes these into a short, positively worded agreement the class signs together — and refers back to by name throughout the year.</span><span data-ta>முதல் நாளில் தயார் வகுப்பறை விதிகளின் பட்டியலை இடுவதற்கு பதிலாக, ஒரு ஆசிரியர் வகுப்பிடம் கேட்கிறார்: 'இதை ஒரு நல்ல கற்றல் இடமாக மாற்ற நமக்கு ஒருவரிடமிருந்து ஒருவருக்கு என்ன தேவை?' மாணவர்கள் 'யாராவது பேசும்போது கேளுங்கள்' மற்றும் 'இங்கே தவறு செய்வது பரவாயில்லை' போன்ற யோசனைகளை முன்மொழிகிறார்கள். ஆசிரியர் இவற்றை வகுப்பு ஒன்றாக கையெழுத்திடும் ஒரு குறுகிய, நேர்மறையாக சொல்லப்பட்ட ஒப்பந்தமாக வடிவமைக்கிறார் — ஆண்டு முழுவதும் பெயரால் மீண்டும் குறிப்பிடுகிறார்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Start the term with a collaborative agreement-building conversation rather than a pre-written rule list.</span><span data-ta>முன்-எழுதப்பட்ட விதி பட்டியலுக்கு பதிலாக ஒரு கூட்டு ஒப்பந்தம்-கட்டமைக்கும் உரையாடலுடன் காலகட்டத்தை தொடங்குங்கள்.</span></li><li><span data-en>Phrase agreements positively ('We listen to each other') rather than as a list of prohibitions ('No interrupting').</span><span data-ta>தடைகளின் பட்டியலாக ('குறுக்கிடக்கூடாது') அல்லாமல் ஒப்பந்தங்களை நேர்மறையாக சொல்லுங்கள் ('நாம் ஒருவரையொருவர் கேட்கிறோம்').</span></li><li><span data-en>Keep the final list short — five or six shared agreements are more memorable and enforceable than fifteen.</span><span data-ta>இறுதி பட்டியலை குறுகியதாக வையுங்கள் — ஐந்து அல்லது ஆறு பகிரப்பட்ட ஒப்பந்தங்கள் பதினைந்தை விட நினைவில் வைத்திருக்கக்கூடியதாகவும் அமல்படுத்தக்கூடியதாகவும் இருக்கும்.</span></li><li><span data-en>Revisit the agreement periodically across the term, especially if the class dynamic shifts.</span><span data-ta>காலகட்டம் முழுவதும் அவ்வப்போது, குறிப்பாக வகுப்பு இயக்கவியல் மாறினால், ஒப்பந்தத்தை மறுபரிசீலனை செய்யுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't let 'collaborative' become a rubber stamp on rules you'd already decided — genuinely incorporate student input into the wording.</span><span data-ta>'கூட்டு' என்பது நீங்கள் ஏற்கனவே தீர்மானித்த விதிகளுக்கு ஒரு ரப்பர் முத்திரையாக மாற அனுமதிக்க வேண்டாம் — மொழியில் மாணவர் உள்ளீட்டை உண்மையிலேயே இணைக்கவும்.</span></li><li><span data-en>Avoid an agreement so long it becomes unmemorable — narrow it to the truly essential shared expectations.</span><span data-ta>நினைவில் வைத்திருக்க முடியாத அளவிற்கு நீண்ட ஒப்பந்தத்தை தவிர்க்கவும் — உண்மையிலேயே அத்தியாவசியமான பகிரப்பட்ட எதிர்பார்ப்புகளுக்கு அதை குறுக்குங்கள்.</span></li><li><span data-en>If the class outgrows or ignores parts of the original agreement, revisit and revise it together rather than letting it become a forgotten poster on the wall.</span><span data-ta>வகுப்பு அசல் ஒப்பந்தத்தின் பகுதிகளை மீறினால் அல்லது புறக்கணித்தால், அது சுவரில் மறக்கப்பட்ட சுவரொட்டியாக மாற அனுமதிப்பதற்கு பதிலாக ஒன்றாக அதை மறுபரிசீலனை செய்து திருத்துங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Staying Consistent Under Pressure</span><span data-ta>அழுத்தத்தின் கீழ் நிலைத்தன்மையுடன் இருத்தல்</span></h2>
+          <p class="explain"><span data-en>Positive Discipline is easiest to apply on a calm day with a cooperative class — the real test is staying kind and firm during a stressful week, a difficult class period, or a personally exhausting day. Consistency under pressure is what actually builds long-term trust and behaviour change; occasional application does not.</span><span data-ta>ஒத்துழைக்கும் வகுப்புடன் ஒரு அமைதியான நாளில் நேர்மறை ஒழுக்கத்தை பயன்படுத்துவது எளிதானது — உண்மையான சோதனை ஒரு மன அழுத்த வாரத்தில், ஒரு கடினமான வகுப்பு காலத்தில், அல்லது தனிப்பட்ட முறையில் சோர்வூட்டும் நாளில் கருணையாகவும் உறுதியாகவும் இருப்பதுதான். அழுத்தத்தின் கீழ் நிலைத்தன்மைதான் உண்மையில் நீண்டகால நம்பிக்கையையும் நடத்தை மாற்றத்தையும் உருவாக்குகிறது; எப்போதாவது பயன்படுத்துவது அல்ல.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher who is usually calm and solution-focused has an exceptionally difficult morning — a personal issue at home, a heavy workload, and a noisy class. Recognising her own stress, she takes 20 seconds before entering the classroom to reset her breathing and reminds herself, 'Kind and firm, not fed up,' rather than defaulting to a punitive response she'd regret. The consistency, even under pressure, is what students come to rely on.</span><span data-ta>பொதுவாக அமைதியாகவும் தீர்வு-மையப்படுத்தியவராகவும் இருக்கும் ஒரு ஆசிரியருக்கு விதிவிலக்காக ஒரு கடினமான காலை நேரம் — வீட்டில் ஒரு தனிப்பட்ட பிரச்சனை, அதிக பணிச்சுமை, மற்றும் சத்தமான வகுப்பு. தனது சொந்த மன அழுத்தத்தை அடையாளம் கண்டு, வகுப்பறைக்குள் நுழைவதற்கு முன் 20 வினாடிகள் எடுத்து தனது மூச்சை மீட்டமைத்து, தான் வருந்தும் ஒரு தண்டனை பதிலுக்கு இயல்பாக செல்வதற்கு பதிலாக, 'கருணையும் உறுதியும், சலிப்பு அல்ல' என்று தனக்குள் நினைவூட்டுகிறார். அழுத்தத்தின் கீழும் நிலைத்தன்மைதான் மாணவர்கள் நம்பியிருப்பது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Build a short personal reset ritual (a breath, a phrase, a pause) to use before entering a classroom on a stressful day.</span><span data-ta>ஒரு மன அழுத்த நாளில் வகுப்பறைக்குள் நுழைவதற்கு முன் பயன்படுத்த ஒரு குறுகிய தனிப்பட்ட மீட்டமைப்பு பழக்கத்தை (ஒரு மூச்சு, ஒரு சொற்றொடர், ஒரு நிறுத்தம்) உருவாக்குங்கள்.</span></li><li><span data-en>Recognise your own stress signals early, and plan a brief recovery moment rather than letting stress leak into discipline decisions.</span><span data-ta>உங்கள் சொந்த மன அழுத்த சமிக்ஞைகளை ஆரம்பத்திலேயே அடையாளம் கண்டு, மன அழுத்தம் ஒழுக்க முடிவுகளில் கசிய அனுமதிப்பதற்கு பதிலாக ஒரு சுருக்கமான மீட்பு தருணத்தை திட்டமிடுங்கள்.</span></li><li><span data-en>Lower your expectations of yourself slightly on genuinely hard days — 'good enough and consistent' beats 'perfect some days, harsh on others.'</span><span data-ta>உண்மையிலேயே கடினமான நாட்களில் உங்களைப் பற்றிய எதிர்பார்ப்புகளை சற்று குறைக்கவும் — 'போதுமான மற்றும் நிலையான' என்பது 'சில நாட்களில் முழுமையான, மற்றவற்றில் கடுமையான' என்பதை விட சிறந்தது.</span></li><li><span data-en>Talk to a trusted colleague about difficult days rather than carrying the stress silently into the next lesson.</span><span data-ta>மன அழுத்தத்தை அமைதியாக அடுத்த பாடத்திற்கு கொண்டு செல்வதற்கு பதிலாக, கடினமான நாட்களைப் பற்றி நம்பகமான ஒரு சக ஆசிரியரிடம் பேசுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't let a single hard day become an excuse to abandon the approach entirely — one inconsistent day is recoverable, but a pattern is not.</span><span data-ta>ஒரு கடினமான நாள் அணுகுமுறையை முழுவதுமாக கைவிட ஒரு காரணமாக மாற அனுமதிக்க வேண்டாம் — ஒரு நிலையற்ற நாள் மீட்கக்கூடியது, ஆனால் ஒரு வடிவம் அல்ல.</span></li><li><span data-en>Avoid apologising excessively to students the next day for a stressed moment; a brief, genuine acknowledgment is enough, followed by consistency going forward.</span><span data-ta>ஒரு மன அழுத்த தருணத்திற்காக அடுத்த நாள் மாணவர்களிடம் அதிகமாக மன்னிப்பு கேட்பதை தவிர்க்கவும்; ஒரு சுருக்கமான, உண்மையான ஒப்புக்கொள்ளல் போதுமானது, தொடர்ந்து நிலைத்தன்மை பின்பற்றப்பட வேண்டும்.</span></li><li><span data-en>If external stress is affecting your classroom regularly, address the root stressor (workload, personal support) rather than only managing its classroom symptoms.</span><span data-ta>வெளிப்புற மன அழுத்தம் தொடர்ந்து உங்கள் வகுப்பறையை பாதித்தால், அதன் வகுப்பறை அறிகுறிகளை மட்டும் நிர்வகிப்பதற்கு பதிலாக மூல அழுத்தத்தை (பணிச்சுமை, தனிப்பட்ட ஆதரவு) நிவர்த்தி செய்யுங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>Teacher Self-Care and Avoiding Burnout</span><span data-ta>ஆசிரியர் சுய பராமரிப்பு மற்றும் சோர்வைத் தவிர்த்தல்</span></h2>
+          <p class="explain"><span data-en>A depleted, burnt-out teacher cannot sustain kind-and-firm consistency, no matter how well they understand the theory. Positive Discipline for students depends, in the end, on a teacher who is also caring for their own emotional and physical needs — self-care is not a luxury outside the discipline model, it's a prerequisite for it.</span><span data-ta>ஒரு சோர்ந்துபோன, தீய்ந்துபோன ஆசிரியரால், கோட்பாட்டை எவ்வளவு நன்றாக புரிந்துகொண்டாலும், கருணை-உறுதி நிலைத்தன்மையை நிலைநிறுத்த முடியாது. மாணவர்களுக்கான நேர்மறை ஒழுக்கம், இறுதியில், தனது சொந்த உணர்ச்சி மற்றும் உடல் தேவைகளையும் கவனிக்கும் ஒரு ஆசிரியரை சார்ந்துள்ளது — சுய பராமரிப்பு ஒழுக்க மாதிரிக்கு வெளியே ஒரு ஆடம்பரம் அல்ல, அதற்கான ஒரு முன்நிபந்தனையாகும்.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher notices she has been more irritable and quicker to snap over the past two weeks, coinciding with a period of poor sleep and skipped breaks. Rather than pushing through, she deliberately protects a lunch break for rest, asks a colleague to help cover a duty, and notices her patience with students improve within days — a direct, practical link between her own care and her classroom's climate.</span><span data-ta>மோசமான தூக்கம் மற்றும் தவிர்க்கப்பட்ட ஓய்வுகளுடன் ஒத்துப்போகும் வகையில், கடந்த இரண்டு வாரங்களாக தான் அதிக எரிச்சலடைவதையும் விரைவாக கோபப்படுவதையும் ஒரு ஆசிரியர் கவனிக்கிறார். தள்ளிக்கொண்டு போவதற்கு பதிலாக, அவர் ஓய்விற்காக மதிய உணவு இடைவேளையை வேண்டுமென்றே பாதுகாக்கிறார், ஒரு பணியை கவனிக்க உதவுமாறு ஒரு சக ஆசிரியரிடம் கேட்கிறார், மேலும் சில நாட்களுக்குள் மாணவர்களுடனான தனது பொறுமை மேம்படுவதை கவனிக்கிறார் — தனது சொந்த பராமரிப்பிற்கும் தனது வகுப்பறையின் சூழலுக்கும் இடையேயான ஒரு நேரடி, நடைமுறை தொடர்பு.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Protect at least one real break during the school day, even a short one, rather than working through every free period.</span><span data-ta>ஒவ்வொரு ஓய்வு நேரத்திலும் வேலை செய்வதற்கு பதிலாக, பள்ளி நாளின் போது குறைந்தது ஒரு உண்மையான ஓய்வையாவது, குறுகியதாக இருந்தாலும், பாதுகாக்கவும்.</span></li><li><span data-en>Notice your own early stress signs (irritability, shorter patience, faster escalation) as a signal to prioritise recovery, not push through.</span><span data-ta>மீட்பிற்கு முன்னுரிமை கொடுக்க ஒரு சமிக்ஞையாக உங்கள் சொந்த ஆரம்ப மன அழுத்த அறிகுறிகளை (எரிச்சல், குறுகிய பொறுமை, வேகமான தூண்டல்) கவனியுங்கள், தள்ளிக்கொண்டு போக வேண்டாம்.</span></li><li><span data-en>Build a small support network of colleagues you can talk to honestly about difficult days.</span><span data-ta>கடினமான நாட்களைப் பற்றி நேர்மையாக பேசக்கூடிய சக ஆசிரியர்களின் ஒரு சிறிய ஆதரவு வலையமைப்பை உருவாக்குங்கள்.</span></li><li><span data-en>Remember that your own regulation directly affects your students' regulation — self-care is part of classroom management, not separate from it.</span><span data-ta>உங்கள் சொந்த கட்டுப்பாடு உங்கள் மாணவர்களின் கட்டுப்பாட்டை நேரடியாக பாதிக்கிறது என்பதை நினைவில் கொள்ளுங்கள் — சுய பராமரிப்பு வகுப்பறை மேலாண்மையின் ஒரு பகுதி, அதிலிருந்து தனியானது அல்ல.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't treat exhaustion as something to simply push through indefinitely — it directly undermines the consistency this whole approach depends on.</span><span data-ta>சோர்வை காலவரையின்றி வெறுமனே தள்ளிக்கொண்டு போக வேண்டிய ஒன்றாக நடத்த வேண்டாம் — இந்த முழு அணுகுமுறையும் சார்ந்திருக்கும் நிலைத்தன்மையை இது நேரடியாக குறைமதிப்பிற்கு உட்படுத்துகிறது.</span></li><li><span data-en>Avoid isolating with classroom stress; talking to a colleague or mentor often reveals it's a shared, addressable challenge, not a personal failing.</span><span data-ta>வகுப்பறை மன அழுத்தத்துடன் தனிமைப்படுவதை தவிர்க்கவும்; ஒரு சக ஆசிரியர் அல்லது வழிகாட்டியிடம் பேசுவது இது ஒரு தனிப்பட்ட தோல்வி அல்ல, பகிரப்பட்ட, நிவர்த்தி செய்யக்கூடிய சவால் என்பதை பெரும்பாலும் வெளிப்படுத்துகிறது.</span></li><li><span data-en>If burnout signs persist despite small changes, treat it seriously and seek further support (school leadership, counselling) rather than waiting for it to resolve on its own.</span><span data-ta>சிறிய மாற்றங்கள் இருந்தும் சோர்வு அறிகுறிகள் தொடர்ந்தால், அது தானாக தீருவதற்காக காத்திருப்பதற்கு பதிலாக, அதை தீவிரமாக எடுத்துக்கொண்டு மேலும் ஆதரவை (பள்ளி தலைமை, ஆலோசனை) தேடுங்கள்.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Notice one moment today where stress nearly affected your kind-and-firm consistency — how did you handle it?</span><span data-ta>இன்று மன அழுத்தம் உங்கள் கருணை-உறுதி நிலைத்தன்மையை கிட்டத்தட்ட பாதித்த ஒரு தருணத்தை கவனிக்கவும் — நீங்கள் அதை எப்படி கையாண்டீர்கள்?</span></span></li><li><input type="checkbox"><span><span data-en>Take at least one genuine short break today, protected from work tasks.</span><span data-ta>இன்று பணி பணிகளிலிருந்து பாதுகாக்கப்பட்ட குறைந்தது ஒரு உண்மையான குறுகிய ஓய்வையாவது எடுத்துக்கொள்ளுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Check in with the classroom agreement today — was it referenced or reinforced naturally?</span><span data-ta>இன்று வகுப்பறை ஒப்பந்தத்துடன் சரிபார்க்கவும் — அது இயல்பாக குறிப்பிடப்பட்டதா அல்லது வலுப்படுத்தப்பட்டதா?</span></span></li><li><input type="checkbox"><span><span data-en>Name one early stress signal you noticed in yourself today.</span><span data-ta>இன்று உங்களில் நீங்கள் கவனித்த ஒரு ஆரம்ப மன அழுத்த அறிகுறியை பெயரிடவும்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Review: how consistent was your kind-and-firm approach across the whole week, including hard days?</span><span data-ta>மறுபரிசீலனை செய்யுங்கள்: கடினமான நாட்கள் உட்பட முழு வாரம் முழுவதும் உங்கள் கருணை-உறுதி அணுகுமுறை எவ்வளவு நிலையானதாக இருந்தது?</span></span></li><li><input type="checkbox"><span><span data-en>Reflect on your own energy levels this week — what one change could support your consistency next week?</span><span data-ta>இந்த வாரம் உங்கள் சொந்த ஆற்றல் மட்டங்களை பிரதிபலிக்கவும் — அடுத்த வாரம் உங்கள் நிலைத்தன்மையை ஆதரிக்க என்ன ஒரு மாற்றம் செய்யலாம்?</span></span></li><li><input type="checkbox"><span><span data-en>Revisit the classroom agreement with students if it's been a while, checking it still fits the class.</span><span data-ta>நீண்ட காலமாக இருந்தால் மாணவர்களுடன் வகுப்பறை ஒப்பந்தத்தை மறுபரிசீலனை செய்யுங்கள், அது இன்னும் வகுப்பிற்கு பொருந்துகிறதா என்று சரிபார்க்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Talk to a colleague about one difficult moment this week rather than carrying it alone.</span><span data-ta>தனியாக அதை சுமப்பதற்கு பதிலாக, இந்த வாரத்தின் ஒரு கடினமான தருணத்தைப் பற்றி ஒரு சக ஆசிரியரிடம் பேசுங்கள்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: has the classroom agreement needed any revision this month based on how the class has grown or changed?</span><span data-ta>சிந்தியுங்கள்: வகுப்பு எப்படி வளர்ந்துள்ளது அல்லது மாறியுள்ளது என்பதன் அடிப்படையில் இந்த மாதம் வகுப்பறை ஒப்பந்தத்திற்கு ஏதேனும் திருத்தம் தேவைப்பட்டதா?</span></span></li><li><input type="checkbox"><span><span data-en>Set a personal wellbeing goal for next month (protected breaks, a support conversation, adjusted workload) that supports your classroom consistency.</span><span data-ta>உங்கள் வகுப்பறை நிலைத்தன்மையை ஆதரிக்கும் அடுத்த மாதத்திற்கான ஒரு தனிப்பட்ட நல்வாழ்வு இலக்கை (பாதுகாக்கப்பட்ட ஓய்வுகள், ஒரு ஆதரவு உரையாடல், சரிசெய்யப்பட்ட பணிச்சுமை) நிர்ணயிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Review your own consistency over the month — identify the situations where pressure most often affected your discipline approach.</span><span data-ta>மாதம் முழுவதும் உங்கள் சொந்த நிலைத்தன்மையை மறுபரிசீலனை செய்யுங்கள் — அழுத்தம் உங்கள் ஒழுக்க அணுகுமுறையை மிகவும் அடிக்கடி பாதித்த சூழ்நிலைகளை அடையாளம் காணவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Celebrate with yourself (and ideally the class) the progress made across all ten modules of this course.</span><span data-ta>இந்த பாடத்தின் அனைத்து பத்து பாடங்கள் முழுவதும் செய்யப்பட்ட முன்னேற்றத்தை உங்களுடன் (மற்றும் இலட்சியமாக வகுப்புடன்) கொண்டாடுங்கள்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-09.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-home" href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home &rarr;</span><span data-ta>பாட முகப்பு &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%2010%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

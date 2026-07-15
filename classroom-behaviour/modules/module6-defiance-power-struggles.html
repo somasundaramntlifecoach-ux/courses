@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6: Handling Defiance & Power Struggles | Classroom Behaviour Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="passGate">
+  <div class="gate-card">
+    <h2 data-en>Enter Passcode</h2>
+    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
+    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
+    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
+    <button id="gateSubmit" data-en>Unlock Module</button>
+    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
+    <div class="gate-error" id="gateError"></div>
+    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
+    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
+  </div>
+</div>
+<div class="progress-bar"></div>
+<div class="topbar">
+  <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button>
+    <button data-lang="ta">தமிழ்</button>
+  </div>
+</div>
+
+<div class="container">
+  <p data-en style="color:var(--muted);">Module 6 of 10</p>
+  <p data-ta class="ta-text" style="color:var(--muted);">பாடம் 6 / 10</p>
+  <h1 data-en>Handling Defiance & Power Struggles</h1>
+  <h1 data-ta class="ta-text">மாறுபாடு மற்றும் அதிகாரப் போராட்டங்களை கையாளுதல்</h1>
+
+  <div class="metaphor-card">
+    <p data-en>🌱 <strong>Think of it this way:</strong> A power struggle is a tug-of-war. The moment you pull harder, the student pulls harder back. The only way to truly win a tug-of-war you don't want to be in is to drop the rope — not surrender the boundary, but stop pulling against it publicly.</p>
+    <p data-ta class="ta-text">🌱 <strong>இப்படி நினையுங்கள்:</strong> அதிகாரப் போராட்டம் ஒரு கயிறு இழுத்தல் விளையாட்டு. நீங்கள் அதிகமாக இழுக்கும் தருணம், மாணவனும் அதிகமாக இழுப்பான். இழுத்தலை நிறுத்துவதே வெல்லும் வழி — எல்லையை விட்டுக் கொடுக்காமல், பொதுவில் இழுவதை நிறுத்துவது.</p>
+  </div>
+
+  <div data-en>
+    <p>Defiance is rarely really about the instruction itself — it's about who holds control in that moment. Engaging publicly ('Do it NOW or else') guarantees a standoff because the student now has an audience to perform for. Effective teachers redirect privately, give limited choices instead of commands, and separate the boundary from the confrontation: state the expectation once, calmly, then disengage and return to teaching, revisiting the issue one-on-one later. The boundary stays firm; the battle for public dominance is refused.</p>
+  </div>
+  <div data-ta class="ta-text">
+    <p>மாறுபாடு உண்மையில் அறிவுரையைப் பற்றியது அல்ல — அந்த தருணத்தில் யார் கட்டுப்பாட்டை வைத்திருக்கிறார்கள் என்பதே. பொதுவில் ஈடுபடுவது ('இப்போதே செய், இல்லையேல்') ஒரு நேருக்கு நேர் மோதலை உறுதி செய்கிறது, ஏனெனில் மாணவனுக்கு இப்போது நடிக்க ஒரு பார்வையாளர் கிடைக்கிறார். திறமையான ஆசிரியர்கள் தனிப்பட்ட முறையில் திசைதிருப்புகிறார்கள், கட்டளைகளுக்குப் பதிலாக வரையறுக்கப்பட்ட தேர்வுகளை வழங்குகிறார்கள், எல்லையை மோதலிலிருந்து பிரிக்கிறார்கள்.</p>
+  </div>
+
+  <details class="deep-dive">
+    <summary><span data-en>Real Classroom Example</span><span data-ta class="ta-text">உண்மையான வகுப்பறை உதாரணம்</span></summary>
+    <div class="example-card">
+      <p data-en>A student refuses to put his phone away, saying 'Make me.' Engaging publicly would spiral into a standoff. Instead the teacher says once, calmly, 'Phone away, please,' continues teaching, and if he complies within a minute, says nothing more. If not, she quietly follows the school's escalation policy — without ever raising her voice or repeating the command in front of the class.</p>
+      <p data-ta class="ta-text">ஒரு மாணவன் தொலைபேசியை வைக்க மறுத்து 'செய்ய முடியுமானால் செய்' என்கிறான். பொதுவில் ஈடுபடுவது நேருக்கு நேர் மோதலாக மாறும். ஆசிரியர் ஒருமுறை அமைதியாக 'தொலைபேசியை வையுங்கள்' என்று சொல்லி, பாடத்தைத் தொடர்கிறார். ஒரு நிமிடத்தில் அவன் இணங்கினால் மேலும் எதுவும் சொல்லவில்லை. இல்லையெனில், குரலை உயர்த்தாமல் அமைதியாக பள்ளியின் நடைமுறையைப் பின்பற்றுகிறார்.</p>
+    </div>
+  </details>
+
+  <details class="deep-dive" open>
+    <summary><span data-en>Practical Tips for Tomorrow</span><span data-ta class="ta-text">நாளைக்கான நடைமுறை குறிப்புகள்</span></summary>
+    <div class="tips-list" data-en><ul><li>State the expectation once, calmly, then disengage — don't repeat it louder.</li><li>Offer limited choices ('now or after the bell') rather than open confrontation.</li><li>Save the real conversation for privately, after the moment has passed.</li></ul></div>
+    <div class="tips-list ta-text" data-ta><ul><li>எதிர்பார்ப்பை ஒருமுறை அமைதியாகச் சொல்லி, பின் விலகுங்கள் — உரக்கச் சொல்ல வேண்டாம்.</li><li>திறந்த மோதலுக்குப் பதிலாக வரையறுக்கப்பட்ட தேர்வுகளை வழங்குங்கள்.</li><li>உண்மையான உரையாடலை தருணம் கடந்த பிறகு தனிப்பட்ட முறையில் வையுங்கள்.</li></ul></div>
+  </details>
+
+  <h2 data-en>Quick Check</h2>
+  <h2 data-ta class="ta-text">விரைவு சரிபார்ப்பு</h2>
+  
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q1.</strong> Engaging with defiance in front of the whole class usually:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 1.</strong> முழு வகுப்புக்கும் முன்பாக மாறுபாட்டுடன் ஈடுபடுவது பொதுவாக:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Resolves it quickly</button><button class='quiz-opt' data-idx='1'>Creates an audience and guarantees a standoff</button><button class='quiz-opt' data-idx='2'>Has no real effect</button><button class='quiz-opt' data-idx='3'>Builds trust instantly</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>விரைவாக தீர்க்கும்</button><button class='quiz-opt ta-text' data-idx='1'>பார்வையாளர்களை உருவாக்கி மோதலை உறுதி செய்யும்</button><button class='quiz-opt ta-text' data-idx='2'>எந்த விளைவும் இல்லை</button><button class='quiz-opt ta-text' data-idx='3'>உடனே நம்பிக்கையை உருவாக்கும்</button></div>
+        </div>
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q2.</strong> 'Dropping the rope' in a power struggle means:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 2.</strong> அதிகாரப் போராட்டத்தில் 'கயிற்றை விடுவது' என்றால்:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Giving up the boundary entirely</button><button class='quiz-opt' data-idx='1'>Refusing to pull publicly while keeping the boundary firm</button><button class='quiz-opt' data-idx='2'>Punishing harder</button><button class='quiz-opt' data-idx='3'>Ignoring the student forever</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>எல்லையை முழுவதுமாக விட்டுவிடுதல்</button><button class='quiz-opt ta-text' data-idx='1'>எல்லையை உறுதியாக வைத்தபடி பொதுவில் இழுக்க மறுத்தல்</button><button class='quiz-opt ta-text' data-idx='2'>கடுமையாக தண்டித்தல்</button><button class='quiz-opt ta-text' data-idx='3'>மாணவனை என்றென்றும் புறக்கணித்தல்</button></div>
+        </div>
+
+  <div class="nav-buttons">
+    <a href="module5-deescalation-in-the-moment.html" class="btn btn-outline" data-en>← Previous</a>
+    <a href="module7-group-dynamics-peer-conflict.html" class="btn btn-primary" data-en>Next Module →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20training" class="whatsapp-cta" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <p>NT Somasundaram · Certified Master Trainer &amp; Life Skills Educator</p>
+  <p>"God is always with u"</p>
+</footer>
+
+<script src="../app.js"></script>
+<script>initQuiz('defiance-power-struggles');</script>
+<script>initGate();</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connection Before Correction | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 3 of 10</span><span data-ta>பாடம் 3 / 10</span></div>
+  <h1><span data-en>Connection Before Correction</span><span data-ta>திருத்தத்திற்கு முன் தொடர்பு</span></h1>
+  <p><span data-en>Students who feel connected to their teacher are dramatically more receptive to correction. This module is about sequencing: build the relationship first, and the correction lands better — sometimes it isn't even needed. Skipping this step and going straight to correction is why so many well-intentioned rules fail to change behaviour.</span><span data-ta>தங்கள் ஆசிரியருடன் தொடர்பு உணரும் மாணவர்கள் திருத்தத்திற்கு மிக அதிகமாக ஏற்புடையவர்களாக இருக்கிறார்கள். இந்த பாடம் வரிசைப்படுத்துவதைப் பற்றியது: முதலில் உறவை உருவாக்குங்கள், திருத்தம் சிறப்பாக இறங்கும் — சில நேரங்களில் அது தேவைப்படவே இல்லை. இந்த படியை தவிர்த்து நேரடியாக திருத்தத்திற்கு செல்வது ஏன் நல்ல எண்ணத்துடன் கூடிய பல விதிகள் நடத்தையை மாற்றத் தவறுகின்றன என்பதற்கான காரணமாகும்.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 3</span><span data-ta>பாடம் 3</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>Why Relationship Comes First</span><span data-ta>உறவு ஏன் முதலிடம் பெறுகிறது</span></h2>
+          <p class="explain"><span data-en>Neuroscience and decades of classroom research agree: a student in a defensive or disconnected emotional state cannot access the part of the brain needed for reflection and learning. Correction delivered without a foundation of trust is heard as an attack, triggering defensiveness rather than reflection. Building connection first calms the nervous system enough for the correction to actually be processed.</span><span data-ta>நரம்பியல் அறிவியலும் பல தசாப்தங்களான வகுப்பறை ஆராய்ச்சியும் ஒப்புக்கொள்கின்றன: பாதுகாப்பு அல்லது துண்டிக்கப்பட்ட உணர்ச்சி நிலையில் இருக்கும் ஒரு மாணவர் சிந்தனைக்கும் கற்றலுக்கும் தேவையான மூளையின் பகுதியை அணுக முடியாது. நம்பிக்கை அடித்தளம் இல்லாமல் வழங்கப்படும் திருத்தம் தாக்குதலாக கேட்கப்படுகிறது, இது பிரதிபலிப்பிற்கு பதிலாக பாதுகாப்பை தூண்டுகிறது. முதலில் தொடர்பை உருவாக்குவது நரம்பு மண்டலத்தை போதுமான அளவு அமைதிப்படுத்தி திருத்தம் உண்மையில் செயலாக்கப்பட உதவுகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher who barely knows a new transfer student scolds him sharply for not following the seating chart on day one. He becomes sullen and disengaged for weeks. Compare this to a teacher who spends 30 seconds welcoming him, learning his name and one interest, before mentioning the seating chart gently — the same correction lands as guidance, not attack, because trust was established first.</span><span data-ta>ஒரு புதிய மாற்றல் மாணவரை அரிதாகவே அறிந்த ஆசிரியர், முதல் நாளில் இருக்கை அட்டவணையை பின்பற்றாததற்காக அவரை கடுமையாக திட்டுகிறார். அவர் வாரங்களுக்கு முகம் சுளித்து ஈடுபடாமல் இருக்கிறார். இருக்கை அட்டவணையை மென்மையாக குறிப்பிடுவதற்கு முன், அவரை வரவேற்று, அவரது பெயரையும் ஒரு ஆர்வத்தையும் அறிந்துகொள்ள 30 வினாடிகள் செலவிடும் ஆசிரியருடன் இதை ஒப்பிடுக — அதே திருத்தம் தாக்குதலாக அல்ல, வழிகாட்டுதலாக இறங்குகிறது, ஏனெனில் நம்பிக்கை முதலில் நிறுவப்பட்டது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>With any new or difficult student, prioritise 2-3 genuine positive interactions before your first correction, wherever possible.</span><span data-ta>எந்த புதிய அல்லது கடினமான மாணவருடனும், முடிந்தவரை உங்கள் முதல் திருத்தத்திற்கு முன் 2-3 உண்மையான நேர்மறை தொடர்புகளுக்கு முன்னுரிமை கொடுங்கள்.</span></li><li><span data-en>Remember names, small details, and interests — students notice when a teacher remembers something personal about them.</span><span data-ta>பெயர்கள், சிறிய விவரங்கள், ஆர்வங்களை நினைவில் வையுங்கள் — ஒரு ஆசிரியர் தங்களைப் பற்றி தனிப்பட்ட ஒன்றை நினைவில் வைக்கும்போது மாணவர்கள் கவனிக்கிறார்கள்.</span></li><li><span data-en>If a relationship is strained, invest extra time reconnecting before addressing the next issue, rather than piling correction on correction.</span><span data-ta>ஒரு உறவு பதற்றமாக இருந்தால், திருத்தத்தின் மேல் திருத்தத்தை குவிப்பதற்கு பதிலாக, அடுத்த பிரச்சனையை நிவர்த்தி செய்வதற்கு முன் மீண்டும் தொடர்பு கொள்ள கூடுதல் நேரம் செலவிடுங்கள்.</span></li><li><span data-en>A simple 'How are you doing today?' asked with real attention can shift a student's entire receptiveness for the class period.</span><span data-ta>உண்மையான கவனத்துடன் கேட்கப்படும் ஒரு எளிய 'இன்று எப்படி இருக்கிறீர்கள்?' ஒரு மாணவரின் வகுப்பு காலத்திற்கான முழு ஏற்புத்தன்மையையும் மாற்ற முடியும்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't assume relationship-building takes too much time — even 30 seconds of genuine attention compounds over a term.</span><span data-ta>உறவை உருவாக்குவது அதிக நேரம் எடுக்கும் என்று நினைக்க வேண்டாம் — 30 வினாடிகள் உண்மையான கவனம் கூட ஒரு காலகட்டத்தில் குவிகிறது.</span></li><li><span data-en>Avoid only interacting with a student when there's a problem to address — that pattern teaches them to associate you only with correction.</span><span data-ta>ஒரு பிரச்சனையை நிவர்த்தி செய்ய வேண்டியிருக்கும்போது மட்டுமே ஒரு மாணவருடன் தொடர்பு கொள்வதை தவிர்க்கவும் — அந்த வடிவம் உங்களை திருத்தத்துடன் மட்டுமே தொடர்புபடுத்த அவர்களுக்கு கற்பிக்கிறது.</span></li><li><span data-en>If a whole class feels disconnected from you, consider whether corrections have been outpacing positive connection recently.</span><span data-ta>ஒரு முழு வகுப்பும் உங்களிடமிருந்து துண்டிக்கப்பட்டதாக உணர்ந்தால், சமீபத்தில் திருத்தங்கள் நேர்மறை தொடர்பை விட அதிகமாக இருந்ததா என்பதை பரிசீலியுங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Quick Connection Rituals for the Classroom</span><span data-ta>வகுப்பறைக்கான விரைவான தொடர்பு பழக்கங்கள்</span></h2>
+          <p class="explain"><span data-en>You don't need extra class time to build connection — small, repeatable rituals woven into the existing school day create consistent belonging without disrupting the lesson plan. The key is consistency: the same small ritual, done reliably, builds more trust than an occasional grand gesture.</span><span data-ta>தொடர்பை உருவாக்க கூடுதல் வகுப்பு நேரம் தேவையில்லை — தற்போதைய பள்ளி நாளில் பின்னப்பட்ட சிறிய, மீண்டும் செய்யக்கூடிய பழக்கங்கள் பாட திட்டத்தை குழப்பாமல் நிலையான சேர்ந்திருத்தலை உருவாக்குகின்றன. முக்கியமானது நிலைத்தன்மை: நம்பகமாக செய்யப்படும் அதே சிறிய பழக்கம், எப்போதாவது நடக்கும் ஒரு பெரிய சைகையை விட அதிக நம்பிக்கையை உருவாக்குகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher greets every student by name at the door each morning with a brief, genuine comment ('Good morning Arjun, how did the match go yesterday?'). This 15-second ritual, repeated daily, means every student feels individually seen before the lesson even starts — and disciplinary issues in that class drop noticeably over the term.</span><span data-ta>ஒரு ஆசிரியர் ஒவ்வொரு காலையிலும் கதவில் ஒவ்வொரு மாணவரையும் பெயர் சொல்லி ஒரு குறுகிய, உண்மையான கருத்துடன் வணங்குகிறார் ('காலை வணக்கம் அர்ஜுன், நேற்று போட்டி எப்படி இருந்தது?'). தினமும் மீண்டும் செய்யப்படும் இந்த 15-வினாடி பழக்கம், பாடம் தொடங்குவதற்கு முன்பே ஒவ்வொரு மாணவரும் தனித்தனியாக கவனிக்கப்படுவதாக உணர்கிறார்கள் என்பதைக் குறிக்கிறது — மேலும் அந்த வகுப்பில் ஒழுக்க பிரச்சனைகள் காலகட்டத்தில் குறிப்பிடத்தக்க அளவில் குறைகின்றன.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Try a doorway greeting ritual — name, eye contact, one personal comment — for every student, every day.</span><span data-ta>ஒவ்வொரு மாணவருக்கும், ஒவ்வொரு நாளும் ஒரு வாசல் வணக்க பழக்கத்தை முயற்சிக்கவும் — பெயர், கண் தொடர்பு, ஒரு தனிப்பட்ட கருத்து.</span></li><li><span data-en>Use a 'two-minute check-in' with your most challenging student once a week, unrelated to academics or discipline.</span><span data-ta>வாரத்திற்கு ஒரு முறை உங்கள் மிகவும் சவாலான மாணவருடன் கல்வி அல்லது ஒழுக்கத்துடன் தொடர்பில்லாத 'இரண்டு நிமிட சரிபார்ப்பை' பயன்படுத்துங்கள்.</span></li><li><span data-en>Consider a weekly 'appreciation moment' where students briefly acknowledge something positive about a classmate.</span><span data-ta>மாணவர்கள் ஒரு வகுப்பு தோழரைப் பற்றி நேர்மறையான ஒன்றை சுருக்கமாக ஒப்புக்கொள்ளும் ஒரு வாராந்திர 'பாராட்டு தருணத்தை' பரிசீலியுங்கள்.</span></li><li><span data-en>Keep a small notebook of personal details (a sibling's name, a hobby, a recent achievement) to reference naturally in conversation.</span><span data-ta>உரையாடலில் இயல்பாக குறிப்பிட தனிப்பட்ட விவரங்களின் (ஒரு உடன்பிறப்பின் பெயர், ஒரு பொழுதுபோக்கு, சமீபத்திய சாதனை) ஒரு சிறிய குறிப்பேட்டை வையுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't let connection rituals become mechanical or rushed — even a brief interaction should feel genuine, not performative.</span><span data-ta>தொடர்பு பழக்கங்கள் இயந்திரத்தனமாகவோ அவசரமாகவோ மாற அனுமதிக்க வேண்டாம் — ஒரு குறுகிய தொடர்பு கூட உண்மையானதாக உணரப்பட வேண்டும், நடிப்பாக அல்ல.</span></li><li><span data-en>Avoid connecting only with easy, high-performing students — the ritual matters most for students who are hardest to reach.</span><span data-ta>எளிதான, உயர் சாதனை மாணவர்களுடன் மட்டும் தொடர்பு கொள்வதை தவிர்க்கவும் — சென்றடைய கடினமான மாணவர்களுக்கே இந்த பழக்கம் மிகவும் முக்கியமானது.</span></li><li><span data-en>If a ritual starts feeling like 'one more task,' scale it down rather than dropping it — consistency at a smaller scale beats an ambitious ritual done rarely.</span><span data-ta>ஒரு பழக்கம் 'இன்னொரு பணி' போல உணரத் தொடங்கினால், அதை கைவிடுவதற்கு பதிலாக அதன் அளவை குறைக்கவும் — சிறிய அளவில் நிலைத்தன்மை அரிதாக செய்யப்படும் ஒரு லட்சிய பழக்கத்தை விட சிறந்தது.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>De-escalating Through Empathy</span><span data-ta>பரிவு மூலம் பதற்றத்தைக் குறைத்தல்</span></h2>
+          <p class="explain"><span data-en>When a student is upset, angry, or defiant, empathy is the fastest de-escalation tool available — faster than logic, rules, or authority. Empathy means naming and validating the emotion ('You seem really frustrated right now') without necessarily agreeing with the behaviour. This calms the nervous system enough that a real conversation becomes possible.</span><span data-ta>ஒரு மாணவர் வருத்தமாக, கோபமாக, அல்லது எதிர்த்து நிற்கும்போது, பரிவு என்பது கிடைக்கக்கூடிய மிக வேகமான பதற்ற-குறைப்பு கருவியாகும் — தர்க்கம், விதிகள் அல்லது அதிகாரத்தை விட வேகமானது. பரிவு என்பது நடத்தையுடன் அவசியம் ஒப்புக்கொள்ளாமல் உணர்ச்சியை பெயரிட்டு ஏற்றுக்கொள்வதாகும் ('நீ இப்போது மிகவும் விரக்தியடைந்திருப்பது போல் தெரிகிறது'). இது ஒரு உண்மையான உரையாடல் சாத்தியமாகும் அளவிற்கு நரம்பு மண்டலத்தை அமைதிப்படுத்துகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A student slams his book down and refuses to work, shouting that the assignment is 'stupid.' A rules-first response ('Don't talk to me like that, pick up your book') often escalates the conflict. An empathy-first response — 'This is clearly really frustrating for you right now' — often causes the student to soften almost immediately, because he feels heard rather than fought.</span><span data-ta>ஒரு மாணவர் தனது புத்தகத்தை தட்டி வேலை செய்ய மறுத்து, பணி 'முட்டாள்தனமானது' என்று கத்துகிறார். ஒரு விதிகள்-முதல் பதில் ('அப்படி என்னிடம் பேசாதே, உன் புத்தகத்தை எடு') பெரும்பாலும் முரண்பாட்டை அதிகரிக்கிறது. ஒரு பரிவு-முதல் பதில் — 'இது இப்போது உனக்கு உண்மையிலேயே மிகவும் விரக்தியாக இருக்கிறது' — பெரும்பாலும் மாணவர் கிட்டத்தட்ட உடனடியாக மென்மையாக மாற காரணமாகிறது, ஏனெனில் அவர் போராடப்படுவதை விட கேட்கப்படுவதாக உணர்கிறார்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>In a tense moment, lead with a feeling-word before any instruction: 'You seem really frustrated / anxious / embarrassed right now.'</span><span data-ta>பதற்றமான தருணத்தில், எந்த வழிமுறைக்கும் முன் ஒரு உணர்வு-வார்த்தையுடன் தொடங்குங்கள்: 'நீ இப்போது மிகவும் விரக்தியாக / பதற்றமாக / சங்கடமாக இருப்பது போல் தெரிகிறது.'</span></li><li><span data-en>Lower your own voice and slow your speech when a student is escalated — your calm is contagious.</span><span data-ta>ஒரு மாணவர் தூண்டப்படும்போது உங்கள் சொந்த குரலை தாழ்த்தி பேச்சை மெதுவாக்குங்கள் — உங்கள் அமைதி தொற்றும் தன்மை கொண்டது.</span></li><li><span data-en>Give the student a few seconds of silence after naming the emotion — resist the urge to immediately follow with a correction.</span><span data-ta>உணர்ச்சியை பெயரிட்ட பிறகு மாணவருக்கு சில வினாடிகள் அமைதியை கொடுங்கள் — உடனடியாக ஒரு திருத்தத்துடன் தொடர வேண்டும் என்ற தூண்டுதலை எதிர்க்கவும்.</span></li><li><span data-en>Save the actual behavioural conversation for after the student has visibly calmed down, not in the heat of the moment.</span><span data-ta>மாணவர் காணக்கூடிய அளவில் அமைதியடைந்த பிறகுதான் உண்மையான நடத்தை உரையாடலை வையுங்கள், தருணத்தின் வெப்பத்தில் அல்ல.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Avoid empathy statements that sound scripted or sarcastic ('Oh, I'm SO sorry you're upset') — tone matters as much as words.</span><span data-ta>எழுதப்பட்டதைப் போலவோ நையாண்டியாகவோ ஒலிக்கும் பரிவு கூற்றுகளை தவிர்க்கவும் ('ஓ, நீ வருத்தமாக இருப்பதற்கு எனக்கு மிகவும் வருந்துகிறேன்') — தொனி வார்த்தைகளைப் போலவே முக்கியமானது.</span></li><li><span data-en>Don't skip straight to problem-solving before the emotion has been acknowledged — logic doesn't land on a dysregulated student.</span><span data-ta>உணர்ச்சி ஒப்புக்கொள்ளப்படுவதற்கு முன் நேரடியாக பிரச்சனை தீர்ப்பதற்கு செல்ல வேண்டாம் — கட்டுப்பாடிழந்த ஒரு மாணவரிடம் தர்க்கம் இறங்காது.</span></li><li><span data-en>If your own patience is running low in the moment, it's fine to say 'let's talk about this in a few minutes' rather than push empathy you don't currently feel.</span><span data-ta>தருணத்தில் உங்கள் சொந்த பொறுமை குறைந்துவிட்டால், நீங்கள் தற்போது உணராத பரிவை தள்ளுவதற்கு பதிலாக 'இதைப் பற்றி சில நிமிடங்களில் பேசுவோம்' என்று சொல்வது நல்லது.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Did you connect with your most challenging student today, even briefly? What did you say?</span><span data-ta>இன்று உங்கள் மிகவும் சவாலான மாணவருடன் தொடர்பு கொண்டீர்களா, சுருக்கமாக ஆனாலும்? நீங்கள் என்ன சொன்னீர்கள்?</span></span></li><li><input type="checkbox"><span><span data-en>Note one moment today where you led with empathy before correction.</span><span data-ta>திருத்தத்திற்கு முன் பரிவுடன் தொடங்கிய இன்றைய ஒரு தருணத்தை குறிப்பிடவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Try the doorway greeting ritual today — name, eye contact, one comment — for every student.</span><span data-ta>இன்று ஒவ்வொரு மாணவருக்கும் வாசல் வணக்க பழக்கத்தை முயற்சிக்கவும் — பெயர், கண் தொடர்பு, ஒரு கருத்து.</span></span></li><li><input type="checkbox"><span><span data-en>Identify one student who seemed disconnected or defensive today — what could reconnect them tomorrow?</span><span data-ta>இன்று துண்டிக்கப்பட்டதாகவோ பாதுகாப்பாகவோ தோன்றிய ஒரு மாணவரை அடையாளம் காணவும் — நாளை அவர்களை எப்படி மீண்டும் இணைக்கலாம்?</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Review: which students did you build the most connection with this week? Which the least?</span><span data-ta>மறுபரிசீலனை செய்யுங்கள்: இந்த வாரம் எந்த மாணவர்களுடன் அதிக தொடர்பை உருவாக்கினீர்கள்? எவருடன் மிகக் குறைவாக?</span></span></li><li><input type="checkbox"><span><span data-en>Plan one new connection ritual to try next week (check-in, appreciation moment, personal note).</span><span data-ta>அடுத்த வாரம் முயற்சிக்க ஒரு புதிய தொடர்பு பழக்கத்தை திட்டமிடுங்கள் (சரிபார்ப்பு, பாராட்டு தருணம், தனிப்பட்ட குறிப்பு).</span></span></li><li><input type="checkbox"><span><span data-en>Recall one de-escalation moment this week — what worked, and what would you do differently?</span><span data-ta>இந்த வாரத்தின் ஒரு பதற்ற-குறைப்பு தருணத்தை நினைவுகூருங்கள் — என்ன வேலை செய்தது, என்ன வித்தியாசமாக செய்வீர்கள்?</span></span></li><li><input type="checkbox"><span><span data-en>Identify a student relationship that needs active repair, and plan a specific first step.</span><span data-ta>செயலில் சரிசெய்தல் தேவைப்படும் ஒரு மாணவர் உறவை அடையாளம் கண்டு, ஒரு குறிப்பிட்ட முதல் படியை திட்டமிடுங்கள்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: has your overall classroom atmosphere felt more connected this month?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் உங்கள் ஒட்டுமொத்த வகுப்பறை சூழல் அதிக தொடர்புடையதாக உணரப்பட்டதா?</span></span></li><li><input type="checkbox"><span><span data-en>Set a specific relationship goal for the toughest student in your class next month.</span><span data-ta>அடுத்த மாதம் உங்கள் வகுப்பில் மிகவும் கடினமான மாணவருக்கு ஒரு குறிப்பிட்ட உறவு இலக்கை நிர்ணயிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Ask a colleague to help you notice which students you interact with least, and commit to closing that gap.</span><span data-ta>நீங்கள் எந்த மாணவர்களுடன் மிகக் குறைவாக தொடர்பு கொள்கிறீர்கள் என்பதை கவனிக்க ஒரு சக ஆசிரியரிடம் உதவி கேட்டு, அந்த இடைவெளியை மூட உறுதிபடுத்திக் கொள்ளுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Review your empathy-based de-escalations from the month — track which phrases worked best for you.</span><span data-ta>மாதத்தின் பரிவு அடிப்படையிலான பதற்ற-குறைப்புகளை மறுபரிசீலனை செய்யுங்கள் — உங்களுக்கு எந்த சொற்றொடர்கள் சிறப்பாக வேலை செய்தன என்பதை கண்காணிக்கவும்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-02.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-next" href="module-04.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%203%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

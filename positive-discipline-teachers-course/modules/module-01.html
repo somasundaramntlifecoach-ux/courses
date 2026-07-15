@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Foundations of Positive Discipline | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 1 of 10</span><span data-ta>பாடம் 1 / 10</span></div>
+  <h1><span data-en>Foundations of Positive Discipline</span><span data-ta>நேர்மறை ஒழுக்கத்தின் அடிப்படைகள்</span></h1>
+  <p><span data-en>Before any technique or worksheet works in your classroom, it has to rest on a clear foundation: why students misbehave, and what discipline is actually for. This module builds that foundation using Alfred Adler's core insight — every child is driven by a need to belong and to feel significant. Once you see behaviour through this lens, classroom management stops feeling like crowd control and starts feeling like relationship-building.</span><span data-ta>எந்த ஒரு உத்தியும் பயிற்சித்தாளும் உங்கள் வகுப்பறையில் வேலை செய்ய வேண்டுமெனில், அது ஒரு தெளிவான அடிப்படையின் மீது சார்ந்திருக்க வேண்டும்: மாணவர்கள் ஏன் தவறாக நடந்துகொள்கிறார்கள், மற்றும் ஒழுக்கம் உண்மையில் எதற்காக. ஆல்ஃபிரட் அட்லரின் முக்கிய கண்டுபிடிப்பைப் பயன்படுத்தி இந்த அடிப்படையை இந்த பாடம் உருவாக்குகிறது — ஒவ்வொரு குழந்தையும் சேர்ந்திருக்க வேண்டும் மற்றும் முக்கியத்துவம் வாய்ந்தவராக உணர வேண்டும் என்ற தேவையால் இயக்கப்படுகிறது. இந்த பார்வையில் நடத்தையை நீங்கள் பார்க்கும்போது, வகுப்பறை மேலாண்மை கூட்டக் கட்டுப்பாடாக இல்லாமல் உறவை வளர்ப்பதாக மாறுகிறது.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 1</span><span data-ta>பாடம் 1</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>Adlerian Roots: Belonging and Significance</span><span data-ta>அட்லேரியன் அடிப்படைகள்: சேர்ந்திருத்தல் மற்றும் முக்கியத்துவம்</span></h2>
+          <p class="explain"><span data-en>Positive Discipline is built on Alfred Adler's idea that every human being — child or adult — has two core psychological needs: to belong (to feel connected and accepted) and to feel significant (to feel capable and valued). When a student misbehaves, it is almost never random. It is usually a mistaken attempt to meet one of these two needs through a strategy that doesn't actually work — like disrupting class to get attention, or refusing to participate to avoid feeling incapable.</span><span data-ta>நேர்மறை ஒழுக்கம் ஆல்ஃபிரட் அட்லரின் கருத்தின் அடிப்படையில் அமைந்துள்ளது — குழந்தையோ பெரியவரோ ஒவ்வொரு மனிதருக்கும் இரண்டு அடிப்படை உளவியல் தேவைகள் உள்ளன: சேர்ந்திருத்தல் (இணைந்திருக்கிறோம், ஏற்றுக்கொள்ளப்படுகிறோம் என்ற உணர்வு) மற்றும் முக்கியத்துவம் (திறமையும் மதிப்பும் உள்ளவராக உணர்தல்). ஒரு மாணவர் தவறாக நடந்துகொள்ளும்போது, அது ஏறக்குறைய ஒருபோதும் தற்செயலானது அல்ல. அது பொதுவாக இந்த இரண்டு தேவைகளில் ஒன்றை, உண்மையில் வேலை செய்யாத ஒரு உத்தியின் மூலம் பூர்த்தி செய்யும் தவறான முயற்சியாகும் — கவனம் பெற வகுப்பை குழப்புவது போன்றோ, திறமையற்றவராக உணராமல் இருக்க பங்கேற்க மறுப்பது போன்றோ.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>Meena, a Class 7 student, constantly cracks jokes and talks out of turn. A punitive teacher sees this as 'disruptive behaviour' and sends her out. A teacher trained in Adlerian thinking recognises that Meena is likely seeking belonging and significance through humour because she doesn't feel she can get attention through academic performance. Addressing the root need — giving her a legitimate way to feel seen, like a classroom role — changes the pattern far more effectively than repeated punishment.</span><span data-ta>7-ஆம் வகுப்பு மாணவியான மீனா தொடர்ந்து நகைச்சுவை பேசி, முறை தவறி பேசுகிறாள். தண்டனை மனப்பான்மை கொண்ட ஆசிரியர் இதை 'குழப்பமான நடத்தை' என்று கருதி அவளை வெளியே அனுப்புவார். அட்லேரியன் சிந்தனையில் பயிற்சி பெற்ற ஆசிரியர், மீனா கல்வி சாதனை மூலம் கவனம் பெற முடியாது என்று உணருவதால் நகைச்சுவை மூலம் சேர்ந்திருத்தலையும் முக்கியத்துவத்தையும் தேடுகிறாள் என்பதை அடையாளம் காண்பார். மூல தேவையை நிவர்த்தி செய்வது — வகுப்பறை பொறுப்பு போன்ற ஒரு நேர்மையான வழியில் அவள் கவனிக்கப்படுவதாக உணரச் செய்வது — தொடர்ச்சியான தண்டனையை விட மிகவும் திறம்பட முறையை மாற்றுகிறது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Before reacting to a behaviour, silently ask yourself: 'What need is this student trying to meet right now?'</span><span data-ta>ஒரு நடத்தைக்கு எதிர்வினையாற்றும் முன், அமைதியாக உங்களைக் கேளுங்கள்: 'இந்த மாணவர் இப்போது என்ன தேவையை பூர்த்தி செய்ய முயற்சிக்கிறார்?'</span></li><li><span data-en>Create structured, positive ways for every student to feel seen daily — a greeting, a specific task, a moment of eye contact.</span><span data-ta>ஒவ்வொரு மாணவரும் தினமும் கவனிக்கப்படுவதாக உணர கட்டமைக்கப்பட்ட, நேர்மறையான வழிகளை உருவாக்குங்கள் — ஒரு வணக்கம், ஒரு குறிப்பிட்ட பணி, ஒரு கண் தொடர்பு தருணம்.</span></li><li><span data-en>Notice which students rarely get positive attention from you, and make a deliberate effort to connect with them first, before any problem arises.</span><span data-ta>உங்களிடமிருந்து அரிதாக நேர்மறையான கவனம் பெறும் மாணவர்கள் யார் என்பதைக் கவனியுங்கள், பிரச்சனை எழுவதற்கு முன்பே அவர்களுடன் தொடர்பு கொள்ள வேண்டுமென்றே முயற்சி செய்யுங்கள்.</span></li><li><span data-en>Remember that a student who feels like they belong rarely needs to misbehave to prove it.</span><span data-ta>தான் சேர்ந்திருக்கிறேன் என்று உணரும் ஒரு மாணவர், அதை நிரூபிக்க தவறாக நடந்துகொள்ள வேண்டிய அவசியம் இல்லை என்பதை நினைவில் கொள்ளுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Avoid labelling a student as 'attention-seeking' as if that were a character flaw — reframe it as an unmet need you can address.</span><span data-ta>ஒரு மாணவரை 'கவனம் தேடுபவர்' என்று ஒரு குணக்குறைபாடு போல முத்திரை குத்துவதை தவிர்க்கவும் — அதை நீங்கள் நிவர்த்தி செய்யக்கூடிய பூர்த்தியாகாத தேவையாக மறுவடிவமைக்கவும்.</span></li><li><span data-en>Don't wait for misbehaviour to give attention; proactive connection prevents most disruption before it starts.</span><span data-ta>கவனம் கொடுக்க தவறான நடத்தைக்காக காத்திருக்க வேண்டாம்; முன்கூட்டிய தொடர்பு பெரும்பாலான குழப்பங்களை அவை தொடங்குவதற்கு முன்பே தடுக்கிறது.</span></li><li><span data-en>Track (mentally or in a notebook) which students you interact with least during the week — they are often the ones who need it most.</span><span data-ta>வாரத்தில் எந்த மாணவர்களுடன் நீங்கள் மிகவும் குறைவாக தொடர்பு கொள்கிறீர்கள் என்பதை (மனதளவில் அல்லது குறிப்பேட்டில்) கண்காணிக்கவும் — அவர்களுக்கே பெரும்பாலும் அது மிகவும் தேவைப்படும்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Long-Term vs Short-Term Discipline Goals</span><span data-ta>நீண்டகால Vs குறுகியகால ஒழுக்க இலக்குகள்</span></h2>
+          <p class="explain"><span data-en>Every disciplinary choice you make either builds a skill for the future or just stops a behaviour for the moment. Short-term discipline (like shouting, threats, or detention) can suppress a behaviour quickly, but it teaches compliance out of fear, not internal responsibility. Positive Discipline asks you to always weigh a response against the question: 'What will this student have learned about themselves and about handling conflict, six months from now?'</span><span data-ta>நீங்கள் எடுக்கும் ஒவ்வொரு ஒழுக்க தேர்வும் எதிர்காலத்திற்கான ஒரு திறனை வளர்க்கிறது அல்லது தற்போதைக்கு ஒரு நடத்தையை மட்டும் நிறுத்துகிறது. குறுகியகால ஒழுக்கம் (கத்துதல், மிரட்டல், அல்லது தடுப்புக் காவல் போன்றவை) ஒரு நடத்தையை விரைவாக அடக்கக்கூடும், ஆனால் அது உள்ளார்ந்த பொறுப்புணர்ச்சியை அல்ல, பயத்தால் கீழ்ப்படிதலைக் கற்பிக்கிறது. நேர்மறை ஒழுக்கம் ஒரு எதிர்வினையை எப்போதும் இந்த கேள்வியுடன் நிறுத்திப் பார்க்கும்படி கேட்கிறது: 'ஆறு மாதங்களுக்குப் பிறகு, இந்த மாணவர் தன்னைப் பற்றியும் முரண்பாட்டைக் கையாள்வது பற்றியும் என்ன கற்றுக்கொண்டிருப்பார்?'</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A student throws a paper ball across the room. The short-term-focused response is to shout and confiscate his notebook for the day — the behaviour stops, but he learns nothing except to avoid getting caught. The long-term-focused response is a calm, private conversation: 'That distracted the class. What were you trying to do, and how can you get that need met without disrupting others?' This takes more time but builds self-awareness that reduces repeat behaviour.</span><span data-ta>ஒரு மாணவர் அறை முழுவதும் காகிதப் பந்தை வீசுகிறார். குறுகியகால கவனம் கொண்ட பதில் கத்தி அன்றைக்கு அவருடைய குறிப்பேட்டை பறிமுதல் செய்வதாகும் — நடத்தை நிற்கிறது, ஆனால் பிடிபடாமல் இருப்பதைத் தவிர அவர் எதுவும் கற்றுக்கொள்ளவில்லை. நீண்டகால கவனம் கொண்ட பதில் ஒரு அமைதியான, தனிப்பட்ட உரையாடல்: 'அது வகுப்பை கவனச்சிதறச் செய்தது. நீங்கள் என்ன செய்ய முயற்சித்தீர்கள், மற்றவர்களை தொந்தரவு செய்யாமல் அந்த தேவையை எப்படி பூர்த்தி செய்யலாம்?' இது அதிக நேரம் எடுக்கும், ஆனால் மீண்டும் மீண்டும் நடக்கும் நடத்தையை குறைக்கும் சுய-விழிப்புணர்வை உருவாக்குகிறது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Before responding to misbehaviour, pause for 3 seconds and ask: 'Quick fix, or real learning?'</span><span data-ta>தவறான நடத்தைக்கு பதிலளிக்கும் முன், 3 வினாடிகள் நிறுத்தி கேளுங்கள்: 'விரைவான தீர்வா, உண்மையான கற்றலா?'</span></li><li><span data-en>Favour responses that require the student to think and choose, rather than ones that simply stop the behaviour through fear.</span><span data-ta>பயத்தால் நடத்தையை மட்டும் நிறுத்தும் பதில்களை விட, மாணவர் சிந்தித்து தேர்வு செய்ய வேண்டிய பதில்களுக்கு முன்னுரிமை கொடுங்கள்.</span></li><li><span data-en>Accept that long-term discipline is often slower to show results — don't abandon it just because a short-term method 'worked' faster once.</span><span data-ta>நீண்டகால ஒழுக்கம் பெரும்பாலும் முடிவுகளை காட்ட மெதுவாக இருக்கும் என்பதை ஏற்றுக்கொள்ளுங்கள் — ஒரு குறுகியகால முறை ஒரு முறை வேகமாக 'வேலை செய்தது' என்பதற்காக அதை கைவிடாதீர்கள்.</span></li><li><span data-en>Keep a mental (or written) log of repeat offenders — if the same short-term fix keeps being needed, it's a sign it isn't actually teaching anything.</span><span data-ta>மீண்டும் மீண்டும் தவறு செய்பவர்களின் ஒரு மனதளவு (அல்லது எழுதப்பட்ட) பதிவை வையுங்கள் — அதே குறுகியகால தீர்வு தொடர்ந்து தேவைப்பட்டால், அது உண்மையில் எதையும் கற்பிக்கவில்லை என்பதற்கான அறிகுறியாகும்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Watch for the trap of choosing whatever stops the noise fastest, especially on a tiring day — it compounds problems over the term.</span><span data-ta>குறிப்பாக ஒரு சோர்வான நாளில், சத்தத்தை வேகமாக நிறுத்தும் எதையும் தேர்வு செய்யும் பொறியை கவனியுங்கள் — இது காலகட்டத்தில் பிரச்சனைகளை அதிகரிக்கிறது.</span></li><li><span data-en>Don't confuse a quiet classroom with a well-disciplined one; quiet can also mean fearful or disengaged.</span><span data-ta>அமைதியான வகுப்பறையை நல்ல ஒழுக்கமுள்ள வகுப்பறையாக தவறாக நினைக்க வேண்டாம்; அமைதி என்பது பயம் அல்லது ஈடுபாடின்மையையும் குறிக்கலாம்.</span></li><li><span data-en>Involve parents in long-term goals occasionally, so home and school reinforce the same life skill rather than just the same punishment.</span><span data-ta>வீடும் பள்ளியும் ஒரே தண்டனையை அல்லாமல் ஒரே வாழ்க்கை திறனை வலுப்படுத்தும் வகையில், எப்போதாவது நீண்டகால இலக்குகளில் பெற்றோர்களை ஈடுபடுத்துங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>The Four Discipline Styles: Permissive, Punitive, Neglectful, Positive</span><span data-ta>நான்கு ஒழுக்க பாணிகள்: அனுமதி, தண்டனை, அலட்சியம், நேர்மறை</span></h2>
+          <p class="explain"><span data-en>Most classroom discipline falls into one of four styles. Permissive: high warmth, low structure — students feel liked but have no real boundaries. Punitive: high structure, low warmth — control through fear and punishment. Neglectful: low warmth, low structure — the teacher disengages entirely. Positive: high warmth AND high structure — kind and firm together. Only the fourth style consistently produces students who are both respectful and self-directed.</span><span data-ta>பெரும்பாலான வகுப்பறை ஒழுக்கம் நான்கு பாணிகளில் ஒன்றில் அமைகிறது. அனுமதி: அதிக அன்பு, குறைந்த கட்டமைப்பு — மாணவர்கள் விரும்பப்படுகிறோம் என்று உணர்கிறார்கள் ஆனால் உண்மையான எல்லைகள் இல்லை. தண்டனை: அதிக கட்டமைப்பு, குறைந்த அன்பு — பயமும் தண்டனையும் மூலம் கட்டுப்பாடு. அலட்சியம்: குறைந்த அன்பு, குறைந்த கட்டமைப்பு — ஆசிரியர் முழுவதுமாக ஈடுபடாமல் இருக்கிறார். நேர்மறை: அதிக அன்பும் அதிக கட்டமைப்பும் — கருணையும் உறுதியும் ஒன்றாக. நான்காவது பாணி மட்டுமே மரியாதையும் சுய-வழிநடத்தலும் கொண்ட மாணவர்களை நிலையாக உருவாக்குகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>Three teachers in the same school handle a talking-during-lessons problem differently. Teacher A (permissive) laughs it off and lets it continue. Teacher B (punitive) gives detentions and raises her voice. Teacher C (positive) calmly restates the expectation, invites the class to agree on a signal for quiet, and follows through kindly but firmly when needed. Over a term, Teacher C's class shows the most consistent self-regulation — not because of fear, but because expectations were clear and respect was mutual.</span><span data-ta>ஒரே பள்ளியில் மூன்று ஆசிரியர்கள் பாடம் நடக்கும்போது பேசும் பிரச்சனையை வித்தியாசமாக கையாள்கிறார்கள். ஆசிரியர் A (அனுமதி) அதை சிரித்துத் தள்ளி தொடர அனுமதிக்கிறார். ஆசிரியர் B (தண்டனை) தடுப்புக்காவல் கொடுத்து குரலை உயர்த்துகிறார். ஆசிரியர் C (நேர்மறை) அமைதியாக எதிர்பார்ப்பை மீண்டும் கூறி, அமைதிக்கான ஒரு சமிக்ஞையை ஒப்புக்கொள்ள வகுப்பை அழைத்து, தேவைப்படும்போது கருணையுடன் ஆனால் உறுதியுடன் தொடர்கிறார். ஒரு காலகட்டத்தில், ஆசிரியர் C இன் வகுப்பு மிகவும் நிலையான சுய-கட்டுப்பாட்டை காட்டுகிறது — பயத்தால் அல்ல, ஆனால் எதிர்பார்ப்புகள் தெளிவாகவும் மரியாதை பரஸ்பரமாகவும் இருந்ததால்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Honestly identify which style you default to when you are tired or stressed — most teachers drift toward punitive or permissive under pressure.</span><span data-ta>நீங்கள் சோர்வாகவோ மன அழுத்தத்திலோ இருக்கும்போது எந்த பாணியை நீங்கள் இயல்பாக பின்பற்றுகிறீர்கள் என்பதை நேர்மையாக அடையாளம் காணுங்கள் — பெரும்பாலான ஆசிரியர்கள் அழுத்தத்தின் கீழ் தண்டனை அல்லது அனுமதி நோக்கி நகர்கிறார்கள்.</span></li><li><span data-en>Practice pairing warmth and structure in the same sentence: 'I care about you, AND this is the expectation.'</span><span data-ta>அன்பையும் கட்டமைப்பையும் ஒரே வாக்கியத்தில் இணைக்கும் பயிற்சி செய்யுங்கள்: 'நான் உன்னைப் பற்றி கவலைப்படுகிறேன், மேலும் இதுவே எதிர்பார்ப்பு.'</span></li><li><span data-en>Watch senior colleagues who manage classrooms calmly and firmly — notice their tone, timing, and body language.</span><span data-ta>அமைதியாகவும் உறுதியாகவும் வகுப்பறைகளை நிர்வகிக்கும் மூத்த சக ஆசிரியர்களை கவனியுங்கள் — அவர்களின் தொனி, நேரம் மற்றும் உடல் மொழியை கவனியுங்கள்.</span></li><li><span data-en>Use the phrase 'kind and firm' as a personal check before responding to any classroom issue.</span><span data-ta>எந்த வகுப்பறை பிரச்சனைக்கும் பதிலளிக்கும் முன் 'கருணையும் உறுதியும்' என்ற சொற்றொடரை தனிப்பட்ட சரிபார்ப்பாக பயன்படுத்துங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>If you notice you're becoming permissive with a 'favourite' section or punitive with a 'difficult' one, address that bias directly.</span><span data-ta>நீங்கள் ஒரு 'விருப்பமான' பிரிவில் அனுமதியாகவும், 'கடினமான' பிரிவில் தண்டனையாகவும் மாறுவதை கவனித்தால், அந்த சார்பை நேரடியாக நிவர்த்தி செய்யுங்கள்.</span></li><li><span data-en>Don't mistake being liked (permissive) for being respected (positive) — they feel similar in the short term but diverge over the year.</span><span data-ta>விரும்பப்படுவதை (அனுமதி) மரியாதை பெறுவதாக (நேர்மறை) தவறாக நினைக்க வேண்டாம் — அவை குறுகிய காலத்தில் ஒரே மாதிரி உணரப்படும் ஆனால் ஆண்டு முழுவதும் வேறுபடும்.</span></li><li><span data-en>Build in a personal recovery routine (a short breath, a pause before responding) so stress doesn't push you toward neglectful or punitive reactions.</span><span data-ta>மன அழுத்தம் உங்களை அலட்சியம் அல்லது தண்டனை எதிர்வினைகள் நோக்கி தள்ளாதவாறு ஒரு தனிப்பட்ட மீட்பு வழக்கத்தை (ஒரு குறுகிய மூச்சு, பதிலளிக்கும் முன் ஒரு நிறுத்தம்) உருவாக்குங்கள்.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Name one moment today where a student's behaviour might have been about belonging or significance.</span><span data-ta>இன்று ஒரு மாணவரின் நடத்தை சேர்ந்திருத்தல் அல்லது முக்கியத்துவம் பற்றியதாக இருந்திருக்கக்கூடிய ஒரு தருணத்தை குறிப்பிடவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Note one response you gave today: was it quick-fix or long-term learning?</span><span data-ta>இன்று நீங்கள் கொடுத்த ஒரு பதிலை குறிப்பிடவும்: அது விரைவான தீர்வா அல்லது நீண்டகால கற்றலா?</span></span></li><li><input type="checkbox"><span><span data-en>Rate your own discipline style today: Permissive / Punitive / Neglectful / Positive.</span><span data-ta>இன்று உங்கள் சொந்த ஒழுக்க பாணியை மதிப்பிடுங்கள்: அனுமதி / தண்டனை / அலட்சியம் / நேர்மறை.</span></span></li><li><input type="checkbox"><span><span data-en>Identify one student you connected with today who doesn't usually get much attention from you.</span><span data-ta>வழக்கமாக உங்களிடமிருந்து அதிக கவனம் பெறாத, ஆனால் இன்று நீங்கள் தொடர்பு கொண்ட ஒரு மாணவரை அடையாளம் காணவும்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>List 3 students who needed the most correction this week — what unmet need might be common to each?</span><span data-ta>இந்த வாரம் அதிக திருத்தம் தேவைப்பட்ட 3 மாணவர்களை பட்டியலிடுங்கள் — ஒவ்வொருவருக்கும் பொதுவான பூர்த்தியாகாத தேவை என்ன?</span></span></li><li><input type="checkbox"><span><span data-en>Review: which discipline style did you lean toward most this week, and in which class period?</span><span data-ta>மறுபரிசீலனை செய்யுங்கள்: இந்த வாரம் நீங்கள் எந்த ஒழுக்க பாணியை அதிகம் பின்பற்றினீர்கள், எந்த வகுப்பு நேரத்தில்?</span></span></li><li><input type="checkbox"><span><span data-en>Plan one proactive connection ritual to try with your most challenging class next week.</span><span data-ta>அடுத்த வாரம் உங்கள் மிகவும் சவாலான வகுப்புடன் முயற்சிக்க ஒரு முன்கூட்டிய தொடர்பு வழக்கத்தை திட்டமிடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Identify one short-term fix you relied on this week that you want to replace with a longer-term approach.</span><span data-ta>இந்த வாரம் நீங்கள் நம்பியிருந்த ஒரு குறுகியகால தீர்வை அடையாளம் கண்டு, அதை நீண்டகால அணுகுமுறையுடன் மாற்ற திட்டமிடுங்கள்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: has your classroom's overall tone shifted toward more warmth, more structure, both, or neither this month?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் உங்கள் வகுப்பறையின் ஒட்டுமொத்த தொனி அதிக அன்பு, அதிக கட்டமைப்பு, இரண்டும், அல்லது எதுவுமின்றி மாறியதா?</span></span></li><li><input type="checkbox"><span><span data-en>Set one specific, measurable goal for next month (e.g. 'greet every student individually each morning').</span><span data-ta>அடுத்த மாதத்திற்கு ஒரு குறிப்பிட்ட, அளவிடக்கூடிய இலக்கை நிர்ணயிக்கவும் (எ.கா. 'ஒவ்வொரு காலையிலும் ஒவ்வொரு மாணவரையும் தனித்தனியாக வணக்கம் சொல்வது').</span></span></li><li><input type="checkbox"><span><span data-en>Ask a trusted colleague to observe one lesson and give feedback on your kind-and-firm balance.</span><span data-ta>நம்பகமான ஒரு சக ஆசிரியரிடம் ஒரு பாடத்தை கவனித்து உங்கள் கருணை-உறுதி சமநிலை பற்றி கருத்து தெரிவிக்குமாறு கேளுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Review your notes on 'unmet needs' from the month — are there patterns across multiple students that point to a classroom-wide gap (e.g. lack of structured attention time)?</span><span data-ta>மாதத்தின் 'பூர்த்தியாகாத தேவைகள்' குறிப்புகளை மறுபரிசீலனை செய்யுங்கள் — பல மாணவர்களில் ஒரு வகுப்பறை அளவிலான குறையை (எ.கா. கட்டமைக்கப்பட்ட கவன நேரம் இல்லாமை) சுட்டிக்காட்டும் வடிவங்கள் உள்ளனவா?</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-home" href="../positive-discipline-teachers-course-outline.html"><span data-en>&larr; Course Home</span><span data-ta>&larr; பாட முகப்பு</span></a><a class="nav-next" href="module-02.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%201%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

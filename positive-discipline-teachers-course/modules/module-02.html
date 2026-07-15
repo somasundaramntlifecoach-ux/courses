@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kind and Firm at the Same Time | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 2 of 10</span><span data-ta>பாடம் 2 / 10</span></div>
+  <h1><span data-en>Kind and Firm at the Same Time</span><span data-ta>கருணையும் உறுதியும் ஒரே நேரத்தில்</span></h1>
+  <p><span data-en>This module tackles the single most common misunderstanding about Positive Discipline: that it means being nice, soft, or permissive. It doesn't. The heart of the method is holding warmth and structure together, at the same time, in the same interaction — not warmth today and firmness tomorrow, but both in every moment.</span><span data-ta>நேர்மறை ஒழுக்கம் பற்றிய மிகவும் பொதுவான தவறான புரிதலை இந்த பாடம் கையாள்கிறது: அது இனிமையாக, மென்மையாக, அல்லது அனுமதியுடன் இருப்பதைக் குறிக்கும் என்பது. அப்படி இல்லை. முறையின் மையம் அன்பையும் கட்டமைப்பையும் ஒரே நேரத்தில், ஒரே தொடர்பில் சேர்த்து வைத்திருப்பதாகும் — இன்று அன்பு, நாளை உறுதி அல்ல, ஆனால் ஒவ்வொரு தருணத்திலும் இரண்டும்.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 2</span><span data-ta>பாடம் 2</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>What "Kind and Firm" Really Means</span><span data-ta>"கருணையும் உறுதியும்" என்பதன் உண்மையான பொருள்</span></h2>
+          <p class="explain"><span data-en>Kind means you respect the student's feelings, dignity, and perspective. Firm means the boundary or expectation does not move. Most teachers unconsciously believe they must choose one or the other in any given moment — but the two are not opposites. 'Kind and firm' means validating the feeling while holding the line: 'I understand you're upset the test was moved up — AND it is still happening tomorrow.'</span><span data-ta>கருணை என்பது மாணவரின் உணர்வுகளையும், கண்ணியத்தையும், பார்வையையும் நீங்கள் மதிப்பதைக் குறிக்கிறது. உறுதி என்பது எல்லை அல்லது எதிர்பார்ப்பு மாறாது என்பதைக் குறிக்கிறது. பெரும்பாலான ஆசிரியர்கள் எந்த ஒரு தருணத்திலும் ஒன்றை மட்டுமே தேர்வு செய்ய வேண்டும் என்று அறியாமலேயே நம்புகிறார்கள் — ஆனால் இவை இரண்டும் எதிரெதிரானவை அல்ல. 'கருணையும் உறுதியும்' என்பது உணர்வை ஏற்றுக்கொண்டே எல்லையை பிடிப்பதாகும்: 'தேர்வு முன்கூட்டியே வந்ததால் நீ வருத்தமாக இருக்கிறாய் என்று எனக்குப் புரிகிறது — ஆனாலும் அது நாளை நடக்கும்.'</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A student argues loudly that an assignment deadline is unfair. An unkind-firm response dismisses the feeling: 'I don't care, hand it in tomorrow.' An unfirm-kind response caves: 'Okay, fine, take two more days.' A kind-and-firm response says: 'I hear that this feels like short notice, and I know you're frustrated. The deadline is tomorrow — let's think about how you'll manage your evening to get it done.'</span><span data-ta>ஒரு மாணவர் ஒரு பணி கெடு நியாயமற்றது என்று சத்தமாக வாதிடுகிறார். கருணையற்ற-உறுதியான பதில் உணர்வை தூக்கி எறிகிறது: 'எனக்கு கவலையில்லை, நாளை கொடு.' உறுதியற்ற-கருணையான பதில் அடிபணிகிறது: 'சரி, இன்னும் இரண்டு நாட்கள் எடுத்துக்கொள்.' கருணையும் உறுதியும் கொண்ட பதில் கூறுகிறது: 'இது குறுகிய அறிவிப்பு போல உணரப்படுகிறது என்பது எனக்குப் புரிகிறது, நீ விரக்தியடைந்திருப்பதும் தெரியும். கெடு நாளை — அதை முடிக்க உன் மாலை நேரத்தை எப்படி நிர்வகிப்பாய் என்று யோசிப்போம்.'</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Practice the sentence structure: 'I understand [feeling] AND [boundary stays].' Avoid 'but', which cancels out the first half.</span><span data-ta>'எனக்கு [உணர்வு] புரிகிறது மேலும் [எல்லை நிலைக்கிறது]' என்ற வாக்கிய அமைப்பை பயிற்சி செய்யுங்கள். முதல் பாதியை ரத்து செய்யும் 'ஆனால்' என்பதை தவிர்க்கவும்.</span></li><li><span data-en>Say the boundary in a calm, even tone — the firmness should come from consistency, not volume.</span><span data-ta>எல்லையை அமைதியான, சமமான தொனியில் சொல்லுங்கள் — உறுதி என்பது ஒலியளவிலிருந்து அல்ல, நிலைத்தன்மையிலிருந்து வர வேண்டும்.</span></li><li><span data-en>If you're not sure whether you're being kind enough or firm enough, ask: would I be comfortable if a colleague heard exactly what I just said?</span><span data-ta>நீங்கள் போதுமான கருணை அல்லது உறுதியுடன் இருக்கிறீர்களா என்று உறுதியாக தெரியவில்லை என்றால், கேளுங்கள்: ஒரு சக ஆசிரியர் நான் இப்போது சொன்னதை சரியாக கேட்டால் நான் வசதியாக இருப்பேனா?</span></li><li><span data-en>Firmness is about follow-through, not about how sternly you speak — a soft voice can still hold a hard boundary.</span><span data-ta>உறுதி என்பது நீங்கள் எவ்வளவு கடுமையாக பேசுகிறீர்கள் என்பதைப் பற்றியது அல்ல, தொடர்ந்து நடத்துவதைப் பற்றியது — ஒரு மென்மையான குரல் இன்னும் ஒரு கடினமான எல்லையை பிடிக்க முடியும்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Watch for sarcasm, which often masquerades as firmness but actually undermines kindness.</span><span data-ta>நையாண்டியை கவனியுங்கள், அது பெரும்பாலும் உறுதியாக நடிக்கும் ஆனால் உண்மையில் கருணையை குறைமதிப்பிற்கு உட்படுத்துகிறது.</span></li><li><span data-en>Watch for over-explaining or apologising for a reasonable boundary — that signals it might move if pushed.</span><span data-ta>ஒரு நியாயமான எல்லைக்கு அதிகமாக விளக்குவது அல்லது மன்னிப்பு கேட்பதை கவனியுங்கள் — அது தள்ளினால் நகரக்கூடும் என்ற சமிக்ஞையை தருகிறது.</span></li><li><span data-en>If you notice you're raising your voice to feel firm, that's usually a sign the boundary itself needs to be clarified in advance, not enforced in the heat of the moment.</span><span data-ta>உறுதியாக உணர குரலை உயர்த்துவதை நீங்கள் கவனித்தால், அது பொதுவாக எல்லையையே முன்கூட்டியே தெளிவுபடுத்த வேண்டும் என்பதற்கான அறிகுறியாகும், தருணத்தின் வெப்பத்தில் அமல்படுத்தக்கூடாது.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Avoiding the Permissive-Punitive Pendulum</span><span data-ta>அனுமதி-தண்டனை ஊசலாட்டத்தை தவிர்த்தல்</span></h2>
+          <p class="explain"><span data-en>Many teachers swing between being too lenient (until they can't take it anymore) and then over-correcting with harshness — then feeling guilty and swinging back to leniency. This pendulum is exhausting for the teacher and confusing for students, who never know which version of the teacher they'll get. Positive Discipline asks you to find and hold a steady middle position instead.</span><span data-ta>பல ஆசிரியர்கள் அதிக மென்மையாக இருப்பதற்கும் (தாங்க முடியாத வரை) பின்னர் கடுமையுடன் அதிகமாக திருத்துவதற்கும் இடையே ஊசலாடுகிறார்கள் — பின்னர் குற்ற உணர்வுடன் மென்மைக்கு திரும்புகிறார்கள். இந்த ஊசலாட்டம் ஆசிரியருக்கு களைப்பூட்டுவதாகவும், மாணவர்களுக்கு குழப்பமூட்டுவதாகவும் இருக்கிறது, அவர்கள் எந்த வகை ஆசிரியரை பெறுவார்கள் என்று ஒருபோதும் அறிய மாட்டார்கள். நேர்மறை ஒழுக்கம் அதற்கு பதிலாக ஒரு நிலையான நடுநிலை நிலைப்பாட்டை கண்டுபிடித்து பிடிக்கும்படி கேட்கிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher lets a noisy class slide for two weeks to 'keep the peace,' then one day snaps and gives the whole class an unusually harsh punishment for a minor incident. Students are confused and resentful, because the same behaviour that was ignored on Monday is punished severely on Friday. A steadier approach — calmly addressing noise the first time it happens, every time — would have prevented the build-up entirely.</span><span data-ta>ஒரு ஆசிரியர் 'அமைதியை பராமரிக்க' இரண்டு வாரங்களுக்கு சத்தமான வகுப்பை அப்படியே விட்டு விடுகிறார், பின்னர் ஒரு நாள் திடீரென ஒரு சிறிய சம்பவத்திற்கு முழு வகுப்பிற்கும் அசாதாரணமான கடுமையான தண்டனையை கொடுக்கிறார். மாணவர்கள் குழம்பி வருத்தமடைகிறார்கள், ஏனெனில் திங்கட்கிழமை புறக்கணிக்கப்பட்ட அதே நடத்தை வெள்ளிக்கிழமை கடுமையாக தண்டிக்கப்படுகிறது. ஒரு நிலையான அணுகுமுறை — சத்தம் முதல் முறை நிகழும்போதே ஒவ்வொரு முறையும் அமைதியாக நிவர்த்தி செய்வது — இந்த குவிப்பை முழுவதுமாக தடுத்திருக்கும்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Set your classroom expectations at a level you can enforce consistently every single day, not just on your best days.</span><span data-ta>உங்கள் சிறந்த நாட்களில் மட்டுமல்லாமல், ஒவ்வொரு நாளும் நிலையாக அமல்படுத்தக்கூடிய அளவில் உங்கள் வகுப்பறை எதிர்பார்ப்புகளை நிர்ணயிக்கவும்.</span></li><li><span data-en>Address small issues early and calmly, rather than letting them accumulate until you're frustrated enough to overreact.</span><span data-ta>நீங்கள் அதிகமாக எதிர்வினையாற்றும் அளவிற்கு விரக்தியடையும் வரை குவிக்க அனுமதிக்காமல், சிறிய பிரச்சனைகளை ஆரம்பத்திலேயே அமைதியாக நிவர்த்தி செய்யுங்கள்.</span></li><li><span data-en>If you notice resentment building in yourself toward a class, that's a signal you've been too permissive recently — address it calmly, not punitively.</span><span data-ta>ஒரு வகுப்பின் மீது உங்களில் வருத்தம் குவிவதை கவனித்தால், அது சமீபத்தில் நீங்கள் அதிகமாக அனுமதியுடன் இருந்தீர்கள் என்பதற்கான சமிக்ஞை — தண்டனையாக அல்லாமல் அமைதியாக அதை நிவர்த்தி செய்யுங்கள்.</span></li><li><span data-en>Use a personal 'reset' phrase you say to yourself before responding when frustrated: e.g., 'Kind and firm, not fed up.'</span><span data-ta>விரக்தியடையும் போது பதிலளிக்கும் முன் உங்களிடம் சொல்லிக்கொள்ளும் ஒரு தனிப்பட்ட 'மீட்டமைப்பு' சொற்றொடரை பயன்படுத்துங்கள்: எ.கா., 'கருணையும் உறுதியும், சலிப்பு அல்ல.'</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't apologise to students for enforcing a fair, previously-stated expectation — that reopens the door to permissiveness.</span><span data-ta>நியாயமான, முன்பே கூறப்பட்ட எதிர்பார்ப்பை அமல்படுத்துவதற்காக மாணவர்களிடம் மன்னிப்பு கேட்க வேண்டாம் — அது அனுமதிக்கான வாசலை மீண்டும் திறக்கிறது.</span></li><li><span data-en>Don't use guilt over a harsh moment to justify swinging back to no boundaries at all the next day.</span><span data-ta>ஒரு கடுமையான தருணத்தின் மீதான குற்ற உணர்வை, அடுத்த நாள் எந்த எல்லையும் இல்லாமல் திரும்பிச் செல்வதை நியாயப்படுத்த பயன்படுத்த வேண்டாம்.</span></li><li><span data-en>If a particular class consistently triggers pendulum swings, examine whether the expectations were made clear and reasonable from day one.</span><span data-ta>ஒரு குறிப்பிட்ட வகுப்பு தொடர்ந்து ஊசலாட்டங்களை தூண்டினால், முதல் நாளிலிருந்தே எதிர்பார்ப்புகள் தெளிவாகவும் நியாயமாகவும் இருந்தனவா என்பதை ஆராயுங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>Setting Boundaries Without Shaming</span><span data-ta>அவமானப்படுத்தாமல் எல்லைகளை நிர்ணயித்தல்</span></h2>
+          <p class="explain"><span data-en>A boundary tells a student what will or won't happen. Shame tells a student what's wrong with them as a person. Positive Discipline requires clear boundaries delivered without any language that attacks identity, worth, or character — the correction targets the behaviour, never the person.</span><span data-ta>ஒரு எல்லை என்ன நடக்கும் அல்லது நடக்காது என்பதை மாணவரிடம் கூறுகிறது. அவமானம் ஒரு நபராக அவர்களிடம் என்ன தவறு என்பதை கூறுகிறது. நேர்மறை ஒழுக்கத்திற்கு அடையாளம், மதிப்பு, அல்லது குணத்தை தாக்கும் எந்த மொழியும் இல்லாமல் தெளிவான எல்லைகள் தேவை — திருத்தம் நடத்தையை குறிவைக்கிறது, நபரை ஒருபோதும் அல்ல.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>Compare: 'You're so lazy, you never finish anything' (shame) versus 'This assignment isn't complete — let's figure out what's getting in the way and make a plan to finish it' (boundary without shame). The second version addresses the same unfinished work but leaves the student's dignity intact and points toward a solution.</span><span data-ta>ஒப்பிடுக: 'நீ மிகவும் சோம்பேறி, நீ ஒருபோதும் எதையும் முடிப்பதில்லை' (அவமானம்) மற்றும் 'இந்த பணி முழுமையடையவில்லை — என்ன தடையாக உள்ளது என்று கண்டுபிடித்து அதை முடிக்க ஒரு திட்டம் தயாரிப்போம்' (அவமானமின்றி எல்லை). இரண்டாவது பதிப்பு அதே முடிக்கப்படாத வேலையை நிவர்த்தி செய்கிறது ஆனால் மாணவரின் கண்ணியத்தை பாதுகாத்து ஒரு தீர்வை நோக்கி சுட்டிக்காட்டுகிறது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Replace 'you are' statements (you're careless, you're disrespectful) with 'this behaviour' statements (this was careless, that comment was disrespectful).</span><span data-ta>'நீ இருக்கிறாய்' கூற்றுகளை (நீ கவனக்குறைவானவன், நீ மரியாதையற்றவன்) 'இந்த நடத்தை' கூற்றுகளுடன் (இது கவனக்குறைவாக இருந்தது, அந்த கருத்து மரியாதையற்றதாக இருந்தது) மாற்றவும்.</span></li><li><span data-en>Never correct a student in front of the whole class in a way that invites peer mockery — pull them aside when possible.</span><span data-ta>சக மாணவர்களின் கேலிக்கு இட்டுச்செல்லும் வகையில் ஒரு மாணவரை முழு வகுப்பின் முன்னிலையிலும் ஒருபோதும் திருத்த வேண்டாம் — முடிந்தால் அவர்களை தனியாக அழைத்துச் செல்லுங்கள்.</span></li><li><span data-en>Check your tone: sarcasm and eye-rolling communicate shame even when your words are neutral.</span><span data-ta>உங்கள் தொனியை சரிபார்க்கவும்: உங்கள் வார்த்தைகள் நடுநிலையாக இருந்தாலும் நையாண்டியும் கண் உருட்டலும் அவமானத்தை தெரிவிக்கின்றன.</span></li><li><span data-en>End every correction with a forward-looking statement: 'Here's what we'll do differently next time,' rather than lingering on the fault.</span><span data-ta>தவறின் மீது தங்காமல், ஒவ்வொரு திருத்தத்தையும் ஒரு முன்னோக்கு கூற்றுடன் முடிக்கவும்: 'அடுத்த முறை நாம் இப்படி வித்தியாசமாக செய்வோம்.'</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Avoid comparing one student to another ('Why can't you be like your sister?') — this is one of the most damaging forms of shame.</span><span data-ta>ஒரு மாணவரை மற்றொருவருடன் ஒப்பிடுவதை தவிர்க்கவும் ('உன் அக்காவைப் போல் நீ ஏன் இருக்க முடியாது?') — இது அவமானத்தின் மிகவும் தீங்கு விளைவிக்கும் வடிவங்களில் ஒன்று.</span></li><li><span data-en>Watch for shaming disguised as humour — a joke at a student's expense in front of peers still lands as shame.</span><span data-ta>நகைச்சுவையாக மறைந்திருக்கும் அவமானத்தை கவனியுங்கள் — சக மாணவர்களின் முன்னிலையில் ஒரு மாணவரின் இழப்பில் ஒரு நகைச்சுவை இன்னும் அவமானமாகவே விழுகிறது.</span></li><li><span data-en>If you notice a student shutting down or becoming defensive after correction, revisit whether the delivery slipped into shame rather than boundary-setting.</span><span data-ta>திருத்தத்திற்குப் பிறகு ஒரு மாணவர் மூடிக்கொள்வதையோ பாதுகாப்பாக மாறுவதையோ கவனித்தால், விநியோகம் எல்லை நிர்ணயத்திற்கு பதிலாக அவமானத்தில் நழுவியதா என்பதை மறுபரிசீலனை செய்யுங்கள்.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Note one moment today you held a boundary while staying warm — what did you say exactly?</span><span data-ta>இன்று அன்பாக இருந்தபடியே ஒரு எல்லையை பிடித்த தருணத்தை குறிப்பிடவும் — நீங்கள் சரியாக என்ன சொன்னீர்கள்?</span></span></li><li><input type="checkbox"><span><span data-en>Rate today on the permissive-firm scale from 1 (too soft) to 5 (too harsh). Where did you land?</span><span data-ta>இன்றை அனுமதி-உறுதி அளவுகோலில் 1 (மிக மென்மையானது) முதல் 5 (மிக கடுமையானது) வரை மதிப்பிடுங்கள். நீங்கள் எங்கே நின்றீர்கள்?</span></span></li><li><input type="checkbox"><span><span data-en>Identify any moment today where correction might have slipped into shame — how could you rephrase it?</span><span data-ta>இன்று திருத்தம் அவமானத்தில் நழுவியிருக்கக்கூடிய ஒரு தருணத்தை அடையாளம் காணவும் — அதை எப்படி மறுவடிவமைக்கலாம்?</span></span></li><li><input type="checkbox"><span><span data-en>Practice the 'I understand X, AND Y' sentence structure at least once today.</span><span data-ta>'எனக்கு X புரிகிறது, மேலும் Y' என்ற வாக்கிய அமைப்பை இன்று குறைந்தது ஒரு முறையாவது பயிற்சி செய்யுங்கள்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Review the week: were there any pendulum swings between permissive and punitive? What triggered them?</span><span data-ta>வாரத்தை மறுபரிசீலனை செய்யுங்கள்: அனுமதிக்கும் தண்டனைக்கும் இடையே ஏதேனும் ஊசலாட்டங்கள் இருந்தனவா? அவற்றை என்ன தூண்டியது?</span></span></li><li><input type="checkbox"><span><span data-en>Pick one recurring classroom issue and write a kind-and-firm script for handling it consistently next week.</span><span data-ta>ஒரு தொடர்ச்சியான வகுப்பறை பிரச்சனையை தேர்ந்தெடுத்து, அடுத்த வாரம் அதை நிலையாக கையாள ஒரு கருணை-உறுதி வரிகளை எழுதுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Ask yourself which class or student brings out the least consistent version of you, and why.</span><span data-ta>எந்த வகுப்பு அல்லது மாணவர் உங்களின் மிகவும் நிலையற்ற பதிப்பை வெளிக்கொணர்கிறார், ஏன் என்று உங்களைக் கேளுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Identify one boundary you have not been enforcing consistently and recommit to it for next week.</span><span data-ta>நீங்கள் நிலையாக அமல்படுத்தாத ஒரு எல்லையை அடையாளம் கண்டு, அடுத்த வாரத்திற்கு அதை மீண்டும் உறுதிபடுத்திக் கொள்ளுங்கள்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: has your classroom tone felt steadier or more unpredictable to students this month?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் உங்கள் வகுப்பறை தொனி மாணவர்களுக்கு நிலையானதாகவோ அல்லது அதிக எதிர்பாராததாகவோ உணரப்பட்டதா?</span></span></li><li><input type="checkbox"><span><span data-en>Set a specific boundary-consistency goal (e.g., 'address late homework the same way every time, no exceptions').</span><span data-ta>ஒரு குறிப்பிட்ட எல்லை-நிலைத்தன்மை இலக்கை நிர்ணயிக்கவும் (எ.கா., 'தாமதமான வீட்டுப்பாடத்தை ஒவ்வொரு முறையும் ஒரே மாதிரி நிவர்த்தி செய்வது, விதிவிலக்குகள் இல்லாமல்').</span></span></li><li><input type="checkbox"><span><span data-en>Ask two students (informally) how fair and predictable they find your classroom rules — listen without defensiveness.</span><span data-ta>இரண்டு மாணவர்களிடம் (முறைசாரா முறையில்) உங்கள் வகுப்பறை விதிகள் எவ்வளவு நியாயமானதாகவும் முன்கூட்டியே அறியக்கூடியதாகவும் அவர்கள் காண்கிறார்கள் என்று கேளுங்கள் — பாதுகாப்பின்றி கேளுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Revisit any moments of shame-based correction from the month and plan a repair conversation if needed.</span><span data-ta>மாதத்தின் அவமான அடிப்படையிலான திருத்த தருணங்களை மறுபரிசீலனை செய்து, தேவைப்பட்டால் ஒரு சரிசெய்யும் உரையாடலை திட்டமிடுங்கள்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-01.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-next" href="module-03.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%202%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

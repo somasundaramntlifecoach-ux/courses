@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 10: Building Long-Term Behavioural Change | Classroom Behaviour Management</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="passGate">
+  <div class="gate-card">
+    <h2 data-en>Enter Passcode</h2>
+    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
+    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
+    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
+    <button id="gateSubmit" data-en>Unlock Module</button>
+    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
+    <div class="gate-error" id="gateError"></div>
+    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
+    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
+  </div>
+</div>
+<div class="progress-bar"></div>
+<div class="topbar">
+  <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <div class="lang-toggle">
+    <button data-lang="en">EN</button>
+    <button data-lang="ta">தமிழ்</button>
+  </div>
+</div>
+
+<div class="container">
+  <p data-en style="color:var(--muted);">Module 10 of 10</p>
+  <p data-ta class="ta-text" style="color:var(--muted);">பாடம் 10 / 10</p>
+  <h1 data-en>Building Long-Term Behavioural Change</h1>
+  <h1 data-ta class="ta-text">நீண்ட கால நடத்தை மாற்றத்தை உருவாக்குதல்</h1>
+
+  <div class="metaphor-card">
+    <p data-en>🌱 <strong>Think of it this way:</strong> Behaviour change is a garden, not a light switch. You can't flip it overnight — you plant consistent small habits, water them with reinforcement, and the growth compounds slowly over a term, not a day.</p>
+    <p data-ta class="ta-text">🌱 <strong>இப்படி நினையுங்கள்:</strong> நடத்தை மாற்றம் ஒரு தோட்டம், விளக்கு சுவிட்ச் அல்ல. ஒரே இரவில் மாற்ற முடியாது — நிலையான சிறிய பழக்கங்களை நடவு செய்து, வலுவூட்டலால் நீர்ப்பாய்ச்சி, வளர்ச்சி ஒரு நாளில் அல்ல, ஒரு காலத்தில் மெதுவாக சேரும்.</p>
+  </div>
+
+  <div data-en>
+    <p>Sustainable behaviour change relies on three pillars: consistency (the same response every time, from you and ideally the whole staff team, so the student can't 'shop' for a softer reaction), positive reinforcement systems (catching and naming the desired behaviour specifically — 'I noticed you waited your turn' — far more powerful than generic praise), and visible tracking (a simple chart or check-in the student sees themselves, so progress becomes their own evidence, not just the teacher's opinion). Relapses are expected, not failures — the trend line over weeks matters more than any single day.</p>
+  </div>
+  <div data-ta class="ta-text">
+    <p>நிலையான நடத்தை மாற்றம் மூன்று தூண்களை சார்ந்துள்ளது: நிலைத்தன்மை (ஒவ்வொரு முறையும் ஒரே பதில்), நேர்மறை வலுவூட்டல் அமைப்புகள் (விரும்பத்தக்க நடத்தையை குறிப்பாக பிடித்து பெயரிடுவது — 'நீ உன் முறைக்காக காத்திருந்தாய் என்று கவனித்தேன்' — பொதுவான பாராட்டை விட மிகவும் சக்திவாய்ந்தது), மற்றும் தெரியும் கண்காணிப்பு (மாணவனே பார்க்கும் எளிய விளக்கப்படம் அல்லது சரிபார்ப்பு). மறுபிரவேசங்கள் எதிர்பார்க்கப்படுகின்றன, தோல்விகள் அல்ல — வாரங்களில் போக்கு கோடு எந்த ஒற்றை நாளையும் விட முக்கியம்.</p>
+  </div>
+
+  <details class="deep-dive">
+    <summary><span data-en>Real Classroom Example</span><span data-ta class="ta-text">உண்மையான வகுப்பறை உதாரணம்</span></summary>
+    <div class="example-card">
+      <p data-en>A student with a history of calling out is given a simple self-tracking card — a tally he keeps himself of times he raised his hand instead of calling out. Over six weeks, the trend line climbs even with occasional bad days, and by week eight, the teacher fades the card out entirely because the habit has taken root.</p>
+      <p data-ta class="ta-text">கத்திப் பேசும் வரலாறு கொண்ட மாணவனுக்கு எளிய சுய-கண்காணிப்பு அட்டை வழங்கப்படுகிறது — கத்துவதற்குப் பதிலாக கை உயர்த்திய முறைகளின் எண்ணிக்கை. ஆறு வாரங்களில், எப்போதாவது மோசமான நாட்கள் இருந்தாலும் போக்கு கோடு உயர்கிறது, எட்டாவது வாரத்தில், பழக்கம் வேரூன்றியதால் ஆசிரியர் அட்டையை முழுவதுமாக நிறுத்துகிறார்.</p>
+    </div>
+  </details>
+
+  <details class="deep-dive" open>
+    <summary><span data-en>Practical Tips for Tomorrow</span><span data-ta class="ta-text">நாளைக்கான நடைமுறை குறிப்புகள்</span></summary>
+    <div class="tips-list" data-en><ul><li>Name the specific desired behaviour when reinforcing it — not just 'good job.'</li><li>Use simple, student-visible tracking so progress becomes their own evidence.</li><li>Expect relapse days — judge the trend over weeks, not any single incident.</li></ul></div>
+    <div class="tips-list ta-text" data-ta><ul><li>வலுவூட்டும் போது குறிப்பிட்ட விரும்பத்தக்க நடத்தையை பெயரிடுங்கள் — 'நல்லது' மட்டும் அல்ல.</li><li>மாணவனே பார்க்கக்கூடிய எளிய கண்காணிப்பைப் பயன்படுத்துங்கள்.</li><li>மறுபிரவேச நாட்களை எதிர்பாருங்கள் — ஒற்றை சம்பவம் அல்ல, வாரங்களின் போக்கை மதிப்பிடுங்கள்.</li></ul></div>
+  </details>
+
+  <h2 data-en>Quick Check</h2>
+  <h2 data-ta class="ta-text">விரைவு சரிபார்ப்பு</h2>
+  
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q1.</strong> Sustainable behaviour change relies most on:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 1.</strong> நிலையான நடத்தை மாற்றம் மிகவும் சார்ந்திருப்பது:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>A single stern warning</button><button class='quiz-opt' data-idx='1'>Consistency, reinforcement, and visible tracking over time</button><button class='quiz-opt' data-idx='2'>Punishing the first offence heavily</button><button class='quiz-opt' data-idx='3'>Ignoring the issue</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>ஒரு கடுமையான எச்சரிக்கை</button><button class='quiz-opt ta-text' data-idx='1'>காலப்போக்கில் நிலைத்தன்மை, வலுவூட்டல், தெரியும் கண்காணிப்பு</button><button class='quiz-opt ta-text' data-idx='2'>முதல் குற்றத்தை கடுமையாக தண்டித்தல்</button><button class='quiz-opt ta-text' data-idx='3'>பிரச்சினையை புறக்கணித்தல்</button></div>
+        </div>
+        <div class="quiz-q" data-answer="1">
+          <p data-en><strong>Q2.</strong> A relapse day in a student's progress should be viewed as:</p>
+          <p data-ta class="ta-text"><strong>கேள்வி 2.</strong> மாணவரின் முன்னேற்றத்தில் ஒரு மறுபிரவேச நாள் எப்படி பார்க்கப்பட வேண்டும்:</p>
+          <div data-en><button class='quiz-opt' data-idx='0'>Total failure of the plan</button><button class='quiz-opt' data-idx='1'>An expected part of the process — judge the trend, not one day</button><button class='quiz-opt' data-idx='2'>Reason to punish harder</button><button class='quiz-opt' data-idx='3'>Reason to abandon tracking</button></div>
+          <div data-ta class="ta-text"><button class='quiz-opt ta-text' data-idx='0'>திட்டத்தின் முழுமையான தோல்வி</button><button class='quiz-opt ta-text' data-idx='1'>செயல்முறையின் எதிர்பார்க்கப்படும் பகுதி — ஒரு நாளை அல்ல, போக்கை மதிப்பிடவும்</button><button class='quiz-opt ta-text' data-idx='2'>அதிக தண்டனைக்கான காரணம்</button><button class='quiz-opt ta-text' data-idx='3'>கண்காணிப்பை கைவிடுவதற்கான காரணம்</button></div>
+        </div>
+
+  <div class="nav-buttons">
+    <a href="module9-escalate-parents-counselors.html" class="btn btn-outline" data-en>← Previous</a>
+    <a href="../assessment.html" class="btn btn-primary" data-en>Take the Assessment →</a>
+  </div>
+</div>
+
+<a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20training" class="whatsapp-cta" target="_blank">💬 WhatsApp</a>
+
+<footer>
+  <p>NT Somasundaram · Certified Master Trainer &amp; Life Skills Educator</p>
+  <p>"God is always with u"</p>
+</footer>
+
+<script src="../app.js"></script>
+<script>initQuiz('long-term-change');</script>
+<script>initGate();</script>
+</body>
+</html>

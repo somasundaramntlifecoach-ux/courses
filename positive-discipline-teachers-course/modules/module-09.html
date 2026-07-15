@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time-In, Calm-Down Corners and Self-Regulation | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 9 of 10</span><span data-ta>பாடம் 9 / 10</span></div>
+  <h1><span data-en>Time-In, Calm-Down Corners and Self-Regulation</span><span data-ta>டைம்-இன், அமைதி மூலைகள் மற்றும் சுய கட்டுப்பாடு</span></h1>
+  <p><span data-en>A dysregulated student cannot learn, reflect, or problem-solve — the priority in that moment is helping them calm down, not correcting them. This module covers how to build calm-down spaces and 'time-in' practices (staying connected during a break) rather than traditional isolating time-outs, and how to teach students to self-regulate over time.</span><span data-ta>கட்டுப்பாடிழந்த ஒரு மாணவரால் கற்க, பிரதிபலிக்க, அல்லது பிரச்சனையை தீர்க்க முடியாது — அந்த தருணத்தில் முன்னுரிமை அவர்களை அமைதிப்படுத்த உதவுவதுதான், அவர்களை திருத்துவது அல்ல. பாரம்பரிய தனிமைப்படுத்தும் டைம்-அவுட்களுக்கு பதிலாக அமைதி இடங்களையும் 'டைம்-இன்' நடைமுறைகளையும் (ஓய்வின் போது தொடர்பில் இருப்பது) எப்படி உருவாக்குவது, மற்றும் காலப்போக்கில் மாணவர்களுக்கு சுய-கட்டுப்பாட்டை எப்படி கற்பிப்பது என்பதை இந்த பாடம் உள்ளடக்கியது.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 9</span><span data-ta>பாடம் 9</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>Designing a Calm-Down Space</span><span data-ta>அமைதி இடத்தை வடிவமைத்தல்</span></h2>
+          <p class="explain"><span data-en>A calm-down space is a designated, low-stimulation area in the classroom where a dysregulated student can go voluntarily (or be gently guided to) to regain composure — not as a punishment, but as a tool. It should feel supportive, not like a corner of shame, and ideally include a few simple calming tools (breathing prompts, a stress ball, a visual timer).</span><span data-ta>ஒரு அமைதி இடம் என்பது வகுப்பறையில் ஒரு நியமிக்கப்பட்ட, குறைந்த தூண்டுதல் கொண்ட பகுதி, அங்கு ஒரு கட்டுப்பாடிழந்த மாணவர் தன்னார்வமாக (அல்லது மென்மையாக வழிநடத்தப்பட்டு) அமைதியை மீட்க செல்ல முடியும் — தண்டனையாக அல்ல, ஒரு கருவியாக. இது அவமான மூலை போல அல்ல, ஆதரவாக உணரப்பட வேண்டும், மேலும் ஒரு சில எளிய அமைதிப்படுத்தும் கருவிகளை (மூச்சு தூண்டுதல்கள், ஒரு அழுத்த பந்து, ஒரு காட்சி டைமர்) இலட்சியமாக உள்ளடக்க வேண்டும்.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher sets up a small 'calm corner' with a cushion, a simple breathing chart, and a sand timer, introducing it to the whole class as 'a place anyone can use when they need a minute to reset — not a punishment spot.' When a student becomes overwhelmed during a test, she quietly says, 'Would the calm corner help right now?' rather than sending him out in front of the class.</span><span data-ta>ஒரு ஆசிரியர் ஒரு தலையணை, ஒரு எளிய மூச்சு விளக்கப்படம், மற்றும் ஒரு மணல் டைமருடன் ஒரு சிறிய 'அமைதி மூலையை' அமைத்து, அதை முழு வகுப்பிற்கும் 'மீட்டமைக்க ஒரு நிமிடம் தேவைப்படும்போது யாரும் பயன்படுத்தக்கூடிய இடம் — தண்டனை இடம் அல்ல' என்று அறிமுகப்படுத்துகிறார். ஒரு தேர்வின் போது ஒரு மாணவர் மிகைப்படும்போது, வகுப்பின் முன்னால் அவரை வெளியே அனுப்புவதற்கு பதிலாக, அவர் அமைதியாக, 'அமைதி மூலை இப்போது உதவுமா?' என்று கேட்கிறார்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Introduce the calm-down space to the whole class in a neutral, positive framing before it's ever needed, so it doesn't feel like punishment when used.</span><span data-ta>பயன்படுத்தும்போது தண்டனை போல உணரப்படாதவாறு, அது தேவைப்படுவதற்கு முன்பே அமைதி இடத்தை முழு வகுப்பிற்கும் ஒரு நடுநிலையான, நேர்மறையான வடிவமைப்பில் அறிமுகப்படுத்துங்கள்.</span></li><li><span data-en>Keep the space simple — a breathing prompt, a soft object, a visual timer are usually enough; it doesn't need to be elaborate.</span><span data-ta>இடத்தை எளிமையாக வையுங்கள் — ஒரு மூச்சு தூண்டுதல், ஒரு மென்மையான பொருள், ஒரு காட்சி டைமர் பொதுவாக போதுமானது; இது விரிவானதாக இருக்க வேண்டியதில்லை.</span></li><li><span data-en>Offer the space as a choice wherever possible ('Would you like a minute in the calm corner?') rather than a command.</span><span data-ta>முடிந்தவரை ஒரு கட்டளையாக அல்லாமல் இடத்தை ஒரு தேர்வாக வழங்குங்கள் ('அமைதி மூலையில் ஒரு நிமிடம் வேண்டுமா?').</span></li><li><span data-en>Model using calming strategies yourself sometimes, so students see them as a normal tool, not a sign of weakness.</span><span data-ta>மாணவர்கள் அவற்றை பலவீனத்தின் அறிகுறியாக அல்ல, ஒரு சாதாரண கருவியாக காணும் வகையில், சில நேரங்களில் நீங்களே அமைதிப்படுத்தும் உத்திகளை பயன்படுத்துவதை முன்மாதிரியாக காட்டுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Never use the calm-down space as a punishment or send a student there with a scolding tone — that defeats its purpose entirely.</span><span data-ta>அமைதி இடத்தை தண்டனையாக ஒருபோதும் பயன்படுத்தாதீர்கள் அல்லது கண்டிக்கும் தொனியுடன் ஒரு மாணவரை அங்கு அனுப்பாதீர்கள் — அது அதன் நோக்கத்தை முழுவதுமாக தோற்கடிக்கும்.</span></li><li><span data-en>Avoid placing the space in a highly visible spot that invites peer attention or embarrassment.</span><span data-ta>சக மாணவர் கவனத்தை அல்லது சங்கடத்தை அழைக்கும் மிகவும் காணக்கூடிய இடத்தில் இடத்தை வைப்பதை தவிர்க்கவும்.</span></li><li><span data-en>If a student refuses to use the space when clearly dysregulated, don't force it — offer other calming options or simply stay calmly present.</span><span data-ta>ஒரு மாணவர் தெளிவாக கட்டுப்பாடிழந்திருக்கும் போது இடத்தை பயன்படுத்த மறுத்தால், அதை கட்டாயப்படுத்த வேண்டாம் — மற்ற அமைதிப்படுத்தும் விருப்பங்களை வழங்குங்கள் அல்லது வெறுமனே அமைதியாக அருகில் இருங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Time-In vs Time-Out</span><span data-ta>டைம்-இன் Vs டைம்-அவுட்</span></h2>
+          <p class="explain"><span data-en>A traditional time-out isolates a student, often with an implicit message of rejection at the exact moment they most need connection. A 'time-in' keeps the student near a caring adult (or gives them a brief supported break) while they calm down — connection continues even while the behaviour is being addressed later.</span><span data-ta>ஒரு பாரம்பரிய டைம்-அவுட் ஒரு மாணவரை தனிமைப்படுத்துகிறது, பெரும்பாலும் அவர்களுக்கு தொடர்பு மிகவும் தேவைப்படும் சரியான தருணத்தில் நிராகரிப்பின் மறைமுக செய்தியுடன். ஒரு 'டைம்-இன்' மாணவர் அமைதியடையும் போது கவனிப்பு பெரியவரின் அருகில் வைத்திருக்கும் (அல்லது ஒரு சுருக்கமான ஆதரவு ஓய்வை கொடுக்கும்) — பின்னர் நடத்தை நிவர்த்தி செய்யப்படும் போதும் தொடர்பு தொடர்கிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>Instead of sending an escalated student to sit alone in the corridor (time-out), a teacher briefly steps aside with him near her desk: 'Let's just breathe for a minute together, I'm right here.' The behaviour will still be discussed once he's calm, but he isn't left feeling abandoned during his most difficult moment — which often speeds up how quickly he actually calms down.</span><span data-ta>தூண்டப்பட்ட ஒரு மாணவரை தனியாக நடைபாதையில் உட்கார அனுப்புவதற்கு (டைம்-அவுட்) பதிலாக, ஒரு ஆசிரியர் தனது மேசைக்கு அருகில் அவருடன் சுருக்கமாக ஒதுங்குகிறார்: 'ஒரு நிமிடம் ஒன்றாக மூச்சு விடுவோம், நான் இங்கேயே இருக்கிறேன்.' அவர் அமைதியடைந்தவுடன் நடத்தை இன்னும் விவாதிக்கப்படும், ஆனால் அவரது மிகவும் கடினமான தருணத்தில் அவர் கைவிடப்பட்டதாக உணர விடப்படவில்லை — இது பெரும்பாலும் அவர் உண்மையில் எவ்வளவு வேகமாக அமைதியடைகிறார் என்பதை வேகப்படுத்துகிறது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Where possible, stay physically near (not hovering over) a dysregulated student rather than sending them away alone.</span><span data-ta>முடிந்தால், ஒரு கட்டுப்பாடிழந்த மாணவரை தனியாக அனுப்புவதற்கு பதிலாக, உடல் ரீதியாக அருகில் (மேலே தொங்காமல்) இருங்கள்.</span></li><li><span data-en>Use calm, minimal language during the calming phase — this is not the moment for lecturing or problem-solving.</span><span data-ta>அமைதிப்படுத்தும் கட்டத்தில் அமைதியான, குறைந்தபட்ச மொழியை பயன்படுத்துங்கள் — இது விரிவுரை அல்லது பிரச்சனை தீர்ப்பதற்கான தருணம் அல்ல.</span></li><li><span data-en>Reassure the student that the relationship is intact: 'I'm not upset with you, let's just get calm first.'</span><span data-ta>உறவு பாதிக்கப்படவில்லை என்று மாணவருக்கு உறுதியளியுங்கள்: 'நான் உன் மேல் வருத்தமாக இல்லை, முதலில் அமைதியாகுவோம்.'</span></li><li><span data-en>Save any necessary conversation about the behaviour for after the student is fully calm, even if that's later in the day.</span><span data-ta>மாணவர் முழுமையாக அமைதியடைந்த பிறகுதான், அது நாளின் பிற்பகுதியில் இருந்தாலும், நடத்தை பற்றிய தேவையான உரையாடலை வையுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Avoid using isolation as a first response for a dysregulated student — save true separation for safety reasons only.</span><span data-ta>கட்டுப்பாடிழந்த ஒரு மாணவருக்கு தனிமைப்படுத்துதலை முதல் பதிலாக பயன்படுத்துவதை தவிர்க்கவும் — உண்மையான பிரிவினையை பாதுகாப்பு காரணங்களுக்காக மட்டும் வையுங்கள்.</span></li><li><span data-en>Don't lecture or problem-solve during the calming phase itself; wait until the student can actually process language again.</span><span data-ta>அமைதிப்படுத்தும் கட்டத்திலேயே விரிவுரை செய்யவோ பிரச்சனை தீர்க்கவோ வேண்டாம்; மாணவர் மீண்டும் மொழியை உண்மையில் செயலாக்க முடியும் வரை காத்திருங்கள்.</span></li><li><span data-en>If a school's physical setup makes 'time-in' hard (large class, no space), even brief eye contact and a calm verbal check-in achieves some of the same connective effect.</span><span data-ta>ஒரு பள்ளியின் உடல் அமைப்பு 'டைம்-இன்' ஐ கடினமாக்கினால் (பெரிய வகுப்பு, இடமில்லை), சுருக்கமான கண் தொடர்பும் ஒரு அமைதியான வாய்மொழி சரிபார்ப்பும் கூட அதே தொடர்பு விளைவின் சிலவற்றை அடைகிறது.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>Teaching Students to Self-Regulate</span><span data-ta>மாணவர்களுக்கு சுய கட்டுப்பாட்டை கற்பித்தல்</span></h2>
+          <p class="explain"><span data-en>The long-term goal is not for the teacher to manage every dysregulated moment, but for students to build their own toolkit of calming strategies they can use independently, both in and outside the classroom — a life skill far beyond just classroom management.</span><span data-ta>நீண்டகால இலக்கு ஆசிரியர் ஒவ்வொரு கட்டுப்பாடிழந்த தருணத்தையும் நிர்வகிப்பது அல்ல, மாணவர்கள் வகுப்பறைக்குள்ளும் வெளியேயும் சுதந்திரமாக பயன்படுத்தக்கூடிய அமைதிப்படுத்தும் உத்திகளின் தங்கள் சொந்த கருவித்தொகுப்பை உருவாக்குவதுதான் — வெறும் வகுப்பறை மேலாண்மையை விட மிக அப்பாற்பட்ட ஒரு வாழ்க்கை திறன்.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher spends five minutes one week teaching the whole class three breathing techniques and a simple 'name it to tame it' phrase ('I'm feeling frustrated right now'). Weeks later, she notices a student who used to escalate quickly now pausing to take a breath and naming his own frustration before it turns into an outburst — evidence the skill has started to transfer.</span><span data-ta>ஒரு ஆசிரியர் ஒரு வாரம் முழு வகுப்பிற்கும் மூன்று மூச்சு நுட்பங்களையும் ஒரு எளிய 'பெயரிட்டு அடக்கு' சொற்றொடரையும் ('நான் இப்போது விரக்தியடைந்திருக்கிறேன்') கற்பிக்க ஐந்து நிமிடங்களை செலவிடுகிறார். வாரங்களுக்குப் பிறகு, முன்பு வேகமாக தூண்டப்படும் ஒரு மாணவர் இப்போது ஒரு வெடிப்பாக மாறுவதற்கு முன் மூச்சு விட்டு தனது சொந்த விரக்தியை பெயரிடுவதை அவர் கவனிக்கிறார் — திறன் மாற்றத் தொடங்கியிருப்பதற்கான சான்று.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Teach 2-3 simple, concrete self-regulation strategies explicitly to the whole class, not just to students who struggle.</span><span data-ta>சிரமப்படும் மாணவர்களுக்கு மட்டும் அல்ல, முழு வகுப்பிற்கும் 2-3 எளிய, உறுதியான சுய-கட்டுப்பாட்டு உத்திகளை வெளிப்படையாக கற்பிக்கவும்.</span></li><li><span data-en>Practice these strategies during calm moments, not only in the middle of a crisis, so they're already familiar when needed.</span><span data-ta>நெருக்கடியின் நடுவில் மட்டுமல்லாமல், அமைதியான தருணங்களில் இந்த உத்திகளை பயிற்சி செய்யுங்கள், இதனால் தேவைப்படும்போது அவை ஏற்கனவே பரிச்சயமாக இருக்கும்.</span></li><li><span data-en>Encourage students to name their own emotions out loud ('I'm feeling frustrated') as a first self-regulation step.</span><span data-ta>மாணவர்கள் தங்கள் சொந்த உணர்ச்சிகளை முதல் சுய-கட்டுப்பாட்டு படியாக சத்தமாக பெயரிட ('நான் விரக்தியடைந்திருக்கிறேன்') ஊக்குவிக்கவும்.</span></li><li><span data-en>Celebrate visible self-regulation attempts, even imperfect ones, to reinforce that the skill is valued and noticed.</span><span data-ta>திறன் மதிக்கப்பட்டு கவனிக்கப்படுகிறது என்பதை வலுப்படுத்த, முழுமையற்றவை கூட காணக்கூடிய சுய-கட்டுப்பாட்டு முயற்சிகளை கொண்டாடுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't only introduce self-regulation strategies in the moment of crisis — by then it's too late for a student to learn something new.</span><span data-ta>நெருக்கடியின் தருணத்தில் மட்டும் சுய-கட்டுப்பாட்டு உத்திகளை அறிமுகப்படுத்த வேண்டாம் — அப்போதைக்கு ஒரு மாணவர் புதிதாக ஒன்றை கற்க மிகவும் தாமதமாகிவிடும்.</span></li><li><span data-en>Avoid assuming self-regulation is a fixed trait some students simply lack; it is a teachable skill that develops with practice.</span><span data-ta>சுய-கட்டுப்பாடு சில மாணவர்களுக்கு வெறுமனே இல்லாத ஒரு நிலையான குணம் என்று கருதுவதை தவிர்க்கவும்; இது பயிற்சியுடன் வளரும் ஒரு கற்பிக்கக்கூடிய திறன்.</span></li><li><span data-en>If a student's dysregulation is frequent and severe, involve a school counsellor for additional support rather than relying on classroom strategies alone.</span><span data-ta>ஒரு மாணவரின் கட்டுப்பாடின்மை அடிக்கடி மற்றும் கடுமையானதாக இருந்தால், வகுப்பறை உத்திகளை மட்டும் நம்புவதற்கு பதிலாக கூடுதல் ஆதரவிற்கு ஒரு பள்ளி ஆலோசகரை ஈடுபடுத்துங்கள்.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Note whether any student needed a calm-down moment today, and how it was handled.</span><span data-ta>இன்று எந்த மாணவருக்கும் அமைதிப்படுத்தும் தருணம் தேவைப்பட்டதா, அது எப்படி கையாளப்பட்டது என்பதை குறிப்பிடவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Practice naming your own emotion out loud once today, modelling self-regulation for students.</span><span data-ta>மாணவர்களுக்கு சுய-கட்டுப்பாட்டை முன்மாதிரியாக காட்ட, இன்று ஒரு முறை உங்கள் சொந்த உணர்ச்சியை சத்தமாக பெயரிடும் பயிற்சி செய்யவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Check: did today's calm-down space usage (if any) feel supportive rather than punitive?</span><span data-ta>சரிபார்க்கவும்: இன்றைய அமைதி இட பயன்பாடு (ஏதேனும் இருந்தால்) தண்டனையாக அல்லாமல் ஆதரவாக உணரப்பட்டதா?</span></span></li><li><input type="checkbox"><span><span data-en>Notice one student who is building self-regulation skill, even in a small way, and acknowledge it.</span><span data-ta>சிறிய வழியில் கூட சுய-கட்டுப்பாட்டு திறனை வளர்க்கும் ஒரு மாணவரை கவனித்து, அதை ஒப்புக்கொள்ளுங்கள்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Review: how many times was the calm-down space used this week, and did it help?</span><span data-ta>மறுபரிசீலனை செய்யுங்கள்: இந்த வாரம் அமைதி இடம் எத்தனை முறை பயன்படுத்தப்பட்டது, அது உதவியதா?</span></span></li><li><input type="checkbox"><span><span data-en>Plan a five-minute lesson to teach or reinforce one self-regulation strategy next week.</span><span data-ta>அடுத்த வாரம் ஒரு சுய-கட்டுப்பாட்டு உத்தியை கற்பிக்க அல்லது வலுப்படுத்த ஒரு ஐந்து நிமிட பாடத்தை திட்டமிடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Identify a student who could benefit from a time-in approach rather than isolation going forward.</span><span data-ta>இனிமேல் தனிமைப்படுத்துவதற்கு பதிலாக டைம்-இன் அணுகுமுறையால் பயனடையக்கூடிய ஒரு மாணவரை அடையாளம் காணவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Check in with yourself: are you staying calm during dysregulated moments, or escalating alongside students?</span><span data-ta>உங்களுடன் சரிபார்க்கவும்: கட்டுப்பாடிழந்த தருணங்களில் நீங்கள் அமைதியாக இருக்கிறீர்களா, அல்லது மாணவர்களுடன் சேர்ந்து தூண்டப்படுகிறீர்களா?</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: has the frequency or intensity of dysregulated outbursts changed this month?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் கட்டுப்பாடிழந்த வெடிப்புகளின் அதிர்வெண் அல்லது தீவிரம் மாறியதா?</span></span></li><li><input type="checkbox"><span><span data-en>Set a goal to formally teach the whole class a self-regulation strategy if not already done.</span><span data-ta>ஏற்கனவே செய்யப்படவில்லை என்றால், முழு வகுப்பிற்கும் ஒரு சுய-கட்டுப்பாட்டு உத்தியை முறையாக கற்பிக்க ஒரு இலக்கை நிர்ணயிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Review whether the calm-down space needs any adjustment (location, tools, framing) based on a month of use.</span><span data-ta>ஒரு மாத பயன்பாட்டின் அடிப்படையில் அமைதி இடத்திற்கு ஏதேனும் சரிசெய்தல் தேவையா (இடம், கருவிகள், வடிவமைப்பு) என்பதை மறுபரிசீலனை செய்யுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>For any student with frequent, severe dysregulation, review whether additional counsellor support is needed.</span><span data-ta>அடிக்கடி, கடுமையான கட்டுப்பாடின்மை உள்ள எந்த மாணவருக்கும், கூடுதல் ஆலோசகர் ஆதரவு தேவையா என்பதை மறுபரிசீலனை செய்யுங்கள்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-08.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-next" href="module-10.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%209%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

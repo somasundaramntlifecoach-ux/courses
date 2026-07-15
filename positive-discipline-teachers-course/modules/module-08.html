@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Meetings and Classroom Community | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 8 of 10</span><span data-ta>பாடம் 8 / 10</span></div>
+  <h1><span data-en>Class Meetings and Classroom Community</span><span data-ta>வகுப்பு கூட்டங்களும் வகுப்பறை சமூகமும்</span></h1>
+  <p><span data-en>Class meetings are the single most powerful structural tool in Positive Discipline — a regular, predictable forum where students raise concerns, appreciate each other, and solve shared problems together. Done well, they build the sense of belonging and significance that underlies the entire approach.</span><span data-ta>வகுப்பு கூட்டங்கள் நேர்மறை ஒழுக்கத்தில் மிகவும் சக்திவாய்ந்த கட்டமைப்பு கருவியாகும் — மாணவர்கள் கவலைகளை எழுப்பும், ஒருவரையொருவர் பாராட்டும், மற்றும் பகிரப்பட்ட பிரச்சனைகளை ஒன்றாக தீர்க்கும் ஒரு வழக்கமான, முன்கூட்டியே அறியக்கூடிய மேடை. நன்றாக செய்யப்பட்டால், அவை முழு அணுகுமுறையின் அடிப்படையிலுள்ள சேர்ந்திருத்தல் மற்றும் முக்கியத்துவ உணர்வை உருவாக்குகின்றன.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 8</span><span data-ta>பாடம் 8</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>Structuring an Effective Class Meeting</span><span data-ta>திறமையான வகுப்பு கூட்டத்தை கட்டமைத்தல்</span></h2>
+          <p class="explain"><span data-en>An effective class meeting has a predictable structure: a brief appreciation round, review of any agenda items raised by students during the week, collaborative problem-solving on 1-2 items, and a closing note. Consistency of structure, more than length, is what makes meetings effective over time.</span><span data-ta>ஒரு திறமையான வகுப்பு கூட்டத்திற்கு முன்கூட்டியே அறியக்கூடிய கட்டமைப்பு உள்ளது: ஒரு சுருக்கமான பாராட்டு சுற்று, வாரத்தில் மாணவர்கள் எழுப்பிய நிகழ்ச்சி நிரல் உருப்படிகளின் மறுஆய்வு, 1-2 உருப்படிகளில் கூட்டு பிரச்சனை தீர்த்தல், மற்றும் ஒரு முடிவு குறிப்பு. நீளத்தை விட கட்டமைப்பின் நிலைத்தன்மைதான் காலப்போக்கில் கூட்டங்களை திறம்படுத்துகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher introduces a 15-minute Friday class meeting with a fixed format: two minutes of appreciations, then reviewing a simple 'agenda box' where students have dropped in written concerns during the week, then discussing one or two items together. Within a month, students start raising and solving minor issues (like sharing classroom supplies) on their own initiative before they even reach the meeting.</span><span data-ta>ஒரு ஆசிரியர் ஒரு நிலையான வடிவத்துடன் 15-நிமிட வெள்ளிக்கிழமை வகுப்பு கூட்டத்தை அறிமுகப்படுத்துகிறார்: இரண்டு நிமிட பாராட்டுகள், பின்னர் வாரத்தில் மாணவர்கள் எழுதப்பட்ட கவலைகளை போட்ட ஒரு எளிய 'நிகழ்ச்சி நிரல் பெட்டியை' மறுஆய்வு செய்வது, பின்னர் ஒன்று அல்லது இரண்டு உருப்படிகளை ஒன்றாக விவாதிப்பது. ஒரு மாதத்திற்குள், மாணவர்கள் கூட்டத்தை அடைவதற்கு முன்பே தங்கள் சொந்த முன்முயற்சியில் சிறிய பிரச்சனைகளை (வகுப்பறை பொருட்களை பகிர்வது போன்றவை) எழுப்பி தீர்க்கத் தொடங்குகிறார்கள்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Keep the format identical each time — appreciation, agenda review, problem-solving, closing — so students know what to expect.</span><span data-ta>ஒவ்வொரு முறையும் வடிவத்தை ஒரே மாதிரி வையுங்கள் — பாராட்டு, நிகழ்ச்சி நிரல் மறுஆய்வு, பிரச்சனை தீர்த்தல், முடிவு — இதனால் மாணவர்கள் என்ன எதிர்பார்க்க வேண்டும் என்று அறிவார்கள்.</span></li><li><span data-en>Use a simple agenda box or note system so students can add items throughout the week, not just complain in the moment.</span><span data-ta>மாணவர்கள் தருணத்தில் புகார் செய்வது மட்டுமல்லாமல் வாரம் முழுவதும் உருப்படிகளை சேர்க்க ஒரு எளிய நிகழ்ச்சி நிரல் பெட்டி அல்லது குறிப்பு அமைப்பை பயன்படுத்துங்கள்.</span></li><li><span data-en>Start small — even a 10-minute weekly meeting builds the habit; you can expand once it's established.</span><span data-ta>சிறிதாக தொடங்குங்கள் — ஒரு 10-நிமிட வாராந்திர கூட்டம் கூட பழக்கத்தை வளர்க்கிறது; நிறுவப்பட்டவுடன் நீங்கள் விரிவாக்கலாம்.</span></li><li><span data-en>Rotate a student 'facilitator' role once the format is familiar, to build shared ownership of the meeting.</span><span data-ta>வடிவம் பரிச்சயமானதும், கூட்டத்தின் பகிரப்பட்ட சொந்தமாக்கலை வளர்க்க ஒரு மாணவர் 'வழிநடத்துபவர்' பாத்திரத்தை சுழற்சி முறையில் வையுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't let meetings turn into a complaint session without moving to solutions — always end problem discussion with an agreed next step.</span><span data-ta>தீர்வுகளுக்கு நகராமல் கூட்டங்கள் புகார் அமர்வாக மாற அனுமதிக்க வேண்டாம் — எப்போதும் ஒப்புக்கொள்ளப்பட்ட அடுத்த படியுடன் பிரச்சனை விவாதத்தை முடிக்கவும்.</span></li><li><span data-en>Avoid skipping meetings when busy; consistency is what builds trust in the process over time.</span><span data-ta>பிஸியாக இருக்கும்போது கூட்டங்களை தவிர்ப்பதை தவிர்க்கவும்; நிலைத்தன்மைதான் காலப்போக்கில் செயல்முறையில் நம்பிக்கையை வளர்க்கிறது.</span></li><li><span data-en>If meetings feel chaotic at first, simplify the structure rather than abandoning it — even a 2-step format (appreciation + one problem) is a good start.</span><span data-ta>கூட்டங்கள் ஆரம்பத்தில் குழப்பமாக உணரப்பட்டால், அதை கைவிடுவதற்கு பதிலாக கட்டமைப்பை எளிமையாக்குங்கள் — ஒரு 2-படி வடிவம் (பாராட்டு + ஒரு பிரச்சனை) கூட ஒரு நல்ல தொடக்கம்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Building Belonging Through Appreciation</span><span data-ta>பாராட்டு மூலம் சேர்ந்திருத்தலை வளர்த்தல்</span></h2>
+          <p class="explain"><span data-en>A short, structured appreciation ritual — where students acknowledge something positive about a classmate — is one of the fastest ways to build a felt sense of belonging in a group. It works best as a brief, genuine, specific practice, not a vague or forced 'say something nice' exercise.</span><span data-ta>மாணவர்கள் ஒரு வகுப்பு தோழரைப் பற்றி நேர்மறையான ஒன்றை ஒப்புக்கொள்ளும் ஒரு குறுகிய, கட்டமைக்கப்பட்ட பாராட்டு பழக்கம், ஒரு குழுவில் சேர்ந்திருத்தல் உணர்வை உருவாக்கும் மிக வேகமான வழிகளில் ஒன்றாகும். இது ஒரு தெளிவற்ற அல்லது கட்டாய 'ஏதாவது நல்லது சொல்' பயிற்சி அல்ல, ஒரு சுருக்கமான, உண்மையான, குறிப்பிட்ட பயிற்சியாக சிறப்பாக வேலை செய்கிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>At the start of each class meeting, a teacher invites two or three students to share a specific appreciation: 'I want to thank Kavya for helping me understand the maths problem yesterday.' Over several weeks, students who rarely received peer acknowledgment begin to be mentioned, and classroom cliques visibly soften as more students are recognised across friend groups.</span><span data-ta>ஒவ்வொரு வகுப்பு கூட்டத்தின் தொடக்கத்திலும், ஒரு ஆசிரியர் இரண்டு அல்லது மூன்று மாணவர்களை ஒரு குறிப்பிட்ட பாராட்டை பகிர அழைக்கிறார்: 'நேற்று கணித சிக்கலை புரிந்துகொள்ள எனக்கு உதவிய கவ்யாவிற்கு நான் நன்றி சொல்ல விரும்புகிறேன்.' பல வாரங்களில், அரிதாக சக மாணவர் அங்கீகாரம் பெற்ற மாணவர்கள் குறிப்பிடப்படத் தொடங்குகிறார்கள், மேலும் அதிக மாணவர்கள் நண்பர் குழுக்கள் முழுவதும் அங்கீகரிக்கப்படுவதால் வகுப்பறை சிற்றணிகள் காணக்கூடிய அளவில் மென்மையாகின்றன.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Model the first few appreciations yourself, being specific ('I appreciated how Ravi helped clean up without being asked') rather than generic.</span><span data-ta>பொதுவானதாக இல்லாமல் குறிப்பிட்டதாக, முதல் சில பாராட்டுகளை நீங்களே முன்மாதிரியாக செய்யுங்கள் ('கேட்காமலேயே சுத்தம் செய்ய ரவி உதவியதை நான் பாராட்டுகிறேன்').</span></li><li><span data-en>Gently encourage appreciations that reach beyond a student's usual friend group over time.</span><span data-ta>காலப்போக்கில் ஒரு மாணவரின் வழக்கமான நண்பர் குழுவை தாண்டி செல்லும் பாராட்டுகளை மென்மையாக ஊக்குவிக்கவும்.</span></li><li><span data-en>Keep the appreciation round brief and voluntary — forcing every student to speak can make it feel performative rather than genuine.</span><span data-ta>பாராட்டு சுற்றை சுருக்கமாகவும் தன்னார்வமாகவும் வையுங்கள் — ஒவ்வொரு மாணவரையும் பேச கட்டாயப்படுத்துவது அதை உண்மையானதாக அல்ல, நடிப்பாக உணரச் செய்யும்.</span></li><li><span data-en>Notice and privately encourage quiet students to participate when they seem ready, without putting them on the spot.</span><span data-ta>அமைதியான மாணவர்கள் தயாராக இருப்பது போல் தோன்றும்போது, அவர்களை நெருக்கடிக்கு உட்படுத்தாமல், தனிப்பட்ட முறையில் பங்கேற்க ஊக்குவிக்கவும்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Watch for the same few students appreciating only each other — gently broaden participation over time.</span><span data-ta>அதே சிலர் மட்டும் ஒருவரையொருவர் பாராட்டுவதை கவனியுங்கள் — காலப்போக்கில் பங்கேற்பை மென்மையாக விரிவுபடுத்துங்கள்.</span></li><li><span data-en>Avoid letting appreciation become generic or repetitive ('good job everyone') — specificity is what makes it meaningful.</span><span data-ta>பாராட்டு பொதுவானதாகவோ மீண்டும் மீண்டும் வருவதாகவோ ('அனைவருக்கும் நல்லது') மாற அனுமதிக்க வேண்டாம் — குறிப்பிட்டத்தன்மைதான் அதை அர்த்தமுள்ளதாக்குகிறது.</span></li><li><span data-en>If appreciations feel awkward at first, that's normal — the ritual becomes natural with a few weeks of consistent practice.</span><span data-ta>பாராட்டுகள் ஆரம்பத்தில் சங்கடமாக உணரப்பட்டால், அது இயல்பானது — சில வாரங்கள் நிலையான பயிற்சியுடன் பழக்கம் இயல்பாகிறது.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>Solving Recurring Problems Together</span><span data-ta>தொடர்ச்சியான பிரச்சனைகளை ஒன்றாக தீர்த்தல்</span></h2>
+          <p class="explain"><span data-en>Class meetings are an ideal forum for tackling recurring, class-wide problems (noise during transitions, sharing of shared resources, unkind comments) that no single disciplinary conversation can fully resolve, because they involve the whole group's behaviour and norms, not just one student.</span><span data-ta>வகுப்பு கூட்டங்கள் தொடர்ச்சியான, வகுப்பு-அளவிலான பிரச்சனைகளை (மாற்றங்களின் போது சத்தம், பகிரப்பட்ட வளங்களை பகிர்வது, கருணையற்ற கருத்துகள்) கையாள்வதற்கு ஒரு சிறந்த மேடையாகும், எந்த ஒரு ஒழுக்க உரையாடலும் இவற்றை முழுமையாக தீர்க்க முடியாது, ஏனெனில் அவை ஒரு மாணவரை மட்டும் அல்ல, முழு குழுவின் நடத்தை மற்றும் விதிமுறைகளை உள்ளடக்கியவை.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A class repeatedly struggles with unkind comments during group work. Rather than addressing it reactively each time, the teacher brings it to the class meeting: 'This has come up a few times — what do we want group work to feel like, and what should happen if it doesn't?' The class collaboratively creates a simple 'group work agreement' which, because they created it together, they enforce among themselves far more consistently than any teacher-imposed rule.</span><span data-ta>ஒரு வகுப்பு குழு வேலையின் போது கருணையற்ற கருத்துகளுடன் மீண்டும் மீண்டும் போராடுகிறது. ஒவ்வொரு முறையும் எதிர்வினையாக நிவர்த்தி செய்வதற்கு பதிலாக, ஆசிரியர் அதை வகுப்பு கூட்டத்திற்கு கொண்டு வருகிறார்: 'இது சில முறை எழுந்துள்ளது — குழு வேலை எப்படி உணரப்பட வேண்டும் என்று நாம் விரும்புகிறோம், அப்படி இல்லையென்றால் என்ன நடக்க வேண்டும்?' வகுப்பு கூட்டாக ஒரு எளிய 'குழு வேலை ஒப்பந்தத்தை' உருவாக்குகிறது, அவர்கள் அதை ஒன்றாக உருவாக்கியதால், எந்த ஆசிரியர்-திணிக்கப்பட்ட விதியை விட மிக நிலையாக தங்களிடையே அதை அமல்படுத்துகிறார்கள்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Bring genuinely recurring issues to the meeting rather than trying to solve every class-wide pattern in the heat of the moment.</span><span data-ta>தருணத்தின் வெப்பத்தில் ஒவ்வொரு வகுப்பு-அளவிலான வடிவத்தையும் தீர்க்க முயற்சிப்பதற்கு பதிலாக, உண்மையிலேயே தொடர்ச்சியான பிரச்சனைகளை கூட்டத்திற்கு கொண்டு வாருங்கள்.</span></li><li><span data-en>Frame the discussion around shared goals ('What do we want this to feel like?') rather than blame for past incidents.</span><span data-ta>கடந்த சம்பவங்களுக்கான குற்றத்தை விட, பகிரப்பட்ட இலக்குகளை ('இது எப்படி உணரப்பட வேண்டும் என்று நாம் விரும்புகிறோம்?') சுற்றி விவாதத்தை வடிவமைக்கவும்.</span></li><li><span data-en>Write down agreements the class reaches, and refer back to them by name later ('Remember our group work agreement?').</span><span data-ta>வகுப்பு எட்டும் ஒப்பந்தங்களை எழுதி, பின்னர் அவற்றை பெயரால் குறிப்பிடவும் ('நமது குழு வேலை ஒப்பந்தத்தை நினைவிருக்கிறதா?').</span></li><li><span data-en>Revisit class-wide agreements periodically in future meetings to check whether they still need adjustment.</span><span data-ta>எதிர்கால கூட்டங்களில் வகுப்பு-அளவிலான ஒப்பந்தங்கள் இன்னும் சரிசெய்தல் தேவையா என்று சரிபார்க்க அவற்றை அவ்வப்போது மறுபரிசீலனை செய்யுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't bring an issue to the class meeting only to override the students' proposed solution with your own predetermined rule.</span><span data-ta>மாணவர்களின் முன்மொழியப்பட்ட தீர்வை உங்கள் சொந்த முன்னரே தீர்மானிக்கப்பட்ட விதியால் மேலெழுத மட்டும் ஒரு பிரச்சனையை வகுப்பு கூட்டத்திற்கு கொண்டு வர வேண்டாம்.</span></li><li><span data-en>Avoid naming specific students during a class-wide problem discussion — keep the focus on patterns and solutions, not individual blame.</span><span data-ta>ஒரு வகுப்பு-அளவிலான பிரச்சனை விவாதத்தின் போது குறிப்பிட்ட மாணவர்களை பெயரிடுவதை தவிர்க்கவும் — தனிப்பட்ட குற்றத்தை அல்ல, வடிவங்கள் மற்றும் தீர்வுகள் மீது கவனத்தை வையுங்கள்.</span></li><li><span data-en>If a class-wide agreement isn't being followed, revisit it as a group rather than abandoning the collaborative approach for a top-down rule.</span><span data-ta>ஒரு வகுப்பு-அளவிலான ஒப்பந்தம் பின்பற்றப்படவில்லை என்றால், மேலிருந்து-கீழ் விதிக்காக கூட்டு அணுகுமுறையை கைவிடுவதற்கு பதிலாக ஒரு குழுவாக அதை மறுபரிசீலனை செய்யுங்கள்.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Note one specific, genuine appreciation you could give a student today (or plan for the next meeting).</span><span data-ta>இன்று ஒரு மாணவருக்கு நீங்கள் கொடுக்கக்கூடிய ஒரு குறிப்பிட்ட, உண்மையான பாராட்டை குறிப்பிடவும் (அல்லது அடுத்த கூட்டத்திற்கு திட்டமிடவும்).</span></span></li><li><input type="checkbox"><span><span data-en>Notice one recurring friction point today that might be worth bringing to the next class meeting.</span><span data-ta>அடுத்த வகுப்பு கூட்டத்திற்கு கொண்டு வர மதிப்புள்ள இன்றைய ஒரு தொடர்ச்சியான உராய்வு புள்ளியை கவனிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>If today includes a class meeting, note how consistently you followed the usual structure.</span><span data-ta>இன்று ஒரு வகுப்பு கூட்டம் இருந்தால், வழக்கமான கட்டமைப்பை நீங்கள் எவ்வளவு நிலையாக பின்பற்றினீர்கள் என்பதை குறிப்பிடவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Identify one quiet student who might be ready to participate more in appreciation or problem-solving.</span><span data-ta>பாராட்டு அல்லது பிரச்சனை தீர்த்தலில் அதிகம் பங்கேற்க தயாராக இருக்கக்கூடிய ஒரு அமைதியான மாணவரை அடையாளம் காணவும்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Hold (or plan) this week's class meeting with the full structure: appreciation, agenda review, problem-solving, closing.</span><span data-ta>இந்த வாரத்தின் வகுப்பு கூட்டத்தை முழு கட்டமைப்புடன் நடத்துங்கள் (அல்லது திட்டமிடுங்கள்): பாராட்டு, நிகழ்ச்சி நிரல் மறுஆய்வு, பிரச்சனை தீர்த்தல், முடிவு.</span></span></li><li><input type="checkbox"><span><span data-en>Review which students have been appreciated this week, and note anyone who's been overlooked.</span><span data-ta>இந்த வாரம் எந்த மாணவர்கள் பாராட்டப்பட்டுள்ளனர் என்பதை மறுபரிசீலனை செய்து, புறக்கணிக்கப்பட்ட எவரையும் குறிப்பிடவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Identify one recurring class-wide issue to bring to the next meeting for collaborative solving.</span><span data-ta>கூட்டு தீர்வுக்காக அடுத்த கூட்டத்திற்கு கொண்டு வர ஒரு தொடர்ச்சியான வகுப்பு-அளவிலான பிரச்சனையை அடையாளம் காணவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Check whether any agreements from previous meetings need revisiting or adjusting.</span><span data-ta>முந்தைய கூட்டங்களின் ஏதேனும் ஒப்பந்தங்கள் மறுபரிசீலனை அல்லது சரிசெய்தல் தேவைப்படுகிறதா என்று சரிபார்க்கவும்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: has the sense of community and belonging in your classroom grown this month?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் உங்கள் வகுப்பறையில் சமூகம் மற்றும் சேர்ந்திருத்தல் உணர்வு வளர்ந்துள்ளதா?</span></span></li><li><input type="checkbox"><span><span data-en>Review which class-wide agreements have held up over the month, and celebrate that with the class.</span><span data-ta>மாதம் முழுவதும் எந்த வகுப்பு-அளவிலான ஒப்பந்தங்கள் நிலைத்திருந்தன என்பதை மறுபரிசீலனை செய்து, அதை வகுப்புடன் கொண்டாடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Set a goal to broaden appreciation participation to include every student at least once this month.</span><span data-ta>இந்த மாதம் குறைந்தது ஒரு முறையாவது ஒவ்வொரு மாணவரையும் உள்ளடக்க பாராட்டு பங்கேற்பை விரிவுபடுத்த ஒரு இலக்கை நிர்ணயிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Consider introducing a rotating student facilitator role for class meetings if not already in place.</span><span data-ta>ஏற்கனவே இல்லையென்றால், வகுப்பு கூட்டங்களுக்கு சுழலும் மாணவர் வழிநடத்துபவர் பாத்திரத்தை அறிமுகப்படுத்துவதை பரிசீலியுங்கள்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-07.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-next" href="module-09.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%208%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natural and Logical Consequences | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 6 of 10</span><span data-ta>பாடம் 6 / 10</span></div>
+  <h1><span data-en>Natural and Logical Consequences</span><span data-ta>இயற்கையான மற்றும் தர்க்கரீதியான விளைவுகள்</span></h1>
+  <p><span data-en>Consequences are not the same as punishment. Positive Discipline distinguishes between natural consequences (what happens on its own, without adult intervention) and logical consequences (what an adult arranges, but which must be related, respectful, and reasonable). This module helps you design consequences that teach responsibility instead of simply making a student 'pay' for a mistake.</span><span data-ta>விளைவுகள் தண்டனையைப் போன்றவை அல்ல. நேர்மறை ஒழுக்கம் இயற்கையான விளைவுகளுக்கும் (பெரியவர் தலையீடு இல்லாமல் தானாகவே நடப்பது) தர்க்கரீதியான விளைவுகளுக்கும் (ஒரு பெரியவர் ஏற்பாடு செய்வது, ஆனால் தொடர்புடையதாகவும், மரியாதைக்குரியதாகவும், நியாயமானதாகவும் இருக்க வேண்டும்) இடையே வேறுபடுத்துகிறது. ஒரு மாணவரை ஒரு தவறுக்காக வெறுமனே 'விலை கொடுக்க' வைப்பதற்கு பதிலாக பொறுப்புணர்ச்சியை கற்பிக்கும் விளைவுகளை வடிவமைக்க இந்த பாடம் உதவுகிறது.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 6</span><span data-ta>பாடம் 6</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>Related, Respectful, Reasonable: The 3 R's</span><span data-ta>தொடர்புடைய, மரியாதைக்குரிய, நியாயமான: 3 R கள்</span></h2>
+          <p class="explain"><span data-en>A logical consequence must pass three tests. Related: it connects logically to the misbehaviour (writing on a desk means cleaning the desk, not losing recess). Respectful: it is delivered calmly, without shame or blame. Reasonable: it is proportionate to what happened, not excessive. A consequence that fails any of the 3 R's starts to feel like punishment, even if it's labelled a 'consequence.'</span><span data-ta>ஒரு தர்க்கரீதியான விளைவு மூன்று சோதனைகளில் தேர்ச்சி பெற வேண்டும். தொடர்புடையது: இது தவறான நடத்தையுடன் தர்க்கரீதியாக இணைகிறது (மேசையில் எழுதுவது என்றால் மேசையை சுத்தம் செய்வது, ஓய்வு நேரத்தை இழப்பது அல்ல). மரியாதைக்குரியது: இது அவமானமோ குற்றம் சாட்டுதலோ இல்லாமல் அமைதியாக வழங்கப்படுகிறது. நியாயமானது: இது நடந்ததற்கு விகிதாசாரமானது, அதிகமானது அல்ல. 3 R களில் ஏதேனும் ஒன்றில் தோல்வியடையும் ஒரு விளைவு, அது 'விளைவு' என்று முத்திரையிடப்பட்டாலும், தண்டனை போல உணரத் தொடங்குகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A student spills paint on the classroom floor during art class. A punishment might be: 'No art class for a month.' A true logical consequence: 'Please help clean this up before we move on' — related (it's about the mess), respectful (said calmly), and reasonable (matches the size of the spill, not an unrelated month-long ban).</span><span data-ta>ஓவியப் பாடத்தின் போது ஒரு மாணவர் வகுப்பறை தரையில் வண்ணம் கொட்டுகிறார். ஒரு தண்டனை இப்படி இருக்கலாம்: 'ஒரு மாதத்திற்கு ஓவிய வகுப்பு இல்லை.' ஒரு உண்மையான தர்க்கரீதியான விளைவு: 'நாம் தொடர்வதற்கு முன் இதை சுத்தம் செய்ய உதவுங்கள்' — தொடர்புடையது (இது கசிவைப் பற்றியது), மரியாதைக்குரியது (அமைதியாக சொல்லப்பட்டது), மற்றும் நியாயமானது (கசிவின் அளவிற்கு பொருந்துகிறது, தொடர்பில்லாத ஒரு மாத தடை அல்ல).</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Before assigning any consequence, run it through the 3 R's checklist: Is it Related? Respectful? Reasonable?</span><span data-ta>எந்த ஒரு விளைவையும் வழங்குவதற்கு முன், அதை 3 R கள் சரிபார்ப்புப் பட்டியல் மூலம் இயக்குங்கள்: இது தொடர்புடையதா? மரியாதைக்குரியதா? நியாயமானதா?</span></li><li><span data-en>If a consequence isn't clearly related to the behaviour, look for one that is — related consequences teach far more effectively.</span><span data-ta>ஒரு விளைவு நடத்தையுடன் தெளிவாக தொடர்புடையதாக இல்லையென்றால், தொடர்புடையதை தேடுங்கள் — தொடர்புடைய விளைவுகள் மிக திறம்பட கற்பிக்கின்றன.</span></li><li><span data-en>Deliver consequences in a calm, neutral tone — the same words said with anger become punishment in the student's mind.</span><span data-ta>விளைவுகளை அமைதியான, நடுநிலையான தொனியில் வழங்குங்கள் — கோபத்துடன் சொல்லப்படும் அதே வார்த்தைகள் மாணவரின் மனதில் தண்டனையாக மாறுகின்றன.</span></li><li><span data-en>When in doubt about proportionality, err on the smaller side; consequences that feel excessive breed resentment rather than learning.</span><span data-ta>விகிதாசாரத்தைப் பற்றி சந்தேகம் இருந்தால், சிறியதை தேர்ந்தெடுங்கள்; அதிகமாக உணரப்படும் விளைவுகள் கற்றலுக்கு பதிலாக வருத்தத்தை உருவாக்குகின்றன.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Watch for consequences that are technically related but wildly disproportionate (e.g., a week's detention for one late homework).</span><span data-ta>தொழில்நுட்ப ரீதியாக தொடர்புடையது ஆனால் மிகவும் விகிதாசாரமற்றதாக இருக்கும் விளைவுகளை கவனியுங்கள் (எ.கா., ஒரு தாமதமான வீட்டுப்பாடத்திற்கு ஒரு வார தடுப்புக்காவல்).</span></li><li><span data-en>Avoid consequences that are 'respectful' in wording but delivered with visible frustration or sarcasm — tone matters as much as words.</span><span data-ta>வார்த்தைகளில் 'மரியாதைக்குரியதாக' இருந்தாலும் காணக்கூடிய விரக்தி அல்லது நையாண்டியுடன் வழங்கப்படும் விளைவுகளை தவிர்க்கவும் — தொனி வார்த்தைகளைப் போலவே முக்கியமானது.</span></li><li><span data-en>If you're struggling to find a related consequence, it's often better to pause and think it through rather than default to an unrelated punishment.</span><span data-ta>தொடர்புடைய ஒரு விளைவை கண்டுபிடிக்க சிரமப்பட்டால், தொடர்பில்லாத தண்டனைக்கு இயல்பாக செல்வதை விட நிறுத்தி சிந்திப்பது நல்லது.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Natural Consequences vs Logical Consequences</span><span data-ta>இயற்கையான விளைவுகள் Vs தர்க்கரீதியான விளைவுகள்</span></h2>
+          <p class="explain"><span data-en>A natural consequence happens automatically, without any adult designing it — if a student doesn't bring their lunch, they get hungry; that's natural. A logical consequence is something the adult sets up deliberately when there is no safe or timely natural consequence available, following the 3 R's. The best approach, wherever safe and practical, is to let natural consequences do the teaching and only step in with logical consequences when necessary.</span><span data-ta>ஒரு இயற்கையான விளைவு எந்த பெரியவரும் அதை வடிவமைக்காமல் தானாகவே நிகழ்கிறது — ஒரு மாணவர் தனது உணவை கொண்டு வரவில்லை என்றால், அவர் பசியாக இருப்பார்; அது இயற்கையானது. ஒரு தர்க்கரீதியான விளைவு என்பது பாதுகாப்பான அல்லது சரியான நேரத்தில் இயற்கையான விளைவு கிடைக்காதபோது, 3 R களை பின்பற்றி பெரியவர் வேண்டுமென்றே அமைக்கும் ஒன்று. பாதுகாப்பாகவும் நடைமுறையிலும் சாத்தியமான இடங்களில் சிறந்த அணுகுமுறை, இயற்கையான விளைவுகள் கற்பிக்க அனுமதிப்பதும், தேவைப்படும்போது மட்டும் தர்க்கரீதியான விளைவுகளுடன் தலையிடுவதும் ஆகும்.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A student repeatedly forgets their notebook and asks to borrow paper from classmates. The natural consequence — the mild social friction of asking others every day — often teaches responsibility better than any lecture. If it becomes disruptive to others, a logical consequence (bringing a spare notebook they must return to you at day's end) can be introduced, but the natural consequence is tried first.</span><span data-ta>ஒரு மாணவர் மீண்டும் மீண்டும் தனது குறிப்பேட்டை மறந்து, வகுப்பு தோழர்களிடமிருந்து காகிதம் கடன் வாங்குகிறார். இயற்கையான விளைவு — ஒவ்வொரு நாளும் மற்றவர்களிடம் கேட்பதன் லேசான சமூக உராய்வு — பெரும்பாலும் எந்த ஒரு விரிவுரையையும் விட பொறுப்புணர்ச்சியை சிறப்பாக கற்பிக்கிறது. இது மற்றவர்களுக்கு தொந்தரவாக மாறினால், ஒரு தர்க்கரீதியான விளைவு (நாள் முடிவில் உங்களிடம் திரும்பக் கொடுக்க வேண்டிய ஒரு உதிரி குறிப்பேட்டை கொண்டு வருவது) அறிமுகப்படுத்தப்படலாம், ஆனால் இயற்கையான விளைவு முதலில் முயற்சிக்கப்படுகிறது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Ask first: 'Is there a natural consequence already happening here that I don't need to interrupt?'</span><span data-ta>முதலில் கேளுங்கள்: 'இங்கே நான் தலையிட வேண்டிய அவசியமில்லாத ஒரு இயற்கையான விளைவு ஏற்கனவே நடந்து கொண்டிருக்கிறதா?'</span></li><li><span data-en>Reserve logical consequences for situations where natural consequences are unsafe, too slow, or affect other students unfairly.</span><span data-ta>இயற்கையான விளைவுகள் பாதுகாப்பற்றவையாகவோ, மிக மெதுவாகவோ, அல்லது மற்ற மாணவர்களை நியாயமற்ற முறையில் பாதிக்கும் சூழ்நிலைகளுக்கு தர்க்கரீதியான விளைவுகளை ஒதுக்கி வையுங்கள்.</span></li><li><span data-en>Resist the urge to rescue students from natural consequences too quickly (like constantly lending forgotten materials) — some struggle is how the lesson lands.</span><span data-ta>மாணவர்களை இயற்கையான விளைவுகளிலிருந்து மிக விரைவாக காப்பாற்ற வேண்டும் என்ற தூண்டுதலை எதிர்க்கவும் (மறந்த பொருட்களை தொடர்ந்து கடன் கொடுப்பது போன்றவை) — சில சிரமங்கள்தான் பாடம் இறங்கும் விதம்.</span></li><li><span data-en>When you do design a logical consequence, explain the reasoning briefly so the student understands the connection.</span><span data-ta>நீங்கள் ஒரு தர்க்கரீதியான விளைவை வடிவமைக்கும்போது, மாணவர் தொடர்பை புரிந்துகொள்ளும் வகையில் காரணத்தை சுருக்கமாக விளக்குங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't confuse 'natural consequence' with 'doing nothing' — you may still need to check in and support the learning from it.</span><span data-ta>'இயற்கையான விளைவை' 'எதுவும் செய்யாதது' என்று தவறாக நினைக்க வேண்டாம் — நீங்கள் இன்னும் சரிபார்த்து அதிலிருந்து கற்றலை ஆதரிக்க வேண்டியிருக்கலாம்.</span></li><li><span data-en>Avoid manufacturing consequences that only look natural but are secretly punitive (e.g., 'Well, now you'll just fail, won't you' said with satisfaction).</span><span data-ta>இயற்கையாகத் தோன்றும் ஆனால் இரகசியமாக தண்டனையாக இருக்கும் விளைவுகளை உருவாக்குவதை தவிர்க்கவும் (எ.கா., 'சரி, இப்போது நீ தோற்றுவிடுவாய், இல்லையா' என்று திருப்தியுடன் சொல்வது).</span></li><li><span data-en>If a natural consequence isn't teaching anything after repeated instances, it's a sign a logical consequence or a deeper conversation is needed.</span><span data-ta>மீண்டும் மீண்டும் நிகழ்வுகளுக்குப் பிறகும் ஒரு இயற்கையான விளைவு எதையும் கற்பிக்கவில்லை என்றால், அது ஒரு தர்க்கரீதியான விளைவு அல்லது ஆழமான உரையாடல் தேவை என்பதற்கான அறிகுறி.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>Common Consequence Mistakes to Avoid</span><span data-ta>தவிர்க்க வேண்டிய பொதுவான தவறுகள்</span></h2>
+          <p class="explain"><span data-en>Even teachers who understand the theory often slip into a few common traps: consequences that are too delayed to connect logically in the student's mind, consequences applied inconsistently between students, and consequences that punish the whole class for one student's behaviour. Avoiding these traps keeps consequences fair and effective.</span><span data-ta>கோட்பாட்டை புரிந்துகொண்ட ஆசிரியர்கள் கூட பெரும்பாலும் சில பொதுவான பொறிகளில் சறுக்குகிறார்கள்: மாணவரின் மனதில் தர்க்கரீதியாக இணைக்க மிகவும் தாமதமான விளைவுகள், மாணவர்களிடையே சீரற்ற முறையில் பயன்படுத்தப்படும் விளைவுகள், மற்றும் ஒரு மாணவரின் நடத்தைக்காக முழு வகுப்பையும் தண்டிக்கும் விளைவுகள். இந்த பொறிகளை தவிர்ப்பது விளைவுகளை நியாயமாகவும் திறம்படவும் வைத்திருக்கிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher waits until the end of the week to address a Monday incident — by then the connection is lost and the consequence feels arbitrary. Another teacher gives a strict consequence to one student for talking but lets a favoured student off with a warning for the same behaviour — students notice, and trust erodes quickly. A third teacher cancels a class trip for everyone because of two students' behaviour — this breeds resentment toward the misbehaving students rather than teaching them anything.</span><span data-ta>ஒரு ஆசிரியர் திங்கட்கிழமை சம்பவத்தை நிவர்த்தி செய்ய வார இறுதி வரை காத்திருக்கிறார் — அப்போதைக்கு தொடர்பு இழக்கப்பட்டு விளைவு தன்னிச்சையானதாக உணரப்படுகிறது. மற்றொரு ஆசிரியர் பேசியதற்காக ஒரு மாணவருக்கு கடுமையான விளைவை கொடுக்கிறார் ஆனால் அதே நடத்தைக்கு விருப்பமான மாணவரை எச்சரிக்கையுடன் விடுகிறார் — மாணவர்கள் கவனிக்கிறார்கள், நம்பிக்கை விரைவாக அரிக்கப்படுகிறது. மூன்றாவது ஆசிரியர் இரண்டு மாணவர்களின் நடத்தையால் அனைவருக்கும் ஒரு வகுப்பு பயணத்தை ரத்து செய்கிறார் — இது தவறாக நடந்துகொண்ட மாணவர்களிடம் எதையும் கற்பிப்பதற்கு பதிலாக அவர்கள் மீது வருத்தத்தை உருவாக்குகிறது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Address consequences as close in time to the behaviour as possible, so the connection stays clear.</span><span data-ta>தொடர்பு தெளிவாக இருக்கும் வகையில், விளைவுகளை நடத்தைக்கு முடிந்தவரை நேரத்தில் நெருக்கமாக நிவர்த்தி செய்யுங்கள்.</span></li><li><span data-en>Apply the same standard to all students for the same behaviour, regardless of how you feel about a particular student that day.</span><span data-ta>அன்று ஒரு குறிப்பிட்ட மாணவரைப் பற்றி நீங்கள் எப்படி உணர்கிறீர்கள் என்பதைப் பொருட்படுத்தாமல், அதே நடத்தைக்கு அனைத்து மாணவர்களுக்கும் அதே தரத்தை பயன்படுத்துங்கள்.</span></li><li><span data-en>Avoid whole-class consequences for individual misbehaviour wherever possible — target the response to the student(s) actually involved.</span><span data-ta>முடிந்தவரை தனிநபர் தவறான நடத்தைக்கு முழு வகுப்பு விளைவுகளை தவிர்க்கவும் — உண்மையில் ஈடுபட்ட மாணவர்(கள்)ஐ பதிலுக்கு இலக்காக்குங்கள்.</span></li><li><span data-en>If you're unsure whether a consequence is fair, imagine explaining your reasoning to a parent — if it feels hard to justify, reconsider it.</span><span data-ta>ஒரு விளைவு நியாயமானதா என்று உறுதியாக தெரியவில்லை என்றால், ஒரு பெற்றோரிடம் உங்கள் காரணத்தை விளக்குவதாக கற்பனை செய்யுங்கள் — நியாயப்படுத்த கடினமாக இருந்தால், அதை மறுபரிசீலனை செய்யுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't let personal mood affect which students get consequences and which get a pass for the same behaviour.</span><span data-ta>தனிப்பட்ட மனநிலை எந்த மாணவர்கள் விளைவுகளை பெறுகிறார்கள் மற்றும் எந்த மாணவர்கள் அதே நடத்தைக்கு தப்பிக்கிறார்கள் என்பதை பாதிக்க அனுமதிக்க வேண்டாம்.</span></li><li><span data-en>Avoid using collective punishment as a shortcut — it damages trust in the whole class, including students who did nothing wrong.</span><span data-ta>கூட்டு தண்டனையை ஒரு குறுக்கு வழியாக பயன்படுத்துவதை தவிர்க்கவும் — இது எதுவும் தவறு செய்யாத மாணவர்கள் உட்பட முழு வகுப்பின் நம்பிக்கையையும் சேதப்படுத்துகிறது.</span></li><li><span data-en>If a consequence has become a pattern (the same student, the same consequence, no change in behaviour), it's a signal to try a different approach entirely rather than repeating what isn't working.</span><span data-ta>ஒரு விளைவு ஒரு வடிவமாக மாறியிருந்தால் (அதே மாணவர், அதே விளைவு, நடத்தையில் மாற்றமில்லை), வேலை செய்யாததை மீண்டும் செய்வதற்கு பதிலாக முற்றிலும் வேறுபட்ட அணுகுமுறையை முயற்சிக்க வேண்டும் என்பதற்கான சமிக்ஞை இது.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Note one consequence you gave today — did it pass the Related, Respectful, Reasonable test?</span><span data-ta>இன்று நீங்கள் கொடுத்த ஒரு விளைவை குறிப்பிடவும் — அது தொடர்புடைய, மரியாதைக்குரிய, நியாயமான சோதனையில் தேர்ச்சி பெற்றதா?</span></span></li><li><input type="checkbox"><span><span data-en>Identify one situation today where a natural consequence could have taught the lesson without your intervention.</span><span data-ta>உங்கள் தலையீடு இல்லாமல் ஒரு இயற்கையான விளைவு பாடத்தை கற்பித்திருக்கக்கூடிய இன்றைய ஒரு சூழ்நிலையை அடையாளம் காணவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Check: did you apply today's consequences consistently across all students, regardless of who they were?</span><span data-ta>சரிபார்க்கவும்: இன்றைய விளைவுகளை அனைத்து மாணவர்களிடமும், அவர்கள் யார் என்பதைப் பொருட்படுத்தாமல், நிலையாக பயன்படுத்தினீர்களா?</span></span></li><li><input type="checkbox"><span><span data-en>Note the tone you used when delivering a consequence today — calm, or frustrated?</span><span data-ta>இன்று ஒரு விளைவை வழங்கும்போது நீங்கள் பயன்படுத்திய தொனியை குறிப்பிடவும் — அமைதியானதா, அல்லது விரக்தியானதா?</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Review this week's consequences — which felt most related and reasonable, and which felt more like punishment in hindsight?</span><span data-ta>இந்த வாரத்தின் விளைவுகளை மறுபரிசீலனை செய்யுங்கள் — எவை மிகவும் தொடர்புடையதாகவும் நியாயமானதாகவும் உணரப்பட்டன, எவை பின்னோக்கிப் பார்க்கும்போது தண்டனையாக அதிகம் உணரப்பட்டன?</span></span></li><li><input type="checkbox"><span><span data-en>Identify one repeat-offence pattern this week where the same consequence isn't changing the behaviour.</span><span data-ta>இந்த வாரத்தில் அதே விளைவு நடத்தையை மாற்றாத ஒரு மீண்டும் மீண்டும் தவறு செய்யும் வடிவத்தை அடையாளம் காணவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Plan a natural-consequence-first approach for one recurring minor issue next week.</span><span data-ta>அடுத்த வாரம் ஒரு தொடர்ச்சியான சிறிய பிரச்சனைக்கு இயற்கையான-விளைவு-முதல் அணுகுமுறையை திட்டமிடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Check for consistency: did any two students receive different consequences for similar behaviour this week?</span><span data-ta>நிலைத்தன்மையை சரிபார்க்கவும்: இந்த வாரம் ஏதேனும் இரண்டு மாணவர்கள் ஒத்த நடத்தைக்கு வெவ்வேறு விளைவுகளை பெற்றார்களா?</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: has your use of consequences felt more consistent and less punitive this month?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் விளைவுகளின் உங்கள் பயன்பாடு அதிக நிலையானதாகவும் குறைவான தண்டனையாகவும் உணரப்பட்டதா?</span></span></li><li><input type="checkbox"><span><span data-en>Set a specific goal to address one repeat behaviour pattern with a genuinely different, related consequence next month.</span><span data-ta>அடுத்த மாதம் ஒரு மீண்டும் மீண்டும் நடக்கும் நடத்தை வடிவத்தை உண்மையிலேயே வித்தியாசமான, தொடர்புடைய விளைவுடன் நிவர்த்தி செய்ய ஒரு குறிப்பிட்ட இலக்கை நிர்ணயிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Review whether any whole-class consequences were used this month, and plan to avoid them going forward.</span><span data-ta>இந்த மாதம் ஏதேனும் முழு-வகுப்பு விளைவுகள் பயன்படுத்தப்பட்டதா என்பதை மறுபரிசீலனை செய்து, இனிமேல் அவற்றை தவிர்க்க திட்டமிடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Ask a colleague to sanity-check one consequence you're unsure about using the 3 R's framework.</span><span data-ta>3 R கள் கட்டமைப்பைப் பயன்படுத்தி நீங்கள் உறுதியாக இல்லாத ஒரு விளைவை சரிபார்க்க ஒரு சக ஆசிரியரிடம் கேளுங்கள்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-05.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-next" href="module-07.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%206%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>

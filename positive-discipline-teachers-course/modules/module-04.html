@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Mistaken Goals of Behaviour | Positive Discipline for Teachers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2c5f8a; --primary-dark:#1e4463; --accent:#e8a33d;
+    --bg:#f7f9fb; --card:#ffffff; --text:#243447; --muted:#6b7c93;
+    --success:#3fa66b; --border:#e1e8f0;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  header{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; padding:30px 20px; text-align:center; position:relative;}
+  header .modnum{font-size:.85rem; opacity:.85; letter-spacing:.5px; text-transform:uppercase;}
+  header h1{font-size:1.5rem; font-weight:700; margin:6px 0 10px;}
+  header p{opacity:.92; font-size:.92rem; max-width:640px; margin:0 auto;}
+  .lang-toggle{position:absolute; top:14px; right:14px; display:flex; gap:6px;}
+  .lang-toggle button{background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.4); color:#fff; padding:6px 14px; border-radius:20px; cursor:pointer; font-size:.85rem; font-family:inherit;}
+  .lang-toggle button.active{background:#fff; color:var(--primary-dark); font-weight:600;}
+  nav.crumbs{background:#fff; border-bottom:1px solid var(--border); padding:10px 18px; font-size:.85rem;}
+  nav.crumbs a{color:var(--primary); text-decoration:none;}
+  .container{max-width:760px; margin:0 auto; padding:26px 16px 60px;}
+  .card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:22px; margin-bottom:20px;}
+  .subtopic{margin-bottom:28px;}
+  .subtopic:last-child{margin-bottom:0;}
+  .subtopic h2{color:var(--primary-dark); font-size:1.15rem; margin-bottom:10px; display:flex; align-items:center; gap:8px;}
+  .subtopic h2 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:.8rem; flex-shrink:0;}
+  .block-label{font-weight:600; color:var(--primary); font-size:.82rem; text-transform:uppercase; letter-spacing:.5px; margin:14px 0 6px;}
+  .example-box{background:#fbf6ea; border-left:4px solid var(--accent); padding:12px 16px; border-radius:6px; font-size:.92rem; margin:6px 0 4px;}
+  ul.list{list-style:none; padding-left:0;}
+  ul.list li{padding:6px 0 6px 22px; position:relative; font-size:.92rem; color:var(--text);}
+  ul.list li::before{content:"✓"; position:absolute; left:0; color:var(--success); font-weight:700;}
+  ul.list.improve li::before{content:"!"; color:var(--accent);}
+  p.explain{font-size:.95rem;}
+  .worksheet-section{margin-top:10px;}
+  .worksheet-card{border-radius:14px; padding:20px; margin-bottom:16px;}
+  .worksheet-card.daily{background:#eaf3ec; border-left:4px solid var(--success);}
+  .worksheet-card.weekly{background:#eaf0f7; border-left:4px solid var(--primary);}
+  .worksheet-card.monthly{background:#fbf1e4; border-left:4px solid var(--accent);}
+  .worksheet-card h3{margin-bottom:10px; font-size:1rem;}
+  .worksheet-card ul{list-style:none;}
+  .worksheet-card li{padding:8px 0; border-bottom:1px dashed rgba(0,0,0,.08); font-size:.9rem; display:flex; gap:10px; align-items:flex-start;}
+  .worksheet-card li:last-child{border-bottom:none;}
+  .worksheet-card input[type=checkbox]{margin-top:3px; accent-color:var(--primary); flex-shrink:0;}
+  .nav-buttons{display:flex; justify-content:space-between; gap:12px; margin-top:26px;}
+  .nav-buttons a{flex:1; text-align:center; padding:13px; border-radius:10px; text-decoration:none; font-weight:600; font-size:.9rem;}
+  .nav-prev{background:#fff; border:1px solid var(--primary); color:var(--primary);}
+  .nav-next{background:var(--primary); color:#fff;}
+  .nav-home{background:#fff; border:1px solid var(--border); color:var(--muted);}
+  .cta{margin-top:26px; background:linear-gradient(135deg,#25D366,#1ea952); color:#fff; text-align:center; padding:20px; border-radius:14px;}
+  .cta a{display:inline-block; background:#fff; color:#1ea952; padding:9px 24px; border-radius:24px; font-weight:600; text-decoration:none; margin-top:8px; font-size:.9rem;}
+  footer{text-align:center; padding:22px; color:var(--muted); font-size:.85rem;}
+  footer .motto{color:var(--primary); font-weight:600; margin-top:4px;}
+  @media print{
+    nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
+    body{background:#fff;}
+  }
+
+  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
+  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
+  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
+  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
+  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
+  .gate-card button:hover{background:var(--primary-dark);}
+  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
+  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
+  body.locked > *:not(#passcodeGate){display:none !important;}
+</style>
+</head>
+<body>
+<div id="passcodeGate">
+  <div class="gate-card">
+    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
+    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
+    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
+    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
+  </div>
+</div>
+
+
+<header>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="modnum"><span data-en>Module 4 of 10</span><span data-ta>பாடம் 4 / 10</span></div>
+  <h1><span data-en>Understanding Mistaken Goals of Behaviour</span><span data-ta>தவறான நடத்தை இலக்குகளை புரிந்துகொள்ளுதல்</span></h1>
+  <p><span data-en>Rudolf Dreikurs, building on Adler's work, identified four common 'mistaken goals' behind misbehaviour: attention, power, revenge, and assumed inadequacy. Learning to recognise which goal is driving a given behaviour — often by noticing your own emotional reaction — lets you respond in a way that actually addresses the root cause, instead of reacting to the surface behaviour alone.</span><span data-ta>அட்லரின் பணியை அடிப்படையாகக் கொண்டு, ருடால்ஃப் ட்ரெய்குர்ஸ் தவறான நடத்தையின் பின்னால் உள்ள நான்கு பொதுவான 'தவறான இலக்குகளை' அடையாளம் கண்டார்: கவனம், அதிகாரம், பழிவாங்கல், மற்றும் கருதப்பட்ட போதாமை. ஒரு குறிப்பிட்ட நடத்தையை எது இயக்குகிறது என்பதை அடையாளம் காண கற்றுக்கொள்வது — பெரும்பாலும் உங்கள் சொந்த உணர்ச்சி எதிர்வினையை கவனிப்பதன் மூலம் — மேலோட்டமான நடத்தைக்கு மட்டும் எதிர்வினையாற்றுவதற்கு பதிலாக மூல காரணத்தை உண்மையில் நிவர்த்தி செய்யும் வகையில் பதிலளிக்க அனுமதிக்கிறது.</span></p>
+</header>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 4</span><span data-ta>பாடம் 4</span></nav>
+<div class="container">
+  <div class="card">
+    
+        <div class="subtopic">
+          <h2><span class="num">1</span> <span data-en>The Four Mistaken Goals: Attention, Power, Revenge, Inadequacy</span><span data-ta>நான்கு தவறான இலக்குகள்: கவனம், அதிகாரம், பழிவாங்கல், போதாமை</span></h2>
+          <p class="explain"><span data-en>Attention-seeking behaviour aims to be noticed, even negatively. Power-seeking behaviour aims to prove 'you can't make me.' Revenge-seeking behaviour aims to hurt back because the student feels hurt. Assumed-inadequacy behaviour is a student giving up entirely, believing they can't succeed so why try. Each goal requires a different response — treating all misbehaviour the same way (usually as attention-seeking or defiance) misses the real cause in many cases.</span><span data-ta>கவனம் தேடும் நடத்தை எதிர்மறையாக இருந்தாலும் கவனிக்கப்பட வேண்டும் என்பதை நோக்கமாகக் கொண்டுள்ளது. அதிகாரம் தேடும் நடத்தை 'நீங்கள் என்னை கட்டாயப்படுத்த முடியாது' என்பதை நிரூபிக்க நோக்கமாகக் கொண்டுள்ளது. பழிவாங்கல் தேடும் நடத்தை மாணவர் காயப்பட்டதாக உணர்வதால் திரும்பி காயப்படுத்த நோக்கமாகக் கொண்டுள்ளது. கருதப்பட்ட-போதாமை நடத்தை ஒரு மாணவர் முழுவதுமாக கைவிடுவது, தான் வெற்றி பெற முடியாது என்று நம்புவதால் ஏன் முயற்சிக்க வேண்டும் என்பது. ஒவ்வொரு இலக்கிற்கும் ஒரு வித்தியாசமான பதில் தேவை — எல்லா தவறான நடத்தையையும் ஒரே மாதிரி (பொதுவாக கவனம் தேடுதல் அல்லது எதிர்ப்பு) நடத்துவது பல சந்தர்ப்பங்களில் உண்மையான காரணத்தை தவறவிடுகிறது.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>Two students both refuse to do their classwork. Student A calls out jokes and disrupts nearby students — this is attention. Student B quietly puts his head down and says nothing, refusing even when offered help — this is likely assumed inadequacy, not defiance. Treating both the same way (a stern warning) addresses neither root cause effectively.</span><span data-ta>இரண்டு மாணவர்களும் தங்கள் வகுப்பு வேலையை செய்ய மறுக்கிறார்கள். மாணவர் A நகைச்சுவைகளை கூவி அருகிலுள்ள மாணவர்களை குழப்புகிறார் — இது கவனம். மாணவர் B அமைதியாக தலையை கீழே வைத்து எதுவும் சொல்லாமல் இருக்கிறார், உதவி வழங்கப்பட்டாலும் மறுக்கிறார் — இது எதிர்ப்பு அல்ல, கருதப்பட்ட போதாமையாக இருக்கக்கூடும். இரண்டையும் ஒரே மாதிரி (ஒரு கடுமையான எச்சரிக்கை) நடத்துவது எந்த மூல காரணத்தையும் திறம்படாக நிவர்த்தி செய்யாது.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>Learn the four goals by heart: attention, power, revenge, inadequacy — and practice naming which one you're likely seeing.</span><span data-ta>நான்கு இலக்குகளையும் மனப்பாடம் செய்யுங்கள்: கவனம், அதிகாரம், பழிவாங்கல், போதாமை — நீங்கள் பார்க்கும் இலக்கு எது என்று பெயரிடும் பயிற்சி செய்யுங்கள்.</span></li><li><span data-en>Ask yourself what the student gets out of the behaviour — attention gets noticed, power gets control, revenge gets even, inadequacy gets left alone.</span><span data-ta>மாணவர் நடத்தையிலிருந்து என்ன பெறுகிறார் என்று உங்களைக் கேளுங்கள் — கவனம் கவனிக்கப்படுகிறது, அதிகாரம் கட்டுப்பாட்டைப் பெறுகிறது, பழிவாங்கல் சரிசெய்கிறது, போதாமை தனியாக விடப்படுகிறது.</span></li><li><span data-en>Remember that a single student may show different goals in different situations or subjects — don't assume one label fits them everywhere.</span><span data-ta>ஒரு மாணவர் வெவ்வேறு சூழ்நிலைகளிலோ பாடங்களிலோ வெவ்வேறு இலக்குகளை காட்டக்கூடும் என்பதை நினைவில் கொள்ளுங்கள் — ஒரு முத்திரை எல்லா இடங்களிலும் பொருந்தும் என்று கருத வேண்டாம்.</span></li><li><span data-en>When unsure, a private, curious conversation ('Help me understand what's going on for you') often reveals the real goal faster than guessing.</span><span data-ta>உறுதியாக தெரியவில்லை என்றால், ஒரு தனிப்பட்ட, ஆர்வமுள்ள உரையாடல் ('உனக்கு என்ன நடக்கிறது என்று புரிந்துகொள்ள எனக்கு உதவு') யூகிப்பதை விட வேகமாக உண்மையான இலக்கை வெளிப்படுத்துகிறது.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't default to assuming every disruption is about attention — inadequacy-driven withdrawal is often mistaken for laziness or apathy.</span><span data-ta>ஒவ்வொரு குழப்பமும் கவனத்தைப் பற்றியது என்று இயல்பாக கருத வேண்டாம் — போதாமையால் இயக்கப்படும் பின்வாங்கல் பெரும்பாலும் சோம்பேறித்தனம் அல்லது அலட்சியமாக தவறாகக் கருதப்படுகிறது.</span></li><li><span data-en>Avoid escalating power-seeking behaviour by engaging in a public battle of wills — this usually confirms the student's goal rather than resolving it.</span><span data-ta>பொது விருப்ப சண்டையில் ஈடுபடுவதன் மூலம் அதிகாரம் தேடும் நடத்தையை அதிகரிப்பதை தவிர்க்கவும் — இது பொதுவாக மாணவரின் இலக்கை தீர்ப்பதற்கு பதிலாக உறுதிப்படுத்துகிறது.</span></li><li><span data-en>Watch for revenge-driven behaviour following a moment where the student felt genuinely hurt or humiliated — address the underlying hurt, not just the retaliation.</span><span data-ta>மாணவர் உண்மையிலேயே காயப்பட்டதாகவோ அவமானப்படுத்தப்பட்டதாகவோ உணர்ந்த ஒரு தருணத்தைத் தொடர்ந்து பழிவாங்கல் இயக்கப்பட்ட நடத்தையை கவனியுங்கள் — பழிவாங்கலை மட்டும் அல்ல, அடிப்படை காயத்தை நிவர்த்தி செய்யுங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">2</span> <span data-en>Reading Your Own Emotional Reaction as a Clue</span><span data-ta>உங்கள் சொந்த உணர்ச்சி எதிர்வினையை ஒரு குறிப்பாக பயன்படுத்துதல்</span></h2>
+          <p class="explain"><span data-en>Dreikurs observed a reliable pattern: your own gut emotional reaction to a behaviour is a strong clue to its underlying goal. Attention-seeking tends to make you feel mildly annoyed or irritated. Power-seeking tends to make you feel challenged or provoked, wanting to 'win.' Revenge-seeking tends to make you feel genuinely hurt or wounded. Assumed inadequacy tends to make you feel helpless or like giving up on the student.</span><span data-ta>ட்ரெய்குர்ஸ் ஒரு நம்பகமான வடிவத்தை கவனித்தார்: ஒரு நடத்தைக்கு உங்கள் சொந்த உள்ளுணர்வு எதிர்வினை அதன் அடிப்படை இலக்கிற்கான ஒரு வலுவான குறிப்பாகும். கவனம் தேடுதல் உங்களை லேசாக எரிச்சலூட்டும் அல்லது கோபப்படுத்தும். அதிகாரம் தேடுதல் உங்களை சவால் விடப்பட்டதாக அல்லது தூண்டப்பட்டதாக, 'வெல்ல' விரும்புவதாக உணரச் செய்யும். பழிவாங்கல் தேடுதல் உங்களை உண்மையிலேயே காயப்பட்டதாக அல்லது புண்பட்டதாக உணரச் செய்யும். கருதப்பட்ட போதாமை உங்களை உதவியற்றதாக அல்லது மாணவரை கைவிட விரும்புவதாக உணரச் செய்யும்.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A teacher notices she feels genuinely hurt, almost personally attacked, by a student's comment — far more than the comment itself would usually warrant. Recognising this as the signature emotional reaction of revenge-seeking behaviour, she pauses before reacting and considers what earlier hurt might be driving it, rather than retaliating in kind.</span><span data-ta>ஒரு ஆசிரியர் ஒரு மாணவரின் கருத்தால் உண்மையிலேயே காயப்பட்டதாக, கிட்டத்தட்ட தனிப்பட்ட முறையில் தாக்கப்பட்டதாக உணர்வதை கவனிக்கிறார் — அந்த கருத்து பொதுவாக நியாயப்படுத்துவதை விட மிக அதிகமாக. இதை பழிவாங்கல் தேடும் நடத்தையின் சிறப்பியல்பு உணர்ச்சி எதிர்வினையாக அடையாளம் கண்டு, அவர் திரும்ப தாக்குவதற்கு பதிலாக, எதிர்வினையாற்றுவதற்கு முன் நிறுத்தி, இதை என்ன முந்தைய காயம் இயக்குகிறது என்று பரிசீலிக்கிறார்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>In the moment of frustration, pause and name your own feeling first: annoyed, challenged, hurt, or helpless?</span><span data-ta>விரக்தியின் தருணத்தில், நிறுத்தி முதலில் உங்கள் சொந்த உணர்வை பெயரிடுங்கள்: எரிச்சல், சவால், காயம், அல்லது உதவியற்ற தன்மை?</span></li><li><span data-en>Use that feeling as a diagnostic tool, not a justification to react from that same emotion.</span><span data-ta>அந்த உணர்வை அதே உணர்ச்சியிலிருந்து எதிர்வினையாற்றுவதற்கான நியாயமாக அல்ல, ஒரு கண்டறியும் கருவியாக பயன்படுத்துங்கள்.</span></li><li><span data-en>If you feel like 'winning' an interaction with a student, that's often a sign it has become a power struggle — step back rather than push forward.</span><span data-ta>ஒரு மாணவருடனான தொடர்பில் 'வெற்றி பெற' நீங்கள் விரும்பினால், அது பெரும்பாலும் ஒரு அதிகாரப் போராட்டமாக மாறிவிட்டது என்பதற்கான அறிகுறி — முன்னேறுவதற்கு பதிலாக பின்வாங்குங்கள்.</span></li><li><span data-en>If you feel like giving up on a student, treat that as information about assumed inadequacy, and look for small, achievable wins to rebuild their confidence.</span><span data-ta>ஒரு மாணவரை கைவிட விரும்பினால், அதை கருதப்பட்ட போதாமை பற்றிய தகவலாக கருதி, அவர்களின் நம்பிக்கையை மீண்டும் கட்டியெழுப்ப சிறிய, அடையக்கூடிய வெற்றிகளை தேடுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't act immediately on your first emotional reaction — use it as data, then choose your response deliberately.</span><span data-ta>உங்கள் முதல் உணர்ச்சி எதிர்வினையில் உடனடியாக செயல்பட வேண்டாம் — அதை தரவாக பயன்படுத்தி, பின்னர் உங்கள் பதிலை வேண்டுமென்றே தேர்வு செய்யுங்கள்.</span></li><li><span data-en>Avoid taking revenge-driven comments personally in the sense of retaliating; they are rarely really about you.</span><span data-ta>பழிவாங்கல்-இயக்கப்பட்ட கருத்துகளை திரும்ப தாக்கும் அர்த்தத்தில் தனிப்பட்ட முறையில் எடுத்துக்கொள்வதை தவிர்க்கவும்; அவை அரிதாகவே உண்மையில் உங்களைப் பற்றியது.</span></li><li><span data-en>If you find yourself frequently feeling 'helpless' about a particular student, involve a counsellor or senior colleague rather than continuing to react alone.</span><span data-ta>ஒரு குறிப்பிட்ட மாணவரைப் பற்றி நீங்கள் அடிக்கடி 'உதவியற்றதாக' உணர்ந்தால், தனியாக தொடர்ந்து எதிர்வினையாற்றுவதற்கு பதிலாக ஒரு ஆலோசகர் அல்லது மூத்த சக ஆசிரியரை ஈடுபடுத்துங்கள்.</span></li></ul>
+        </div>
+        
+        <div class="subtopic">
+          <h2><span class="num">3</span> <span data-en>Responding to Each Goal Differently</span><span data-ta>ஒவ்வொரு இலக்கிற்கும் வித்தியாசமாக பதிலளித்தல்</span></h2>
+          <p class="explain"><span data-en>Because each mistaken goal has a different underlying need, the most effective responses differ too. For attention: give attention proactively rather than reactively, and ignore minor bids when safe to do so. For power: avoid the power struggle, offer limited choices instead. For revenge: stay calm, avoid retaliating, and address the underlying hurt. For inadequacy: break tasks into small wins and avoid any criticism until confidence rebuilds.</span><span data-ta>ஒவ்வொரு தவறான இலக்கிற்கும் வித்தியாசமான அடிப்படை தேவை இருப்பதால், மிகவும் திறம்பட பதில்களும் வேறுபடுகின்றன. கவனத்திற்கு: எதிர்வினையாற்றுவதற்கு பதிலாக முன்கூட்டியே கவனம் கொடுங்கள், பாதுகாப்பாக இருக்கும்போது சிறிய முயற்சிகளை புறக்கணியுங்கள். அதிகாரத்திற்கு: அதிகாரப் போராட்டத்தை தவிர்க்கவும், அதற்கு பதிலாக வரையறுக்கப்பட்ட தேர்வுகளை வழங்குங்கள். பழிவாங்கலுக்கு: அமைதியாக இருங்கள், திரும்ப தாக்குவதை தவிர்க்கவும், அடிப்படை காயத்தை நிவர்த்தி செய்யுங்கள். போதாமைக்கு: பணிகளை சிறிய வெற்றிகளாக பிரித்து, நம்பிக்கை மீண்டும் கட்டியெழுப்பப்படும் வரை எந்த விமர்சனத்தையும் தவிர்க்கவும்.</span></p>
+          <div class="block-label"><span data-en>Real-Life Example</span><span data-ta>நிஜ வாழ்க்கை உதாரணம்</span></div>
+          <div class="example-box"><span data-en>A student who constantly argues to 'win' every classroom discussion (power) responds far better to being offered a genuine choice — 'You can finish this now or during the break, your choice' — than to a direct order, which invites a fight. The same directness that works for an attention-seeking student would backfire here.</span><span data-ta>ஒவ்வொரு வகுப்பறை விவாதத்திலும் 'வெற்றி பெற' தொடர்ந்து வாதிடும் ஒரு மாணவர் (அதிகாரம்) ஒரு நேரடி உத்தரவை விட, ஒரு உண்மையான தேர்வை வழங்கப்படுவதற்கு மிகவும் சிறப்பாக பதிலளிக்கிறார் — 'நீங்கள் இதை இப்போது அல்லது இடைவேளையின் போது முடிக்கலாம், உங்கள் தேர்வு' — இது ஒரு சண்டையை அழைக்கிறது. கவனம் தேடும் மாணவருக்கு வேலை செய்யும் அதே நேரடித்தன்மை இங்கே பின்விளைவை ஏற்படுத்தும்.</span></div>
+          <div class="block-label"><span data-en>Practical Tips</span><span data-ta>நடைமுறை குறிப்புகள்</span></div>
+          <ul class="list"><li><span data-en>For attention: schedule proactive positive attention so the student doesn't need to misbehave to get noticed.</span><span data-ta>கவனத்திற்கு: மாணவர் கவனிக்கப்பட தவறாக நடந்துகொள்ள வேண்டிய அவசியமில்லாதவாறு முன்கூட்டிய நேர்மறை கவனத்தை திட்டமிடுங்கள்.</span></li><li><span data-en>For power: offer two acceptable choices instead of a single command, so the student keeps some sense of control.</span><span data-ta>அதிகாரத்திற்கு: ஒரு ஒற்றை கட்டளைக்கு பதிலாக ஏற்றுக்கொள்ளக்கூடிய இரண்டு தேர்வுகளை வழங்குங்கள், இதனால் மாணவர் சில கட்டுப்பாட்டு உணர்வை வைத்திருப்பார்.</span></li><li><span data-en>For revenge: resist the instinct to retaliate; instead, privately acknowledge the hurt behind the behaviour.</span><span data-ta>பழிவாங்கலுக்கு: திரும்ப தாக்கும் உள்ளுணர்வை எதிர்க்கவும்; அதற்கு பதிலாக, நடத்தையின் பின்னால் உள்ள காயத்தை தனிப்பட்ட முறையில் ஒப்புக்கொள்ளுங்கள்.</span></li><li><span data-en>For inadequacy: find one small task the student can succeed at quickly, and build from there without criticism.</span><span data-ta>போதாமைக்கு: மாணவர் விரைவாக வெற்றி பெறக்கூடிய ஒரு சிறிய பணியை கண்டுபிடித்து, விமர்சனம் இல்லாமல் அங்கிருந்து வளர்த்தெடுங்கள்.</span></li></ul>
+          <div class="block-label"><span data-en>Suggestions for Improvement</span><span data-ta>மேம்பாட்டிற்கான பரிந்துரைகள்</span></div>
+          <ul class="list improve"><li><span data-en>Don't use the same script for all four goals — misdiagnosing the goal often makes the specific behaviour worse.</span><span data-ta>நான்கு இலக்குகளுக்கும் ஒரே வரிகளை பயன்படுத்த வேண்டாம் — இலக்கை தவறாக கண்டறிவது பெரும்பாலும் குறிப்பிட்ட நடத்தையை மோசமாக்குகிறது.</span></li><li><span data-en>Avoid public power struggles in front of peers; move the conversation private wherever possible to remove the 'audience' effect.</span><span data-ta>சக மாணவர்களின் முன்னிலையில் பொது அதிகாரப் போராட்டங்களை தவிர்க்கவும்; 'பார்வையாளர்' விளைவை நீக்க முடிந்தவரை உரையாடலை தனிப்பட்டதாக்குங்கள்.</span></li><li><span data-en>Track which strategy actually worked for a given student over several attempts — mistaken-goal patterns often persist and repeat, so what works once likely works again.</span><span data-ta>ஒரு குறிப்பிட்ட மாணவருக்கு பல முயற்சிகளில் உண்மையில் எந்த உத்தி வேலை செய்தது என்பதை கண்காணிக்கவும் — தவறான-இலக்கு வடிவங்கள் பெரும்பாலும் தொடர்ந்து மீண்டும் நிகழும், எனவே ஒரு முறை வேலை செய்வது மீண்டும் வேலை செய்யக்கூடும்.</span></li></ul>
+        </div>
+        
+  </div>
+
+  <h2 style="color:var(--primary-dark); margin-bottom:12px;"><span data-en>Implementation Worksheets</span><span data-ta>செயல்படுத்தல் பயிற்சித்தாள்கள்</span></h2>
+  <div class="worksheet-section">
+    <div class="worksheet-card daily">
+      <h3>📅 <span data-en>Daily Practice</span><span data-ta>தினசரி பயிற்சி</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Identify one instance of misbehaviour today and guess its mistaken goal: attention, power, revenge, or inadequacy.</span><span data-ta>இன்று ஒரு தவறான நடத்தை நிகழ்வை அடையாளம் கண்டு அதன் தவறான இலக்கை யூகிக்கவும்: கவனம், அதிகாரம், பழிவாங்கல், அல்லது போதாமை.</span></span></li><li><input type="checkbox"><span><span data-en>Notice your own emotional reaction to one difficult moment today — what did it tell you?</span><span data-ta>இன்றைய ஒரு கடினமான தருணத்திற்கு உங்கள் சொந்த உணர்ச்சி எதிர்வினையை கவனிக்கவும் — அது உங்களுக்கு என்ன சொன்னது?</span></span></li><li><input type="checkbox"><span><span data-en>Try one goal-specific response today (proactive attention, offered choice, calm non-retaliation, or small win).</span><span data-ta>இன்று ஒரு இலக்கு-குறிப்பிட்ட பதிலை முயற்சிக்கவும் (முன்கூட்டிய கவனம், வழங்கப்பட்ட தேர்வு, அமைதியான திரும்ப-தாக்காமை, அல்லது சிறிய வெற்றி).</span></span></li><li><input type="checkbox"><span><span data-en>Note whether your guess about the goal seemed accurate in hindsight.</span><span data-ta>இலக்கு பற்றிய உங்கள் யூகம் பின்னோக்கிப் பார்க்கும்போது துல்லியமாக தோன்றியதா என்பதை குறிப்பிடவும்.</span></span></li></ul>
+    </div>
+    <div class="worksheet-card weekly">
+      <h3>🗓️ <span data-en>Weekly Review</span><span data-ta>வாராந்திர மறுஆய்வு</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Review the week's most challenging behaviours — group them by likely mistaken goal.</span><span data-ta>வாரத்தின் மிகவும் சவாலான நடத்தைகளை மறுபரிசீலனை செய்யுங்கள் — சாத்தியமான தவறான இலக்கின்படி அவற்றை குழுவாக்குங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Identify one student whose mistaken goal you now understand better than a week ago.</span><span data-ta>ஒரு வாரத்திற்கு முன்பை விட இப்போது நீங்கள் நன்றாக புரிந்துகொள்ளும் தவறான இலக்கு கொண்ட ஒரு மாணவரை அடையாளம் காணவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Plan a specific goal-matched strategy for your most frequent behavioural issue next week.</span><span data-ta>அடுத்த வாரம் உங்கள் அதிக அடிக்கடி நடக்கும் நடத்தை பிரச்சனைக்கு ஒரு குறிப்பிட்ட இலக்கு-பொருந்திய உத்தியை திட்டமிடுங்கள்.</span></span></li><li><input type="checkbox"><span><span data-en>Note any pattern in your own emotional reactions across the week — which goal do you find hardest to respond to calmly?</span><span data-ta>வாரம் முழுவதும் உங்கள் சொந்த உணர்ச்சி எதிர்வினைகளில் ஏதேனும் வடிவத்தை குறிப்பிடவும் — எந்த இலக்கிற்கு அமைதியாக பதிலளிப்பது கடினமாக உள்ளது?</span></span></li></ul>
+    </div>
+    <div class="worksheet-card monthly">
+      <h3>📆 <span data-en>Monthly Goal-Setting</span><span data-ta>மாதாந்திர இலக்கு நிர்ணயம்</span></h3>
+      <ul><li><input type="checkbox"><span><span data-en>Reflect: which mistaken goal is most common in your classroom overall this month?</span><span data-ta>சிந்தியுங்கள்: இந்த மாதம் உங்கள் வகுப்பறையில் ஒட்டுமொத்தமாக எந்த தவறான இலக்கு மிகவும் பொதுவானது?</span></span></li><li><input type="checkbox"><span><span data-en>Set a specific strategy goal for next month matched to your classroom's most common mistaken goal.</span><span data-ta>உங்கள் வகுப்பறையின் மிகவும் பொதுவான தவறான இலக்குக்கு பொருந்தும் ஒரு குறிப்பிட்ட உத்தி இலக்கை அடுத்த மாதத்திற்கு நிர்ணயிக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Choose one student showing signs of assumed inadequacy and design a month-long 'small wins' plan for them.</span><span data-ta>கருதப்பட்ட போதாமையின் அறிகுறிகளை காட்டும் ஒரு மாணவரை தேர்ந்தெடுத்து, அவர்களுக்கு ஒரு மாத-கால 'சிறிய வெற்றிகள்' திட்டத்தை வடிவமைக்கவும்.</span></span></li><li><input type="checkbox"><span><span data-en>Discuss your mistaken-goal observations with a colleague or counsellor for a second perspective.</span><span data-ta>இரண்டாவது பார்வைக்காக உங்கள் தவறான-இலக்கு அவதானிப்புகளை ஒரு சக ஆசிரியர் அல்லது ஆலோசகருடன் விவாதிக்கவும்.</span></span></li></ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons"><a class="nav-prev" href="module-03.html"><span data-en>&larr; Previous Module</span><span data-ta>&larr; முந்தைய பாடம்</span></a><a class="nav-next" href="module-05.html"><span data-en>Next Module &rarr;</span><span data-ta>அடுத்த பாடம் &rarr;</span></a></div>
+
+  <div class="cta">
+    <div style="font-weight:600;"><span data-en>Want personalised guidance applying this module in your classroom?</span><span data-ta>உங்கள் வகுப்பறையில் இந்த பாடத்தை செயல்படுத்த தனிப்பயனாக்கப்பட்ட வழிகாட்டுதல் வேண்டுமா?</span></div>
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20on%20Module%204%20of%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank"><span data-en>Message on WhatsApp</span><span data-ta>வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்</span></a>
+  </div>
+</div>
+<footer>
+  <div>&copy; N T Somasundaram &mdash; Life Skills Program</div>
+  <div class="motto">"God is always with u"</div>
+</footer>
+
+<script>
+
+const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
+const GATE_KEY = "pd_teachers_unlocked";
+
+function checkPasscode(){
+  const input = document.getElementById('gateInput').value.trim();
+  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
+    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
+    unlockCourse();
+  } else {
+    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
+      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
+      : 'Incorrect passcode. Please try again.';
+  }
+}
+
+function unlockCourse(){
+  document.body.classList.remove('locked');
+  document.getElementById('passcodeGate').style.display = 'none';
+}
+
+(function initGate(){
+  let unlocked = false;
+  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
+  if(unlocked){
+    unlockCourse();
+  } else {
+    document.body.classList.add('locked');
+  }
+})();
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang==='ta');
+  document.getElementById('btnEn').classList.toggle('active', lang==='en');
+  document.getElementById('btnTa').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('pd_lang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('pd_lang');
+    if(saved) setLang(saved);
+  }catch(e){}
+})();
+</script>
+</body>
+</html>
