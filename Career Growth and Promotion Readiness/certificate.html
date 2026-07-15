@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Completed | Career Growth & Promotion Readiness</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--muted:#5b6472;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--navy);min-height:100vh;padding:30px 16px;}
+  .lang-toggle{position:fixed;top:16px;right:16px;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);z-index:10;}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+
+  .locked-msg{max-width:520px;margin:80px auto;text-align:center;background:#fff;border-radius:14px;padding:40px 30px;box-shadow:0 10px 30px rgba(11,31,58,.08);}
+  .locked-msg h2{margin-bottom:10px;}
+  .locked-msg p{color:var(--muted);margin-bottom:20px;}
+  .locked-msg a{background:var(--navy);color:#fff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;}
+
+  .done-wrap{max-width:640px;margin:70px auto 20px;}
+  .done-card{
+    background:#fff; border-radius:16px; padding:50px 40px;
+    text-align:center; box-shadow:0 10px 30px rgba(11,31,58,.08);
+    border-top:6px solid var(--gold);
+  }
+  .done-icon{
+    width:72px;height:72px;border-radius:50%;background:var(--navy);
+    color:var(--gold-light);display:flex;align-items:center;justify-content:center;
+    font-size:36px;margin:0 auto 22px;
+  }
+  .done-eyebrow{color:var(--gold); letter-spacing:2px; font-size:13px; font-weight:700; margin-bottom:12px;}
+  .done-title{font-size:clamp(22px,4vw,28px); font-weight:800; margin-bottom:16px;}
+  .done-name{font-weight:700; color:var(--navy);}
+  .done-msg{font-size:15px; color:var(--muted); max-width:480px; margin:0 auto 26px; line-height:1.8;}
+  .done-wishes{
+    font-size:15.5px; color:var(--navy); font-weight:600; line-height:1.8;
+    margin:0 auto 8px; max-width:480px;
+  }
+  .done-sig{margin-top:28px; font-size:13.5px; color:var(--muted);}
+  .done-sig strong{display:block; color:var(--navy); font-size:15px; margin-bottom:2px;}
+  .done-motto{margin-top:26px; color:var(--gold); font-weight:700; font-size:13px; letter-spacing:1px;}
+
+  .actions{max-width:640px; margin:26px auto 60px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap;}
+  .btn{padding:13px 26px; border-radius:8px; font-weight:700; font-size:14.5px; cursor:pointer; border:none; text-decoration:none; font-family:'Poppins',sans-serif;}
+  .btn-primary{background:var(--navy); color:#fff;}
+  .btn-ghost{background:transparent; color:var(--navy); border:2px solid var(--navy);}
+
+  @media print{ .lang-toggle,.actions{display:none;} body{padding:0;} .done-wrap{margin:0;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div id="lockedMsg" class="locked-msg" style="display:none;">
+  <h2 data-en="Not Yet Completed" data-ta="இன்னும் முடிக்கப்படவில்லை">Not Yet Completed</h2>
+  <p data-en="Complete all 10 modules in the course to see your completion message." data-ta="உங்கள் நிறைவு செய்தியைப் பார்க்க பாடத்தின் அனைத்து 10 பாடங்களையும் முடிக்கவும்.">Complete all 10 modules in the course to see your completion message.</p>
+  <a href="course-hub.html" data-en="Go to Course Hub" data-ta="பாட மையத்திற்குச் செல்லவும்">Go to Course Hub</a>
+</div>
+
+<div id="doneSection" class="done-wrap" style="display:none;">
+  <div class="done-card">
+    <div class="done-icon">&#10003;</div>
+    <div class="done-eyebrow" data-en="COURSE COMPLETED" data-ta="பாடநெறி முடிந்தது">COURSE COMPLETED</div>
+    <div class="done-title">
+      <span data-en="Congratulations, " data-ta="வாழ்த்துகள், ">Congratulations, </span><span class="done-name" id="studentName">Student</span>!
+    </div>
+    <div class="done-msg" data-en="You have successfully completed all 10 modules of Career Growth & Promotion Readiness — covering visibility building, skill mapping, executive presence, sponsorship, and promotion case preparation." data-ta="தெரிவுநிலை, திறன் வரைபடமாக்கல், நிர்வாக இருப்பு, ஆதரவு மற்றும் பதவி உயர்வு வழக்கு தயாரிப்பு உள்ளிட்ட Career Growth & Promotion Readiness நிரலின் அனைத்து 10 பாடங்களையும் நீங்கள் வெற்றிகரமாக முடித்துவிட்டீர்கள்.">You have successfully completed all 10 modules of Career Growth & Promotion Readiness — covering visibility building, skill mapping, executive presence, sponsorship, and promotion case preparation.</div>
+    <div class="done-wishes" data-en="Wishing you continued growth, greater visibility at work, and the promotion you've been working towards." data-ta="தொடர்ந்த வளர்ச்சி, பணியிடத்தில் அதிக தெரிவுநிலை, மற்றும் நீங்கள் உழைத்து வரும் பதவி உயர்வு கிடைக்க வாழ்த்துகள்.">Wishing you continued growth, greater visibility at work, and the promotion you've been working towards.</div>
+    <div class="done-sig">
+      <strong>N T Somasundaram</strong>
+      <span data-en="Certified Master Trainer & Career Consultant" data-ta="சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்றுனர் & தொழில் ஆலோசகர்">Certified Master Trainer & Career Consultant</span>
+    </div>
+    <div class="done-motto">GOD IS ALWAYS WITH U</div>
+  </div>
+</div>
+
+<div class="actions" id="actionsRow" style="display:none;">
+  <button class="btn btn-primary" onclick="window.print()" data-en="Print / Save as PDF" data-ta="அச்சிடு / PDF ஆக சேமி">Print / Save as PDF</button>
+  <a class="btn btn-ghost" href="course-hub.html" data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</a>
+</div>
+
+<script>
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.textContent = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+function getProgress(){
+  const raw = localStorage.getItem('cgpr_progress');
+  return raw ? JSON.parse(raw) : {};
+}
+
+function init(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+    return;
+  }
+  const progress = getProgress();
+  const doneCount = Object.values(progress).filter(v=>v).length;
+
+  if(doneCount < 10){
+    document.getElementById('lockedMsg').style.display = 'block';
+  } else {
+    document.getElementById('studentName').textContent = localStorage.getItem('cgpr_studentName') || 'Student';
+    document.getElementById('doneSection').style.display = 'block';
+    document.getElementById('actionsRow').style.display = 'flex';
+  }
+  setLang(currentLang);
+}
+
+init();
+</script>
+
+</body>
+</html>

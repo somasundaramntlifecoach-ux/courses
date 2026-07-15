@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 4: உங்கள் திறன் இடைவெளிகளைக் குறைத்தல் — கருத்துகள் & எடுத்துக்காட்டுகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .intro{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:20px 22px;margin-bottom:26px;color:var(--muted);font-size:15px;}
+  .concept{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .concept h3{color:var(--navy);font-size:16.5px;margin-bottom:8px;}
+  .concept p{color:var(--muted);font-size:14.5px;}
+  .example-box{background:#eef2f8;border-radius:12px;padding:22px 24px;margin-bottom:16px;border-left:4px solid var(--navy);}
+  .example-box h3{color:var(--navy);font-size:15.5px;margin-bottom:8px;}
+  .example-box p{color:var(--muted);font-size:14.5px;}
+  .example-tag{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:12px;margin-bottom:12px;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 4 OF 10 &middot; CONCEPTS & EXAMPLES" data-ta="தொகுதி 4/10 &middot; கருத்துகள் & எடுத்துக்காட்டுகள்">MODULE 4 OF 10 &middot; CONCEPTS & EXAMPLES</span>
+</div>
+<div class="page-tabs">
+  <a href="module4-concepts.html" class="active" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module4-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module4-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 4: Closing Your Skill Gaps" data-ta="தொகுதி 4: உங்கள் திறன் இடைவெளிகளைக் குறைத்தல்">Module 4: Closing Your Skill Gaps</h1>
+  <div class="m-sub" data-en="Page 1 of 3 &middot; Concepts & Real-Life Examples" data-ta="பக்கம் 1/3 &middot; கருத்துகள் & நிஜ வாழ்க்கை எடுத்துக்காட்டுகள்">Page 1 of 3 &middot; Concepts & Real-Life Examples</div>
+  
+  <div class="intro" data-en="If your diagnostic pointed toward a genuine skill gap, this module gives you a structured way to identify exactly what's missing and close it efficiently — instead of vaguely 'upskilling' in whatever direction feels safe or fashionable, which is how many professionals waste a year on the wrong certification." data-ta="உங்கள் மதிப்பீடு உண்மையான திறன் இடைவெளியை சுட்டிக்காட்டினால், எது குறைவு என்பதைத் துல்லியமாகக் கண்டறிந்து அதைத் திறமையாகச் சரிசெய்வதற்கான கட்டமைக்கப்பட்ட வழியை இந்தத் தொகுதி உங்களுக்கு வழங்குகிறது — பாதுகாப்பான அல்லது நாகரீகமான திசையில் ஏனோதானோவென்று 'திறன் வளர்ப்பதற்கு' (upskilling) பதிலாக, இதுவே பல வல்லுநர்கள் தவறான சான்றிதழுக்காக ஒரு வருடத்தை வீணடிப்பதற்குக் காரணமாகும்.">If your diagnostic pointed toward a genuine skill gap, this module gives you a structured way to identify exactly what's missing and close it efficiently — instead of vaguely 'upskilling' in whatever direction feels safe or fashionable, which is how many professionals waste a year on the wrong certification.</div>
+  
+  <div class="concept">
+    <h3 data-en="Shadow the Role Above You" data-ta="உங்களுக்கு மேலான பதவியைக் கவனித்துப் பழகுங்கள் (Shadow the Role Above You)">Shadow the Role Above You</h3>
+    <p data-en="Ask to sit in on a meeting, review a document, or shadow a task typically done one level up. This single action reveals the real, not assumed, skill requirements far faster than any job description." data-ta="ஒரு கூட்டத்தில் கலந்துகொள்ள, ஒரு ஆவணத்தை மதிப்பாய்வு செய்ய அல்லது வழக்கமாக ஒரு நிலை மேல் செய்யப்படும் பணியை உடன் இருந்து கவனிக்க (shadow) அனுமதி கேளுங்கள். இந்த ஒற்றைச் செயல், எந்தவொரு வேலை விளக்கத்தையும் விட மிக வேகமாக உண்மையான, அனுமானிக்கப்படாத திறன் தேவைகளை வெளிப்படுத்துகிறது.">Ask to sit in on a meeting, review a document, or shadow a task typically done one level up. This single action reveals the real, not assumed, skill requirements far faster than any job description.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Competency Mapping" data-ta="திறன் வரைபடமாக்கல் (Competency Mapping)">Competency Mapping</h3>
+    <p data-en="List the 4-5 core competencies of the next role and honestly rate your current level in each on a simple 1-5 scale. This turns a vague feeling of 'not ready yet' into a specific, actionable list." data-ta="அடுத்த பதவிக்கான 4-5 முக்கிய திறன்களைப் பட்டியலிடுங்கள் மற்றும் ஒவ்வொன்றிலும் உங்களின் தற்போதைய நிலையை எளிமையான 1-5 அளவுகோலில் நேர்மையாக மதிப்பிடுங்கள். இது 'இன்னும் தயாராக இல்லை' என்ற தெளிவற்ற உணர்வை, ஒரு குறிப்பிட்ட, செயல்படக்கூடிய பட்டியலாக மாற்றுகிறது.">List the 4-5 core competencies of the next role and honestly rate your current level in each on a simple 1-5 scale. This turns a vague feeling of 'not ready yet' into a specific, actionable list.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="The 70-20-10 Model" data-ta="70-20-10 மாதிரி">The 70-20-10 Model</h3>
+    <p data-en="Roughly 70% of real skill-building happens through on-the-job stretch assignments, 20% through mentoring and direct feedback, and only about 10% through formal courses or certifications. Most people invert this ratio and over-invest in courses alone." data-ta="உண்மையான திறன் வளர்ப்பில் தோராயமாக 70% வேலை செய்யும்போதே கிடைக்கும் கூடுதல் சவாலான பணிகள் மூலமாகவும் (stretch assignments), 20% வழிகாட்டுதல் மற்றும் நேரடிப் பின்னூட்டங்கள் மூலமாகவும், வெறும் 10% மட்டுமே முறையான படிப்புகள் அல்லது சான்றிதழ்கள் மூலமாகவும் நிகழ்கிறது. பெரும்பாலான மக்கள் இந்த விகிதத்தைத் தலைகீழாக மாற்றி, படிப்புகளில் மட்டுமே அதிக முதலீடு செய்கிறார்கள்.">Roughly 70% of real skill-building happens through on-the-job stretch assignments, 20% through mentoring and direct feedback, and only about 10% through formal courses or certifications. Most people invert this ratio and over-invest in courses alone.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Targeted, Not Generic, Learning" data-ta="இலக்கிடப்பட்ட, பொதுவானதல்லாத கற்றல்">Targeted, Not Generic, Learning</h3>
+    <p data-en="A certification only helps if it closes a gap someone has actually flagged for you — not just any credential that looks impressive on paper but doesn't address what's actually holding you back." data-ta="காகிதத்தில் ஈர்க்கக்கூடியதாகத் தோன்றும், ஆனால் உங்களை உண்மையில் தடுத்து நிறுத்துவதைச் சரிசெய்யாத எந்தவொரு சான்றிதழும் அல்லாமல் — யாராவது உங்களுக்கு உண்மையில் சுட்டிக்காட்டிய ஒரு குறையை நிவர்த்தி செய்தால் மட்டுமே ஒரு சான்றிதழ் உதவும்.">A certification only helps if it closes a gap someone has actually flagged for you — not just any credential that looks impressive on paper but doesn't address what's actually holding you back.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Karthik, Client Delivery Lead" data-ta="கார்த்திக், கிளைன்ட் டெலிவரி லீட்">Karthik, Client Delivery Lead</h3>
+    <p data-en="Karthik assumed his gap was technical delivery skill and spent months preparing detailed technical documentation nobody had asked for. After finally asking to shadow his manager on one client negotiation call, he discovered the real gap was commercial negotiation — an entirely different skill he'd never practiced." data-ta="கார்த்திக் தனது குறை தொழில்நுட்ப விநியோகத் திறன் என்று கருதி, யாரும் கேட்காத விரிவான தொழில்நுட்ப ஆவணங்களைத் தயாரிப்பதில் பல மாதங்கள் செலவிட்டார். இறுதியாக ஒரு வாடிக்கையாளர் பேச்சுவார்த்தை அழைப்பில் தனது மேலாளருடன் உடன் இருந்து கவனிக்க (shadow) அனுமதி கேட்டபோது, வணிகப் பேச்சுவார்த்தையே உண்மையான குறை என்பதை அவர் கண்டுபிடித்தார் — அது அவர் ஒருபோதும் பயிற்சி செய்யாத முற்றிலும் மாறுபட்ட திறனாகும்.">Karthik assumed his gap was technical delivery skill and spent months preparing detailed technical documentation nobody had asked for. After finally asking to shadow his manager on one client negotiation call, he discovered the real gap was commercial negotiation — an entirely different skill he'd never practiced.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Priya, Operations Analyst" data-ta="பிரியா, ஆப்பரேஷன்ஸ் அனலிஸ்ட்">Priya, Operations Analyst</h3>
+    <p data-en="Priya deliberately applied the 70-20-10 model: she took one stretch project (the 70%), found an informal mentor two levels above her for regular feedback (the 20%), and completed one focused certification directly relevant to a flagged gap (the 10%). She was promoted in eight months, compared to three stalled years before that." data-ta="பிரியா 70-20-10 மாதிரியை வேண்டுமென்றே பயன்படுத்தினார்: அவர் ஒரு சவாலான திட்டத்தை (70%) எடுத்துக்கொண்டார், வழக்கமான பின்னூட்டங்களுக்காக அவருக்கு இரண்டு நிலை மேலேயுள்ள ஒருவரை முறைசாரா வழிகாட்டியாகக் கண்டறிந்தார் (20%), மேலும் சுட்டிக்காட்டப்பட்ட குறைபாட்டுடன் நேரடியாகத் தொடர்புடைய ஒரு மையப்படுத்தப்பட்ட சான்றிதழை முடித்தார் (10%). அதற்கு முந்தைய மூன்று வருட தேக்கநிலையுடன் ஒப்பிடும்போது, அவர் எட்டு மாதங்களில் பதவி உயர்வு பெற்றார்.">Priya deliberately applied the 70-20-10 model: she took one stretch project (the 70%), found an informal mentor two levels above her for regular feedback (the 20%), and completed one focused certification directly relevant to a flagged gap (the 10%). She was promoted in eight months, compared to three stalled years before that.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module3-worksheet.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module4-guidance.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module4-concepts.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

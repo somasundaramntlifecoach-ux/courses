@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 7: மேலாண்மையை நிர்வகித்தல் (Managing Upward) — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 7 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 7/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 7 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module7-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module7-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module7-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 7: Managing Upward" data-ta="தொகுதி 7: மேலாண்மையை நிர்வகித்தல் (Managing Upward)">Module 7: Managing Upward</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="Identify your manager's top 2-3 priorities or pressures this quarter." data-ta="இந்தக் காலாண்டில் உங்கள் மேலாளரின் முதல் 2-3 முன்னுரிமைகள் அல்லது அழுத்தங்களை அடையாளம் காணுங்கள்.">Identify your manager's top 2-3 priorities or pressures this quarter.</li>
+      <li data-en="Reframe one of your recent contributions explicitly in terms of one of those priorities." data-ta="உங்கள் சமீபத்திய பங்களிப்புகளில் ஒன்றை, அந்த முன்னுரிமைகளில் ஒன்றின் அடிப்படையில் வெளிப்படையாக மாற்றியமைத்து முன்வையுங்கள்.">Reframe one of your recent contributions explicitly in terms of one of those priorities.</li>
+      <li data-en="Send one proactive 'heads up' on a potential blocker before it's asked about." data-ta="ஒரு சாத்தியமான தடை குறித்து, அவர்கள் கேட்பதற்கு முன்பே 'முன்னெச்சரிக்கை' (heads up) தகவலை அனுப்புங்கள்.">Send one proactive 'heads up' on a potential blocker before it's asked about.</li>
+      <li data-en="Schedule a specific conversation to directly state your interest in promotion &mdash; don't leave it implied." data-ta="பதவி உயர்வில் உங்கள் ஆர்வத்தை நேரடியாகத் தெரிவிக்க ஒரு குறிப்பிட்ட உரையாடலைத் திட்டமிடுங்கள் &mdash; அதை மறைமுகமாக விட்டுவிடாதீர்கள்.">Schedule a specific conversation to directly state your interest in promotion &mdash; don't leave it implied.</li>
+      <li data-en="Ask your manager plainly what the realistic timeline and criteria are for your next step." data-ta="உங்கள் அடுத்த கட்டத்திற்கான யதார்த்தமான காலவரிசை மற்றும் அளவுகோல்கள் என்ன என்பதை உங்கள் மேலாளரிடம் வெளிப்படையாகக் கேளுங்கள்.">Ask your manager plainly what the realistic timeline and criteria are for your next step.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="State your promotion interest explicitly and specifically, naming the role or level." data-ta="உங்கள் பதவி உயர்வு ஆர்வத்தை வெளிப்படையாகவும் குறிப்பாகவும் சொல்லுங்கள், அந்தப் பதவி அல்லது நிலையைப் பெயரிடுங்கள்.">State your promotion interest explicitly and specifically, naming the role or level.</li>
+        <li data-en="Frame your updates around your manager's priorities, not just your own task list." data-ta="உங்கள் புதுப்பிப்புகளை உங்கள் சொந்த பணிப் பட்டியலைச் சுற்றி மட்டும் அமைக்காமல், உங்கள் மேலாளரின் முன்னுரிமைகளைச் சுற்றி அமையுங்கள்.">Frame your updates around your manager's priorities, not just your own task list.</li>
+        <li data-en="Flag risks and blockers early, even when they're not fully resolved yet." data-ta="ஆபத்துகள் மற்றும் தடைகள் முழுமையாகத் தீர்க்கப்படாத போதும், அவற்றை முன்கூட்டியே சுட்டிக்காட்டுங்கள்.">Flag risks and blockers early, even when they're not fully resolved yet.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't assume silence means your manager already knows you want to be promoted." data-ta="அமைதி என்பது உங்கள் மேலாளருக்கு நீங்கள் பதவி உயர்வு பெற விரும்புகிறீர்கள் என்று ஏற்கனவே தெரியும் என்று அர்த்தம் என்று கருத வேண்டாம்.">Don't assume silence means your manager already knows you want to be promoted.</li>
+        <li data-en="Don't only communicate with your manager when something is needed from them." data-ta="உங்களுக்கு மேலாளரிடமிருந்து ஏதேனும் தேவைப்படும்போது மட்டும் அவர்களுடன் தொடர்புகொள்ளாதீர்கள்.">Don't only communicate with your manager when something is needed from them.</li>
+        <li data-en="Don't let 'it'll come up naturally' substitute for an actual scheduled conversation." data-ta="'அது இயற்கையாக வரும்' என்பது முறையான திட்டமிடப்பட்ட உரையாடலுக்கு மாற்றாக இருக்க அனுமதிக்காதீர்கள்.">Don't let 'it'll come up naturally' substitute for an actual scheduled conversation.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Leaving promotion interest permanently implied instead of ever stating it directly." data-ta="பதவி உயர்வு ஆர்வத்தை ஒருபோதும் நேரடியாகச் சொல்லாமல் நிரந்தரமாக மறைமுகமாக வைத்திருப்பது.">Leaving promotion interest permanently implied instead of ever stating it directly.</li>
+      <li data-en="Surprising your manager with problems instead of flagging them early." data-ta="பிரச்சினைகளை முன்கூட்டியே சுட்டிக்காட்டாமல், கடைசி நேரத்தில் உங்கள் மேலாளரை அதிர்ச்சிக்குள்ளாக்குவது.">Surprising your manager with problems instead of flagging them early.</li>
+      <li data-en="Not knowing your organisation's actual promotion cycle or criteria and assuming a vague timeline." data-ta="உங்கள் நிறுவனத்தின் உண்மையான பதவி உயர்வு சுழற்சி அல்லது அளவுகோல்களைத் தெரியாமல், தெளிவற்ற காலவரிசையைச் சார்ந்து இருப்பது.">Not knowing your organisation's actual promotion cycle or criteria and assuming a vague timeline.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;I wanted to be direct about something &mdash; I'm aiming to be considered for [specific role/level] in the next cycle. What would you say I need to demonstrate to get there?&rdquo;" data-ta="&ldquo;நான் ஒரு விஷயத்தைப் பற்றி நேரடியாகக் கேட்க விரும்புகிறேன் &mdash; அடுத்த சுழற்சியில் [குறிப்பிட்ட பதவி/நிலை]-க்கு நான் கருதப்பட இலக்கு வைத்துள்ளேன். அங்கு செல்வதற்கு நான் எதை வெளிப்படுத்த வேண்டும் என்று நீங்கள் கூறுகிறீர்கள்?&rdquo;">&ldquo;I wanted to be direct about something &mdash; I'm aiming to be considered for [specific role/level] in the next cycle. What would you say I need to demonstrate to get there?&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module7-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module7-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module7-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 6: நெட்வொர்க்கிங் & ஒரு ஸ்பான்சரைக் கண்டறிதல் — கருத்துகள் & எடுத்துக்காட்டுகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .intro{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:20px 22px;margin-bottom:26px;color:var(--muted);font-size:15px;}
+  .concept{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .concept h3{color:var(--navy);font-size:16.5px;margin-bottom:8px;}
+  .concept p{color:var(--muted);font-size:14.5px;}
+  .example-box{background:#eef2f8;border-radius:12px;padding:22px 24px;margin-bottom:16px;border-left:4px solid var(--navy);}
+  .example-box h3{color:var(--navy);font-size:15.5px;margin-bottom:8px;}
+  .example-box p{color:var(--muted);font-size:14.5px;}
+  .example-tag{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:12px;margin-bottom:12px;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 6 OF 10 &middot; CONCEPTS & EXAMPLES" data-ta="தொகுதி 6/10 &middot; கருத்துகள் & எடுத்துக்காட்டுகள்">MODULE 6 OF 10 &middot; CONCEPTS & EXAMPLES</span>
+</div>
+<div class="page-tabs">
+  <a href="module6-concepts.html" class="active" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module6-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module6-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 6: Networking & Finding a Sponsor" data-ta="தொகுதி 6: நெட்வொர்க்கிங் & ஒரு ஸ்பான்சரைக் கண்டறிதல்">Module 6: Networking & Finding a Sponsor</h1>
+  <div class="m-sub" data-en="Page 1 of 3 &middot; Concepts & Real-Life Examples" data-ta="பக்கம் 1/3 &middot; கருத்துகள் & நிஜ வாழ்க்கை எடுத்துக்காட்டுகள்">Page 1 of 3 &middot; Concepts & Real-Life Examples</div>
+  
+  <div class="intro" data-en="A mentor gives you advice. A sponsor advocates for you when you're not in the room &mdash; and is often the single biggest lever in whether a promotion actually happens, more than any other factor covered in this course. This module helps you understand the distinction clearly and build a genuine sponsor relationship, not a transactional one." data-ta="ஒரு வழிகாட்டி (mentor) உங்களுக்கு ஆலோசனை வழங்குவார். நீங்கள் இல்லாத நேரத்தில் உங்களுக்காகப் பரிந்துரைப்பவர் ஒரு ஸ்பான்சர் (sponsor) &mdash; மேலும், இந்தப் பாடத்திட்டத்தில் உள்ள வேறு எந்தக் காரணியையும் விட ஒரு பதவி உயர்வு உண்மையில் நிகழுமா என்பதில் பெரும்பாலும் ஸ்பான்சரே மிகப்பெரிய கருவியாக இருப்பார். இந்தத் தொகுதி வேறுபாட்டைத் தெளிவாகப் புரிந்துகொள்ளவும், வணிக ரீதியானதாக இல்லாமல் உண்மையான ஸ்பான்சர் உறவை உருவாக்கவும் உங்களுக்கு உதவுகிறது.">A mentor gives you advice. A sponsor advocates for you when you're not in the room &mdash; and is often the single biggest lever in whether a promotion actually happens, more than any other factor covered in this course. This module helps you understand the distinction clearly and build a genuine sponsor relationship, not a transactional one.</div>
+  
+  <div class="concept">
+    <h3 data-en="Mentor vs. Sponsor" data-ta="வழிகாட்டி (Mentor) vs. ஸ்பான்சர் (Sponsor)">Mentor vs. Sponsor</h3>
+    <p data-en="A mentor talks *to* you, offering guidance and feedback. A sponsor talks *about* you, in rooms and conversations you don't have access to &mdash; and that advocacy is what actually moves promotion decisions." data-ta="ஒரு வழிகாட்டி (mentor) உங்களிடம் பேசுவார், வழிகாட்டுதல் மற்றும் பின்னூட்டங்களை வழங்குவார். ஒரு ஸ்பான்சர் நீங்கள் இல்லாத அறைகள் மற்றும் உரையாடல்களில் உங்களைப் பற்றிப் பேசுவார் &mdash; அந்தப் பரிந்துரைதான் உண்மையில் பதவி உயர்வு முடிவுகளை நகர்த்துகிறது.">A mentor talks *to* you, offering guidance and feedback. A sponsor talks *about* you, in rooms and conversations you don't have access to &mdash; and that advocacy is what actually moves promotion decisions.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Why Sponsors Matter Most" data-ta="ஸ்பான்சர்கள் ஏன் மிகவும் முக்கியமானவர்கள்">Why Sponsors Matter Most</h3>
+    <p data-en="Promotion decisions are frequently made, or at least strongly shaped, in conversations you're not part of. Without someone advocating for you there, even excellent, well-documented work can quietly go unrecognised." data-ta="பதவி உயர்வு முடிவுகள் பெரும்பாலும் நீங்கள் இல்லாத உரையாடல்களில்தான் எடுக்கப்படுகின்றன அல்லது வலுவாக வடிவமைக்கப்படுகின்றன. உங்களுக்காகப் பரிந்துரைக்க அங்கு யாருமில்லை என்றால், சிறப்பாக ஆவணப்படுத்தப்பட்ட சிறந்த வேலைகள் கூட அமைதியாக அங்கீகரிக்கப்படாமல் போகலாம்.">Promotion decisions are frequently made, or at least strongly shaped, in conversations you're not part of. Without someone advocating for you there, even excellent, well-documented work can quietly go unrecognised.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Building Genuine Relationships" data-ta="உண்மையான உறவுகளை உருவாக்குதல்">Building Genuine Relationships</h3>
+    <p data-en="Sponsorship isn't transactional networking or forced small talk &mdash; it grows out of real working relationships, visible reliability, and mutual respect built over time, usually through actual shared work." data-ta="ஸ்பான்சர்ஷிப் என்பது வணிக ரீதியான நெட்வொர்க்கிங் அல்லது கட்டாயப்படுத்தப்பட்ட சிறு உரையாடல் அல்ல &mdash; இது உண்மையான பணி உறவுகள், வெளிப்படையான நம்பகத்தன்மை மற்றும் காலப்போக்கில் கட்டமைக்கப்பட்ட பரஸ்பர மரியாதை ஆகியவற்றிலிருந்து வளர்கிறது, பொதுவாக உண்மையான பகிரப்பட்ட வேலை மூலம்.">Sponsorship isn't transactional networking or forced small talk &mdash; it grows out of real working relationships, visible reliability, and mutual respect built over time, usually through actual shared work.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Reciprocity" data-ta="பரஸ்பர உதவி (Reciprocity)">Reciprocity</h3>
+    <p data-en="The strongest sponsor relationships go both ways. Look for genuine ways to add value to a potential sponsor's own goals and projects, not just seek help from them." data-ta="வலிமையான ஸ்பான்சர் உறவுகள் இருபுறமும் பயணிக்கின்றன. ஒரு ஸ்பான்சரிடமிருந்து உதவியை மட்டும் எதிர்பார்க்காமல், அவர்களின் சொந்த இலக்குகள் மற்றும் திட்டங்களுக்கு உண்மையான முறையில் மதிப்பைச் சேர்க்கும் வழிகளைத் தேடுங்கள்.">The strongest sponsor relationships go both ways. Look for genuine ways to add value to a potential sponsor's own goals and projects, not just seek help from them.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Vignesh, IT Project Coordinator" data-ta="விக்னேஷ், தகவல் தொழில்நுட்ப திட்ட ஒருங்கிணைப்பாளர்">Vignesh, IT Project Coordinator</h3>
+    <p data-en="Vignesh had a mentor &mdash; his own manager &mdash; but no sponsor. When a cross-functional lead role opened up, nobody senior advocated for him, and he only found out about the role after it had already been filled. He then deliberately built a relationship with the VP of Operations by volunteering for a visible cross-functional taskforce, giving that VP direct, first-hand exposure to his work." data-ta="விக்னேஷுக்கு ஒரு வழிகாட்டி இருந்தார் &mdash; அவரது சொந்த மேலாளர் &mdash; ஆனால் ஸ்பான்சர் இல்லை. ஒரு குறுக்கு-செயல்பாட்டு முன்னணி பதவி காலியானபோது, எந்த மூத்த அதிகாரியும் அவருக்காகப் பரிந்துரைக்கவில்லை, மேலும் அந்தப் பதவி நிரப்பப்பட்ட பின்னரே அவர் அதைப் பற்றி அறிந்தார். பின்னர் அவர் வேண்டுமென்றே ஒரு வெளிப்படையான பணிக்குழுவுக்குத் தொண்டாற்றுவதன் மூலம் செயல்பாட்டுத் துணைத் தலைவருடன் (VP of Operations) ஒரு உறவை உருவாக்கினார், இதன் மூலம் அந்தத் துணைத் தலைவருக்குத் தனது வேலை குறித்து நேரடியான வெளிப்பாட்டைக் கொடுத்தார்.">Vignesh had a mentor &mdash; his own manager &mdash; but no sponsor. When a cross-functional lead role opened up, nobody senior advocated for him, and he only found out about the role after it had already been filled. He then deliberately built a relationship with the VP of Operations by volunteering for a visible cross-functional taskforce, giving that VP direct, first-hand exposure to his work.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Divya, Business Analyst" data-ta="திவ்யா, வணிக ஆய்வாளர்">Divya, Business Analyst</h3>
+    <p data-en="Divya reached out roughly once a quarter to a senior leader in a different department, always with genuine, specific questions about their work rather than any ask for herself. After about a year of this consistent, low-pressure contact, that leader recommended her, unprompted, for a stretch assignment she hadn't even applied for." data-ta="திவ்யா ஒவ்வொரு காலாண்டிற்கும் ஒருமுறை வேறு துறையில் உள்ள ஒரு மூத்த தலைவரைத் தொடர்புகொள்வார், அப்போது தனக்காக எதுவும் கேட்காமல், அவர்களின் வேலையைப் பற்றிய உண்மையான, குறிப்பிட்ட கேள்விகளுடன் இருப்பார். ஏறக்குறைய ஒரு வருடம் இந்தத் தொடர்ச்சியான, குறைந்த அழுத்தத் தொடர்புக்குப் பிறகு, அந்தத் தலைவர் திவ்யா விண்ணப்பிக்காத ஒரு சவாலான பணிக்காகத் தாமாகவே அவரைப் பரிந்துரைத்தார்.">Divya reached out roughly once a quarter to a senior leader in a different department, always with genuine, specific questions about their work rather than any ask for herself. After about a year of this consistent, low-pressure contact, that leader recommended her, unprompted, for a stretch assignment she hadn't even applied for.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module5-worksheet.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module6-guidance.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module6-concepts.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

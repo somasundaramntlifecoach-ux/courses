@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 8: அலுவலக அரசியலை வழிநடத்துதல் — கருத்துகள் & எடுத்துக்காட்டுகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .intro{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:20px 22px;margin-bottom:26px;color:var(--muted);font-size:15px;}
+  .concept{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .concept h3{color:var(--navy);font-size:16.5px;margin-bottom:8px;}
+  .concept p{color:var(--muted);font-size:14.5px;}
+  .example-box{background:#eef2f8;border-radius:12px;padding:22px 24px;margin-bottom:16px;border-left:4px solid var(--navy);}
+  .example-box h3{color:var(--navy);font-size:15.5px;margin-bottom:8px;}
+  .example-box p{color:var(--muted);font-size:14.5px;}
+  .example-tag{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:12px;margin-bottom:12px;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 8 OF 10 &middot; CONCEPTS & EXAMPLES" data-ta="தொகுதி 8/10 &middot; கருத்துகள் & எடுத்துக்காட்டுகள்">MODULE 8 OF 10 &middot; CONCEPTS & EXAMPLES</span>
+</div>
+<div class="page-tabs">
+  <a href="module8-concepts.html" class="active" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module8-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module8-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 8: Navigating Office Politics" data-ta="தொகுதி 8: அலுவலக அரசியலை வழிநடத்துதல்">Module 8: Navigating Office Politics</h1>
+  <div class="m-sub" data-en="Page 1 of 3 &middot; Concepts & Real-Life Examples" data-ta="பக்கம் 1/3 &middot; கருத்துகள் & நிஜ வாழ்க்கை எடுத்துக்காட்டுகள்">Page 1 of 3 &middot; Concepts & Real-Life Examples</div>
+  
+  <div class="intro" data-en="&quot;Office politics&quot; carries a negative reputation, but at its core it's simply an honest understanding of how influence and decisions actually flow in your organisation &mdash; which is often quite different from the official org chart. This module reframes politics as a skill you can practice with integrity, not a game you either play dirty or avoid entirely." data-ta="&quot;அலுவலக அரசியல்&quot; என்பது ஒரு எதிர்மறையான நற்பெயரைக் கொண்டுள்ளது, ஆனால் அதன் மையத்தில், உங்கள் நிறுவனத்தில் செல்வாக்கு மற்றும் முடிவுகள் உண்மையில் எவ்வாறு பாய்கின்றன என்பதைப் பற்றிய நேர்மையான புரிதல் மட்டுமே உள்ளது &mdash; இது பெரும்பாலும் அதிகாரப்பூர்வ நிறுவன வரைபடத்திலிருந்து (org chart) முற்றிலும் மாறுபட்டது. இந்தத் தொகுதி அரசியலை நீங்கள் நேர்மையுடன் பயிற்சி செய்யக்கூடிய ஒரு திறமையாக மாற்றியமைக்கிறது, நீங்கள் அழுக்காக விளையாடும் அல்லது முற்றிலும் தவிர்க்கும் விளையாட்டாக அல்ல.">"Office politics" carries a negative reputation, but at its core it's simply an honest understanding of how influence and decisions actually flow in your organisation &mdash; which is often quite different from the official org chart. This module reframes politics as a skill you can practice with integrity, not a game you either play dirty or avoid entirely.</div>
+  
+  <div class="concept">
+    <h3 data-en="Politics as Influence, Not Manipulation" data-ta="அரசியல் என்பது செல்வாக்கு, கையாளுதல் அல்ல">Politics as Influence, Not Manipulation</h3>
+    <p data-en="Understanding who actually shapes decisions, and building genuine working relationships with them, isn't manipulative &mdash; ignoring this reality simply makes you less effective, not more principled." data-ta="முடிவுகளை உண்மையில் யார் வடிவமைக்கிறார்கள் என்பதைப் புரிந்துகொள்வதும், அவர்களுடன் உண்மையான பணி உறவுகளை உருவாக்குவதும் கையாளுதல் அல்ல &mdash; இந்த உண்மையை அலட்சியப்படுத்துவது உங்களை அதிகக் கொள்கை உடையவராக மாற்றாது, மாறாக உங்களை குறைந்த செயல்திறன் கொண்டவராகவே மாற்றும்.">Understanding who actually shapes decisions, and building genuine working relationships with them, isn't manipulative &mdash; ignoring this reality simply makes you less effective, not more principled.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Map the Informal Power Structure" data-ta="முறைசாரா அதிகார அமைப்பை வரைபடமாக்குங்கள்">Map the Informal Power Structure</h3>
+    <p data-en="Identify who is genuinely consulted before big decisions, regardless of their formal title. These are often the people most worth building an honest working relationship with." data-ta="அதிகாரப்பூர்வப் பதவி எதுவாக இருந்தாலும், பெரிய முடிவுகளுக்கு முன்னதாக உண்மையில் யார் ஆலோசிக்கப்படுகிறார்கள் என்பதைக் கண்டறியுங்கள். அவர்களுடன் நேர்மையான பணி உறவை உருவாக்குவதுதான் மிகவும் பயனுள்ளது.">Identify who is genuinely consulted before big decisions, regardless of their formal title. These are often the people most worth building an honest working relationship with.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Build Alliances, Not Sides" data-ta="பக்கங்களைச் சாராமல் கூட்டணியை உருவாக்குங்கள்">Build Alliances, Not Sides</h3>
+    <p data-en="Stay useful and fair to multiple stakeholders rather than becoming known as permanently aligned with one faction or clique &mdash; that reputation limits your options later." data-ta="ஒரு பிரிவு அல்லது குழுவுடன் நிரந்தரமாக இணைந்து செயல்படுபவர் என்று அறியப்படுவதற்குப் பதிலாக, பல பங்குதாரர்களுக்கும் பயனுள்ளவராகவும் நியாயமானவராகவும் இருங்கள் &mdash; அந்த நற்பெயர் பிற்காலத்தில் உங்கள் விருப்பங்களைக் குறைக்கும்.">Stay useful and fair to multiple stakeholders rather than becoming known as permanently aligned with one faction or clique &mdash; that reputation limits your options later.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Stay Solution-Focused" data-ta="தீர்வு-மையப்படுத்தப்பட்ட அணுகுமுறையில் இருங்கள்">Stay Solution-Focused</h3>
+    <p data-en="Avoid gossip and complaint-only conversations. Being known consistently as the person who brings solutions, not just problems, builds durable political capital over time." data-ta="வதந்திகள் மற்றும் புகார்களை மட்டுமே கொண்ட உரையாடல்களைத் தவிர்க்கவும். சிக்கல்களை மட்டுமல்லாமல் தீர்வுகளைக் கொண்டு வரும் நபர் என்று தொடர்ந்து அறியப்படுவது, காலப்போக்கில் நீடித்த அரசியல் செல்வாக்கை உருவாக்குகிறது.">Avoid gossip and complaint-only conversations. Being known consistently as the person who brings solutions, not just problems, builds durable political capital over time.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Manoj, Supply Chain Manager" data-ta="மனோஜ், விநியோகச் சங்கிலி மேலாளர்">Manoj, Supply Chain Manager</h3>
+    <p data-en="Manoj noticed that budget decisions in his division were really shaped by the Finance Controller, not just his own VP as the org chart suggested. He started proactively copying the Controller on relevant updates and asking for her input early in the process &mdash; which noticeably smoothed budget approvals that had previously stalled for weeks." data-ta="தனது பிரிவில் பட்ஜெட் முடிவுகள் நிறுவன வரைபடம் பரிந்துரைத்தபடி தனது சொந்த VP-யால் மட்டுமல்ல, நிதி கட்டுப்பாட்டாளரால் (Finance Controller) வடிவமைக்கப்படுகின்றன என்பதை மனோஜ் கவனித்தார். அவர் தொடர்புடைய புதுப்பிப்புகளில் கட்டுப்பாட்டாளரை முன்முயற்சியுடன் சேர்த்துக்கொள்ளத் தொடங்கினார் மற்றும் செயல்முறையின் தொடக்கத்திலேயே அவரது உள்ளீட்டைக் கேட்டார் &mdash; இது வாரக்கணக்கில் தேக்கமடைந்திருந்த பட்ஜெட் அனுமதிகளைக் குறிப்பிடத்தக்க வகையில் எளிதாக்கியது.">Manoj noticed that budget decisions in his division were really shaped by the Finance Controller, not just his own VP as the org chart suggested. He started proactively copying the Controller on relevant updates and asking for her input early in the process &mdash; which noticeably smoothed budget approvals that had previously stalled for weeks.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Swathi, Program Manager" data-ta="சுவாதி, திட்ட மேலாளர்">Swathi, Program Manager</h3>
+    <p data-en="Instead of joining her team's regular complaint session about a difficult partner department, Swathi offered instead to set up a joint problem-solving call between the two teams. Over time, this earned her a reputation as a bridge-builder rather than a complainer &mdash; a reputation that reached senior leadership." data-ta="ஒரு கடினமான கூட்டாளர் துறை பற்றிய தனது குழுவின் வழக்கமான புகார் அமர்வில் சேருவதற்குப் பதிலாக, இரண்டு குழுக்களுக்கும் இடையே ஒரு கூட்டுப் சிக்கலைத் தீர்க்கும் அழைப்பை அமைக்க சுவாதி முன்வந்தார். காலப்போக்கில், இது அவருக்குப் புகார் செய்பவர் என்ற பெயருக்குப் பதிலாக, இணைப்பு பாலத்தை உருவாக்குபவர் என்ற நற்பெயரைப் பெற்றுத் தந்தது &mdash; அந்த நற்பெயர் மூத்த தலைமைத்துவத்தை அடைந்தது.">Instead of joining her team's regular complaint session about a difficult partner department, Swathi offered instead to set up a joint problem-solving call between the two teams. Over time, this earned her a reputation as a bridge-builder rather than a complainer &mdash; a reputation that reached senior leadership.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module7-worksheet.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module8-guidance.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module8-concepts.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 10: பதவி உயர்வுக்குப் பிந்தைய வாழ்க்கை — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 10 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 10/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 10 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module10-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module10-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. வழிகாட்டுதல்கள் & குறிப்புகள்</a>
+  <a href="module10-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. பணித்தாள் & திட்டம்</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 10: Life After the Promotion" data-ta="தொகுதி 10: பதவி உயர்வுக்குப் பிந்தைய வாழ்க்கை">Module 10: Life After the Promotion</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="Audit which visibility, networking, and upward-management habits from this course you're at risk of quietly dropping now." data-ta="இந்த பாடத்திட்டத்தில் உள்ள புலப்படுதல், நெட்வொர்க்கிங் மற்றும் மேலாண்மைப் பழக்கவழக்கங்களில் எதை நீங்கள் அமைதியாகக் கைவிடும் அபாயத்தில் உள்ளீர்கள் என்று தணிக்கை செய்யுங்கள்.">Audit which visibility, networking, and upward-management habits from this course you're at risk of quietly dropping now.</li>
+      <li data-en="Recommit explicitly to at least your weekly update and brag-bank habit at your new level." data-ta="உங்கள் புதிய நிலையில் வாராந்திரப் புதுப்பிப்பு மற்றும் பெருமை வங்கி (brag-bank) பழக்கத்தை மீண்டும் உறுதியாகத் தொடருங்கள்.">Recommit explicitly to at least your weekly update and brag-bank habit at your new level.</li>
+      <li data-en="Identify one junior colleague you could begin informally mentoring using what you've learned." data-ta="நீங்கள் கற்றுக்கொண்டவற்றைப் பயன்படுத்தி முறைசாரா முறையில் வழிகாட்டத் தொடங்கக்கூடிய ஒரு இளைய சக ஊழியரை அடையாளம் காணுங்கள்.">Identify one junior colleague you could begin informally mentoring using what you've learned.</li>
+      <li data-en="Write a specific, dated goal for where you want to be in two years at this new level." data-ta="இந்த புதிய நிலையில் இரண்டு ஆண்டுகளில் நீங்கள் எங்கு இருக்க வேண்டும் என்பதற்கான குறிப்பிட்ட, தேதியிட்ட இலக்கை எழுதுங்கள்.">Write a specific, dated goal for where you want to be in two years at this new level.</li>
+      <li data-en="Schedule a personal check-in with yourself in 6 months to catch any early signs of a new plateau forming." data-ta="புதிய தேக்கநிலை உருவாகும் ஆரம்ப அறிகுறிகளைக் கண்டறிய, 6 மாதங்களில் உங்களுக்கு நீங்களே ஒரு தனிப்பட்ட சரிபார்ப்பைத் திட்டமிடுங்கள்.">Schedule a personal check-in with yourself in 6 months to catch any early signs of a new plateau forming.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="Restart your visibility habits immediately at the new level, without waiting for them to be needed again." data-ta="புதிய நிலையில் உங்கள் புலப்படுதல் பழக்கங்களை உடனடியாக மீண்டும் தொடங்குங்கள், மீண்டும் தேவைப்படும் வரை காத்திருக்க வேண்டாம்.">Restart your visibility habits immediately at the new level, without waiting for them to be needed again.</li>
+        <li data-en="Look actively for a junior colleague you can mentor using this course's material." data-ta="இந்த பாடத்தின் பொருளைப் பயன்படுத்தி நீங்கள் வழிகாட்டக்கூடிய ஒரு இளைய சக ஊழியரைத் தீவிரமாகத் தேடுங்கள்.">Look actively for a junior colleague you can mentor using this course's material.</li>
+        <li data-en="Set a specific two-year goal now, while the momentum and clarity from this course are still fresh." data-ta="இந்த பாடத்திட்டத்தின் உத்வேகமும் தெளிவும் இன்னும் తాజాగా இருக்கும்போதே, இரண்டு ஆண்டுகளுக்கான குறிப்பிட்ட இலக்கை இப்போதே நிர்ணயித்துக்கொள்ளுங்கள்.">Set a specific two-year goal now, while the momentum and clarity from this course are still fresh.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't assume the habits that got you promoted are no longer necessary once you've arrived." data-ta="பதவி உயர்வு பெற உதவிய பழக்கவழக்கங்கள் நீங்கள் வந்தடைந்த பிறகு தேவையில்லை என்று கருத வேண்டாம்.">Don't assume the habits that got you promoted are no longer necessary once you've arrived.</li>
+        <li data-en="Don't wait for a second plateau to form before revisiting these modules." data-ta="இரண்டாவது தேக்கநிலை உருவாகும் வரை காத்திருந்து மீண்டும் இந்தத் தொகுதிகளைப் பார்க்காதீர்கள்.">Don't wait for a second plateau to form before revisiting these modules.</li>
+        <li data-en="Don't keep everything you've learned to yourself instead of passing it forward." data-ta="நீங்கள் கற்றுக்கொண்ட அனைத்தையும் உங்களிடமே வைத்திருக்காதீர்கள், மற்றவர்களுக்குக் கற்றுக்கொடுங்கள்.">Don't keep everything you've learned to yourself instead of passing it forward.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Treating a promotion as a finish line rather than a new starting point with its own visibility and positioning requirements." data-ta="பதவி உயர்வை ஒரு இலக்காகக் கருதாமல், அதன் சொந்த புலப்படுதல் மற்றும் நிலைப்படுத்தல் தேவைகளைக் கொண்ட புதிய தொடக்கப் புள்ளியாகக் கருதாமல் இருப்பது.">Treating a promotion as a finish line rather than a new starting point with its own visibility and positioning requirements.</li>
+      <li data-en="Letting go of proactive habits the moment the immediate pressure of the promotion push is over." data-ta="பதவி உயர்வுக்கான உடனடி அழுத்தம் முடிந்தவுடன் முன்முயற்சியுடன் கூடிய பழக்கங்களைக் கைவிடுவது.">Letting go of proactive habits the moment the immediate pressure of the promotion push is over.</li>
+      <li data-en="Never mentoring anyone else, missing an easy source of ongoing credibility and reinforcement." data-ta="மற்றவர்களுக்கு ஒருபோதும் வழிகாட்டாமல் இருப்பது, இது தொடர்ச்சியான நம்பகத்தன்மை மற்றும் வலுவூட்டலுக்கான எளிதான ஆதாரத்தைத் தவறவிடுவதாகும்.">Never mentoring anyone else, missing an easy source of ongoing credibility and reinforcement.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;I know what it's like to feel stuck at a level for a while &mdash; happy to share what's worked for me if it would be useful for where you're at right now.&rdquo;" data-ta="&ldquo;ஒரு நிலையில் சிறிது காலம் தேக்கமடைந்திருப்பதை உணருவது எப்படி இருக்கும் என்று எனக்குத் தெரியும் &mdash; நீங்கள் இப்போது இருக்கும் இடத்திற்கு அது பயனுள்ளதாக இருந்தால், எனக்கு உதவிய விஷயங்களைப் பகிர்ந்து கொள்ள நான் மகிழ்ச்சியடைகிறேன்.&rdquo;">&ldquo;I know what it's like to feel stuck at a level for a while &mdash; happy to share what's worked for me if it would be useful for where you're at right now.&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module10-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module10-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module10-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

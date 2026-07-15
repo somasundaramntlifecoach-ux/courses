@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 9: பதவி உயர்வுக்கான உங்கள் வழக்கை உருவாக்குதல் — கருத்துகள் & எடுத்துக்காட்டுகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .intro{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:20px 22px;margin-bottom:26px;color:var(--muted);font-size:15px;}
+  .concept{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .concept h3{color:var(--navy);font-size:16.5px;margin-bottom:8px;}
+  .concept p{color:var(--muted);font-size:14.5px;}
+  .example-box{background:#eef2f8;border-radius:12px;padding:22px 24px;margin-bottom:16px;border-left:4px solid var(--navy);}
+  .example-box h3{color:var(--navy);font-size:15.5px;margin-bottom:8px;}
+  .example-box p{color:var(--muted);font-size:14.5px;}
+  .example-tag{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:12px;margin-bottom:12px;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 9 OF 10 &middot; CONCEPTS & EXAMPLES" data-ta="தொகுதி 9/10 &middot; கருத்துகள் & எடுத்துக்காட்டுகள்">MODULE 9 OF 10 &middot; CONCEPTS & EXAMPLES</span>
+</div>
+<div class="page-tabs">
+  <a href="module9-concepts.html" class="active" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module9-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module9-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. பணித்தாள் & திட்டம்</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 9: Building Your Promotion Case" data-ta="தொகுதி 9: பதவி உயர்வுக்கான உங்கள் வழக்கை உருவாக்குதல்">Module 9: Building Your Promotion Case</h1>
+  <div class="m-sub" data-en="Page 1 of 3 &middot; Concepts & Real-Life Examples" data-ta="பக்கம் 1/3 &middot; கருத்துகள் & நிஜ வாழ்க்கை எடுத்துக்காட்டுகள்">Page 1 of 3 &middot; Concepts & Real-Life Examples</div>
+  
+  <div class="intro" data-en="By this point you've worked on skills, visibility, sponsorship, and your manager relationship. This module turns all of that groundwork into a concrete, well-documented case you can present confidently when the actual promotion conversation happens &mdash; rather than relying on your manager to simply remember everything on your behalf." data-ta="இந்த நிலையில் நீங்கள் திறன்கள், புலப்படுதல், ஸ்பான்சர்ஷிப் மற்றும் உங்கள் மேலாளர் உறவு ஆகியவற்றில் பணியாற்றியுள்ளீர்கள். இந்தத் தொகுதி அந்த அடித்தளம் அனைத்தையும் ஒரு உறுதியான, நன்கு ஆவணப்படுத்தப்பட்ட வழக்காக மாற்றுகிறது, பதவி உயர்வு உரையாடல் நடக்கும்போது நீங்கள் நம்பிக்கையுடன் அதை முன்வைக்கலாம் &mdash; உங்கள் மேலாளர் எல்லாவற்றையும் நினைவில் வைத்திருப்பார் என்று நம்புவதற்குப் பதிலாக.">By this point you've worked on skills, visibility, sponsorship, and your manager relationship. This module turns all of that groundwork into a concrete, well-documented case you can present confidently when the actual promotion conversation happens &mdash; rather than relying on your manager to simply remember everything on your behalf.</div>
+  
+  <div class="concept">
+    <h3 data-en="The Achievement Log" data-ta="சாதனைப் பதிவு (Achievement Log)">The Achievement Log</h3>
+    <p data-en="A running, dated record of your accomplishments and their impact, kept continuously as things happen &mdash; not reconstructed under pressure at appraisal time, when most of the detail has already faded." data-ta="உங்கள் சாதனைகள் மற்றும் அவற்றின் தாக்கத்தைப் பற்றிய தொடர்ச்சியான, தேதியிட்ட பதிவு, விஷயங்கள் நடக்கும்போதே தொடர்ந்து பராமரிக்கப்பட வேண்டும் &mdash; மதிப்பீட்டு நேரத்தில் அழுத்தத்தின் கீழ் மீண்டும் உருவாக்கப்படக்கூடாது, அந்த நேரத்தில் பெரும்பாலான விவரங்கள் ஏற்கனவே மங்கிவிட்டிருக்கும்.">A running, dated record of your accomplishments and their impact, kept continuously as things happen &mdash; not reconstructed under pressure at appraisal time, when most of the detail has already faded.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Quantify Wherever Possible" data-ta="முடிந்தவரை அளவிடுங்கள்">Quantify Wherever Possible</h3>
+    <p data-en="'Reduced errors by 22%' is measurably more convincing than 'improved quality'. Even a reasonable estimated number is more persuasive than vague, unquantified description." data-ta="'தரத்தை மேம்படுத்தினேன்' என்பதை விட 'பிழைகளை 22% குறைத்தேன்' என்பது அளவிடக்கூடிய வகையில் மிகவும் நம்பத்தகுந்தது. தெளிவற்ற, அளவிடப்படாத விளக்கத்தை விட ஒரு நியாயமான மதிப்பீட்டு எண் கூட அதிக வற்புறுத்தக்கூடியது.">'Reduced errors by 22%' is measurably more convincing than 'improved quality'. Even a reasonable estimated number is more persuasive than vague, unquantified description.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="The STAR Format" data-ta="STAR வடிவம்">The STAR Format</h3>
+    <p data-en="Situation, Task, Action, Result &mdash; a simple, repeatable structure that makes each achievement easy to state clearly, confidently, and consistently, whether in writing or out loud." data-ta="Situation (சூழ்நிலை), Task (பணி), Action (நடவடிக்கை), Result (முடிவு) &mdash; இது ஒரு எளிய, மீண்டும் மீண்டும் பயன்படுத்தக்கூடிய அமைப்பாகும், இது ஒவ்வொரு சாதனையையும் எழுத்துப்பூர்வமாகவோ அல்லது வாய்மொழியாகவோ தெளிவாகவும், நம்பிக்கையுடனும், சீராகவும் வெளிப்படுத்த எளிதாக்குகிறது.">Situation, Task, Action, Result &mdash; a simple, repeatable structure that makes each achievement easy to state clearly, confidently, and consistently, whether in writing or out loud.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Preparing the Ask" data-ta="பதவி உயர்வைக் கோருவதற்கான தயாரிப்பு">Preparing the Ask</h3>
+    <p data-en="Have a clear, rehearsed script ready for the actual promotion conversation: the specific role you want, why you believe you're ready, and the evidence that supports that claim." data-ta="உண்மையான பதவி உயர்வு உரையாடலுக்குத் தெளிவான, பயிற்சி செய்யப்பட்ட ஸ்கிரிப்ட் தயாராக வைத்திருக்கவும்: உங்களுக்குத் தேவையான குறிப்பிட்ட பதவி, நீங்கள் ஏன் தயாராக இருக்கிறீர்கள் என்று நம்புகிறீர்கள், மற்றும் அந்த உரிமை கோரலை ஆதரிக்கும் ஆதாரங்கள்.">Have a clear, rehearsed script ready for the actual promotion conversation: the specific role you want, why you believe you're ready, and the evidence that supports that claim.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Nithya, Data Analytics Lead" data-ta="நித்யா, தரவு பகுப்பாய்வுத் தலைவர்">Nithya, Data Analytics Lead</h3>
+    <p data-en="Before her promotion conversation, Nithya compiled eight STAR-format achievements, each with a concrete number attached &mdash; for example, 'Reduced new-hire onboarding time from 15 to 7 days, saving roughly 200 hours per quarter across the team.' Her manager told her afterward it was the clearest, most evidence-based case for promotion he'd seen in years." data-ta="பதவி உயர்வு உரையாடலுக்கு முன், நித்யா எட்டு STAR-வடிவ சாதனைகளைத் தொகுத்தார், ஒவ்வொன்றும் உறுதியான எண்ணைக் கொண்டிருந்தன &mdash; உதாரணமாக, 'புதிய பணியாளர் சேர்ப்பு நேரத்தை 15 நாட்களில் இருந்து 7 நாட்களாகக் குறைத்தேன், குழு முழுவதும் காலாண்டுக்கு சுமார் 200 மணிநேரத்தைச் சேமித்தேன்.' பல ஆண்டுகளில் அவர் பார்த்த பதவி உயர்வுக்கான மிகத் தெளிவான, ஆதார அடிப்படையிலான வழக்கு இதுதான் என்று அவரது மேலாளர் அவரிடம் கூறினார்.">Before her promotion conversation, Nithya compiled eight STAR-format achievements, each with a concrete number attached &mdash; for example, 'Reduced new-hire onboarding time from 15 to 7 days, saving roughly 200 hours per quarter across the team.' Her manager told her afterward it was the clearest, most evidence-based case for promotion he'd seen in years.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Arvind, Technical Architect" data-ta="அரவிந்த், தொழில்நுட்பக் கட்டமைப்பாளர்">Arvind, Technical Architect</h3>
+    <p data-en="Arvind kept postponing the actual 'ask' conversation for nearly two years, purely out of discomfort with raising the topic directly. When he finally used a short, rehearsed opener, the conversation itself took barely ten minutes &mdash; and led directly to a promotion in the following review cycle." data-ta="அரவிந்த் உண்மையான 'கேள்வி' உரையாடலை ஏறக்குறைய இரண்டு ஆண்டுகளாகத் தள்ளிப்போட்டுக்கொண்டே இருந்தார், அந்தத் தலைப்பை நேரடியாக எழுப்புவதில் இருந்த சங்கடம் மட்டுமே காரணம். இறுதியில் அவர் ஒரு குறுகிய, பயிற்சி செய்யப்பட்ட தொடக்கத்தைப் பயன்படுத்தியபோது, உரையாடல் பத்து நிமிடங்களுக்குள் முடிந்தது &mdash; மேலும் அடுத்த மதிப்பீட்டு சுழற்சியில் அது நேரடியாகப் பதவி உயர்வுக்கு வழிவகுத்தது.">Arvind kept postponing the actual 'ask' conversation for nearly two years, purely out of discomfort with raising the topic directly. When he finally used a short, rehearsed opener, the conversation itself took barely ten minutes &mdash; and led directly to a promotion in the following review cycle.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module8-worksheet.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module9-guidance.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module9-concepts.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

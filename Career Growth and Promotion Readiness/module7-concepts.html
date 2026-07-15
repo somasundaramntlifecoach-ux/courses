@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 7: மேலாண்மையை நிர்வகித்தல் (Managing Upward) — கருத்துகள் & எடுத்துக்காட்டுகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .intro{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:20px 22px;margin-bottom:26px;color:var(--muted);font-size:15px;}
+  .concept{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .concept h3{color:var(--navy);font-size:16.5px;margin-bottom:8px;}
+  .concept p{color:var(--muted);font-size:14.5px;}
+  .example-box{background:#eef2f8;border-radius:12px;padding:22px 24px;margin-bottom:16px;border-left:4px solid var(--navy);}
+  .example-box h3{color:var(--navy);font-size:15.5px;margin-bottom:8px;}
+  .example-box p{color:var(--muted);font-size:14.5px;}
+  .example-tag{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:12px;margin-bottom:12px;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 7 OF 10 &middot; CONCEPTS & EXAMPLES" data-ta="தொகுதி 7/10 &middot; கருத்துகள் & எடுத்துக்காட்டுகள்">MODULE 7 OF 10 &middot; CONCEPTS & EXAMPLES</span>
+</div>
+<div class="page-tabs">
+  <a href="module7-concepts.html" class="active" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module7-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module7-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 7: Managing Upward" data-ta="தொகுதி 7: மேலாண்மையை நிர்வகித்தல் (Managing Upward)">Module 7: Managing Upward</h1>
+  <div class="m-sub" data-en="Page 1 of 3 &middot; Concepts & Real-Life Examples" data-ta="பக்கம் 1/3 &middot; கருத்துகள் & நிஜ வாழ்க்கை எடுத்துக்காட்டுகள்">Page 1 of 3 &middot; Concepts & Real-Life Examples</div>
+  
+  <div class="intro" data-en="Your manager is often the single most influential person in whether or when you get promoted &mdash; yet many professionals communicate with their manager reactively, only when asked, instead of deliberately shaping that relationship. This module covers how to manage upward so your manager naturally becomes an active advocate rather than a passive bystander." data-ta="உங்களுக்குப் பதவி உயர்வு கிடைக்குமா அல்லது எப்போது கிடைக்கும் என்பதில் உங்கள் மேலாளர் பெரும்பாலும் மிகவும் செல்வாக்கு மிக்க நபராக இருப்பார் &mdash; இருப்பினும் பல வல்லுநர்கள் மேலாளருடன் வினைத்திறன் அற்ற முறையில், கேட்கும்போது மட்டுமே தொடர்பு கொள்கிறார்கள், அந்த உறவைச் சிறப்பாக வடிவமைப்பதற்குப் பதிலாக. உங்கள் மேலாளர் ஒரு செயலற்ற பார்வையாளராக இருக்காமல், இயற்கையாகவே உங்களுக்குச் செயல்படும் ஆதரவாளராக மாற மேலாண்மையை எவ்வாறு நிர்வகிக்க வேண்டும் என்பதை இந்தத் தொகுதி உள்ளடக்கியது.">Your manager is often the single most influential person in whether or when you get promoted &mdash; yet many professionals communicate with their manager reactively, only when asked, instead of deliberately shaping that relationship. This module covers how to manage upward so your manager naturally becomes an active advocate rather than a passive bystander.</div>
+  
+  <div class="concept">
+    <h3 data-en="Understand Their Pressures" data-ta="அவர்களின் அழுத்தங்களைப் புரிந்துகொள்ளுங்கள்">Understand Their Pressures</h3>
+    <p data-en="Your manager has their own targets, constraints, and anxieties. Framing your contributions in terms of their priorities &mdash; not just your own &mdash; makes your case far easier for them to champion upward." data-ta="உங்கள் மேலாளருக்குச் சொந்த இலக்குகள், கட்டுப்பாடுகள் மற்றும் கவலைகள் உள்ளன. உங்கள் பங்களிப்புகளை உங்கள் சொந்த முன்னுரிமைகள் மட்டுமல்லாமல், அவர்களின் முன்னுரிமைகளின் அடிப்படையில் அமைப்பது &mdash; அவர்கள் உங்கள் கோரிக்கையை உயர் அதிகாரிகளிடம் முன்வைப்பதை எளிதாக்குகிறது.">Your manager has their own targets, constraints, and anxieties. Framing your contributions in terms of their priorities &mdash; not just your own &mdash; makes your case far easier for them to champion upward.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Proactive, Not Reactive, Updates" data-ta="வினையாற்றுவதற்குப் பதிலாக முன்முயற்சியுடன் புதுப்பிப்புகளை வழங்குதல்">Proactive, Not Reactive, Updates</h3>
+    <p data-en="Don't wait to be asked. Share progress and, just as importantly, blockers before they become questions your manager has to chase down or, worse, gets surprised by." data-ta="அவர்கள் கேட்கும் வரை காத்திருக்காதீர்கள். முன்னேற்றத்தைப் பகிருங்கள், மிக முக்கியமாக, உங்கள் மேலாளர் தேடி வரவேண்டிய கேள்விகளாகவோ அல்லது மோசமான நிலையில் அவர்கள் ஆச்சரியப்படும் வகையிலோ தடைகள் மாறுவதற்கு முன்பே அவற்றைப் பகிருங்கள்.">Don't wait to be asked. Share progress and, just as importantly, blockers before they become questions your manager has to chase down or, worse, gets surprised by.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Ask Directly About Promotion" data-ta="பதவி உயர்வு பற்றி நேரடியாகக் கேளுங்கள்">Ask Directly About Promotion</h3>
+    <p data-en="Many people never explicitly state they want to be promoted, quietly assuming it's obvious from their performance. It rarely is obvious. Say it plainly, and ask exactly what's required." data-ta="பலர் தங்களுக்குப் பதவி உயர்வு வேண்டும் என்று வெளிப்படையாக ஒருபோதும் கூறுவதில்லை, தங்கள் செயல்திறனிலிருந்து அது தெளிவாகத் தெரியும் என்று அமைதியாகக் கருதுகிறார்கள். இது அரிதாகவே வெளிப்படையாகத் தெரியும். அதைத் தெளிவாகச் சொல்லுங்கள், அதற்குத் தேவையானதைச் சரியாகக் கேளுங்கள்.">Many people never explicitly state they want to be promoted, quietly assuming it's obvious from their performance. It rarely is obvious. Say it plainly, and ask exactly what's required.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Managing Expectations Both Ways" data-ta="இருதரப்பு எதிர்பார்ப்புகளை நிர்வகித்தல்">Managing Expectations Both Ways</h3>
+    <p data-en="Understand the realistic promotion timelines and cycles in your organisation, and make sure your manager understands your own timeline and expectations too." data-ta="உங்கள் நிறுவனத்தில் உள்ள யதார்த்தமான பதவி உயர்வு காலவரிசைகள் மற்றும் சுழற்சிகளைப் புரிந்துகொள்ளுங்கள், மேலும் உங்கள் சொந்த காலவரிசை மற்றும் எதிர்பார்ப்புகளை உங்கள் மேலாளர் புரிந்துகொள்வதை உறுதிசெய்யுங்கள்.">Understand the realistic promotion timelines and cycles in your organisation, and make sure your manager understands your own timeline and expectations too.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Ramesh, Operations Executive" data-ta="ரமேஷ், செயல்பாட்டு நிர்வாகி (Operations Executive)">Ramesh, Operations Executive</h3>
+    <p data-en="Ramesh assumed his manager already knew he wanted to become Team Lead. After two full years of silence on the topic, he finally said explicitly: 'I want to be considered for Team Lead in the next cycle &mdash; what would I specifically need to demonstrate?' His manager was genuinely surprised he hadn't raised it sooner, and gave him a clear six-month roadmap that same week." data-ta="ரமேஷ் தனது மேலாளருக்குத் தான் குழுத் தலைவராக (Team Lead) ஆக வேண்டும் என்று ஏற்கனவே தெரியும் என்று கருதினார். இந்த விஷயத்தைப் பற்றி இரண்டு வருடங்கள் அமைதியாக இருந்த பிறகு, அவர் இறுதியாக வெளிப்படையாகக் கூறினார்: 'அடுத்த சுழற்சியில் நான் குழுத் தலைவர் பதவிக்குக் கருதப்பட விரும்புகிறேன் &mdash; அதற்கு நான் குறிப்பாக எதை வெளிப்படுத்த வேண்டும்?' அவர் முன்பே அதைக் கேட்காததால் அவரது மேலாளர் உண்மையிலேயே ஆச்சரியப்பட்டார், மேலும் அதே வாரத்தில் அவருக்குத் தெளிவான ஆறு மாத திட்டத்தை வழங்கினார்.">Ramesh assumed his manager already knew he wanted to become Team Lead. After two full years of silence on the topic, he finally said explicitly: 'I want to be considered for Team Lead in the next cycle &mdash; what would I specifically need to demonstrate?' His manager was genuinely surprised he hadn't raised it sooner, and gave him a clear six-month roadmap that same week.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Kavya, Customer Success Manager" data-ta="காவ்யா, வாடிக்கையாளர் வெற்றி மேலாளர்">Kavya, Customer Success Manager</h3>
+    <p data-en="Kavya started sending a short 'heads up' message the moment a client issue started looking risky, well before it became a full escalation. This single habit built her manager's trust that she managed problems proactively rather than needing to be chased for updates &mdash; trust that directly shaped how her manager talked about her to others." data-ta="ஒரு வாடிக்கையாளர் சிக்கல் ஆபத்தானதாகத் தொடங்கிய தருணத்திலேயே, அது முழுமையான விரிவாக்கத்திற்கு (escalation) மாறுவதற்கு முன்பே, காவ்யா ஒரு சிறிய 'முன்னெச்சரிக்கை' செய்தியை அனுப்பத் தொடங்கினார். இந்த ஒற்றைப் பழக்கம், புதுப்பிப்புகளுக்காகத் துரத்தப்பட வேண்டிய அவசியமில்லாமல் அவர் சிக்கல்களைத் திறம்பட நிர்வகிக்கிறார் என்ற நம்பிக்கையை அவரது மேலாளரிடம் உருவாக்கியது &mdash; அந்த நம்பிக்கை, அவரது மேலாளர் மற்றவர்களிடம் காவ்யாவைப் பற்றிப் பேசிய விதத்தை நேரடியாக வடிவமைத்தது.">Kavya started sending a short 'heads up' message the moment a client issue started looking risky, well before it became a full escalation. This single habit built her manager's trust that she managed problems proactively rather than needing to be chased for updates &mdash; trust that directly shaped how her manager talked about her to others.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module6-worksheet.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module7-guidance.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module7-concepts.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 6: நெட்வொர்க்கிங் & ஒரு ஸ்பான்சரைக் கண்டறிதல் — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 6 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 6/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 6 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module6-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module6-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module6-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 6: Networking & Finding a Sponsor" data-ta="தொகுதி 6: நெட்வொர்க்கிங் & ஒரு ஸ்பான்சரைக் கண்டறிதல்">Module 6: Networking & Finding a Sponsor</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="List 3 senior people, inside or outside your immediate department, who could plausibly become a sponsor." data-ta="உங்கள் நேரடித் துறைக்கு உள்ளேயோ அல்லது வெளியேயோ, ஸ்பான்சராக மாறக்கூடிய வாய்ப்புள்ள 3 மூத்த நபர்களைப் பட்டியலிடுங்கள்.">List 3 senior people, inside or outside your immediate department, who could plausibly become a sponsor.</li>
+      <li data-en="For each, identify one genuine, low-pressure way to start or deepen the relationship (a specific question, a shared project, a taskforce)." data-ta="ஒவ்வொருவருக்கும், உறவைத் தொடங்க அல்லது ஆழப்படுத்த ஒரு உண்மையான, குறைந்த அழுத்த வழியைக் கண்டறியவும் (ஒரு குறிப்பிட்ட கேள்வி, ஒரு பகிரப்பட்ட திட்டம், ஒரு பணிக்குழு).">For each, identify one genuine, low-pressure way to start or deepen the relationship (a specific question, a shared project, a taskforce).</li>
+      <li data-en="Take the first concrete action with at least one of them this month." data-ta="இந்த மாதம் அவர்களில் குறைந்தது ஒருவருடனாவது முதல் உறுதியான நடவடிக்கையை எடுக்கவும்.">Take the first concrete action with at least one of them this month.</li>
+      <li data-en="Look for ways to add value to that person's own goals, not just ask for their help." data-ta="அந்த நபரின் சொந்த இலக்குகளுக்கு மதிப்பைச் சேர்க்கும் வழிகளைத் தேடுங்கள், அவர்களின் உதவியை மட்டும் கேட்க வேண்டாம்.">Look for ways to add value to that person's own goals, not just ask for their help.</li>
+      <li data-en="Revisit this list every quarter &mdash; sponsor relationships take sustained, not one-off, effort." data-ta="ஒவ்வொரு காலாண்டிலும் இந்தப் பட்டியலைத் திரும்பப் பாருங்கள் &mdash; ஸ்பான்சர் உறவுகளுக்குத் தொடர்ச்சியான முயற்சி தேவை, ஒரே ஒரு முறை அல்ல.">Revisit this list every quarter &mdash; sponsor relationships take sustained, not one-off, effort.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="Approach potential sponsors with genuine curiosity about their work, not an obvious agenda." data-ta="தனிப்பட்ட நோக்கத்துடன் அல்லாமல், சாத்தியமான ஸ்பான்சர்களின் வேலையைப் பற்றிய உண்மையான ஆர்வத்துடன் அவர்களை அணுகவும்.">Approach potential sponsors with genuine curiosity about their work, not an obvious agenda.</li>
+        <li data-en="Volunteer for visible cross-functional work that naturally puts you in front of potential sponsors." data-ta="சாத்தியமான ஸ்பான்சர்களின் முன் உங்களை இயல்பாகவே நிறுத்தும் வகையிலான வெளிப்படையான குறுக்கு-செயல்பாட்டுப் பணிகளுக்கு (cross-functional work) தாமாக முன்வரவும்.">Volunteer for visible cross-functional work that naturally puts you in front of potential sponsors.</li>
+        <li data-en="Follow through reliably on anything a potential sponsor sees you commit to &mdash; this is what builds trust." data-ta="சாத்தியமான ஸ்பான்சர் பார்க்கும் எதற்கும் நம்பகத்தன்மையுடன் செயல்படுங்கள் &mdash; இதுவே நம்பிக்கையை உருவாக்குகிறது.">Follow through reliably on anything a potential sponsor sees you commit to &mdash; this is what builds trust.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't treat networking as purely transactional or ask for help before any real relationship exists." data-ta="நெட்வொர்க்கிங்கை முற்றிலும் வணிக ரீதியானதாகக் கருத வேண்டாம் அல்லது எந்தவொரு உண்மையான உறவும் ஏற்படுவதற்கு முன்பு உதவியைக் கேட்க வேண்டாம்.">Don't treat networking as purely transactional or ask for help before any real relationship exists.</li>
+        <li data-en="Don't assume your mentor automatically functions as your sponsor &mdash; they're often not the same person." data-ta="உங்கள் வழிகாட்டி தானாகவே உங்கள் ஸ்பான்சராகச் செயல்படுவார் என்று கருத வேண்டாம் &mdash; அவர்கள் பெரும்பாலும் ஒரே நபர் அல்ல.">Don't assume your mentor automatically functions as your sponsor &mdash; they're often not the same person.</li>
+        <li data-en="Don't wait for a formal opportunity to build the relationship; start with a specific, small first step." data-ta="உறவை வளர்த்துக்கொள்ள ஒரு முறையான வாய்ப்பு வரும் வரை காத்திருக்க வேண்டாம்; ஒரு குறிப்பிட்ட, சிறிய முதல் படியுடன் தொடங்குங்கள்.">Don't wait for a formal opportunity to build the relationship; start with a specific, small first step.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Confusing having a mentor with having a sponsor and assuming you're covered." data-ta="ஒரு வழிகாட்டி (mentor) இருப்பதை, ஸ்பான்சர் இருப்பதைப் போலக் குழப்பிக் கொண்டு அனைத்தும் சரியாக இருப்பதாகக் கருதுவது.">Confusing having a mentor with having a sponsor and assuming you're covered.</li>
+      <li data-en="Only reaching out to senior people when you need something specific from them." data-ta="உங்களுக்கு ஏதாவது குறிப்பிட்ட உதவி தேவைப்படும்போது மட்டும் மூத்த நபர்களைத் தொடர்புகொள்வது.">Only reaching out to senior people when you need something specific from them.</li>
+      <li data-en="Never following up after an initial introduction, letting the relationship go cold." data-ta="ஆரம்ப அறிமுகத்திற்குப் பிறகு ஒருபோதும் பின்தொடராமல், உறவைத் துண்டிக்க அனுமதிப்பது.">Never following up after an initial introduction, letting the relationship go cold.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;I've really admired how your team approached [specific project] &mdash; would you be open to a short call sometime so I could understand your thinking on it?&rdquo;" data-ta="&ldquo;உங்கள் குழு [குறிப்பிட்ட திட்டத்தை] எவ்வாறு கையாண்டது என்பதை நான் மிகவும் ரசித்தேன் &mdash; அது குறித்த உங்கள் சிந்தனையை நான் புரிந்துகொள்ளும் வகையில் எப்போதாவது ஒரு சிறிய அழைப்பிற்கு (call) நீங்கள் தயாரா?&rdquo;">&ldquo;I've really admired how your team approached [specific project] &mdash; would you be open to a short call sometime so I could understand your thinking on it?&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module6-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module6-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module6-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 1: நீங்கள் ஏன் தேக்க நிலையில் உள்ளீர்கள்? — கருத்துகள் & எடுத்துக்காட்டுகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .intro{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:20px 22px;margin-bottom:26px;color:var(--muted);font-size:15px;}
+  .concept{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:16px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .concept h3{color:var(--navy);font-size:16.5px;margin-bottom:8px;}
+  .concept p{color:var(--muted);font-size:14.5px;}
+  .example-box{background:#eef2f8;border-radius:12px;padding:22px 24px;margin-bottom:16px;border-left:4px solid var(--navy);}
+  .example-box h3{color:var(--navy);font-size:15.5px;margin-bottom:8px;}
+  .example-box p{color:var(--muted);font-size:14.5px;}
+  .example-tag{display:inline-block;background:var(--navy);color:var(--gold-light);font-size:11px;font-weight:700;letter-spacing:1px;padding:4px 10px;border-radius:12px;margin-bottom:12px;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 1 OF 10 &middot; CONCEPTS & EXAMPLES" data-ta="தொகுதி 1/10 &middot; கருத்துகள் & எடுத்துக்காட்டுகள்">MODULE 1 OF 10 &middot; CONCEPTS & EXAMPLES</span>
+</div>
+<div class="page-tabs">
+  <a href="module1-concepts.html" class="active" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module1-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module1-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 1: Why You're Stuck" data-ta="தொகுதி 1: நீங்கள் ஏன் தேக்க நிலையில் உள்ளீர்கள்?">Module 1: Why You're Stuck</h1>
+  <div class="m-sub" data-en="Page 1 of 3 &middot; Concepts & Real-Life Examples" data-ta="பக்கம் 1/3 &middot; கருத்துகள் & நிஜ வாழ்க்கை எடுத்துக்காட்டுகள்">Page 1 of 3 &middot; Concepts & Real-Life Examples</div>
+  
+  <div class="intro" data-en="Most professionals assume a stalled career means they simply aren't good enough. That assumption is usually wrong, and it's an expensive one — it sends people down the path of endless upskilling when the real blocker was never a skill at all. Career plateaus almost always trace back to one (or more) of three specific gaps: a Skill Gap, a Visibility Gap, or a Positioning Gap. Getting the diagnosis right before you act is the single highest-leverage thing you can do in this program, because it determines where the next nine modules should focus your energy." data-ta="பெரும்பாலான தொழில் வல்லுநர்கள் தங்கள் தொழில் தேக்கமடைந்தால் தங்களுக்குப் போதுமான திறமை இல்லை என்று கருதுகின்றனர். அந்த அனுமானம் பொதுவாக தவறானது, மேலும் இது விலைமதிப்பற்றது — உண்மையான தடையாக திறன் இல்லாதபோதும், இது மக்களை முடிவற்ற திறன்களை வளர்க்கும் பாதையில் தள்ளுகிறது. தொழில் தேக்கநிலை என்பது பெரும்பாலும் மூன்று குறிப்பிட்ட இடைவெளிகளில் ஒன்றைக் (அல்லது அதற்கு மேற்பட்டவற்றைக்) குறிக்கிறது: திறன் இடைவெளி, புலப்படும் இடைவெளி, அல்லது நிலைப்படுத்தல் இடைவெளி. நீங்கள் செயல்படுவதற்கு முன் சரியான காரணத்தைக் கண்டறிவது இந்தத் திட்டத்தில் நீங்கள் செய்யக்கூடிய மிக முக்கியமான விஷயமாகும், ஏனெனில் அடுத்த ஒன்பது தொகுதிகளில் உங்கள் ஆற்றலை எங்கு செலுத்த வேண்டும் என்பதை இது தீர்மானிக்கிறது.">Most professionals assume a stalled career means they simply aren't good enough. That assumption is usually wrong, and it's an expensive one — it sends people down the path of endless upskilling when the real blocker was never a skill at all. Career plateaus almost always trace back to one (or more) of three specific gaps: a Skill Gap, a Visibility Gap, or a Positioning Gap. Getting the diagnosis right before you act is the single highest-leverage thing you can do in this program, because it determines where the next nine modules should focus your energy.</div>
+  
+  <div class="concept">
+    <h3 data-en="The Skill Gap" data-ta="திறன் இடைவெளி">The Skill Gap</h3>
+    <p data-en="You genuinely haven't yet built the capability the next role requires. This is real, but it is also the least common reason for a plateau — and ironically the one people assume most often, because it's the most comfortable explanation. 'I need to learn more' feels safer than 'I need to be seen differently.'" data-ta="அடுத்த நிலைக்குத் தேவையான திறனை நீங்கள் உண்மையிலேயே இன்னும் வளர்த்துக்கொள்ளவில்லை. இது உண்மைதான், ஆனால் தேக்கநிலைக்கு இது மிகவும் குறைவான காரணமே — முரண்பாடாக மக்கள் இதையே அடிக்கடி கருதுகிறார்கள், ஏனெனில் இது மிகவும் வசதியான விளக்கமாகும். 'நான் வித்தியாசமாகப் பார்க்கப்பட வேண்டும்' என்பதை விட 'நான் இன்னும் கற்றுக்கொள்ள வேண்டும்' என்பது பாதுகாப்பானதாக உணர்கிறது.">You genuinely haven't yet built the capability the next role requires. This is real, but it is also the least common reason for a plateau — and ironically the one people assume most often, because it's the most comfortable explanation. 'I need to learn more' feels safer than 'I need to be seen differently.'</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="The Visibility Gap" data-ta="புலப்படும் இடைவெளி">The Visibility Gap</h3>
+    <p data-en="You have the capability, but the people who influence promotion decisions don't have accurate information about your impact. Work that isn't seen might as well not exist for promotion purposes — however unfair that feels." data-ta="உங்களிடம் திறமை உள்ளது, ஆனால் பதவி உயர்வு முடிவுகளில் செல்வாக்கு செலுத்துபவர்களுக்கு உங்கள் பங்களிப்பு பற்றிய சரியான தகவல் இல்லை. பதவி உயர்வைப் பொறுத்தவரை, கவனிக்கப்படாத வேலை என்பது இல்லாததற்குச் சமம் — அது எவ்வளவு நியாயமற்றதாகத் தோன்றினாலும்.">You have the capability, but the people who influence promotion decisions don't have accurate information about your impact. Work that isn't seen might as well not exist for promotion purposes — however unfair that feels.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="The Positioning Gap" data-ta="நிலைப்படுத்தல் இடைவெளி">The Positioning Gap</h3>
+    <p data-en="You're capable and reasonably visible, but nobody has had the direct, explicit conversation about your promotion, or you lack a senior person advocating for you in rooms you're not in. This gap is often invisible to the person experiencing it." data-ta="நீங்கள் திறமையானவர் மற்றும் ஓரளவுக்குக் கவனிக்கத்தக்கவர், ஆனால் உங்கள் பதவி உயர்வு பற்றி யாரும் உங்களுடன் நேரடியாகவும் தெளிவாகவும் பேசவில்லை, அல்லது நீங்கள் இல்லாத நேரத்தில் உங்களுக்காகப் பரிந்துரைக்கும் மூத்த அதிகாரி யாரும் இல்லை. இந்த இடைவெளி பெரும்பாலும் அதை அனுபவிப்பவருக்குத் தெரிவதில்லை.">You're capable and reasonably visible, but nobody has had the direct, explicit conversation about your promotion, or you lack a senior person advocating for you in rooms you're not in. This gap is often invisible to the person experiencing it.</p>
+  </div>
+  
+  <div class="concept">
+    <h3 data-en="Why Most People Misdiagnose Themselves" data-ta="பெரும்பாலான மக்கள் தங்களை ஏன் தவறாக மதிப்பிடுகிறார்கள்">Why Most People Misdiagnose Themselves</h3>
+    <p data-en="Because a skill gap is the least threatening explanation, people default to it even when their real problem is visibility or positioning. Reversing this default is most of the work of this module." data-ta="திறன் இடைவெளி என்பது குறைவான அச்சுறுத்தலைக் கொடுக்கும் விளக்கம் என்பதால், உண்மையான சிக்கல் புலப்படுதல் அல்லது நிலைப்படுத்தலாக இருந்தாலும் மக்கள் அதையே இயல்பாக எடுத்துக்கொள்கிறார்கள். இந்த இயல்பான எண்ணத்தை மாற்றுவதே இந்தத் தொகுதியின் முக்கியப் பணியாகும்.">Because a skill gap is the least threatening explanation, people default to it even when their real problem is visibility or positioning. Reversing this default is most of the work of this module.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Rajesh, Senior Software Engineer, Chennai" data-ta="ராஜேஷ், சீனியர் சாப்ட்வேர் இன்ஜினியர், சென்னை">Rajesh, Senior Software Engineer, Chennai</h3>
+    <p data-en="Rajesh had excellent technical ratings for four straight years but was passed over twice for Team Lead. When he finally asked his skip-level manager directly what was missing, he learned something surprising: leadership had no idea he wanted to lead. He had always let his own manager present updates to senior stakeholders and had never once said, out loud, that he wanted the role. His gap wasn't skill — it was visibility and positioning, entirely self-inflicted by staying quiet." data-ta="ராஜேஷ் தொடர்ந்து நான்கு ஆண்டுகள் சிறந்த தொழில்நுட்ப மதிப்பீடுகளைப் பெற்றார், ஆனால் குழுத் தலைவர் பதவிக்கு இருமுறை நிராகரிக்கப்பட்டார். எங்கு குறை உள்ளது என்று தனது மேலாளரின் மேலாளரிடம் (skip-level manager) அவர் நேரடியாகக் கேட்டபோது, ஒரு ஆச்சரியமான விஷயத்தை அறிந்தார்: அவர் தலைமை தாங்க விரும்புகிறார் என்பது நிர்வாகத்திற்குத் தெரியவே இல்லை. அவர் எப்போதும் தனது சொந்த மேலாளரையே மூத்த அதிகாரிகளுக்குப் புதுப்பிப்புகளை வழங்க அனுமதித்தார், மேலும் தனக்கு அந்தப் பதவி வேண்டும் என்று ஒருபோதும் வாய்விட்டுச் சொன்னதில்லை. அவரது குறை திறனில் இல்லை — அமைதியாக இருந்ததன் மூலம் அவர் தனக்குத்தானே ஏற்படுத்திக்கொண்ட புலப்படுதல் மற்றும் நிலைப்படுத்தல் இடைவெளியாகும்.">Rajesh had excellent technical ratings for four straight years but was passed over twice for Team Lead. When he finally asked his skip-level manager directly what was missing, he learned something surprising: leadership had no idea he wanted to lead. He had always let his own manager present updates to senior stakeholders and had never once said, out loud, that he wanted the role. His gap wasn't skill — it was visibility and positioning, entirely self-inflicted by staying quiet.</p>
+  </div>
+  
+  <div class="example-box">
+    <span class="example-tag" data-en="REAL-LIFE EXAMPLE" data-ta="நிஜ வாழ்க்கை எடுத்துக்காட்டு">REAL-LIFE EXAMPLE</span>
+    <h3 data-en="Meena, HR Manager, Bengaluru" data-ta="மீனா, மனிதவள மேலாளர், பெங்களூரு">Meena, HR Manager, Bengaluru</h3>
+    <p data-en="Meena assumed she needed an MBA before she could credibly move to Head of HR, and spent a year and considerable money pursuing one. When she finally shadowed the current Head of HR for a week as part of a stretch assignment, she realised the real gap was stakeholder management with the leadership team in high-pressure moments — a skill no MBA program was going to teach her directly." data-ta="மனிதவளத் தலைவராக (Head of HR) உயர்வதற்கு முன்பு தனக்கு MBA தேவை என்று மீனா கருதினார், அதற்காக ஒரு வருடத்தையும் கணிசமான பணத்தையும் செலவிட்டார். ஒரு திட்டத்தின் பகுதியாக தற்போதைய மனிதவளத் தலைவருடன் இணைந்து ஒரு வாரம் பணியாற்றியபோதுதான், அதிக அழுத்தமான நேரங்களில் தலைமைக் குழுவுடன் இணைந்து செயல்படுவதே (stakeholder management) உண்மையான தேவை என்பதை அவர் உணர்ந்தார் — எந்தவொரு எம்பிஏ திட்டமும் இதை நேரடியாகக் கற்றுக்கொடுக்கப் போவதில்லை.">Meena assumed she needed an MBA before she could credibly move to Head of HR, and spent a year and considerable money pursuing one. When she finally shadowed the current Head of HR for a week as part of a stretch assignment, she realised the real gap was stakeholder management with the leadership team in high-pressure moments — a skill no MBA program was going to teach her directly.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="course-hub.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module1-guidance.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module1-concepts.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function checkAccess(){
+  if(localStorage.getItem('cgpr_unlocked') !== 'true'){
+    window.location.href = 'unlock.html';
+  }
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+checkAccess();
+setLang(currentLang);
+</script>
+</body>
+</html>
