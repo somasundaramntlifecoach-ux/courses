@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="./firebase-config.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Karla:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: oklch(98% 0.012 75); }
+    * { box-sizing: border-box; }
+    ::selection { background: oklch(83% 0.09 45); }
+  </style>
+</helmet>
+
+<div style="display:flex; min-height:100vh; width:100%; font-family:'Karla', sans-serif; color:oklch(24% 0.02 75); background:oklch(98% 0.012 75);">
+
+  <!-- Sidebar -->
+  <div style="width:300px; flex-shrink:0; background:oklch(22% 0.025 75); color:oklch(96% 0.01 75); padding:32px 20px; display:flex; flex-direction:column; gap:24px;">
+    <div>
+      <div style="font-family:'Lora', serif; font-weight:700; font-size:19px; line-height:1.3;">{{ sidebarTitle }}</div>
+      <div style="font-size:13px; opacity:0.65; margin-top:6px;">{{ sidebarSubtitle }}</div>
+    </div>
+
+    <div style="height:1px; background:oklch(40% 0.02 75 / 0.5);"></div>
+
+    <div style="display:flex; flex-direction:column; gap:4px; overflow-y:auto;">
+      <sc-for list="{{ modules }}" as="m" hint-placeholder-count="8">
+        <div onClick="{{ m.select }}" style="{{ m.rowStyle }}">
+          <span style="{{ m.numStyle }}">{{ m.numberLabel }}</span>
+          <span style="{{ m.textStyle }}">{{ m.title }}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:auto; display:flex; flex-direction:column; gap:8px;">
+      <div style="font-size:12px; opacity:0.6;">{{ progressLabel }}</div>
+      <div style="height:6px; border-radius:3px; background:oklch(35% 0.02 75);">
+        <div style="{{ progressBarStyle }}"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div style="flex:1; display:flex; flex-direction:column; min-width:0;">
+
+    <!-- Top bar -->
+    <div style="display:flex; align-items:center; justify-content:space-between; padding:20px 40px; border-bottom:1px solid oklch(90% 0.015 75);">
+      <div style="font-size:13px; letter-spacing:0.04em; text-transform:uppercase; opacity:0.55; font-weight:600;">{{ moduleCounter }}</div>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <sc-if value="{{ showLogout }}">
+          <button onClick="{{ doLogout }}" style="background:transparent; border:1px solid oklch(70% 0.02 75); color:oklch(35% 0.02 75); padding:7px 14px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; font-family:'Karla', sans-serif;">{{ logoutLabel }}</button>
+        </sc-if>
+        <div style="display:flex; gap:6px; background:oklch(93% 0.015 75); padding:4px; border-radius:10px;">
+          <button onClick="{{ setEnglish }}" style="{{ enBtnStyle }}">EN</button>
+          <button onClick="{{ setTamil }}" style="{{ taBtnStyle }}">தமிழ்</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div style="flex:1; overflow-y:auto; padding:48px 56px 24px; max-width:820px;">
+
+      <sc-if value="{{ showLoading }}">
+        <div style="padding:60px 0; text-align:center; color:oklch(50% 0.02 75); font-size:15px;">{{ loadingLabel }}</div>
+      </sc-if>
+
+      <sc-if value="{{ showLoginPrompt }}">
+        <div style="max-width:420px; margin:40px auto; text-align:center; background:oklch(96% 0.012 75); border:1px solid oklch(90% 0.015 75); border-radius:16px; padding:36px 28px;">
+          <div style="font-family:'Lora', serif; font-weight:700; font-size:20px; margin-bottom:10px;">{{ lockTitleLabel }}</div>
+          <div style="font-size:14.5px; color:oklch(38% 0.02 75); line-height:1.6; margin-bottom:22px;">{{ lockTextLabel }}</div>
+          <a href="{{ loginUrl }}" style="display:inline-block; background:oklch(30% 0.02 75); color:white; padding:12px 26px; border-radius:8px; font-weight:600; font-size:14.5px; text-decoration:none;">{{ loginBtnLabel }}</a>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ showContent }}">
+      <div style="{{ langFontStyle }}">
+        <div style="font-size:14px; font-weight:600; letter-spacing:0.03em; text-transform:uppercase; color:oklch(58% 0.14 40);">{{ current.tagline }}</div>
+        <h1 style="font-family:'Lora', serif; font-weight:700; font-size:38px; line-height:1.2; margin:10px 0 20px;">{{ current.title }}</h1>
+        <p style="font-size:17px; line-height:1.7; color:oklch(32% 0.02 75); max-width:680px;">{{ current.overview }}</p>
+
+        <div style="margin-top:32px;">
+          <div style="font-family:'Lora', serif; font-weight:600; font-size:16px; margin-bottom:14px;">{{ subtopicsLabel }}</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <sc-for list="{{ subtopics }}" as="st" hint-placeholder-count="10">
+              <div style="border:1px solid oklch(91% 0.015 75); border-radius:10px; overflow:hidden; background:oklch(96% 0.012 75);">
+                <div onClick="{{ st.toggle }}" style="{{ st.headerStyle }}">
+                  <span style="{{ st.numStyle }}">{{ st.numberLabel }}</span>
+                  <span style="{{ st.titleStyle }}">{{ st.title }}</span>
+                  <span style="{{ st.arrowStyle }}">{{ st.arrow }}</span>
+                </div>
+                <div style="{{ st.panelStyle }}">
+                  <div style="{{ st.labelStyle }}">{{ explanationLabel }}</div>
+                  <div style="{{ st.textStyle }}">{{ st.explanation }}</div>
+                  <div style="{{ st.labelStyle }}">{{ exampleLabel }}</div>
+                  <div style="{{ st.textStyle }}">{{ st.example }}</div>
+                  <div style="{{ st.labelStyle }}">{{ suggestionLabel }}</div>
+                  <div style="{{ st.textStyle }}">{{ st.suggestion }}</div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:28px; background:oklch(94% 0.04 200); border:1px solid oklch(85% 0.06 200); border-radius:14px; padding:20px 22px;">
+          <div style="font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; color:oklch(38% 0.08 200);">{{ toolSpotlightLabel }}</div>
+          <div style="font-family:'Lora', serif; font-weight:600; font-size:19px; margin-top:6px;">{{ current.toolSpotlight.name }}</div>
+          <div style="font-size:15px; line-height:1.6; margin-top:6px; color:oklch(28% 0.03 200);">{{ current.toolSpotlight.text }}</div>
+        </div>
+
+        <div style="margin-top:20px; border-left:3px solid oklch(65% 0.15 40); padding:4px 0 4px 18px;">
+          <div style="font-size:12.5px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; opacity:0.6;">{{ reflectionLabel }}</div>
+          <div style="font-size:15.5px; line-height:1.6; margin-top:4px; font-style:italic;">{{ current.reflection }}</div>
+        </div>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; margin:40px 0 60px;">
+        <button onClick="{{ prev }}" disabled="{{ prevDisabled }}" style="{{ prevBtnStyle }}">{{ prevLabel }}</button>
+        <button onClick="{{ next }}" disabled="{{ nextDisabled }}" style="{{ nextBtnStyle }}">{{ nextLabel }}</button>
+      </div>
+      </sc-if>
+
+    </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const MODULES = [
+  { en: {
+      title: "Foundations of Blended Learning",
+      tagline: "Module 1 · Getting Oriented",
+      overview: "Blended learning combines face-to-face teaching with online activities, giving students more control over pace, place, and path. This module lays out the core models — station rotation, flipped classroom, and flex — so you can pick a starting point that fits your classroom, not the other way around.",
+      subtopics: [
+        { title: "What Blended Learning Really Means", explanation: "Blended learning intentionally combines face-to-face teaching with online activities so each mode does what it does best — not replacing the teacher with a screen, but rearranging when and where certain tasks happen.", example: "A 7th-grade science teacher moves vocabulary practice online so class time is spent entirely on hands-on labs.", suggestion: "Before adding any tech, write down which specific task will move online and why." },
+        { title: "The Station Rotation Model", explanation: "Students rotate in small groups through stations — one with the teacher, one online, one on collaborative work — all within a single class period.", example: "A primary classroom runs three 15-minute stations: guided reading with the teacher, a reading app, and a worksheet table.", suggestion: "Start with just two stations before adding a third." },
+        { title: "The Flipped Classroom Model", explanation: "Students watch instructional content at home and use class time for practice, questions, and application — flipping the traditional homework/lecture order.", example: "A math teacher assigns a 6-minute video on solving equations for homework, then runs practice problems in class the next day.", suggestion: "Keep flipped videos under 10 minutes so they're realistic to watch at home." },
+        { title: "The Flex Model", explanation: "Online learning is the backbone of the course, with the teacher circulating to give small-group and 1:1 support as needed.", example: "An online credit-recovery course lets students work through modules at their own pace while a teacher checks in with those falling behind.", suggestion: "Use flex sparingly in K-12 — it works best for older, more independent learners." },
+        { title: "The A La Carte Model", explanation: "Students take one course entirely online alongside their regular in-person schedule, often for electives not offered locally.", example: "A rural high school offers an online AP course a small school can't staff in person.", suggestion: "Reserve this model for enrichment or access, not as a default replacement for core subjects." },
+        { title: "Why Blend? The Core Benefits", explanation: "Done well, blended learning frees class time for the things technology can't do — discussion, feedback, and relationship-building — while tech handles repetitive practice.", example: "A teacher who automates spelling practice gains 20 extra minutes a week for one-on-one reading conferences.", suggestion: "Track what you gain (time, feedback quality) — you'll need it to justify the shift to colleagues or parents." },
+        { title: "Common Myths About Blended Learning", explanation: "It's not 'more screen time,' 'less teaching,' or 'only for tech-savvy teachers' — these myths often stall adoption before it starts.", example: "A skeptical teacher assumed blended learning meant unsupervised tablet time, until observing a station-rotation classroom where the teacher taught a small group the whole period.", suggestion: "Invite a hesitant colleague to observe a blended lesson in action rather than just describing it." },
+        { title: "Time Management Across Modes", explanation: "Blended lessons need a visible time budget for each segment, or online stations quietly eat into time meant for other activities.", example: "A visible countdown timer on the board keeps a 15-minute online station from stretching to 25.", suggestion: "Post the schedule for the period where students can see it, not just in your lesson plan." },
+        { title: "Classroom Layout for Blended Sessions", explanation: "Physical space needs to support quick movement between modes — device storage, discussion zones, and device islands positioned so transitions don't waste minutes.", example: "A teacher clusters four desks with power strips into a 'device zone' so device pickup doesn't disrupt the whole room.", suggestion: "Sketch your room's traffic flow before you commit to a rotation model." },
+        { title: "Getting Started: Your First Blended Week", explanation: "The first attempt should be small and reversible — one lesson, one model, one tool — so you can adjust based on what actually happens, not what you predicted.", example: "A teacher pilots station rotation for a single Friday period before deciding whether to run it three times a week.", suggestion: "Debrief with students after the first attempt — their reaction is your best early data." }
+      ],
+      toolSpotlight: { name: "Google Classroom", text: "A free hub for assignments, announcements, and grading that works well as the 'home base' for any blended model." },
+      reflection: "Which one task in your week could move online this month, freeing up class time for discussion or practice?"
+    },
+    ta: {
+      title: "கலப்பு கற்றலின் அடிப்படைகள்",
+      tagline: "பாடம் 1 · தொடக்க அறிமுகம்",
+      overview: "கலப்பு கற்றல் என்பது நேரடி வகுப்பறை கற்பித்தலையும், இணையவழி செயல்பாடுகளையும் இணைப்பதாகும் — இது மாணவர்களுக்கு வேகம், இடம், பாதை ஆகியவற்றில் அதிக கட்டுப்பாட்டை அளிக்கிறது. இந்தப் பாடம் ஸ்டேஷன் சுழற்சி, தலைகீழ் வகுப்பறை, ஃப்ளெக்ஸ் போன்ற முதன்மை மாதிரிகளை அறிமுகப்படுத்துகிறது.",
+      subtopics: [
+        { title: "கலப்பு கற்றல் உண்மையில் என்ன அர்த்தம்", explanation: "கலப்பு கற்றல் நேரடி வகுப்பறை கற்பித்தலையும் இணையவழி செயல்பாடுகளையும் வேண்டுமென்றே இணைக்கிறது — ஒவ்வொரு முறையும் அது சிறப்பாகச் செய்வதைச் செய்ய, திரையால் ஆசிரியரை மாற்றுவதல்ல, சில பணிகள் எப்போது எங்கே நடக்கும் என்பதை மறுசீரமைப்பது.", example: "ஒரு 7ஆம் வகுப்பு அறிவியல் ஆசிரியர் சொல்லகராதி பயிற்சியை இணையவழிக்கு மாற்றி, வகுப்பு நேரம் முழுவதையும் நேரடி ஆய்வகப் பணிகளுக்கு பயன்படுத்துகிறார்.", suggestion: "எந்த தொழில்நுட்பத்தையும் சேர்க்கும் முன், எந்தப் பணி இணையவழிக்கு நகரும், ஏன் என்பதை எழுதி வையுங்கள்." },
+        { title: "ஸ்டேஷன் சுழற்சி மாதிரி", explanation: "மாணவர்கள் சிறு குழுக்களாக நிலையங்களுக்கு இடையே சுழல்கின்றனர் — ஒன்று ஆசிரியருடன், ஒன்று இணையவழியில், ஒன்று கூட்டு வேலையில் — ஒரே பாட காலப்பகுதிக்குள்.", example: "ஒரு தொடக்க வகுப்பறை மூன்று 15-நிமிட நிலையங்களை இயக்குகிறது: ஆசிரியருடன் வழிகாட்டப்பட்ட வாசிப்பு, ஒரு வாசிப்பு பயன்பாடு, ஒரு பணித்தாள் மேசை.", suggestion: "மூன்றாவது நிலையத்தைச் சேர்ப்பதற்கு முன், இரண்டு நிலையங்களுடன் தொடங்குங்கள்." },
+        { title: "தலைகீழ் வகுப்பறை மாதிரி", explanation: "மாணவர்கள் வீட்டில் கற்பித்தல் உள்ளடக்கத்தைப் பார்க்கிறார்கள், வகுப்பு நேரத்தைப் பயிற்சி, கேள்விகள், பயன்பாட்டிற்குப் பயன்படுத்துகிறார்கள் — வழக்கமான வீட்டுப்பாடம்/விரிவுரை வரிசையை தலைகீழாக்குகிறது.", example: "ஒரு கணித ஆசிரியர் சமன்பாடுகளை தீர்ப்பது குறித்த 6-நிமிட வீடியோவை வீட்டுப்பாடமாகக் கொடுத்து, அடுத்த நாள் வகுப்பில் பயிற்சி கணக்குகளை நடத்துகிறார்.", suggestion: "தலைகீழ் வீடியோக்களை 10 நிமிடங்களுக்குள் வையுங்கள், அதனால் வீட்டில் பார்ப்பது நடைமுறையில் சாத்தியமாகும்." },
+        { title: "ஃப்ளெக்ஸ் மாதிரி", explanation: "இணையவழி கற்றல் பாடத்தின் முதுகெலும்பாக இருக்கும், ஆசிரியர் தேவைக்கேற்ப சிறு-குழு மற்றும் தனிப்பட்ட ஆதரவை வழங்க சுற்றி வருகிறார்.", example: "ஒரு இணையவழி கிரெடிட்-மீட்பு பாடநெறி மாணவர்கள் தங்கள் சொந்த வேகத்தில் தொகுதிகளைக் கடக்க அனுமதிக்கிறது, ஆசிரியர் பின்தங்கியவர்களுடன் சரிபார்க்கிறார்.", suggestion: "K-12 இல் ஃப்ளெக்ஸை குறைவாகப் பயன்படுத்துங்கள் — இது வயதான, சுதந்திரமான மாணவர்களுக்கு சிறப்பாகப் பணியாற்றும்." },
+        { title: "ஏ லா கார்ட் மாதிரி", explanation: "மாணவர்கள் தங்கள் வழக்கமான நேரடி அட்டவணையுடன், ஒரு பாடத்தை முழுவதுமாக இணையவழியில் எடுக்கிறார்கள், பெரும்பாலும் உள்ளூரில் கிடைக்காத தேர்வுப் பாடங்களுக்கு.", example: "ஒரு கிராமப்புற உயர்நிலைப் பள்ளி, சிறிய பள்ளியால் நேரடியாக ஆசிரியர்களை நியமிக்க முடியாத ஒரு இணையவழி AP பாடத்தை வழங்குகிறது.", suggestion: "இந்த மாதிரியை முதன்மைப் பாடங்களுக்கு இயல்பான மாற்றாக அல்ல, செழுமைப்படுத்தல் அல்லது அணுகலுக்காக மட்டும் ஒதுக்குங்கள்." },
+        { title: "ஏன் கலக்க வேண்டும்? முதன்மை நன்மைகள்", explanation: "நன்றாகச் செய்யப்பட்டால், கலப்பு கற்றல் தொழில்நுட்பத்தால் செய்ய முடியாத விவாதம், கருத்து, உறவு கட்டமைப்பு போன்றவற்றுக்கு வகுப்பு நேரத்தை விடுவிக்கும், தொழில்நுட்பம் திரும்பத் திரும்ப வரும் பயிற்சியைக் கையாளும்.", example: "எழுத்துப்பிழை பயிற்சியை தானியங்கியாக்கிய ஒரு ஆசிரியர், வாரத்திற்கு கூடுதலாக 20 நிமிடங்களை தனிப்பட்ட வாசிப்பு ஆலோசனைகளுக்குப் பெறுகிறார்.", suggestion: "நீங்கள் பெறுவதை (நேரம், கருத்தின் தரம்) கண்காணியுங்கள் — சக ஆசிரியர்கள் அல்லது பெற்றோரிடம் இந்த மாற்றத்தை நியாயப்படுத்த இது தேவைப்படும்." },
+        { title: "கலப்பு கற்றல் குறித்த பொதுவான கட்டுக்கதைகள்", explanation: "இது 'அதிக திரை நேரம்', 'குறைவான கற்பித்தல்', அல்லது 'தொழில்நுட்பம் தெரிந்த ஆசிரியர்களுக்கு மட்டும்' அல்ல — இந்த கட்டுக்கதைகள் பெரும்பாலும் தொடங்குவதற்கு முன்பே ஏற்றுக்கொள்ளலை நிறுத்திவிடும்.", example: "ஸ்டேஷன் சுழற்சி வகுப்பறையை கவனித்த பிறகே, ஒரு சந்தேகப்படும் ஆசிரியர் தான் நினைத்தது தவறு என்று உணர்ந்தார் — ஆசிரியர் முழு காலப்பகுதியும் ஒரு சிறு குழுவைக் கற்பித்தார்.", suggestion: "தயங்கும் ஒரு சக ஆசிரியரை, விவரிப்பதற்குப் பதிலாக, ஒரு கலப்பு பாடத்தை நேரில் கவனிக்க அழையுங்கள்." },
+        { title: "முறைகளுக்கு இடையேயான நேர மேலாண்மை", explanation: "கலப்பு பாடங்களுக்கு ஒவ்வொரு பகுதிக்கும் தெரியும் நேர பட்ஜெட் தேவை, இல்லையெனில் இணையவழி நிலையங்கள் மற்ற செயல்பாடுகளுக்கான நேரத்தை மெதுவாக உண்டுவிடும்.", example: "பலகையில் தெரியும் கவுண்ட்டவுன் டைமர் ஒரு 15-நிமிட இணையவழி நிலையம் 25 நிமிடங்களாக நீளுவதைத் தடுக்கிறது.", suggestion: "காலப்பகுதியின் அட்டவணையை உங்கள் பாடத் திட்டத்தில் மட்டுமல்ல, மாணவர்கள் பார்க்கும் இடத்திலும் ஒட்டுங்கள்." },
+        { title: "கலப்பு அமர்வுகளுக்கான வகுப்பறை அமைப்பு", explanation: "பருநிலை இடம் முறைகளுக்கு இடையே விரைவான நகர்வை ஆதரிக்க வேண்டும் — சாதன சேமிப்பு, விவாத மண்டலங்கள், இயந்திர தீவுகள் மாற்றங்கள் நிமிடங்களை வீணாக்காமல் இருக்க வேண்டும்.", example: "ஒரு ஆசிரியர் நான்கு மேசைகளை பவர் ஸ்ட்ரிப்புகளுடன் ஒரு 'சாதன மண்டலமாக' குழுவாக்குகிறார், இதனால் சாதனம் எடுப்பது முழு அறையையும் தடுக்காது.", suggestion: "சுழற்சி மாதிரிக்கு உறுதியளிக்கும் முன் உங்கள் அறையின் போக்குவரத்து ஓட்டத்தை வரையுங்கள்." },
+        { title: "தொடங்குதல்: உங்கள் முதல் கலப்பு வாரம்", explanation: "முதல் முயற்சி சிறியதாகவும், மாற்றக்கூடியதாகவும் இருக்க வேண்டும் — ஒரு பாடம், ஒரு மாதிரி, ஒரு கருவி — இதனால் நீங்கள் கணித்ததை அல்ல, உண்மையில் நடந்ததை அடிப்படையாகக் கொண்டு சரிசெய்யலாம்.", example: "ஒரு ஆசிரியர் வாரத்திற்கு மூன்று முறை இயக்கலாமா என்று முடிவெடுக்கும் முன், ஒரே வெள்ளிக்கிழமை காலப்பகுதிக்கு ஸ்டேஷன் சுழற்சியை முயற்சிக்கிறார்.", suggestion: "முதல் முயற்சிக்குப் பிறகு மாணவர்களுடன் மறுபரிசீலனை செய்யுங்கள் — அவர்களின் எதிர்வினையே உங்கள் சிறந்த ஆரம்ப தரவு." }
+      ],
+      toolSpotlight: { name: "Google Classroom", text: "பணிகள், அறிவிப்புகள், மதிப்பீடு ஆகியவற்றுக்கான இலவச மையம் — எந்த கலப்பு மாதிரிக்கும் 'முதன்மை இடமாக' சிறப்பாகப் பணியாற்றும்." },
+      reflection: "இந்த மாதம் உங்கள் வாராந்திர பணிகளில் எது இணையவழிக்கு மாற்றப்பட்டு, வகுப்பு நேரத்தை விவாதத்திற்கோ பயிற்சிக்கோ விடுவிக்க முடியும்?"
+    }
+  },
+  { en: {
+      title: "Knowing Your Digital-Age Learners",
+      tagline: "Module 2 · Your Students",
+      overview: "Today's students move fluidly between apps, but that doesn't mean they're natural experts at learning online. This module looks at what digital-age learners actually need: structure, clear expectations, and explicit teaching of focus and self-pacing skills.",
+      subtopics: [
+        { title: "Digital Fluency vs Digital Literacy", explanation: "Fluency is comfort using apps and devices; literacy is the ability to evaluate, create, and think critically with digital information — students often have the first without the second.", example: "A student can navigate five social apps effortlessly but struggles to judge whether a source is trustworthy for a research project.", suggestion: "Build short source-evaluation checks into any online research task." },
+        { title: "Attention Spans and Chunking Content", explanation: "Sustained attention on a single screen task drops faster than in a varied in-person lesson, so online tasks need to be broken into short, clearly bounded chunks.", example: "A 30-minute online reading assignment redesigned as three 10-minute chunks with a quick check between each saw fewer students losing focus.", suggestion: "Cap any single online task at 10–12 minutes for middle-schoolers." },
+        { title: "Equity in Device and Internet Access", explanation: "Not every student has a reliable device or home internet, so any 'homework' that depends on both can quietly disadvantage some students.", example: "A teacher discovers two students were completing all online homework on a shared family phone at odd hours.", suggestion: "Survey device/internet access at the start of the year before assigning any at-home digital work." },
+        { title: "Learning Styles in a Blended Setting", explanation: "Blended models can offer more paths to the same goal — video, text, hands-on — but only if you deliberately build in the options rather than defaulting to one format.", example: "A history unit offers the same content as a podcast, an infographic, and a short reading, letting students choose.", suggestion: "Offer at least two formats for any major topic, not just the one you personally prefer." },
+        { title: "Motivation Online vs In-Person", explanation: "The social pressure and immediate presence of a teacher that motivates some students in person disappears online, so online tasks need their own built-in structure and accountability.", example: "A teacher adds a short 'check-in' quiz at the end of every online video to make completion visible and expected.", suggestion: "Never assign a fully open-ended online task with no checkpoint or deadline reminder." },
+        { title: "Peer Interaction in Digital Spaces", explanation: "Students need explicit norms for online collaboration — tone, turn-taking, and feedback — because digital text strips out the social cues they'd normally rely on.", example: "A shared document group project descends into one student doing all the work until sentence starters for feedback are introduced.", suggestion: "Teach and model 2–3 sentence starters for giving feedback online before the first group project." },
+        { title: "Self-Regulation Skills Students Need", explanation: "Working independently online requires planning, time estimation, and self-checking — skills that need direct teaching, not assumption.", example: "A teacher has students estimate how long an online task will take before starting, then compare to actual time afterward.", suggestion: "Build a simple 'plan, do, check' routine into your first few blended tasks." },
+        { title: "Reading Student Feedback Signals", explanation: "Struggles with a blended activity often show up indirectly — late submissions, short answers, or avoidance — before a student says anything directly.", example: "A sudden drop in a student's online quiz completion rate turns out to trace back to a broken home internet connection, not disengagement.", suggestion: "Check in personally with any student whose online engagement drops for more than a few days." },
+        { title: "Supporting Struggling Digital Learners", explanation: "Some students need more scaffolding for online independence, not less — clear checklists, shorter tasks, and more frequent check-ins bridge the gap.", example: "A student who was overwhelmed by an open-ended module succeeds once it's broken into a numbered checklist with checkboxes.", suggestion: "Offer a printed step-by-step checklist alongside any multi-step online task." },
+        { title: "Building a Student Tech Profile", explanation: "A simple, living record of each student's device access, comfort level, and preferences helps you adjust blended plans without re-asking every time.", example: "A teacher keeps a one-line note per student updated each term: device, home internet, comfort level.", suggestion: "Update your class tech profile at the start of each term, not just once a year." }
+      ],
+      toolSpotlight: { name: "A simple survey (Google Forms)", text: "A 5-question check-in on device access, comfort level, and preferences takes ten minutes and prevents weeks of mismatched planning." },
+      reflection: "What's one assumption you're making about your students' digital fluency that's worth checking directly with them?"
+    },
+    ta: {
+      title: "டிஜிட்டல் யுக மாணவர்களைப் புரிந்துகொள்ளுதல்",
+      tagline: "பாடம் 2 · உங்கள் மாணவர்கள்",
+      overview: "இன்றைய மாணவர்கள் பயன்பாடுகளுக்கு இடையே எளிதாக நகர்கின்றனர், ஆனால் இது இணையவழியில் கற்பதில் இயல்பாகவே வல்லுநர்கள் என்று அர்த்தமல்ல. இந்தப் பாடம் டிஜிட்டல் யுக மாணவர்களுக்கு உண்மையில் என்ன தேவை என்பதைப் பார்க்கிறது: அமைப்பு, தெளிவான எதிர்பார்ப்புகள், கவனம் மற்றும் சுய-வேக திறன்களைத் தெளிவாகக் கற்பித்தல்.",
+      subtopics: [
+        { title: "டிஜிட்டல் தேர்ச்சி vs டிஜிட்டல் எழுத்தறிவு", explanation: "தேர்ச்சி என்பது பயன்பாடுகள் மற்றும் சாதனங்களைப் பயன்படுத்துவதில் வசதி; எழுத்தறிவு என்பது டிஜிட்டல் தகவலை மதிப்பிடும், உருவாக்கும், விமர்சன ரீதியாக சிந்திக்கும் திறன் — மாணவர்களுக்கு பெரும்பாலும் முதலாவது இருக்கும், இரண்டாவது இல்லாமல்.", example: "ஒரு மாணவர் ஐந்து சமூக பயன்பாடுகளை எளிதாக வழிநடத்த முடியும், ஆனால் ஆராய்ச்சி திட்டத்திற்கு ஒரு மூலம் நம்பகமானதா என்று மதிப்பிட போராடுகிறார்.", suggestion: "எந்த இணையவழி ஆராய்ச்சி பணியிலும் குறுகிய மூல-மதிப்பீட்டு சரிபார்ப்புகளைச் சேருங்கள்." },
+        { title: "கவனம் மற்றும் உள்ளடக்கத்தைப் பிரித்தல்", explanation: "ஒரு திரையில் தொடர்ச்சியான கவனம் வேறுபட்ட நேரடி பாடத்தை விட வேகமாகக் குறையும், எனவே இணையவழி பணிகள் குறுகிய, தெளிவாக வரையறுக்கப்பட்ட பகுதிகளாகப் பிரிக்கப்பட வேண்டும்.", example: "30-நிமிட இணையவழி வாசிப்பு பணி மூன்று 10-நிமிட பகுதிகளாக மறுவடிவமைக்கப்பட்டு, ஒவ்வொன்றுக்கும் இடையே ஒரு விரைவு சரிபார்ப்புடன், குறைவான மாணவர்கள் கவனம் இழந்தனர்.", suggestion: "நடுநிலைப் பள்ளி மாணவர்களுக்கு எந்த ஒரு இணையவழி பணியையும் 10–12 நிமிடங்களுக்கு மேல் வைக்காதீர்கள்." },
+        { title: "சாதனம் மற்றும் இணைய அணுகலில் சமத்துவம்", explanation: "ஒவ்வொரு மாணவருக்கும் நம்பகமான சாதனம் அல்லது வீட்டு இணையம் இருக்காது, எனவே இரண்டையும் சார்ந்திருக்கும் எந்த 'வீட்டுப்பாடமும்' சில மாணவர்களை மெதுவாக பாதிக்கலாம்.", example: "இரண்டு மாணவர்கள் தங்கள் அனைத்து இணையவழி வீட்டுப்பாடங்களையும் ஒரு பகிரப்பட்ட குடும்ப தொலைபேசியில் விந்தையான நேரங்களில் முடித்தது ஒரு ஆசிரியருக்குத் தெரிகிறது.", suggestion: "வீட்டில் எந்த டிஜிட்டல் வேலையையும் ஒதுக்கும் முன், ஆண்டின் தொடக்கத்தில் சாதனம்/இணைய அணுகலைக் கணக்கெடுங்கள்." },
+        { title: "கலப்பு அமைப்பில் கற்றல் பாணிகள்", explanation: "கலப்பு மாதிரிகள் ஒரே இலக்கிற்கு அதிக பாதைகளை வழங்கலாம் — வீடியோ, உரை, செயல்முறை — ஆனால் நீங்கள் வேண்டுமென்றே இந்த விருப்பங்களை உருவாக்கினால் மட்டுமே, ஒரு வடிவத்திற்கு இயல்பாக மாறாமல்.", example: "ஒரு வரலாற்று பாடம் ஒரே உள்ளடக்கத்தை பாட்காஸ்ட், இன்ஃபோகிராஃபிக், குறுகிய வாசிப்பு என வழங்கி, மாணவர்கள் தேர்ந்தெடுக்க அனுமதிக்கிறது.", suggestion: "எந்த முக்கிய தலைப்பிற்கும் குறைந்தது இரண்டு வடிவங்களை வழங்குங்கள், நீங்கள் தனிப்பட்ட முறையில் விரும்புவது மட்டும் அல்ல." },
+        { title: "இணையவழி vs நேரடி உந்துதல்", explanation: "நேரடியில் சில மாணவர்களைத் தூண்டும் சமூக அழுத்தமும் ஆசிரியரின் உடனடி இருப்பும் இணையவழியில் மறைந்துவிடும், எனவே இணையவழி பணிகளுக்கு தங்கள் சொந்த கட்டமைப்பும் பொறுப்புணர்வும் தேவை.", example: "ஒவ்வொரு இணையவழி வீடியோவின் முடிவிலும் ஒரு குறுகிய 'சரிபார்ப்பு' வினாடி வினாவைச் சேர்க்கும் ஆசிரியர், முடித்தலைக் காணக்கூடியதாகவும் எதிர்பார்க்கப்படுவதாகவும் ஆக்குகிறார்.", suggestion: "சரிபார்ப்பு புள்ளி அல்லது காலக்கெடு நினைவூட்டல் இல்லாத முற்றிலும் திறந்த இணையவழி பணியை ஒருபோதும் ஒதுக்காதீர்கள்." },
+        { title: "டிஜிட்டல் இடங்களில் சக மாணவர் தொடர்பு", explanation: "இணையவழி ஒத்துழைப்பிற்கு மாணவர்களுக்கு தெளிவான விதிகள் தேவை — தொனி, முறை மாற்றம், கருத்து — ஏனெனில் டிஜிட்டல் உரை அவர்கள் வழக்கமாக நம்பியிருக்கும் சமூக குறிப்புகளை நீக்கிவிடும்.", example: "பகிரப்பட்ட ஆவண குழு திட்டம் ஒரு மாணவர் மட்டும் எல்லா வேலையும் செய்வதாக மாறியது, கருத்து அளிப்பதற்கான வாக்கிய தொடக்கங்கள் அறிமுகப்படுத்தப்படும் வரை.", suggestion: "முதல் குழு திட்டத்திற்கு முன் இணையவழியில் கருத்து அளிப்பதற்கான 2–3 வாக்கிய தொடக்கங்களைக் கற்பித்து மாதிரியாகக் காட்டுங்கள்." },
+        { title: "மாணவர்களுக்குத் தேவையான சுய-கட்டுப்பாட்டு திறன்கள்", explanation: "இணையவழியில் சுயாதீனமாக வேலை செய்வதற்கு திட்டமிடல், நேர மதிப்பீடு, சுய-சரிபார்ப்பு தேவை — இவை நேரடியாகக் கற்பிக்கப்பட வேண்டும், அனுமானிக்கப்படக்கூடாது.", example: "ஒரு ஆசிரியர் மாணவர்களை ஒரு இணையவழி பணி எவ்வளவு நேரம் எடுக்கும் என்று தொடங்குவதற்கு முன் மதிப்பிடச் செய்கிறார், பின்னர் உண்மையான நேரத்துடன் ஒப்பிடுகிறார்.", suggestion: "உங்கள் முதல் சில கலப்பு பணிகளில் ஒரு எளிய 'திட்டமிடு, செய், சரிபார்' வழக்கத்தை உருவாக்குங்கள்." },
+        { title: "மாணவர் கருத்து சமிக்ஞைகளைப் படித்தல்", explanation: "ஒரு கலப்பு செயல்பாட்டில் சிரமங்கள் பெரும்பாலும் மறைமுகமாகத் தெரியும் — தாமதமான சமர்ப்பணங்கள், குறுகிய பதில்கள், தவிர்த்தல் — ஒரு மாணவர் நேரடியாக ஏதாவது சொல்வதற்கு முன்.", example: "ஒரு மாணவரின் இணையவழி வினாடி வினா முடித்தல் விகிதத்தில் திடீர் வீழ்ச்சி, ஈடுபாடின்மையால் அல்ல, உடைந்த வீட்டு இணைய இணைப்பால் என்று தெரிகிறது.", suggestion: "ஒரு மாணவரின் இணையவழி ஈடுபாடு சில நாட்களுக்கு மேல் குறைந்தால் தனிப்பட்ட முறையில் சரிபார்க்கவும்." },
+        { title: "போராடும் டிஜிட்டல் கற்பவர்களுக்கு ஆதரவு", explanation: "சில மாணவர்களுக்கு இணையவழி சுதந்திரத்திற்கு குறைவான அல்ல, அதிக ஆதரவு தேவை — தெளிவான சரிபார்ப்பு பட்டியல்கள், குறுகிய பணிகள், அடிக்கடி சரிபார்ப்புகள் இடைவெளியைக் குறைக்கும்.", example: "திறந்த தொகுதியால் மிகைப்படுத்தப்பட்ட ஒரு மாணவர், அது எண் இட்ட செக்பாக்ஸ் பட்டியலாக பிரிக்கப்பட்டதும் வெற்றி பெறுகிறார்.", suggestion: "பல-படி இணையவழி பணியுடன் அச்சிடப்பட்ட படிப்படியான சரிபார்ப்பு பட்டியலை வழங்குங்கள்." },
+        { title: "மாணவர் தொழில்நுட்ப சுயவிவரத்தை உருவாக்குதல்", explanation: "ஒவ்வொரு மாணவரின் சாதன அணுகல், வசதி நிலை, விருப்பங்கள் பற்றிய எளிய, வாழும் பதிவு ஒவ்வொரு முறையும் மீண்டும் கேட்காமல் கலப்பு திட்டங்களை சரிசெய்ய உதவுகிறது.", example: "ஒரு ஆசிரியர் ஒவ்வொரு காலாண்டிலும் புதுப்பிக்கப்படும் ஒரு மாணவருக்கு ஒரு வரி குறிப்பை வைத்திருக்கிறார்: சாதனம், வீட்டு இணையம், வசதி நிலை.", suggestion: "ஆண்டுக்கு ஒரு முறை மட்டும் அல்ல, ஒவ்வொரு காலாண்டின் தொடக்கத்திலும் உங்கள் வகுப்பு தொழில்நுட்ப சுயவிவரத்தைப் புதுப்பியுங்கள்." }
+      ],
+      toolSpotlight: { name: "எளிய கணக்கெடுப்பு (Google Forms)", text: "சாதன அணுகல், வசதி நிலை, விருப்பங்கள் குறித்த 5-கேள்வி சரிபார்ப்பு பத்து நிமிடங்கள் எடுக்கும், ஆனால் பொருந்தாத திட்டமிடலில் வாரங்களைத் தவிர்க்கும்." },
+      reflection: "உங்கள் மாணவர்களின் டிஜிட்டல் திறமை குறித்து நீங்கள் வைத்திருக்கும் ஒரு அனுமானத்தை அவர்களிடமே நேரடியாகச் சரிபார்க்க வேண்டுமா?"
+    }
+  },
+  { en: {
+      title: "Choosing the Right Tech Tools",
+      tagline: "Module 3 · Tool Selection",
+      overview: "It's easy to collect apps and hard to use them well. This module gives you a simple filter — purpose, not novelty — for deciding which tool earns a place in your classroom, and when 'no tech' is the better answer.",
+      subtopics: [
+        { title: "Start With the Learning Goal", explanation: "Every tool decision should begin with 'what should students be able to do' — the tool is chosen to serve that, never the reverse.", example: "A teacher wanting students to practice public speaking chooses a simple video-recording tool over an elaborate presentation app with unrelated features.", suggestion: "Write the learning goal down before browsing any app store or tool list." },
+        { title: "The One-Tool Rule", explanation: "Depth of use matters more than breadth — students and teachers get more value from mastering one reliable tool than sampling many.", example: "A department standardizes on one platform for all warm-up quizzes instead of each teacher using a different app.", suggestion: "Before adding a new tool, ask what existing tool could do the same job." },
+        { title: "Evaluating Cost and Licensing", explanation: "Free tiers often come with limits (student caps, ads, data restrictions) that only surface after a class has already adopted the tool.", example: "A teacher discovers mid-year that the free plan caps class size at 25, just under her actual roster.", suggestion: "Read the pricing/limits page fully before piloting a new tool with a whole class." },
+        { title: "Privacy and Data Policies", explanation: "Any tool collecting student data needs to meet your school's privacy requirements — this isn't optional or a 'check later' step.", example: "A district blocks a popular app mid-semester after discovering it doesn't comply with student data protection rules.", suggestion: "Confirm a tool is on your school's approved list before assigning it, not after." },
+        { title: "Offline Fallback Planning", explanation: "Wifi and device failures are a 'when,' not an 'if' — every tech-dependent lesson needs a low-tech backup ready to go.", example: "A teacher keeps a printed version of every digital worksheet in a folder for the inevitable wifi outage.", suggestion: "Ask yourself 'what do I do in the next five minutes if wifi drops right now?' for every tech-heavy lesson." },
+        { title: "Learning Curve for Teachers and Students", explanation: "A tool that takes longer to learn than the lesson itself takes to teach isn't worth adopting mid-year, however good its features are.", example: "A teacher abandons a feature-rich but complex platform after realizing setup ate an entire planning period.", suggestion: "Time-box your own first attempt with a new tool to 20 minutes before deciding to pilot it." },
+        { title: "Accessibility Features to Check", explanation: "Text-to-speech, captioning, and adjustable font size are essential for many students, not optional extras — check for them before adopting a tool.", example: "A student with a reading disability gains real independence once a tool's built-in text-to-speech is switched on.", suggestion: "Test any new tool with captions/read-aloud turned on before rolling it out to the whole class." },
+        { title: "Piloting a New Tool Safely", explanation: "Trial a tool with one class or one lesson before committing school-wide — small pilots surface problems while the cost of failure is still low.", example: "A teacher pilots a new quiz app with a single homeroom for two weeks before recommending it to the whole grade team.", suggestion: "Set a specific pilot period (e.g. two weeks) with a clear go/no-go decision point." },
+        { title: "Retiring Tools That Aren't Working", explanation: "Sunk cost keeps teachers using tools past their usefulness — a tool that consistently causes friction should be dropped, not defended.", example: "A teacher retires a gamified app after noticing students spend more time chasing points than engaging with content.", suggestion: "Review your tool list once a term and drop anything you can't explain the purpose of in one sentence." },
+        { title: "Building Your Personal Tool Kit", explanation: "A small, well-practiced set of 3–5 tools covering your core needs (quizzes, collaboration, presentation) is more sustainable than constantly chasing new releases.", example: "A teacher settles on one quiz tool, one shared-document tool, and one video tool, and reuses them across every unit.", suggestion: "List your current go-to tools by purpose and notice any gaps — or overlaps — worth trimming." }
+      ],
+      toolSpotlight: { name: "A tool-decision checklist", text: "Keep a one-page checklist (goal, cost, privacy, learning curve) and run every new app through it before piloting with students." },
+      reflection: "Think of a tool you adopted recently — did you choose it for the learning goal, or because it was new?"
+    },
+    ta: {
+      title: "சரியான தொழில்நுட்ப கருவிகளைத் தேர்ந்தெடுத்தல்",
+      tagline: "பாடம் 3 · கருவி தேர்வு",
+      overview: "பயன்பாடுகளைச் சேகரிப்பது எளிது, ஆனால் அவற்றை நன்றாகப் பயன்படுத்துவது கடினம். இந்தப் பாடம் உங்கள் வகுப்பறையில் எந்தக் கருவி இடம் பெற வேண்டும், எப்போது 'தொழில்நுட்பம் தேவையில்லை' என்பதே சிறந்த பதில் என்பதை முடிவு செய்ய ஒரு எளிய வடிகட்டியை — புதுமை அல்ல, நோக்கம் — தருகிறது.",
+      subtopics: [
+        { title: "கற்றல் இலக்குடன் தொடங்குங்கள்", explanation: "ஒவ்வொரு கருவி முடிவும் 'மாணவர்கள் என்ன செய்ய முடிய வேண்டும்' என்பதுடன் தொடங்க வேண்டும் — கருவி அதற்கு சேவை செய்ய தேர்ந்தெடுக்கப்படுகிறது, ஒருபோதும் தலைகீழாக அல்ல.", example: "மாணவர்கள் பொது பேச்சைப் பயிற்சி செய்ய விரும்பும் ஒரு ஆசிரியர், தொடர்பில்லாத அம்சங்களுடன் கூடிய விரிவான விளக்கக்காட்சி பயன்பாட்டைவிட எளிய வீடியோ-பதிவு கருவியைத் தேர்ந்தெடுக்கிறார்.", suggestion: "எந்த ஆப் ஸ்டோர் அல்லது கருவி பட்டியலையும் உலாவுவதற்கு முன் கற்றல் இலக்கை எழுதுங்கள்." },
+        { title: "ஒரு-கருவி விதி", explanation: "பயன்பாட்டின் ஆழம் அகலத்தை விட முக்கியம் — மாணவர்களும் ஆசிரியர்களும் பல கருவிகளை மாதிரி பார்ப்பதைவிட ஒரு நம்பகமான கருவியில் தேர்ச்சி பெறுவதில் அதிக மதிப்பைப் பெறுகிறார்கள்.", example: "ஒரு துறை அனைத்து குழுமுறை வினாடி வினாக்களுக்கும் ஒரு தளத்தில் தரப்படுத்துகிறது, ஒவ்வொரு ஆசிரியரும் வெவ்வேறு பயன்பாட்டைப் பயன்படுத்துவதற்குப் பதிலாக.", suggestion: "புதிய கருவியைச் சேர்ப்பதற்கு முன், ஏற்கனவே உள்ள எந்த கருவி அதே வேலையைச் செய்ய முடியும் என்று கேளுங்கள்." },
+        { title: "செலவு மற்றும் உரிமம் மதிப்பீடு", explanation: "இலவச நிலைகள் பெரும்பாலும் வரம்புகளுடன் வரும் (மாணவர் வரம்பு, விளம்பரங்கள், தரவு கட்டுப்பாடுகள்) இவை ஒரு வகுப்பு ஏற்கனவே கருவியை ஏற்றுக்கொண்ட பிறகுதான் தெரியவரும்.", example: "ஒரு ஆசிரியர் ஆண்டு நடுவில் இலவச திட்டம் வகுப்பு அளவை 25 ஆக வரம்பிடுவதைக் கண்டறிகிறார், அவரது உண்மையான பட்டியலுக்குக் கீழே.", suggestion: "முழு வகுப்புடன் ஒரு புதிய கருவியை முயற்சிக்கும் முன் விலை/வரம்புகள் பக்கத்தை முழுமையாகப் படியுங்கள்." },
+        { title: "தனியுரிமை மற்றும் தரவு கொள்கைகள்", explanation: "மாணவர் தரவைச் சேகரிக்கும் எந்த கருவியும் உங்கள் பள்ளியின் தனியுரிமை தேவைகளைப் பூர்த்தி செய்ய வேண்டும் — இது விருப்பமோ 'பின்னர் சரிபார்க்கவோ' கூடிய படி அல்ல.", example: "ஒரு மாவட்டம் ஒரு பிரபலமான பயன்பாடு மாணவர் தரவு பாதுகாப்பு விதிகளுக்கு இணங்காதது கண்டறிந்த பிறகு பாதி பருவத்தில் தடை செய்கிறது.", suggestion: "ஒரு கருவியை ஒதுக்குவதற்கு முன் அது உங்கள் பள்ளியின் அங்கீகரிக்கப்பட்ட பட்டியலில் இருப்பதை உறுதிப்படுத்துங்கள், பிறகு அல்ல." },
+        { title: "ஆஃப்லைன் மாற்று வழி திட்டமிடல்", explanation: "வைஃபை மற்றும் சாதன செயலிழப்புகள் 'எப்போது' என்பதுதான், 'நடக்குமா' இல்லை — தொழில்நுட்பம் சார்ந்த ஒவ்வொரு பாடத்திற்கும் தயாராக இருக்கும் குறைந்த-தொழில்நுட்ப மாற்று வழி தேவை.", example: "ஒரு ஆசிரியர் தவிர்க்க முடியாத வைஃபை தடையின் போது ஒவ்வொரு டிஜிட்டல் பணித்தாளின் அச்சிடப்பட்ட பதிப்பையும் ஒரு கோப்பில் வைத்திருக்கிறார்.", suggestion: "தொழில்நுட்பம் அதிகம் உள்ள ஒவ்வொரு பாடத்திற்கும் 'வைஃபை இப்போது நின்றால் அடுத்த ஐந்து நிமிடங்களில் நான் என்ன செய்வேன்?' என்று உங்களைக் கேளுங்கள்." },
+        { title: "ஆசிரியர்கள் மற்றும் மாணவர்களுக்கான கற்றல் வளைவு", explanation: "பாடத்தை விடவே கற்றுக்கொள்ள அதிக நேரம் எடுக்கும் ஒரு கருவி, அதன் அம்சங்கள் எவ்வளவு நன்றாக இருந்தாலும், ஆண்டு நடுவில் ஏற்றுக்கொள்ள மதிப்புள்ளதல்ல.", example: "அமைப்பு ஒரு முழு திட்டமிடல் காலப்பகுதியை எடுத்துக்கொண்டதைக் கண்ட பிறகு, ஒரு ஆசிரியர் அம்சங்கள் நிறைந்த ஆனால் சிக்கலான தளத்தைக் கைவிடுகிறார்.", suggestion: "ஒரு புதிய கருவியுடன் உங்கள் சொந்த முதல் முயற்சியை 20 நிமிடங்களுக்குள் நேரக்கட்டுப்பாடு செய்யுங்கள்." },
+        { title: "சரிபார்க்க வேண்டிய அணுகல் அம்சங்கள்", explanation: "உரை-பேச்சு, வசன வரிகள், சரிசெய்யக்கூடிய எழுத்துரு அளவு ஆகியவை பல மாணவர்களுக்கு அத்தியாவசியம், விருப்ப கூடுதல் அல்ல — கருவியை ஏற்றுக்கொள்வதற்கு முன் இவற்றைச் சரிபார்க்கவும்.", example: "வாசிப்பு குறைபாடு உள்ள ஒரு மாணவர், ஒரு கருவியின் உள்ளமைந்த உரை-பேச்சு இயக்கப்பட்டதும் உண்மையான சுதந்திரத்தைப் பெறுகிறார்.", suggestion: "முழு வகுப்புக்கும் அறிமுகப்படுத்தும் முன் வசன வரிகள்/உரக்கப் படித்தல் இயக்கப்பட்ட நிலையில் எந்த புதிய கருவியையும் சோதிக்கவும்." },
+        { title: "ஒரு புதிய கருவியை பாதுகாப்பாக முயற்சித்தல்", explanation: "பள்ளி முழுவதும் உறுதிப்படுத்துவதற்கு முன், ஒரு வகுப்பு அல்லது ஒரு பாடத்துடன் ஒரு கருவியை முயற்சி செய்யுங்கள் — சிறிய முயற்சிகள் தோல்வியின் விலை இன்னும் குறைவாக இருக்கும்போது சிக்கல்களைக் காட்டும்.", example: "ஒரு ஆசிரியர் முழு தர குழுவிற்கு பரிந்துரைக்கும் முன் இரண்டு வாரங்களுக்கு ஒரு ஹோம்ரூமுடன் புதிய வினாடி வினா பயன்பாட்டை முயற்சிக்கிறார்.", suggestion: "தெளிவான செல்/வேண்டாம் முடிவு புள்ளியுடன் ஒரு குறிப்பிட்ட முயற்சி காலத்தை (உதா. இரண்டு வாரங்கள்) அமைக்கவும்." },
+        { title: "வேலை செய்யாத கருவிகளை நிறுத்துதல்", explanation: "முதலீட்டு இழப்பு ஆசிரியர்களை பயனுள்ளதாக இல்லாத கருவிகளைப் பயன்படுத்த வைக்கிறது — தொடர்ந்து சிக்கலை ஏற்படுத்தும் ஒரு கருவி காக்கப்படாமல் நிறுத்தப்பட வேண்டும்.", example: "மாணவர்கள் புள்ளிகளைத் துரத்துவதில் அதிக நேரம் செலவிடுவதை உள்ளடக்கத்தில் ஈடுபடுவதைவிட கண்ட பிறகு, ஒரு ஆசிரியர் ஒரு விளையாட்டு-மயமாக்கப்பட்ட பயன்பாட்டை நிறுத்துகிறார்.", suggestion: "ஒரு காலாண்டுக்கு ஒரு முறை உங்கள் கருவி பட்டியலை மறுபரிசீலனை செய்யுங்கள், ஒரு வாக்கியத்தில் நோக்கத்தை விளக்க முடியாத எதையும் கைவிடுங்கள்." },
+        { title: "உங்கள் தனிப்பட்ட கருவி தொகுப்பை உருவாக்குதல்", explanation: "உங்கள் முதன்மை தேவைகளை (வினாடி வினாக்கள், ஒத்துழைப்பு, விளக்கக்காட்சி) உள்ளடக்கிய 3–5 நன்கு பயிற்சி பெற்ற கருவிகளின் சிறிய தொகுப்பு, தொடர்ந்து புதிய வெளியீடுகளைத் துரத்துவதைவிட நிலைத்தன்மையானது.", example: "ஒரு ஆசிரியர் ஒரு வினாடி வினா கருவி, ஒரு பகிரப்பட்ட ஆவண கருவி, ஒரு வீடியோ கருவியில் தீர்மானித்து, ஒவ்வொரு பாடத்திலும் அவற்றை மீண்டும் பயன்படுத்துகிறார்.", suggestion: "நோக்கத்தின்படி உங்கள் தற்போதைய முதன்மை கருவிகளை பட்டியலிடுங்கள், குறைபாடுகள் அல்லது மேலெழுத்துகளை கவனியுங்கள்." }
+      ],
+      toolSpotlight: { name: "கருவி-முடிவு சரிபார்ப்பு பட்டியல்", text: "ஒரு பக்க சரிபார்ப்பு பட்டியலை (இலக்கு, செலவு, தனியுரிமை, கற்றல் வளைவு) வையுங்கள், மாணவர்களுடன் முயற்சிக்கும் முன் ஒவ்வொரு புதிய பயன்பாட்டையும் அதன் வழியாகச் செலுத்துங்கள்." },
+      reflection: "சமீபத்தில் நீங்கள் ஏற்றுக்கொண்ட ஒரு கருவியை நினைத்துப் பாருங்கள் — கற்றல் இலக்கிற்காக தேர்ந்தெடுத்தீர்களா, அல்லது அது புதியதாக இருந்ததாலா?"
+    }
+  },
+  { en: {
+      title: "Designing a Blended Lesson",
+      tagline: "Module 4 · Lesson Design",
+      overview: "This module walks through structuring a single lesson across in-person and online time — sequencing what happens where, and why, using a simple before/during/after framework you can reuse every week.",
+      subtopics: [
+        { title: "The Before/During/After Framework", explanation: "Structuring every lesson around what happens before, during, and after class time gives blended learning a repeatable shape instead of reinventing the wheel each week.", example: "A teacher builds a template with three fixed slots and just swaps in new content weekly.", suggestion: "Draft your first few blended lessons using this three-part shape explicitly, even in your written plan." },
+        { title: "Writing Effective Pre-Class Tasks", explanation: "A good pre-class task activates prior knowledge or surfaces a question — it shouldn't teach the whole lesson, just prime it.", example: "A short video ending mid-explanation, with the resolution saved for class discussion, keeps students engaged rather than 'already done.'", suggestion: "Keep pre-class tasks under 10 minutes and end them with an open question, not a conclusion." },
+        { title: "Repurposing In-Class Time", explanation: "Time freed up by moving content online should go to what only happens in person — discussion, hands-on practice, and individual feedback.", example: "A teacher who moved notes online now spends the whole period running small-group problem-solving instead of lecturing.", suggestion: "Before the lesson, write down exactly what you'll do with the reclaimed class time." },
+        { title: "Designing Meaningful After-Class Tasks", explanation: "After-class tasks should require applying what was learned, not just re-reading it — application cements learning far better than review.", example: "Instead of rereading notes, students apply a new formula to a real-world scenario as their homework.", suggestion: "Replace one 'review' homework task with an 'apply it' task this week." },
+        { title: "Sequencing a Full Unit", explanation: "Blended techniques should vary across a unit — not every lesson needs the same model — matched to what each lesson actually requires.", example: "A unit opens with a flipped lesson, moves to station rotation for practice, and ends with an in-person project day.", suggestion: "Map your unit's lessons against models before teaching it, not lesson by lesson as you go." },
+        { title: "Balancing Screen Time", explanation: "Total daily screen time across all classes adds up quickly — a blended lesson design should account for what students are doing in other classes too.", example: "A grade team compares notes and realizes students face over three hours of screen-based work daily across subjects, and agrees to stagger heavy tech days.", suggestion: "Ask colleagues teaching the same students what their screen-time load looks like before adding more." },
+        { title: "Differentiating Within a Blended Lesson", explanation: "Online components can be leveled or paced differently per student far more easily than a whole-class lecture can — use that flexibility deliberately.", example: "The same online module offers three versions of a reading passage at different complexity levels, chosen quietly by student, not announced to the class.", suggestion: "Build one differentiated option into your next online task, even if it's just an easier or harder text version." },
+        { title: "Formative Checks Mid-Lesson", explanation: "A quick check partway through a blended lesson tells you whether to adjust the second half — waiting until the end wastes the chance to respond.", example: "A two-question mid-lesson poll reveals half the class is lost, prompting the teacher to re-teach before moving on.", suggestion: "Add one quick check-in at roughly the halfway point of any lesson longer than 30 minutes." },
+        { title: "Homework in a Blended Model", explanation: "Homework in a blended classroom should connect explicitly to what happens in the next class, not float as a disconnected assignment.", example: "A homework task's results are displayed anonymously at the start of the next class to kick off discussion.", suggestion: "Reference last night's homework by name within the first five minutes of class." },
+        { title: "Sample Lesson Walkthrough", explanation: "Walking through one full example — pre-class video, in-class station rotation, post-class application task — makes the abstract framework concrete and copyable.", example: "A fractions lesson: 5-minute video before class, three stations (teacher table, practice app, worksheet) during class, and a real-world application task after.", suggestion: "Adapt this exact structure for your next lesson before designing one from scratch." }
+      ],
+      toolSpotlight: { name: "Edpuzzle or a short video + 3 questions", text: "Embedding 2–3 checkpoint questions in a short video keeps 'before class' viewing active rather than passive." },
+      reflection: "Pick one upcoming lesson — what single task could move to 'before class' to free up ten minutes for practice?"
+    },
+    ta: {
+      title: "ஒரு கலப்பு பாடத்தை வடிவமைத்தல்",
+      tagline: "பாடம் 4 · பாட வடிவமைப்பு",
+      overview: "இந்தப் பாடம் ஒரு பாடத்தை நேரடி மற்றும் இணையவழி நேரத்தில் எவ்வாறு கட்டமைப்பது என்பதை விளக்குகிறது — எது எங்கே நடக்கும், ஏன் என்பதை, ஒவ்வொரு வாரமும் மீண்டும் பயன்படுத்தக்கூடிய முன்/இடையே/பின் கட்டமைப்பைப் பயன்படுத்தி.",
+      subtopics: [
+        { title: "முன்/இடையே/பின் கட்டமைப்பு", explanation: "ஒவ்வொரு பாடத்தையும் வகுப்பு நேரத்திற்கு முன், இடையே, பின் என்ன நடக்கும் என்பதைச் சுற்றி கட்டமைப்பது கலப்பு கற்றலுக்கு ஒவ்வொரு வாரமும் மீண்டும் கண்டுபிடிக்காமல் மீண்டும் பயன்படுத்தக்கூடிய வடிவத்தை அளிக்கிறது.", example: "ஒரு ஆசிரியர் மூன்று நிலையான இடங்களுடன் ஒரு டெம்ப்ளேட்டை உருவாக்கி, ஒவ்வொரு வாரமும் புதிய உள்ளடக்கத்தை மட்டும் மாற்றுகிறார்.", suggestion: "உங்கள் எழுதப்பட்ட திட்டத்திலும் கூட, இந்த மூன்று-பகுதி வடிவத்தை வெளிப்படையாகப் பயன்படுத்தி உங்கள் முதல் சில கலப்பு பாடங்களை வரையுங்கள்." },
+        { title: "திறமையான வகுப்புக்கு முந்தைய பணிகளை எழுதுதல்", explanation: "ஒரு நல்ல வகுப்புக்கு முந்தைய பணி முன் அறிவைத் தூண்டுகிறது அல்லது ஒரு கேள்வியை எழுப்புகிறது — அது முழு பாடத்தையும் கற்பிக்கக்கூடாது, அதைத் தொடங்கி வைக்க வேண்டும்.", example: "இடையில் முடிவடையும் ஒரு குறுகிய வீடியோ, தீர்வை வகுப்பு விவாதத்திற்காக சேமித்து வைத்திருப்பது, மாணவர்களை 'ஏற்கனவே முடிந்தது' என்பதற்குப் பதிலாக ஈடுபாட்டுடன் வைத்திருக்கிறது.", suggestion: "வகுப்புக்கு முந்தைய பணிகளை 10 நிமிடங்களுக்குள் வையுங்கள், ஒரு முடிவுடன் அல்ல, திறந்த கேள்வியுடன் முடிக்கவும்." },
+        { title: "வகுப்பு நேரத்தை மறுசீரமைத்தல்", explanation: "உள்ளடக்கத்தை இணையவழிக்கு மாற்றுவதன் மூலம் விடுவிக்கப்பட்ட நேரம், நேரடியாக மட்டுமே நடக்கும் விவாதம், செயல்முறை பயிற்சி, தனிப்பட்ட கருத்து ஆகியவற்றுக்குச் செல்ல வேண்டும்.", example: "குறிப்புகளை இணையவழிக்கு மாற்றிய ஒரு ஆசிரியர் இப்போது விரிவுரை செய்வதற்குப் பதிலாக முழு காலப்பகுதியையும் சிறு-குழு பிரச்சினை தீர்த்தலில் செலவிடுகிறார்.", suggestion: "பாடத்திற்கு முன், மீட்கப்பட்ட வகுப்பு நேரத்துடன் நீங்கள் சரியாக என்ன செய்வீர்கள் என்பதை எழுதுங்கள்." },
+        { title: "அர்த்தமுள்ள வகுப்புக்குப் பிந்தைய பணிகளை வடிவமைத்தல்", explanation: "வகுப்புக்குப் பிந்தைய பணிகள் கற்றதை மறுவாசிப்பதற்குப் பதிலாக பயன்படுத்த வேண்டும் — பயன்பாடு மறுபரிசீலனையை விட கற்றலை மிக நன்றாக உறுதிப்படுத்துகிறது.", example: "குறிப்புகளை மறுவாசிப்பதற்குப் பதிலாக, மாணவர்கள் ஒரு புதிய சூத்திரத்தை வீட்டுப்பாடமாக ஒரு உண்மையான உலக சூழ்நிலைக்குப் பயன்படுத்துகிறார்கள்.", suggestion: "இந்த வாரம் ஒரு 'மறுபரிசீலனை' வீட்டுப்பாடத்தை 'பயன்படுத்து' பணியுடன் மாற்றுங்கள்." },
+        { title: "ஒரு முழு பிரிவை வரிசைப்படுத்துதல்", explanation: "கலப்பு நுட்பங்கள் ஒரு பிரிவின் முழுவதும் மாற வேண்டும் — ஒவ்வொரு பாடத்திற்கும் அதே மாதிரி தேவையில்லை — ஒவ்வொரு பாடமும் உண்மையில் என்ன தேவை என்பதுடன் பொருந்த வேண்டும்.", example: "ஒரு பிரிவு தலைகீழ் பாடத்துடன் தொடங்கி, பயிற்சிக்கு ஸ்டேஷன் சுழற்சிக்கு நகர்ந்து, நேரடி திட்ட நாளுடன் முடிகிறது.", suggestion: "பாடம் பாடமாக அல்ல, கற்பிப்பதற்கு முன் உங்கள் பிரிவின் பாடங்களை மாதிரிகளுக்கு எதிராக வரைபடமாக்குங்கள்." },
+        { title: "திரை நேரத்தை சமநிலைப்படுத்துதல்", explanation: "அனைத்து வகுப்புகளிலும் மொத்த தினசரி திரை நேரம் விரைவாகக் கூடும் — ஒரு கலப்பு பாட வடிவமைப்பு மாணவர்கள் மற்ற வகுப்புகளில் என்ன செய்கிறார்கள் என்பதையும் கணக்கில் எடுத்துக்கொள்ள வேண்டும்.", example: "ஒரே மாணவர்களைக் கற்பிக்கும் ஒரு தர குழு குறிப்புகளை ஒப்பிட்டு, பாடங்களில் தினமும் மூன்று மணி நேரத்திற்கும் மேற்பட்ட திரை-சார்ந்த வேலையை மாணவர்கள் எதிர்கொள்கின்றனர் என்று உணர்ந்து, கனமான தொழில்நுட்ப நாட்களை பரப்ப ஒப்புக்கொள்கிறது.", suggestion: "மேலும் சேர்ப்பதற்கு முன், அதே மாணவர்களைக் கற்பிக்கும் சக ஆசிரியர்களிடம் அவர்களின் திரை-நேர சுமை எப்படி இருக்கிறது என்று கேளுங்கள்." },
+        { title: "ஒரு கலப்பு பாடத்தில் வேறுபடுத்துதல்", explanation: "முழு-வகுப்பு விரிவுரையை விட இணையவழி கூறுகளை மாணவருக்கு ஏற்ப மிக எளிதாக நிலைப்படுத்தலாம் அல்லது வேகப்படுத்தலாம் — அந்த நெகிழ்வுத்தன்மையை வேண்டுமென்றே பயன்படுத்துங்கள்.", example: "அதே இணையவழி தொகுதி ஒரு வாசிப்பு பத்தியின் மூன்று வெவ்வேறு சிக்கலான நிலைகளை வழங்குகிறது, மாணவரால் அமைதியாகத் தேர்ந்தெடுக்கப்படுகிறது, வகுப்பிற்கு அறிவிக்கப்படாமல்.", suggestion: "உங்கள் அடுத்த இணையவழி பணியில் ஒரு வேறுபடுத்தப்பட்ட விருப்பத்தை உருவாக்குங்கள், அது எளிதான அல்லது கடினமான உரை பதிப்பாக மட்டும் இருந்தாலும்." },
+        { title: "பாடத்தின் நடுவில் உருவாக்க சரிபார்ப்புகள்", explanation: "ஒரு கலப்பு பாடத்தின் பாதி வழியில் ஒரு விரைவு சரிபார்ப்பு இரண்டாம் பாதியை சரிசெய்ய வேண்டுமா என்று சொல்கிறது — முடிவு வரை காத்திருப்பது பதிலளிக்கும் வாய்ப்பை வீணாக்குகிறது.", example: "ஒரு இரு-கேள்வி நடுநிலைப் பாட வாக்கெடுப்பு பாதி வகுப்பு தொலைந்துவிட்டதைக் காட்டுகிறது, தொடர்வதற்கு முன் மறு-கற்பிக்க ஆசிரியரைத் தூண்டுகிறது.", suggestion: "30 நிமிடங்களுக்கு மேல் நீளும் எந்த பாடத்திற்கும் தோராயமாக பாதி புள்ளியில் ஒரு விரைவு சரிபார்ப்பைச் சேர்க்கவும்." },
+        { title: "கலப்பு மாதிரியில் வீட்டுப்பாடம்", explanation: "ஒரு கலப்பு வகுப்பறையில் வீட்டுப்பாடம் அடுத்த வகுப்பில் என்ன நடக்கும் என்பதுடன் வெளிப்படையாக இணைக்கப்பட வேண்டும், தொடர்பில்லாத பணியாக மிதக்கக்கூடாது.", example: "ஒரு வீட்டுப்பாடப் பணியின் முடிவுகள் அடுத்த வகுப்பின் தொடக்கத்தில் அநாமதேயமாக காட்டப்பட்டு விவாதத்தைத் தொடங்குகிறது.", suggestion: "வகுப்பு தொடங்கிய முதல் ஐந்து நிமிடங்களுக்குள் நேற்று இரவு வீட்டுப்பாடத்தை பெயரால் குறிப்பிடுங்கள்." },
+        { title: "மாதிரி பாட வழிகாட்டி", explanation: "ஒரு முழு உதாரணத்தை நடத்துவது — வகுப்புக்கு முந்தைய வீடியோ, வகுப்பு ஸ்டேஷன் சுழற்சி, வகுப்புக்குப் பிந்தைய பயன்பாட்டு பணி — சுருக்கமான கட்டமைப்பை உறுதியானதாகவும் நகலெடுக்கக்கூடியதாகவும் ஆக்குகிறது.", example: "ஒரு பின்ன பாடம்: வகுப்புக்கு முன் 5-நிமிட வீடியோ, வகுப்பின் போது மூன்று நிலையங்கள் (ஆசிரியர் மேசை, பயிற்சி பயன்பாடு, பணித்தாள்), பின்னர் ஒரு உண்மையான உலக பயன்பாட்டு பணி.", suggestion: "புதிதாக ஒன்றை வடிவமைப்பதற்கு முன் உங்கள் அடுத்த பாடத்திற்கு இந்த சரியான கட்டமைப்பைத் தகவமைக்கவும்." }
+      ],
+      toolSpotlight: { name: "Edpuzzle அல்லது ஒரு குறுகிய வீடியோ + 3 கேள்விகள்", text: "ஒரு குறுகிய வீடியோவில் 2–3 சோதனை கேள்விகளைச் சேர்ப்பது 'வகுப்புக்கு முன்' பார்வையை செயலூக்கமாக வைத்திருக்கும்." },
+      reflection: "வரவிருக்கும் ஒரு பாடத்தைத் தேர்ந்தெடுங்கள் — பயிற்சிக்கு பத்து நிமிடங்களை விடுவிக்க எந்த ஒரு பணியை 'வகுப்புக்கு முன்' நகர்த்தலாம்?"
+    }
+  },
+  { en: {
+      title: "Interactive & Collaborative Tools",
+      tagline: "Module 5 · Engagement Tools",
+      overview: "Live-response and collaboration tools can turn a quiet room into an active one — if used with a clear purpose. This module covers a small set of reliable tools for polling, brainstorming, and shared work, and how to avoid 'tech for tech's sake'.",
+      subtopics: [
+        { title: "Live Polling for Formative Checks", explanation: "A quick live poll shows you what the whole class actually thinks in real time, surfacing misconceptions before they're built on.", example: "A one-question poll before a lesson reveals most students hold the same misconception about a science concept.", suggestion: "Use a live poll to check understanding before explaining, not just after." },
+        { title: "Shared Digital Boards for Brainstorming", explanation: "A shared board lets every student post an idea simultaneously, instead of only the fastest hand-raisers being heard.", example: "A brainstorming board fills with 25 different ideas in three minutes — far more than a verbal round would surface.", suggestion: "Set a visible timer for board contributions so the activity has a clear end point." },
+        { title: "Collaborative Documents", explanation: "Real-time shared documents let a class co-build one artifact, but need explicit roles or students default to working in isolated corners of the page.", example: "A shared class notes document works only once each group is assigned a specific section to own.", suggestion: "Assign a specific section or role to each group before opening a shared document." },
+        { title: "Game-Based Review Sessions", explanation: "Game-based tools raise energy for review sessions, but the competitive format can work against slower processors if speed is scored too heavily.", example: "A teacher switches a review game to un-timed mode after noticing anxious students rushing and answering incorrectly.", suggestion: "Use untimed or team-based modes for review games rather than pure speed-based scoring." },
+        { title: "Video Discussion Tools", explanation: "Asynchronous video responses let every student 'speak' even in large classes, giving quieter students a voice text discussion boards don't.", example: "A student who never raises a hand in class gives a thoughtful, well-prepared video response to a discussion prompt.", suggestion: "Offer a video-response option alongside text for at least one discussion post a month." },
+        { title: "Breakout Room Facilitation", explanation: "Small online groups need a specific task and a visible end product, or the time dissolves into silence or off-topic chat.", example: "A breakout room with just 'discuss the reading' sits in silence, but works once given a specific question and a shared doc to fill in.", suggestion: "Always give breakout groups a concrete task and a deliverable, never an open-ended prompt alone." },
+        { title: "Norms for Devices During Discussion", explanation: "A clear 'devices down' moment during discussion, separate from 'devices up' during activity time, prevents divided attention in both directions.", example: "A visible signal (a card flipped on the board) tells students when it's discussion time versus device time.", suggestion: "Pick one simple visual signal for 'devices down' and use it consistently." },
+        { title: "Avoiding Tech Overload", explanation: "Introducing a new tool for every activity creates its own cognitive load — familiarity with fewer tools frees attention for the actual content.", example: "A class that used five different apps in one week for similar purposes consolidates to two, and lesson pace improves.", suggestion: "Reuse the same 2–3 interactive tools across a unit rather than introducing a new one each lesson." },
+        { title: "Debriefing After Tool-Based Activities", explanation: "A short debrief after any tool-based activity turns 'what we clicked' into 'what we learned' — skipping it lets the tool become the point instead of the content.", example: "A two-minute debrief after a Kahoot round has students explain why the trickiest question was tricky, not just their scores.", suggestion: "Always reserve two minutes after a game or poll to discuss what it revealed, not just who won." },
+        { title: "Matching Tool to Activity Type", explanation: "Different goals call for different tools — polling for quick checks, boards for brainstorming, documents for co-creation — matching intentionally avoids square-peg-round-hole use.", example: "A teacher who tried using a quiz app for open-ended brainstorming switches to a shared board and gets far richer responses.", suggestion: "Before choosing a tool, name the activity type first: check, brainstorm, or co-create." }
+      ],
+      toolSpotlight: { name: "Padlet & Kahoot", text: "Padlet works well for shared brainstorming boards; Kahoot suits quick, energizing formative checks — use each for what it does best, not everything at once." },
+      reflection: "Which of your regular activities would genuinely improve with a shared board or live poll — and which is fine as-is?"
+    },
+    ta: {
+      title: "ஊடாடும் மற்றும் கூட்டு கருவிகள்",
+      tagline: "பாடம் 5 · ஈடுபாட்டு கருவிகள்",
+      overview: "நேரடி-பதில் மற்றும் கூட்டு கருவிகள் ஒரு அமைதியான அறையை செயலூக்கமான ஒன்றாக மாற்றும் — தெளிவான நோக்கத்துடன் பயன்படுத்தினால். இந்தப் பாடம் வாக்களிப்பு, மூளைச்சலவை, பகிரப்பட்ட வேலைக்கான சில நம்பகமான கருவிகளையும், 'தொழில்நுட்பத்திற்காகவே தொழில்நுட்பத்தை' தவிர்ப்பது எப்படி என்பதையும் விளக்குகிறது.",
+      subtopics: [
+        { title: "உருவாக்க சரிபார்ப்புகளுக்கான நேரடி வாக்கெடுப்பு", explanation: "ஒரு விரைவு நேரடி வாக்கெடுப்பு முழு வகுப்பும் உண்மையில் என்ன நினைக்கிறது என்பதை நிகழ்நேரத்தில் காட்டுகிறது, தவறான கருத்துகள் அவற்றின் மீது கட்டப்படுவதற்கு முன் அவற்றை வெளிக்கொணர்கிறது.", example: "ஒரு பாடத்திற்கு முன் ஒரு கேள்வி வாக்கெடுப்பு, பெரும்பாலான மாணவர்கள் ஒரு அறிவியல் கருத்தைப் பற்றி அதே தவறான கருத்தை வைத்திருப்பதை வெளிப்படுத்துகிறது.", suggestion: "விளக்குவதற்குப் பிறகு மட்டுமல்ல, விளக்குவதற்கு முன் புரிதலைச் சரிபார்க்க நேரடி வாக்கெடுப்பைப் பயன்படுத்துங்கள்." },
+        { title: "மூளைச்சலவைக்கான பகிரப்பட்ட டிஜிட்டல் பலகைகள்", explanation: "ஒரு பகிரப்பட்ட பலகை ஒவ்வொரு மாணவரும் ஒரே நேரத்தில் ஒரு யோசனையை இடுகையிட அனுமதிக்கிறது, வேகமான கை உயர்த்துபவர்கள் மட்டும் கேட்கப்படுவதற்குப் பதிலாக.", example: "மூன்று நிமிடங்களில் ஒரு மூளைச்சலவை பலகை 25 வெவ்வேறு யோசனைகளால் நிரம்புகிறது — வாய்மொழி சுற்று வெளிப்படுத்துவதை விட மிக அதிகம்.", suggestion: "பலகை பங்களிப்புகளுக்கு தெளிவான டைமரை வையுங்கள், அதனால் செயல்பாட்டிற்கு தெளிவான முடிவுப் புள்ளி உள்ளது." },
+        { title: "கூட்டு ஆவணங்கள்", explanation: "நிகழ்நேர பகிரப்பட்ட ஆவணங்கள் ஒரு வகுப்பு ஒரு படைப்பை இணைந்து உருவாக்க அனுமதிக்கின்றன, ஆனால் வெளிப்படையான பாத்திரங்கள் தேவை, இல்லையெனில் மாணவர்கள் பக்கத்தின் தனிமைப்படுத்தப்பட்ட மூலைகளில் வேலை செய்வார்கள்.", example: "ஒரு பகிரப்பட்ட வகுப்பு குறிப்பு ஆவணம், ஒவ்வொரு குழுவும் ஒரு குறிப்பிட்ட பகுதியை சொந்தமாக்கிக் கொள்ளும்போது மட்டுமே வேலை செய்கிறது.", suggestion: "ஒரு பகிரப்பட்ட ஆவணத்தைத் திறப்பதற்கு முன் ஒவ்வொரு குழுவிற்கும் ஒரு குறிப்பிட்ட பகுதி அல்லது பாத்திரத்தை ஒதுக்குங்கள்." },
+        { title: "விளையாட்டு அடிப்படையிலான மறுபரிசீலனை அமர்வுகள்", explanation: "விளையாட்டு அடிப்படையிலான கருவிகள் மறுபரிசீலனை அமர்வுகளுக்கு ஆற்றலை உயர்த்துகின்றன, ஆனால் வேகம் அதிகமாக மதிப்பிடப்பட்டால் போட்டித்தன்மையான வடிவம் மெதுவாக செயலாக்குபவர்களுக்கு எதிராக வேலை செய்யலாம்.", example: "பதட்டமான மாணவர்கள் அவசரப்பட்டு தவறாக பதிலளிப்பதைக் கண்ட பிறகு, ஒரு ஆசிரியர் ஒரு மறுபரிசீலனை விளையாட்டை நேரமற்ற முறைக்கு மாற்றுகிறார்.", suggestion: "தூய வேக அடிப்படையிலான மதிப்பீட்டைவிட மறுபரிசீலனை விளையாட்டுகளுக்கு நேரமற்ற அல்லது குழு அடிப்படையிலான முறைகளைப் பயன்படுத்துங்கள்." },
+        { title: "வீடியோ விவாத கருவிகள்", explanation: "ஒத்திசைவற்ற வீடியோ பதில்கள் பெரிய வகுப்புகளில் கூட ஒவ்வொரு மாணவரும் 'பேச' அனுமதிக்கின்றன, உரை விவாத பலகைகள் தராத ஒரு குரலை அமைதியான மாணவர்களுக்கு அளிக்கின்றன.", example: "வகுப்பில் ஒருபோதும் கை உயர்த்தாத ஒரு மாணவர், ஒரு விவாத தூண்டுதலுக்கு சிந்தனைமிக்க, நன்கு தயாரிக்கப்பட்ட வீடியோ பதிலை அளிக்கிறார்.", suggestion: "மாதத்திற்கு குறைந்தது ஒரு விவாத பதிவிற்கு உரையுடன் வீடியோ-பதில் விருப்பத்தையும் வழங்குங்கள்." },
+        { title: "பிரேக்அவுட் அறை வசதி", explanation: "சிறிய இணையவழி குழுக்களுக்கு ஒரு குறிப்பிட்ட பணியும் தெரியும் இறுதி விளைபொருளும் தேவை, இல்லையெனில் நேரம் அமைதியாகவோ தலைப்பிற்கு வெளியேயுள்ள அரட்டையாகவோ கரைந்துவிடும்.", example: "'வாசிப்பைப் பற்றி விவாதி' மட்டும் கொண்ட ஒரு பிரேக்அவுட் அறை அமைதியாக இருக்கிறது, ஆனால் ஒரு குறிப்பிட்ட கேள்வியும் நிரப்ப ஒரு பகிரப்பட்ட ஆவணமும் கொடுக்கப்படும்போது வேலை செய்கிறது.", suggestion: "பிரேக்அவுட் குழுக்களுக்கு எப்போதும் ஒரு உறுதியான பணியையும் ஒரு விளைபொருளையும் கொடுங்கள், ஒரு திறந்த தூண்டுதலை மட்டும் அல்ல." },
+        { title: "விவாதத்தின் போது சாதனங்களுக்கான விதிகள்", explanation: "செயல்பாட்டு நேரத்தில் 'சாதனங்கள் மேலே' இருந்து தனித்த, விவாதத்தின் போது 'சாதனங்கள் கீழே' என்ற தெளிவான தருணம் இரு திசைகளிலும் பிரிக்கப்பட்ட கவனத்தைத் தடுக்கிறது.", example: "பலகையில் புரட்டப்பட்ட ஒரு அட்டை போன்ற தெரியும் சமிக்ஞை, விவாத நேரமா சாதன நேரமா என்பதை மாணவர்களுக்குச் சொல்கிறது.", suggestion: "'சாதனங்கள் கீழே'க்கு ஒரு எளிய காட்சி சமிக்ஞையைத் தேர்ந்தெடுத்து தொடர்ந்து பயன்படுத்துங்கள்." },
+        { title: "தொழில்நுட்ப அதிக சுமையைத் தவிர்த்தல்", explanation: "ஒவ்வொரு செயல்பாட்டிற்கும் புதிய கருவியை அறிமுகப்படுத்துவது அதன் சொந்த அறிவாற்றல் சுமையை உருவாக்குகிறது — குறைவான கருவிகளுடன் பரிச்சயம் உண்மையான உள்ளடக்கத்திற்கு கவனத்தை விடுவிக்கிறது.", example: "ஒரே நோக்கங்களுக்காக ஒரே வாரத்தில் ஐந்து வெவ்வேறு பயன்பாடுகளைப் பயன்படுத்திய ஒரு வகுப்பு இரண்டாக ஒருங்கிணைக்கிறது, பாட வேகம் மேம்படுகிறது.", suggestion: "ஒவ்வொரு பாடத்திலும் புதிய கருவியை அறிமுகப்படுத்துவதற்குப் பதிலாக, ஒரு பிரிவு முழுவதும் அதே 2–3 ஊடாடும் கருவிகளை மீண்டும் பயன்படுத்துங்கள்." },
+        { title: "கருவி அடிப்படையிலான செயல்பாடுகளுக்குப் பின் மறுபரிசீலனை", explanation: "ஒரு கருவி அடிப்படையிலான செயல்பாட்டிற்குப் பிறகு ஒரு குறுகிய மறுபரிசீலனை 'நாங்கள் என்ன கிளிக் செய்தோம்' என்பதை 'நாங்கள் என்ன கற்றுக்கொண்டோம்' ஆக மாற்றுகிறது — இதைத் தவிர்ப்பது கருவியை உள்ளடக்கத்திற்குப் பதிலாக முக்கிய அம்சமாக ஆக்கிவிடும்.", example: "ஒரு Kahoot சுற்றுக்குப் பிறகு இரண்டு நிமிட மறுபரிசீலனை, மாணவர்கள் தங்கள் மதிப்பெண்களை மட்டும் அல்ல, மிகக் கடினமான கேள்வி ஏன் கடினமாக இருந்தது என்பதை விளக்குகிறது.", suggestion: "யார் வென்றார்கள் என்பதை மட்டும் அல்ல, ஒரு விளையாட்டு அல்லது வாக்கெடுப்பு என்ன வெளிப்படுத்தியது என்பதை விவாதிக்க எப்போதும் இரண்டு நிமிடங்களை ஒதுக்குங்கள்." },
+        { title: "செயல்பாடு வகைக்கு கருவியைப் பொருத்துதல்", explanation: "வெவ்வேறு இலக்குகளுக்கு வெவ்வேறு கருவிகள் தேவை — விரைவு சரிபார்ப்புகளுக்கு வாக்கெடுப்பு, மூளைச்சலவைக்கு பலகைகள், இணைந்து உருவாக்குவதற்கு ஆவணங்கள் — வேண்டுமென்றே பொருத்துவது தவறான பயன்பாட்டைத் தவிர்க்கிறது.", example: "திறந்த மூளைச்சலவைக்கு வினாடி வினா பயன்பாட்டைப் பயன்படுத்திய ஒரு ஆசிரியர் பகிரப்பட்ட பலகைக்கு மாறி மிக செழுமையான பதில்களைப் பெறுகிறார்.", suggestion: "ஒரு கருவியைத் தேர்ந்தெடுப்பதற்கு முன், செயல்பாடு வகையை முதலில் பெயரிடுங்கள்: சரிபார், மூளைச்சலவை, அல்லது இணைந்து உருவாக்கு." }
+      ],
+      toolSpotlight: { name: "Padlet & Kahoot", text: "பகிரப்பட்ட மூளைச்சலவை பலகைகளுக்கு Padlet நன்றாகப் பணியாற்றும்; விரைவான, உற்சாகமூட்டும் மதிப்பீட்டு சரிபார்ப்புகளுக்கு Kahoot ஏற்றது — ஒவ்வொன்றையும் அது சிறப்பாகச் செய்வதற்குப் பயன்படுத்துங்கள்." },
+      reflection: "உங்கள் வழக்கமான செயல்பாடுகளில் எது பகிரப்பட்ட பலகை அல்லது நேரடி வாக்கெடுப்பால் உண்மையிலேயே மேம்படும் — எது அப்படியே நன்றாக உள்ளது?"
+    }
+  },
+  { en: {
+      title: "AI in the Classroom",
+      tagline: "Module 6 · Working with AI",
+      overview: "AI tools are now part of how students write, research, and problem-solve — whether we design for it or not. This module focuses on using AI as a teaching assistant for planning and feedback, and on teaching students to use it as a thinking partner, not a shortcut.",
+      subtopics: [
+        { title: "AI as a Planning Assistant", explanation: "AI tools can quickly draft first versions of rubrics, worksheets, and lesson outlines that a teacher then edits — the value is in speeding up the first draft, not skipping the review.", example: "A teacher asks an AI tool for a first-draft rubric for a group project, then adjusts the wording to match her own grading language.", suggestion: "Always personally review and edit any AI-drafted material before using it with students." },
+        { title: "AI for Differentiation", explanation: "Generating the same content at multiple reading or complexity levels is exactly the kind of repetitive task AI can take off a teacher's plate.", example: "A teacher gets three versions of the same passage at different reading levels in minutes instead of rewriting each by hand.", suggestion: "Ask an AI tool for a leveled version of one text this week and compare it against your own judgment." },
+        { title: "AI for Rubrics and Feedback Drafts", explanation: "AI can generate a first-pass rubric or feedback comment bank, but the final wording and judgment calls should remain the teacher's.", example: "A teacher builds a bank of common feedback phrases with AI help, then picks and personalizes from it while grading.", suggestion: "Use AI to build reusable feedback phrase banks, not to write individual student feedback wholesale." },
+        { title: "Teaching Students to Question AI Output", explanation: "Students need explicit practice checking AI-generated content for accuracy and bias, not just accepting it as correct because it sounds confident.", example: "A class exercise has students fact-check an AI-generated summary against the original source and find two errors.", suggestion: "Build one 'fact-check the AI' activity into your unit on research or media literacy." },
+        { title: "Academic Integrity and AI", explanation: "Clear, explicit rules about when AI use is expected, allowed, or prohibited on an assignment prevent confusion and unfair outcomes for students.", example: "A teacher labels each assignment with a simple icon: AI-free, AI-assisted, or AI-required, so expectations are unambiguous.", suggestion: "State your AI policy on every assignment sheet, not just once at the start of the year." },
+        { title: "Setting Class Norms for AI Use", explanation: "Students benefit from a shared, explicit classroom conversation about appropriate AI use rather than each student guessing individually.", example: "A class co-creates a one-page 'AI use agreement' together, increasing buy-in compared to a policy handed down.", suggestion: "Involve students in drafting your class's AI norms rather than only announcing rules." },
+        { title: "Bias and Limitations of AI Tools", explanation: "AI tools reflect the biases and gaps of their training data, and can produce confidently wrong answers — this needs to be modeled openly, not hidden.", example: "A teacher deliberately shows the class an AI factual error to demonstrate why verification matters.", suggestion: "Show students at least one real example of AI getting something wrong, on purpose." },
+        { title: "AI for Personalized Practice", explanation: "AI tools can generate extra practice problems targeted at a specific student's gap, at a scale a teacher can't produce by hand for every student.", example: "A student needing more fraction practice gets ten targeted problems generated in seconds instead of waiting for the teacher to write them.", suggestion: "Try using an AI tool to generate extra practice for one struggling student this week." },
+        { title: "Data Privacy When Using AI Tools", explanation: "Student names, work, and personal details shouldn't be pasted into consumer AI tools without checking your school's data policy first.", example: "A teacher strips student names before pasting an essay into an AI tool for feedback suggestions.", suggestion: "Anonymize any student work before using it as input to an AI tool." },
+        { title: "A Balanced AI Policy for Your Classroom", explanation: "A workable policy names specific tasks where AI helps (planning, differentiation) and specific tasks where it shouldn't replace student thinking (original writing, reflection).", example: "A teacher permits AI for brainstorming essay topics but requires the essay itself be entirely student-written.", suggestion: "Write down two tasks where you welcome AI help and two where you don't, and share both with students." }
+      ],
+      toolSpotlight: { name: "An AI assistant (e.g. Claude or ChatGPT)", text: "Ask it to generate three versions of a worksheet at different reading levels — you review and adjust, cutting differentiation prep time significantly." },
+      reflection: "What's one planning task you could hand to an AI tool this week to free up time for direct student contact?"
+    },
+    ta: {
+      title: "வகுப்பறையில் செயற்கை நுண்ணறிவு",
+      tagline: "பாடம் 6 · AI உடன் பணியாற்றுதல்",
+      overview: "நாம் அதற்காக வடிவமைத்தாலும் இல்லாவிட்டாலும், AI கருவிகள் இப்போது மாணவர்கள் எழுதுவது, ஆராய்வது, பிரச்சினைகளைத் தீர்ப்பது ஆகியவற்றின் ஒரு பகுதியாக மாறிவிட்டன. இந்தப் பாடம் திட்டமிடல் மற்றும் கருத்துக்கான கற்பித்தல் உதவியாளராக AI-ஐப் பயன்படுத்துவதிலும், மாணவர்களுக்கு அதை ஒரு சிந்தனைப் பங்காளியாகப் பயன்படுத்தக் கற்பிப்பதிலும் — குறுக்குவழியாக அல்ல — கவனம் செலுத்துகிறது.",
+      subtopics: [
+        { title: "திட்டமிடல் உதவியாளராக AI", explanation: "AI கருவிகள் அளவுகோல்கள், பணித்தாள்கள், பாடக் கோட்டுருக்களின் முதல் பதிப்புகளை விரைவாக வரையலாம், ஆசிரியர் பின்னர் திருத்துகிறார் — மதிப்பு முதல் வரைவை வேகப்படுத்துவதில் உள்ளது, மறுபரிசீலனையைத் தவிர்ப்பதில் அல்ல.", example: "ஒரு ஆசிரியர் ஒரு குழு திட்டத்திற்கான முதல்-வரைவு அளவுகோலை AI கருவியிடம் கேட்டு, தனது சொந்த மதிப்பீட்டு மொழிக்கு ஏற்ப வார்த்தைகளை சரிசெய்கிறார்.", suggestion: "மாணவர்களுடன் பயன்படுத்துவதற்கு முன் AI-வரையப்பட்ட எந்த பொருளையும் எப்போதும் தனிப்பட்ட முறையில் மறுபரிசீலனை செய்து திருத்துங்கள்." },
+        { title: "வேறுபடுத்தலுக்கான AI", explanation: "ஒரே உள்ளடக்கத்தை பல வாசிப்பு அல்லது சிக்கலான நிலைகளில் உருவாக்குவது ஆசிரியரின் பணிச்சுமையிலிருந்து AI எடுக்கக்கூடிய திரும்பத் திரும்ப வரும் பணி வகைதான்.", example: "ஒரு ஆசிரியர் ஒவ்வொன்றையும் கையால் மீண்டும் எழுதுவதற்குப் பதிலாக, நிமிடங்களில் வெவ்வேறு வாசிப்பு நிலைகளில் அதே பத்தியின் மூன்று பதிப்புகளைப் பெறுகிறார்.", suggestion: "இந்த வாரம் ஒரு உரையின் நிலைப்படுத்தப்பட்ட பதிப்பை AI கருவியிடம் கேட்டு உங்கள் சொந்த தீர்ப்புடன் ஒப்பிடுங்கள்." },
+        { title: "அளவுகோல்கள் மற்றும் கருத்து வரைவுகளுக்கு AI", explanation: "AI ஒரு முதல்-கடப்பு அளவுகோல் அல்லது கருத்து சொற்றொடர் வங்கியை உருவாக்க முடியும், ஆனால் இறுதி வார்த்தைகளும் தீர்ப்பு அழைப்புகளும் ஆசிரியருடையதாகவே இருக்க வேண்டும்.", example: "ஒரு ஆசிரியர் AI உதவியுடன் பொதுவான கருத்து சொற்றொடர்களின் வங்கியை உருவாக்கி, மதிப்பிடும்போது அதிலிருந்து தேர்ந்தெடுத்து தனிப்பயனாக்குகிறார்.", suggestion: "தனிப்பட்ட மாணவர் கருத்தை முழுவதுமாக எழுத அல்ல, மீண்டும் பயன்படுத்தக்கூடிய கருத்து சொற்றொடர் வங்கிகளை உருவாக்க AI-ஐப் பயன்படுத்துங்கள்." },
+        { title: "AI வெளியீட்டை கேள்வி கேட்கக் கற்பித்தல்", explanation: "AI உருவாக்கிய உள்ளடக்கத்தை துல்லியம் மற்றும் சார்பு நிலைக்காகச் சரிபார்க்க மாணவர்களுக்கு வெளிப்படையான பயிற்சி தேவை, அது நம்பிக்கையுடன் ஒலிப்பதால் மட்டும் சரியானது என்று ஏற்றுக்கொள்ளக்கூடாது.", example: "ஒரு வகுப்பு பயிற்சி மாணவர்களை AI உருவாக்கிய சுருக்கத்தை மூல ஆதாரத்துடன் உண்மை-சரிபார்க்கச் செய்கிறது, இரண்டு பிழைகளைக் கண்டறிகிறது.", suggestion: "உங்கள் ஆராய்ச்சி அல்லது ஊடக எழுத்தறிவு பிரிவில் ஒரு 'AI-ஐ உண்மை-சரிபார்' செயல்பாட்டை உருவாக்குங்கள்." },
+        { title: "கல்வி நேர்மை மற்றும் AI", explanation: "ஒரு பணிக்கு AI பயன்பாடு எப்போது எதிர்பார்க்கப்படுகிறது, அனுமதிக்கப்படுகிறது, அல்லது தடைசெய்யப்படுகிறது என்பதற்கான தெளிவான, வெளிப்படையான விதிகள் மாணவர்களுக்கு குழப்பத்தையும் நியாயமற்ற விளைவுகளையும் தடுக்கின்றன.", example: "ஒரு ஆசிரியர் ஒவ்வொரு பணியையும் ஒரு எளிய ஐகானுடன் லேபிள் செய்கிறார்: AI-இல்லாதது, AI-உதவியுடன், அல்லது AI-தேவை, எதிர்பார்ப்புகள் தெளிவாக இருக்கும்படி.", suggestion: "ஆண்டின் தொடக்கத்தில் ஒரு முறை மட்டும் அல்ல, ஒவ்வொரு பணித்தாளிலும் உங்கள் AI கொள்கையைக் கூறுங்கள்." },
+        { title: "AI பயன்பாட்டிற்கான வகுப்பு விதிகளை அமைத்தல்", explanation: "ஒவ்வொரு மாணவரும் தனித்தனியாக யூகிப்பதற்குப் பதிலாக, பொருத்தமான AI பயன்பாடு குறித்த பகிரப்பட்ட, வெளிப்படையான வகுப்பறை உரையாடலிலிருந்து மாணவர்கள் பயனடைகிறார்கள்.", example: "ஒரு வகுப்பு ஒன்றாக ஒரு பக்க 'AI பயன்பாட்டு உடன்படிக்கையை' இணைந்து உருவாக்குகிறது, மேலிருந்து கொடுக்கப்பட்ட கொள்கையை விட அதிக ஏற்புடன்.", suggestion: "விதிகளை அறிவிப்பதற்குப் பதிலாக, உங்கள் வகுப்பின் AI விதிமுறைகளை வரைவதில் மாணவர்களை ஈடுபடுத்துங்கள்." },
+        { title: "AI கருவிகளின் சார்பு நிலையும் வரம்புகளும்", explanation: "AI கருவிகள் அவற்றின் பயிற்சி தரவின் சார்புகளையும் இடைவெளிகளையும் பிரதிபலிக்கின்றன, நம்பிக்கையுடன் தவறான பதில்களை உருவாக்கலாம் — இது வெளிப்படையாக மாதிரியாகக் காட்டப்பட வேண்டும், மறைக்கப்படக்கூடாது.", example: "சரிபார்ப்பு ஏன் முக்கியம் என்பதைக் காட்ட ஒரு ஆசிரியர் வேண்டுமென்றே வகுப்பிற்கு ஒரு AI உண்மைப் பிழையைக் காட்டுகிறார்.", suggestion: "AI ஏதாவது தவறாகச் செய்யும் குறைந்தது ஒரு உண்மையான உதாரணத்தை மாணவர்களுக்கு வேண்டுமென்றே காட்டுங்கள்." },
+        { title: "தனிப்பயனாக்கப்பட்ட பயிற்சிக்கான AI", explanation: "AI கருவிகள் ஒரு குறிப்பிட்ட மாணவரின் இடைவெளியை இலக்காகக் கொண்ட கூடுதல் பயிற்சி கணக்குகளை, ஒவ்வொரு மாணவருக்கும் கையால் ஒரு ஆசிரியரால் உருவாக்க முடியாத அளவில் உருவாக்க முடியும்.", example: "அதிக பின்ன பயிற்சி தேவைப்படும் ஒரு மாணவர், ஆசிரியர் அவற்றை எழுத காத்திருப்பதற்குப் பதிலாக நொடிகளில் உருவாக்கப்பட்ட பத்து இலக்கு கணக்குகளைப் பெறுகிறார்.", suggestion: "இந்த வாரம் போராடும் ஒரு மாணவருக்கு கூடுதல் பயிற்சியை உருவாக்க AI கருவியைப் பயன்படுத்தி முயற்சிக்கவும்." },
+        { title: "AI கருவிகளைப் பயன்படுத்தும்போது தரவு தனியுரிமை", explanation: "உங்கள் பள்ளியின் தரவு கொள்கையை முதலில் சரிபார்க்காமல் மாணவர் பெயர்கள், வேலை, தனிப்பட்ட விவரங்களை நுகர்வோர் AI கருவிகளில் ஒட்டக்கூடாது.", example: "ஒரு ஆசிரியர் ஒரு கட்டுரையை கருத்து பரிந்துரைகளுக்காக AI கருவியில் ஒட்டுவதற்கு முன் மாணவர் பெயர்களை நீக்குகிறார்.", suggestion: "AI கருவிக்கு உள்ளீடாகப் பயன்படுத்துவதற்கு முன் எந்த மாணவர் வேலையையும் அநாமதேயமாக்குங்கள்." },
+        { title: "உங்கள் வகுப்பறைக்கான சமநிலையான AI கொள்கை", explanation: "ஒரு நடைமுறை கொள்கை AI உதவி செய்யும் குறிப்பிட்ட பணிகளையும் (திட்டமிடல், வேறுபடுத்தல்) மாணவர் சிந்தனையை மாற்றக்கூடாத குறிப்பிட்ட பணிகளையும் (அசல் எழுத்து, சிந்தனை) பெயரிடுகிறது.", example: "ஒரு ஆசிரியர் கட்டுரை தலைப்புகளுக்கு மூளைச்சலவைக்கு AI-ஐ அனுமதிக்கிறார், ஆனால் கட்டுரை முழுவதும் மாணவரால் எழுதப்பட வேண்டும் என்று கோருகிறார்.", suggestion: "நீங்கள் AI உதவியை வரவேற்கும் இரண்டு பணிகளையும், வேண்டாத இரண்டு பணிகளையும் எழுதி, இரண்டையும் மாணவர்களுடன் பகிருங்கள்." }
+      ],
+      toolSpotlight: { name: "ஒரு AI உதவியாளர் (உதா. Claude அல்லது ChatGPT)", text: "வெவ்வேறு வாசிப்பு நிலைகளில் ஒரு பணித்தாளின் மூன்று பதிப்புகளை உருவாக்கச் சொல்லுங்கள் — நீங்கள் மறுபரிசீலனை செய்து சரிசெய்யலாம், வேறுபடுத்தல் தயாரிப்பு நேரத்தை கணிசமாகக் குறைக்கும்." },
+      reflection: "மாணவர்களுடன் நேரடித் தொடர்பிற்கு நேரத்தை விடுவிக்க, இந்த வாரம் நீங்கள் AI கருவியிடம் ஒப்படைக்கக்கூடிய ஒரு திட்டமிடல் பணி எது?"
+    }
+  },
+  { en: {
+      title: "Digital Citizenship & Online Safety",
+      tagline: "Module 7 · Safe & Responsible Use",
+      overview: "The habits that keep students safe online at home and at school are the same ones — this module connects your classroom teaching directly to what families are working on at home, so the messages reinforce each other instead of contradicting.",
+      subtopics: [
+        { title: "What Digital Citizenship Really Means", explanation: "It's an ongoing set of habits — respectful communication, source-checking, privacy awareness — not a single lesson or assembly topic to check off.", example: "A school that treats digital citizenship as a once-a-year assembly sees little behavior change; weekly five-minute check-ins show more impact.", suggestion: "Build a five-minute digital citizenship touch-point into your week rather than one big annual lesson." },
+        { title: "Modeling Good Online Behavior", explanation: "Students notice how their teacher handles sources, mistakes, and disagreements online — modeling is more persuasive than any rule poster.", example: "A teacher publicly corrects and cites a mistake made in a shared class document, showing students what accountability looks like.", suggestion: "Narrate your own source-checking process out loud at least once when using a resource in class." },
+        { title: "Understanding Digital Footprint", explanation: "Students often don't grasp that online posts, comments, and shares accumulate into a lasting, searchable record beyond their control.", example: "Students search their own names and are surprised by what's publicly visible from years-old accounts.", suggestion: "Have students do a supervised self-search once a year to see their own footprint firsthand." },
+        { title: "Recognizing Misinformation", explanation: "Students need concrete strategies — checking the source, checking the date, checking other sources — not just a general warning to 'be careful online.'", example: "A class practices spotting a fabricated quote by tracing it back to its (nonexistent) original source.", suggestion: "Use one real, current example of misinformation as a case study rather than a hypothetical." },
+        { title: "Handling Oversharing and Privacy", explanation: "Students need practical guidance on what's appropriate to share about themselves and others, since norms vary widely by platform and shift constantly.", example: "A student is surprised that posting a friend's photo without asking counts as a privacy issue, not just a compliment.", suggestion: "Discuss one recent real scenario (anonymized) rather than only abstract privacy rules." },
+        { title: "Responding to Unkind Comments Online", explanation: "Students need a rehearsed response plan for online unkindness — document, don't engage, tell a trusted adult — practiced before it happens, not improvised in the moment.", example: "A class role-plays responding to a mean comment using the 'screenshot, don't reply, tell an adult' routine before it's ever needed for real.", suggestion: "Practice the response routine as a role-play, not just a rule stated once." },
+        { title: "Plagiarism and Proper Citation", explanation: "In an era of easy copy-paste and AI-generated text, students need explicit, repeated practice distinguishing their own words and ideas from borrowed ones.", example: "A short paraphrasing exercise shows students the difference between quoting, paraphrasing, and copying without realizing it.", suggestion: "Run a five-minute paraphrasing drill before any research assignment." },
+        { title: "Coordinating Messages With Families", explanation: "Digital safety habits stick better when the classroom message matches what's reinforced at home — coordination beats repetition alone.", example: "A short note home summarizing this week's digital citizenship lesson lets a parent reinforce the same language at the dinner table.", suggestion: "Send a one-line summary of each digital citizenship lesson home so families can echo it." },
+        { title: "Reporting and Escalation Procedures", explanation: "Students and teachers both need to know exactly who to tell and what happens next when something concerning happens online — vague 'tell someone' guidance isn't enough.", example: "A student who received an inappropriate message knew exactly which staff member to approach because the procedure had been posted and reviewed.", suggestion: "Post your school's specific reporting steps somewhere visible, not just in a handbook." },
+        { title: "Building an Ongoing Digital Citizenship Routine", explanation: "A short, recurring classroom routine (weekly discussion, monthly scenario) keeps digital citizenship present all year rather than front-loaded and forgotten.", example: "A 'digital dilemma of the week' discussion becomes a five-minute Friday routine students start to expect and engage with.", suggestion: "Pick one simple recurring format and repeat it weekly rather than planning a new activity each time." }
+      ],
+      toolSpotlight: { name: "Common Sense Education lessons", text: "Free, grade-banded lesson plans on privacy, digital footprint, and online kindness — easy to adapt for a short weekly check-in." },
+      reflection: "What's one digital-safety message you're teaching in class that would land better if reinforced at home too?"
+    },
+    ta: {
+      title: "இணைய குடிமை உரிமை & பாதுகாப்பு",
+      tagline: "பாடம் 7 · பாதுகாப்பான, பொறுப்பான பயன்பாடு",
+      overview: "வீட்டிலும் பள்ளியிலும் மாணவர்களை இணையத்தில் பாதுகாப்பாக வைத்திருக்கும் பழக்கங்கள் ஒன்றே — இந்தப் பாடம் உங்கள் வகுப்பறை கற்பித்தலை வீட்டில் குடும்பங்கள் பணியாற்றுவதுடன் நேரடியாக இணைக்கிறது, இதனால் செய்திகள் முரண்படாமல் ஒன்றையொன்று வலுப்படுத்தும்.",
+      subtopics: [
+        { title: "இணைய குடிமை உரிமை உண்மையில் என்ன அர்த்தம்", explanation: "இது தொடர்ச்சியான பழக்கங்களின் தொகுப்பு — மரியாதையான தொடர்பு, மூல-சரிபார்ப்பு, தனியுரிமை விழிப்புணர்வு — ஒரு முறை நடக்கும் பாடம் அல்லது கூட்டத் தலைப்பு அல்ல.", example: "இணைய குடிமை உரிமையை ஆண்டுக்கு ஒரு முறை கூட்டமாகக் கருதும் பள்ளி சிறிய நடத்தை மாற்றத்தைக் காண்கிறது; வாராந்திர ஐந்து-நிமிட சரிபார்ப்புகள் அதிக தாக்கத்தைக் காட்டுகின்றன.", suggestion: "ஒரு பெரிய ஆண்டு பாடத்திற்குப் பதிலாக உங்கள் வாரத்தில் ஐந்து-நிமிட இணைய குடிமை உரிமை தொடு புள்ளியை உருவாக்குங்கள்." },
+        { title: "நல்ல இணைய நடத்தையை மாதிரியாகக் காட்டுதல்", explanation: "ஆசிரியர் மூலங்களை எவ்வாறு கையாள்கிறார், தவறுகளை எவ்வாறு கையாள்கிறார் என்பதை மாணவர்கள் கவனிக்கிறார்கள் — எந்த விதி சுவரொட்டியையும் விட மாதிரியாகக் காட்டுவது அதிக நம்பகத்தன்மையானது.", example: "ஒரு ஆசிரியர் பகிரப்பட்ட வகுப்பு ஆவணத்தில் செய்யப்பட்ட ஒரு தவறை பகிரங்கமாக திருத்தி மேற்கோள் காட்டுகிறார், பொறுப்புணர்வு எப்படி இருக்கும் என்பதை மாணவர்களுக்குக் காட்டுகிறார்.", suggestion: "வகுப்பில் ஒரு வளத்தைப் பயன்படுத்தும்போது உங்கள் சொந்த மூல-சரிபார்ப்பு செயல்முறையை குரலில் விளக்குங்கள்." },
+        { title: "டிஜிட்டல் தடத்தைப் புரிந்துகொள்ளுதல்", explanation: "இணையவழி பதிவுகள், கருத்துகள், பகிர்வுகள் தங்கள் கட்டுப்பாட்டிற்கு அப்பாற்பட்ட, நீடித்த, தேடக்கூடிய பதிவாக குவிகின்றன என்பதை மாணவர்கள் பெரும்பாலும் புரிந்துகொள்வதில்லை.", example: "மாணவர்கள் தங்கள் சொந்த பெயர்களைத் தேடி, ஆண்டுகள் பழைய கணக்குகளிலிருந்து பகிரங்கமாகத் தெரியும் விஷயங்களால் ஆச்சரியப்படுகிறார்கள்.", suggestion: "ஆண்டுக்கு ஒரு முறை மாணவர்கள் தங்கள் சொந்த தடத்தை நேரடியாகப் பார்க்க மேற்பார்வையிடப்பட்ட சுய-தேடலைச் செய்யட்டும்." },
+        { title: "தவறான தகவலை அடையாளம் காணுதல்", explanation: "மாணவர்களுக்கு 'இணையத்தில் கவனமாக இருங்கள்' என்ற பொதுவான எச்சரிக்கைக்கு பதிலாக, மூலத்தைச் சரிபார்ப்பது, தேதியைச் சரிபார்ப்பது, மற்ற மூலங்களைச் சரிபார்ப்பது போன்ற உறுதியான உத்திகள் தேவை.", example: "ஒரு வகுப்பு ஒரு கட்டுக்கதை மேற்கோளை அதன் (இல்லாத) அசல் மூலத்திற்கு கண்டறிவதன் மூலம் கண்டறியப் பயிற்சி செய்கிறது.", suggestion: "ஒரு கற்பனையான உதாரணத்திற்குப் பதிலாக, தவறான தகவலின் ஒரு உண்மையான, தற்போதைய உதாரணத்தை வழக்கு ஆய்வாகப் பயன்படுத்துங்கள்." },
+        { title: "அதிகமாகப் பகிர்தல் மற்றும் தனியுரிமையைக் கையாளுதல்", explanation: "தளத்தைப் பொறுத்து விதிமுறைகள் பரவலாக மாறுபடுவதாலும் தொடர்ந்து மாறுவதாலும், தங்களைப் பற்றியும் மற்றவர்களைப் பற்றியும் என்ன பகிர்வது பொருத்தமானது என்பதற்கு மாணவர்களுக்கு நடைமுறை வழிகாட்டுதல் தேவை.", example: "ஒரு நண்பரின் புகைப்படத்தை கேட்காமல் இடுகையிடுவது ஒரு பாராட்டு மட்டுமல்ல, தனியுரிமை பிரச்சினை என்று ஒரு மாணவர் ஆச்சரியப்படுகிறார்.", suggestion: "சுருக்கமான தனியுரிமை விதிகளை மட்டும் அல்ல, ஒரு சமீபத்திய உண்மையான (அநாமதேயமான) சூழ்நிலையை விவாதியுங்கள்." },
+        { title: "இணையத்தில் இரக்கமற்ற கருத்துகளுக்குப் பதிலளித்தல்", explanation: "மாணவர்களுக்கு இணைய இரக்கமின்மைக்கு ஒரு பயிற்சி பெற்ற பதில் திட்டம் தேவை — ஆவணப்படுத்து, ஈடுபடாதே, நம்பகமான பெரியவரிடம் சொல் — இது நடக்கும் முன் பயிற்சி செய்யப்பட வேண்டும், அப்போது திடீரென்று அல்ல.", example: "ஒரு வகுப்பு 'ஸ்கிரீன்ஷாட், பதிலளிக்காதே, பெரியவரிடம் சொல்' வழக்கத்தைப் பயன்படுத்தி ஒரு மோசமான கருத்துக்கு பதிலளிப்பதை பாத்திரமேற்று பயிற்சி செய்கிறது, அது உண்மையில் தேவைப்படுவதற்கு முன்.", suggestion: "பதில் வழக்கத்தை ஒரு முறை கூறப்பட்ட விதியாக அல்ல, பாத்திரமேற்பாகப் பயிற்சி செய்யுங்கள்." },
+        { title: "நகல் எடுத்தல் மற்றும் சரியான மேற்கோள் காட்டுதல்", explanation: "எளிதான நகல்-ஒட்டு மற்றும் AI உருவாக்கிய உரையின் யுகத்தில், மாணவர்களுக்கு தங்கள் சொந்த வார்த்தைகளையும் யோசனைகளையும் கடன் வாங்கியவற்றிலிருந்து வேறுபடுத்தும் வெளிப்படையான, மீண்டும் மீண்டும் பயிற்சி தேவை.", example: "ஒரு குறுகிய மறுசொல் பயிற்சி மாணவர்களுக்கு மேற்கோள் காட்டுதல், மறுசொல்லுதல், உணராமல் நகலெடுத்தல் ஆகியவற்றுக்கு இடையிலான வித்தியாசத்தைக் காட்டுகிறது.", suggestion: "எந்த ஆராய்ச்சி பணிக்கும் முன் ஐந்து நிமிட மறுசொல் பயிற்சியை நடத்துங்கள்." },
+        { title: "குடும்பங்களுடன் செய்திகளை ஒருங்கிணைத்தல்", explanation: "வகுப்பறை செய்தி வீட்டில் வலுப்படுத்தப்படுவதுடன் பொருந்தும்போது டிஜிட்டல் பாதுகாப்பு பழக்கங்கள் சிறப்பாக ஒட்டிக்கொள்கின்றன — வெறும் மறுபடியும் சொல்வதை விட ஒருங்கிணைப்பு சிறந்தது.", example: "இந்த வாரத்தின் இணைய குடிமை உரிமை பாடத்தைச் சுருக்கும் ஒரு குறுகிய வீட்டு குறிப்பு, ஒரு பெற்றோர் இரவு உணவு மேசையில் அதே மொழியை வலுப்படுத்த அனுமதிக்கிறது.", suggestion: "குடும்பங்கள் அதை எதிரொலிக்க ஒவ்வொரு இணைய குடிமை உரிமை பாடத்தின் ஒரு-வரி சுருக்கத்தையும் வீட்டிற்கு அனுப்புங்கள்." },
+        { title: "புகார் மற்றும் அதிகரிப்பு நடைமுறைகள்", explanation: "இணையத்தில் கவலைக்குரிய ஏதாவது நடக்கும்போது யாரிடம் சொல்வது, அடுத்து என்ன நடக்கும் என்பதை மாணவர்களும் ஆசிரியர்களும் சரியாக அறிந்திருக்க வேண்டும் — தெளிவற்ற 'யாரிடமாவது சொல்' வழிகாட்டுதல் போதாது.", example: "பொருத்தமற்ற செய்தியைப் பெற்ற ஒரு மாணவருக்கு எந்த ஊழியரை அணுக வேண்டும் என்று சரியாகத் தெரியும், ஏனெனில் நடைமுறை இடுகையிடப்பட்டு மறுபரிசீலனை செய்யப்பட்டிருந்தது.", suggestion: "உங்கள் பள்ளியின் குறிப்பிட்ட புகார் படிகளை ஒரு கையேட்டில் மட்டுமல்ல, தெரியும் இடத்தில் ஒட்டுங்கள்." },
+        { title: "தொடர்ச்சியான இணைய குடிமை உரிமை வழக்கத்தை உருவாக்குதல்", explanation: "ஒரு குறுகிய, மீண்டும் நடக்கும் வகுப்பறை வழக்கம் (வாராந்திர விவாதம், மாதாந்திர சூழ்நிலை) இணைய குடிமை உரிமையை முன்-ஏற்றப்பட்டு மறக்கப்படுவதற்குப் பதிலாக ஆண்டு முழுவதும் இருக்கச் செய்கிறது.", example: "'இந்த வாரத்தின் டிஜிட்டல் நெருக்கடி' விவாதம் மாணவர்கள் எதிர்பார்த்து ஈடுபடும் ஐந்து-நிமிட வெள்ளிக்கிழமை வழக்கமாக மாறுகிறது.", suggestion: "ஒவ்வொரு முறையும் புதிய செயல்பாட்டைத் திட்டமிடுவதற்குப் பதிலாக ஒரு எளிய மீண்டும் நடக்கும் வடிவத்தைத் தேர்ந்தெடுத்து வாராந்திரம் மீண்டும் செய்யுங்கள்." }
+      ],
+      toolSpotlight: { name: "Common Sense Education பாடங்கள்", text: "தனியுரிமை, டிஜிட்டல் தடம், இணைய கருணை குறித்த இலவச, வகுப்பு-அடிப்படையிலான பாடத் திட்டங்கள் — வாராந்திர குறுகிய சரிபார்ப்புக்கு எளிதாகத் தகவமைக்கக்கூடியவை." },
+      reflection: "நீங்கள் வகுப்பில் கற்பிக்கும் ஒரு டிஜிட்டல்-பாதுகாப்பு செய்தி எது, வீட்டிலும் வலுப்படுத்தப்பட்டால் சிறப்பாக எடுபடும்?"
+    }
+  },
+  { en: {
+      title: "Assessment & Feedback Online",
+      tagline: "Module 8 · Closing the Loop",
+      overview: "Online formative checks are only useful if they change what you do next. This closing module covers quick, low-stakes digital checks, turning data into action, and giving feedback that reaches students where they're actually working.",
+      subtopics: [
+        { title: "Low-Stakes vs High-Stakes Digital Checks", explanation: "Frequent, low-pressure digital checks give a more accurate, less anxious picture of understanding than infrequent high-stakes online tests.", example: "A teacher replaces one large monthly online test with short weekly checks and gets more consistent data on who's struggling.", suggestion: "Convert one high-stakes online test this term into several smaller low-stakes checks instead." },
+        { title: "Exit Tickets and Quick Polls", explanation: "A one-question digital exit ticket takes under a minute but gives immediate, class-wide data on whether the lesson landed.", example: "A single exit-ticket question reveals a third of the class still confused about a concept the teacher thought was clear.", suggestion: "End every lesson with one quick digital exit-ticket question." },
+        { title: "Auto-Graded Quizzes", explanation: "Auto-grading returns results the same day without adding to a teacher's evening workload, but works best for factual recall, not deep reasoning.", example: "A weekly vocabulary quiz auto-grades instantly, freeing the teacher's evening for planning instead of marking.", suggestion: "Reserve auto-graded quizzes for facts and vocabulary, not for assessing reasoning or writing." },
+        { title: "Turning Data Into Next-Day Action", explanation: "Assessment data is only useful if it changes tomorrow's lesson — reviewing results the same day it's collected keeps the response timely.", example: "A teacher regroups students for the next day's activity based on same-day quiz results rather than last week's data.", suggestion: "Build 10 minutes into your planning time the same evening to review that day's data." },
+        { title: "Giving Feedback Where Students Will Actually See It", explanation: "Feedback left only as a grade in a portal often goes unread — comments placed directly in the student's own document get noticed and acted on.", example: "A student revises a paragraph the same day after seeing an in-document comment, but never reopened the portal grade from the week before.", suggestion: "Leave feedback as in-document comments whenever the platform allows it." },
+        { title: "Peer Feedback Online", explanation: "Structured peer feedback (with a simple protocol — one strength, one suggestion) works online too, and gives students more feedback than a teacher alone could provide.", example: "A shared document peer-review round using 'I liked... / I wonder...' sentence starters produces more actionable feedback than free-form comments.", suggestion: "Give students a simple two-part feedback sentence starter before any peer review activity." },
+        { title: "Portfolios and Long-Term Evidence", explanation: "A running digital portfolio shows growth over a term or year in a way a single test score never can, especially valuable for skills-based subjects.", example: "A writing portfolio comparing a student's first and final essay makes progress visible to both student and parent in a parent conference.", suggestion: "Have students save one piece of work per month into a running portfolio folder." },
+        { title: "Rubrics for Blended Assignments", explanation: "A rubric shared before an assignment begins — not after — helps students self-assess their online work as they go, not just after submission.", example: "A project rubric shared at the start lets students check their own progress against it midway rather than guessing at expectations.", suggestion: "Share the grading rubric on day one of any multi-day assignment, not at collection time." },
+        { title: "Closing the Loop With Students", explanation: "Showing students specifically what changed in the next lesson because of their answers makes assessment feel purposeful rather than just extractive.", example: "A teacher opens the next class with 'Based on yesterday's poll, we're spending extra time on X' — students see their input mattered.", suggestion: "Name the data source out loud when you adjust a lesson because of it." },
+        { title: "Avoiding Assessment Fatigue", explanation: "Too many digital checks, even low-stakes ones, create their own fatigue and disengagement — the goal is well-placed checks, not constant checks.", example: "A teacher who checked understanding after every single activity scales back to one meaningful check per lesson and sees more genuine engagement.", suggestion: "Ask 'will this check change what I do next' before adding another one — if not, skip it." }
+      ],
+      toolSpotlight: { name: "Google Forms with auto-grading, or Quizizz", text: "Auto-graded short quizzes give same-day data without adding hours of marking to your evening." },
+      reflection: "Pick one recent assessment — did its results actually change your next lesson, or just get recorded?"
+    },
+    ta: {
+      title: "இணையவழி மதிப்பீடு & கருத்து கூறல்",
+      tagline: "பாடம் 8 · வளையத்தை மூடுதல்",
+      overview: "இணையவழி உருவாக்க மதிப்பீடுகள், அவை உங்கள் அடுத்த செயலை மாற்றினால் மட்டுமே பயனுள்ளவை. இந்த இறுதி பாடம் விரைவான, குறைந்த-அபாய டிஜிட்டல் சரிபார்ப்புகளையும், தரவை செயலாக மாற்றுவதையும், மாணவர்கள் உண்மையில் பணியாற்றும் இடத்தில் அவர்களை அடையும் கருத்தையும் உள்ளடக்கியது.",
+      subtopics: [
+        { title: "குறைந்த-அபாய vs உயர்-அபாய டிஜிட்டல் சரிபார்ப்புகள்", explanation: "அடிக்கடி நடக்கும், குறைந்த-அழுத்த டிஜிட்டல் சரிபார்ப்புகள் அரிதான உயர்-அபாய இணையவழி தேர்வுகளைவிட புரிதலின் மிகத் துல்லியமான, குறைவான பதட்டமான படத்தைத் தருகின்றன.", example: "ஒரு ஆசிரியர் ஒரு பெரிய மாதாந்திர இணையவழி தேர்வை குறுகிய வாராந்திர சரிபார்ப்புகளுடன் மாற்றி, யார் போராடுகிறார்கள் என்பது குறித்த மிக நிலையான தரவைப் பெறுகிறார்.", suggestion: "இந்த காலாண்டில் ஒரு உயர்-அபாய இணையவழி தேர்வை பல சிறிய குறைந்த-அபாய சரிபார்ப்புகளாக மாற்றுங்கள்." },
+        { title: "வெளியேறும் டிக்கெட்டுகள் மற்றும் விரைவு வாக்கெடுப்புகள்", explanation: "ஒரு-கேள்வி டிஜிட்டல் வெளியேறும் டிக்கெட் ஒரு நிமிடத்திற்குக் குறைவாக எடுக்கும், ஆனால் பாடம் பொருத்தமாக இருந்ததா என்பதற்கு உடனடி, வகுப்பு-தழுவிய தரவைத் தருகிறது.", example: "ஒரு வெளியேறும்-டிக்கெட் கேள்வி, ஆசிரியர் தெளிவாக நினைத்த ஒரு கருத்தில் வகுப்பின் மூன்றில் ஒரு பங்கு இன்னும் குழப்பமாக இருப்பதை வெளிப்படுத்துகிறது.", suggestion: "ஒவ்வொரு பாடத்தையும் ஒரு விரைவு டிஜிட்டல் வெளியேறும்-டிக்கெட் கேள்வியுடன் முடிக்கவும்." },
+        { title: "தானாக-மதிப்பிடப்படும் வினாடி வினாக்கள்", explanation: "தானியங்கி மதிப்பீடு ஆசிரியரின் மாலை நேர வேலைச்சுமையைச் சேர்க்காமல் அதே நாள் முடிவுகளைத் தருகிறது, ஆனால் ஆழமான பகுத்தறிவுக்கு அல்ல, உண்மை நினைவுக்கு சிறப்பாக வேலை செய்கிறது.", example: "ஒரு வாராந்திர சொல்லகராதி வினாடி வினா உடனடியாக தானாக மதிப்பிடப்படுகிறது, ஆசிரியரின் மாலையை மதிப்பீட்டிற்குப் பதிலாக திட்டமிடலுக்கு விடுவிக்கிறது.", suggestion: "பகுத்தறிவு அல்லது எழுத்தை மதிப்பிடுவதற்கு அல்ல, உண்மைகள் மற்றும் சொல்லகராதிக்கு தானாக-மதிப்பிடப்படும் வினாடி வினாக்களை ஒதுக்குங்கள்." },
+        { title: "தரவை அடுத்த நாள் செயலாக மாற்றுதல்", explanation: "மதிப்பீட்டு தரவு அது நாளைய பாடத்தை மாற்றினால் மட்டுமே பயனுள்ளது — சேகரிக்கப்பட்ட அதே நாளில் முடிவுகளை மறுபரிசீலனை செய்வது பதிலை நேரத்திற்குள் வைத்திருக்கிறது.", example: "ஒரு ஆசிரியர் கடந்த வார தரவை அல்ல, அதே நாள் வினாடி வினா முடிவுகளின் அடிப்படையில் அடுத்த நாள் செயல்பாட்டிற்கு மாணவர்களை மறுகுழுவாக்குகிறார்.", suggestion: "அன்று மாலை தரவை மறுபரிசீலனை செய்ய உங்கள் திட்டமிடல் நேரத்தில் 10 நிமிடங்களை உருவாக்குங்கள்." },
+        { title: "மாணவர்கள் உண்மையில் பார்க்கும் இடத்தில் கருத்து தெரிவித்தல்", explanation: "ஒரு போர்ட்டலில் மதிப்பெண்ணாக மட்டும் விடப்பட்ட கருத்து பெரும்பாலும் படிக்கப்படாமல் போகிறது — மாணவரின் சொந்த ஆவணத்தில் நேரடியாக வைக்கப்பட்ட கருத்துகள் கவனிக்கப்பட்டு செயல்படுத்தப்படுகின்றன.", example: "ஆவணத்திற்குள் ஒரு கருத்தைப் பார்த்த அதே நாளில் ஒரு மாணவர் ஒரு பத்தியைத் திருத்துகிறார், ஆனால் முந்தைய வாரத்தின் போர்ட்டல் மதிப்பெண்ணை ஒருபோதும் மீண்டும் திறக்கவில்லை.", suggestion: "தளம் அனுமதிக்கும் போதெல்லாம் கருத்தை ஆவணத்திற்குள் கருத்துகளாக விடுங்கள்." },
+        { title: "இணையவழியில் சக மாணவர் கருத்து", explanation: "கட்டமைக்கப்பட்ட சக மாணவர் கருத்து (ஒரு எளிய நெறிமுறையுடன் — ஒரு பலம், ஒரு பரிந்துரை) இணையவழியிலும் வேலை செய்கிறது, ஆசிரியர் ஒருவரால் மட்டும் வழங்க முடியாத அளவு கருத்தை மாணவர்களுக்குத் தருகிறது.", example: "'எனக்கு பிடித்தது... / எனக்கு ஆச்சரியமாக இருக்கிறது...' வாக்கிய தொடக்கங்களைப் பயன்படுத்தும் ஒரு பகிரப்பட்ட ஆவண சக மறுஆய்வு சுற்று, சுதந்திர வடிவ கருத்துகளை விட செயல்படுத்தக்கூடிய கருத்தை உருவாக்குகிறது.", suggestion: "எந்த சக மறுஆய்வு செயல்பாட்டிற்கும் முன் மாணவர்களுக்கு ஒரு எளிய இரண்டு-பகுதி கருத்து வாக்கிய தொடக்கத்தைக் கொடுங்கள்." },
+        { title: "போர்ட்ஃபோலியோக்கள் மற்றும் நீண்டகால சான்றுகள்", explanation: "ஒரு வாழும் டிஜிட்டல் போர்ட்ஃபோலியோ ஒரு காலாண்டு அல்லது ஆண்டு முழுவதும் வளர்ச்சியை ஒரு தேர்வு மதிப்பெண் ஒருபோதும் காட்ட முடியாத வகையில் காட்டுகிறது, திறன் அடிப்படையிலான பாடங்களுக்கு குறிப்பாக மதிப்புமிக்கது.", example: "ஒரு மாணவரின் முதல் மற்றும் இறுதி கட்டுரையை ஒப்பிடும் ஒரு எழுத்து போர்ட்ஃபோலியோ, ஒரு பெற்றோர் கூட்டத்தில் மாணவருக்கும் பெற்றோருக்கும் முன்னேற்றத்தைக் காணக்கூடியதாக ஆக்குகிறது.", suggestion: "மாணவர்கள் ஒரு வாழும் போர்ட்ஃபோலியோ கோப்பகத்தில் மாதத்திற்கு ஒரு வேலையை சேமிக்கட்டும்." },
+        { title: "கலப்பு பணிகளுக்கான அளவுகோல்கள்", explanation: "ஒரு பணி தொடங்குவதற்கு முன் பகிரப்பட்ட அளவுகோல் — பிறகு அல்ல — மாணவர்கள் தங்கள் இணையவழி வேலையை செய்யும்போதே சுய-மதிப்பிட உதவுகிறது, சமர்ப்பணத்திற்குப் பிறகு மட்டும் அல்ல.", example: "தொடக்கத்தில் பகிரப்பட்ட ஒரு திட்ட அளவுகோல், மாணவர்கள் எதிர்பார்ப்புகளை யூகிப்பதற்குப் பதிலாக பாதி வழியில் அதற்கு எதிராக தங்கள் முன்னேற்றத்தை சரிபார்க்க அனுமதிக்கிறது.", suggestion: "சேகரிக்கும் நேரத்தில் அல்ல, பல-நாள் பணியின் முதல் நாளிலேயே மதிப்பீட்டு அளவுகோலைப் பகிருங்கள்." },
+        { title: "மாணவர்களுடன் வளையத்தை மூடுதல்", explanation: "அவர்களின் பதில்களால் அடுத்த பாடத்தில் குறிப்பாக என்ன மாறியது என்பதை மாணவர்களுக்குக் காட்டுவது மதிப்பீட்டை வெறுமனே பிரித்தெடுப்பதற்குப் பதிலாக நோக்கமுள்ளதாக உணரவைக்கிறது.", example: "ஒரு ஆசிரியர் அடுத்த வகுப்பை 'நேற்றைய வாக்கெடுப்பின் அடிப்படையில், நாங்கள் X இல் கூடுதல் நேரம் செலவிடுகிறோம்' என்று திறக்கிறார் — மாணவர்கள் தங்கள் உள்ளீடு முக்கியம் என்று பார்க்கிறார்கள்.", suggestion: "அதன் காரணமாக ஒரு பாடத்தை சரிசெய்யும்போது தரவு மூலத்தை உரக்கப் பெயரிடுங்கள்." },
+        { title: "மதிப்பீட்டு சோர்வைத் தவிர்த்தல்", explanation: "குறைந்த-அபாயமானவை கூட, அதிக டிஜிட்டல் சரிபார்ப்புகள் தங்கள் சொந்த சோர்வையும் ஈடுபாடின்மையையும் உருவாக்குகின்றன — இலக்கு நன்கு வைக்கப்பட்ட சரிபார்ப்புகள், தொடர்ச்சியான சரிபார்ப்புகள் அல்ல.", example: "ஒவ்வொரு செயல்பாட்டிற்குப் பிறகும் புரிதலைச் சரிபார்த்த ஒரு ஆசிரியர், ஒரு பாடத்திற்கு ஒரு அர்த்தமுள்ள சரிபார்ப்புக்கு அளவைக் குறைத்து, அதிக உண்மையான ஈடுபாட்டைக் காண்கிறார்.", suggestion: "மற்றொன்றைச் சேர்ப்பதற்கு முன் 'இந்த சரிபார்ப்பு நான் அடுத்து என்ன செய்வேன் என்பதை மாற்றுமா' எனக் கேளுங்கள் — இல்லையென்றால், அதைத் தவிர்க்கவும்." }
+      ],
+      toolSpotlight: { name: "தானாக-மதிப்பிடும் Google Forms, அல்லது Quizizz", text: "தானாக மதிப்பிடப்படும் குறுகிய வினாடி வினாக்கள், உங்கள் மாலை நேரத்தில் மணிக்கணக்கான திருத்தும் வேலையைச் சேர்க்காமல் அதே நாள் தரவைத் தரும்." },
+      reflection: "சமீபத்திய ஒரு மதிப்பீட்டைத் தேர்ந்தெடுங்கள் — அதன் முடிவுகள் உண்மையில் உங்கள் அடுத்த பாடத்தை மாற்றியதா, அல்லது வெறுமனே பதிவு செய்யப்பட்டதா?"
+    }
+  }
+];
+
+const UI = {
+  en: {
+    sidebarTitle: "Digital Pedagogy & Blended Learning",
+    sidebarSubtitle: "Using tech tools effectively in the classroom",
+    subtopicsLabel: "Subtopics",
+    explanationLabel: "Explanation",
+    exampleLabel: "Real-Life Example",
+    suggestionLabel: "Suggestion",
+    toolSpotlightLabel: "Tool Spotlight",
+    reflectionLabel: "Reflection",
+    prevLabel: "← Previous",
+    nextLabel: "Next →",
+  },
+  ta: {
+    sidebarTitle: "டிஜிட்டல் கற்பித்தல் & கலப்பு கற்றல்",
+    sidebarSubtitle: "வகுப்பறையில் தொழில்நுட்ப கருவிகளை திறம்படப் பயன்படுத்துதல்",
+    subtopicsLabel: "துணைத் தலைப்புகள்",
+    explanationLabel: "விளக்கம்",
+    exampleLabel: "நிஜ வாழ்க்கை உதாரணம்",
+    suggestionLabel: "பரிந்துரை",
+    toolSpotlightLabel: "கருவி கவனம்",
+    reflectionLabel: "சிந்தனை",
+    prevLabel: "← முந்தையது",
+    nextLabel: "அடுத்தது →",
+  }
+};
+
+const COURSE_ID = "digital-pedagogy";
+
+class Component extends DCLogic {
+  state = { moduleIndex: 0, lang: 'en', openSubtopic: 0, authChecked: false, enrolled: false, userName: '' };
+
+  componentDidMount() {
+    auth.onAuthStateChanged(async (user) => {
+      if (!user) {
+        this.setState({ authChecked: true, enrolled: false, userName: '' });
+        return;
+      }
+      try {
+        const doc = await db.collection('students').doc(user.uid).get();
+        const data = doc.exists ? doc.data() : null;
+        const courses = (data && data.courses) || [];
+        this.setState({
+          authChecked: true,
+          enrolled: courses.includes(COURSE_ID),
+          userName: (data && data.name) || ''
+        });
+      } catch (e) {
+        console.error('Access check failed:', e);
+        this.setState({ authChecked: true, enrolled: false, userName: '' });
+      }
+    });
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const ui = UI[lang];
+    const total = MODULES.length;
+    const idx = this.state.moduleIndex;
+    const langFont = lang === 'ta' ? "'Noto Sans Tamil', sans-serif" : "'Karla', sans-serif";
+
+    const enrolled = this.state.enrolled;
+    const authChecked = this.state.authChecked;
+    const currentLocked = idx > 0 && !enrolled;
+
+    const modules = MODULES.map((m, i) => {
+      const active = i === idx;
+      const locked = i > 0 && !enrolled;
+      return {
+        index: i,
+        title: (locked ? '🔒 ' : '') + m[lang].title,
+        numberLabel: String(i + 1).padStart(2, '0'),
+        select: () => this.setState({ moduleIndex: i, openSubtopic: 0 }),
+        rowStyle: {
+          display: 'flex', alignItems: 'center', gap: '12px',
+          padding: '10px 12px', borderRadius: '8px', cursor: 'pointer',
+          background: active ? 'oklch(65% 0.15 40)' : 'transparent',
+          transition: 'background 0.15s',
+        },
+        numStyle: {
+          fontSize: '11px', fontWeight: 700, opacity: active ? 1 : 0.5,
+          fontFamily: 'Karla, sans-serif',
+        },
+        textStyle: {
+          fontSize: '14.5px', fontWeight: active ? 700 : 500,
+          fontFamily: langFont,
+          lineHeight: 1.35,
+        },
+      };
+    });
+
+    const current = MODULES[idx][lang];
+    const openIdx = this.state.openSubtopic;
+
+    const subtopics = current.subtopics.map((s, i) => {
+      const open = i === openIdx;
+      return {
+        index: i,
+        numberLabel: String(i + 1).padStart(2, '0'),
+        title: s.title,
+        explanation: s.explanation,
+        example: s.example,
+        suggestion: s.suggestion,
+        toggle: () => this.setState({ openSubtopic: open ? -1 : i }),
+        arrow: open ? '−' : '+',
+        headerStyle: {
+          display: 'flex', alignItems: 'center', gap: '12px',
+          padding: '14px 16px', cursor: 'pointer',
+          background: open ? 'oklch(93% 0.02 40)' : 'transparent',
+        },
+        numStyle: { fontSize: '12px', fontWeight: 700, color: 'oklch(58% 0.14 40)', fontFamily: 'Karla, sans-serif', flexShrink: 0 },
+        titleStyle: { fontSize: '15.5px', fontWeight: 600, fontFamily: langFont, flex: 1, lineHeight: 1.4 },
+        arrowStyle: { fontSize: '18px', fontWeight: 700, color: 'oklch(55% 0.02 75)', flexShrink: 0 },
+        panelStyle: {
+          display: open ? 'flex' : 'none', flexDirection: 'column', gap: '4px',
+          padding: '2px 16px 18px', fontFamily: langFont,
+        },
+        labelStyle: { fontSize: '11.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.04em', opacity: 0.55, marginTop: '10px' },
+        textStyle2: { fontSize: '14.5px', lineHeight: 1.6 },
+      };
+    }).map(s => ({ ...s, textStyle: s.textStyle2 }));
+
+    const btnBase = {
+      border: 'none', borderRadius: '7px', padding: '7px 16px',
+      fontSize: '13.5px', fontWeight: 700, cursor: 'pointer',
+      fontFamily: "'Karla', sans-serif",
+    };
+
+    return {
+      showLoading: !authChecked,
+      showLoginPrompt: authChecked && currentLocked,
+      showContent: authChecked && !currentLocked,
+      loadingLabel: lang === 'ta' ? 'சரிபார்க்கிறது...' : 'Checking your access...',
+      lockTitleLabel: lang === 'ta' ? 'இந்த பாடத்திற்கு உள்நுழைவு தேவை' : 'Login Required for This Module',
+      lockTextLabel: lang === 'ta'
+        ? 'தொகுதி 1 இலவசமாக பார்வையிடலாம். இந்த தொகுதியைப் பார்க்க தயவுசெய்து உள்நுழையவும்.'
+        : 'Module 1 is free to preview. Please log in to access this module.',
+      loginBtnLabel: lang === 'ta' ? 'உள்நுழையவும் →' : 'Log In →',
+      loginUrl: 'login.html',
+      showLogout: authChecked && enrolled,
+      logoutLabel: lang === 'ta' ? 'வெளியேறு' : 'Logout',
+      doLogout: () => auth.signOut().then(() => { window.location.href = 'login.html'; }),
+      sidebarTitle: ui.sidebarTitle,
+      sidebarSubtitle: ui.sidebarSubtitle,
+      modules,
+      progressLabel: `${idx + 1} / ${total}`,
+      progressBarStyle: {
+        height: '6px', borderRadius: '3px',
+        width: `${((idx + 1) / total) * 100}%`,
+        background: 'oklch(65% 0.15 40)',
+      },
+      moduleCounter: lang === 'ta' ? `பாடம் ${idx + 1} / ${total}` : `Module ${idx + 1} of ${total}`,
+      setEnglish: () => this.setState({ lang: 'en' }),
+      setTamil: () => this.setState({ lang: 'ta' }),
+      enBtnStyle: { ...btnBase, background: lang === 'en' ? 'oklch(30% 0.02 75)' : 'transparent', color: lang === 'en' ? 'white' : 'oklch(40% 0.02 75)' },
+      taBtnStyle: { ...btnBase, background: lang === 'ta' ? 'oklch(30% 0.02 75)' : 'transparent', color: lang === 'ta' ? 'white' : 'oklch(40% 0.02 75)', fontFamily: "'Noto Sans Tamil', sans-serif" },
+      langFontStyle: { fontFamily: langFont },
+      current,
+      subtopics,
+      subtopicsLabel: ui.subtopicsLabel,
+      explanationLabel: ui.explanationLabel,
+      exampleLabel: ui.exampleLabel,
+      suggestionLabel: ui.suggestionLabel,
+      toolSpotlightLabel: ui.toolSpotlightLabel,
+      reflectionLabel: ui.reflectionLabel,
+      prevLabel: ui.prevLabel,
+      nextLabel: ui.nextLabel,
+      prev: () => this.setState(s => ({ moduleIndex: Math.max(0, s.moduleIndex - 1), openSubtopic: 0 })),
+      next: () => this.setState(s => ({ moduleIndex: Math.min(total - 1, s.moduleIndex + 1), openSubtopic: 0 })),
+      prevDisabled: idx === 0,
+      nextDisabled: idx === total - 1,
+      prevBtnStyle: { ...btnBase, background: 'oklch(93% 0.015 75)', color: idx === 0 ? 'oklch(75% 0.01 75)' : 'oklch(30% 0.02 75)', cursor: idx === 0 ? 'not-allowed' : 'pointer' },
+      nextBtnStyle: { ...btnBase, background: idx === total - 1 ? 'oklch(85% 0.06 40)' : 'oklch(65% 0.15 40)', color: idx === total - 1 ? 'oklch(60% 0.02 75)' : 'white', cursor: idx === total - 1 ? 'not-allowed' : 'pointer' },
+    };
+  }
+}
+
+</script>
+</body>
+</html>
