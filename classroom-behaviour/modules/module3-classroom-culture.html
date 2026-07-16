@@ -7,25 +7,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../style.css">
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="../firebase-config.js"></script>
+<script src="../auth-guard.js"></script>
 </head>
 <body>
-<div id="passGate">
-  <div class="gate-card">
-    <h2 data-en>Enter Passcode</h2>
-    <h2 data-ta class="ta-text hide-en">குறியீட்டை உள்ளிடவும்</h2>
-    <p data-en>This module is part of the paid Classroom Behaviour Management &amp; De-escalation course. Enter your passcode to continue.</p>
-    <p data-ta class="ta-text hide-en">இது கட்டண படிப்பின் ஒரு பகுதி. தொடர உங்கள் குறியீட்டை உள்ளிடவும்.</p>
-    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off">
-    <button id="gateSubmit" data-en>Unlock Module</button>
-    <button data-ta class="ta-text hide-en" onclick="cbmSubmitGate()">திறக்கவும்</button>
-    <div class="gate-error" id="gateError"></div>
-    <p class="gate-hint" data-en>Don't have a code? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">Get access via WhatsApp →</a></p>
-    <p class="gate-hint ta-text hide-en" data-ta>குறியீடு இல்லையா? <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Classroom%20Behaviour%20Management%20course" target="_blank">வாட்ஸ்அப் மூலம் பெறுங்கள் →</a></p>
-  </div>
-</div>
 <div class="progress-bar"></div>
 <div class="topbar">
   <a href="../index.html" class="brand">Classroom Behaviour Mastery</a>
+  <a href="#" onclick="logout(); return false;" style="font-size:13px; margin-right:14px; text-decoration:underline;">Logout</a>
   <div class="lang-toggle">
     <button data-lang="en">EN</button>
     <button data-lang="ta">தமிழ்</button>
@@ -95,6 +87,5 @@
 
 <script src="../app.js"></script>
 <script>initQuiz('classroom-culture');</script>
-<script>initGate();</script>
 </body>
 </html>
