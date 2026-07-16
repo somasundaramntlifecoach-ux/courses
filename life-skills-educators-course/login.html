@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Life Skills Mastery for Educators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f2044;
+    --gold:#c8a250;
+    --bg:#f6f4ef;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:var(--bg);
+    font-family:'Poppins','Noto Sans Tamil',sans-serif;
+    padding:20px;
+  }
+  body.ta{ font-family:'Noto Sans Tamil','Poppins',sans-serif; }
+  .card{
+    background:#fff; max-width:420px; width:100%; border-radius:16px;
+    padding:36px 30px; box-shadow:0 10px 40px rgba(15,32,68,0.12);
+    text-align:center;
+  }
+  .lang-toggle{ display:flex; justify-content:flex-end; gap:8px; margin-bottom:12px; }
+  .lang-toggle button{
+    border:1px solid var(--navy); background:#fff; color:var(--navy);
+    padding:4px 12px; border-radius:20px; font-size:13px; cursor:pointer;
+  }
+  .lang-toggle button.active{ background:var(--navy); color:#fff; }
+  h1{ color:var(--navy); font-size:22px; margin:10px 0 4px; }
+  p.sub{ color:#666; font-size:14px; margin-bottom:24px; }
+  input{
+    width:100%; padding:12px 14px; margin-bottom:14px; border-radius:8px;
+    border:1px solid #ddd; font-size:15px; font-family:inherit;
+  }
+  button.primary{
+    width:100%; padding:13px; background:var(--navy); color:#fff; border:none;
+    border-radius:8px; font-size:15px; font-weight:600; cursor:pointer; margin-top:6px;
+  }
+  button.primary:hover{ background:#183465; }
+  .error{ color:#b3261e; font-size:13px; margin-top:10px; min-height:16px; }
+  .forgot{ margin-top:14px; font-size:13px; }
+  .forgot a{ color:var(--navy); text-decoration:none; }
+  .footer{ margin-top:26px; font-size:12px; color:#999; }
+  .footer a{ color:var(--gold); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="lang-toggle">
+    <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTA" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+
+  <h1><span data-en>Life Skills Mastery for Educators</span><span data-ta style="display:none">ஆசிரியர்களுக்கான வாழ்க்கை திறன் தேர்ச்சி</span></h1>
+  <p class="sub">
+    <span data-en>Log in to access your course</span>
+    <span data-ta style="display:none">உங்கள் பாடத்தை அணுக உள்நுழையவும்</span>
+  </p>
+
+  <input type="email" id="email" placeholder="Email" autocomplete="username">
+  <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+  <button class="primary" onclick="login()">
+    <span data-en>Log In</span><span data-ta style="display:none">உள்நுழையவும்</span>
+  </button>
+  <div class="error" id="errorMsg"></div>
+
+  <div class="forgot">
+    <a href="#" onclick="resetPassword()">
+      <span data-en>Forgot password?</span><span data-ta style="display:none">கடவுச்சொல் மறந்துவிட்டதா?</span>
+    </a>
+  </div>
+
+  <div class="forgot">
+    <span data-en>No account yet? Message us on WhatsApp to enroll.</span>
+    <span data-ta style="display:none">கணக்கு இல்லையா? சேர வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span>
+    <br><a href="https://wa.me/919843702244" target="_blank">+91 98437 02244</a>
+  </div>
+
+  <div class="footer">God is always with u</div>
+</div>
+
+<!-- Firebase SDKs (compat build — works without a bundler) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+
+<script>
+function setLang(lang){
+  document.body.classList.toggle('ta', lang === 'ta');
+  document.querySelectorAll('[data-en]').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  document.querySelectorAll('[data-ta]').forEach(el => el.style.display = lang === 'ta' ? '' : 'none');
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnTA').classList.toggle('active', lang === 'ta');
+  try{ localStorage.setItem('site_lang', lang); }catch(e){}
+}
+(function(){
+  let saved = 'en';
+  try{ saved = localStorage.getItem('site_lang') || 'en'; }catch(e){}
+  setLang(saved);
+})();
+
+function login(){
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value;
+  const errorMsg = document.getElementById('errorMsg');
+  errorMsg.textContent = '';
+
+  if(!email || !password){
+    errorMsg.textContent = document.body.classList.contains('ta')
+      ? 'மின்னஞ்சல் மற்றும் கடவுச்சொல்லை உள்ளிடவும்.'
+      : 'Please enter both email and password.';
+    return;
+  }
+
+  auth.signInWithEmailAndPassword(email, password)
+    .then(function(){
+      window.location.href = "module2-content.html"; // redirect to first protected module
+    })
+    .catch(function(error){
+      errorMsg.textContent = document.body.classList.contains('ta')
+        ? 'தவறான மின்னஞ்சல் அல்லது கடவுச்சொல்.'
+        : 'Incorrect email or password.';
+      console.error(error);
+    });
+}
+
+function resetPassword(){
+  const email = document.getElementById('email').value.trim();
+  if(!email){
+    alert(document.body.classList.contains('ta') ? 'முதலில் மின்னஞ்சலை உள்ளிடவும்.' : 'Please enter your email first.');
+    return;
+  }
+  auth.sendPasswordResetEmail(email)
+    .then(function(){
+      alert(document.body.classList.contains('ta') ? 'கடவுச்சொல் மீட்டமைப்பு இணைப்பு அனுப்பப்பட்டது.' : 'Password reset link sent to your email.');
+    })
+    .catch(function(error){
+      alert(error.message);
+    });
+}
+</script>
+</body>
+</html>
