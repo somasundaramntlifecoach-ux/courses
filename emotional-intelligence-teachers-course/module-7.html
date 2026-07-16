@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EQ in Classroom Discipline & Conflict Resolution | Module 7 Guide | N T Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2044; --navy2:#16305e; --gold:#c8a250; --gold-light:#e8d5a3;
+  --cream:#fbf8f2; --ink:#1c2333; --muted:#5a6478; --line:#e4e2da; --card:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);color:var(--ink);font-family:'Poppins',sans-serif;line-height:1.65;}
+body.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+[data-ta]{display:none;}
+body.ta [data-en]{display:none;}
+body.ta [data-ta]{display:inline;}
+a{color:inherit;}
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.brand{font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:8px;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
+.topbar .right{display:flex;align-items:center;gap:12px;}
+.backlink{font-size:12.5px;color:var(--gold-light);}
+.lang-toggle{display:flex;background:rgba(255,255,255,.12);border-radius:20px;padding:3px;}
+.lang-toggle button{border:none;background:transparent;color:#fff;padding:5px 12px;border-radius:16px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+.lang-toggle button.active{background:var(--gold);color:var(--navy);}
+
+.wrap{max-width:800px;margin:0 auto;padding:26px 18px 50px;}
+.page{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;margin-bottom:22px;}
+.page-tag{font-size:12px;color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+h1.mod-title{font-size:23px;color:var(--navy);margin-bottom:18px;}
+h2.page-title{font-size:19px;color:var(--navy);margin-bottom:16px;}
+
+.subtopic{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--line);}
+.subtopic:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.subtopic h3{font-size:16px;color:var(--navy);margin-bottom:8px;}
+.subtopic p{font-size:14.5px;color:var(--ink);margin-bottom:10px;}
+.example-box{background:#f6f2e8;border-left:3px solid var(--gold);padding:12px 15px;border-radius:8px;font-size:13.8px;color:var(--ink);}
+.example-box .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--gold);font-weight:800;display:block;margin-bottom:4px;}
+
+.sugg-list{list-style:none;}
+.sugg-list li{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.sugg-list li:last-child{border-bottom:none;}
+.sugg-list .chk{color:var(--gold);font-weight:800;flex-shrink:0;}
+
+.worksheet-item{margin-bottom:18px;}
+.worksheet-item .q{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.worksheet-item .qnum{color:var(--gold);font-weight:800;margin-right:6px;}
+textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;font-family:inherit;font-size:13.5px;min-height:56px;background:var(--cream);}
+
+.plan-table{width:100%;border-collapse:collapse;margin-top:6px;}
+.plan-table th{background:var(--navy);color:#fff;font-size:12px;text-align:left;padding:10px 12px;text-transform:uppercase;letter-spacing:.03em;}
+.plan-table td{padding:11px 12px;font-size:13.3px;border-bottom:1px solid var(--line);vertical-align:top;}
+.plan-table tr:nth-child(even) td{background:var(--cream);}
+
+.reflection-box{background:var(--navy);color:#fff;border-radius:10px;padding:16px 18px;margin-top:18px;font-size:14px;}
+.reflection-box h4{color:var(--gold-light);margin-bottom:8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;}
+
+.navrow{display:flex;justify-content:space-between;gap:10px;margin-top:6px;}
+.btn{padding:11px 20px;border-radius:10px;font-weight:700;font-size:13.5px;border:none;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--line);}
+
+@media print{
+  .no-print{display:none !important;}
+  body{background:#fff;}
+  .page{box-shadow:none;page-break-after:always;border:none;}
+}
+footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
+footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="topbar no-print">
+  <div class="brand"><span class="dot"></span> <span data-en>Module 7 Full Guide</span><span data-ta>பாடம் 7 முழு வழிகாட்டி</span></div>
+  <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
+    <a href="course.html" class="backlink" data-en>← Back to Course</a>
+    <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('ta')">தமிழ்</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="mainWrap">
+
+  <!-- PAGE 1: Understanding & Subtopics -->
+  <div class="page">
+    <div class="page-tag" data-en>Module 7 · Page 1 of 3</div>
+    <div class="page-tag" data-ta>பாடம் 7 · பக்கம் 1/3</div>
+    <h1 class="mod-title" data-en>EQ in Classroom Discipline & Conflict Resolution</h1>
+    <h1 class="mod-title" data-ta>வகுப்பறை ஒழுக்கம் & மோதல் தீர்வில் EQ</h1>
+    <h2 class="page-title" data-en>Detailed Explanation</h2>
+    <h2 class="page-title" data-ta>விரிவான விளக்கம்</h2>
+    <div id="subtopics"></div>
+  </div>
+
+  <!-- PAGE 2: Suggestions & Worksheet -->
+  <div class="page">
+    <div class="page-tag" data-en>Module 7 · Page 2 of 3</div>
+    <div class="page-tag" data-ta>பாடம் 7 · பக்கம் 2/3</div>
+    <h2 class="page-title" data-en>Practical Suggestions</h2>
+    <h2 class="page-title" data-ta>நடைமுறை பரிந்துரைகள்</h2>
+    <ul class="sugg-list" id="suggList"></ul>
+
+    <h2 class="page-title" style="margin-top:26px;" data-en>Reflection Worksheet</h2>
+    <h2 class="page-title" style="margin-top:26px;" data-ta>சிந்தனை பணித்தாள்</h2>
+    <div id="worksheet"></div>
+  </div>
+
+  <!-- PAGE 3: Action Plan -->
+  <div class="page">
+    <div class="page-tag" data-en>Module 7 · Page 3 of 3</div>
+    <div class="page-tag" data-ta>பாடம் 7 · பக்கம் 3/3</div>
+    <h2 class="page-title" data-en>Your Action Plan for Improvement</h2>
+    <h2 class="page-title" data-ta>மேம்பாட்டிற்கான உங்கள் செயல் திட்டம்</h2>
+    <table class="plan-table">
+      <thead><tr id="planHeadRow"></tr></thead>
+      <tbody id="planBody"></tbody>
+    </table>
+    <div class="reflection-box">
+      <h4 data-en>This Week's Commitment</h4>
+      <h4 data-ta>இந்த வாரத்தின் உறுதிப்பாடு</h4>
+      <p data-en>Write the ONE action from this plan you will commit to starting this week.</p>
+      <p data-ta>இந்த திட்டத்திலிருந்து இந்த வாரம் நீங்கள் தொடங்க உறுதியளிக்கும் ஒரு செயலை எழுதுங்கள்.</p>
+      <textarea class="wsline" style="margin-top:10px;color:var(--ink);"></textarea>
+    </div>
+    <div class="navrow no-print" style="margin-top:22px;">
+      <a href="module-6.html" class="btn btn-outline" data-en>← Previous Module</a>
+      <a href="module-6.html" class="btn btn-outline" data-ta>← முந்தைய பாடம்</a>
+      <a href="course.html" class="btn btn-outline" data-en>Course Home</a>
+      <a href="course.html" class="btn btn-outline" data-ta>பயிற்சி முகப்பு</a>
+      <a href="module-8.html" class="btn btn-gold" data-en>Next Module →</a>
+      <a href="module-8.html" class="btn btn-gold" data-ta>அடுத்த பாடம் →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>N T Somasundaram — Certified Master Trainer | Life Skills Educator | +91 98437 02244</div>
+  <div class="motto">God is always with u</div>
+</footer>
+
+<script>
+const M = {"num": 7, "title_en": "EQ in Classroom Discipline & Conflict Resolution", "title_ta": "வகுப்பறை ஒழுக்கம் & மோதல் தீர்வில் EQ", "subtopics": [{"t_en": "Addressing Behaviour, Not Character", "t_ta": "குணாதிசயத்தை அல்ல, நடத்தையை நிவர்த்தி செய்தல்", "example_en": "Instead of saying 'you're always disruptive,' a teacher says 'when you talk while I'm explaining, the class loses the instructions' — focusing on the specific action and its effect rather than judging the student's character.", "example_ta": "'நீங்கள் எப்போதும் குழப்பமானவர்' என்று சொல்வதற்குப் பதிலாக, ஒரு ஆசிரியர் சொல்கிறார் 'நான் விளக்கும்போது நீங்கள் பேசும்போது, வகுப்பு அறிவுறுத்தல்களை இழக்கிறது' — மாணவரின் குணாதிசயத்தை தீர்ப்பளிப்பதை விட குறிப்பிட்ட செயலிலும் அதன் விளைவிலும் கவனம் செலுத்துகிறது."}, {"t_en": "Moving Conflict to a Private Moment", "t_ta": "மோதலை ஒரு தனிப்பட்ட தருணத்திற்கு நகர்த்துதல்", "example_en": "Two students start arguing loudly mid-class. Rather than reprimanding both publicly, the teacher calmly separates them, continues the lesson, and resolves the conflict privately at the next break.", "example_ta": "இரண்டு மாணவர்கள் வகுப்பின் நடுவில் சத்தமாக வாக்குவாதம் செய்யத் தொடங்குகிறார்கள். இருவரையும் பகிரங்கமாக கண்டிப்பதற்குப் பதிலாக, ஆசிரியர் அமைதியாக அவர்களை பிரித்து, பாடத்தை தொடர்ந்து, அடுத்த இடைவேளையில் தனிப்பட்ட முறையில் மோதலைத் தீர்க்கிறார்."}, {"t_en": "Predictable Consequences Reduce Conflict", "t_ta": "கணிக்கக்கூடிய விளைவுகள் மோதலைக் குறைக்கின்றன", "example_en": "A teacher who applies the same clear consequence structure every time, rather than varying it by mood, finds that students challenge her decisions far less often — predictability itself reduces conflict.", "example_ta": "மனநிலையால் மாறுவதற்குப் பதிலாக ஒவ்வொரு முறையும் அதே தெளிவான விளைவு அமைப்பைப் பயன்படுத்தும் ஒரு ஆசிரியர், மாணவர்கள் அவரது முடிவுகளை மிகக் குறைவாக சவால் செய்வதைக் காண்கிறார்."}], "suggestions": [{"en": "Before correcting a student, silently rephrase your response to describe the action, not the person.", "ta": "ஒரு மாணவரை திருத்துவதற்கு முன், நபரை அல்ல, செயலை விவரிக்க உங்கள் பதிலை அமைதியாக மறுசொல்லுங்கள்."}, {"en": "Whenever possible, move a correction from a public moment to a private one, even if briefly.", "ta": "இயன்றவரை, குறுகிய காலமாக இருந்தாலும், ஒரு திருத்தத்தை பொது தருணத்திலிருந்து தனிப்பட்ட தருணத்திற்கு நகர்த்துங்கள்."}, {"en": "Use a consistent, predictable consequence structure rather than deciding case-by-case based on mood.", "ta": "மனநிலையின் அடிப்படையில் வழக்கு வாரியாக முடிவெடுப்பதற்குப் பதிலாக சீரான, கணிக்கக்கூடிய விளைவு அமைப்பைப் பயன்படுத்துங்கள்."}, {"en": "When two students conflict, separate them calmly first and resolve the underlying issue later.", "ta": "இரண்டு மாணவர்கள் மோதும்போது, முதலில் அவர்களை அமைதியாக பிரித்து பின்னர் அடிப்படை பிரச்சனையைத் தீர்க்கவும்."}, {"en": "After resolving a conflict, briefly note what worked so you can repeat it next time.", "ta": "ஒரு மோதலைத் தீர்த்த பிறகு, என்ன வேலை செய்தது என்பதை சுருக்கமாக குறிப்பிடுங்கள்."}], "worksheet": [{"en": "Think of a recent classroom conflict. Was it addressed privately or publicly?", "ta": "சமீபத்திய வகுப்பறை மோதலை நினைத்துப் பாருங்கள். அது தனிப்பட்ட முறையில் நிவர்த்தி செய்யப்பட்டதா அல்லது பகிரங்கமாகவா?"}, {"en": "How might that choice (private vs public) have affected the outcome?", "ta": "அந்த தேர்வு (தனிப்பட்ட vs பொது) விளைவை எவ்வாறு பாதித்திருக்கக்கூடும்?"}, {"en": "Rewrite a recent character-judgment statement ('you're always...') as a behaviour-focused one.", "ta": "ஒரு சமீபத்திய குணாதிசய-தீர்ப்பு அறிக்கையை ('நீங்கள் எப்போதும்...') நடத்தை-கவனம் செலுத்தும் ஒன்றாக மீண்டும் எழுதுங்கள்."}, {"en": "Is your consequence structure for common issues consistent, or does it change with your mood? Give an example.", "ta": "பொதுவான பிரச்சனைகளுக்கான உங்கள் விளைவு அமைப்பு சீரானதா, அல்லது உங்கள் மனநிலையுடன் மாறுகிறதா? ஒரு உதாரணம் கொடுங்கள்."}, {"en": "What is one predictable, fair consequence you could apply consistently going forward?", "ta": "இனிமேல் நீங்கள் சீராக பயன்படுத்தக்கூடிய ஒரு கணிக்கக்கூடிய, நியாயமான விளைவு என்ன?"}], "action_plan": [{"area_en": "Behaviour-focused language", "area_ta": "நடத்தை-கவனம் செலுத்தும் மொழி", "action_en": "Rephrase corrections to describe action + effect, not character", "action_ta": "குணாதிசயத்தை அல்ல, செயல் + விளைவை விவரிக்க திருத்தங்களை மறுசொல்லுங்கள்", "timeline_en": "Ongoing, starting this week", "timeline_ta": "தொடர்ந்து, இந்த வாரம் தொடங்கி"}, {"area_en": "Private correction habit", "area_ta": "தனிப்பட்ட திருத்த பழக்கம்", "action_en": "Move at least one public correction to a private moment this week", "action_ta": "இந்த வாரம் குறைந்தது ஒரு பொது திருத்தத்தை தனிப்பட்ட தருணத்திற்கு நகர்த்துங்கள்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Consistent consequence structure", "area_ta": "சீரான விளைவு அமைப்பு", "action_en": "Define and write down a clear consequence for one common issue", "action_ta": "ஒரு பொதுவான பிரச்சனைக்கு ஒரு தெளிவான விளைவை வரையறுத்து எழுதுங்கள்", "timeline_en": "Within 1 week", "timeline_ta": "1 வாரத்திற்குள்"}]};
+let lang = localStorage.getItem('eqt_lang') || 'en';
+
+function setLang(l){
+  lang = l;
+  localStorage.setItem('eqt_lang', l);
+  document.body.className = l==='ta' ? 'ta' : '';
+  document.querySelectorAll('.lang-toggle button').forEach((b,i)=>b.classList.toggle('active',(l==='en'&&i===0)||(l==='ta'&&i===1)));
+  render();
+}
+
+function render(){
+  document.getElementById('planHeadRow').innerHTML = lang==='en'
+    ? '<th>Focus Area</th><th>Action Step</th><th>Timeline</th>'
+    : '<th>கவனப் பகுதி</th><th>செயல் படி</th><th>காலக்கெடு</th>';
+
+  document.getElementById('subtopics').innerHTML = M.subtopics.map(s=>{
+    const hasExplain = !!s.ex_en;
+    const explainHtml = hasExplain ? `<p>${lang==='en'?s.ex_en:s.ta_en}</p>` : '';
+    return `
+    <div class="subtopic">
+      <h3>${lang==='en'?s.t_en:s.t_ta}</h3>
+      ${explainHtml}
+      <div class="example-box"><span class="lbl">${lang==='en'?'Real-Life Example':'நிஜ வாழ்க்கை உதாரணம்'}</span>${lang==='en'?s.example_en:s.example_ta}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('suggList').innerHTML = M.suggestions.map(s=>`
+    <li><span class="chk">✓</span><span>${lang==='en'?s.en:s.ta}</span></li>
+  `).join('');
+
+  document.getElementById('worksheet').innerHTML = M.worksheet.map((w,i)=>`
+    <div class="worksheet-item">
+      <div class="q"><span class="qnum">Q${i+1}.</span>${lang==='en'?w.en:w.ta}</div>
+      <textarea class="wsline" placeholder="${lang==='en'?'Write your response...':'உங்கள் பதிலை எழுதுங்கள்...'}"></textarea>
+    </div>
+  `).join('');
+
+  document.getElementById('planBody').innerHTML = M.action_plan.map(p=>`
+    <tr>
+      <td>${lang==='en'?p.area_en:p.area_ta}</td>
+      <td>${lang==='en'?p.action_en:p.action_ta}</td>
+      <td>${lang==='en'?p.timeline_en:p.timeline_ta}</td>
+    </tr>
+  `).join('');
+}
+
+document.body.className = lang==='ta' ? 'ta' : '';
+if(lang==='ta'){
+  document.querySelectorAll('.lang-toggle button')[1]?.classList.add('active');
+  document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
+}
+render();
+</script>
+
+</body>
+</html>

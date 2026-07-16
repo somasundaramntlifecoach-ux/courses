@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Skills & Positive Communication with Colleagues/Parents | Module 8 Guide | N T Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2044; --navy2:#16305e; --gold:#c8a250; --gold-light:#e8d5a3;
+  --cream:#fbf8f2; --ink:#1c2333; --muted:#5a6478; --line:#e4e2da; --card:#fff;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--cream);color:var(--ink);font-family:'Poppins',sans-serif;line-height:1.65;}
+body.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+[data-ta]{display:none;}
+body.ta [data-en]{display:none;}
+body.ta [data-ta]{display:inline;}
+a{color:inherit;}
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.brand{font-weight:700;font-size:13.5px;display:flex;align-items:center;gap:8px;}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
+.topbar .right{display:flex;align-items:center;gap:12px;}
+.backlink{font-size:12.5px;color:var(--gold-light);}
+.lang-toggle{display:flex;background:rgba(255,255,255,.12);border-radius:20px;padding:3px;}
+.lang-toggle button{border:none;background:transparent;color:#fff;padding:5px 12px;border-radius:16px;font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;}
+.lang-toggle button.active{background:var(--gold);color:var(--navy);}
+
+.wrap{max-width:800px;margin:0 auto;padding:26px 18px 50px;}
+.page{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;margin-bottom:22px;}
+.page-tag{font-size:12px;color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+h1.mod-title{font-size:23px;color:var(--navy);margin-bottom:18px;}
+h2.page-title{font-size:19px;color:var(--navy);margin-bottom:16px;}
+
+.subtopic{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--line);}
+.subtopic:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.subtopic h3{font-size:16px;color:var(--navy);margin-bottom:8px;}
+.subtopic p{font-size:14.5px;color:var(--ink);margin-bottom:10px;}
+.example-box{background:#f6f2e8;border-left:3px solid var(--gold);padding:12px 15px;border-radius:8px;font-size:13.8px;color:var(--ink);}
+.example-box .lbl{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--gold);font-weight:800;display:block;margin-bottom:4px;}
+
+.sugg-list{list-style:none;}
+.sugg-list li{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;}
+.sugg-list li:last-child{border-bottom:none;}
+.sugg-list .chk{color:var(--gold);font-weight:800;flex-shrink:0;}
+
+.worksheet-item{margin-bottom:18px;}
+.worksheet-item .q{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.worksheet-item .qnum{color:var(--gold);font-weight:800;margin-right:6px;}
+textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px;font-family:inherit;font-size:13.5px;min-height:56px;background:var(--cream);}
+
+.plan-table{width:100%;border-collapse:collapse;margin-top:6px;}
+.plan-table th{background:var(--navy);color:#fff;font-size:12px;text-align:left;padding:10px 12px;text-transform:uppercase;letter-spacing:.03em;}
+.plan-table td{padding:11px 12px;font-size:13.3px;border-bottom:1px solid var(--line);vertical-align:top;}
+.plan-table tr:nth-child(even) td{background:var(--cream);}
+
+.reflection-box{background:var(--navy);color:#fff;border-radius:10px;padding:16px 18px;margin-top:18px;font-size:14px;}
+.reflection-box h4{color:var(--gold-light);margin-bottom:8px;font-size:13px;text-transform:uppercase;letter-spacing:.04em;}
+
+.navrow{display:flex;justify-content:space-between;gap:10px;margin-top:6px;}
+.btn{padding:11px 20px;border-radius:10px;font-weight:700;font-size:13.5px;border:none;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-block;}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--line);}
+
+@media print{
+  .no-print{display:none !important;}
+  body{background:#fff;}
+  .page{box-shadow:none;page-break-after:always;border:none;}
+}
+footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
+footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="topbar no-print">
+  <div class="brand"><span class="dot"></span> <span data-en>Module 8 Full Guide</span><span data-ta>பாடம் 8 முழு வழிகாட்டி</span></div>
+  <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
+    <a href="course.html" class="backlink" data-en>← Back to Course</a>
+    <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('ta')">தமிழ்</button>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="mainWrap">
+
+  <!-- PAGE 1: Understanding & Subtopics -->
+  <div class="page">
+    <div class="page-tag" data-en>Module 8 · Page 1 of 3</div>
+    <div class="page-tag" data-ta>பாடம் 8 · பக்கம் 1/3</div>
+    <h1 class="mod-title" data-en>Social Skills & Positive Communication with Colleagues/Parents</h1>
+    <h1 class="mod-title" data-ta>சக ஊழியர்கள்/பெற்றோருடன் சமூக திறன்கள் & நேர்மறை தொடர்பு</h1>
+    <h2 class="page-title" data-en>Detailed Explanation</h2>
+    <h2 class="page-title" data-ta>விரிவான விளக்கம்</h2>
+    <div id="subtopics"></div>
+  </div>
+
+  <!-- PAGE 2: Suggestions & Worksheet -->
+  <div class="page">
+    <div class="page-tag" data-en>Module 8 · Page 2 of 3</div>
+    <div class="page-tag" data-ta>பாடம் 8 · பக்கம் 2/3</div>
+    <h2 class="page-title" data-en>Practical Suggestions</h2>
+    <h2 class="page-title" data-ta>நடைமுறை பரிந்துரைகள்</h2>
+    <ul class="sugg-list" id="suggList"></ul>
+
+    <h2 class="page-title" style="margin-top:26px;" data-en>Reflection Worksheet</h2>
+    <h2 class="page-title" style="margin-top:26px;" data-ta>சிந்தனை பணித்தாள்</h2>
+    <div id="worksheet"></div>
+  </div>
+
+  <!-- PAGE 3: Action Plan -->
+  <div class="page">
+    <div class="page-tag" data-en>Module 8 · Page 3 of 3</div>
+    <div class="page-tag" data-ta>பாடம் 8 · பக்கம் 3/3</div>
+    <h2 class="page-title" data-en>Your Action Plan for Improvement</h2>
+    <h2 class="page-title" data-ta>மேம்பாட்டிற்கான உங்கள் செயல் திட்டம்</h2>
+    <table class="plan-table">
+      <thead><tr id="planHeadRow"></tr></thead>
+      <tbody id="planBody"></tbody>
+    </table>
+    <div class="reflection-box">
+      <h4 data-en>This Week's Commitment</h4>
+      <h4 data-ta>இந்த வாரத்தின் உறுதிப்பாடு</h4>
+      <p data-en>Write the ONE action from this plan you will commit to starting this week.</p>
+      <p data-ta>இந்த திட்டத்திலிருந்து இந்த வாரம் நீங்கள் தொடங்க உறுதியளிக்கும் ஒரு செயலை எழுதுங்கள்.</p>
+      <textarea class="wsline" style="margin-top:10px;color:var(--ink);"></textarea>
+    </div>
+    <div class="navrow no-print" style="margin-top:22px;">
+      <a href="module-7.html" class="btn btn-outline" data-en>← Previous Module</a>
+      <a href="module-7.html" class="btn btn-outline" data-ta>← முந்தைய பாடம்</a>
+      <a href="course.html" class="btn btn-outline" data-en>Course Home</a>
+      <a href="course.html" class="btn btn-outline" data-ta>பயிற்சி முகப்பு</a>
+      <a href="module-9.html" class="btn btn-gold" data-en>Next Module →</a>
+      <a href="module-9.html" class="btn btn-gold" data-ta>அடுத்த பாடம் →</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>N T Somasundaram — Certified Master Trainer | Life Skills Educator | +91 98437 02244</div>
+  <div class="motto">God is always with u</div>
+</footer>
+
+<script>
+const M = {"num": 8, "title_en": "Social Skills & Positive Communication with Colleagues/Parents", "title_ta": "சக ஊழியர்கள்/பெற்றோருடன் சமூக திறன்கள் & நேர்மறை தொடர்பு", "subtopics": [{"t_en": "Opening with Acknowledgment", "t_ta": "ஒப்புக்கொள்ளுதலுடன் தொடங்குதல்", "example_en": "A parent emails angrily about their child's low grade. Instead of responding defensively, the teacher opens by acknowledging the parent's concern for their child before explaining the assessment.", "example_ta": "ஒரு பெற்றோர் தங்கள் குழந்தையின் குறைந்த மதிப்பெண் பற்றி கோபமாக மின்னஞ்சல் அனுப்புகிறார். தற்காப்பாக பதிலளிப்பதற்குப் பதிலாக, ஆசிரியர் மதிப்பீட்டை விளக்குவதற்கு முன் தங்கள் குழந்தை மீதான பெற்றோரின் கவலையை ஒப்புக்கொள்வதன் மூலம் தொடங்குகிறார்."}, {"t_en": "Listening Before Opining with Colleagues", "t_ta": "சக ஊழியர்களுடன் கருத்து சொல்வதற்கு முன் கேட்டல்", "example_en": "When a colleague proposes a different classroom management approach, the teacher asks a clarifying question first instead of immediately explaining why her own method is better.", "example_ta": "ஒரு சக ஊழியர் வேறு வகுப்பறை மேலாண்மை அணுகுமுறையை முன்மொழியும்போது, ஆசிரியர் தனது சொந்த முறை சிறந்தது என்பதை உடனடியாக விளக்குவதற்குப் பதிலாக முதலில் ஒரு தெளிவுபடுத்தும் கேள்வியைக் கேட்கிறார்."}, {"t_en": "The 30-Minute Rule for Angry Messages", "t_ta": "கோபமான செய்திகளுக்கான 30-நிமிட விதி", "example_en": "After receiving a harsh email, a teacher drafts a reply immediately but waits 30 minutes before sending it — rereading it calmer, she softens two lines that would have escalated the situation.", "example_ta": "ஒரு கடுமையான மின்னஞ்சலைப் பெற்ற பிறகு, ஒரு ஆசிரியர் உடனடியாக ஒரு பதிலை வரைவு செய்கிறார் ஆனால் அதை அனுப்புவதற்கு முன் 30 நிமிடங்கள் காத்திருக்கிறார்."}], "suggestions": [{"en": "In tense parent conversations, open by acknowledging their concern before explaining your side.", "ta": "பதற்றமான பெற்றோர் உரையாடல்களில், உங்கள் பக்கத்தை விளக்குவதற்கு முன் அவர்களின் கவலையை ஒப்புக்கொள்வதன் மூலம் தொடங்குங்கள்."}, {"en": "With colleagues, ask a clarifying question before offering your own opinion, especially on sensitive topics.", "ta": "சக ஊழியர்களுடன், குறிப்பாக உணர்திறன் தலைப்புகளில், உங்கள் சொந்த கருத்தை வழங்குவதற்கு முன் ஒரு தெளிவுபடுத்தும் கேள்வியைக் கேளுங்கள்."}, {"en": "Never reply to an angry email in the heat of the moment — draft it, then reread after 30 minutes.", "ta": "தருணத்தின் வெப்பத்தில் ஒரு கோபமான மின்னஞ்சலுக்கு ஒருபோதும் பதிலளிக்காதீர்கள் — அதை வரைவு செய்து, 30 நிமிடங்களுக்குப் பிறகு மீண்டும் படியுங்கள்."}, {"en": "When asking a colleague for help, frame it as collaboration, not admission of failure.", "ta": "ஒரு சக ஊழியரிடம் உதவி கேட்கும்போது, தோல்வியை ஒப்புக்கொள்வதாக அல்ல, ஒத்துழைப்பாக அதை வடிவமைக்கவும்."}, {"en": "Offer a short call instead of a long email chain when a topic feels emotionally loaded.", "ta": "ஒரு தலைப்பு உணர்ச்சி ரீதியாக ஏற்றப்பட்டதாக உணரும்போது நீண்ட மின்னஞ்சல் சங்கிலிக்குப் பதிலாக ஒரு குறுகிய அழைப்பை வழங்குங்கள்."}], "worksheet": [{"en": "Think of a recent difficult conversation with a parent or colleague. How could opening with empathy have changed the tone?", "ta": "ஒரு பெற்றோர் அல்லது சக ஊழியருடன் சமீபத்திய கடினமான உரையாடலை நினைத்துப் பாருங்கள். பச்சாதாபத்துடன் தொடங்குவது தொனியை எவ்வாறு மாற்றியிருக்கும்?"}, {"en": "Write one acknowledgment sentence you could open with in a tense parent email reply.", "ta": "ஒரு பதற்றமான பெற்றோர் மின்னஞ்சல் பதிலில் நீங்கள் தொடங்கக்கூடிய ஒரு ஒப்புக்கொள்ளும் வாக்கியத்தை எழுதுங்கள்."}, {"en": "Recall a time you replied too quickly to an upsetting message. What would waiting 30 minutes have changed?", "ta": "ஒரு வருத்தமூட்டும் செய்திக்கு நீங்கள் மிக விரைவாக பதிலளித்த ஒரு நேரத்தை நினைவுகூருங்கள். 30 நிமிடங்கள் காத்திருப்பது என்ன மாற்றியிருக்கும்?"}, {"en": "Name one colleague you could ask for help from this week, and what you'd ask.", "ta": "இந்த வாரம் நீங்கள் உதவி கேட்கக்கூடிய ஒரு சக ஊழியரையும் நீங்கள் என்ன கேட்பீர்கள் என்பதையும் பெயரிடுங்கள்."}, {"en": "Is there a current email thread you should move to a phone call instead? Why?", "ta": "நீங்கள் பதிலாக ஒரு தொலைபேசி அழைப்புக்கு நகர்த்த வேண்டிய தற்போதைய மின்னஞ்சல் தொடர் ஏதேனும் உள்ளதா? ஏன்?"}], "action_plan": [{"area_en": "Acknowledgment-first replies", "area_ta": "ஒப்புக்கொள்ளுதல்-முதல் பதில்கள்", "action_en": "Open next tense parent reply with an acknowledgment sentence", "action_ta": "அடுத்த பதற்றமான பெற்றோர் பதிலை ஒப்புக்கொள்ளும் வாக்கியத்துடன் தொடங்குங்கள்", "timeline_en": "Next time it arises", "timeline_ta": "அடுத்த முறை எழும்போது"}, {"area_en": "30-minute rule", "area_ta": "30-நிமிட விதி", "action_en": "Wait 30 minutes before sending any reply drafted in anger", "action_ta": "கோபத்தில் வரைவு செய்யப்பட்ட எந்த பதிலையும் அனுப்புவதற்கு முன் 30 நிமிடங்கள் காத்திருங்கள்", "timeline_en": "Ongoing", "timeline_ta": "தொடர்ந்து"}, {"area_en": "Asking for help", "area_ta": "உதவி கேட்டல்", "action_en": "Ask one colleague for input on a challenge this month", "action_ta": "இந்த மாதம் ஒரு சவால் குறித்து ஒரு சக ஊழியரிடம் கருத்து கேளுங்கள்", "timeline_en": "This month", "timeline_ta": "இந்த மாதம்"}]};
+let lang = localStorage.getItem('eqt_lang') || 'en';
+
+function setLang(l){
+  lang = l;
+  localStorage.setItem('eqt_lang', l);
+  document.body.className = l==='ta' ? 'ta' : '';
+  document.querySelectorAll('.lang-toggle button').forEach((b,i)=>b.classList.toggle('active',(l==='en'&&i===0)||(l==='ta'&&i===1)));
+  render();
+}
+
+function render(){
+  document.getElementById('planHeadRow').innerHTML = lang==='en'
+    ? '<th>Focus Area</th><th>Action Step</th><th>Timeline</th>'
+    : '<th>கவனப் பகுதி</th><th>செயல் படி</th><th>காலக்கெடு</th>';
+
+  document.getElementById('subtopics').innerHTML = M.subtopics.map(s=>{
+    const hasExplain = !!s.ex_en;
+    const explainHtml = hasExplain ? `<p>${lang==='en'?s.ex_en:s.ta_en}</p>` : '';
+    return `
+    <div class="subtopic">
+      <h3>${lang==='en'?s.t_en:s.t_ta}</h3>
+      ${explainHtml}
+      <div class="example-box"><span class="lbl">${lang==='en'?'Real-Life Example':'நிஜ வாழ்க்கை உதாரணம்'}</span>${lang==='en'?s.example_en:s.example_ta}</div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('suggList').innerHTML = M.suggestions.map(s=>`
+    <li><span class="chk">✓</span><span>${lang==='en'?s.en:s.ta}</span></li>
+  `).join('');
+
+  document.getElementById('worksheet').innerHTML = M.worksheet.map((w,i)=>`
+    <div class="worksheet-item">
+      <div class="q"><span class="qnum">Q${i+1}.</span>${lang==='en'?w.en:w.ta}</div>
+      <textarea class="wsline" placeholder="${lang==='en'?'Write your response...':'உங்கள் பதிலை எழுதுங்கள்...'}"></textarea>
+    </div>
+  `).join('');
+
+  document.getElementById('planBody').innerHTML = M.action_plan.map(p=>`
+    <tr>
+      <td>${lang==='en'?p.area_en:p.area_ta}</td>
+      <td>${lang==='en'?p.action_en:p.action_ta}</td>
+      <td>${lang==='en'?p.timeline_en:p.timeline_ta}</td>
+    </tr>
+  `).join('');
+}
+
+document.body.className = lang==='ta' ? 'ta' : '';
+if(lang==='ta'){
+  document.querySelectorAll('.lang-toggle button')[1]?.classList.add('active');
+  document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
+}
+render();
+</script>
+
+</body>
+</html>
