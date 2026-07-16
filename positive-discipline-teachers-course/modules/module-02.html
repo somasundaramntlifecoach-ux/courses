@@ -63,32 +63,14 @@
     nav.crumbs, .nav-buttons, .cta, .lang-toggle{display:none !important;}
     body{background:#fff;}
   }
-
-  #passcodeGate{position:fixed; inset:0; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); z-index:9999; display:flex; align-items:center; justify-content:center; padding:20px;}
-  .gate-card{background:#fff; border-radius:16px; padding:32px 28px; max-width:360px; width:100%; text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.25);}
-  .gate-card h2{color:var(--primary-dark); font-size:1.2rem; margin-bottom:8px;}
-  .gate-card p{color:var(--muted); font-size:.88rem; margin-bottom:18px;}
-  .gate-card input{width:100%; padding:12px 14px; border:1px solid var(--border); border-radius:10px; font-size:1rem; text-align:center; letter-spacing:2px; margin-bottom:12px; font-family:inherit;}
-  .gate-card button{width:100%; background:var(--primary); color:#fff; border:none; padding:12px; border-radius:10px; font-weight:600; font-size:.95rem; cursor:pointer; font-family:inherit;}
-  .gate-card button:hover{background:var(--primary-dark);}
-  .gate-error{color:#d64545; font-size:.85rem; margin-top:8px; min-height:1.2em;}
-  .gate-hint{margin-top:16px; font-size:.78rem; color:var(--muted);}
-  body.locked > *:not(#passcodeGate){display:none !important;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="../firebase-config.js"></script>
+<script src="../auth-guard.js"></script>
 </head>
 <body>
-<div id="passcodeGate">
-  <div class="gate-card">
-    <h2><span data-en>Enter Course Passcode</span><span data-ta>பாட கடவுச்சொல்லை உள்ளிடவும்</span></h2>
-    <p><span data-en>This module is for enrolled teachers only.</span><span data-ta>இந்த பாடம் பதிவு செய்த ஆசிரியர்களுக்கு மட்டுமே.</span></p>
-    <input type="text" id="gateInput" placeholder="Passcode" autocomplete="off" onkeydown="if(event.key==='Enter') checkPasscode()">
-    <button onclick="checkPasscode()"><span data-en>Unlock Module</span><span data-ta>பாடத்தை திறக்கவும்</span></button>
-    <div class="gate-error" id="gateError"></div>
-    <div class="gate-hint"><span data-en>Don't have the passcode? Message us on WhatsApp.</span><span data-ta>கடவுச்சொல் இல்லையா? வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.</span></div>
-  </div>
-</div>
-
-
 <header>
   <div class="lang-toggle">
     <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
@@ -98,7 +80,7 @@
   <h1><span data-en>Kind and Firm at the Same Time</span><span data-ta>கருணையும் உறுதியும் ஒரே நேரத்தில்</span></h1>
   <p><span data-en>This module tackles the single most common misunderstanding about Positive Discipline: that it means being nice, soft, or permissive. It doesn't. The heart of the method is holding warmth and structure together, at the same time, in the same interaction — not warmth today and firmness tomorrow, but both in every moment.</span><span data-ta>நேர்மறை ஒழுக்கம் பற்றிய மிகவும் பொதுவான தவறான புரிதலை இந்த பாடம் கையாள்கிறது: அது இனிமையாக, மென்மையாக, அல்லது அனுமதியுடன் இருப்பதைக் குறிக்கும் என்பது. அப்படி இல்லை. முறையின் மையம் அன்பையும் கட்டமைப்பையும் ஒரே நேரத்தில், ஒரே தொடர்பில் சேர்த்து வைத்திருப்பதாகும் — இன்று அன்பு, நாளை உறுதி அல்ல, ஆனால் ஒவ்வொரு தருணத்திலும் இரண்டும்.</span></p>
 </header>
-<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 2</span><span data-ta>பாடம் 2</span></nav>
+<nav class="crumbs"><a href="../positive-discipline-teachers-course-outline.html"><span data-en>Course Home</span><span data-ta>பாட முகப்பு</span></a> &nbsp;/&nbsp; <span data-en>Module 2</span><span data-ta>பாடம் 2</span> &nbsp;/&nbsp; <a href="#" onclick="logout(); return false;"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a></nav>
 <div class="container">
   <div class="card">
     
@@ -167,35 +149,6 @@
 
 <script>
 
-const COURSE_PASSCODE = "PDTEACH2026"; // same passcode as the course home page
-const GATE_KEY = "pd_teachers_unlocked";
-
-function checkPasscode(){
-  const input = document.getElementById('gateInput').value.trim();
-  if(input.toUpperCase() === COURSE_PASSCODE.toUpperCase()){
-    try{ localStorage.setItem(GATE_KEY, "1"); }catch(e){}
-    unlockCourse();
-  } else {
-    document.getElementById('gateError').textContent = document.body.classList.contains('ta')
-      ? 'தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.'
-      : 'Incorrect passcode. Please try again.';
-  }
-}
-
-function unlockCourse(){
-  document.body.classList.remove('locked');
-  document.getElementById('passcodeGate').style.display = 'none';
-}
-
-(function initGate(){
-  let unlocked = false;
-  try{ unlocked = localStorage.getItem(GATE_KEY) === "1"; }catch(e){}
-  if(unlocked){
-    unlockCourse();
-  } else {
-    document.body.classList.add('locked');
-  }
-})();
 
 function setLang(lang){
   document.body.classList.toggle('ta', lang==='ta');
