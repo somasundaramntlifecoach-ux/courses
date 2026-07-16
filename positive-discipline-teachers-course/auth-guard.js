@@ -17,35 +17,28 @@ const NOT_ENROLLED_PATH = PATH_PREFIX + "not-enrolled.html";
 
   auth.onAuthStateChanged(async function (user) {
     if (!user) {
-      console.log("[auth-guard] No user logged in, redirecting to login.");
+      // Not logged in at all
       window.location.href = LOGIN_PATH;
       return;
     }
 
-    console.log("[auth-guard] Logged in as UID:", user.uid, "email:", user.email);
-
     try {
       const doc = await db.collection("students").doc(user.uid).get();
-      console.log("[auth-guard] Document exists?", doc.exists);
       const data = doc.exists ? doc.data() : null;
-      console.log("[auth-guard] Document data:", data);
       const enrolledCourses = (data && data.courses) || [];
-      console.log("[auth-guard] enrolledCourses:", enrolledCourses, "| looking for:", COURSE_ID);
 
       if (enrolledCourses.includes(COURSE_ID)) {
-        console.log("[auth-guard] Access GRANTED.");
         // Access granted
         document.documentElement.style.visibility = "visible";
         // Optional: show learner's name if you have a #learnerName element
         const nameEl = document.getElementById("learnerName");
         if (nameEl && data && data.name) nameEl.textContent = data.name;
       } else {
-        console.log("[auth-guard] Access DENIED — course ID not found in array.");
         // Logged in, but not enrolled in THIS course
         window.location.href = NOT_ENROLLED_PATH;
       }
     } catch (err) {
-      console.error("[auth-guard] Access check failed with error:", err);
+      console.error("Access check failed:", err);
       window.location.href = LOGIN_PATH;
     }
   });
