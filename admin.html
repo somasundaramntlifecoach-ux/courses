@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Student Enrollment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#0f2044; --gold:#c8a250; --bg:#f6f4ef; --green:#1ea952; --red:#b3261e; }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); font-family:'Poppins',sans-serif; padding:24px; color:#1a1a1a; }
+  .wrap{ max-width:760px; margin:0 auto; }
+  h1{ color:var(--navy); font-size:22px; margin-bottom:4px; }
+  .sub{ color:#777; font-size:13px; margin-bottom:24px; }
+  .card{ background:#fff; border-radius:14px; padding:24px; margin-bottom:20px; box-shadow:0 4px 20px rgba(15,32,68,0.08); }
+  .card h2{ font-size:16px; color:var(--navy); margin:0 0 14px; }
+  input[type=email], input[type=password], input[type=text]{
+    width:100%; padding:11px 13px; margin-bottom:12px; border-radius:8px; border:1px solid #ddd; font-size:14px; font-family:inherit;
+  }
+  button{
+    background:var(--navy); color:#fff; border:none; padding:11px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer;
+  }
+  button:hover{ background:#183465; }
+  button.secondary{ background:#fff; color:var(--navy); border:1px solid var(--navy); }
+  .courses-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; margin-bottom:16px; }
+  @media (max-width:520px){ .courses-grid{ grid-template-columns:1fr; } }
+  .course-item{ display:flex; align-items:center; gap:8px; font-size:13.5px; }
+  .course-item input{ width:auto; margin:0; }
+  .msg{ font-size:13.5px; margin-top:10px; padding:10px 12px; border-radius:8px; display:none; }
+  .msg.ok{ background:#e6f6ec; color:var(--green); display:block; }
+  .msg.err{ background:#fbeaea; color:var(--red); display:block; }
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  th, td{ text-align:left; padding:9px 6px; border-bottom:1px solid #eee; vertical-align:top; }
+  th{ color:#888; font-weight:600; font-size:12px; text-transform:uppercase; }
+  .tag{ display:inline-block; background:#eef1f7; color:var(--navy); padding:2px 8px; border-radius:10px; font-size:11.5px; margin:2px 3px 2px 0; }
+  .locked{ display:none; }
+  #loginCard.locked{ display:block; }
+  #mainArea.locked{ display:none; }
+  #loginCard:not(.locked){ }
+  #mainArea:not(.locked){ display:block; }
+  #mainArea.locked{ display:none; }
+  small.hint{ color:#999; font-size:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Student Enrollment Admin</h1>
+  <div class="sub">Not linked from your public site — bookmark this page for your own use.</div>
+
+  <!-- LOGIN -->
+  <div class="card" id="loginCard">
+    <h2>Admin Login</h2>
+    <input type="email" id="adminEmail" placeholder="Your email">
+    <input type="password" id="adminPassword" placeholder="Your password">
+    <button onclick="adminLogin()">Log In</button>
+    <div class="msg" id="loginMsg"></div>
+  </div>
+
+  <!-- MAIN AREA (hidden until logged in) -->
+  <div id="mainArea" style="display:none;">
+
+    <div class="card">
+      <h2>Add New Student</h2>
+      <input type="text" id="newName" placeholder="Student name">
+      <input type="email" id="newEmail" placeholder="Student email">
+      <input type="text" id="newPassword" placeholder="Temporary password (min 6 characters)">
+      <div class="courses-grid" id="coursesGridNew"></div>
+      <button onclick="createStudent()">Create Student + Enroll</button>
+      <div class="msg" id="createMsg"></div>
+    </div>
+
+    <div class="card">
+      <h2>Existing Students</h2>
+      <div id="studentsTableWrap"><small class="hint">Loading...</small></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+
+<script>
+// ============================================================
+// EDIT THIS LIST as you add new courses. id must exactly match
+// the COURSE_ID used in that course's auth-guard.js
+// ============================================================
+const COURSES = [
+  { id: "positive-discipline-teachers", name: "Positive Discipline for Teachers" },
+  { id: "career-growth", name: "Career Growth & Promotion Readiness" },
+  { id: "life-skills-educators", name: "Life Skills Mastery for Educators" },
+  { id: "eq-teachers", name: "Emotional Intelligence for Teachers" },
+  { id: "classroom-behaviour", name: "Classroom Behaviour Management" },
+  { id: "digital-parenting", name: "Digital Parenting & Screen Time Mastery" },
+  { id: "know-your-ego", name: "Know Your Ego" },
+  { id: "anger-management", name: "Anger Management Mastery" },
+  { id: "communication-adults", name: "Communication Skills for Adults" },
+  { id: "stress-management-parents", name: "Stress Management for Parents" },
+  { id: "critical-thinking-students", name: "Critical Thinking & Problem Solving" },
+  { id: "social-skills-students", name: "Social Skills & Peer Relationships" },
+  { id: "life-skills-students", name: "Life Skills Mastery for Students" }
+];
+
+// ============================================================
+// IMPORTANT: only this UID is allowed to write to Firestore
+// (must match the Firestore rule you published). If you log in
+// with a different account, writes will be rejected.
+// ============================================================
+
+function renderCourseCheckboxes(containerId, prefix){
+  const el = document.getElementById(containerId);
+  el.innerHTML = COURSES.map(c =>
+    `<label class="course-item"><input type="checkbox" value="${c.id}" data-prefix="${prefix}"> ${c.name}</label>`
+  ).join('');
+}
+renderCourseCheckboxes('coursesGridNew', 'new');
+
+function showMsg(id, text, ok){
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = 'msg ' + (ok ? 'ok' : 'err');
+}
+
+function adminLogin(){
+  const email = document.getElementById('adminEmail').value.trim();
+  const password = document.getElementById('adminPassword').value;
+  auth.signInWithEmailAndPassword(email, password)
+    .then(function(cred){
+      document.getElementById('loginCard').style.display = 'none';
+      document.getElementById('mainArea').style.display = 'block';
+      loadStudents();
+    })
+    .catch(function(err){
+      showMsg('loginMsg', 'Login failed: ' + err.message, false);
+    });
+}
+
+function createStudent(){
+  const name = document.getElementById('newName').value.trim();
+  const email = document.getElementById('newEmail').value.trim();
+  const password = document.getElementById('newPassword').value;
+  const checked = Array.from(document.querySelectorAll('#coursesGridNew input:checked')).map(c => c.value);
+
+  if(!name || !email || !password){
+    showMsg('createMsg', 'Please fill in name, email, and password.', false);
+    return;
+  }
+  if(password.length < 6){
+    showMsg('createMsg', 'Password must be at least 6 characters.', false);
+    return;
+  }
+  if(checked.length === 0){
+    showMsg('createMsg', 'Select at least one course.', false);
+    return;
+  }
+
+  // Use a SECOND Firebase app instance to create the account, so it
+  // doesn't sign you (the admin) out in this tab.
+  const secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary_" + Date.now());
+  secondaryApp.auth().createUserWithEmailAndPassword(email, password)
+    .then(function(cred){
+      const uid = cred.user.uid;
+      return db.collection('students').doc(uid).set({
+        name: name,
+        email: email,
+        courses: checked
+      }).then(function(){
+        return secondaryApp.auth().signOut();
+      });
+    })
+    .then(function(){
+      secondaryApp.delete();
+      showMsg('createMsg', `Student "${name}" created and enrolled in ${checked.length} course(s).`, true);
+      document.getElementById('newName').value = '';
+      document.getElementById('newEmail').value = '';
+      document.getElementById('newPassword').value = '';
+      document.querySelectorAll('#coursesGridNew input:checked').forEach(c => c.checked = false);
+      loadStudents();
+    })
+    .catch(function(err){
+      secondaryApp.delete();
+      showMsg('createMsg', 'Error: ' + err.message, false);
+    });
+}
+
+function loadStudents(){
+  const wrap = document.getElementById('studentsTableWrap');
+  db.collection('students').get().then(function(snap){
+    if(snap.empty){
+      wrap.innerHTML = '<small class="hint">No students yet.</small>';
+      return;
+    }
+    let rows = '';
+    snap.forEach(function(doc){
+      const d = doc.data();
+      const courses = d.courses || [];
+      rows += `<tr>
+        <td>${d.name || ''}</td>
+        <td>${d.email || ''}</td>
+        <td>${courses.map(c => `<span class="tag">${c}</span>`).join('')}</td>
+        <td><button class="secondary" onclick="editStudent('${doc.id}')">Edit courses</button></td>
+      </tr>`;
+    });
+    wrap.innerHTML = `<table>
+      <tr><th>Name</th><th>Email</th><th>Courses</th><th></th></tr>
+      ${rows}
+    </table>`;
+  }).catch(function(err){
+    wrap.innerHTML = '<small class="hint">Could not load students: ' + err.message + '</small>';
+  });
+}
+
+function editStudent(uid){
+  db.collection('students').doc(uid).get().then(function(doc){
+    const d = doc.data();
+    const current = d.courses || [];
+    const checklist = COURSES.map(c =>
+      `${current.includes(c.id) ? '[x]' : '[ ]'} ${c.id} — ${c.name}`
+    ).join('\n');
+    const input = prompt(
+      `Editing courses for ${d.name} (${d.email}).\n\nCurrent list below — type the FULL new comma-separated list of course IDs you want this student to have:\n\n${checklist}\n\nCurrent value:`,
+      current.join(',')
+    );
+    if(input === null) return; // cancelled
+    const newCourses = input.split(',').map(s => s.trim()).filter(Boolean);
+    db.collection('students').doc(uid).set({ courses: newCourses }, { merge: true })
+      .then(function(){
+        alert('Updated.');
+        loadStudents();
+      })
+      .catch(function(err){
+        alert('Error: ' + err.message);
+      });
+  });
+}
+
+// Auto-login check: if already signed in (session persisted), skip login screen
+auth.onAuthStateChanged(function(user){
+  if(user){
+    document.getElementById('loginCard').style.display = 'none';
+    document.getElementById('mainArea').style.display = 'block';
+    loadStudents();
+  }
+});
+</script>
+</body>
+</html>
