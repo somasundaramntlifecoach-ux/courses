@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 10 Full Guide</span><span data-ta>பாடம் 10 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 10, "title_en": "Creating an Emotionally Safe Classroom Culture", "title_ta": "உணர்வு ரீதியாக பாதுகாப்பான வகுப்பறை கலாச்சாரத்தை உருவாக்குதல்", "subtopics": [{"t_en": "Responding to Wrong Answers with Curiosity", "t_ta": "தவறான பதில்களுக்கு ஆர்வத்துடன் பதிலளித்தல்", "example_en": "When a student gives a wrong answer, the teacher responds with 'good attempt — let's see what led there' and works through the reasoning together, rather than moving on quickly or showing disappointment.", "example_ta": "ஒரு மாணவர் தவறான பதிலைக் கொடுக்கும்போது, ஆசிரியர் 'நல்ல முயற்சி — அதற்கு என்ன வழிநடத்தியது என்று பார்ப்போம்' என்று பதிலளித்து ஒன்றாக பகுத்தறிவின் மூலம் வேலை செய்கிறார்."}, {"t_en": "Being Visibly Consistent in Tone", "t_ta": "தொனியில் கவனிக்கக்கூடிய அளவில் சீராக இருத்தல்", "example_en": "A teacher keeps the same warm, steady tone whether it's a good day or a stressful one — students track this consistency closely, and it becomes the emotional backbone of the classroom culture.", "example_ta": "ஒரு நல்ல நாளாக இருந்தாலும் அழுத்தமான நாளாக இருந்தாலும் ஒரு ஆசிரியர் அதே அன்பான, நிலையான தொனியை வைத்திருக்கிறார்."}, {"t_en": "Normalising Emotions Openly", "t_ta": "உணர்வுகளை வெளிப்படையாக இயல்பாக்குதல்", "example_en": "A teacher tells the class openly, 'It's okay to feel frustrated or confused — what matters is how we handle it,' modelling that emotions are a normal part of learning, not something to hide.", "example_ta": "ஒரு ஆசிரியர் வகுப்பிற்கு வெளிப்படையாக சொல்கிறார், 'விரக்தி அல்லது குழப்பம் உணர்வது பரவாயில்லை — நாம் அதை எவ்வாறு கையாள்கிறோம் என்பதே முக்கியம்.'"}], "suggestions": [{"en": "Respond to wrong answers with curiosity, not correction alone — model that mistakes are part of learning.", "ta": "தவறான பதில்களுக்கு திருத்தத்துடன் மட்டும் அல்ல, ஆர்வத்துடன் பதிலளியுங்கள் — தவறுகள் கற்றலின் ஒரு பகுதி என்பதை மாதிரியாக்குங்கள்."}, {"en": "Be visibly consistent in tone across your best and worst days — students track this closely.", "ta": "உங்கள் சிறந்த மற்றும் மோசமான நாட்களில் தொனியில் கவனிக்கக்கூடிய அளவில் சீராக இருங்கள்."}, {"en": "Explicitly normalise emotions in class — say aloud that feeling frustrated or confused is okay.", "ta": "வகுப்பில் உணர்வுகளை வெளிப்படையாக இயல்பாக்குங்கள் — விரக்தி அல்லது குழப்பம் உணர்வது பரவாயில்லை என்று சத்தமாக சொல்லுங்கள்."}, {"en": "Notice and gently correct any moment where a mistake is met with visible ridicule from peers.", "ta": "ஒரு தவறு சக மாணவர்களிடமிருந்து கவனிக்கக்கூடிய கேலியை சந்திக்கும் எந்த தருணத்தையும் கவனித்து மென்மையாக திருத்துங்கள்."}, {"en": "Ask yourself weekly: 'If my students described the emotional weather of this room in one word, what would it be?'", "ta": "வாராந்திர உங்களை கேளுங்கள்: 'மாணவர்கள் இந்த அறையின் உணர்ச்சி வானிலையை ஒரு வார்த்தையில் விவரித்தால், அது என்னவாக இருக்கும்?'"}], "worksheet": [{"en": "If your students described the emotional 'weather' of your classroom in one word, what would it be?", "ta": "உங்கள் மாணவர்கள் உங்கள் வகுப்பறையின் உணர்ச்சி 'வானிலையை' ஒரு வார்த்தையில் விவரித்தால், அது என்னவாக இருக்கும்?"}, {"en": "What is one change that could shift that word in a more positive direction?", "ta": "அந்த வார்த்தையை மிகவும் நேர்மறையான திசையில் மாற்றக்கூடிய ஒரு மாற்றம் என்ன?"}, {"en": "Describe how you currently respond to a student's wrong answer. Is there room for more curiosity?", "ta": "ஒரு மாணவரின் தவறான பதிலுக்கு நீங்கள் தற்போது எவ்வாறு பதிலளிக்கிறீர்கள் என்பதை விவரிக்கவும். மேலும் ஆர்வத்திற்கு இடம் உள்ளதா?"}, {"en": "Have students ever ridiculed a peer's mistake in your class? How did you (or could you) respond?", "ta": "மாணவர்கள் உங்கள் வகுப்பில் ஒரு சக மாணவரின் தவறை கேலி செய்ததுண்டா? நீங்கள் எவ்வாறு பதிலளித்தீர்கள் (அல்லது பதிலளிக்கலாம்)?"}, {"en": "Write one sentence you could say to explicitly normalise emotions in your classroom.", "ta": "உங்கள் வகுப்பறையில் உணர்வுகளை வெளிப்படையாக இயல்பாக்க நீங்கள் சொல்லக்கூடிய ஒரு வாக்கியத்தை எழுதுங்கள்."}], "action_plan": [{"area_en": "Responding to mistakes with curiosity", "area_ta": "தவறுகளுக்கு ஆர்வத்துடன் பதிலளித்தல்", "action_en": "Use 'good attempt, let's see what led there' at least 3 times this week", "action_ta": "இந்த வாரம் குறைந்தது 3 முறை 'நல்ல முயற்சி, என்ன வழிநடத்தியது பார்ப்போம்' என்பதைப் பயன்படுத்துங்கள்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Consistent tone", "area_ta": "சீரான தொனி", "action_en": "Notice and maintain the same tone on your most stressful day this week", "action_ta": "இந்த வாரத்தின் மிகவும் அழுத்தமான நாளில் அதே தொனியைக் கவனித்து பராமரிக்கவும்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Normalising emotions", "area_ta": "உணர்வுகளை இயல்பாக்குதல்", "action_en": "Say explicitly once this week that frustration/confusion is a normal part of learning", "action_ta": "விரக்தி/குழப்பம் கற்றலின் இயல்பான பகுதி என்று இந்த வாரம் ஒரு முறை வெளிப்படையாகச் சொல்லுங்கள்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>

@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 9 Full Guide</span><span data-ta>பாடம் 9 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 9, "title_en": "Motivating Yourself & Preventing Burnout", "title_ta": "உங்களை ஊக்குவித்தல் & சோர்வைத் தடுத்தல்", "subtopics": [{"t_en": "Spotting Early Burnout Signals", "t_ta": "ஆரம்ப சோர்வு சமிக்ஞைகளைக் கண்டறிதல்", "example_en": "A teacher notices she has started dreading Mondays and feeling irritated by students she used to enjoy teaching. Catching this pattern early, before it becomes chronic, lets her act while change is still easy.", "example_ta": "ஒரு ஆசிரியர் தான் திங்கட்கிழமைகளை பயப்படத் தொடங்கியிருப்பதையும், தான் முன்பு கற்பிக்க விரும்பிய மாணவர்களால் எரிச்சலடைவதையும் கவனிக்கிறார்."}, {"t_en": "The Weekly 'Win Journal'", "t_ta": "வாராந்திர 'வெற்றி பத்திரிகை'", "example_en": "A teacher keeps one line per week noting a moment that reminded her why she teaches — a student's breakthrough, a thank-you note — rereading these on hard days restores perspective quickly.", "example_ta": "ஒரு ஆசிரியர் வாரத்திற்கு ஒரு வரியை வைத்திருக்கிறார், அவர் ஏன் கற்பிக்கிறார் என்பதை நினைவூட்டிய ஒரு தருணத்தை குறிப்பிடுகிறார்."}, {"t_en": "Protecting Non-Negotiable Recovery Time", "t_ta": "பேச்சுவார்த்தை நடத்த முடியாத மீட்பு நேரத்தைப் பாதுகாத்தல்", "example_en": "Rather than treating rest as optional, a teacher blocks one evening a week as completely non-negotiable — no lesson planning, no grading — treating her own recovery as a professional necessity.", "example_ta": "ஓய்வை விருப்பமாக நடத்துவதற்குப் பதிலாக, ஒரு ஆசிரியர் வாரத்திற்கு ஒரு மாலையை முற்றிலும் பேச்சுவார்த்தை நடத்த முடியாததாக தடுக்கிறார் — பாட திட்டமிடல் இல்லை, மதிப்பீடு இல்லை."}], "suggestions": [{"en": "Watch for the three classic burnout signs: persistent exhaustion, growing cynicism, and reduced sense of effectiveness.", "ta": "மூன்று உன்னதமான சோர்வு அறிகுறிகளைக் கவனியுங்கள்: தொடர்ச்சியான சோர்வு, அதிகரிக்கும் சந்தேகம், மற்றும் குறைந்த செயல்திறன் உணர்வு."}, {"en": "Keep one 'win journal' entry per week — a small moment that reminded you why you teach.", "ta": "வாரத்திற்கு ஒரு 'வெற்றி பத்திரிகை' பதிவை வைத்திருங்கள் — நீங்கள் ஏன் கற்பிக்கிறீர்கள் என்பதை நினைவூட்டிய ஒரு சிறிய தருணம்."}, {"en": "Protect one genuinely restorative activity weekly and treat it as non-negotiable, not optional.", "ta": "வாராந்திர ஒரு உண்மையிலேயே புத்துணர்ச்சியூட்டும் செயலைப் பாதுகாத்து, அதை விருப்பமாக அல்ல, பேச்சுவார்த்தை நடத்த முடியாததாக நடத்துங்கள்."}, {"en": "If you notice burnout signs, tell a trusted colleague or supervisor early rather than pushing through silently.", "ta": "சோர்வு அறிகுறிகளை நீங்கள் கவனித்தால், அமைதியாக தள்ளிக்கொண்டு போவதற்குப் பதிலாக முன்கூட்டியே ஒரு நம்பகமான சக ஊழியர் அல்லது மேற்பார்வையாளரிடம் சொல்லுங்கள்."}, {"en": "Revisit your original reason for choosing teaching once a month — it re-anchors motivation.", "ta": "மாதத்திற்கு ஒரு முறை கற்பித்தலைத் தேர்ந்தெடுத்ததற்கான உங்கள் அசல் காரணத்தை மீண்டும் பார்வையிடுங்கள்."}], "worksheet": [{"en": "On a scale of energised to depleted, where are you right now?", "ta": "ஆற்றல் மிக்கது முதல் சோர்வடைந்தது வரையிலான அளவில், நீங்கள் இப்போது எங்கே இருக்கிறீர்கள்?"}, {"en": "Which of the three burnout signs (exhaustion, cynicism, reduced effectiveness) do you notice most in yourself?", "ta": "மூன்று சோர்வு அறிகுறிகளில் (சோர்வு, சந்தேகம், குறைந்த செயல்திறன்) எதை நீங்கள் உங்களில் அதிகம் கவனிக்கிறீர்கள்?"}, {"en": "Write one 'win' from this week that reminded you why you teach.", "ta": "நீங்கள் ஏன் கற்பிக்கிறீர்கள் என்பதை நினைவூட்டிய இந்த வாரத்தின் ஒரு 'வெற்றியை' எழுதுங்கள்."}, {"en": "What is one non-negotiable restorative activity you could protect weekly?", "ta": "வாராந்திர நீங்கள் பாதுகாக்கக்கூடிய ஒரு பேச்சுவார்த்தை நடத்த முடியாத மீட்பு செயல் என்ன?"}, {"en": "What is one small, realistic change you could make this month to protect your energy?", "ta": "உங்கள் ஆற்றலைப் பாதுகாக்க இந்த மாதம் நீங்கள் செய்யக்கூடிய ஒரு சிறிய, யதார்த்தமான மாற்றம் என்ன?"}], "action_plan": [{"area_en": "Burnout self-monitoring", "area_ta": "சோர்வு சுய-கண்காணிப்பு", "action_en": "Check weekly for the 3 burnout signs and note any that appear", "action_ta": "3 சோர்வு அறிகுறிகளுக்கு வாராந்திர சரிபார்த்து தோன்றும் எதையும் குறிப்பிடுங்கள்", "timeline_en": "Weekly, ongoing", "timeline_ta": "வாராந்திரம், தொடர்ந்து"}, {"area_en": "Win journal habit", "area_ta": "வெற்றி பத்திரிகை பழக்கம்", "action_en": "Write one 'why I teach' moment every week", "action_ta": "ஒவ்வொரு வாரமும் ஒரு 'நான் ஏன் கற்பிக்கிறேன்' தருணத்தை எழுதுங்கள்", "timeline_en": "Weekly", "timeline_ta": "வாராந்திரம்"}, {"area_en": "Protected recovery time", "area_ta": "பாதுகாக்கப்பட்ட மீட்பு நேரம்", "action_en": "Block one non-negotiable restorative evening per week", "action_ta": "வாரத்திற்கு ஒரு பேச்சுவார்த்தை நடத்த முடியாத மீட்பு மாலையைத் தடுக்கவும்", "timeline_en": "Starting this week", "timeline_ta": "இந்த வாரம் தொடங்கி"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>

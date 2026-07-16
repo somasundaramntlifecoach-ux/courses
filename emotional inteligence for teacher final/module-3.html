@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 3 Full Guide</span><span data-ta>பாடம் 3 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 3, "title_en": "Managing Your Own Emotions Under Pressure", "title_ta": "அழுத்தத்தின் கீழ் உங்கள் சொந்த உணர்வுகளை நிர்வகித்தல்", "subtopics": [{"t_en": "The Pause: Your Most Reliable Tool", "t_ta": "இடைநிறுத்தம்: உங்கள் மிக நம்பகமான கருவி", "example_en": "When a student says something disrespectful in front of the class, a teacher feels a hot flash of anger. Taking one slow breath before responding gives her enough time to choose a calm, authoritative reply instead of an impulsive one.", "example_ta": "ஒரு மாணவர் வகுப்பின் முன் அவமரியாதையான ஏதாவது சொல்லும்போது, ஒரு ஆசிரியர் கோபத்தின் சூடான ஒளிரும் உணர்கிறார். பதிலளிப்பதற்கு முன் ஒரு மெதுவான மூச்சு எடுப்பது அவருக்கு ஒரு அமைதியான, அதிகாரபூர்வமான பதிலைத் தேர்ந்தெடுக்க போதுமான நேரத்தை அளிக்கிறது."}, {"t_en": "Lowering Your Voice Instead of Raising It", "t_ta": "குரலை உயர்த்துவதற்குப் பதிலாக தாழ்த்துதல்", "example_en": "A teacher whose instinct is to shout over noise instead trains herself to speak more softly when the class gets loud — the unexpected quiet often draws attention faster than shouting ever did.", "example_ta": "சத்தத்தின் மேல் கத்துவது இயல்பான ஒரு ஆசிரியர், வகுப்பு சத்தமாகும்போது மென்மையாக பேச தன்னை பயிற்றுவிக்கிறார் — எதிர்பாராத அமைதி பெரும்பாலும் கத்துவதை விட வேகமாக கவனத்தை ஈர்க்கிறது."}, {"t_en": "Having a Ready Phrase for Tense Moments", "t_ta": "பதற்றமான தருணங்களுக்கு தயார் சொற்றொடரை வைத்திருத்தல்", "example_en": "Instead of improvising in the heat of a confrontation, a teacher keeps one calm line ready: 'Let's talk about this after class' — buying time and protecting her authority without escalating the moment.", "example_ta": "ஒரு மோதலின் வெப்பத்தில் மேம்படுத்துவதற்குப் பதிலாக, ஒரு ஆசிரியர் ஒரு அமைதியான வரியை தயார் வைத்திருக்கிறார்: 'வகுப்பிற்குப் பிறகு இதைப் பற்றி பேசுவோம்'."}], "suggestions": [{"en": "Practice the '3-second rule': silently count to three before responding to anything upsetting.", "ta": "'3-வினாடி விதியை' பயிற்சி செய்யுங்கள்: வருத்தமூட்டும் எதற்கும் பதிலளிப்பதற்கு முன் அமைதியாக மூன்று வரை எண்ணுங்கள்."}, {"en": "Keep one calm phrase ready in advance for the most common tense moments in your classroom.", "ta": "உங்கள் வகுப்பறையில் மிகவும் பொதுவான பதற்றமான தருணங்களுக்கு முன்கூட்டியே ஒரு அமைதியான சொற்றொடரை தயார் வைத்திருங்கள்."}, {"en": "Practice lowering (not raising) your voice the next time the class gets noisy.", "ta": "அடுத்த முறை வகுப்பு சத்தமாகும்போது உங்கள் குரலை உயர்த்தாமல் தாழ்த்த பயிற்சி செய்யுங்கள்."}, {"en": "After a tense moment passes, briefly note what helped you stay calm — build a personal playbook.", "ta": "ஒரு பதற்றமான தருணம் கடந்த பிறகு, அமைதியாக இருக்க என்ன உதவியது என்பதை சுருக்கமாக குறிப்பிடுங்கள்."}, {"en": "Avoid making any disciplinary decision in the first 10 seconds of strong emotion — decide after the pause.", "ta": "வலுவான உணர்ச்சியின் முதல் 10 வினாடிகளில் எந்த ஒழுக்க முடிவையும் எடுக்காதீர்கள்."}], "worksheet": [{"en": "Describe a recent moment you reacted before you meant to. What triggered it?", "ta": "நீங்கள் நினைத்ததற்கு முன் எதிர்வினையாற்றிய ஒரு சமீபத்திய தருணத்தை விவரிக்கவும். அதை என்ன தூண்டியது?"}, {"en": "What single phrase could you keep ready for your most common tense classroom moment?", "ta": "உங்கள் மிகவும் பொதுவான பதற்றமான வகுப்பறை தருணத்திற்கு நீங்கள் எந்த ஒற்றை சொற்றொடரை தயார் வைக்கலாம்?"}, {"en": "Rate how often you currently pause before reacting (1=never, 5=almost always).", "ta": "நீங்கள் தற்போது எதிர்வினையாற்றுவதற்கு முன் எவ்வளவு அடிக்கடி இடைநிறுத்துகிறீர்கள் என்பதை மதிப்பிடுங்கள் (1=ஒருபோதும் இல்லை, 5=கிட்டத்தட்ட எப்போதும்)."}, {"en": "Write down one moment where lowering your voice (instead of raising it) could have helped.", "ta": "உங்கள் குரலைத் தாழ்த்துவது (உயர்த்துவதற்குப் பதிலாக) உதவியிருக்கக்கூடிய ஒரு தருணத்தை எழுதுங்கள்."}, {"en": "What is one small signal (word, gesture) that could remind you to pause during class?", "ta": "வகுப்பின் போது இடைநிறுத்த உங்களுக்கு நினைவூட்டக்கூடிய ஒரு சிறிய சமிக்ஞை (வார்த்தை, சைகை) என்ன?"}], "action_plan": [{"area_en": "The 3-second pause", "area_ta": "3-வினாடி இடைநிறுத்தம்", "action_en": "Practice counting to 3 before responding to any classroom frustration", "action_ta": "எந்த வகுப்பறை விரக்திக்கும் பதிலளிப்பதற்கு முன் 3 வரை எண்ண பயிற்சி செய்யுங்கள்", "timeline_en": "Daily, this week", "timeline_ta": "தினமும், இந்த வாரம்"}, {"area_en": "Ready phrase for tense moments", "area_ta": "பதற்றமான தருணங்களுக்கான தயார் சொற்றொடர்", "action_en": "Prepare and memorise one calm response line", "action_ta": "ஒரு அமைதியான பதில் வரியை தயார் செய்து மனப்பாடம் செய்யுங்கள்", "timeline_en": "By this week", "timeline_ta": "இந்த வாரத்திற்குள்"}, {"area_en": "Voice control practice", "area_ta": "குரல் கட்டுப்பாட்டு பயிற்சி", "action_en": "Consciously lower voice (instead of raising) during one noisy moment per day", "action_ta": "ஒரு நாளைக்கு ஒரு சத்தமான தருணத்தில் வேண்டுமென்றே குரலை தாழ்த்துங்கள்", "timeline_en": "Daily for 2 weeks", "timeline_ta": "2 வாரங்களுக்கு தினமும்"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>

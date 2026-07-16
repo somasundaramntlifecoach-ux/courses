@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 6 Full Guide</span><span data-ta>பாடம் 6 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 6, "title_en": "Building Rapport & Trust with Students", "title_ta": "மாணவர்களுடன் நல்லுறவு & நம்பிக்கையை உருவாக்குதல்", "subtopics": [{"t_en": "The Power of Remembering Names & Details", "t_ta": "பெயர்கள் & விவரங்களை நினைவில் வைத்திருப்பதன் சக்தி", "example_en": "A teacher who greets each student by name at the door every morning, and asks one small personal question over the week, sees several previously withdrawn students begin approaching her for help within a month.", "example_ta": "ஒவ்வொரு நாளும் காலையில் கதவில் ஒவ்வொரு மாணவரையும் பெயரால் வரவேற்கும் ஒரு ஆசிரியர், ஒரு மாதத்திற்குள் முன்பு பின்வாங்கிய பல மாணவர்கள் அவரிடம் உதவி கேட்க வருவதைக் காண்கிறார்."}, {"t_en": "Consistency: The Foundation of Trust", "t_ta": "சீரான தன்மை: நம்பிக்கையின் அடித்தளம்", "example_en": "A teacher applies the same fair standard to late homework on both her best and worst days — students notice this predictability and trust her decisions even when they disagree with them.", "example_ta": "ஒரு ஆசிரியர் தனது சிறந்த மற்றும் மோசமான நாட்களில் தாமதமான வீட்டுப்பாடத்திற்கு அதே நியாயமான தரத்தை பயன்படுத்துகிறார் — மாணவர்கள் இந்த கணிக்கக்கூடிய தன்மையை கவனித்து அவரது முடிவுகளை நம்புகிறார்கள்."}, {"t_en": "Specific, Genuine Praise", "t_ta": "குறிப்பிட்ட, உண்மையான பாராட்டு", "example_en": "Instead of a generic 'good job,' a teacher tells a student, 'I noticed you helped your classmate understand that problem — that showed real patience,' which lands far more meaningfully.", "example_ta": "பொதுவான 'நல்ல வேலை' என்பதற்குப் பதிலாக, ஒரு ஆசிரியர் ஒரு மாணவரிடம் சொல்கிறார், 'அந்த பிரச்சனையை புரிந்துகொள்ள நீங்கள் உங்கள் வகுப்பு தோழருக்கு உதவியதை நான் கவனித்தேன் — அது உண்மையான பொறுமையைக் காட்டியது.'"}], "suggestions": [{"en": "Learn and correctly use every student's name within the first two weeks of a new term.", "ta": "ஒரு புதிய செமஸ்டரின் முதல் இரண்டு வாரங்களுக்குள் ஒவ்வொரு மாணவரின் பெயரையும் கற்று சரியாக பயன்படுத்துங்கள்."}, {"en": "Ask one small personal question (hobby, sibling, weekend) to a different student each day.", "ta": "ஒவ்வொரு நாளும் வெவ்வேறு மாணவரிடம் ஒரு சிறிய தனிப்பட்ட கேள்வியை (பொழுதுபோக்கு, உடன்பிறந்தவர், வார இறுதி) கேளுங்கள்."}, {"en": "Keep your standards and reactions consistent regardless of your mood that day.", "ta": "அன்றைய உங்கள் மனநிலையைப் பொருட்படுத்தாமல் உங்கள் தரநிலைகளையும் எதிர்வினைகளையும் சீராக வைத்திருங்கள்."}, {"en": "Find one specific, genuine thing to praise in each student over the course of a week.", "ta": "ஒரு வாரத்தில் ஒவ்வொரு மாணவரிடமும் பாராட்ட ஒரு குறிப்பிட்ட, உண்மையான விஷயத்தைக் கண்டறியுங்கள்."}, {"en": "Identify the student you know least about personally, and make an effort to connect with them this week.", "ta": "நீங்கள் தனிப்பட்ட முறையில் மிகக் குறைவாக அறிந்த மாணவரை அடையாளம் கண்டு, இந்த வாரம் அவர்களுடன் இணைய முயற்சி செய்யுங்கள்."}], "worksheet": [{"en": "Which student in your class do you know the least about personally?", "ta": "உங்கள் வகுப்பில் எந்த மாணவரை நீங்கள் தனிப்பட்ட முறையில் மிகக் குறைவாக அறிவீர்கள்?"}, {"en": "What is one small way you could build rapport with that student this week?", "ta": "இந்த வாரம் அந்த மாணவருடன் நல்லுறவை உருவாக்க ஒரு சிறிய வழி என்ன?"}, {"en": "Describe a time your consistency (or inconsistency) affected a student's trust in you.", "ta": "உங்கள் சீரான தன்மை (அல்லது சீரின்மை) உங்கள் மீதான ஒரு மாணவரின் நம்பிக்கையை பாதித்த ஒரு நேரத்தை விவரிக்கவும்."}, {"en": "Write one piece of specific, genuine praise you could give a student this week.", "ta": "இந்த வாரம் நீங்கள் ஒரு மாணவருக்கு கொடுக்கக்கூடிய குறிப்பிட்ட, உண்மையான பாராட்டை எழுதுங்கள்."}, {"en": "How many of your students' names did you learn in the first two weeks of this term?", "ta": "இந்த செமஸ்டரின் முதல் இரண்டு வாரங்களில் நீங்கள் எத்தனை மாணவர்களின் பெயர்களைக் கற்றுக்கொண்டீர்கள்?"}], "action_plan": [{"area_en": "Learning names and details", "area_ta": "பெயர்கள் மற்றும் விவரங்களை கற்றல்", "action_en": "Greet 5 students by name and ask one personal question daily", "action_ta": "தினமும் 5 மாணவர்களை பெயரால் வரவேற்று ஒரு தனிப்பட்ட கேள்வி கேளுங்கள்", "timeline_en": "Daily, 2 weeks", "timeline_ta": "தினமும், 2 வாரங்கள்"}, {"area_en": "Consistency in standards", "area_ta": "தரநிலைகளில் சீரான தன்மை", "action_en": "Apply the same standard to a common issue regardless of mood", "action_ta": "மனநிலையைப் பொருட்படுத்தாமல் ஒரு பொதுவான பிரச்சனைக்கு அதே தரத்தை பயன்படுத்துங்கள்", "timeline_en": "Ongoing", "timeline_ta": "தொடர்ந்து"}, {"area_en": "Genuine praise habit", "area_ta": "உண்மையான பாராட்டு பழக்கம்", "action_en": "Give one specific piece of praise to a different student each day", "action_ta": "ஒவ்வொரு நாளும் வெவ்வேறு மாணவருக்கு ஒரு குறிப்பிட்ட பாராட்டைக் கொடுங்கள்", "timeline_en": "Daily, this week", "timeline_ta": "தினமும், இந்த வாரம்"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>

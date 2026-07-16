@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 2 Full Guide</span><span data-ta>பாடம் 2 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 2, "title_en": "Self-Awareness in the Classroom", "title_ta": "வகுப்பறையில் சுய-விழிப்புணர்வு", "subtopics": [{"t_en": "Identifying Your Personal Triggers", "t_ta": "உங்கள் தனிப்பட்ட தூண்டுதல்களை அடையாளம் காணுதல்", "example_en": "A teacher who notices she always tenses up when a specific student calls out answers without raising a hand can prepare a calm, planned response in advance, rather than reacting differently depending on her mood each day.", "example_ta": "ஒரு குறிப்பிட்ட மாணவர் கை உயர்த்தாமல் பதில்களை சொல்லும்போது எப்போதும் இறுக்கமாகிறார் என்பதை கவனிக்கும் ஒரு ஆசிரியர் முன்கூட்டியே ஒரு அமைதியான, திட்டமிடப்பட்ட பதிலை தயார் செய்யலாம்."}, {"t_en": "Reading Your Body's Early Warning Signs", "t_ta": "உங்கள் உடலின் ஆரம்ப எச்சரிக்கை அறிகுறிகளைப் படித்தல்", "example_en": "Before a teacher's voice sharpens in frustration, her jaw usually clenches and her breathing quickens — noticing this physical cue first gives her a chance to pause before the emotion reaches her words.", "example_ta": "விரக்தியில் ஒரு ஆசிரியரின் குரல் கூர்மையாகுவதற்கு முன், அவரது தாடை பொதுவாக இறுக்கமாகி சுவாசம் வேகமடைகிறது — இந்த உடல் சமிக்ஞையை முதலில் கவனிப்பது உணர்வு அவரது வார்த்தைகளை அடைவதற்கு முன் இடைநிறுத்த ஒரு வாய்ப்பை அளிக்கிறது."}, {"t_en": "Tracking Your Daily Emotional Patterns", "t_ta": "உங்கள் தினசரி உணர்ச்சி வடிவங்களைக் கண்காணித்தல்", "example_en": "A teacher who tracks her mood across a week discovers she is consistently sharper in the last period after lunch — she now schedules a two-minute breathing break before that class, rather than being repeatedly surprised by her own short temper.", "example_ta": "ஒரு வாரம் முழுவதும் தனது மனநிலையை கண்காணிக்கும் ஒரு ஆசிரியர், மதிய உணவுக்குப் பிறகு கடைசி பீரியட்டில் தொடர்ந்து கூர்மையாக இருப்பதை கண்டறிகிறார் — அவர் இப்போது அந்த வகுப்பிற்கு முன் இரண்டு நிமிட சுவாச இடைவேளையை திட்டமிடுகிறார்."}], "suggestions": [{"en": "Keep a one-week 'trigger log' — jot down the moment, the trigger, and how you reacted.", "ta": "ஒரு வார 'தூண்டுதல் பதிவை' வைத்திருங்கள் — தருணம், தூண்டுதல் மற்றும் நீங்கள் எவ்வாறு எதிர்வினையாற்றினீர்கள் என்பதை குறிப்பிடுங்கள்."}, {"en": "Do a 10-second body scan (shoulders, jaw, breath) just before entering the classroom.", "ta": "வகுப்பறைக்குள் நுழைவதற்கு முன் 10 வினாடி உடல் ஸ்கேன் (தோள்கள், தாடை, சுவாசம்) செய்யுங்கள்."}, {"en": "At the end of each day, note the single strongest emotion that showed up and what caused it.", "ta": "ஒவ்வொரு நாள் முடிவிலும், தோன்றிய மிக வலுவான உணர்வையும் அதற்கான காரணத்தையும் குறிப்பிடுங்கள்."}, {"en": "Ask a trusted colleague to point out patterns they notice in your reactions — outside perspective helps.", "ta": "உங்கள் எதிர்வினைகளில் அவர்கள் கவனிக்கும் வடிவங்களை சுட்டிக்காட்ட ஒரு நம்பகமான சக ஊழியரிடம் கேளுங்கள்."}, {"en": "Notice which time of day/week your patience runs thinnest, and plan lighter demands for yourself then.", "ta": "நாள்/வாரத்தின் எந்த நேரத்தில் உங்கள் பொறுமை மிகக் குறைவாக இருக்கிறது என்பதைக் கவனித்து, அதற்கேற்ப திட்டமிடுங்கள்."}], "worksheet": [{"en": "List two specific classroom situations that reliably spike your stress or irritation.", "ta": "உங்கள் அழுத்தத்தை அல்லது எரிச்சலை நம்பகமாக அதிகரிக்கும் இரண்டு குறிப்பிட்ட வகுப்பறை சூழ்நிலைகளை பட்டியலிடுங்கள்."}, {"en": "What physical sign (jaw, breath, posture) usually appears first when you're getting stressed?", "ta": "நீங்கள் அழுத்தமடையும்போது பொதுவாக முதலில் தோன்றும் உடல் அறிகுறி (தாடை, சுவாசம், தோரணை) என்ன?"}, {"en": "During which period/time of day are you least patient? What could you change around that time?", "ta": "நாளின் எந்த பீரியட்/நேரத்தில் நீங்கள் மிகக் குறைந்த பொறுமையுடன் இருக்கிறீர்கள்? அந்த நேரத்தில் நீங்கள் என்ன மாற்றலாம்?"}, {"en": "Recall one moment this week your mood (not the student) shaped your reaction. What would awareness have changed?", "ta": "இந்த வாரம் உங்கள் மனநிலை (மாணவர் அல்ல) உங்கள் எதிர்வினையை வடிவமைத்த ஒரு தருணத்தை நினைவுகூருங்கள். விழிப்புணர்வு எதை மாற்றியிருக்கும்?"}, {"en": "Write one sentence describing your most common emotional trigger and your planned response to it.", "ta": "உங்கள் மிகவும் பொதுவான உணர்ச்சி தூண்டுதலையும் அதற்கான உங்கள் திட்டமிட்ட பதிலையும் விவரிக்கும் ஒரு வாக்கியத்தை எழுதுங்கள்."}], "action_plan": [{"area_en": "Trigger awareness", "area_ta": "தூண்டுதல் விழிப்புணர்வு", "action_en": "Keep a 1-week trigger log noting situation + reaction", "action_ta": "சூழ்நிலை + எதிர்வினையை குறிக்கும் 1-வார தூண்டுதல் பதிவை வைத்திருங்கள்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Physical early-warning signals", "area_ta": "உடல் ஆரம்ப எச்சரிக்கை சமிக்ஞைகள்", "action_en": "Practice a 10-second body scan before each class", "action_ta": "ஒவ்வொரு வகுப்பிற்கும் முன் 10 வினாடி உடல் ஸ்கேன் பயிற்சி செய்யுங்கள்", "timeline_en": "Daily, ongoing", "timeline_ta": "தினமும், தொடர்ந்து"}, {"area_en": "End-of-day reflection", "area_ta": "நாள் இறுதி பிரதிபலிப்பு", "action_en": "Note the day's strongest emotion and its trigger each evening", "action_ta": "ஒவ்வொரு மாலையும் நாளின் வலுவான உணர்வையும் அதன் தூண்டுதலையும் குறிப்பிடுங்கள்", "timeline_en": "Daily for 2 weeks", "timeline_ta": "2 வாரங்களுக்கு தினமும்"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>

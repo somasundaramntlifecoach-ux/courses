@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 4 Full Guide</span><span data-ta>பாடம் 4 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 4, "title_en": "Empathy & Understanding Student Emotions", "title_ta": "பச்சாதாபம் & மாணவர் உணர்வுகளைப் புரிந்துகொள்ளுதல்", "subtopics": [{"t_en": "Asking 'What's Underneath This?'", "t_ta": "'இதற்கு அடியில் என்ன இருக்கிறது?' எனக் கேட்பது", "example_en": "A normally quiet student suddenly becomes disruptive. Rather than only issuing a consequence, the teacher pauses to ask what might be underneath the behaviour, and discovers the student is dealing with a difficult situation at home.", "example_ta": "வழக்கமாக அமைதியான ஒரு மாணவர் திடீரென்று குழப்பமாக மாறுகிறார். ஒரு விளைவை மட்டும் வழங்குவதற்குப் பதிலாக, ஆசிரியர் நடத்தைக்கு அடியில் என்ன இருக்கலாம் என்று கேட்க இடைநிறுத்துகிறார்."}, {"t_en": "Naming the Emotion Out Loud", "t_ta": "உணர்வை சத்தமாக பெயரிடுதல்", "example_en": "When a student slams a book down in frustration, the teacher says simply, 'It looks like that problem is really frustrating you' — often this single act of naming the feeling reduces its intensity immediately.", "example_ta": "ஒரு மாணவர் விரக்தியில் ஒரு புத்தகத்தை இறக்கும்போது, ஆசிரியர் வெறுமனே சொல்கிறார், 'அந்த பிரச்சனை உங்களை மிகவும் விரக்தியடையச் செய்வது போல் தெரிகிறது' — உணர்வை பெயரிடும் இந்த ஒற்றை செயல் பெரும்பாலும் அதன் தீவிரத்தை உடனடியாக குறைக்கிறது."}, {"t_en": "Following Up Privately, Not Publicly", "t_ta": "பொதுவாக அல்ல, தனிப்பட்ட முறையில் பின்தொடர்தல்", "example_en": "Instead of probing a student's sudden mood change in front of the whole class, the teacher waits and checks in quietly after the bell — protecting the student's dignity while still showing care.", "example_ta": "முழு வகுப்பின் முன்பும் ஒரு மாணவரின் திடீர் மனநிலை மாற்றத்தை விசாரிப்பதற்குப் பதிலாக, ஆசிரியர் காத்திருந்து மணி அடித்த பிறகு அமைதியாக சரிபார்க்கிறார்."}], "suggestions": [{"en": "When a student misbehaves, silently ask 'what might be underneath this?' before responding.", "ta": "ஒரு மாணவர் தவறாக நடந்துகொள்ளும்போது, பதிலளிப்பதற்கு முன் அமைதியாக 'இதற்கு அடியில் என்ன இருக்கலாம்?' எனக் கேளுங்கள்."}, {"en": "Practice naming a student's emotion aloud in a neutral, non-judgmental tone.", "ta": "ஒரு நடுநிலையான, தீர்ப்பில்லாத தொனியில் ஒரு மாணவரின் உணர்வை சத்தமாக பெயரிட பயிற்சி செய்யுங்கள்."}, {"en": "Always move a sensitive conversation to a private moment rather than in front of peers.", "ta": "ஒரு உணர்திறன் உரையாடலை எப்போதும் சக மாணவர்கள் முன் அல்லாமல் ஒரு தனிப்பட்ட தருணத்திற்கு நகர்த்துங்கள்."}, {"en": "Watch for a sudden behaviour change (usually quiet student acting out) as a signal worth checking on.", "ta": "ஒரு திடீர் நடத்தை மாற்றத்தை (பொதுவாக அமைதியான மாணவர் நடந்துகொள்வது) சரிபார்க்க தகுதியான சமிக்ஞையாகக் கவனியுங்கள்."}, {"en": "Remember: understanding a student's emotion doesn't mean excusing poor behaviour — hold the boundary kindly.", "ta": "நினைவில் கொள்ளுங்கள்: ஒரு மாணவரின் உணர்வைப் புரிந்துகொள்வது மோசமான நடத்தையை மன்னிப்பது அல்ல — கருணையுடன் எல்லையை வைத்திருங்கள்."}], "worksheet": [{"en": "Think of a student whose behaviour currently frustrates you. What emotion might realistically be underneath it?", "ta": "தற்போது உங்களை விரக்தியடையச் செய்யும் ஒரு மாணவரை நினைத்துப் பாருங்கள். அதற்கு அடியில் யதார்த்தமாக என்ன உணர்வு இருக்கலாம்?"}, {"en": "Write one neutral sentence you could use to name a student's emotion out loud.", "ta": "ஒரு மாணவரின் உணர்வை சத்தமாக பெயரிட நீங்கள் பயன்படுத்தக்கூடிய ஒரு நடுநிலை வாக்கியத்தை எழுதுங்கள்."}, {"en": "Recall a time you addressed a student issue publicly. How might a private follow-up have changed the outcome?", "ta": "நீங்கள் ஒரு மாணவர் பிரச்சனையை பகிரங்கமாக நிவர்த்தி செய்த ஒரு நேரத்தை நினைவுகூருங்கள். ஒரு தனிப்பட்ட பின்தொடர்தல் விளைவை எவ்வாறு மாற்றியிருக்கும்?"}, {"en": "List two students whose 'story behind the behaviour' you don't yet know well.", "ta": "'நடத்தைக்குப் பின்னால் உள்ள கதையை' நீங்கள் இன்னும் நன்கு அறியாத இரண்டு மாணவர்களை பட்டியலிடுங்கள்."}, {"en": "What is one boundary you hold firmly even while showing empathy?", "ta": "பச்சாதாபத்தைக் காட்டும் அதே வேளையில் நீங்கள் உறுதியாக வைத்திருக்கும் ஒரு எல்லை என்ன?"}], "action_plan": [{"area_en": "Pausing before responding to misbehaviour", "area_ta": "தவறான நடத்தைக்கு பதிலளிப்பதற்கு முன் இடைநிறுத்துதல்", "action_en": "Ask 'what's underneath this?' before every disciplinary response this week", "action_ta": "இந்த வாரம் ஒவ்வொரு ஒழுக்க பதிலுக்கும் முன் 'இதற்கு அடியில் என்ன இருக்கிறது?' எனக் கேளுங்கள்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Naming emotions aloud", "area_ta": "உணர்வுகளை சத்தமாக பெயரிடுதல்", "action_en": "Practice naming a student's emotion neutrally at least twice this week", "action_ta": "இந்த வாரம் குறைந்தது இரண்டு முறை ஒரு மாணவரின் உணர்வை நடுநிலையாக பெயரிட பயிற்சி செய்யுங்கள்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Private follow-up habit", "area_ta": "தனிப்பட்ட பின்தொடர்தல் பழக்கம்", "action_en": "Check in privately with one struggling student after class", "action_ta": "வகுப்பிற்குப் பிறகு போராடும் ஒரு மாணவருடன் தனிப்பட்ட முறையில் சரிபார்க்கவும்", "timeline_en": "Within 2 weeks", "timeline_ta": "2 வாரங்களுக்குள்"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>

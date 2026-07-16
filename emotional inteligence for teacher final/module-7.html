@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 7 Full Guide</span><span data-ta>பாடம் 7 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 7, "title_en": "EQ in Classroom Discipline & Conflict Resolution", "title_ta": "வகுப்பறை ஒழுக்கம் & மோதல் தீர்வில் EQ", "subtopics": [{"t_en": "Addressing Behaviour, Not Character", "t_ta": "குணாதிசயத்தை அல்ல, நடத்தையை நிவர்த்தி செய்தல்", "example_en": "Instead of saying 'you're always disruptive,' a teacher says 'when you talk while I'm explaining, the class loses the instructions' — focusing on the specific action and its effect rather than judging the student's character.", "example_ta": "'நீங்கள் எப்போதும் குழப்பமானவர்' என்று சொல்வதற்குப் பதிலாக, ஒரு ஆசிரியர் சொல்கிறார் 'நான் விளக்கும்போது நீங்கள் பேசும்போது, வகுப்பு அறிவுறுத்தல்களை இழக்கிறது' — மாணவரின் குணாதிசயத்தை தீர்ப்பளிப்பதை விட குறிப்பிட்ட செயலிலும் அதன் விளைவிலும் கவனம் செலுத்துகிறது."}, {"t_en": "Moving Conflict to a Private Moment", "t_ta": "மோதலை ஒரு தனிப்பட்ட தருணத்திற்கு நகர்த்துதல்", "example_en": "Two students start arguing loudly mid-class. Rather than reprimanding both publicly, the teacher calmly separates them, continues the lesson, and resolves the conflict privately at the next break.", "example_ta": "இரண்டு மாணவர்கள் வகுப்பின் நடுவில் சத்தமாக வாக்குவாதம் செய்யத் தொடங்குகிறார்கள். இருவரையும் பகிரங்கமாக கண்டிப்பதற்குப் பதிலாக, ஆசிரியர் அமைதியாக அவர்களை பிரித்து, பாடத்தை தொடர்ந்து, அடுத்த இடைவேளையில் தனிப்பட்ட முறையில் மோதலைத் தீர்க்கிறார்."}, {"t_en": "Predictable Consequences Reduce Conflict", "t_ta": "கணிக்கக்கூடிய விளைவுகள் மோதலைக் குறைக்கின்றன", "example_en": "A teacher who applies the same clear consequence structure every time, rather than varying it by mood, finds that students challenge her decisions far less often — predictability itself reduces conflict.", "example_ta": "மனநிலையால் மாறுவதற்குப் பதிலாக ஒவ்வொரு முறையும் அதே தெளிவான விளைவு அமைப்பைப் பயன்படுத்தும் ஒரு ஆசிரியர், மாணவர்கள் அவரது முடிவுகளை மிகக் குறைவாக சவால் செய்வதைக் காண்கிறார்."}], "suggestions": [{"en": "Before correcting a student, silently rephrase your response to describe the action, not the person.", "ta": "ஒரு மாணவரை திருத்துவதற்கு முன், நபரை அல்ல, செயலை விவரிக்க உங்கள் பதிலை அமைதியாக மறுசொல்லுங்கள்."}, {"en": "Whenever possible, move a correction from a public moment to a private one, even if briefly.", "ta": "இயன்றவரை, குறுகிய காலமாக இருந்தாலும், ஒரு திருத்தத்தை பொது தருணத்திலிருந்து தனிப்பட்ட தருணத்திற்கு நகர்த்துங்கள்."}, {"en": "Use a consistent, predictable consequence structure rather than deciding case-by-case based on mood.", "ta": "மனநிலையின் அடிப்படையில் வழக்கு வாரியாக முடிவெடுப்பதற்குப் பதிலாக சீரான, கணிக்கக்கூடிய விளைவு அமைப்பைப் பயன்படுத்துங்கள்."}, {"en": "When two students conflict, separate them calmly first and resolve the underlying issue later.", "ta": "இரண்டு மாணவர்கள் மோதும்போது, முதலில் அவர்களை அமைதியாக பிரித்து பின்னர் அடிப்படை பிரச்சனையைத் தீர்க்கவும்."}, {"en": "After resolving a conflict, briefly note what worked so you can repeat it next time.", "ta": "ஒரு மோதலைத் தீர்த்த பிறகு, என்ன வேலை செய்தது என்பதை சுருக்கமாக குறிப்பிடுங்கள்."}], "worksheet": [{"en": "Think of a recent classroom conflict. Was it addressed privately or publicly?", "ta": "சமீபத்திய வகுப்பறை மோதலை நினைத்துப் பாருங்கள். அது தனிப்பட்ட முறையில் நிவர்த்தி செய்யப்பட்டதா அல்லது பகிரங்கமாகவா?"}, {"en": "How might that choice (private vs public) have affected the outcome?", "ta": "அந்த தேர்வு (தனிப்பட்ட vs பொது) விளைவை எவ்வாறு பாதித்திருக்கக்கூடும்?"}, {"en": "Rewrite a recent character-judgment statement ('you're always...') as a behaviour-focused one.", "ta": "ஒரு சமீபத்திய குணாதிசய-தீர்ப்பு அறிக்கையை ('நீங்கள் எப்போதும்...') நடத்தை-கவனம் செலுத்தும் ஒன்றாக மீண்டும் எழுதுங்கள்."}, {"en": "Is your consequence structure for common issues consistent, or does it change with your mood? Give an example.", "ta": "பொதுவான பிரச்சனைகளுக்கான உங்கள் விளைவு அமைப்பு சீரானதா, அல்லது உங்கள் மனநிலையுடன் மாறுகிறதா? ஒரு உதாரணம் கொடுங்கள்."}, {"en": "What is one predictable, fair consequence you could apply consistently going forward?", "ta": "இனிமேல் நீங்கள் சீராக பயன்படுத்தக்கூடிய ஒரு கணிக்கக்கூடிய, நியாயமான விளைவு என்ன?"}], "action_plan": [{"area_en": "Behaviour-focused language", "area_ta": "நடத்தை-கவனம் செலுத்தும் மொழி", "action_en": "Rephrase corrections to describe action + effect, not character", "action_ta": "குணாதிசயத்தை அல்ல, செயல் + விளைவை விவரிக்க திருத்தங்களை மறுசொல்லுங்கள்", "timeline_en": "Ongoing, starting this week", "timeline_ta": "தொடர்ந்து, இந்த வாரம் தொடங்கி"}, {"area_en": "Private correction habit", "area_ta": "தனிப்பட்ட திருத்த பழக்கம்", "action_en": "Move at least one public correction to a private moment this week", "action_ta": "இந்த வாரம் குறைந்தது ஒரு பொது திருத்தத்தை தனிப்பட்ட தருணத்திற்கு நகர்த்துங்கள்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Consistent consequence structure", "area_ta": "சீரான விளைவு அமைப்பு", "action_en": "Define and write down a clear consequence for one common issue", "action_ta": "ஒரு பொதுவான பிரச்சனைக்கு ஒரு தெளிவான விளைவை வரையறுத்து எழுதுங்கள்", "timeline_en": "Within 1 week", "timeline_ta": "1 வாரத்திற்குள்"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>

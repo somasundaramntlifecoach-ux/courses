@@ -71,35 +71,23 @@ textarea.wsline{width:100%;border:1px solid var(--line);border-radius:8px;paddin
 footer{background:var(--navy);color:#c9d4e6;text-align:center;padding:22px 20px;font-size:12.5px;}
 footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 </style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
 </head>
 <body>
 
 <div class="topbar no-print">
   <div class="brand"><span class="dot"></span> <span data-en>Module 5 Full Guide</span><span data-ta>பாடம் 5 முழு வழிகாட்டி</span></div>
   <div class="right">
+    <a href="#" onclick="logout(); return false;" class="backlink"><span data-en>Logout</span><span data-ta>வெளியேறு</span></a>
     <a href="course.html" class="backlink" data-en>← Back to Course</a>
     <a href="course.html" class="backlink" data-ta>← பயிற்சிக்குத் திரும்பு</a>
     <div class="lang-toggle">
       <button class="active" onclick="setLang('en')">EN</button>
       <button onclick="setLang('ta')">தமிழ்</button>
-    </div>
-  </div>
-</div>
-
-<div id="gateOverlay" class="no-print" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(15,32,68,0.96);align-items:center;justify-content:center;padding:20px;">
-  <div style="background:#fff;border-radius:16px;padding:32px;max-width:380px;width:100%;text-align:center;">
-    <div style="font-size:26px;margin-bottom:10px;">🔒</div>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-en>This Module is Locked</h2>
-    <h2 style="color:var(--navy);font-size:18px;margin-bottom:8px;" data-ta>இந்த பாடம் பூட்டப்பட்டுள்ளது</h2>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-en>Enter the passcode shared with enrolled teachers to unlock this module guide.</p>
-    <p style="font-size:13.5px;color:var(--muted);margin-bottom:16px;" data-ta>பதிவு செய்த ஆசிரியர்களுக்கு பகிரப்பட்ட கடவுச்சொல்லை உள்ளிடவும்.</p>
-    <input id="gateInput" type="text" placeholder="Enter passcode" style="width:100%;padding:11px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;margin-bottom:10px;text-align:center;text-transform:uppercase;">
-    <div id="gateError" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-en>Incorrect passcode. Please try again.</div>
-    <div id="gateError2" style="color:#c0483a;font-size:12.5px;margin-bottom:10px;display:none;" data-ta>தவறான கடவுச்சொல். மீண்டும் முயற்சிக்கவும்.</div>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-en>Unlock Module →</button>
-    <button onclick="checkGate()" class="btn btn-gold" style="width:100%;" data-ta>பாடத்தைத் திற →</button>
-    <div style="margin-top:14px;">
-      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20the%20passcode%20for%20the%20Emotional%20Intelligence%20for%20Teachers%20course" style="font-size:12.5px;color:var(--navy);font-weight:700;">WhatsApp for the passcode →</a>
     </div>
   </div>
 </div>
@@ -167,28 +155,6 @@ footer .motto{color:var(--gold-light);font-style:italic;margin-top:6px;}
 <script>
 const M = {"num": 5, "title_en": "Emotional Regulation Techniques for Stressful Moments", "title_ta": "அழுத்தமான தருணங்களுக்கான உணர்ச்சி கட்டுப்பாட்டு நுட்பங்கள்", "subtopics": [{"t_en": "Box Breathing for Mid-Lesson Calm", "t_ta": "பாடத்தின் நடுவில் அமைதிக்கான பாக்ஸ் சுவாசம்", "example_en": "After a heated exchange, a teacher takes 90 seconds for box breathing (4 counts in, 4 hold, 4 out, 4 hold) at her desk before starting the next class — walking in noticeably steadier.", "example_ta": "சூடான பரிமாற்றத்திற்குப் பிறகு, ஒரு ஆசிரியர் அடுத்த வகுப்பைத் தொடங்குவதற்கு முன் தனது மேசையில் பாக்ஸ் சுவாசத்திற்காக (4-4-4-4 எண்ணிக்கை) 90 வினாடிகள் எடுத்துக்கொள்கிறார்."}, {"t_en": "Grounding to Interrupt Spiralling Thoughts", "t_ta": "சுழலும் எண்ணங்களை குறுக்கிட தரையிறங்குதல்", "example_en": "When anxious thoughts start spiralling before a difficult class, a teacher silently names three things she can see and two things she can hear — pulling her attention back to the present moment.", "example_ta": "ஒரு கடினமான வகுப்பிற்கு முன் கவலையான எண்ணங்கள் சுழலத் தொடங்கும்போது, ஒரு ஆசிரியர் அமைதியாக அவர் பார்க்கக்கூடிய மூன்று விஷயங்களையும் கேட்கக்கூடிய இரண்டு விஷயங்களையும் பெயரிடுகிறார்."}, {"t_en": "Using Micro-Breaks Between Classes", "t_ta": "வகுப்புகளுக்கு இடையில் மைக்ரோ-இடைவேளைகளைப் பயன்படுத்துதல்", "example_en": "Between two consecutive difficult periods, a teacher builds in a two-minute buffer — just enough time to step to the door, breathe, and reset before the next class arrives.", "example_ta": "இரண்டு தொடர்ச்சியான கடினமான பீரியட்களுக்கு இடையில், ஒரு ஆசிரியர் இரண்டு நிமிட இடைவெளியை உருவாக்குகிறார் — கதவுக்கு சென்று, சுவாசித்து, மறுஅமைக்க போதுமான நேரம்."}], "suggestions": [{"en": "Practice box breathing (4-4-4-4) a few times when calm, so it's automatic when you need it under stress.", "ta": "அமைதியாக இருக்கும்போது பாக்ஸ் சுவாசத்தை (4-4-4-4) சில முறை பயிற்சி செய்யுங்கள், அழுத்தத்தின் கீழ் தேவைப்படும்போது இது தானாகவே செயல்படும்."}, {"en": "Try the grounding technique (3 things seen, 2 heard) the next time your thoughts start spiralling.", "ta": "அடுத்த முறை உங்கள் எண்ணங்கள் சுழலத் தொடங்கும்போது தரையிறங்கும் நுட்பத்தை (3 பார்த்தவை, 2 கேட்டவை) முயற்சிக்கவும்."}, {"en": "Build a 2-minute buffer between back-to-back difficult classes whenever your timetable allows.", "ta": "உங்கள் கால அட்டவணை அனுமதிக்கும் போதெல்லாம் அடுத்தடுத்த கடினமான வகுப்புகளுக்கு இடையில் 2 நிமிட இடைவெளியை உருவாக்குங்கள்."}, {"en": "Keep a small physical anchor (a pen, a ring) you can touch as a discreet grounding cue during class.", "ta": "வகுப்பின் போது ஒரு விவேகமான தரையிறங்கும் குறிப்பாக நீங்கள் தொடக்கூடிய ஒரு சிறிய உடல் நங்கூரத்தை (ஒரு பேனா, ஒரு மோதிரம்) வைத்திருங்கள்."}, {"en": "Match the technique to the moment: breath for mid-lesson, a short walk between classes, longer reset after a hard incident.", "ta": "நுட்பத்தை தருணத்திற்கு பொருத்துங்கள்: பாடத்தின் நடுவில் சுவாசம், வகுப்புகளுக்கு இடையில் ஒரு குறுகிய நடை, ஒரு கடினமான சம்பவத்திற்குப் பிறகு நீண்ட மறுஅமைப்பு."}], "worksheet": [{"en": "Which regulation technique from this module could you realistically use in your busiest teaching hour?", "ta": "உங்கள் மிகவும் பரபரப்பான கற்பித்தல் மணி நேரத்தில் இந்த பாடத்திலிருந்து எந்த கட்டுப்பாட்டு நுட்பத்தை நீங்கள் யதார்த்தமாக பயன்படுத்தலாம்?"}, {"en": "Try box breathing right now (4-4-4-4, three rounds). How did it feel?", "ta": "இப்போதே பாக்ஸ் சுவாசத்தை முயற்சிக்கவும் (4-4-4-4, மூன்று சுற்றுகள்). அது எப்படி உணரப்பட்டது?"}, {"en": "Where in your daily schedule could you fit a 2-minute buffer between classes?", "ta": "உங்கள் தினசரி அட்டவணையில் வகுப்புகளுக்கு இடையில் நீங்கள் 2 நிமிட இடைவெளியை எங்கே பொருத்தலாம்?"}, {"en": "What physical object could serve as your personal grounding anchor during class?", "ta": "வகுப்பின் போது உங்கள் தனிப்பட்ட தரையிறங்கும் நங்கூரமாக என்ன உடல் பொருள் செயல்படலாம்?"}, {"en": "Describe the last time you felt physically flooded by stress in class. Which technique would have helped most?", "ta": "வகுப்பில் அழுத்தத்தால் உடல் ரீதியாக நீங்கள் நிரம்பியிருந்ததாக உணர்ந்த கடைசி நேரத்தை விவரிக்கவும். எந்த நுட்பம் மிகவும் உதவியிருக்கும்?"}], "action_plan": [{"area_en": "Learning box breathing", "area_ta": "பாக்ஸ் சுவாசத்தைக் கற்றல்", "action_en": "Practice box breathing daily for 5 minutes until automatic", "action_ta": "தானாகவே ஆகும் வரை தினமும் 5 நிமிடங்கள் பாக்ஸ் சுவாசத்தை பயிற்சி செய்யுங்கள்", "timeline_en": "Daily, 2 weeks", "timeline_ta": "தினமும், 2 வாரங்கள்"}, {"area_en": "Scheduling micro-breaks", "area_ta": "மைக்ரோ-இடைவேளைகளை திட்டமிடுதல்", "action_en": "Identify and protect one 2-minute buffer in your daily timetable", "action_ta": "உங்கள் தினசரி அட்டவணையில் ஒரு 2-நிமிட இடைவெளியை அடையாளம் கண்டு பாதுகாக்கவும்", "timeline_en": "This week", "timeline_ta": "இந்த வாரம்"}, {"area_en": "Grounding practice", "area_ta": "தரையிறங்கும் பயிற்சி", "action_en": "Use the 3-2 grounding technique once during a stressful moment", "action_ta": "ஒரு அழுத்தமான தருணத்தில் 3-2 தரையிறங்கும் நுட்பத்தை பயன்படுத்துங்கள்", "timeline_en": "Within 1 week", "timeline_ta": "1 வாரத்திற்குள்"}]};
 let lang = localStorage.getItem('eqt_lang') || 'en';
-const PASSCODE = 'EQTEACH2026';
-
-function checkGate(){
-  const val = document.getElementById('gateInput').value.trim().toUpperCase();
-  if(val === PASSCODE){
-    localStorage.setItem('eqt_unlocked', 'yes');
-    document.getElementById('gateOverlay').style.display = 'none';
-    document.getElementById('mainWrap').style.display = 'block';
-  } else {
-    document.getElementById('gateError').style.display = 'block';
-    document.getElementById('gateError2').style.display = 'block';
-  }
-}
-
-function applyGate(){
-  if(M.num === 1){ return; } // Module 1 is always free
-  const unlocked = localStorage.getItem('eqt_unlocked') === 'yes';
-  if(!unlocked){
-    document.getElementById('mainWrap').style.display = 'none';
-    document.getElementById('gateOverlay').style.display = 'flex';
-  }
-}
 
 function setLang(l){
   lang = l;
@@ -240,7 +206,6 @@ if(lang==='ta'){
   document.querySelectorAll('.lang-toggle button')[0]?.classList.remove('active');
 }
 render();
-applyGate();
 </script>
 
 </body>
