@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Anger Management Assessment | Somasundaram Life Skills Training Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --plum:   #4c1d95;
+  --violet: #6d28d9;
+  --lilac:  #a78bfa;
+  --gold:   #f59e0b;
+  --amber:  #fbbf24;
+  --cream:  #faf7ff;
+  --border: #e4d9fc;
+  --muted:  #6b7280;
+  --ink:    #1a0533;
+  --white:  #ffffff;
+  --green:  #25d366;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Poppins', 'Noto Sans Tamil', sans-serif; background: var(--cream); color: var(--ink); }
+
+/* ── HEADER ── */
+header {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+}
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-av {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--plum), var(--lilac));
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 16px; color: white; flex-shrink: 0;
+}
+.logo-text strong { font-size: 13px; color: var(--plum); display: block; line-height: 1.3; }
+.logo-text span   { font-size: 11px; color: var(--muted); }
+.hdr-wa {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green); color: white;
+  border-radius: 8px; padding: 8px 14px;
+  font-size: 13px; font-weight: 600; text-decoration: none; white-space: nowrap;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(145deg, #200757 0%, #4c1d95 50%, #7c3aed 100%);
+  color: white; text-align: center;
+  padding: 70px 24px 90px;
+  position: relative; overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute; bottom: -2px; left: 0; right: 0;
+  height: 60px;
+  background: var(--cream);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.13);
+  border: 1px solid rgba(255,255,255,0.28);
+  border-radius: 100px; padding: 6px 18px;
+  font-size: 12.5px; margin-bottom: 26px;
+}
+.hero-flame {
+  font-size: clamp(48px, 10vw, 80px);
+  display: block; margin-bottom: 14px;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+.hero h1 {
+  font-size: clamp(26px, 6vw, 52px);
+  font-weight: 800; line-height: 1.15;
+  letter-spacing: -0.02em; margin-bottom: 10px;
+}
+.hero h1 em { color: var(--amber); font-style: normal; }
+.hero-ta {
+  font-family: 'Noto Sans Tamil', sans-serif;
+  font-size: clamp(14px, 3vw, 19px);
+  opacity: 0.85; margin-bottom: 16px;
+}
+.hero-sub {
+  font-size: 14.5px; opacity: 0.8; line-height: 1.85;
+  max-width: 500px; margin: 0 auto 36px;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--amber); color: var(--ink);
+  border-radius: 14px; padding: 16px 36px;
+  font-size: 16px; font-weight: 800; text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 6px 24px rgba(251,191,36,0.4);
+}
+.hero-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(251,191,36,0.5); }
+.hero-stats {
+  display: flex; justify-content: center; gap: 36px; flex-wrap: wrap;
+  margin-top: 44px; padding-top: 30px;
+  border-top: 1px solid rgba(255,255,255,0.14);
+}
+.stat .num { font-size: 26px; font-weight: 800; color: var(--amber); }
+.stat .lbl { font-size: 11.5px; opacity: 0.75; margin-top: 2px; }
+
+/* ── TRAINER STRIP ── */
+.trainer-strip {
+  background: white; border-bottom: 2px solid var(--border);
+  padding: 24px;
+  display: flex; align-items: center; justify-content: center;
+  gap: 16px; flex-wrap: wrap; text-align: center;
+}
+.trainer-av {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--plum), var(--lilac));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; font-weight: 800; color: white; flex-shrink: 0;
+}
+.trainer-info h3 { font-size: 16px; font-weight: 700; color: var(--plum); }
+.trainer-info p  { font-size: 11.5px; color: var(--muted); line-height: 1.9; margin-top: 3px; }
+.trainer-motto   { font-size: 13px; color: var(--gold); font-weight: 700; margin-top: 5px; }
+
+/* ── SECTION ── */
+.sec { padding: 60px 24px; max-width: 900px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 40px; }
+.eyebrow {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--violet); background: #ede9fe;
+  border-radius: 100px; padding: 4px 14px; margin-bottom: 12px;
+}
+.sec-head h2 { font-size: clamp(20px, 4vw, 30px); font-weight: 800; color: var(--plum); line-height: 1.25; }
+.sec-head .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+/* ── WHY CARDS ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.why-card {
+  background: white; border: 1.5px solid var(--border);
+  border-radius: 16px; padding: 22px 18px; text-align: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.why-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(109,40,217,0.1); }
+.why-card .wi { font-size: 30px; margin-bottom: 10px; }
+.why-card h4 { font-size: 14px; font-weight: 700; color: var(--plum); }
+.why-card p  { font-size: 12.5px; color: var(--muted); margin-top: 5px; line-height: 1.7; }
+.why-card .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12px; color: var(--lilac); margin-top: 4px; }
+
+/* ── LEVELS ── */
+.levels { display: flex; flex-direction: column; gap: 14px; }
+.level-row {
+  display: flex; align-items: center; gap: 16px;
+  background: white; border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 18px 20px;
+}
+.level-icon { font-size: 28px; flex-shrink: 0; }
+.level-info h4 { font-size: 14px; font-weight: 700; color: var(--plum); }
+.level-info p  { font-size: 12.5px; color: var(--muted); margin-top: 3px; line-height: 1.6; }
+.level-info .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12px; }
+.level-bar-wrap { margin-top: 8px; background: #f3f0ff; border-radius: 6px; height: 7px; }
+.level-bar { height: 7px; border-radius: 6px; }
+
+/* ── TIPS STRIP ── */
+.tips-strip {
+  background: linear-gradient(135deg, #1a0533, #4c1d95);
+  color: white; padding: 60px 24px;
+}
+.tips-inner { max-width: 900px; margin: 0 auto; }
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px; margin-top: 36px;
+}
+.tip-card {
+  background: rgba(255,255,255,0.09);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 14px; padding: 20px 18px;
+}
+.tip-num {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--amber); color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 800; margin-bottom: 10px;
+}
+.tip-card h4 { font-size: 13.5px; font-weight: 700; margin-bottom: 5px; }
+.tip-card p  { font-size: 12px; opacity: 0.78; line-height: 1.75; }
+.tip-card .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 11.5px; opacity: 0.65; margin-top: 5px; }
+
+/* ── TESTIMONIAL / SOCIAL PROOF ── */
+.proof-strip {
+  background: white; padding: 56px 24px;
+  border-top: 2px solid var(--border);
+  border-bottom: 2px solid var(--border);
+}
+.proof-inner { max-width: 860px; margin: 0 auto; }
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px; margin-top: 32px;
+}
+.proof-card {
+  background: var(--cream); border: 1.5px solid var(--border);
+  border-radius: 14px; padding: 20px 18px;
+}
+.proof-stars { color: var(--gold); font-size: 15px; margin-bottom: 8px; }
+.proof-text  { font-size: 13px; color: #374151; line-height: 1.75; font-style: italic; }
+.proof-name  { font-size: 12px; font-weight: 700; color: var(--plum); margin-top: 12px; }
+.proof-loc   { font-size: 11px; color: var(--muted); }
+
+/* ── PROGRAM CTA ── */
+.program-cta {
+  background: linear-gradient(135deg, #78350f, var(--gold));
+  color: white; padding: 64px 24px; text-align: center;
+}
+.program-cta h2 { font-size: clamp(20px, 4vw, 32px); font-weight: 800; margin-bottom: 6px; }
+.program-cta .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 15px; opacity: 0.9; margin-bottom: 10px; }
+.program-cta .sub { font-size: 14px; opacity: 0.88; max-width: 480px; margin: 0 auto 30px; line-height: 1.8; }
+.prog-points { list-style: none; max-width: 400px; margin: 0 auto 32px; text-align: left; }
+.prog-points li { font-size: 13.5px; padding: 5px 0 5px 28px; position: relative; opacity: 0.92; line-height: 1.6; }
+.prog-points li::before { content: "✅"; position: absolute; left: 0; }
+.prog-points .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12px; opacity: 0.8; }
+.cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-wa-big {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--green); color: white;
+  border-radius: 12px; padding: 15px 30px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+}
+.btn-outline-w {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: transparent; color: white;
+  border: 2px solid white;
+  border-radius: 12px; padding: 15px 30px;
+  font-size: 15px; font-weight: 700; text-decoration: none;
+}
+
+/* ── START AGAIN CTA ── */
+.start-cta {
+  background: var(--cream); padding: 56px 24px; text-align: center;
+}
+.start-cta h2 { font-size: clamp(18px, 3.5vw, 26px); font-weight: 800; color: var(--plum); margin-bottom: 8px; }
+.start-cta .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+.start-cta a {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, var(--plum), var(--violet));
+  color: white; border-radius: 14px; padding: 16px 40px;
+  font-size: 16px; font-weight: 800; text-decoration: none;
+  box-shadow: 0 6px 24px rgba(109,40,217,0.35);
+  transition: transform 0.18s;
+}
+.start-cta a:hover { transform: translateY(-2px); }
+
+/* ── FOOTER ── */
+footer {
+  background: #0f0222; color: rgba(255,255,255,0.6);
+  text-align: center; padding: 28px 24px; font-size: 12px; line-height: 2.1;
+}
+footer strong { color: white; }
+footer a { color: var(--lilac); text-decoration: none; }
+
+/* ── FLOAT WA ── */
+.float-wa {
+  position: fixed; bottom: 22px; right: 22px; z-index: 999;
+  background: var(--green); color: white;
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+@media (max-width: 600px) {
+  .hero { padding: 52px 18px 80px; }
+  .hero-stats { gap: 22px; }
+  .trainer-strip { flex-direction: column; }
+  .level-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="logo" href="#">
+    <div class="logo-av">S</div>
+    <div class="logo-text">
+      <strong>Somasundaram NT</strong>
+      <span>Life Skills Training Program</span>
+    </div>
+  </a>
+  <a class="hdr-wa" href="https://wa.me/919843702244?text=Hello%20Somasundaram%20Sir%20%F0%9F%99%8F%0AI%20visited%20your%20Anger%20Management%20page." target="_blank">💬 WhatsApp</a>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🆓 Free · Bilingual · Instant Results</div>
+  <span class="hero-flame">🔥</span>
+  <h1>Is Your Anger<br><em>Controlling You?</em></h1>
+  <div class="hero-ta">உங்கள் கோபம் உங்களை கட்டுப்படுத்துகிறதா?</div>
+  <p class="hero-sub">Take this free 20-question self-assessment in Tamil & English. Discover your anger pattern and get personalised strategies — in just 5 minutes.</p>
+  <a class="hero-cta" href="https://sites.google.com/view/somasundaramnt/assessment/anger-management">🚀 Start Free Assessment | இப்போதே தொடங்குங்கள்</a>
+  <div class="hero-stats">
+    <div class="stat"><div class="num">20</div><div class="lbl">Questions</div></div>
+    <div class="stat"><div class="num">5 min</div><div class="lbl">To Complete</div></div>
+    <div class="stat"><div class="num">4</div><div class="lbl">Result Levels</div></div>
+    <div class="stat"><div class="num">Free</div><div class="lbl">Forever</div></div>
+  </div>
+</div>
+
+<!-- TRAINER -->
+<div class="trainer-strip">
+  <div class="trainer-av">S</div>
+  <div class="trainer-info">
+    <h3>Somasundaram NT</h3>
+    <p>Certified Master Trainer · Parenting Coach · Life Skills Educator<br>
+    IATD · Pick My Career · Emocare International · Indian Counseling Service<br>
+    Director & Treasurer — SKV International School, Tiruvannamalai</p>
+    <div class="trainer-motto">✨ "God is Always With You" ✨</div>
+  </div>
+</div>
+
+<!-- WHY TAKE IT -->
+<div class="sec">
+  <div class="sec-head">
+    <div class="eyebrow">Why Take This Assessment?</div>
+    <h2>Understand Your Anger Before It Harms You</h2>
+    <div class="ta">உங்கள் கோபம் பாதிக்கும் முன் புரிந்துகொள்ளுங்கள்</div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="wi">🔍</div>
+      <h4>Know Your Pattern</h4>
+      <p>Identify whether your anger is controlled, moderate, high, or severe — with clear explanations.</p>
+      <div class="ta">உங்கள் கோப பாங்கை அறியுங்கள்</div>
+    </div>
+    <div class="why-card">
+      <div class="wi">💡</div>
+      <h4>Personalised Tips</h4>
+      <p>Get specific, actionable anger management strategies matched to your result level.</p>
+      <div class="ta">தனிப்பயன் ஆலோசனை</div>
+    </div>
+    <div class="why-card">
+      <div class="wi">❤️</div>
+      <h4>Save Relationships</h4>
+      <p>Unchecked anger damages families and friendships. Awareness is the first step to change.</p>
+      <div class="ta">உறவுகளை காப்பாற்றுங்கள்</div>
+    </div>
+    <div class="why-card">
+      <div class="wi">📄</div>
+      <h4>Downloadable Report</h4>
+      <p>Get a beautifully formatted PDF report with your score, level, and 8 proven strategies.</p>
+      <div class="ta">அறிக்கையை பதிவிறக்கவும்</div>
+    </div>
+    <div class="why-card">
+      <div class="wi">🌐</div>
+      <h4>Tamil & English</h4>
+      <p>Every question and result is fully bilingual — comfortable for all Tamil Nadu audiences.</p>
+      <div class="ta">தமிழ் & ஆங்கிலம்</div>
+    </div>
+    <div class="why-card">
+      <div class="wi">🔒</div>
+      <h4>100% Confidential</h4>
+      <p>Your responses are private. No judgment — only honest insights to help you grow.</p>
+      <div class="ta">முற்றிலும் இரகசியம்</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT LEVELS -->
+<div style="background:white; border-top:2px solid var(--border); border-bottom:2px solid var(--border); padding:60px 24px;">
+<div style="max-width:860px; margin:0 auto;">
+  <div class="sec-head">
+    <div class="eyebrow">Your Result Could Be</div>
+    <h2>4 Anger Levels — Which One Are You?</h2>
+    <div class="ta">4 கோப நிலைகள் — நீங்கள் எந்த நிலையில் இருக்கிறீர்கள்?</div>
+  </div>
+  <div class="levels">
+    <div class="level-row">
+      <div class="level-icon">🌿</div>
+      <div class="level-info" style="flex:1;">
+        <h4 style="color:#059669;">Low / Controlled | குறைந்த / கட்டுப்படுத்தப்பட்ட கோபம்</h4>
+        <p>Excellent emotional regulation. You handle frustrations with maturity and patience.</p>
+        <div class="ta">சிறந்த உணர்ச்சி கட்டுப்பாடு. முதிர்ச்சியுடன் கையாளுகிறீர்கள்.</div>
+        <div class="level-bar-wrap"><div class="level-bar" style="width:25%;background:#059669;"></div></div>
+      </div>
+    </div>
+    <div class="level-row">
+      <div class="level-icon">⚡</div>
+      <div class="level-info" style="flex:1;">
+        <h4 style="color:#d97706;">Moderate / Manageable | மிதமான கோபம்</h4>
+        <p>Manageable anger but some situations get the better of you. Improvement is within reach.</p>
+        <div class="ta">சில சூழல்களில் கோபம் அதிகமாகிறது. சரியான திறன்களுடன் மேம்படலாம்.</div>
+        <div class="level-bar-wrap"><div class="level-bar" style="width:50%;background:#d97706;"></div></div>
+      </div>
+    </div>
+    <div class="level-row">
+      <div class="level-icon">🔥</div>
+      <div class="level-info" style="flex:1;">
+        <h4 style="color:#dc2626;">High / Needs Attention | அதிக கோபம் — கவனம் தேவை</h4>
+        <p>Anger is significantly impacting your relationships and wellbeing. Support is important now.</p>
+        <div class="ta">கோபம் உங்கள் உறவுகளை கணிசமாக பாதிக்கிறது. இப்போதே உதவி நாடுங்கள்.</div>
+        <div class="level-bar-wrap"><div class="level-bar" style="width:75%;background:#dc2626;"></div></div>
+      </div>
+    </div>
+    <div class="level-row">
+      <div class="level-icon">🆘</div>
+      <div class="level-info" style="flex:1;">
+        <h4 style="color:#7c2d12;">Severe / Urgent Help Needed | தீவிர கோபம்</h4>
+        <p>Anger is seriously affecting your life and safety. Please reach out for professional support immediately.</p>
+        <div class="ta">தீவிர நிலை — உடனடியாக தொழில்முறை ஆதரவை நாடுங்கள்.</div>
+        <div class="level-bar-wrap"><div class="level-bar" style="width:100%;background:#7c2d12;"></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- 8 TIPS STRIP -->
+<div class="tips-strip">
+  <div class="tips-inner">
+    <div class="sec-head" style="color:white;">
+      <div class="eyebrow" style="background:rgba(255,255,255,0.15);color:#e9d5ff;">Inside Your Free Report</div>
+      <h2 style="color:white;">8 Proven Anger Management Strategies</h2>
+      <div class="ta" style="color:rgba(255,255,255,0.72);">8 நிரூபிக்கப்பட்ட கோப மேலாண்மை உத்திகள்</div>
+    </div>
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-num">1</div>
+        <h4>4-7-8 Breathing</h4>
+        <p>Inhale 4 sec, hold 7 sec, exhale 8 sec. Instantly calms your nervous system.</p>
+        <div class="ta">4-7-8 சுவாச நுட்பம்</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">2</div>
+        <h4>Feelings Journal</h4>
+        <p>Write what triggered your anger and how you responded. Journaling builds self-awareness.</p>
+        <div class="ta">உணர்வு டைரி</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">3</div>
+        <h4>"I" Statements</h4>
+        <p>Say "I feel hurt when…" instead of "You always…" — reduces blame and conflict.</p>
+        <div class="ta">"நான்" கூற்றுகள்</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">4</div>
+        <h4>Time-Out</h4>
+        <p>When anger escalates, step away briefly and return when calm. Simple but powerful.</p>
+        <div class="ta">நேர-இடைவேளை</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">5</div>
+        <h4>Know Your Triggers</h4>
+        <p>Keep a weekly log. Patterns will emerge so you can prepare better responses.</p>
+        <div class="ta">தூண்டுதல்களை அறியுங்கள்</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">6</div>
+        <h4>Practise Empathy</h4>
+        <p>Ask "Why might they act this way?" — understanding others naturally reduces reactive anger.</p>
+        <div class="ta">பரிவை பயிற்சி செய்யுங்கள்</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">7</div>
+        <h4>Physical Release</h4>
+        <p>Walking, yoga, or swimming releases built-up tension and lowers your anger baseline.</p>
+        <div class="ta">உடல் வெளியீடு</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-num">8</div>
+        <h4>Forgiveness Practice</h4>
+        <p>Holding grudges keeps anger alive. Forgiveness releases you — not the other person.</p>
+        <div class="ta">மன்னிப்பு பயிற்சி</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="sec-head">
+      <div class="eyebrow">What Participants Say</div>
+      <h2>Real Feedback from Real People</h2>
+      <div class="ta">பங்கேற்பாளர்களின் கருத்துக்கள்</div>
+    </div>
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"This assessment opened my eyes. I didn't realise how much my anger was affecting my children. The tips were practical and easy to follow."</div>
+        <div class="proof-name">Rajeshwari S.</div>
+        <div class="proof-loc">Parent · Chennai</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"இந்த மதிப்பீடு என் கோபத்தின் காரணங்களை புரிய வைத்தது. தமிழிலும் உள்ளது என்பதால் மிகவும் எளிதாக இருந்தது."</div>
+        <div class="proof-name">Murugan K.</div>
+        <div class="proof-loc">Teacher · Tiruvannamalai</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-text">"Simple, accurate, and very helpful. I scored 'Moderate' and immediately started practising the 4-7-8 breathing technique. It works!"</div>
+        <div class="proof-name">Priya T.</div>
+        <div class="proof-loc">Working Professional · Vellore</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROGRAM CTA -->
+<div class="program-cta">
+  <h2>🌟 Loving & Responsible Parenting Program</h2>
+  <div class="ta">அன்பான & பொறுப்பான பெற்றோர்மை பயிற்சி — Zoom வழியாக</div>
+  <p class="sub">Want deeper support? Join our live Zoom program in Tamil & English — manage anger, build emotional intelligence, and become the parent your child deserves.</p>
+  <ul class="prog-points">
+    <li>Understand your emotional triggers as a parent<br><span class="ta">பெற்றோராக உங்கள் உணர்ச்சி தூண்டுதல்களை புரிந்துகொள்ளுங்கள்</span></li>
+    <li>Learn proven anger management strategies<br><span class="ta">நிரூபிக்கப்பட்ட உத்திகளை கற்றுக்கொள்ளுங்கள்</span></li>
+    <li>Build a deeper bond with your children<br><span class="ta">குழந்தைகளுடன் ஆழமான தொடர்பை உருவாக்குங்கள்</span></li>
+    <li>Live sessions via Zoom — Tamil & English<br><span class="ta">Zoom வழியாக நேரடி அமர்வுகள்</span></li>
+  </ul>
+  <div class="cta-btns">
+    <a class="btn-wa-big" href="https://wa.me/919843702244?text=Hello%20Somasundaram%20Sir%20%F0%9F%99%8F%0AI%20am%20interested%20in%20the%20Loving%20%26%20Responsible%20Parenting%20Program.%20Please%20share%20details." target="_blank">📲 Register on WhatsApp</a>
+    <a class="btn-outline-w" href="mailto:somasundaramnt.lifecoach@gmail.com">📧 Email Us</a>
+  </div>
+  <p style="font-size:12.5px;opacity:0.85;margin-top:22px;">📱 +91 98437 02244 &nbsp;|&nbsp; 📧 somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp; ▶️ @Godisalwayswithu</p>
+</div>
+
+<!-- START AGAIN CTA -->
+<div class="start-cta">
+  <h2>Ready to Take the First Step?</h2>
+  <div class="ta">முதல் அடி எடுக்க தயாரா? இலவசமாக தொடங்குங்கள்!</div>
+  <a href="https://sites.google.com/view/somasundaramnt/assessment/anger-management">🔥 Start Free Assessment Now | இப்போதே தொடங்குங்கள்</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <strong>Somasundaram Life Skills Training Program</strong><br>
+  Tiruvannamalai, Tamil Nadu, India<br>
+  <a href="https://sites.google.com/view/somasundaramnt" target="_blank">🌐 sites.google.com/view/somasundaramnt</a> &nbsp;|&nbsp;
+  <a href="https://wa.me/919843702244" target="_blank">💬 +91 98437 02244</a> &nbsp;|&nbsp;
+  <a href="https://youtube.com/@Godisalwayswithu" target="_blank">▶️ @Godisalwayswithu</a><br><br>
+  ✨ "God is Always With You" ✨
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a class="float-wa" href="https://wa.me/919843702244?text=Hello%20Somasundaram%20Sir%20%F0%9F%99%8F" target="_blank" title="Chat on WhatsApp">💬</a>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anger Management Mastery | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2d6a4f;
+    --primary-dark:#1b4332;
+    --accent:#f4a261;
+    --danger:#e63946;
+    --cream:#fdf6ec;
+    --ink:#1d2b24;
+    --muted:#5b6b63;
+    --card:#ffffff;
+    --radius:16px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+  }
+  body.ta, body.ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  [data-ta]{display:none;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  body.ta .block-ta{display:block;}
+  .lang-toggle{
+    position:fixed;top:14px;right:14px;z-index:999;
+    background:var(--primary-dark);color:#fff;border:none;
+    padding:8px 16px;border-radius:20px;font-size:13px;font-weight:600;
+    cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.15);
+  }
+  header{
+    background:linear-gradient(135deg,var(--primary-dark),var(--primary));
+    color:#fff;padding:70px 20px 90px;text-align:center;position:relative;
+  }
+  header h1{font-size:2.3rem;font-weight:800;margin-bottom:14px;}
+  header p.tagline{font-size:1.1rem;opacity:.92;max-width:640px;margin:0 auto 26px;}
+  .badge-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:30px;}
+  .badge{background:rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;font-size:.82rem;}
+  .cta-btn{
+    display:inline-block;background:var(--accent);color:#1d2b24;font-weight:700;
+    padding:14px 32px;border-radius:30px;text-decoration:none;font-size:1.02rem;
+    box-shadow:0 8px 20px rgba(244,162,97,.4);transition:transform .2s;
+  }
+  .cta-btn:hover{transform:translateY(-2px);}
+  .wave{position:absolute;bottom:-2px;left:0;width:100%;line-height:0;}
+  section{max-width:920px;margin:0 auto;padding:50px 20px;}
+  h2.section-title{font-size:1.6rem;font-weight:700;color:var(--primary-dark);margin-bottom:8px;text-align:center;}
+  p.section-sub{text-align:center;color:var(--muted);margin-bottom:36px;}
+  .problem-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+  .problem-card{background:var(--card);border-radius:var(--radius);padding:22px;border-left:4px solid var(--danger);box-shadow:0 4px 14px rgba(0,0,0,.05);}
+  .problem-card h4{color:var(--danger);margin-bottom:8px;font-size:1rem;}
+  .problem-card p{color:var(--muted);font-size:.92rem;}
+  .modules{display:grid;gap:14px;}
+  .module-row{
+    background:var(--card);border-radius:12px;padding:18px 22px;display:flex;gap:16px;
+    align-items:flex-start;box-shadow:0 3px 10px rgba(0,0,0,.05);border:1px solid #eee;
+  }
+  .module-num{
+    background:var(--primary);color:#fff;min-width:36px;height:36px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;flex-shrink:0;
+  }
+  .module-row h4{font-size:1rem;color:var(--primary-dark);margin-bottom:4px;}
+  .module-row p{font-size:.87rem;color:var(--muted);}
+  .outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+  .outcome-card{background:var(--primary-dark);color:#fff;padding:20px;border-radius:var(--radius);text-align:center;}
+  .outcome-card .icon{font-size:1.8rem;margin-bottom:8px;}
+  .outcome-card p{font-size:.88rem;opacity:.92;}
+  .instructor{
+    display:flex;gap:24px;align-items:center;background:var(--card);border-radius:var(--radius);
+    padding:26px;box-shadow:0 4px 14px rgba(0,0,0,.05);flex-wrap:wrap;
+  }
+  .instructor .avatar{
+    width:90px;height:90px;border-radius:50%;background:var(--accent);color:#1d2b24;
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:800;flex-shrink:0;
+  }
+  .instructor h4{color:var(--primary-dark);margin-bottom:4px;}
+  .instructor p{font-size:.9rem;color:var(--muted);}
+  .pricing-card{
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
+    border-radius:var(--radius);padding:36px;text-align:center;max-width:420px;margin:0 auto;
+    box-shadow:0 10px 30px rgba(45,106,79,.3);
+  }
+  .price-old{text-decoration:line-through;opacity:.6;font-size:1.1rem;}
+  .price-new{font-size:2.4rem;font-weight:800;color:var(--accent);margin:6px 0 4px;}
+  .price-note{font-size:.82rem;opacity:.85;margin-bottom:22px;}
+  .pricing-feats{text-align:left;margin:0 auto 24px;max-width:280px;font-size:.9rem;}
+  .pricing-feats li{list-style:none;padding:6px 0;padding-left:24px;position:relative;}
+  .pricing-feats li:before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700;}
+  footer{text-align:center;padding:40px 20px;color:var(--muted);font-size:.85rem;}
+  .whatsapp-fab{
+    position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;
+    width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:1.6rem;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:998;
+  }
+  @media(max-width:600px){header h1{font-size:1.7rem;}}
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="toggleLang()"><span data-en>தமிழ்</span><span data-ta>English</span></button>
+
+<header>
+  <div class="badge-row">
+    <span class="badge" data-en>🧭 10-Module Self-Paced Course</span><span class="badge" data-ta>🧭 10 பாட நிலைகள் கொண்ட சுய-வேக பயிற்சி</span>
+    <span class="badge" data-en>🌐 Bilingual: English + Tamil</span><span class="badge" data-ta>🌐 இருமொழி: ஆங்கிலம் + தமிழ்</span>
+  </div>
+  <h1><span data-en>Anger Management Mastery</span><span data-ta>கோப மேலாண்மை தேர்ச்சி</span></h1>
+  <p class="tagline">
+    <span data-en>A practical, judgment-free program to understand your anger, cool the heat in the moment, and respond — instead of react — in relationships, work, and everyday life.</span>
+    <span data-ta>உங்கள் கோபத்தைப் புரிந்துகொள்ளவும், அந்த தருணத்தில் அமைதி அடையவும், உறவுகள், வேலை, அன்றாட வாழ்க்கையில் எதிர்வினை காட்டாமல் சரியாக பதிலளிக்கவும் உதவும் நடைமுறை பயிற்சித் திட்டம்.</span>
+  </p>
+  <a class="cta-btn" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Anger%20Management%20Mastery%20course" target="_blank">
+    <span data-en>Enroll Now via WhatsApp</span><span data-ta>வாட்ஸ்அப் மூலம் இப்போது சேரவும்</span>
+  </a>
+  <p style="margin-top:16px;font-size:.85rem;">
+    <span data-en>Not sure yet? </span><span data-ta>உறுதியாக இல்லையா? </span>
+    <a href="https://sites.google.com/view/somasundaramnt/assessment/landing-anger" target="_blank" style="color:#fff;text-decoration:underline;font-weight:600;">
+      <span data-en>Take the free Anger Assessment first →</span><span data-ta>முதலில் இலவச கோப மதிப்பீட்டை எடுங்கள் →</span>
+    </a>
+  </p>
+</header>
+
+<section>
+  <h2 class="section-title"><span data-en>Does This Sound Like You?</span><span data-ta>இது உங்களுக்குப் பொருந்துகிறதா?</span></h2>
+  <p class="section-sub"><span data-en>You're not "a bad person" — anger is a signal. This course teaches you what it's signaling and what to do about it.</span><span data-ta>நீங்கள் "கெட்டவர்" இல்லை — கோபம் ஒரு சமிக்ஞை. அது எதைக் குறிக்கிறது, அதற்கு என்ன செய்ய வேண்டும் என்பதை இந்த பயிற்சி கற்பிக்கிறது.</span></p>
+  <div class="problem-grid">
+    <div class="problem-card"><h4><span data-en>Snapping first, regretting later</span><span data-ta>முதலில் கோபப்பட்டு, பின்பு வருந்துதல்</span></h4><p><span data-en>You say things in the heat of the moment that you don't mean — and then feel guilty for hours or days.</span><span data-ta>கோபத்தின் உச்சத்தில் நீங்கள் நினைக்காத விஷயங்களைச் சொல்கிறீர்கள் — பின் மணிக்கணக்கில் அல்லது நாட்கணக்கில் குற்ற உணர்வுடன் இருக்கிறீர்கள்.</span></p></div>
+    <div class="problem-card"><h4><span data-en>Small things set you off</span><span data-ta>சிறிய விஷயங்கள் கூட கோபமூட்டுகின்றன</span></h4><p><span data-en>Traffic, a tone of voice, a delayed reply — and suddenly you're boiling.</span><span data-ta>போக்குவரத்து, குரல் தொனி, தாமத பதில் — திடீரென்று நீங்கள் கொதிக்கிறீர்கள்.</span></p></div>
+    <div class="problem-card"><h4><span data-en>It's hurting your relationships</span><span data-ta>இது உங்கள் உறவுகளைப் பாதிக்கிறது</span></h4><p><span data-en>Family or colleagues have started walking on eggshells around you, or pulling away.</span><span data-ta>குடும்பத்தினர் அல்லது சக பணியாளர்கள் உங்களிடம் எச்சரிக்கையாக நடந்துகொள்கிறார்கள் அல்லது விலகிச் செல்கிறார்கள்.</span></p></div>
+    <div class="problem-card"><h4><span data-en>You bottle it up instead</span><span data-ta>அதற்கு பதிலாக அடக்கி வைக்கிறீர்கள்</span></h4><p><span data-en>Or maybe you swing the other way — swallowing anger until it leaks out as silence, sarcasm, or exhaustion.</span><span data-ta>அல்லது நேர்மாறாக — கோபத்தை அடக்கி, அது மௌனமாகவோ, கிண்டலாகவோ, சோர்வாகவோ வெளிப்படுகிறது.</span></p></div>
+  </div>
+</section>
+
+<section>
+  <div style="background:#fff;border-radius:16px;padding:30px;box-shadow:0 4px 14px rgba(0,0,0,.05);text-align:center;border:1px dashed var(--primary);">
+    <h3 style="color:var(--primary-dark);font-size:1.2rem;margin-bottom:10px;">
+      <span data-en>Not Sure How Serious It Is?</span><span data-ta>எவ்வளவு தீவிரம் என உறுதியாக தெரியவில்லையா?</span>
+    </h3>
+    <p style="color:var(--muted);font-size:.92rem;margin-bottom:18px;">
+      <span data-en>Take our free 20-question Anger Management Assessment first — get your result level (Low / Moderate / High / Severe) in both English and Tamil before you decide to enroll.</span>
+      <span data-ta>முதலில் எங்கள் இலவச 20-கேள்வி கோப மேலாண்மை மதிப்பீட்டை எடுங்கள் — சேர முடிவெடுப்பதற்கு முன் உங்கள் நிலையை (குறைவு / மிதமான / அதிகம் / கடுமையான) ஆங்கிலம் மற்றும் தமிழில் பெறுங்கள்.</span>
+    </p>
+    <a class="cta-btn" href="https://sites.google.com/view/somasundaramnt/assessment/landing-anger" target="_blank" style="background:var(--primary);color:#fff;">
+      <span data-en>Take the Free Assessment →</span><span data-ta>இலவச மதிப்பீட்டை எடுங்கள் →</span>
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title"><span data-en>What You'll Learn — 10 Modules</span><span data-ta>நீங்கள் கற்றுக்கொள்ளப் போவது — 10 பாட நிலைகள்</span></h2>
+  <p class="section-sub"><span data-en>Each module is self-paced with reflection exercises and a real-life action step.</span><span data-ta>ஒவ்வொரு பாட நிலையும் சுய-வேகத்தில், சிந்தனை பயிற்சிகளுடனும், நடைமுறை செயல் படியுடனும் இருக்கும்.</span></p>
+  <div class="modules">
+    <div class="module-row"><div class="module-num">1</div><div><h4><span data-en>Understanding Anger — Science, Purpose & Myths</span><span data-ta>கோபத்தைப் புரிதல் — அறிவியல், நோக்கம் மற்றும் தவறான கருத்துக்கள்</span></h4><p><span data-en>What anger actually is, why we have it, and the myths that keep us stuck.</span><span data-ta>கோபம் என்றால் என்ன, ஏன் நமக்கு அது இருக்கிறது, நம்மை சிக்க வைக்கும் தவறான எண்ணங்கள்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">2</div><div><h4><span data-en>Your Anger Style & Early Warning Signs</span><span data-ta>உங்கள் கோப பாணி மற்றும் முன் எச்சரிக்கை அறிகுறிகள்</span></h4><p><span data-en>Identify your personal pattern — exploder, stuffer, or somewhere in between — and your body's early signals.</span><span data-ta>உங்கள் தனிப்பட்ட முறையை — வெடிப்பவர், அடக்குபவர் அல்லது இடைநிலை — மற்றும் உடலின் ஆரம்ப சமிக்ஞைகளை அடையாளம் காணுங்கள்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">3</div><div><h4><span data-en>The Anger Cycle — Trigger, Thought, Body, Action</span><span data-ta>கோப சுழற்சி — தூண்டுதல், எண்ணம், உடல், செயல்</span></h4><p><span data-en>See exactly how a trigger becomes an explosion — and where you can interrupt it.</span><span data-ta>ஒரு தூண்டுதல் எப்படி வெடிப்பாக மாறுகிறது, எங்கே அதை நிறுத்தலாம் என்பதைப் பாருங்கள்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">4</div><div><h4><span data-en>In-the-Moment Cooling Techniques</span><span data-ta>உடனடி அமைதி நுட்பங்கள்</span></h4><p><span data-en>STOP technique, breathing resets, and safe time-outs you can use anywhere.</span><span data-ta>STOP நுட்பம், சுவாச முறைகள், எங்கும் பயன்படுத்தக்கூடிய பாதுகாப்பான இடைவேளைகள்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">5</div><div><h4><span data-en>Cognitive Restructuring — Rewiring Anger Thoughts</span><span data-ta>சிந்தனை மறுசீரமைப்பு — கோப எண்ணங்களை மாற்றுதல்</span></h4><p><span data-en>Catch the "hot thoughts" that fuel anger and replace them with accurate ones.</span><span data-ta>கோபத்தை தூண்டும் "சூடான எண்ணங்களை" கண்டறிந்து, துல்லியமான எண்ணங்களால் மாற்றுங்கள்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">6</div><div><h4><span data-en>Assertive Communication (Not Aggression)</span><span data-ta>உறுதியான தொடர்பு (ஆக்ரோஷம் அல்ல)</span></h4><p><span data-en>Say what you mean without attacking — the difference between assertive, passive, and aggressive.</span><span data-ta>தாக்காமல் நீங்கள் நினைப்பதைச் சொல்லுங்கள் — உறுதியான, மென்மையான, ஆக்ரோஷமான பேச்சுக்கு இடையேயான வேறுபாடு.</span></p></div></div>
+    <div class="module-row"><div class="module-num">7</div><div><h4><span data-en>Anger in Relationships & Family</span><span data-ta>உறவுகளிலும் குடும்பத்திலும் கோபம்</span></h4><p><span data-en>Repair after a blow-up, and reduce recurring conflict with people closest to you.</span><span data-ta>வெடித்த பின் சரிசெய்தல், நெருங்கியவர்களுடன் மீண்டும் மீண்டும் வரும் மோதலைக் குறைத்தல்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">8</div><div><h4><span data-en>Anger at Work & Under Pressure</span><span data-ta>வேலையிலும் அழுத்தத்திலும் கோபம்</span></h4><p><span data-en>Handle unfair situations, deadlines, and difficult people without losing your professionalism.</span><span data-ta>நேர்மையற்ற சூழல்கள், கால அவகாசம், கடினமான நபர்களை உங்கள் தொழில்முறையை இழக்காமல் கையாளுங்கள்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">9</div><div><h4><span data-en>Building Long-Term Emotional Resilience</span><span data-ta>நீண்டகால உணர்ச்சி மீள்திறனை உருவாக்குதல்</span></h4><p><span data-en>Sleep, stress load, and lifestyle factors that keep your "short fuse" short.</span><span data-ta>உங்கள் "குறுகிய பொறுமையை" குறுகியதாக வைத்திருக்கும் தூக்கம், மன அழுத்த சுமை, வாழ்க்கை முறை காரணிகள்.</span></p></div></div>
+    <div class="module-row"><div class="module-num">10</div><div><h4><span data-en>Your Personal Action Plan & Relapse Prevention</span><span data-ta>உங்கள் தனிப்பட்ட செயல் திட்டம் மற்றும் மீள்வராமை தடுப்பு</span></h4><p><span data-en>Build a written plan for your top triggers, and what to do on the days it slips.</span><span data-ta>உங்கள் முக்கிய தூண்டுதல்களுக்கான எழுத்துப்பூர்வ திட்டத்தையும், தவறும் நாட்களில் என்ன செய்வது என்பதையும் உருவாக்குங்கள்.</span></p></div></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title"><span data-en>What You'll Walk Away With</span><span data-ta>நீங்கள் பெறுவது என்ன</span></h2>
+  <div class="outcomes">
+    <div class="outcome-card"><div class="icon">🧘</div><p><span data-en>3 instant cooling techniques you can use within seconds</span><span data-ta>நொடிகளில் பயன்படுத்தக்கூடிய 3 உடனடி அமைதி நுட்பங்கள்</span></p></div>
+    <div class="outcome-card"><div class="icon">🧠</div><p><span data-en>Clarity on your personal anger pattern and triggers</span><span data-ta>உங்கள் தனிப்பட்ட கோப முறை மற்றும் தூண்டுதல்கள் மீதான தெளிவு</span></p></div>
+    <div class="outcome-card"><div class="icon">🗣️</div><p><span data-en>Assertive scripts for hard conversations</span><span data-ta>கடினமான உரையாடல்களுக்கான உறுதியான வாக்கியங்கள்</span></p></div>
+    <div class="outcome-card"><div class="icon">📋</div><p><span data-en>A written, personalized anger management action plan</span><span data-ta>ஒரு எழுத்துப்பூர்வ, தனிப்பயனாக்கப்பட்ட செயல் திட்டம்</span></p></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title"><span data-en>Your Guide</span><span data-ta>உங்கள் வழிகாட்டி</span></h2>
+  <div class="instructor">
+    <div class="avatar">NT</div>
+    <div>
+      <h4>NT Somasundaram</h4>
+      <p><span data-en>Certified Master Trainer, Career Consultant & Life Skills Educator with 10+ years in corporate banking before moving into training and education. Runs bilingual life skills programs for students, parents, and teachers across Tamil Nadu.</span><span data-ta>சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர், தொழில் ஆலோசகர் மற்றும் வாழ்க்கை திறன் கல்வியாளர். 10+ ஆண்டுகள் வங்கித் துறையில் பணியாற்றியபின் பயிற்சி மற்றும் கல்வித் துறைக்கு மாறியவர். தமிழ்நாடு முழுவதும் மாணவர்கள், பெற்றோர்கள், ஆசிரியர்களுக்கான இருமொழி வாழ்க்கை திறன் திட்டங்களை நடத்துகிறார்.</span></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title"><span data-en>Enroll Today</span><span data-ta>இன்றே சேரவும்</span></h2>
+  <div class="pricing-card">
+    <div class="price-old">₹999</div>
+    <div class="price-new">₹199</div>
+    <div class="price-note"><span data-en>One-time payment · Lifetime access</span><span data-ta>ஒரு முறை கட்டணம் · வாழ்நாள் அணுகல்</span></div>
+    <ul class="pricing-feats">
+      <li><span data-en>10 self-paced modules (EN + Tamil)</span><span data-ta>10 சுய-வேக பாட நிலைகள் (ஆங்கிலம் + தமிழ்)</span></li>
+      <li><span data-en>Reflection worksheets & action plans</span><span data-ta>சிந்தனை பணித்தாள்கள் மற்றும் செயல் திட்டங்கள்</span></li>
+      <li><span data-en>Progress dashboard</span><span data-ta>முன்னேற்ற டாஷ்போர்டு</span></li>
+      <li><span data-en>WhatsApp support</span><span data-ta>வாட்ஸ்அப் ஆதரவு</span></li>
+    </ul>
+    <a class="cta-btn" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20enroll%20in%20Anger%20Management%20Mastery" target="_blank" style="background:var(--accent);">
+      <span data-en>Enroll via WhatsApp</span><span data-ta>வாட்ஸ்அப் மூலம் சேரவும்</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <p>NT Somasundaram Life Skills Program · Tiruvannamalai, Tamil Nadu</p>
+  <p>"God is always with u"</p>
+  <p>somasundaramnt.lifecoach@gmail.com · +91 98437 02244</p>
+</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/919843702244" target="_blank">💬</a>
+
+<script>
+function toggleLang(){
+  document.body.classList.toggle('ta');
+  localStorage.setItem('amm_lang', document.body.classList.contains('ta') ? 'ta' : 'en');
+}
+(function(){
+  if(localStorage.getItem('amm_lang')==='ta'){ document.body.classList.add('ta'); }
+})();
+</script>
+
+</body>
+</html>
