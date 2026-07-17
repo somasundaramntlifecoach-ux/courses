@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 8: அலுவலக அரசியலை வழிநடத்துதல் — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button onclick="logout()" style="border:none; background:transparent; padding:8px 12px; font-weight:600; cursor:pointer; font-size:13px; color:var(--navy); font-family:'Poppins',sans-serif;">Logout</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 8 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 8/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 8 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module8-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module8-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module8-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 8: Navigating Office Politics" data-ta="தொகுதி 8: அலுவலக அரசியலை வழிநடத்துதல்">Module 8: Navigating Office Politics</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="List the 3-5 people who are actually consulted before major decisions in your area, regardless of title." data-ta="பதவியைப் பொருட்படுத்தாமல், உங்கள் பகுதியில் முக்கிய முடிவுகளுக்கு முன்னதாக உண்மையில் ஆலோசிக்கப்படும் 3-5 நபர்களைப் பட்டியலிடுங்கள்.">List the 3-5 people who are actually consulted before major decisions in your area, regardless of title.</li>
+      <li data-en="For each, note whether you currently have any working relationship with them at all." data-ta="ஒவ்வொருவருக்கும், உங்களிடம் தற்போது அவர்களுடன் ஏதேனும் பணி உறவு உள்ளதா என்பதைக் கவனியுங்கள்.">For each, note whether you currently have any working relationship with them at all.</li>
+      <li data-en="Choose one to build a small, genuine connection with this month." data-ta="இந்த மாதம் அவர்களில் ஒருவருடன் சிறிய, உண்மையான தொடர்பை உருவாக்க ஒருவரைத் தேர்ந்தெடுங்கள்.">Choose one to build a small, genuine connection with this month.</li>
+      <li data-en="Notice the next time you're tempted to join a purely complaint-focused conversation, and offer a solution-oriented alternative instead." data-ta="புகார்களை மட்டுமே மையமாகக் கொண்ட உரையாடலில் சேரத் தூண்டப்படும் அடுத்த முறை அதைக் கவனித்து, அதற்குப் பதிலாகத் தீர்வு சார்ந்த மாற்றீட்டை முன்வையுங்கள்.">Notice the next time you're tempted to join a purely complaint-focused conversation, and offer a solution-oriented alternative instead.</li>
+      <li data-en="Deliberately avoid becoming known as aligned with only one 'side' in any ongoing team tension." data-ta="நடந்துகொண்டிருக்கும் எந்தவொரு குழு மோதலிலும் ஒரு 'பக்கத்துடன்' மட்டும் இணைந்தவராக அறியப்படுவதைத் திட்டமிட்டுத் தவிர்க்கவும்.">Deliberately avoid becoming known as aligned with only one 'side' in any ongoing team tension.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="Build working relationships with informal influencers, not just people with senior titles." data-ta="மூத்த பதவிகளில் உள்ளவர்கள் மட்டுமல்லாமல், அதிகாரப்பூர்வமற்ற செல்வாக்கு மிக்கவர்களுடனும் பணி உறவுகளை உருவாக்குங்கள்.">Build working relationships with informal influencers, not just people with senior titles.</li>
+        <li data-en="Bring at least one possible solution whenever you raise a problem." data-ta="நீங்கள் ஒரு சிக்கலை எழுப்பும்போதெல்லாம் குறைந்தபட்சம் ஒரு சாத்தியமான தீர்வையாவது கொண்டு வாருங்கள்.">Bring at least one possible solution whenever you raise a problem.</li>
+        <li data-en="Stay visibly fair and useful across different stakeholders and teams." data-ta="வெவ்வேறு பங்குதாரர்கள் மற்றும் குழுக்களிடையே வெளிப்படையாக நியாயமாகவும் பயனுள்ளவராகவும் இருங்கள்.">Stay visibly fair and useful across different stakeholders and teams.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't ignore the informal power structure just because it feels uncomfortable or 'political'." data-ta="முறைசாரா அதிகார அமைப்பு அசௌகரியமாக அல்லது 'அரசியல்' சார்ந்ததாகத் தோன்றுவதால் அதை அலட்சியப்படுத்த வேண்டாம்.">Don't ignore the informal power structure just because it feels uncomfortable or 'political'.</li>
+        <li data-en="Don't participate in gossip or complaint-only conversations, even when everyone else is." data-ta="மற்ற அனைவரும் செய்தாலும், வதந்திகளிலோ அல்லது புகார்களை மட்டும் கொண்ட உரையாடல்களிலோ பங்கேற்க வேண்டாம்.">Don't participate in gossip or complaint-only conversations, even when everyone else is.</li>
+        <li data-en="Don't become known as permanently loyal to one clique or faction." data-ta="ஒரு குறிப்பிட்ட குழு அல்லது பிரிவுக்கு நிரந்தரமாக விசுவாசமானவர் என்று அறியப்பட வேண்டாம்.">Don't become known as permanently loyal to one clique or faction.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Assuming the official org chart reflects who actually influences decisions." data-ta="அதிகாரப்பூர்வ நிறுவன வரைபடம் முடிவுகளை உண்மையில் யார் பாதிக்கிறார்கள் என்பதைப் பிரதிபலிக்கிறது என்று கருதுவது.">Assuming the official org chart reflects who actually influences decisions.</li>
+      <li data-en="Avoiding necessary relationships entirely because they feel 'too political', at real cost to your effectiveness." data-ta="அவை 'மிகவும் அரசியல்' சார்ந்தவை என்று கருதி, உங்கள் செயல்திறனைப் பாதிக்கும் வகையில் தேவையான உறவுகளை முற்றிலுமாகத் தவிர்ப்பது.">Avoiding necessary relationships entirely because they feel 'too political', at real cost to your effectiveness.</li>
+      <li data-en="Building a reputation as someone who only raises problems, never solutions." data-ta="சிக்கல்களை மட்டும் எழுப்புபவராகவும், தீர்வுகளை ஒருபோதும் வழங்காதவராகவும் நற்பெயரை உருவாக்குவது.">Building a reputation as someone who only raises problems, never solutions.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;Before we finalise this, I wanted to get your read on it early, since I know you often have visibility into how this plays out &mdash; does this direction make sense from where you sit?&rdquo;" data-ta="&ldquo;இதை நாங்கள் இறுதி செய்வதற்கு முன்பு, உங்கள் கருத்தை முன்கூட்டியே பெற விரும்பினேன், ஏனெனில் இது எப்படி நடக்கும் என்பதில் உங்களுக்குப் பெரும்பாலும் விழிப்புணர்வு இருக்கும் என்று எனக்குத் தெரியும் &mdash; நீங்கள் இருக்கும் இடத்திலிருந்து இந்த திசை சரியாகத் தோன்றுகிறதா?&rdquo;">&ldquo;Before we finalise this, I wanted to get your read on it early, since I know you often have visibility into how this plays out &mdash; does this direction make sense from where you sit?&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module8-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module8-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module8-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+setLang(currentLang);
+</script>
+</body>
+</html>

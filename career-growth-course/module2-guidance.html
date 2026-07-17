@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 2: பதவி உயர்வு சமன்பாடு — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button onclick="logout()" style="border:none; background:transparent; padding:8px 12px; font-weight:600; cursor:pointer; font-size:13px; color:var(--navy); font-family:'Poppins',sans-serif;">Logout</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 2 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 2/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 2 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module2-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module2-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module2-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 2: The Promotion Equation" data-ta="தொகுதி 2: பதவி உயர்வு சமன்பாடு">Module 2: The Promotion Equation</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="Score yourself honestly, 1-10, on Performance, Perception, and Positioning separately." data-ta="செயல்திறன் (Performance), கண்ணோட்டம் (Perception) மற்றும் நிலைப்படுத்தல் (Positioning) ஆகியவற்றில் தனித்தனியாக 1-10 வரை உங்களுக்கு நீங்களே நேர்மையாக மதிப்பெண் கொடுங்கள்.">Score yourself honestly, 1-10, on Performance, Perception, and Positioning separately.</li>
+      <li data-en="Multiply the three scores together to get your real readiness number." data-ta="உங்கள் உண்மையான தயார்நிலை எண்ணைப் பெற இந்த மூன்று மதிப்பெண்களையும் பெருக்கவும்.">Multiply the three scores together to get your real readiness number.</li>
+      <li data-en="Identify which single factor is dragging your total down the most." data-ta="உங்கள் மொத்த மதிப்பெண்ணை எந்த ஒரு காரணி அதிகம் குறைக்கிறது என்பதைக் கண்டறியவும்.">Identify which single factor is dragging your total down the most.</li>
+      <li data-en="Choose one concrete action this month that specifically targets that weakest factor." data-ta="அந்த பலவீனமான காரணியைக் குறிவைத்து இந்த மாதம் ஒரு உறுதியான செயலைத் தேர்ந்தெடுக்கவும்.">Choose one concrete action this month that specifically targets that weakest factor.</li>
+      <li data-en="Re-score yourself in 90 days to check whether the weakest factor has moved." data-ta="பலவீனமான காரணியில் முன்னேற்றம் உள்ளதா என்பதைச் சரிபார்க்க 90 நாட்களில் மீண்டும் உங்களை மதிப்பிடுங்கள்.">Re-score yourself in 90 days to check whether the weakest factor has moved.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="Score yourself as if you were a neutral outside observer, not as you'd like to be seen." data-ta="நீங்கள் எப்படிப் பார்க்கப்பட விரும்புகிறீர்கள் என்று இல்லாமல், ஒரு நடுநிலையான வெளியாளாக இருந்து உங்களை மதிப்பிடுங்கள்.">Score yourself as if you were a neutral outside observer, not as you'd like to be seen.</li>
+        <li data-en="Focus your energy on the single lowest-scoring factor rather than spreading effort evenly." data-ta="உங்கள் உழைப்பைச் சமமாகப் பிரிப்பதை விட, மிகக் குறைந்த மதிப்பெண் பெற்ற அந்த ஒரு காரணியின் மீது உங்கள் ஆற்றலைக் குவிக்கவும்.">Focus your energy on the single lowest-scoring factor rather than spreading effort evenly.</li>
+        <li data-en="Revisit your scores periodically — they shift as circumstances change." data-ta="அவ்வப்போது உங்கள் மதிப்பெண்களைத் திரும்பப் பாருங்கள் — சூழ்நிலைகள் மாறும்போது அவையும் மாறும்.">Revisit your scores periodically — they shift as circumstances change.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't assume a high Performance score compensates for a near-zero elsewhere — the multiplication punishes that assumption." data-ta="அதிகச் செயல்திறன் மதிப்பெண் மற்ற இடங்களில் உள்ள பூஜ்ஜியத்தை ஈடுசெய்யும் என்று கருத வேண்டாம் — இங்குள்ள பெருக்கல் முறை அந்த அனுமானத்தைத் தண்டிக்கிறது.">Don't assume a high Performance score compensates for a near-zero elsewhere — the multiplication punishes that assumption.</li>
+        <li data-en="Don't skip scoring Positioning just because it feels less concrete than the other two." data-ta="மற்ற இரண்டை விட நிலைப்படுத்தல் (Positioning) குறைவான உறுதியுடன் இருப்பதாகத் தோன்றுவதால், அதற்கு மதிப்பெண் அளிப்பதைத் தவிர்க்க வேண்டாம்.">Don't skip scoring Positioning just because it feels less concrete than the other two.</li>
+        <li data-en="Don't treat this as a one-time exercise; readiness is dynamic." data-ta="இதை ஒருமுறை செய்யும் பயிற்சியாகக் கருத வேண்டாம்; தயார்நிலை என்பது மாறக்கூடியது.">Don't treat this as a one-time exercise; readiness is dynamic.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Only tracking performance metrics (appraisal scores, KPIs) and ignoring perception or positioning entirely." data-ta="செயல்திறன் அளவீடுகளை (மதிப்பீட்டு மதிப்பெண்கள், KPIs) மட்டுமே கண்காணிப்பது மற்றும் கண்ணோட்டம் அல்லது நிலைப்படுத்தலை முழுமையாகப் புறக்கணிப்பது.">Only tracking performance metrics (appraisal scores, KPIs) and ignoring perception or positioning entirely.</li>
+      <li data-en="Assuming perception automatically follows from performance without any deliberate effort." data-ta="எந்தவொரு நனவான முயற்சியும் இல்லாமல், செயல்திறனைத் தொடர்ந்து கண்ணோட்டம் தானாகவே வரும் என்று கருதுவது.">Assuming perception automatically follows from performance without any deliberate effort.</li>
+      <li data-en="Never having the actual promotion conversation and simply hoping it happens organically." data-ta="உண்மையான பதவி உயர்வு குறித்த உரையாடலை ஒருபோதும் நிகழ்த்தாமல், அது தானாகவே நடக்கும் என்று நம்புவது.">Never having the actual promotion conversation and simply hoping it happens organically.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;If I imagine my Performance, how people perceive that performance, and how well I'm positioned for promotion as three separate scores out of 10 — which one would genuinely pull my average down the most?&rdquo;" data-ta="&ldquo;எனது செயல்திறன், அந்தச் செயல்திறனை மக்கள் எவ்வாறு உணர்கிறார்கள், மற்றும் பதவி உயர்வுக்கு நான் எவ்வளவு சிறப்பாக நிலைநிறுத்தப்பட்டுள்ளேன் ஆகியவற்றை 10-க்கு மூன்று தனித்தனி மதிப்பெண்களாக நான் கற்பனை செய்தால் — எது எனது சராசரியை உண்மையிலேயே கீழே இழுக்கும்?&rdquo;">&ldquo;If I imagine my Performance, how people perceive that performance, and how well I'm positioned for promotion as three separate scores out of 10 — which one would genuinely pull my average down the most?&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module2-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module2-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module2-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+setLang(currentLang);
+</script>
+</body>
+</html>

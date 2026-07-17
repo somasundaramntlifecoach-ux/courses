@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 4: உங்கள் திறன் இடைவெளிகளைக் குறைத்தல் — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button onclick="logout()" style="border:none; background:transparent; padding:8px 12px; font-weight:600; cursor:pointer; font-size:13px; color:var(--navy); font-family:'Poppins',sans-serif;">Logout</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 4 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 4/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 4 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module4-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module4-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module4-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 4: Closing Your Skill Gaps" data-ta="தொகுதி 4: உங்கள் திறன் இடைவெளிகளைக் குறைத்தல்">Module 4: Closing Your Skill Gaps</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="Identify the role one level above yours and list its 4-5 core competencies." data-ta="உங்களுக்கு ஒரு நிலை மேலேயுள்ள பதவியை அடையாளம் கண்டு, அதன் 4-5 முக்கிய திறன்களைப் பட்டியலிடுங்கள்.">Identify the role one level above yours and list its 4-5 core competencies.</li>
+      <li data-en="Rate your current level honestly, 1-5, in each competency." data-ta="ஒவ்வொரு திறனிலும் உங்கள் தற்போதைய நிலையை 1-5 வரை நேர்மையாக மதிப்பிடுங்கள்.">Rate your current level honestly, 1-5, in each competency.</li>
+      <li data-en="Ask to shadow, observe, or review work from that next-level role at least once." data-ta="அந்த அடுத்த நிலை பதவியின் பணியை குறைந்தது ஒருமுறையாவது உடன் இருந்து கவனிக்க, பார்க்க அல்லது மதிப்பாய்வு செய்யக் கேளுங்கள்.">Ask to shadow, observe, or review work from that next-level role at least once.</li>
+      <li data-en="For your single lowest-rated competency, identify one stretch assignment that would build it directly." data-ta="உங்களின் மிகக் குறைந்த மதிப்பீடு பெற்ற திறனுக்கு, அதை நேரடியாக வளர்க்கக்கூடிய ஒரு சவாலான பணியை (stretch assignment) அடையாளம் காணவும்.">For your single lowest-rated competency, identify one stretch assignment that would build it directly.</li>
+      <li data-en="Only after that, consider whether a specific course or certification would close a remaining, clearly-identified gap." data-ta="அதன்பிறகு மட்டுமே, ஒரு குறிப்பிட்ட படிப்பு அல்லது சான்றிதழ் எஞ்சியிருக்கும், தெளிவாக அடையாளம் காணப்பட்ட குறையைப் போக்குமா என்பதைக் கவனியுங்கள்.">Only after that, consider whether a specific course or certification would close a remaining, clearly-identified gap.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="Ask directly what separates you from the next level, rather than guessing." data-ta="யூகிப்பதற்குப் பதிலாக, அடுத்த நிலையிலிருந்து உங்களைப் பிரிப்பது எது என்பதை நேரடியாகக் கேளுங்கள்.">Ask directly what separates you from the next level, rather than guessing.</li>
+        <li data-en="Prioritise stretch assignments over courses when both are available." data-ta="படிப்புகள் மற்றும் சவாலான பணிகள் என இரண்டும் கிடைக்கும்போது, சவாலான பணிகளுக்கு முன்னுரிமை கொடுங்கள்.">Prioritise stretch assignments over courses when both are available.</li>
+        <li data-en="Revisit your competency map every 6 months &mdash; requirements shift as roles evolve." data-ta="ஒவ்வொரு 6 மாதங்களுக்கும் உங்கள் திறன் வரைபடத்தை மதிப்பாய்வு செய்யவும் &mdash; பாத்திரங்கள் வளரும்போது தேவைகள் மாறும்.">Revisit your competency map every 6 months &mdash; requirements shift as roles evolve.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't sign up for a broad certification hoping it addresses an unspecified gap." data-ta="குறிப்பிடப்படாத ஒரு குறையைத் தீர்க்கும் என்ற நம்பிக்கையில் ஒரு பரந்த சான்றிதழ் படிப்பில் சேர வேண்டாம்.">Don't sign up for a broad certification hoping it addresses an unspecified gap.</li>
+        <li data-en="Don't skip the shadowing step &mdash; it's the fastest way to correct wrong assumptions." data-ta="கவனித்துப் பழகும் (shadowing) படியைத் தவிர்க்க வேண்டாம் &mdash; தவறான அனுமானங்களைச் சரிசெய்வதற்கான விரைவான வழி இதுவே.">Don't skip the shadowing step &mdash; it's the fastest way to correct wrong assumptions.</li>
+        <li data-en="Don't try to close every competency gap at once; focus on the one or two lowest first." data-ta="அனைத்து திறன் இடைவெளிகளையும் ஒரே நேரத்தில் குறைக்க முயற்சிக்காதீர்கள்; முதலில் மிகக் குறைவான ஒன்று அல்லது இரண்டில் கவனம் செலுத்துங்கள்.">Don't try to close every competency gap at once; focus on the one or two lowest first.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Assuming the skill gap is technical when it's actually commercial, interpersonal, or strategic." data-ta="திறன் இடைவெளி உண்மையில் வணிகம், தனிப்பட்ட உறவு அல்லது உத்தி சார்ந்ததாக இருக்கும்போது, அதைத் தொழில்நுட்பம் என்று கருதுவது.">Assuming the skill gap is technical when it's actually commercial, interpersonal, or strategic.</li>
+      <li data-en="Over-investing in the 10% (formal courses) while neglecting the 70% (stretch assignments)." data-ta="70%-ஐ (சவாலான பணிகள்) புறக்கணித்துவிட்டு 10%-ல் (முறையான படிப்புகள்) அதிக முதலீடு செய்வது.">Over-investing in the 10% (formal courses) while neglecting the 70% (stretch assignments).</li>
+      <li data-en="Waiting to be assigned a stretch project instead of asking for one directly." data-ta="ஒரு சவாலான திட்டத்தை நேரடியாகக் கேட்பதற்குப் பதிலாக, அது ஒதுக்கப்படும் வரை காத்திருப்பது.">Waiting to be assigned a stretch project instead of asking for one directly.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;I'd like to build toward [next role]. Would it be possible for me to shadow or sit in on [specific meeting/task] so I understand what that level actually requires day to day?&rdquo;" data-ta="&ldquo;[அடுத்த பதவி]-ஐ நோக்கி நான் வளர விரும்புகிறேன். அந்த நிலைக்கு நாளுக்கு நாள் உண்மையில் என்ன தேவை என்பதை நான் புரிந்துகொள்ளும் வகையில், [குறிப்பிட்ட கூட்டம்/பணி]-ல் நான் உடன் இருந்து கவனிக்கவோ அல்லது பங்கேற்கவோ முடியுமா?&rdquo;">&ldquo;I'd like to build toward [next role]. Would it be possible for me to shadow or sit in on [specific meeting/task] so I understand what that level actually requires day to day?&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module4-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module4-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module4-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+setLang(currentLang);
+</script>
+</body>
+</html>

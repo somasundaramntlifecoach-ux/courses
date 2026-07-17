@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 3: தற்பெருமை இல்லாமல் புலப்படுதலை உருவாக்குதல் — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button onclick="logout()" style="border:none; background:transparent; padding:8px 12px; font-weight:600; cursor:pointer; font-size:13px; color:var(--navy); font-family:'Poppins',sans-serif;">Logout</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 3 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 3/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 3 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module3-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module3-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module3-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 3: Building Visibility Without Bragging" data-ta="தொகுதி 3: தற்பெருமை இல்லாமல் புலப்படுதலை உருவாக்குதல்">Module 3: Building Visibility Without Bragging</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="Choose a cadence &mdash; weekly or biweekly &mdash; and a recipient list for your update (manager, skip-level, or both)." data-ta="ஒரு காலமுறையைத் தேர்ந்தெடுக்கவும் &mdash; வாராந்திர அல்லது இரு வாரங்களுக்கு ஒருமுறை &mdash; மற்றும் உங்கள் புதுப்பிப்பைப் பெறுபவர்களின் பட்டியலை (மேலாளர், அவரது மேலாளர் அல்லது இருவருக்கும்) முடிவு செய்யவும்.">Choose a cadence &mdash; weekly or biweekly &mdash; and a recipient list for your update (manager, skip-level, or both).</li>
+      <li data-en="Draft a template: 2-3 bullet points, each stating what you did and its measurable impact." data-ta="ஒரு வார்ப்புருவை உருவாக்கவும்: 2-3 முக்கிய குறிப்புகள், ஒவ்வொன்றும் நீங்கள் என்ன செய்தீர்கள் மற்றும் அதன் அளவிடக்கூடிய தாக்கம் என்ன என்பதைக் குறிப்பிட வேண்டும்.">Draft a template: 2-3 bullet points, each stating what you did and its measurable impact.</li>
+      <li data-en="Send your first update this week, even if it feels awkward at first &mdash; the discomfort fades by the third or fourth time." data-ta="உங்கள் முதல் புதுப்பிப்பை இந்த வாரம் அனுப்புங்கள், முதலில் அது சங்கடமாகத் தோன்றினாலும் &mdash; மூன்றாவது அல்லது நான்காவது முறை செய்யும்போது அந்தச் சங்கடம் மறைந்துவிடும்.">Send your first update this week, even if it feels awkward at first &mdash; the discomfort fades by the third or fourth time.</li>
+      <li data-en="Start a running 'brag bank' document and add to it in the same sitting as your weekly update." data-ta="ஒரு 'பெருமை வங்கி' ஆவணத்தைத் தொடங்கி, உங்களின் வாராந்திரப் புதுப்பிப்பைச் செய்யும் அதே அமர்வில் அதில் தகவல்களைச் சேர்க்கவும்.">Start a running 'brag bank' document and add to it in the same sitting as your weekly update.</li>
+      <li data-en="Review your brag bank before every 1:1 and appraisal conversation so nothing gets forgotten." data-ta="ஒவ்வொரு 1:1 சந்திப்பு மற்றும் மதிப்பீட்டு உரையாடலுக்கு முன்பும் உங்கள் பெருமை வங்கியை மதிப்பாய்வு செய்யவும், இதனால் எதுவும் மறக்கப்படாது.">Review your brag bank before every 1:1 and appraisal conversation so nothing gets forgotten.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="Lead with outcomes and numbers, not effort or hours spent." data-ta="முடிவுகள் மற்றும் எண்களை முன்னிலைப்படுத்துங்கள், முயற்சிகள் அல்லது செலவழித்த நேரத்தை அல்ல.">Lead with outcomes and numbers, not effort or hours spent.</li>
+        <li data-en="Credit your team where relevant &mdash; it doesn't dilute your visibility, it strengthens your reputation." data-ta="பொருத்தமான இடங்களில் உங்கள் குழுவிற்குப் பெருமை சேருங்கள் &mdash; இது உங்கள் புலப்படுதலைக் குறைக்காது, உங்கள் நற்பெயரை வலுப்படுத்தும்.">Credit your team where relevant &mdash; it doesn't dilute your visibility, it strengthens your reputation.</li>
+        <li data-en="Keep updates short; three focused bullet points beat a long email nobody fully reads." data-ta="புதுப்பிப்புகளைச் சுருக்கமாக வைத்திருக்கவும்; யாரும் முழுமையாகப் படிக்காத ஒரு நீண்ட மின்னஞ்சலை விட மூன்று சுருக்கமான குறிப்புகள் சிறந்தவை.">Keep updates short; three focused bullet points beat a long email nobody fully reads.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't wait for a 'big enough' achievement before starting &mdash; consistency matters more than size." data-ta="தொடங்குவதற்கு 'மிகப் பெரிய' சாதனைக்காகக் காத்திருக்க வேண்டாம் &mdash; அளவை விடத் தொடர்ச்சியே முக்கியம்.">Don't wait for a 'big enough' achievement before starting &mdash; consistency matters more than size.</li>
+        <li data-en="Don't frame updates as complaints about workload dressed up as visibility." data-ta="புலப்படுதல் என்ற பெயரில் புதுப்பிப்புகளை வேலைப்பளு குறித்த புகார்களாக மாற்ற வேண்டாம்.">Don't frame updates as complaints about workload dressed up as visibility.</li>
+        <li data-en="Don't skip weeks once you start; irregular updates lose most of their compounding value." data-ta="ஒருமுறை தொடங்கிய பிறகு வாரங்களைத் தவிர்க்க வேண்டாம்; ஒழுங்கற்ற புதுப்பிப்புகள் அவற்றின் மதிப்பை இழக்கச் செய்யும்.">Don't skip weeks once you start; irregular updates lose most of their compounding value.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Confusing visibility with self-promotion and avoiding it altogether out of discomfort." data-ta="புலப்படுதலைத் தற்பெருமை என்று குழப்பிக்கொண்டு சங்கடத்தால் அதை முற்றிலுமாகத் தவிர்ப்பது.">Confusing visibility with self-promotion and avoiding it altogether out of discomfort.</li>
+      <li data-en="Sharing effort ('I stayed late all week') instead of outcome ('this reduced turnaround time by two days')." data-ta="முடிவைப் பகிர்வதற்கு ('இது திருப்புமுனை நேரத்தை இரண்டு நாட்கள் குறைத்துள்ளது') பதிலாக முயற்சியைப் பகிர்வது ('நான் வாரம் முழுவதும் தாமதமாக வேலை செய்தேன்').">Sharing effort ('I stayed late all week') instead of outcome ('this reduced turnaround time by two days').</li>
+      <li data-en="Only updating during appraisal season instead of continuously." data-ta="தொடர்ந்து செய்யாமல் மதிப்பீட்டு காலத்தில் (appraisal season) மட்டுமே புதுப்பிப்பது.">Only updating during appraisal season instead of continuously.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;Quick update from this week: closed out the [X] project, which is expected to save the team roughly [Y] hours a month going forward. Also made progress on [Z], on track for next week.&rdquo;" data-ta="&ldquo;இந்த வாரத்தின் சிறிய புதுப்பிப்பு: [X] திட்டத்தை முடித்துவிட்டேன், இது இனிமேல் குழுவிற்கு மாதத்திற்குச் சுமார் [Y] மணிநேரத்தைச் சேமிக்கும் என்று எதிர்பார்க்கப்படுகிறது. மேலும் [Z]-லும் முன்னேற்றம் அடைந்துள்ளேன், அடுத்த வாரத்திற்குள் முடிக்கத் திட்டமிட்டுள்ளேன்.&rdquo;">&ldquo;Quick update from this week: closed out the [X] project, which is expected to save the team roughly [Y] hours a month going forward. Also made progress on [Z], on track for next week.&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module3-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module3-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module3-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+setLang(currentLang);
+</script>
+</body>
+</html>

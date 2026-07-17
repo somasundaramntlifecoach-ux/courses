@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 10: பதவி உயர்வுக்குப் பிந்தைய வாழ்க்கை — பணித்தாள் & திட்டம் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .exercise-box{background:var(--gold-light);border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid var(--gold);}
+  .exercise-box h3{color:#5b4a12;font-size:16px;margin-bottom:8px;}
+  .exercise-box p{color:#6b5920;font-size:14px;margin-bottom:12px;}
+  textarea{width:100%;min-height:100px;border-radius:8px;border:2px solid #d9c98e;padding:12px 14px;font-family:'Poppins',sans-serif;font-size:14px;resize:vertical;}
+  .save-note{font-size:12px;color:#6b5920;margin-top:6px;}
+  .reflect-list{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .reflect-list h3{color:var(--navy);font-size:16.5px;margin-bottom:14px;}
+  .reflect-list ol{padding-left:20px;}
+  .reflect-list li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+  @media (max-width:640px){ .plan-grid{grid-template-columns:1fr;} }
+  .plan-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 3px 12px rgba(11,31,58,.05);border-top:4px solid var(--gold);}
+  .plan-card h4{color:var(--navy);font-size:14px;margin-bottom:8px;}
+  .plan-card p{color:var(--muted);font-size:13.5px;}
+  .complete-row{display:flex;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:20px;margin-bottom:26px;box-shadow:0 3px 12px rgba(11,31,58,.05);flex-wrap:wrap;}
+  .complete-row input[type=checkbox]{width:22px;height:22px;accent-color:var(--success);}
+  .complete-row label{font-weight:600;color:var(--navy);font-size:14.5px;cursor:pointer;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  .print-btn{background:transparent;border:2px solid var(--gold);color:#8a6d10;padding:8px 16px;border-radius:8px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;margin-left:auto;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row,.complete-row,.print-btn{display:none;} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button onclick="logout()" style="border:none; background:transparent; padding:8px 12px; font-weight:600; cursor:pointer; font-size:13px; color:var(--navy); font-family:'Poppins',sans-serif;">Logout</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 10 OF 10 &middot; WORKSHEET & PLAN" data-ta="தொகுதி 10/10 &middot; பணித்தாள் & திட்டம்">MODULE 10 OF 10 &middot; பணித்தாள் & திட்டம்</span>
+</div>
+<div class="page-tabs">
+  <a href="module10-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. கருத்துகள் & எடுத்துக்காட்டுகள்</a>
+  <a href="module10-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. வழிகாட்டுதல்கள் & குறிப்புகள்</a>
+  <a href="module10-worksheet.html" class="active" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. பணித்தாள் & திட்டம்</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 10: Life After the Promotion" data-ta="தொகுதி 10: பதவி உயர்வுக்குப் பிந்தைய வாழ்க்கை">தொகுதி 10: பதவி உயர்வுக்குப் பிந்தைய வாழ்க்கை</h1>
+  <div class="m-sub" data-en="Page 3 of 3 &middot; Worksheet & Action Plan" data-ta="பக்கம் 3/3 &middot; பணித்தாள் & செயல் திட்டம்">பக்கம் 3/3 &middot; பணித்தாள் & செயல் திட்டம்</div>
+
+  
+  <div class="exercise-box">
+    <h3 data-en="Part 1: Habit Audit" data-ta="பகுதி 1: பழக்கவழக்கத் தணிக்கை (Habit Audit)">பகுதி 1: பழக்கவழக்கத் தணிக்கை</h3>
+    <p data-en="List which habits from this course (visibility updates, brag bank, sponsor contact, upward management) you're at risk of dropping now, and why." data-ta="இந்த பாடத்திட்டத்திலிருந்து (புலப்படுதல் புதுப்பிப்புகள், பெருமை வங்கி, ஸ்பான்சர் தொடர்பு, மேலாண்மை மேலாண்மை) எந்தப் பழக்கவழக்கங்களை நீங்கள் இப்போது கைவிடும் அபாயத்தில் உள்ளீர்கள், ஏன்?">List which habits from this course (visibility updates, brag bank, sponsor contact, upward management) you're at risk of dropping now, and why.</p>
+    <textarea id="worksheetInput1" placeholder="Write your response here..."></textarea>
+    <div class="save-note" data-en="Auto-saved on this device as you type." data-ta="நீங்கள் தட்டச்சு செய்யும்போது இந்தச் சாதனத்தில் தானாகச் சேமிக்கப்படும்.">Auto-saved on this device as you type.</div>
+  </div>
+
+  <div class="exercise-box">
+    <h3 data-en="Part 2: Your Next 2-Year Goal" data-ta="பகுதி 2: உங்களின் அடுத்த 2-ஆண்டு இலக்கு">பகுதி 2: உங்களின் அடுத்த 2-ஆண்டு இலக்கு</h3>
+    <p data-en="Write a specific, dated goal statement for where you want to be in 2 years at your new level." data-ta="உங்கள் புதிய நிலையில் 2 ஆண்டுகளில் நீங்கள் எங்கு இருக்க வேண்டும் என்பதற்கான ஒரு குறிப்பிட்ட, தேதியிட்ட இலக்கை எழுதுங்கள்.">Write a specific, dated goal statement for where you want to be in 2 years at your new level.</p>
+    <textarea id="worksheetInput2" placeholder="Write your response here..."></textarea>
+    <div class="save-note" data-en="Auto-saved on this device as you type." data-ta="நீங்கள் தட்டச்சு செய்யும்போது இந்தச் சாதனத்தில் தானாகச் சேமிக்கப்படும்.">Auto-saved on this device as you type.</div>
+  </div>
+
+  <div class="exercise-box">
+    <h3 data-en="Part 3: Who You'll Mentor" data-ta="பகுதி 3: நீங்கள் யாருக்கு வழிகாட்டுவீர்கள்">பகுதி 3: நீங்கள் யாருக்கு வழிகாட்டுவீர்கள்</h3>
+    <p data-en="Identify one colleague you could begin mentoring, and write the first thing you'd share with them." data-ta="நீங்கள் வழிகாட்டத் தொடங்கக்கூடிய ஒரு சக ஊழியரை அடையாளம் கண்டு, நீங்கள் அவர்களுடன் பகிர்ந்து கொள்ள விரும்பும் முதல் விஷயத்தை எழுதுங்கள்.">Identify one colleague you could begin mentoring, and write the first thing you'd share with them.</p>
+    <textarea id="worksheetInput3" placeholder="Write your response here..."></textarea>
+    <div class="save-note" data-en="Auto-saved on this device as you type." data-ta="நீங்கள் தட்டச்சு செய்யும்போது இந்தச் சாதனத்தில் தானாகச் சேமிக்கப்படும்.">Auto-saved on this device as you type.</div>
+  </div>
+
+
+  <div class="reflect-list">
+    <h3 data-en="Reflection Questions" data-ta="சிந்தனைக் கேள்விகள்">சிந்தனைக் கேள்விகள்</h3>
+    <ol>
+      <li data-en="What habits from this course are you at risk of dropping once the immediate pressure is off?" data-ta="உடனடி அழுத்தம் நீங்கியதும், இந்த பாடத்திட்டத்தின் எந்தப் பழக்கவழக்கங்களைக் கைவிடும் அபாயம் உங்களுக்கு உள்ளது?">What habits from this course are you at risk of dropping once the immediate pressure is off?</li>
+      <li data-en="Who could you now help the way this course helped you?" data-ta="இந்தப் பாடம் உங்களுக்கு உதவியது போல, இப்போது நீங்கள் யாருக்கு உதவலாம்?">Who could you now help the way this course helped you?</li>
+      <li data-en="What would 'stuck again' look like at this new level, and how would you catch it early?" data-ta="இந்த புதிய நிலையில் 'மீண்டும் தேக்கமடைதல்' எப்படி இருக்கும், அதை நீங்கள் எப்படி முன்கூட்டியே கண்டறிவீர்கள்?">What would 'stuck again' look like at this new level, and how would you catch it early?</li>
+    </ol>
+  </div>
+
+  <div class="plan-grid">
+    <div class="plan-card">
+      <h4 data-en="NEXT 30 DAYS" data-ta="அடுத்த 30 நாட்கள்">அடுத்த 30 நாட்கள்</h4>
+      <p data-en="Recommit to your weekly update and brag-bank habit at the new level." data-ta="உங்கள் புதிய நிலையில் வாராந்திரப் புதுப்பிப்பு மற்றும் பெருமை வங்கிப் பழக்கத்தை மீண்டும் உறுதி செய்யுங்கள்.">Recommit to your weekly update and brag-bank habit at the new level.</p>
+    </div>
+    <div class="plan-card">
+      <h4 data-en="NEXT 60 DAYS" data-ta="அடுத்த 60 நாட்கள்">அடுத்த 60 நாட்கள்</h4>
+      <p data-en="Have your first mentoring conversation with the colleague you identified." data-ta="நீங்கள் அடையாளம் கண்ட சக ஊழியருடன் உங்கள் முதல் வழிகாட்டுதல் உரையாடலை நடத்துங்கள்.">Have your first mentoring conversation with the colleague you identified.</p>
+    </div>
+    <div class="plan-card">
+      <h4 data-en="NEXT 90 DAYS" data-ta="அடுத்த 90 நாட்கள்">அடுத்த 90 நாட்கள்</h4>
+      <p data-en="Do your scheduled personal check-in against your habit audit and 2-year goal." data-ta="உங்கள் பழக்கவழக்கத் தணிக்கை மற்றும் 2-ஆண்டு இலக்கின் அடிப்படையில் உங்கள் திட்டமிட்ட தனிப்பட்ட சரிபார்ப்பைச் செய்யுங்கள்.">Do your scheduled personal check-in against your habit audit and 2-year goal.</p>
+    </div>
+  </div>
+
+  <div class="complete-row">
+    <input type="checkbox" id="completeCheck" onchange="toggleComplete()">
+    <label for="completeCheck" data-en="Mark this module as complete" data-ta="இந்த பாடத்தை முடிந்ததாகக் குறிக்கவும்">இந்த பாடத்தை முடிந்ததாகக் குறிக்கவும்</label>
+    <button class="print-btn" onclick="window.print()" data-en="Print / Save as PDF" data-ta="அச்சிடு / PDF ஆகச் சேமி">அச்சிடு / PDF ஆகச் சேமி</button>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module10-guidance.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; முந்தையது</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">பாட மையம்</a>
+    <a class="nav-btn nav-next" href="certificate.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">அடுத்தது &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module10-worksheet.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+function getProgress(){
+  const raw = localStorage.getItem('cgpr_progress');
+  return raw ? JSON.parse(raw) : {};
+}
+function toggleComplete(){
+  const progress = getProgress();
+  progress['module10'] = document.getElementById('completeCheck').checked;
+  localStorage.setItem('cgpr_progress', JSON.stringify(progress));
+}
+function loadWorksheetState(){
+  const progress = getProgress();
+  document.getElementById('completeCheck').checked = progress['module10'] === true;
+  document.querySelectorAll('textarea[id^="worksheetInput"]').forEach(function(ta){
+    const key = 'cgpr_worksheet_' + MODULE_FILE + '_' + ta.id;
+    const saved = localStorage.getItem(key);
+    if(saved) ta.value = saved;
+    ta.addEventListener('input', function(){ localStorage.setItem(key, this.value); });
+  });
+}
+
+loadWorksheetState();
+setLang(currentLang);
+</script>
+</body>
+</html>

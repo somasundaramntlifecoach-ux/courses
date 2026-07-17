@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 6: நெட்வொர்க்கிங் & ஒரு ஸ்பான்சரைக் கண்டறிதல் — பணித்தாள் & திட்டம் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .exercise-box{background:var(--gold-light);border-radius:12px;padding:24px;margin-bottom:20px;border:1px solid var(--gold);}
+  .exercise-box h3{color:#5b4a12;font-size:16px;margin-bottom:8px;}
+  .exercise-box p{color:#6b5920;font-size:14px;margin-bottom:12px;}
+  textarea{width:100%;min-height:100px;border-radius:8px;border:2px solid #d9c98e;padding:12px 14px;font-family:'Poppins',sans-serif;font-size:14px;resize:vertical;}
+  .save-note{font-size:12px;color:#6b5920;margin-top:6px;}
+  .reflect-list{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .reflect-list h3{color:var(--navy);font-size:16.5px;margin-bottom:14px;}
+  .reflect-list ol{padding-left:20px;}
+  .reflect-list li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:20px;}
+  @media (max-width:640px){ .plan-grid{grid-template-columns:1fr;} }
+  .plan-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 3px 12px rgba(11,31,58,.05);border-top:4px solid var(--gold);}
+  .plan-card h4{color:var(--navy);font-size:14px;margin-bottom:8px;}
+  .plan-card p{color:var(--muted);font-size:13.5px;}
+  .complete-row{display:flex;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:20px;margin-bottom:26px;box-shadow:0 3px 12px rgba(11,31,58,.05);flex-wrap:wrap;}
+  .complete-row input[type=checkbox]{width:22px;height:22px;accent-color:var(--success);}
+  .complete-row label{font-weight:600;color:var(--navy);font-size:14.5px;cursor:pointer;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  .print-btn{background:transparent;border:2px solid var(--gold);color:#8a6d10;padding:8px 16px;border-radius:8px;font-size:12.5px;font-weight:700;cursor:pointer;font-family:'Poppins',sans-serif;margin-left:auto;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row,.complete-row,.print-btn{display:none;} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button onclick="logout()" style="border:none; background:transparent; padding:8px 12px; font-weight:600; cursor:pointer; font-size:13px; color:var(--navy); font-family:'Poppins',sans-serif;">Logout</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 6 OF 10 &middot; WORKSHEET & PLAN" data-ta="தொகுதி 6/10 &middot; பணித்தாள் & திட்டம்">MODULE 6 OF 10 &middot; WORKSHEET & PLAN</span>
+</div>
+<div class="page-tabs">
+  <a href="module6-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module6-guidance.html" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module6-worksheet.html" class="active" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. Worksheet & Plan</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 6: Networking & Finding a Sponsor" data-ta="தொகுதி 6: நெட்வொர்க்கிங் & ஒரு ஸ்பான்சரைக் கண்டறிதல்">Module 6: Networking & Finding a Sponsor</h1>
+  <div class="m-sub" data-en="Page 3 of 3 &middot; Worksheet & Action Plan" data-ta="பக்கம் 3/3 &middot; பணித்தாள் & செயல் திட்டம்">Page 3 of 3 &middot; Worksheet & Action Plan</div>
+
+  
+  <div class="exercise-box">
+    <h3 data-en="Part 1: Sponsor Map" data-ta="பகுதி 1: ஸ்பான்சர் வரைபடம்">Part 1: Sponsor Map</h3>
+    <p data-en="List 3 senior people who could plausibly become a sponsor, with one concrete relationship-building action for each." data-ta="ஸ்பான்சராக மாற வாய்ப்புள்ள 3 மூத்த நபர்களைப் பட்டியலிட்டு, ஒவ்வொருவருக்கும் உறவை வளர்க்கும் ஒரு உறுதியான செயலை எழுதுங்கள்.">List 3 senior people who could plausibly become a sponsor, with one concrete relationship-building action for each.</p>
+    <textarea id="worksheetInput1" placeholder="Write your response here..."></textarea>
+    <div class="save-note" data-en="Auto-saved on this device as you type." data-ta="நீங்கள் தட்டச்சு செய்யும்போது இந்தச் சாதனத்தில் தானாகச் சேமிக்கப்படும்.">Auto-saved on this device as you type.</div>
+  </div>
+
+  <div class="exercise-box">
+    <h3 data-en="Part 2: The Value You Offer" data-ta="பகுதி 2: நீங்கள் வழங்கும் மதிப்பு">Part 2: The Value You Offer</h3>
+    <p data-en="For your top potential sponsor, write one genuine way you could add value to their goals or projects." data-ta="உங்களின் முதன்மையான ஸ்பான்சருக்கு, அவர்களின் இலக்குகள் அல்லது திட்டங்களுக்கு நீங்கள் மதிப்பைச் சேர்க்கக்கூடிய ஒரு உண்மையான வழியை எழுதுங்கள்.">For your top potential sponsor, write one genuine way you could add value to their goals or projects.</p>
+    <textarea id="worksheetInput2" placeholder="Write your response here..."></textarea>
+    <div class="save-note" data-en="Auto-saved on this device as you type." data-ta="நீங்கள் தட்டச்சு செய்யும்போது இந்தச் சாதனத்தில் தானாகச் சேமிக்கப்படும்.">Auto-saved on this device as you type.</div>
+  </div>
+
+  <div class="exercise-box">
+    <h3 data-en="Part 3: First Contact Draft" data-ta="பகுதி 3: முதல் தொடர்பு வரைவு">Part 3: First Contact Draft</h3>
+    <p data-en="Write the exact message or conversation opener you'll use to make first contact this month." data-ta="இந்த மாதம் முதல் தொடர்பை ஏற்படுத்த நீங்கள் பயன்படுத்தும் சரியான செய்தி அல்லது உரையாடல் தொடக்கத்தை எழுதுங்கள்.">Write the exact message or conversation opener you'll use to make first contact this month.</p>
+    <textarea id="worksheetInput3" placeholder="Write your response here..."></textarea>
+    <div class="save-note" data-en="Auto-saved on this device as you type." data-ta="நீங்கள் தட்டச்சு செய்யும்போது இந்தச் சாதனத்தில் தானாகச் சேமிக்கப்படும்.">Auto-saved on this device as you type.</div>
+  </div>
+
+
+  <div class="reflect-list">
+    <h3 data-en="Reflection Questions" data-ta="சிந்தனைக் கேள்விகள்">Reflection Questions</h3>
+    <ol>
+      <li data-en="Do you currently have anyone who advocates for you when you're not in the room? How do you know?" data-ta="நீங்கள் இல்லாத நேரத்தில் உங்களுக்காகப் பரிந்துரைக்கும் நபர் யாராவது தற்போது உங்களுக்கு இருக்கிறார்களா? உங்களுக்கு எப்படித் தெரியும்?">Do you currently have anyone who advocates for you when you're not in the room? How do you know?</li>
+      <li data-en="What's stopped you from building this kind of relationship before &mdash; time, discomfort, or not knowing how?" data-ta="நேரம், சங்கடம் அல்லது எப்படி என்று தெரியாதது &mdash; இதில் எது இதற்கு முன்பு இது போன்ற உறவை வளர்ப்பதை உங்களிடம் தடுத்துள்ளது?">What's stopped you from building this kind of relationship before &mdash; time, discomfort, or not knowing how?</li>
+      <li data-en="What could you offer a potential sponsor, not just ask from them?" data-ta="ஒரு சாத்தியமான ஸ்பான்சரிடமிருந்து கேட்பதை மட்டும் செய்யாமல், அவர்களுக்கு உங்களால் என்ன வழங்க முடியும்?">What could you offer a potential sponsor, not just ask from them?</li>
+    </ol>
+  </div>
+
+  <div class="plan-grid">
+    <div class="plan-card">
+      <h4 data-en="NEXT 30 DAYS" data-ta="அடுத்த 30 நாட்கள்">NEXT 30 DAYS</h4>
+      <p data-en="Make first contact with at least one person on your sponsor map." data-ta="உங்கள் ஸ்பான்சர் வரைபடத்தில் உள்ள குறைந்தது ஒரு நபருடனாவது முதல் தொடர்பை ஏற்படுத்துங்கள்.">Make first contact with at least one person on your sponsor map.</p>
+    </div>
+    <div class="plan-card">
+      <h4 data-en="NEXT 60 DAYS" data-ta="அடுத்த 60 நாட்கள்">NEXT 60 DAYS</h4>
+      <p data-en="Follow up and find one concrete way to add value to that relationship." data-ta="அவர்களைப் பின்தொடர்ந்து, அந்த உறவுக்கு மதிப்பைச் சேர்க்க ஒரு உறுதியான வழியைக் கண்டறியவும்.">Follow up and find one concrete way to add value to that relationship.</p>
+    </div>
+    <div class="plan-card">
+      <h4 data-en="NEXT 90 DAYS" data-ta="அடுத்த 90 நாட்கள்">NEXT 90 DAYS</h4>
+      <p data-en="Assess whether the relationship has deepened enough that this person now has real visibility into your work." data-ta="இந்த நபருக்கு இப்போது உங்கள் வேலையின் மீது உண்மையான கவனம் செலுத்தும் அளவுக்கு உறவு ஆழமடைந்துள்ளதா என்பதை மதிப்பிடுங்கள்.">Assess whether the relationship has deepened enough that this person now has real visibility into your work.</p>
+    </div>
+  </div>
+
+  <div class="complete-row">
+    <input type="checkbox" id="completeCheck" onchange="toggleComplete()">
+    <label for="completeCheck" data-en="Mark this module as complete" data-ta="இந்த பாடத்தை முடிந்ததாகக் குறிக்கவும்">Mark this module as complete</label>
+    <button class="print-btn" onclick="window.print()" data-en="Print / Save as PDF" data-ta="அச்சிடு / PDF ஆகச் சேமி">Print / Save as PDF</button>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module6-guidance.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module7-concepts.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module6-worksheet.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+function getProgress(){
+  const raw = localStorage.getItem('cgpr_progress');
+  return raw ? JSON.parse(raw) : {};
+}
+function toggleComplete(){
+  const progress = getProgress();
+  progress['module6'] = document.getElementById('completeCheck').checked;
+  localStorage.setItem('cgpr_progress', JSON.stringify(progress));
+}
+function loadWorksheetState(){
+  const progress = getProgress();
+  document.getElementById('completeCheck').checked = progress['module6'] === true;
+  document.querySelectorAll('textarea[id^="worksheetInput"]').forEach(function(ta){
+    const key = 'cgpr_worksheet_' + MODULE_FILE + '_' + ta.id;
+    const saved = localStorage.getItem(key);
+    if(saved) ta.value = saved;
+    ta.addEventListener('input', function(){ localStorage.setItem(key, this.value); });
+  });
+}
+
+loadWorksheetState();
+setLang(currentLang);
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை | என். டி. சோமசுந்தரம்</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;color:var(--text);background:var(--cream);line-height:1.6;}
+  [lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px 6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  header.hero{background:linear-gradient(135deg,var(--navy) 0%, var(--navy-light) 100%);color:#fff;padding:90px 20px 70px;text-align:center;position:relative;overflow:hidden;}
+  header.hero::after{content:"";position:absolute;bottom:-60px;left:50%;transform:translateX(-50%);width:140%;height:120px;background:var(--cream);border-radius:50%;}
+  .eyebrow{color:var(--gold-light);text-transform:uppercase;letter-spacing:2px;font-size:13px;font-weight:600;margin-bottom:18px;}
+  h1{font-size:clamp(28px,5vw,46px);font-weight:800;max-width:800px;margin:0 auto 20px;line-height:1.25;}
+  .subhead{font-size:clamp(15px,2vw,19px);color:#dbe3f0;max-width:640px;margin:0 auto 34px;font-weight:400;}
+  .cta-btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:16px 38px;border-radius:8px;text-decoration:none;font-size:17px;box-shadow:0 8px 20px rgba(212,169,65,.35);transition:transform .15s ease;border:none;cursor:pointer;}
+  .cta-btn:hover{transform:translateY(-2px);}
+  .cta-sub{font-size:13px;color:#b8c4d9;margin-top:12px;}
+  section{padding:60px 20px;max-width:960px;margin:0 auto;position:relative;z-index:1;}
+  .section-title{font-size:clamp(22px,3.5vw,32px);font-weight:800;color:var(--navy);text-align:center;margin-bottom:12px;}
+  .section-sub{text-align:center;color:var(--muted);max-width:600px;margin:0 auto 40px;}
+  .pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;}
+  .pain-card{background:#fff;border-radius:12px;padding:24px;border:1px solid #eae4d5;box-shadow:0 4px 14px rgba(11,31,58,.05);}
+  .pain-card .icon{font-size:26px;margin-bottom:10px;}
+  .pain-card h4{font-size:16px;color:var(--navy);margin-bottom:6px;}
+  .pain-card p{font-size:14px;color:var(--muted);}
+  .curriculum{background:#fff;border-radius:16px;padding:10px;box-shadow:0 6px 24px rgba(11,31,58,.06);}
+  .module-row{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;border-bottom:1px solid #f1ede2;}
+  .module-row:last-child{border-bottom:none;}
+  .module-num{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--navy);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;}
+  .module-row h4{font-size:16px;color:var(--navy);margin-bottom:3px;}
+  .module-row p{font-size:13.5px;color:var(--muted);}
+  .price-card{background:linear-gradient(135deg,var(--navy),var(--navy-light));color:#fff;border-radius:18px;padding:44px 30px;text-align:center;max-width:460px;margin:0 auto;box-shadow:0 14px 34px rgba(11,31,58,.25);}
+  .price-strike{font-size:18px;color:#8fa0bd;text-decoration:line-through;}
+  .price-now{font-size:48px;font-weight:800;color:var(--gold-light);margin:6px 0 4px;}
+  .price-note{font-size:13px;color:#c3cfe0;margin-bottom:26px;}
+  .price-list{text-align:left;margin:0 0 28px;padding-left:0;list-style:none;}
+  .price-list li{font-size:14.5px;padding:7px 0;display:flex;gap:10px;}
+  .price-list li::before{content:"✓";color:var(--gold-light);font-weight:700;}
+  .assessment-banner{background:var(--gold-light);border-radius:14px;padding:28px 24px;text-align:center;border:1px solid var(--gold);}
+  .assessment-banner h3{color:var(--navy);font-size:19px;margin-bottom:8px;}
+  .assessment-banner p{color:#5b4a12;font-size:14px;margin-bottom:16px;}
+  .btn-outline{display:inline-block;border:2px solid var(--navy);color:var(--navy);font-weight:700;padding:11px 26px;border-radius:8px;text-decoration:none;font-size:14.5px;}
+  .trainer{display:flex;gap:24px;align-items:center;flex-wrap:wrap;background:#fff;border-radius:16px;padding:30px;box-shadow:0 4px 14px rgba(11,31,58,.05);}
+  .trainer-avatar{width:84px;height:84px;border-radius:50%;background:var(--navy);color:var(--gold-light);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;flex-shrink:0;}
+  .trainer h4{color:var(--navy);font-size:18px;margin-bottom:4px;}
+  .trainer p{color:var(--muted);font-size:14px;}
+  .faq-item{background:#fff;border-radius:10px;padding:18px 20px;margin-bottom:12px;border:1px solid #eee4d5;}
+  .faq-item h4{color:var(--navy);font-size:15px;margin-bottom:6px;}
+  .faq-item p{color:var(--muted);font-size:14px;}
+  footer{background:var(--navy);color:#c3cfe0;text-align:center;padding:36px 20px 26px;font-size:13px;}
+  footer .motto{color:var(--gold-light);font-weight:600;font-size:14px;margin-bottom:8px;}
+  .whatsapp-float{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:99;}
+  .final-cta{text-align:center;}
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<a class="whatsapp-float" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Career%20Growth%20%26%20Promotion%20Readiness%20course" target="_blank" aria-label="WhatsApp">💬</a>
+
+<header class="hero">
+  <div class="eyebrow" data-en="FOR MID-LEVEL PROFESSIONALS" data-ta="இடைநிலை பணியாளர்களுக்கு">FOR MID-LEVEL PROFESSIONALS</div>
+  <h1 data-en="Stuck at the Same Level for Years? Here's Why — And How to Break Through." data-ta="பல ஆண்டுகளாக ஒரே நிலையில் நிற்கிறீர்களா? காரணம் இதோ — முன்னேற வழியும் இதோ.">Stuck at the Same Level for Years? Here's Why — And How to Break Through.</h1>
+  <p class="subhead" data-en="A practical, 10-module program to help you build visibility, close skill gaps, and make the case for your next promotion — without office politics or guesswork." data-ta="தெரிவுநிலையை மேம்படுத்தி, திறன் இடைவெளிகளை நிரப்பி, அரசியல் இல்லாமல் அடுத்த பதவி உயர்வுக்கான வழக்கை உருவாக்க உதவும் நடைமுறை 10 பாட நிரல்.">A practical, 10-module program to help you build visibility, close skill gaps, and make the case for your next promotion — without office politics or guesswork.</p>
+  <a class="cta-btn" href="#pricing" data-en="Enroll Now — ₹499" data-ta="இப்போது சேருங்கள் — ₹499">Enroll Now — ₹499</a>
+  <div class="cta-sub" data-en="Launch price · Lifetime access · Certificate on completion" data-ta="தொடக்க விலை · வாழ்நாள் அணுகல் · முடிக்கும்போது சான்றிதழ்">Launch price · Lifetime access · Certificate on completion</div>
+</header>
+
+<section>
+  <h2 class="section-title" data-en="Does This Sound Like You?" data-ta="இது உங்களுக்குப் பொருந்துகிறதா?">Does This Sound Like You?</h2>
+  <p class="section-sub" data-en="You're good at your job. But somehow, the promotion keeps going to someone else." data-ta="நீங்கள் உங்கள் வேலையில் திறமையானவர். ஆனால் பதவி உயர்வு எப்படியோ வேறொருவருக்கே கிடைக்கிறது.">You're good at your job. But somehow, the promotion keeps going to someone else.</p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="icon">😓</div>
+      <h4 data-en="Overlooked in Meetings" data-ta="கூட்டங்களில் கவனிக்கப்படாதது">Overlooked in Meetings</h4>
+      <p data-en="You do the work, but someone else gets noticed for it." data-ta="வேலையை நீங்கள் செய்கிறீர்கள், ஆனால் அதற்கான பாராட்டு வேறொருவருக்கு.">You do the work, but someone else gets noticed for it.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">🧭</div>
+      <h4 data-en="No Clear Path Up" data-ta="மேலே செல்ல தெளிவான பாதை இல்லை">No Clear Path Up</h4>
+      <p data-en="Nobody has told you exactly what the next level actually requires." data-ta="அடுத்த நிலைக்கு என்ன தேவை என்று யாரும் தெளிவாகச் சொல்லவில்லை.">Nobody has told you exactly what the next level actually requires.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">🤐</div>
+      <h4 data-en="Uncomfortable Self-Promotion" data-ta="தன்னை முன்னிலைப்படுத்த தயக்கம்">Uncomfortable Self-Promotion</h4>
+      <p data-en="You don't want to 'show off' — but staying quiet isn't working either." data-ta="'தன்னைக் காட்டிக்கொள்ள' விரும்பவில்லை — ஆனால் அமைதியாக இருப்பதும் பலனளிக்கவில்லை.">You don't want to "show off" — but staying quiet isn't working either.</p>
+    </div>
+    <div class="pain-card">
+      <div class="icon">🗓️</div>
+      <h4 data-en="The Same Appraisal, Every Year" data-ta="ஒவ்வொரு ஆண்டும் ஒரே மதிப்பீடு">The Same Appraisal, Every Year</h4>
+      <p data-en="Good ratings, no movement. The conversation about promotion never quite happens." data-ta="நல்ல மதிப்பீடு, ஆனால் முன்னேற்றம் இல்லை. பதவி உயர்வு பற்றிய உரையாடல் நடக்கவே இல்லை.">Good ratings, no movement. The conversation about promotion never quite happens.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title" data-en="What's Inside the Program" data-ta="பாட நிரலில் என்ன இருக்கிறது">What's Inside the Program</h2>
+  <p class="section-sub" data-en="10 focused modules. Self-paced. Practical exercises you apply at your own workplace." data-ta="10 குறிக்கோள் பாடங்கள். சுய வேகத்தில். உங்கள் பணியிடத்திலேயே பயன்படுத்தும் நடைமுறை பயிற்சிகள்.">10 focused modules. Self-paced. Practical exercises you apply at your own workplace.</p>
+  <div class="curriculum" id="curriculum"></div>
+</section>
+
+<section>
+  <div class="assessment-banner">
+    <h3 data-en="Not sure why you're stuck? Take the free 5-minute diagnostic first." data-ta="ஏன் நிற்கிறீர்கள் என்று தெரியவில்லையா? முதலில் இலவச 5-நிமிட மதிப்பீட்டை எடுங்கள்.">Not sure why you're stuck? Take the free 5-minute diagnostic first.</h3>
+    <p data-en="The Career Plateau Diagnostic pinpoints whether your gap is skill, visibility, or positioning — and gives you a personalized starting point." data-ta="Career Plateau Diagnostic உங்கள் இடைவெளி திறமையா, தெரிவுநிலையா அல்லது நிலைப்படுத்தலா என்பதைக் கண்டறிந்து தனிப்பயன் தொடக்கப் புள்ளியைத் தரும்.">The Career Plateau Diagnostic pinpoints whether your gap is skill, visibility, or positioning — and gives you a personalized starting point.</p>
+    <a class="btn-outline" href="assessment.html" data-en="Take Free Diagnostic →" data-ta="இலவச மதிப்பீட்டை எடுங்கள் →">Take Free Diagnostic →</a>
+  </div>
+</section>
+
+<section id="pricing">
+  <h2 class="section-title" data-en="Enroll Today" data-ta="இன்றே சேருங்கள்">Enroll Today</h2>
+  <div class="price-card">
+    <div class="price-strike">₹1,999</div>
+    <div class="price-now">₹499</div>
+    <div class="price-note" data-en="Launch pricing for the first cohort" data-ta="முதல் குழுவிற்கான தொடக்க விலை">Launch pricing for the first cohort</div>
+    <ul class="price-list">
+      <li data-en="10 in-depth modules" data-ta="10 விரிவான பாடங்கள்">10 in-depth modules</li>
+      <li data-en="Practical worksheets & templates" data-ta="நடைமுறை பணித்தாள்கள் மற்றும் வார்ப்புருக்கள்">Practical worksheets & templates</li>
+      <li data-en="Lifetime access, self-paced" data-ta="வாழ்நாள் அணுகல், சுய வேகத்தில்">Lifetime access, self-paced</li>
+      <li data-en="Certificate of completion" data-ta="முடிவு சான்றிதழ்">Certificate of completion</li>
+      <li data-en="WhatsApp support for questions" data-ta="கேள்விகளுக்கு WhatsApp ஆதரவு">WhatsApp support for questions</li>
+    </ul>
+    <form>
+      <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TDLjvNfh03cjQm" async> </script>
+    </form>
+    <div class="cta-sub" data-en="Secure payment via Razorpay · UPI, Cards, Netbanking" data-ta="Razorpay மூலம் பாதுகாப்பான கட்டணம் · UPI, அட்டைகள், நெட்பேங்கிங்">Secure payment via Razorpay · UPI, Cards, Netbanking</div>
+  </div>
+</section>
+
+<section>
+  <div class="trainer">
+    <div class="trainer-avatar">NTS</div>
+    <div>
+      <h4>N T Somasundaram</h4>
+      <p data-en="Certified Master Trainer, Career Consultant & Life Skills Educator with over a decade in corporate banking before transitioning into training and coaching. He has guided hundreds of students, teachers, and parents through structured skill-building programs across Tamil Nadu." data-ta="ஒரு தசாப்தத்திற்கும் மேலான வங்கித் துறை அனுபவத்திற்குப் பிறகு பயிற்சி மற்றும் பயிற்றுவித்தலுக்கு மாறிய சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்றுனர் மற்றும் வாழ்க்கை திறன் கல்வியாளர். இவர் தமிழ்நாடு முழுவதும் நூற்றுக்கணக்கான மாணவர்கள், ஆசிரியர்கள் மற்றும் பெற்றோர்களுக்குக் கட்டமைக்கப்பட்ட திறன்-வளர்ப்பு நிகழ்ச்சிகள் மூலம் வழிகாட்டியுள்ளார்.">Certified Master Trainer, Career Consultant & Life Skills Educator with over a decade in corporate banking before transitioning into training and coaching. He has guided hundreds of students, teachers, and parents through structured skill-building programs across Tamil Nadu.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title" data-en="Frequently Asked Questions" data-ta="அடிக்கடி கேட்கப்படும் கேள்விகள்">FAQ</h2>
+  <div class="faq-item">
+    <h4 data-en="How do I access the course after paying?" data-ta="கட்டணம் செலுத்திய பிறகு பாடத்தை எப்படி அணுகுவது?">How do I access the course after paying?</h4>
+    <p data-en="After payment, you'll receive an access code via WhatsApp/email within a few hours to unlock all 10 modules." data-ta="கட்டணம் செலுத்திய பிறகு, 10 பாடங்களையும் திறக்க WhatsApp/மின்னஞ்சல் வழியாகச் சில மணி நேரத்தில் அணுகல் குறியீடு அனுப்பப்படும்.">After payment, you'll receive an access code via WhatsApp/email within a few hours to unlock all 10 modules.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-en="Is this useful if I'm not in a corporate job?" data-ta="நான் கார்ப்பரேட் வேலையில் இல்லையென்றால் இது பயனுள்ளதா?">Is this useful if I'm not in a corporate job?</h4>
+    <p data-en="Yes — the principles apply to any structured organization: schools, hospitals, government offices, and private companies alike." data-ta="ஆம் — இந்த கொள்கைகள் பள்ளிகள், மருத்துவமனைகள், அரசு அலுவலகங்கள், தனியார் நிறுவனங்கள் என அனைத்து அமைப்புகளுக்கும் பொருந்தும்.">Yes — the principles apply to any structured organization: schools, hospitals, government offices, and private companies alike.</p>
+  </div>
+  <div class="faq-item">
+    <h4 data-en="What if I want a refund?" data-ta="பணத்தைத் திரும்பப் பெற விரும்பினால்?">What if I want a refund?</h4>
+    <p data-en="Message us on WhatsApp within 48 hours of purchase if the course isn't right for you, and we'll process a full refund." data-ta="கொள்முதல் செய்த 48 மணி நேரத்திற்குள் பாடம் பொருந்தவில்லை எனில் WhatsApp-இல் தொடர்பு கொள்ளுங்கள், முழு பணமும் திரும்பப் பெறலாம்.">Message us on WhatsApp within 48 hours of purchase if the course isn't right for you, and we'll process a full refund.</p>
+  </div>
+</section>
+
+<section class="final-cta">
+  <a class="cta-btn" href="#pricing" data-en="Enroll Now — ₹499" data-ta="இப்போது சேருங்கள் — ₹499">Enroll Now — ₹499</a>
+</section>
+
+<footer>
+  <div class="motto">God is always with u</div>
+  <div data-en="N T Somasundaram · Career Consultant & Life Skills Educator" data-ta="என். டி. சோமசுந்தரம் · வாழ்க்கை திறன் பயிற்றுனர்">N T Somasundaram · Career Consultant & Life Skills Educator</div>
+  <div>somasundaramnt.lifecoach@gmail.com · WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const moduleData = [
+  {en_t:"Why You're Stuck", ta_t:"ஏன் நீங்கள் தேக்க நிலையில் இருக்கிறீர்கள்", en_d:"Diagnosing the real reasons plateaus happen — skill gap, visibility gap, or positioning gap.", ta_d:"தேக்கநிலைக்கான உண்மையான காரணங்களைக் கண்டறிதல் — திறன், தெரிவுநிலை அல்லது நிலைப்படுத்தல் இடைவெளி."},
+  {en_t:"The Promotion Equation", ta_t:"பதவி உயர்வு சமன்பாடு", en_d:"What actually gets someone promoted: performance + perception + positioning.", ta_d:"உண்மையில் ஒருவரை பதவி உயர்த்துவது என்ன: செயல்திறன் + கண்ணோட்டம் + நிலைப்படுத்தல்."},
+  {en_t:"Building Visibility Without Bragging", ta_t:"பெருமையடிக்காமல் தெரிவுநிலையை உருவாக்குதல்", en_d:"Authentic personal branding at work that gets you noticed for the right reasons.", ta_d:"சரியான காரணங்களுக்காக கவனிக்கப்பட உண்மையான தனிப்பட்ட பிராண்டிங்."},
+  {en_t:"Closing Your Skill Gaps", ta_t:"திறன் இடைவெளிகளை நிரப்புதல்", en_d:"Mapping exactly what the next level requires, and building a targeted plan.", ta_d:"அடுத்த நிலைக்கு என்ன தேவை என்பதை வரைபடமாக்கி இலக்கு திட்டம் உருவாக்குதல்."},
+  {en_t:"Executive Presence", ta_t:"நிர்வாக இருப்பு", en_d:"How you're perceived in meetings, emails, and hallway conversations.", ta_d:"கூட்டங்கள், மின்னஞ்சல்கள் மற்றும் அன்றாட உரையாடல்களில் நீங்கள் எவ்வாறு கருதப்படுகிறீர்கள்."},
+  {en_t:"Networking & Finding a Sponsor", ta_t:"நெட்வொர்க்கிங் மற்றும் ஆதரவாளரைக் கண்டறிதல்", en_d:"The single biggest lever most people ignore in their promotion journey.", ta_d:"பெரும்பாலானோர் புறக்கணிக்கும் மிக முக்கியமான அம்சம்."},
+  {en_t:"Managing Upward", ta_t:"மேலாண்மையை நிர்வகித்தல்", en_d:"Communicating with your manager so they naturally advocate for you.", ta_d:"உங்கள் மேலாளர் இயல்பாகவே உங்களுக்காக ஆதரவளிக்கும் வகையில் தொடர்புகொள்ளுதல்."},
+  {en_t:"Navigating Office Politics", ta_t:"அலுவலக அரசியலைக் கையாளுதல்", en_d:"Handling politics skilfully without compromising your integrity.", ta_d:"நேர்மையை இழக்காமல் அரசியலை திறமையாகக் கையாளுதல்."},
+  {en_t:"Building Your Promotion Case", ta_t:"பதவி உயர்வு வழக்கை உருவாக்குதல்", en_d:"Documenting your impact and preparing for the actual promotion conversation.", ta_d:"உங்கள் தாக்கத்தை ஆவணப்படுத்தி பதவி உயர்வு உரையாடலுக்கு தயாராதல்."},
+  {en_t:"Life After the Promotion", ta_t:"பதவி உயர்வுக்குப் பிந்தைய வாழ்க்கை", en_d:"Sustaining momentum and avoiding the next plateau.", ta_d:"வேகத்தைத் தக்கவைத்து அடுத்த தேக்கநிலையை தவிர்த்தல்."}
+];
+
+function renderCurriculum(){
+  const el = document.getElementById('curriculum');
+  el.innerHTML = moduleData.map((m,i)=>`
+    <div class="module-row">
+      <div class="module-num">${i+1}</div>
+      <div>
+        <h4>${currentLang==='ta'?m.ta_t:m.en_t}</h4>
+        <p>${currentLang==='ta'?m.ta_d:m.en_d}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    if (elm.hasAttribute('data-' + lang)) {
+      elm.textContent = elm.getAttribute('data-' + lang);
+    }
+  });
+  renderCurriculum();
+}
+
+renderCurriculum();
+setLang(currentLang);
+</script>
+
+</body>
+</html>

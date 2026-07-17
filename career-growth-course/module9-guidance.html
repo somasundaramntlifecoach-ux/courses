@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>தொகுதி 9: பதவி உயர்வுக்கான உங்கள் வழக்கை உருவாக்குதல் — வழிகாட்டுதல்கள் & குறிப்புகள் | தொழில் வளர்ச்சி மற்றும் பதவி உயர்வுக்கான தயார்நிலை</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0b1f3a;--navy-light:#132c52;--gold:#d4a941;--gold-light:#f2d98a;--cream:#faf7f0;--text:#20242c;--muted:#5b6472;--success:#1e7a4c;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--cream);color:var(--text);line-height:1.65;}
+  .lang-toggle{position:fixed;top:16px;right:16px;z-index:100;background:#fff;border:2px solid var(--navy);border-radius:30px;padding:6px;display:flex;gap:4px;box-shadow:0 4px 12px rgba(0,0,0,.12);}
+  .lang-toggle button{border:none;background:transparent;padding:8px 16px;border-radius:24px;font-weight:600;cursor:pointer;font-size:14px;color:var(--navy);font-family:'Poppins',sans-serif;}
+  .lang-toggle button.active{background:var(--navy);color:#fff;}
+  .topbar{background:var(--navy);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  .topbar a{color:#c3cfe0;text-decoration:none;font-size:13.5px;font-weight:600;}
+  .topbar .m-tag{color:var(--gold-light);font-size:12.5px;font-weight:700;letter-spacing:1px;}
+  .page-tabs{display:flex;gap:8px;background:#fff;max-width:720px;margin:20px auto 0;padding:8px;border-radius:30px;box-shadow:0 4px 14px rgba(11,31,58,.06);}
+  .page-tabs a{flex:1;text-align:center;padding:10px 8px;border-radius:22px;font-size:13px;font-weight:700;text-decoration:none;color:var(--muted);}
+  .page-tabs a.active{background:var(--navy);color:#fff;}
+  .wrap{max-width:720px;margin:0 auto;padding:30px 20px 80px;}
+  h1{font-size:clamp(24px,4vw,32px);color:var(--navy);font-weight:800;margin-bottom:6px;}
+  .m-sub{color:var(--muted);font-size:14px;margin-bottom:24px;}
+  .steps-box{background:#fff;border-radius:12px;padding:24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .steps-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
+  .steps-box ol{padding-left:20px;}
+  .steps-box li{color:var(--muted);font-size:14.5px;margin-bottom:10px;}
+  .dodon-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  @media (max-width:560px){ .dodon-grid{grid-template-columns:1fr;} }
+  .do-box, .dont-box{border-radius:12px;padding:20px;}
+  .do-box{background:#eaf5ef;border-left:4px solid var(--success);}
+  .dont-box{background:#fbeaea;border-left:4px solid #b0332c;}
+  .do-box h4{color:var(--success);font-size:14.5px;margin-bottom:10px;}
+  .dont-box h4{color:#b0332c;font-size:14.5px;margin-bottom:10px;}
+  .do-box ul, .dont-box ul{padding-left:18px;}
+  .do-box li, .dont-box li{font-size:13.5px;color:var(--text);margin-bottom:7px;}
+  .mistakes-box{background:#fff;border-radius:12px;padding:22px 24px;margin-bottom:20px;box-shadow:0 3px 12px rgba(11,31,58,.05);}
+  .mistakes-box h3{color:var(--navy);font-size:16.5px;margin-bottom:12px;}
+  .mistakes-box ul{padding-left:20px;}
+  .mistakes-box li{color:var(--muted);font-size:14.5px;margin-bottom:8px;}
+  .script-box{background:var(--navy);color:#fff;border-radius:12px;padding:24px;margin-bottom:20px;}
+  .script-box .tag{color:var(--gold-light);font-weight:700;font-size:12px;letter-spacing:1px;margin-bottom:10px;display:block;}
+  .script-box p{font-size:15px;font-style:italic;color:#e4e9f2;}
+  .nav-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .nav-btn{flex:1;text-align:center;padding:14px 18px;border-radius:8px;font-weight:700;text-decoration:none;font-size:14.5px;min-width:140px;}
+  .nav-prev{background:#fff;color:var(--navy);border:2px solid var(--navy);}
+  .nav-next{background:var(--navy);color:#fff;}
+  .nav-hub{background:transparent;color:var(--muted);border:2px solid #ddd;}
+  footer{text-align:center;padding:26px 20px;color:var(--muted);font-size:13px;}
+  footer .motto{color:var(--navy);font-weight:700;margin-bottom:6px;}
+  @media print { .lang-toggle,.topbar,.page-tabs,.nav-row{display:none;} }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button onclick="logout()" style="border:none; background:transparent; padding:8px 12px; font-weight:600; cursor:pointer; font-size:13px; color:var(--navy); font-family:'Poppins',sans-serif;">Logout</button>
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<div class="topbar">
+  <a href="course-hub.html">&larr; <span data-en="Back to Course Hub" data-ta="பாட மையத்திற்குத் திரும்பு">Back to Course Hub</span></a>
+  <span class="m-tag" data-en="MODULE 9 OF 10 &middot; GUIDANCE & TIPS" data-ta="தொகுதி 9/10 &middot; வழிகாட்டுதல்கள் & குறிப்புகள்">MODULE 9 OF 10 &middot; GUIDANCE & TIPS</span>
+</div>
+<div class="page-tabs">
+  <a href="module9-concepts.html" data-en="1. Concepts & Examples" data-ta="1. கருத்துகள் & எடுத்துக்காட்டுகள்">1. Concepts & Examples</a>
+  <a href="module9-guidance.html" class="active" data-en="2. Guidance & Tips" data-ta="2. வழிகாட்டுதல்கள் & குறிப்புகள்">2. Guidance & Tips</a>
+  <a href="module9-worksheet.html" data-en="3. Worksheet & Plan" data-ta="3. பணித்தாள் & திட்டம்">3. பணித்தாள் & திட்டம்</a>
+</div>
+
+<div class="wrap">
+  <h1 data-en="Module 9: Building Your Promotion Case" data-ta="தொகுதி 9: பதவி உயர்வுக்கான உங்கள் வழக்கை உருவாக்குதல்">Module 9: Building Your Promotion Case</h1>
+  <div class="m-sub" data-en="Page 2 of 3 &middot; Practical Guidance & Tips" data-ta="பக்கம் 2/3 &middot; நடைமுறை வழிகாட்டுதல்கள் & குறிப்புகள்">Page 2 of 3 &middot; Practical Guidance & Tips</div>
+
+  <div class="steps-box">
+    <h3 data-en="Step-by-Step Guidance" data-ta="படிப்படியான வழிகாட்டுதல்">Step-by-Step Guidance</h3>
+    <ol>
+      <li data-en="Start or update a running achievement log today, adding entries as they happen going forward." data-ta="இன்றே உங்கள் சாதனைகளைப் பதிவு செய்யும் ஆவணத்தைத் தொடங்குங்கள் அல்லது புதுப்பியுங்கள், எதிர்காலத்தில் நடக்கும் நிகழ்வுகளை உடனுக்குடன் அதில் சேர்க்கவும்.">Start or update a running achievement log today, adding entries as they happen going forward.</li>
+      <li data-en="Convert your three strongest recent achievements into STAR format, each with a number attached wherever possible." data-ta="உங்கள் சமீபத்திய மூன்று சிறந்த சாதனைகளை STAR வடிவத்திற்கு மாற்றவும், முடிந்தவரை ஒவ்வொரு சாதனையிலும் ஒரு எண்ணைச் சேர்க்கவும்.">Convert your three strongest recent achievements into STAR format, each with a number attached wherever possible.</li>
+      <li data-en="Draft the specific role or level you want to be considered for, in one clear sentence." data-ta="நீங்கள் பரிசீலிக்கப்பட விரும்பும் குறிப்பிட்ட பதவி அல்லது நிலையை ஒரே தெளிவான வாக்கியத்தில் எழுதுங்கள்.">Draft the specific role or level you want to be considered for, in one clear sentence.</li>
+      <li data-en="Write and rehearse your opening line for the actual promotion conversation." data-ta="உண்மையான பதவி உயர்வு உரையாடலுக்காக உங்கள் தொடக்க வரிகளை எழுதிப் பயிற்சி செய்யுங்கள்.">Write and rehearse your opening line for the actual promotion conversation.</li>
+      <li data-en="Schedule the conversation with your manager within a specific, committed timeframe &mdash; not 'sometime soon'." data-ta="உங்கள் மேலாளருடன் பதவி உயர்வு உரையாடலை ஒரு குறிப்பிட்ட, உறுதியான காலக்கெடுவுக்குள் திட்டமிடுங்கள் &mdash; 'எப்போதாவது விரைவில்' என்று சொல்ல வேண்டாம்.">Schedule the conversation with your manager within a specific, committed timeframe &mdash; not 'sometime soon'.</li>
+    </ol>
+  </div>
+
+  <div class="dodon-grid">
+    <div class="do-box">
+      <h4 data-en="DO" data-ta="செய்ய வேண்டியவை">DO</h4>
+      <ul>
+        <li data-en="Attach a number to every achievement you can, even if it's a reasonable estimate." data-ta="முடிந்தவரை ஒவ்வொரு சாதனையிலும் ஒரு எண்ணைச் சேர்க்கவும், அது ஒரு நியாயமான மதிப்பீடாக இருந்தாலும் பரவாயில்லை.">Attach a number to every achievement you can, even if it's a reasonable estimate.</li>
+        <li data-en="Keep your achievement log updated weekly or biweekly, not just before appraisals." data-ta="உங்கள் சாதனைகளைப் பதிவு செய்யும் ஆவணத்தை மதிப்பீட்டுக்கு முன் மட்டும் அல்லாமல், வாராந்திர அல்லது இரு வாரங்களுக்கு ஒருமுறை புதுப்பிக்கவும்.">Keep your achievement log updated weekly or biweekly, not just before appraisals.</li>
+        <li data-en="State the specific role or level you want clearly, rather than hinting at general ambition." data-ta="பொதுவான லட்சியத்தைக் குறிப்பால் உணர்த்தாமல், உங்களுக்குத் தேவையான குறிப்பிட்ட பதவி அல்லது நிலையைத் தெளிவாகக் கூறுங்கள்.">State the specific role or level you want clearly, rather than hinting at general ambition.</li>
+      </ul>
+    </div>
+    <div class="dont-box">
+      <h4 data-en="DON'T" data-ta="செய்யக்கூடாதவை">DON'T</h4>
+      <ul>
+        <li data-en="Don't wait until the appraisal window to start compiling your case &mdash; start the log continuously." data-ta="உங்கள் கோரிக்கையைத் தொகுக்க மதிப்பீட்டு காலம் வரும் வரை காத்திருக்க வேண்டாம் &mdash; பதிவைத் தொடர்ந்து செய்யுங்கள்.">Don't wait until the appraisal window to start compiling your case &mdash; start the log continuously.</li>
+        <li data-en="Don't rely on vague descriptions like 'worked hard' or 'contributed significantly' without specifics." data-ta="விவரங்கள் இல்லாமல் 'கடினமாக உழைத்தேன்' அல்லது 'முக்கியமான பங்களிப்புகளைச் செய்தேன்' போன்ற தெளிவற்ற விளக்கங்களை நம்ப வேண்டாம்.">Don't rely on vague descriptions like 'worked hard' or 'contributed significantly' without specifics.</li>
+        <li data-en="Don't leave the actual promotion conversation unscheduled indefinitely out of discomfort." data-ta="சங்கடம் காரணமாக உண்மையான பதவி உயர்வு உரையாடலைத் திட்டமிடாமல் காலவரையின்றி விட்டுவிடாதீர்கள்.">Don't leave the actual promotion conversation unscheduled indefinitely out of discomfort.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mistakes-box">
+    <h3 data-en="Common Mistakes to Avoid" data-ta="தவிர்க்க வேண்டிய பொதுவான தவறுகள்">Common Mistakes to Avoid</h3>
+    <ul>
+      <li data-en="Trying to recall an entire year's achievements from memory in one sitting right before a review." data-ta="மதிப்பாய்வுக்கு முன் ஒரே அமர்வில் ஒரு வருடத்தின் சாதனைகளை நினைவிலிருந்து நினைவுபடுத்த முயற்சிப்பது.">Trying to recall an entire year's achievements from memory in one sitting right before a review.</li>
+      <li data-en="Presenting achievements without any quantified impact attached." data-ta="அளவிடக்கூடிய தாக்கம் இல்லாமல் சாதனைகளை முன்வைப்பது.">Presenting achievements without any quantified impact attached.</li>
+      <li data-en="Having all the evidence ready but never actually having the direct conversation." data-ta="எல்லா ஆதாரங்களையும் தயாராக வைத்திருப்பது ஆனால் ஒருபோதும் நேரடியாக உரையாடாமல் இருப்பது.">Having all the evidence ready but never actually having the direct conversation.</li>
+    </ul>
+  </div>
+
+  <div class="script-box">
+    <span class="tag" data-en="SAMPLE SCRIPT" data-ta="மாதிரி உரையாடல்">SAMPLE SCRIPT</span>
+    <p data-en="&ldquo;Based on the impact I've delivered over the last [period] &mdash; including [top 2-3 STAR achievements] &mdash; I believe I'm ready to be considered for [specific role/level]. I'd like to understand what the next steps would look like.&rdquo;" data-ta="&ldquo;கடந்த [காலம்] காலத்தில் நான் வழங்கிய தாக்கத்தின் அடிப்படையில் &mdash; [முதல் 2-3 STAR சாதனைகள்] உட்பட &mdash; நான் [குறிப்பிட்ட பதவி/நிலை]-க்குக் கருதப்படத் தயாராக இருக்கிறேன் என்று நம்புகிறேன். அடுத்த கட்டங்கள் என்னவென்று நான் புரிந்துகொள்ள விரும்புகிறேன்.&rdquo;">&ldquo;Based on the impact I've delivered over the last [period] &mdash; including [top 2-3 STAR achievements] &mdash; I believe I'm ready to be considered for [specific role/level]. I'd like to understand what the next steps would look like.&rdquo;</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:0;">
+  <div class="nav-row">
+    <a class="nav-btn nav-prev" href="module9-concepts.html" data-en="&larr; Previous" data-ta="&larr; முந்தையது">&larr; Previous</a>
+    <a class="nav-btn nav-hub" href="course-hub.html" data-en="Course Hub" data-ta="பாட மையம்">Course Hub</a>
+    <a class="nav-btn nav-next" href="module9-worksheet.html" data-en="Next &rarr;" data-ta="அடுத்தது &rarr;">Next &rarr;</a>
+  </div>
+</div>
+
+<footer>
+  <div class="motto" data-en="God is always with u" data-ta="இறைவன் எப்போதும் உங்களுடன் இருக்கிறார்">God is always with u</div>
+  <div>N T Somasundaram &middot; somasundaramnt.lifecoach@gmail.com &middot; WhatsApp: +91 98437 02244</div>
+</footer>
+
+<script>
+const MODULE_FILE = "module9-guidance.html";
+let currentLang = localStorage.getItem('cgpr_lang') || 'en';
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem('cgpr_lang', lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[data-en]').forEach(elm=>{
+    elm.innerHTML = lang==='ta' ? elm.getAttribute('data-ta') : elm.getAttribute('data-en');
+  });
+}
+
+setLang(currentLang);
+</script>
+</body>
+</html>
