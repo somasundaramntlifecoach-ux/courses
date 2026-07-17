@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Parenting & Screen Time Mastery Program | NT Somasundaram Life Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2d6a4f; --primary-dark:#1b4332; --accent:#f4a261; --accent2:#e76f51;
+    --bg:#f8f9f4; --card:#ffffff; --text:#1d2a1f; --muted:#6b7a6d;
+    --radius:18px; --shadow:0 6px 24px rgba(29,42,31,0.10);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.65;}
+  [lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .container{max-width:900px; margin:0 auto; padding:0 20px;}
+  .lang-toggle{position:fixed; top:16px; right:16px; z-index:100; background:var(--primary); border:none; color:#fff; padding:8px 16px; border-radius:20px; font-size:0.8rem; cursor:pointer; font-weight:600; box-shadow:var(--shadow);}
+  header.hero{background:linear-gradient(135deg,var(--primary) 0%, var(--primary-dark) 100%); color:#fff; padding:70px 20px 60px; text-align:center;}
+  header.hero .badge{display:inline-block; background:rgba(255,255,255,0.18); padding:6px 16px; border-radius:20px; font-size:0.8rem; font-weight:600; margin-bottom:18px; letter-spacing:0.3px;}
+  header.hero h1{font-size:2rem; font-weight:800; margin-bottom:16px; max-width:700px; margin-left:auto; margin-right:auto;}
+  header.hero p.subtitle{font-size:1.05rem; opacity:0.92; max-width:600px; margin:0 auto 28px;}
+  .stats-row{display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:30px;}
+  .stat{text-align:center;}
+  .stat .num{font-size:1.6rem; font-weight:800; color:var(--accent);}
+  .stat .lbl{font-size:0.78rem; opacity:0.85;}
+  .cta-primary{display:inline-block; background:var(--accent2); color:#fff; padding:15px 36px; border-radius:30px; font-weight:700; text-decoration:none; margin-top:24px; font-size:1rem; box-shadow:0 6px 20px rgba(231,111,81,0.4);}
+  section{padding:50px 20px;}
+  h2.section-title{font-size:1.5rem; font-weight:700; text-align:center; margin-bottom:12px; color:var(--primary-dark);}
+  p.section-sub{text-align:center; color:var(--muted); max-width:560px; margin:0 auto 34px;}
+  .problem-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px;}
+  .problem-card{background:var(--card); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow); border-left:4px solid var(--accent2);}
+  .problem-card .icon{font-size:1.6rem; margin-bottom:10px;}
+  .problem-card h4{font-size:1rem; margin-bottom:6px;}
+  .problem-card p{font-size:0.88rem; color:var(--muted);}
+  .modules-list{display:flex; flex-direction:column; gap:14px;}
+  .module-item{background:var(--card); border-radius:14px; padding:18px 22px; box-shadow:var(--shadow); display:flex; align-items:center; gap:16px;}
+  .module-num{background:var(--primary); color:#fff; width:38px; height:38px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; flex-shrink:0; font-size:0.9rem;}
+  .module-item h4{font-size:0.98rem; margin-bottom:3px;}
+  .module-item p{font-size:0.82rem; color:var(--muted);}
+  .outcomes-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:16px;}
+  .outcome{background:#eaf4ee; border-radius:14px; padding:18px; font-size:0.9rem; font-weight:600; color:var(--primary-dark); display:flex; align-items:flex-start; gap:10px;}
+  .outcome span.check{color:var(--primary); font-size:1.1rem;}
+  .who-for{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:28px; max-width:600px; margin:0 auto;}
+  .who-for ul{list-style:none; margin-top:14px;}
+  .who-for li{padding:8px 0; font-size:0.92rem; display:flex; gap:10px;}
+  .instructor{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:30px; max-width:650px; margin:0 auto; text-align:center;}
+  .instructor .avatar{width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--accent)); margin:0 auto 16px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.8rem; font-weight:800;}
+  .instructor h3{margin-bottom:4px;}
+  .instructor .role{color:var(--muted); font-size:0.85rem; margin-bottom:14px;}
+  .pricing-card{background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:#fff; border-radius:var(--radius); padding:40px 30px; text-align:center; max-width:480px; margin:0 auto; box-shadow:var(--shadow);}
+  .pricing-card .price{font-size:2.2rem; font-weight:800; margin:12px 0;}
+  .pricing-card .price span{font-size:0.9rem; font-weight:400; opacity:0.8; text-decoration:line-through; margin-right:10px;}
+  .pricing-card ul{list-style:none; text-align:left; margin:20px auto; max-width:320px;}
+  .pricing-card li{padding:6px 0; font-size:0.9rem;}
+  .final-cta{background:linear-gradient(135deg,var(--accent2),var(--accent)); color:#fff; text-align:center; padding:60px 20px; border-radius:var(--radius); margin:0 20px;}
+  .final-cta h2{font-size:1.5rem; margin-bottom:14px;}
+  .whatsapp-btn{display:inline-flex; align-items:center; gap:10px; background:#25D366; color:#fff; padding:14px 30px; border-radius:30px; text-decoration:none; font-weight:700; margin-top:16px; font-size:1rem;}
+  footer{text-align:center; padding:36px 20px; color:var(--muted); font-size:0.85rem; background:var(--card);}
+  footer a{color:var(--primary); text-decoration:none; font-weight:600;}
+</style>
+</head>
+<body>
+
+<button class="lang-toggle" onclick="toggleLang()">தமிழ் / EN</button>
+
+<header class="hero">
+  <div class="badge" data-en="ONLINE SELF-PACED PROGRAM · BILINGUAL EN/TA" data-ta="ஆன்லைன் சுயவேக திட்டம் · இருமொழி EN/TA">ONLINE SELF-PACED PROGRAM · BILINGUAL EN/TA</div>
+  <h1 data-en="Digital Parenting & Screen Time Mastery" data-ta="டிஜிட்டல் பெற்றோர் & திரை நேர மேலாண்மை தேர்ச்சி">Digital Parenting & Screen Time Mastery</h1>
+  <p class="subtitle" data-en="Raise a confident, balanced child in a digital world — without daily screen-time battles at home." data-ta="வீட்டில் தினசரி திரை நேரப் போராட்டங்கள் இல்லாமல், டிஜிட்டல் உலகில் தன்னம்பிக்கை மற்றும் சமநிலையான குழந்தையை வளர்க்கவும்.">Raise a confident, balanced child in a digital world — without daily screen-time battles at home.</p>
+  <div class="stats-row">
+    <div class="stat"><div class="num">10</div><div class="lbl" data-en="Modules" data-ta="பாடங்கள்">Modules</div></div>
+    <div class="stat"><div class="num">EN/TA</div><div class="lbl" data-en="Bilingual" data-ta="இருமொழி">Bilingual</div></div>
+    <div class="stat"><div class="num">Self</div><div class="lbl" data-en="Paced" data-ta="வேகம் சுயமாக">Paced</div></div>
+    <div class="stat"><div class="num">✓</div><div class="lbl" data-en="Certificate" data-ta="சான்றிதழ்">Certificate</div></div>
+  </div>
+  <a href="digital-parenting-assessment.html" class="cta-primary" data-en="Take Free Screen Time Risk Assessment →" data-ta="இலவச திரை நேர அபாய மதிப்பீட்டை மேற்கொள்ளுங்கள் →">Take Free Screen Time Risk Assessment →</a>
+</header>
+
+<div class="container">
+
+  <section id="problem">
+    <h2 class="section-title" data-en="Sound Familiar?" data-ta="இது பரிச்சயமாக இருக்கிறதா?">Sound Familiar?</h2>
+    <p class="section-sub" data-en="Most parents didn't grow up with smartphones and social media — and no one gave us a manual." data-ta="பெரும்பாலான பெற்றோர் ஸ்மார்ட்போன் மற்றும் சமூக ஊடகங்களுடன் வளரவில்லை — யாரும் எங்களுக்கு ஒரு கையேடு தரவில்லை.">Most parents didn't grow up with smartphones and social media — and no one gave us a manual.</p>
+    <div class="problem-grid">
+      <div class="problem-card"><div class="icon">😤</div><h4 data-en="Daily Screen Time Battles" data-ta="தினசரி திரை நேரப் போராட்டங்கள்">Daily Screen Time Battles</h4><p data-en="Fights every evening over 'just 5 more minutes'." data-ta="ஒவ்வொரு மாலையும் 'இன்னும் 5 நிமிடம்' என்பதற்காக சண்டைகள்.">Fights every evening over 'just 5 more minutes'.</p></div>
+      <div class="problem-card"><div class="icon">😰</div><h4 data-en="Safety Worries" data-ta="பாதுகாப்பு கவலைகள்">Safety Worries</h4><p data-en="Not knowing what your child is really seeing online." data-ta="உங்கள் குழந்தை ஆன்லைனில் உண்மையில் என்ன பார்க்கிறார் என்று தெரியாதது.">Not knowing what your child is really seeing online.</p></div>
+      <div class="problem-card"><div class="icon">📉</div><h4 data-en="Falling Grades & Focus" data-ta="வீழும் மதிப்பெண்கள் & கவனம்">Falling Grades & Focus</h4><p data-en="Attention span shrinking, homework delayed for games." data-ta="கவன அளவு குறைதல், விளையாட்டுகளுக்காக வீட்டுப்பாடம் தாமதம்.">Attention span shrinking, homework delayed for games.</p></div>
+      <div class="problem-card"><div class="icon">🤷</div><h4 data-en="No Clear Rules" data-ta="தெளிவான விதிகள் இல்லை">No Clear Rules</h4><p data-en="Every day the limit changes — confusing for everyone." data-ta="ஒவ்வொரு நாளும் வரம்பு மாறுகிறது — அனைவருக்கும் குழப்பமாக உள்ளது.">Every day the limit changes — confusing for everyone.</p></div>
+    </div>
+  </section>
+
+  <section id="modules" style="background:#fff; border-radius:24px;">
+    <h2 class="section-title" data-en="What You'll Learn — 10 Modules" data-ta="நீங்கள் கற்றுக்கொள்வது — 10 பாடங்கள்">What You'll Learn — 10 Modules</h2>
+    <p class="section-sub" data-en="A practical, step-by-step path from confusion to confident digital parenting." data-ta="குழப்பத்திலிருந்து நம்பிக்கையான டிஜிட்டல் பெற்றோர் நிலைக்கு நடைமுறை, படிப்படியான பாதை.">A practical, step-by-step path from confusion to confident digital parenting.</p>
+    <div class="modules-list">
+      <div class="module-item"><div class="module-num">1</div><div><h4 data-en="Understanding the Digital Childhood" data-ta="டிஜிட்டல் குழந்தைப் பருவத்தைப் புரிந்துகொள்ளுதல்">Understanding the Digital Childhood</h4><p data-en="How screens shape attention, brain development, and sleep." data-ta="திரைகள் கவனம், மூளை வளர்ச்சி மற்றும் தூக்கத்தை எவ்வாறு வடிவமைக்கின்றன.">How screens shape attention, brain development, and sleep.</p></div></div>
+      <div class="module-item"><div class="module-num">2</div><div><h4 data-en="Screen Time by Age" data-ta="வயதுக்கேற்ப திரை நேரம்">Screen Time by Age</h4><p data-en="Right limits for toddlers, primary schoolers, tweens, and teens." data-ta="குழந்தைகள், தொடக்கப் பள்ளி மாணவர்கள், இளம் வயதினர் மற்றும் இளைஞர்களுக்கான சரியான வரம்புகள்.">Right limits for toddlers, primary schoolers, tweens, and teens.</p></div></div>
+      <div class="module-item"><div class="module-num">3</div><div><h4 data-en="Signs of Screen Addiction" data-ta="திரை அடிமைத்தன்மையின் அறிகுறிகள்">Signs of Screen Addiction</h4><p data-en="Spotting digital overuse before it becomes a bigger problem." data-ta="இது ஒரு பெரிய பிரச்சனையாக மாறுவதற்கு முன் டிஜிட்டல் அதிகப்படியான பயன்பாட்டைக் கண்டறிதல்.">Spotting digital overuse before it becomes a bigger problem.</p></div></div>
+      <div class="module-item"><div class="module-num">4</div><div><h4 data-en="Setting Healthy Boundaries" data-ta="ஆரோக்கியமான எல்லைகளை அமைத்தல்">Setting Healthy Boundaries</h4><p data-en="Screen time contracts and house rules that actually stick." data-ta="உண்மையில் நீடிக்கும் திரை நேர ஒப்பந்தங்கள் மற்றும் வீட்டு விதிகள்.">Screen time contracts and house rules that actually stick.</p></div></div>
+      <div class="module-item"><div class="module-num">5</div><div><h4 data-en="Social Media & Peer Pressure" data-ta="சமூக ஊடகம் & சக அழுத்தம்">Social Media & Peer Pressure</h4><p data-en="Helping tweens and teens navigate online social dynamics." data-ta="இளம் வயதினர் மற்றும் இளைஞர்கள் ஆன்லைன் சமூக இயக்கவியலை வழிநடத்த உதவுதல்.">Helping tweens and teens navigate online social dynamics.</p></div></div>
+      <div class="module-item"><div class="module-num">6</div><div><h4 data-en="Online Safety" data-ta="ஆன்லைன் பாதுகாப்பு">Online Safety</h4><p data-en="Cyberbullying, predators, privacy, and scam awareness." data-ta="சைபர் கொடுமைப்படுத்துதல், வேட்டையாடுபவர்கள், தனியுரிமை மற்றும் மோசடி விழிப்புணர்வு.">Cyberbullying, predators, privacy, and scam awareness.</p></div></div>
+      <div class="module-item"><div class="module-num">7</div><div><h4 data-en="Gaming: Balance vs. Obsession" data-ta="கேமிங்: சமநிலை vs. வெறி">Gaming: Balance vs. Obsession</h4><p data-en="Managing gaming time without conflict or shame." data-ta="முரண்பாடு அல்லது வெட்கம் இல்லாமல் கேமிங் நேரத்தை நிர்வகித்தல்.">Managing gaming time without conflict or shame.</p></div></div>
+      <div class="module-item"><div class="module-num">8</div><div><h4 data-en="Digital Discipline Without Conflict" data-ta="மோதல் இல்லாத டிஜிட்டல் ஒழுக்கம்">Digital Discipline Without Conflict</h4><p data-en="Positive discipline techniques applied to screen behavior." data-ta="திரை நடத்தைக்கு பயன்படுத்தப்படும் நேர்மறை ஒழுக்க நுட்பங்கள்.">Positive discipline techniques applied to screen behavior.</p></div></div>
+      <div class="module-item"><div class="module-num">9</div><div><h4 data-en="Modeling Healthy Tech Use" data-ta="ஆரோக்கியமான தொழில்நுட்ப பயன்பாட்டை முன்மாதிரியாக்குதல்">Modeling Healthy Tech Use</h4><p data-en="Becoming the digital role model your child needs." data-ta="உங்கள் குழந்தைக்குத் தேவையான டிஜிட்டல் முன்மாதிரியாக மாறுதல்.">Becoming the digital role model your child needs.</p></div></div>
+      <div class="module-item"><div class="module-num">10</div><div><h4 data-en="Your Family Digital Wellness Plan" data-ta="உங்கள் குடும்ப டிஜிட்டல் நல திட்டம்">Your Family Digital Wellness Plan</h4><p data-en="Put it all together into a personalized, sustainable plan." data-ta="இவை அனைத்தையும் ஒரு தனிப்பயன், நீடிக்கக்கூடிய திட்டமாக ஒன்றிணைத்தல்.">Put it all together into a personalized, sustainable plan.</p></div></div>
+    </div>
+  </section>
+
+  <section id="outcomes">
+    <h2 class="section-title" data-en="What You'll Walk Away With" data-ta="நீங்கள் எதைப் பெறுவீர்கள்">What You'll Walk Away With</h2>
+    <div class="outcomes-grid">
+      <div class="outcome"><span class="check">✓</span><span data-en="A clear, age-appropriate screen time plan for your child" data-ta="உங்கள் குழந்தைக்கான தெளிவான, வயதுக்கேற்ற திரை நேர திட்டம்">A clear, age-appropriate screen time plan for your child</span></div>
+      <div class="outcome"><span class="check">✓</span><span data-en="Confidence to set boundaries without daily fights" data-ta="தினசரி சண்டைகள் இல்லாமல் எல்லைகளை அமைக்கும் நம்பிக்கை">Confidence to set boundaries without daily fights</span></div>
+      <div class="outcome"><span class="check">✓</span><span data-en="Tools to spot early signs of digital overuse" data-ta="டிஜிட்டல் அதிகப்படியான பயன்பாட்டின் ஆரம்ப அறிகுறிகளைக் கண்டறியும் கருவிகள்">Tools to spot early signs of digital overuse</span></div>
+      <div class="outcome"><span class="check">✓</span><span data-en="A safer, more open relationship with your child online" data-ta="உங்கள் குழந்தையுடன் ஆன்லைனில் பாதுகாப்பான, மிகவும் திறந்த உறவு">A safer, more open relationship with your child online</span></div>
+    </div>
+  </section>
+
+  <section id="who">
+    <h2 class="section-title" data-en="Who This Is For" data-ta="இது யாருக்கானது">Who This Is For</h2>
+    <div class="who-for">
+      <ul>
+        <li>👪 <span data-en="Parents of children aged 2-18 struggling with screen time" data-ta="திரை நேரத்துடன் போராடும் 2-18 வயது குழந்தைகளின் பெற்றோர்">Parents of children aged 2-18 struggling with screen time</span></li>
+        <li>😟 <span data-en="Parents worried about online safety and content exposure" data-ta="ஆன்லைன் பாதுகாப்பு மற்றும் உள்ளடக்க வெளிப்பாடு குறித்து கவலைப்படும் பெற்றோர்">Parents worried about online safety and content exposure</span></li>
+        <li>🏫 <span data-en="Teachers and school counselors guiding families" data-ta="குடும்பங்களை வழிநடத்தும் ஆசிரியர்கள் மற்றும் பள்ளி ஆலோசகர்கள்">Teachers and school counselors guiding families</span></li>
+        <li>🌱 <span data-en="Anyone wanting a calmer, more connected home" data-ta="அமைதியான, மேலும் இணைக்கப்பட்ட வீட்டை விரும்பும் எவரும்">Anyone wanting a calmer, more connected home</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="instructor">
+    <h2 class="section-title" data-en="Your Program Guide" data-ta="உங்கள் திட்ட வழிகாட்டி">Your Program Guide</h2>
+    <div class="instructor">
+      <div class="avatar">NT</div>
+      <h3>NT Somasundaram</h3>
+      <p class="role" data-en="Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach" data-ta="சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் · வாழ்க்கைத் திறன் கல்வியாளர் · பெற்றோர் பயிற்சியாளர்">Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</p>
+      <p style="color:var(--muted); font-size:0.9rem;" data-en="With over a decade in corporate banking followed by years dedicated to teacher training, student empowerment, and parenting education, Somasundaram brings a practical, real-world lens to modern parenting challenges — delivered bilingually for families across Tamil Nadu and beyond." data-ta="ஒரு தசாப்தத்திற்கும் மேலான கார்ப்பரேட் வங்கித் துறை அனுபவத்திற்குப் பிறகு, ஆசிரியர் பயிற்சி, மாணவர் அதிகாரமளித்தல் மற்றும் பெற்றோர் கல்விக்கு அர்ப்பணிக்கப்பட்ட ஆண்டுகளுடன், சோமசுந்தரம் நவீன பெற்றோர் சவால்களுக்கு நடைமுறை அணுகுமுறையைக் கொண்டு வருகிறார்.">With over a decade in corporate banking followed by years dedicated to teacher training, student empowerment, and parenting education, Somasundaram brings a practical, real-world lens to modern parenting challenges — delivered bilingually for families across Tamil Nadu and beyond.</p>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2 class="section-title" data-en="Enroll Today" data-ta="இன்றே சேரவும்">Enroll Today</h2>
+    <div class="pricing-card">
+      <div style="font-size:0.9rem; opacity:0.85;" data-en="Full Self-Paced Program" data-ta="முழு சுயவேக திட்டம்">Full Self-Paced Program</div>
+      <div class="price"><span>₹2,999</span>₹1,499</div>
+      <ul>
+        <li>✓ <span data-en="10 bilingual modules (EN/Tamil)" data-ta="10 இருமொழி பாடங்கள் (EN/தமிழ்)">10 bilingual modules (EN/Tamil)</span></li>
+        <li>✓ <span data-en="Free Screen Time Risk Assessment" data-ta="இலவச திரை நேர அபாய மதிப்பீடு">Free Screen Time Risk Assessment</span></li>
+        <li>✓ <span data-en="Downloadable family digital wellness plan template" data-ta="பதிவிறக்கம் செய்யக்கூடிய குடும்ப டிஜிட்டல் நல திட்ட வார்ப்புரு">Downloadable family digital wellness plan template</span></li>
+        <li>✓ <span data-en="Certificate of completion" data-ta="நிறைவு சான்றிதழ்">Certificate of completion</span></li>
+        <li>✓ <span data-en="Lifetime access, learn at your own pace" data-ta="வாழ்நாள் அணுகல், உங்கள் சொந்த வேகத்தில் கற்றுக்கொள்ளுங்கள்">Lifetime access, learn at your own pace</span></li>
+      </ul>
+      <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20enroll%20in%20the%20Digital%20Parenting%20%26%20Screen%20Time%20Mastery%20Program" class="whatsapp-btn">📱 <span data-en="Enroll via WhatsApp" data-ta="வாட்ஸ்அப் மூலம் சேரவும்">Enroll via WhatsApp</span></a>
+    </div>
+  </section>
+
+  <section id="final-cta-wrap">
+    <div class="final-cta">
+      <h2 data-en="Not Sure Where to Start? Take the Free Assessment First." data-ta="எங்கிருந்து தொடங்குவது என்று தெரியவில்லையா? முதலில் இலவச மதிப்பீட்டை மேற்கொள்ளுங்கள்.">Not Sure Where to Start? Take the Free Assessment First.</h2>
+      <p data-en="Get a personalized report on your family's digital wellness in 5 minutes." data-ta="5 நிமிடங்களில் உங்கள் குடும்பத்தின் டிஜிட்டல் நலம் குறித்த தனிப்பயன் அறிக்கையைப் பெறுங்கள்.">Get a personalized report on your family's digital wellness in 5 minutes.</p>
+      <a href="digital-parenting-assessment.html" class="cta-primary" style="background:#fff; color:var(--accent2);" data-en="Take Free Assessment →" data-ta="இலவச மதிப்பீட்டை மேற்கொள்ளுங்கள் →">Take Free Assessment →</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p><strong>NT Somasundaram Life Skills Program</strong> · "God is always with u"</p>
+  <p><a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a> · +91 98437 02244</p>
+</footer>
+
+<script>
+let currentLang = 'en';
+function toggleLang(){
+  currentLang = currentLang === 'en' ? 'ta' : 'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = el.getAttribute('data-'+currentLang);
+  });
+}
+</script>
+</body>
+</html>

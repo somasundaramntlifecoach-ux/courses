@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Parenting & Screen Time Risk Assessment | NT Somasundaram Life Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2d6a4f; --primary-dark:#1b4332; --accent:#f4a261; --accent2:#e76f51;
+    --bg:#f8f9f4; --card:#ffffff; --text:#1d2a1f; --muted:#6b7a6d; --danger:#e63946; --warn:#f4a261; --good:#2d6a4f;
+    --radius:16px; --shadow:0 4px 20px rgba(29,42,31,0.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.6;}
+  [lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .container{max-width:820px; margin:0 auto; padding:20px;}
+  header{background:linear-gradient(135deg,var(--primary) 0%, var(--primary-dark) 100%); color:#fff; padding:32px 20px; text-align:center; position:relative;}
+  header h1{font-size:1.5rem; font-weight:700; margin-bottom:8px;}
+  header p{font-size:0.95rem; opacity:0.92;}
+  .lang-toggle{position:absolute; top:16px; right:16px; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); color:#fff; padding:6px 14px; border-radius:20px; font-size:0.8rem; cursor:pointer; font-weight:600;}
+  .lang-toggle:hover{background:rgba(255,255,255,0.3);}
+  .card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; margin:20px 0;}
+  .progress-wrap{background:#e9ece7; border-radius:10px; height:10px; overflow:hidden; margin:16px 0;}
+  .progress-bar{background:linear-gradient(90deg,var(--primary),var(--accent)); height:100%; width:0%; transition:width 0.3s;}
+  .domain-label{font-size:0.78rem; text-transform:uppercase; letter-spacing:0.5px; color:var(--primary); font-weight:700; margin-bottom:4px;}
+  .question-text{font-size:1.05rem; font-weight:600; margin-bottom:18px;}
+  .options{display:flex; flex-direction:column; gap:10px;}
+  .option{border:2px solid #e2e6df; border-radius:10px; padding:12px 16px; cursor:pointer; transition:all 0.15s; font-size:0.92rem;}
+  .option:hover{border-color:var(--accent);}
+  .option.selected{border-color:var(--primary); background:#eaf4ee; font-weight:600;}
+  .nav-btns{display:flex; justify-content:space-between; margin-top:20px; gap:10px;}
+  button.btn{background:var(--primary); color:#fff; border:none; padding:12px 26px; border-radius:10px; font-family:inherit; font-weight:600; cursor:pointer; font-size:0.95rem; transition:background 0.2s;}
+  button.btn:hover{background:var(--primary-dark);}
+  button.btn:disabled{background:#c9cfc6; cursor:not-allowed;}
+  button.btn.secondary{background:transparent; color:var(--primary); border:2px solid var(--primary);}
+  .btn.secondary:hover{background:#eaf4ee;}
+  #gate-screen input{width:100%; padding:12px 14px; border:2px solid #e2e6df; border-radius:10px; font-family:inherit; font-size:0.95rem; margin-bottom:14px;}
+  #gate-screen label{font-size:0.85rem; font-weight:600; color:var(--muted); display:block; margin-bottom:6px;}
+  .hidden{display:none !important;}
+  .results-header{text-align:center; margin-bottom:20px;}
+  .risk-badge{display:inline-block; padding:8px 20px; border-radius:30px; font-weight:700; font-size:0.95rem; margin-top:8px;}
+  .risk-low{background:#d8f3dc; color:#1b4332;}
+  .risk-moderate{background:#fff3cd; color:#7a5c00;}
+  .risk-high{background:#f8d7da; color:#842029;}
+  .domain-result{border-left:4px solid var(--primary); padding:10px 16px; margin:10px 0; background:#fafbf8; border-radius:0 8px 8px 0;}
+  .domain-result h4{font-size:0.95rem; margin-bottom:4px;}
+  .domain-bar-wrap{background:#e9ece7; border-radius:6px; height:8px; overflow:hidden; margin-top:6px;}
+  .domain-bar{height:100%; border-radius:6px;}
+  svg text{font-family:'Poppins',sans-serif;}
+  .cta-box{background:linear-gradient(135deg,#e76f51,#f4a261); color:#fff; border-radius:14px; padding:20px; text-align:center; margin:20px 0;}
+  .cta-box h3{margin-bottom:8px; font-size:1.1rem;}
+  .whatsapp-btn{display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:700; margin-top:12px;}
+  .print-btn{margin-top:10px;}
+  footer{text-align:center; padding:24px; color:var(--muted); font-size:0.82rem;}
+
+  /* ---- REPORT (3-page) ---- */
+  .report-page{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:34px; margin:20px 0; position:relative;}
+  .report-page-tag{position:absolute; top:14px; right:20px; font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px; font-weight:600;}
+  .report-title-block{text-align:center; border-bottom:2px solid #eef1ec; padding-bottom:20px; margin-bottom:22px;}
+  .report-title-block h2{font-size:1.35rem; color:var(--primary-dark); margin-bottom:6px;}
+  .report-title-block .subtitle{color:var(--muted); font-size:0.88rem;}
+  .report-meta{display:grid; grid-template-columns:1fr 1fr; gap:10px 20px; background:#fafbf8; border-radius:12px; padding:16px 20px; margin-bottom:22px; font-size:0.87rem;}
+  .report-meta div span.lbl{color:var(--muted); display:block; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.4px;}
+  .report-meta div span.val{font-weight:600;}
+  .section-heading{font-size:1.05rem; color:var(--primary-dark); font-weight:700; margin:26px 0 14px; padding-bottom:6px; border-bottom:2px solid #eaf4ee;}
+  .section-heading:first-of-type{margin-top:0;}
+  .domain-detail-card{border:1px solid #e7ebe4; border-radius:14px; padding:18px 20px; margin-bottom:16px; background:#fdfefc;}
+  .domain-detail-head{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; flex-wrap:wrap; gap:8px;}
+  .domain-detail-head h4{font-size:0.98rem; color:var(--primary-dark);}
+  .tier-pill{font-size:0.72rem; font-weight:700; padding:3px 12px; border-radius:14px; text-transform:uppercase; letter-spacing:0.3px;}
+  .tier-strength{background:#d8f3dc; color:#1b4332;}
+  .tier-moderate{background:#fff3cd; color:#7a5c00;}
+  .tier-concern{background:#f8d7da; color:#842029;}
+  .domain-detail-card .interp{font-size:0.88rem; color:var(--muted); margin-bottom:10px;}
+  .domain-detail-card .tips-heading{font-size:0.78rem; font-weight:700; color:var(--primary); text-transform:uppercase; letter-spacing:0.3px; margin-bottom:6px;}
+  .priority-card{border-left:5px solid var(--accent2); background:#fff8f2; border-radius:0 14px 14px 0; padding:18px 20px; margin-bottom:14px;}
+  .priority-card h4{color:var(--accent2); font-size:0.95rem; margin-bottom:6px;}
+  .promo-modules{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:16px 0;}
+  .promo-module-chip{background:#eaf4ee; border-radius:10px; padding:8px 12px; font-size:0.8rem; color:var(--primary-dark); font-weight:600;}
+  .report-footer-note{text-align:center; font-size:0.78rem; color:var(--muted); margin-top:24px; padding-top:14px; border-top:1px solid #eef1ec;}
+  @media print{
+    header, .lang-toggle, .nav-btns, .whatsapp-btn, #gate-screen, .no-print{display:none !important;}
+    body{background:#fff;}
+    .card{box-shadow:none; border:1px solid #ddd;}
+    .report-page{box-shadow:none; border:1px solid #ddd; page-break-after:always; margin:0; border-radius:0;}
+    .report-page:last-of-type{page-break-after:auto;}
+    .report-page-tag{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="lang-toggle" id="langToggle" onclick="toggleLang()">தமிழ் / EN</button>
+  <h1 data-en="Digital Parenting & Screen Time Risk Assessment" data-ta="டிஜிட்டல் பெற்றோர் & திரை நேர அபாய மதிப்பீடு">Digital Parenting & Screen Time Risk Assessment</h1>
+  <p data-en="30 questions · 6 key areas · Personalized family digital wellness report" data-ta="30 கேள்விகள் · 6 முக்கிய பகுதிகள் · தனிப்பயனாக்கப்பட்ட குடும்ப டிஜிட்டல் நல அறிக்கை">30 questions · 6 key areas · Personalized family digital wellness report</p>
+</header>
+
+<div class="container">
+
+  <!-- GATE SCREEN -->
+  <div class="card" id="gate-screen">
+    <p style="margin-bottom:16px; color:var(--muted);" data-en="Please share a few details before starting. Your personalized report will be prepared based on your answers." data-ta="தொடங்குவதற்கு முன் சில விவரங்களைப் பகிரவும். உங்கள் பதில்களின் அடிப்படையில் தனிப்பயன் அறிக்கை தயாரிக்கப்படும்.">Please share a few details before starting. Your personalized report will be prepared based on your answers.</p>
+    <label data-en="Parent's Name" data-ta="பெற்றோர் பெயர்">Parent's Name</label>
+    <input type="text" id="parentName" placeholder="Your name">
+    <label data-en="WhatsApp Number" data-ta="வாட்ஸ்அப் எண்">WhatsApp Number</label>
+    <input type="tel" id="parentPhone" placeholder="+91 XXXXX XXXXX">
+    <label data-en="Child's Age Group" data-ta="குழந்தையின் வயது குழு">Child's Age Group</label>
+    <select id="childAge" style="width:100%; padding:12px 14px; border:2px solid #e2e6df; border-radius:10px; font-family:inherit; font-size:0.95rem; margin-bottom:14px;">
+      <option value="toddler" data-en="Toddler (2-5 yrs)" data-ta="குழந்தை (2-5 வயது)">Toddler (2-5 yrs)</option>
+      <option value="primary" data-en="Primary School (6-10 yrs)" data-ta="தொடக்கப் பள்ளி (6-10 வயது)">Primary School (6-10 yrs)</option>
+      <option value="tween" data-en="Tween (11-13 yrs)" data-ta="இளம் வயது (11-13 வயது)">Tween (11-13 yrs)</option>
+      <option value="teen" data-en="Teen (14-18 yrs)" data-ta="இளைஞர் (14-18 வயது)">Teen (14-18 yrs)</option>
+    </select>
+    <button class="btn" style="width:100%;" onclick="startAssessment()" data-en="Start Assessment" data-ta="மதிப்பீட்டைத் தொடங்கு">Start Assessment</button>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="card hidden" id="quiz-screen">
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="domain-label" id="domainLabel"></div>
+    <div class="question-text" id="questionText"></div>
+    <div class="options" id="optionsWrap"></div>
+    <div class="nav-btns">
+      <button class="btn secondary" id="prevBtn" onclick="prevQ()" data-en="Back" data-ta="பின்செல்">Back</button>
+      <button class="btn" id="nextBtn" onclick="nextQ()" disabled data-en="Next" data-ta="அடுத்து">Next</button>
+    </div>
+  </div>
+
+  <!-- RESULTS SCREEN : 3-PAGE PROFESSIONAL REPORT -->
+  <div class="hidden" id="results-screen">
+
+    <div class="card no-print" style="text-align:center;">
+      <button class="btn secondary print-btn" onclick="window.print()" data-en="🖨️ Save / Print Full Report as PDF" data-ta="🖨️ முழு அறிக்கையை PDF ஆக சேமிக்கவும்">🖨️ Save / Print Full Report as PDF</button>
+    </div>
+
+    <!-- PAGE 1: COVER + SCORES -->
+    <div class="report-page">
+      <div class="report-page-tag" data-en="Page 1 of 3 — Overview" data-ta="பக்கம் 1 / 3 — கண்ணோட்டம்">Page 1 of 3 — Overview</div>
+      <div class="report-title-block">
+        <h2 data-en="Family Digital Wellness Report" data-ta="குடும்ப டிஜிட்டல் நல அறிக்கை">Family Digital Wellness Report</h2>
+        <div class="subtitle" data-en="Digital Parenting & Screen Time Risk Assessment · Consultant Analysis" data-ta="டிஜிட்டல் பெற்றோர் & திரை நேர அபாய மதிப்பீடு · ஆலோசகர் பகுப்பாய்வு">Digital Parenting & Screen Time Risk Assessment · Consultant Analysis</div>
+      </div>
+      <div class="report-meta">
+        <div><span class="lbl" data-en="Parent Name" data-ta="பெற்றோர் பெயர்">Parent Name</span><span class="val" id="metaName"></span></div>
+        <div><span class="lbl" data-en="Child's Age Group" data-ta="குழந்தையின் வயது குழு">Child's Age Group</span><span class="val" id="metaAge"></span></div>
+        <div><span class="lbl" data-en="Report Date" data-ta="அறிக்கை தேதி">Report Date</span><span class="val" id="metaDate"></span></div>
+        <div><span class="lbl" data-en="Assessment Type" data-ta="மதிப்பீட்டு வகை">Assessment Type</span><span class="val" data-en="30-Item · 6-Domain" data-ta="30-கேள்வி · 6-பகுதி">30-Item · 6-Domain</span></div>
+      </div>
+
+      <div class="results-header">
+        <div class="risk-badge" id="riskBadge"></div>
+      </div>
+      <div style="text-align:center;">
+        <svg id="radarChart" width="300" height="300" viewBox="0 0 320 320"></svg>
+      </div>
+
+      <div class="section-heading" data-en="Score Summary by Domain" data-ta="பகுதி வாரியான மதிப்பெண் சுருக்கம்">Score Summary by Domain</div>
+      <div id="domainResults"></div>
+
+      <div class="report-footer-note" data-en="This report is generated based on parent self-reported responses and is intended for guidance purposes, not clinical diagnosis." data-ta="இந்த அறிக்கை பெற்றோரின் சுய-அறிவிக்கப்பட்ட பதில்களின் அடிப்படையில் உருவாக்கப்பட்டது, மேலும் இது வழிகாட்டுதல் நோக்கங்களுக்காகவே, மருத்துவ நோயறிதலுக்கு அல்ல.">This report is generated based on parent self-reported responses and is intended for guidance purposes, not clinical diagnosis.</div>
+    </div>
+
+    <!-- PAGE 2: DETAILED DOMAIN ANALYSIS -->
+    <div class="report-page">
+      <div class="report-page-tag" data-en="Page 2 of 3 — Detailed Analysis" data-ta="பக்கம் 2 / 3 — விரிவான பகுப்பாய்வு">Page 2 of 3 — Detailed Analysis</div>
+      <div class="section-heading" style="margin-top:6px;" data-en="Domain-by-Domain Analysis & Improvement Tips" data-ta="பகுதி வாரியான பகுப்பாய்வு & மேம்பாட்டு குறிப்புகள்">Domain-by-Domain Analysis & Improvement Tips</div>
+      <div id="domainDetailWrap"></div>
+    </div>
+
+    <!-- PAGE 3: ACTION PLAN + PROGRAM PROMOTION -->
+    <div class="report-page">
+      <div class="report-page-tag" data-en="Page 3 of 3 — Action Plan" data-ta="பக்கம் 3 / 3 — செயல் திட்டம்">Page 3 of 3 — Action Plan</div>
+      <div class="section-heading" style="margin-top:6px;" data-en="Your Priority Action Plan" data-ta="உங்கள் முன்னுரிமை செயல் திட்டம்">Your Priority Action Plan</div>
+      <p style="color:var(--muted); font-size:0.88rem; margin-bottom:16px;" data-en="Based on your results, these are the two areas where focused attention will create the most positive change for your family." data-ta="உங்கள் முடிவுகளின் அடிப்படையில், இந்த இரண்டு பகுதிகளில் கவனம் செலுத்துவது உங்கள் குடும்பத்திற்கு மிகவும் நேர்மறையான மாற்றத்தை உருவாக்கும்.">Based on your results, these are the two areas where focused attention will create the most positive change for your family.</p>
+      <div id="priorityWrap"></div>
+
+      <div class="section-heading" data-en="Take the Next Step" data-ta="அடுத்த படியை எடுங்கள்">Take the Next Step</div>
+      <div class="cta-box">
+        <h3 data-en="Digital Parenting & Screen Time Mastery Program" data-ta="டிஜிட்டல் பெற்றோர் & திரை நேர மேலாண்மை தேர்ச்சி திட்டம்">Digital Parenting & Screen Time Mastery Program</h3>
+        <p data-en="A 10-module bilingual self-paced program that turns this report into a lasting family plan — with step-by-step guidance for every domain assessed above." data-ta="இந்த அறிக்கையை நீடித்த குடும்ப திட்டமாக மாற்றும் 10-பாட இருமொழி சுயவேக திட்டம் — மேலே மதிப்பிடப்பட்ட ஒவ்வொரு பகுதிக்கும் படிப்படியான வழிகாட்டுதலுடன்.">A 10-module bilingual self-paced program that turns this report into a lasting family plan — with step-by-step guidance for every domain assessed above.</p>
+        <div class="promo-modules">
+          <div class="promo-module-chip" data-en="1. Understanding Digital Childhood" data-ta="1. டிஜிட்டல் குழந்தைப் பருவம்">1. Understanding Digital Childhood</div>
+          <div class="promo-module-chip" data-en="2. Screen Time by Age" data-ta="2. வயதுக்கேற்ப திரை நேரம்">2. Screen Time by Age</div>
+          <div class="promo-module-chip" data-en="3. Signs of Screen Addiction" data-ta="3. திரை அடிமைத்தன்மை அறிகுறிகள்">3. Signs of Screen Addiction</div>
+          <div class="promo-module-chip" data-en="4. Setting Healthy Boundaries" data-ta="4. ஆரோக்கியமான எல்லைகள்">4. Setting Healthy Boundaries</div>
+          <div class="promo-module-chip" data-en="5. Social Media & Peer Pressure" data-ta="5. சமூக ஊடகம் & சக அழுத்தம்">5. Social Media & Peer Pressure</div>
+          <div class="promo-module-chip" data-en="6. Online Safety" data-ta="6. ஆன்லைன் பாதுகாப்பு">6. Online Safety</div>
+          <div class="promo-module-chip" data-en="7. Gaming Balance" data-ta="7. கேமிங் சமநிலை">7. Gaming Balance</div>
+          <div class="promo-module-chip" data-en="8. Digital Discipline" data-ta="8. டிஜிட்டல் ஒழுக்கம்">8. Digital Discipline</div>
+          <div class="promo-module-chip" data-en="9. Modeling Healthy Use" data-ta="9. ஆரோக்கிய பயன்பாட்டு முன்மாதிரி">9. Modeling Healthy Use</div>
+          <div class="promo-module-chip" data-en="10. Family Wellness Plan" data-ta="10. குடும்ப நல திட்டம்">10. Family Wellness Plan</div>
+        </div>
+        <p style="font-size:0.85rem; opacity:0.95;" data-en="₹1,499 (regular ₹2,999) · Lifetime access · Certificate of completion" data-ta="₹1,499 (வழக்கமான ₹2,999) · வாழ்நாள் அணுகல் · நிறைவு சான்றிதழ்">₹1,499 (regular ₹2,999) · Lifetime access · Certificate of completion</p>
+        <a href="#" id="whatsappLink" class="whatsapp-btn" target="_blank">
+          📱 <span data-en="Talk to Us on WhatsApp About This Report" data-ta="இந்த அறிக்கை பற்றி வாட்ஸ்அப்பில் பேசுங்கள்">Talk to Us on WhatsApp About This Report</span>
+        </a>
+      </div>
+      <div class="report-footer-note">
+        NT Somasundaram Life Skills Program · "God is always with u"<br>
+        somasundaramnt.lifecoach@gmail.com · +91 98437 02244
+      </div>
+    </div>
+
+    <div class="card no-print" style="text-align:center;">
+      <button class="btn secondary print-btn" onclick="window.print()" data-en="🖨️ Save / Print Full Report as PDF" data-ta="🖨️ முழு அறிக்கையை PDF ஆக சேமிக்கவும்">🖨️ Save / Print Full Report as PDF</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>NT Somasundaram Life Skills Program · "God is always with u"</p>
+    <p>somasundaramnt.lifecoach@gmail.com · +91 98437 02244</p>
+  </footer>
+</div>
+
+<script>
+// ---------------- DATA ----------------
+const domains = [
+  {key:"awareness", en:"Screen Time Awareness & Limits", ta:"திரை நேர விழிப்புணர்வு & வரம்புகள்",
+    interp:{
+      strength:{en:"You have strong visibility into your child's screen habits and are already applying age-appropriate limits consistently.", ta:"உங்கள் குழந்தையின் திரை பழக்கங்கள் குறித்து உங்களுக்கு வலுவான தெளிவு உள்ளது, மேலும் நீங்கள் ஏற்கனவே வயதுக்கேற்ற வரம்புகளை தொடர்ச்சியாக பயன்படுத்துகிறீர்கள்."},
+      moderate:{en:"You have partial visibility into screen habits, but limits may not be consistently tracked or enforced.", ta:"திரை பழக்கங்கள் குறித்து உங்களுக்கு பகுதி தெளிவு உள்ளது, ஆனால் வரம்புகள் தொடர்ச்சியாக கண்காணிக்கப்படாமல் அல்லது அமல்படுத்தப்படாமல் இருக்கலாம்."},
+      concern:{en:"There is limited visibility into how much time and on what your child spends on screens — this is the foundation for every other domain.", ta:"உங்கள் குழந்தை திரையில் எவ்வளவு நேரம் மற்றும் எதற்காக செலவிடுகிறார் என்பது குறித்து குறைந்த தெளிவு உள்ளது — இது மற்ற அனைத்து பகுதிகளுக்கும் அடித்தளம்."}
+    },
+    tips:{en:["Track actual daily screen time using a simple log or a screen-time tracking app for one week.","Set one specific, written screen time limit appropriate to your child's age group.","Review which apps or platforms are used most, and check their age ratings."],
+          ta:["ஒரு வாரத்திற்கு ஒரு எளிய பதிவேடு அல்லது திரை-நேர கண்காணிப்பு ஆப்பைப் பயன்படுத்தி உண்மையான தினசரி திரை நேரத்தை கண்காணிக்கவும்.","உங்கள் குழந்தையின் வயது குழுவிற்கு ஏற்ற ஒரு குறிப்பிட்ட, எழுதப்பட்ட திரை நேர வரம்பை அமைக்கவும்.","அதிகம் பயன்படுத்தப்படும் ஆப்ஸ்/தளங்களை மறுபரிசீலனை செய்து, அவற்றின் வயது மதிப்பீடுகளை சரிபார்க்கவும்."]}
+  },
+  {key:"safety", en:"Content Safety & Supervision", ta:"உள்ளடக்க பாதுகாப்பு & மேற்பார்வை",
+    interp:{
+      strength:{en:"Your child's online safety is well-managed, with active supervision and open conversation about safety.", ta:"உங்கள் குழந்தையின் ஆன்லைன் பாதுகாப்பு நன்கு நிர்வகிக்கப்படுகிறது, சுறுசுறுப்பான மேற்பார்வை மற்றும் பாதுகாப்பு பற்றிய திறந்த உரையாடலுடன்."},
+      moderate:{en:"Some safety measures are in place, but supervision and safety conversations could be more consistent.", ta:"சில பாதுகாப்பு நடவடிக்கைகள் உள்ளன, ஆனால் மேற்பார்வை மற்றும் பாதுகாப்பு உரையாடல்கள் மேலும் தொடர்ச்சியாக இருக்கலாம்."},
+      concern:{en:"Content safety and supervision need urgent attention — this is one of the highest-priority areas for your family right now.", ta:"உள்ளடக்க பாதுகாப்பு மற்றும் மேற்பார்வைக்கு அவசர கவனம் தேவை — இது இப்போது உங்கள் குடும்பத்திற்கு மிக உயர் முன்னுரிமை பகுதிகளில் ஒன்று."}
+    },
+    tips:{en:["Enable parental controls or content filters on all devices your child uses.","Have an ongoing conversation (not a one-time talk) about safe online behavior.","Do a monthly check of your child's social media/app activity together, openly and without judgment."],
+          ta:["உங்கள் குழந்தை பயன்படுத்தும் அனைத்து சாதனங்களிலும் பெற்றோர் கட்டுப்பாடுகள் அல்லது உள்ளடக்க வடிகட்டிகளை இயக்கவும்.","பாதுகாப்பான ஆன்லைன் நடத்தை பற்றி தொடர்ச்சியான உரையாடலை (ஒரு முறை பேச்சு அல்ல) நடத்துங்கள்.","உங்கள் குழந்தையின் சமூக ஊடக/ஆப் செயல்பாட்டை மாதந்தோறும் இணைந்து, திறந்த மனதுடன், தீர்ப்பு இல்லாமல் பரிசீலிக்கவும்."]}
+  },
+  {key:"modeling", en:"Digital Communication & Modeling", ta:"டிஜிட்டல் தொடர்பு & முன்மாதிரி",
+    interp:{
+      strength:{en:"You model healthy digital habits well, and your child sees consistent, positive examples from you.", ta:"நீங்கள் ஆரோக்கியமான டிஜிட்டல் பழக்கங்களை நன்கு முன்மாதிரியாக்குகிறீர்கள், மேலும் உங்கள் குழந்தை உங்களிடமிருந்து தொடர்ச்சியான, நேர்மறையான உதாரணங்களைப் பார்க்கிறார்."},
+      moderate:{en:"Your own tech habits are reasonably balanced, but there is room to model more consistently.", ta:"உங்கள் சொந்த தொழில்நுட்ப பழக்கங்கள் நியாயமான அளவு சமநிலையானவை, ஆனால் மேலும் தொடர்ச்சியாக முன்மாதிரியாக்க இடம் உள்ளது."},
+      concern:{en:"Your child may be observing tech habits from you that conflict with the rules you set for them — this gap is worth closing first.", ta:"நீங்கள் அவர்களுக்கு அமைக்கும் விதிகளுடன் முரண்படும் தொழில்நுட்ப பழக்கங்களை உங்கள் குழந்தை உங்களிடமிருந்து கவனித்திருக்கலாம் — இந்த இடைவெளியை முதலில் மூடுவது மதிப்புமிக்கது."}
+    },
+    tips:{en:["Identify one phone-free time each day that applies to the whole family, including you.","Narrate your own healthy tech habits out loud so your child notices them.","Talk openly with your child about what you do online, to build mutual trust."],
+          ta:["ஒவ்வொரு நாளும் உங்கள் உட்பட முழு குடும்பத்திற்கும் பொருந்தும் ஒரு தொலைபேசி இல்லாத நேரத்தை அடையாளம் காணவும்.","உங்கள் சொந்த ஆரோக்கியமான தொழில்நுட்ப பழக்கங்களை சத்தமாக விவரிக்கவும், உங்கள் குழந்தை அவற்றை கவனிக்கும்படி.","பரஸ்பர நம்பிக்கையை உருவாக்க, நீங்கள் ஆன்லைனில் என்ன செய்கிறீர்கள் என்பதை உங்கள் குழந்தையிடம் திறந்த மனதுடன் பேசுங்கள்."]}
+  },
+  {key:"impact", en:"Emotional & Behavioral Impact", ta:"உணர்ச்சி & நடத்தை தாக்கம்",
+    interp:{
+      strength:{en:"Screen use does not appear to be significantly affecting your child's mood, sleep, or behavior at this time.", ta:"திரை பயன்பாடு இந்த நேரத்தில் உங்கள் குழந்தையின் மனநிலை, தூக்கம் அல்லது நடத்தையை கணிசமாக பாதிப்பதாக தெரியவில்லை."},
+      moderate:{en:"There are some early signs that screen use may be affecting mood, sleep, or focus — worth monitoring closely.", ta:"திரை பயன்பாடு மனநிலை, தூக்கம் அல்லது கவனத்தை பாதிக்கக்கூடும் என்பதற்கான சில ஆரம்ப அறிகுறிகள் உள்ளன — உன்னிப்பாக கண்காணிக்க வேண்டியது அவசியம்."},
+      concern:{en:"Screen use appears to be having a noticeable emotional or behavioral impact on your child, and this needs focused attention soon.", ta:"திரை பயன்பாடு உங்கள் குழந்தையின் மீது குறிப்பிடத்தக்க உணர்ச்சி அல்லது நடத்தை தாக்கத்தை ஏற்படுத்துவதாக தெரிகிறது, இது விரைவில் கவனம் தேவை."}
+    },
+    tips:{en:["Track your child's mood and sleep patterns alongside their screen use for one week to spot links.","When conflict arises around ending screen time, use calm advance warnings rather than abrupt cutoffs.","Encourage at least one offline hobby or activity your child enjoys as much as screens."],
+          ta:["தொடர்புகளை கண்டறிய ஒரு வாரத்திற்கு உங்கள் குழந்தையின் மனநிலை மற்றும் தூக்க முறைகளை திரை பயன்பாட்டுடன் இணைத்து கண்காணிக்கவும்.","திரை நேரத்தை முடிப்பது குறித்து முரண்பாடு எழும்போது, திடீர் நிறுத்தங்களை விட அமைதியான முன்கூட்டிய எச்சரிக்கைகளைப் பயன்படுத்தவும்.","திரைகளை போலவே உங்கள் குழந்தை அனுபவிக்கும் குறைந்தது ஒரு ஆஃப்லைன் பொழுதுபோக்கு அல்லது செயல்பாட்டை ஊக்குவிக்கவும்."]}
+  },
+  {key:"boundaries", en:"Boundary Setting & Discipline", ta:"எல்லை நிர்ணயம் & ஒழுக்கம்",
+    interp:{
+      strength:{en:"Clear, consistent boundaries are in place and your child understands and largely respects them.", ta:"தெளிவான, தொடர்ச்சியான எல்லைகள் உள்ளன, மேலும் உங்கள் குழந்தை அவற்றை புரிந்துகொண்டு பெரும்பாலும் மதிக்கிறார்."},
+      moderate:{en:"Some rules exist, but enforcement is inconsistent, which can create confusion and repeated conflict.", ta:"சில விதிகள் உள்ளன, ஆனால் அமலாக்கம் நிலையற்றது, இது குழப்பத்தையும் மீண்டும் மீண்டும் முரண்பாட்டையும் உருவாக்கலாம்."},
+      concern:{en:"Clear, consistently-enforced boundaries are largely missing — this is often the single highest-leverage area to address first.", ta:"தெளிவான, தொடர்ச்சியாக அமல்படுத்தப்படும் எல்லைகள் பெரும்பாலும் இல்லை — இது பெரும்பாலும் முதலில் கவனிக்க வேண்டிய மிக உயர் செல்வாக்கு பகுதி."}
+    },
+    tips:{en:["Co-create a simple, written screen time agreement together with your child.","Agree on consequences in advance, and apply them consistently, not just when convenient.","Revisit and adjust the agreement every few months as your child grows."],
+          ta:["உங்கள் குழந்தையுடன் இணைந்து ஒரு எளிய, எழுதப்பட்ட திரை நேர ஒப்பந்தத்தை உருவாக்குங்கள்.","விளைவுகளை முன்கூட்டியே ஒப்புக்கொண்டு, வசதியாக இருக்கும்போது மட்டுமல்லாமல் தொடர்ச்சியாக பயன்படுத்துங்கள்.","உங்கள் குழந்தை வளரும்போது ஒப்பந்தத்தை ஒவ்வொரு சில மாதங்களுக்கும் மறுபரிசீலனை செய்து சரிசெய்யுங்கள்."]}
+  },
+  {key:"habits", en:"Family Digital Wellness Habits", ta:"குடும்ப டிஜிட்டல் நல பழக்கங்கள்",
+    interp:{
+      strength:{en:"Your family has healthy shared routines and non-screen activities that support balance for everyone.", ta:"உங்கள் குடும்பத்திற்கு அனைவருக்கும் சமநிலையை ஆதரிக்கும் ஆரோக்கியமான பகிரப்பட்ட வழக்கங்கள் மற்றும் திரை அல்லாத செயல்பாடுகள் உள்ளன."},
+      moderate:{en:"Some healthy family habits exist, but they could be made more regular and intentional.", ta:"சில ஆரோக்கியமான குடும்ப பழக்கங்கள் உள்ளன, ஆனால் அவற்றை மேலும் வழக்கமானதாகவும் நோக்கமுடையதாகவும் மாற்றலாம்."},
+      concern:{en:"Family life currently revolves heavily around screens, with few established non-screen routines — building even one small ritual will help.", ta:"குடும்ப வாழ்க்கை தற்போது திரைகளை மையமாகக் கொண்டு அதிகமாக சுழல்கிறது, சில நிறுவப்பட்ட திரை அல்லாத வழக்கங்களுடன் — ஒரு சிறிய சடங்கை கூட உருவாக்குவது உதவும்."}
+    },
+    tips:{en:["Establish one tech-free zone at home (e.g., the dining table or bedrooms).","Plan a weekly non-screen family activity everyone can look forward to.","Schedule a short monthly family \"digital check-in\" to review what's working."],
+          ta:["வீட்டில் ஒரு தொழில்நுட்பம் இல்லாத மண்டலத்தை நிறுவுங்கள் (எ.கா., சாப்பாட்டு மேசை அல்லது படுக்கையறைகள்).","அனைவரும் எதிர்பார்க்கக்கூடிய வாராந்திர திரை அல்லாத குடும்ப செயல்பாட்டை திட்டமிடுங்கள்.","என்ன வேலை செய்கிறது என்பதை மறுபரிசீலனை செய்ய ஒரு குறுகிய மாதாந்திர குடும்ப \"டிஜிட்டல் செக்-இன்\" திட்டமிடுங்கள்."]}
+  }
+];
+
+const questionBank = {
+  awareness: [
+    {en:"I know how many hours my child spends on screens daily.", ta:"என் குழந்தை தினமும் திரையில் எத்தனை மணிநேரம் செலவிடுகிறார் என்று எனக்குத் தெரியும்."},
+    {en:"My child follows an age-appropriate screen time limit.", ta:"என் குழந்தை வயதுக்கு ஏற்ற திரை நேர வரம்பைப் பின்பற்றுகிறார்."},
+    {en:"I track which apps or platforms my child uses most.", ta:"என் குழந்தை அதிகம் பயன்படுத்தும் ஆப்ஸ்/தளங்களை நான் கண்காணிக்கிறேன்."},
+    {en:"Screen time in our home reduces on weekdays vs weekends appropriately.", ta:"எங்கள் வீட்டில் வார நாட்களில் திரை நேரம் வார இறுதி நாட்களை விட பொருத்தமாகக் குறைகிறது."},
+    {en:"I am aware of the recommended screen time guidelines for my child's age.", ta:"என் குழந்தையின் வயதுக்கான பரிந்துரைக்கப்பட்ட திரை நேர வழிகாட்டுதல்கள் எனக்குத் தெரியும்."}
+  ],
+  safety: [
+    {en:"I know what content/apps my child accesses online.", ta:"என் குழந்தை ஆன்லைனில் எந்த உள்ளடக்கம்/ஆப்ஸை அணுகுகிறார் என்று எனக்குத் தெரியும்."},
+    {en:"Parental controls or filters are active on my child's devices.", ta:"என் குழந்தையின் சாதனங்களில் பெற்றோர் கட்டுப்பாடுகள்/வடிகட்டிகள் இயங்குகின்றன."},
+    {en:"I have spoken to my child about online strangers and safety.", ta:"ஆன்லைன் அந்நியர்கள் மற்றும் பாதுகாப்பு பற்றி நான் என் குழந்தையிடம் பேசியிருக்கிறேன்."},
+    {en:"My child knows what to do if they see something uncomfortable online.", ta:"ஆன்லைனில் ஏதேனும் அசௌகரியமான ஒன்றைப் பார்த்தால் என்ன செய்ய வேண்டும் என்று என் குழந்தைக்குத் தெரியும்."},
+    {en:"I periodically review my child's social media/app activity.", ta:"என் குழந்தையின் சமூக ஊடக/ஆப் செயல்பாட்டை நான் அவ்வப்போது பரிசீலிக்கிறேன்."}
+  ],
+  modeling: [
+    {en:"I limit my own screen use in front of my child.", ta:"என் குழந்தையின் முன் என் சொந்த திரை பயன்பாட்டை நான் கட்டுப்படுத்துகிறேன்."},
+    {en:"We have phone-free times as a family (meals, bedtime).", ta:"எங்களுக்கு குடும்பமாக தொலைபேசி இல்லாத நேரங்கள் உள்ளன (உணவு, படுக்கை நேரம்)."},
+    {en:"I discuss what I do online with my child openly.", ta:"நான் ஆன்லைனில் என்ன செய்கிறேன் என்பதை என் குழந்தையிடம் திறந்த மனதுடன் பகிர்கிறேன்."},
+    {en:"My child sees me using screens for healthy purposes, not just entertainment.", ta:"நான் திரையை ஆரோக்கியமான நோக்கங்களுக்காகப் பயன்படுத்துவதை என் குழந்தை பார்க்கிறார்."},
+    {en:"I am a good digital role model for my child.", ta:"நான் என் குழந்தைக்கு ஒரு நல்ல டிஜிட்டல் முன்மாதிரி."}
+  ],
+  impact: [
+    {en:"My child gets irritated or upset when screen time ends.", ta:"திரை நேரம் முடிந்தவுடன் என் குழந்தை எரிச்சலடைகிறார் அல்லது வருத்தப்படுகிறார்.", reverse:true},
+    {en:"My child's sleep is affected by screen use.", ta:"திரை பயன்பாட்டால் என் குழந்தையின் தூக்கம் பாதிக்கப்படுகிறது.", reverse:true},
+    {en:"I notice changes in my child's mood linked to screen time.", ta:"திரை நேரத்துடன் தொடர்புடைய என் குழந்தையின் மனநிலை மாற்றங்களை நான் கவனிக்கிறேன்.", reverse:true},
+    {en:"My child prefers screens over outdoor play or family time.", ta:"என் குழந்தை வெளிப்புற விளையாட்டு அல்லது குடும்ப நேரத்தை விட திரையை விரும்புகிறார்.", reverse:true},
+    {en:"My child's academic performance has been affected by screen use.", ta:"திரை பயன்பாட்டால் என் குழந்தையின் கல்வி செயல்திறன் பாதிக்கப்பட்டுள்ளது.", reverse:true}
+  ],
+  boundaries: [
+    {en:"We have clear, written or agreed-upon screen time rules at home.", ta:"வீட்டில் தெளிவான, எழுதப்பட்ட அல்லது ஒப்புக்கொள்ளப்பட்ட திரை நேர விதிகள் உள்ளன."},
+    {en:"My child follows screen time rules without major conflict.", ta:"பெரிய முரண்பாடு இல்லாமல் என் குழந்தை திரை நேர விதிகளைப் பின்பற்றுகிறார்."},
+    {en:"I enforce consequences consistently when rules are broken.", ta:"விதிகள் மீறப்படும்போது நான் தொடர்ச்சியாக விளைவுகளைச் செயல்படுத்துகிறேன்."},
+    {en:"I use positive reinforcement rather than only punishment for screen behavior.", ta:"திரை நடத்தைக்கு தண்டனை மட்டுமல்லாமல் நேர்மறை ஊக்குவிப்பையும் நான் பயன்படுத்துகிறேன்."},
+    {en:"My child understands why the screen time rules exist.", ta:"திரை நேர விதிகள் ஏன் உள்ளன என்பதை என் குழந்தை புரிந்துகொள்கிறார்."}
+  ],
+  habits: [
+    {en:"Our family has non-screen activities we enjoy together regularly.", ta:"எங்கள் குடும்பத்திற்கு தவறாமல் ஒன்றாக அனுபவிக்கும் திரை அல்லாத செயல்பாடுகள் உள்ளன."},
+    {en:"My child has hobbies or interests outside of screens.", ta:"என் குழந்தைக்கு திரைக்கு வெளியே பொழுதுபோக்குகள் அல்லது ஆர்வங்கள் உள்ளன."},
+    {en:"We have tech-free zones in our home (e.g., bedroom, dining table).", ta:"எங்கள் வீட்டில் தொழில்நுட்பம் இல்லாத பகுதிகள் உள்ளன (எ.கா. படுக்கையறை, சாப்பாட்டு மேசை)."},
+    {en:"I encourage physical activity and outdoor play daily.", ta:"நான் தினமும் உடல் செயல்பாடு மற்றும் வெளிப்புற விளையாட்டை ஊக்குவிக்கிறேன்."},
+    {en:"Our family reviews and adjusts screen time habits periodically.", ta:"எங்கள் குடும்பம் அவ்வப்போது திரை நேர பழக்கங்களை மதிப்பாய்வு செய்து சரிசெய்கிறது."}
+  ]
+};
+
+const optionsScale = [
+  {en:"Strongly Disagree", ta:"முற்றிலும் மறுக்கிறேன்", val:1},
+  {en:"Disagree", ta:"மறுக்கிறேன்", val:2},
+  {en:"Neutral", ta:"நடுநிலை", val:3},
+  {en:"Agree", ta:"ஒப்புக்கொள்கிறேன்", val:4},
+  {en:"Strongly Agree", ta:"முழுமையாக ஒப்புக்கொள்கிறேன்", val:5}
+];
+
+let currentLang = 'en';
+let allQuestions = [];
+domains.forEach(d => {
+  questionBank[d.key].forEach(q => allQuestions.push({...q, domain:d.key}));
+});
+let currentIndex = 0;
+let answers = new Array(allQuestions.length).fill(null);
+let userInfo = {};
+
+// ---------------- LANG ----------------
+function toggleLang(){
+  currentLang = currentLang === 'en' ? 'ta' : 'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = el.getAttribute('data-'+currentLang);
+  });
+  if(!document.getElementById('quiz-screen').classList.contains('hidden')){
+    renderQuestion();
+  }
+  if(!document.getElementById('results-screen').classList.contains('hidden')){
+    renderResults();
+  }
+}
+
+// ---------------- FLOW ----------------
+function startAssessment(){
+  const name = document.getElementById('parentName').value.trim();
+  const phone = document.getElementById('parentPhone').value.trim();
+  if(!name || !phone){
+    alert(currentLang==='en' ? "Please enter your name and WhatsApp number." : "தயவுசெய்து உங்கள் பெயர் மற்றும் வாட்ஸ்அப் எண்ணை உள்ளிடவும்.");
+    return;
+  }
+  userInfo = {
+    name, phone,
+    childAge: document.getElementById('childAge').value
+  };
+  document.getElementById('gate-screen').classList.add('hidden');
+  document.getElementById('quiz-screen').classList.remove('hidden');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q = allQuestions[currentIndex];
+  const domainMeta = domains.find(d=>d.key===q.domain);
+  document.getElementById('domainLabel').textContent = (currentLang==='en' ? domainMeta.en : domainMeta.ta) + `  ·  ${currentIndex+1}/${allQuestions.length}`;
+  document.getElementById('questionText').textContent = currentLang==='en' ? q.en : q.ta;
+  const wrap = document.getElementById('optionsWrap');
+  wrap.innerHTML = '';
+  optionsScale.forEach(opt=>{
+    const div = document.createElement('div');
+    div.className = 'option' + (answers[currentIndex]===opt.val ? ' selected' : '');
+    div.textContent = currentLang==='en' ? opt.en : opt.ta;
+    div.onclick = () => selectOption(opt.val);
+    wrap.appendChild(div);
+  });
+  document.getElementById('progressBar').style.width = ((currentIndex)/allQuestions.length*100) + '%';
+  document.getElementById('prevBtn').style.visibility = currentIndex===0 ? 'hidden' : 'visible';
+  document.getElementById('nextBtn').disabled = answers[currentIndex]===null;
+  document.getElementById('nextBtn').textContent = currentIndex === allQuestions.length-1
+    ? (currentLang==='en' ? 'See Results' : 'முடிவுகளைக் காண்க')
+    : (currentLang==='en' ? 'Next' : 'அடுத்து');
+}
+
+function selectOption(val){
+  answers[currentIndex] = val;
+  renderQuestion();
+}
+
+function nextQ(){
+  if(answers[currentIndex]===null) return;
+  if(currentIndex < allQuestions.length-1){
+    currentIndex++;
+    renderQuestion();
+  } else {
+    finishAssessment();
+  }
+}
+function prevQ(){
+  if(currentIndex>0){ currentIndex--; renderQuestion(); }
+}
+
+// ---------------- SCORING ----------------
+function computeDomainScores(){
+  const scores = {};
+  domains.forEach(d=>{
+    const idxs = allQuestions.map((q,i)=>({q,i})).filter(o=>o.q.domain===d.key);
+    let total = 0;
+    idxs.forEach(o=>{
+      let v = answers[o.i];
+      if(o.q.reverse) v = 6 - v; // reverse score risk items
+      total += v;
+    });
+    scores[d.key] = Math.round((total / (idxs.length*5)) * 100);
+  });
+  return scores;
+}
+
+function finishAssessment(){
+  document.getElementById('quiz-screen').classList.add('hidden');
+  document.getElementById('results-screen').classList.remove('hidden');
+  logToSheet();
+  renderResults();
+}
+
+function tierForScore(score){
+  if(score >= 75) return 'strength';
+  if(score >= 50) return 'moderate';
+  return 'concern';
+}
+
+function renderResults(){
+  const scores = computeDomainScores();
+  const overall = Math.round(Object.values(scores).reduce((a,b)=>a+b,0) / domains.length);
+
+  let riskClass, riskText_en, riskText_ta;
+  if(overall >= 75){ riskClass='risk-low'; riskText_en='Low Risk — Strong Digital Habits'; riskText_ta='குறைந்த ஆபத்து — வலுவான டிஜிட்டல் பழக்கங்கள்'; }
+  else if(overall >= 50){ riskClass='risk-moderate'; riskText_en='Moderate Risk — Room for Improvement'; riskText_ta='மிதமான ஆபத்து — மேம்பாட்டிற்கு இடம் உள்ளது'; }
+  else { riskClass='risk-high'; riskText_en='High Risk — Needs Immediate Attention'; riskText_ta='அதிக ஆபத்து — உடனடி கவனம் தேவை'; }
+
+  const badge = document.getElementById('riskBadge');
+  badge.className = 'risk-badge ' + riskClass;
+  badge.textContent = (currentLang==='en' ? riskText_en : riskText_ta) + ` (${overall}%)`;
+
+  // Report meta (Page 1)
+  document.getElementById('metaName').textContent = userInfo.name || '—';
+  const ageLabels = {toddler:{en:'Toddler (2-5 yrs)',ta:'குழந்தை (2-5 வயது)'}, primary:{en:'Primary School (6-10 yrs)',ta:'தொடக்கப் பள்ளி (6-10 வயது)'}, tween:{en:'Tween (11-13 yrs)',ta:'இளம் வயது (11-13 வயது)'}, teen:{en:'Teen (14-18 yrs)',ta:'இளைஞர் (14-18 வயது)'}};
+  document.getElementById('metaAge').textContent = ageLabels[userInfo.childAge] ? ageLabels[userInfo.childAge][currentLang] : userInfo.childAge;
+  document.getElementById('metaDate').textContent = new Date().toLocaleDateString(currentLang==='en' ? 'en-IN' : 'ta-IN', {year:'numeric', month:'long', day:'numeric'});
+
+  // Domain quick summary (Page 1)
+  const domainWrap = document.getElementById('domainResults');
+  domainWrap.innerHTML = '';
+  domains.forEach(d=>{
+    const score = scores[d.key];
+    const color = score>=75 ? '#2d6a4f' : score>=50 ? '#f4a261' : '#e63946';
+    const div = document.createElement('div');
+    div.className = 'domain-result';
+    div.style.borderLeftColor = color;
+    div.innerHTML = `<h4>${currentLang==='en'?d.en:d.ta} — ${score}%</h4>
+      <div class="domain-bar-wrap"><div class="domain-bar" style="width:${score}%; background:${color};"></div></div>`;
+    domainWrap.appendChild(div);
+  });
+
+  drawRadar(scores);
+
+  // Detailed domain analysis (Page 2)
+  const detailWrap = document.getElementById('domainDetailWrap');
+  detailWrap.innerHTML = '';
+  domains.forEach(d=>{
+    const score = scores[d.key];
+    const tier = tierForScore(score);
+    const tierLabelMap = {
+      strength:{en:'Strength', ta:'வலிமை'},
+      moderate:{en:'Developing', ta:'வளர்ந்து வருகிறது'},
+      concern:{en:'Needs Focus', ta:'கவனம் தேவை'}
+    };
+    const div = document.createElement('div');
+    div.className = 'domain-detail-card';
+    div.innerHTML = `
+      <div class="domain-detail-head">
+        <h4>${currentLang==='en'?d.en:d.ta}</h4>
+        <span class="tier-pill tier-${tier}">${tierLabelMap[tier][currentLang]} · ${score}%</span>
+      </div>
+      <p class="interp">${d.interp[tier][currentLang]}</p>
+      <div class="tips-heading">${currentLang==='en'?'Tips for Improvement':'மேம்படுத்துவதற்கான குறிப்புகள்'}</div>
+      <ul class="tips-list">
+        ${d.tips[currentLang].map(t=>`<li>${t}</li>`).join('')}
+      </ul>
+    `;
+    detailWrap.appendChild(div);
+  });
+
+  // Priority action plan (Page 3) — two weakest domains
+  const sortedByScore = [...domains].sort((a,b)=>scores[a.key]-scores[b.key]);
+  const priorities = sortedByScore.slice(0,2);
+  const priorityWrap = document.getElementById('priorityWrap');
+  priorityWrap.innerHTML = '';
+  priorities.forEach((d,i)=>{
+    const div = document.createElement('div');
+    div.className = 'priority-card';
+    div.innerHTML = `
+      <h4>${currentLang==='en'?'Priority':'முன்னுரிமை'} ${i+1}: ${currentLang==='en'?d.en:d.ta} (${scores[d.key]}%)</h4>
+      <ul class="tips-list">
+        ${d.tips[currentLang].map(t=>`<li>${t}</li>`).join('')}
+      </ul>
+    `;
+    priorityWrap.appendChild(div);
+  });
+
+  // WhatsApp CTA
+  const waMsg = encodeURIComponent(
+    (currentLang==='en'
+      ? `Hi, I just completed the Digital Parenting & Screen Time Risk Assessment. My score: ${overall}%. I'd like to know more about the Digital Parenting Program.`
+      : `வணக்கம், நான் இப்போது டிஜிட்டல் பெற்றோர் & திரை நேர அபாய மதிப்பீட்டை முடித்தேன். எனது மதிப்பெண்: ${overall}%. டிஜிட்டல் பெற்றோர் திட்டம் பற்றி மேலும் அறிய விரும்புகிறேன்.`)
+  );
+  document.getElementById('whatsappLink').href = `https://wa.me/919843702244?text=${waMsg}`;
+}
+
+function drawRadar(scores){
+  const svg = document.getElementById('radarChart');
+  svg.innerHTML = '';
+  const cx=160, cy=160, r=110;
+  const n = domains.length;
+  const levels = 5;
+  const ns = "http://www.w3.org/2000/svg";
+
+  // grid rings
+  for(let l=1;l<=levels;l++){
+    const rr = r*l/levels;
+    let pts = [];
+    for(let i=0;i<n;i++){
+      const ang = (Math.PI*2*i/n) - Math.PI/2;
+      pts.push(`${cx+rr*Math.cos(ang)},${cy+rr*Math.sin(ang)}`);
+    }
+    const poly = document.createElementNS(ns,'polygon');
+    poly.setAttribute('points', pts.join(' '));
+    poly.setAttribute('fill','none');
+    poly.setAttribute('stroke','#e2e6df');
+    svg.appendChild(poly);
+  }
+  // axes + labels
+  domains.forEach((d,i)=>{
+    const ang = (Math.PI*2*i/n) - Math.PI/2;
+    const x2 = cx+r*Math.cos(ang), y2 = cy+r*Math.sin(ang);
+    const line = document.createElementNS(ns,'line');
+    line.setAttribute('x1',cx); line.setAttribute('y1',cy);
+    line.setAttribute('x2',x2); line.setAttribute('y2',y2);
+    line.setAttribute('stroke','#e2e6df');
+    svg.appendChild(line);
+
+    const lx = cx+(r+22)*Math.cos(ang), ly = cy+(r+22)*Math.sin(ang);
+    const text = document.createElementNS(ns,'text');
+    text.setAttribute('x',lx); text.setAttribute('y',ly);
+    text.setAttribute('font-size','8.5');
+    text.setAttribute('text-anchor','middle');
+    text.setAttribute('fill','#6b7a6d');
+    const label = (currentLang==='en'?d.en:d.ta);
+    const words = label.split(' ');
+    text.textContent = words.length>2 ? words.slice(0,2).join(' ') : label;
+    svg.appendChild(text);
+  });
+  // data polygon
+  let dataPts = [];
+  domains.forEach((d,i)=>{
+    const ang = (Math.PI*2*i/n) - Math.PI/2;
+    const rr = r * (scores[d.key]/100);
+    dataPts.push(`${cx+rr*Math.cos(ang)},${cy+rr*Math.sin(ang)}`);
+  });
+  const dataPoly = document.createElementNS(ns,'polygon');
+  dataPoly.setAttribute('points', dataPts.join(' '));
+  dataPoly.setAttribute('fill','rgba(45,106,79,0.35)');
+  dataPoly.setAttribute('stroke','#2d6a4f');
+  dataPoly.setAttribute('stroke-width','2');
+  svg.appendChild(dataPoly);
+}
+
+// ---------------- SHEETS LOGGING ----------------
+function logToSheet(){
+  const scores = computeDomainScores();
+  const overall = Math.round(Object.values(scores).reduce((a,b)=>a+b,0) / domains.length);
+  const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbx9dtLbe8gTVJJtI5YhgFAWHjcWUxEXRP9XGKtSrCNXCJYzawVxn-Cc0ukWQ8t4HVrU/exec"; // TODO: replace with your Apps Script Web App URL
+  const params = new URLSearchParams({
+    name: userInfo.name,
+    phone: userInfo.phone,
+    childAge: userInfo.childAge,
+    overall: overall,
+    awareness: scores.awareness,
+    safety: scores.safety,
+    modeling: scores.modeling,
+    impact: scores.impact,
+    boundaries: scores.boundaries,
+    habits: scores.habits,
+    timestamp: new Date().toISOString()
+  });
+  const img = new Image();
+  img.src = SHEET_ENDPOINT + "?" + params.toString();
+}
+</script>
+</body>
+</html>

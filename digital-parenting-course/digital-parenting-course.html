@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Parenting & Screen Time Mastery Course | NT Somasundaram Life Skills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#2d6a4f; --primary-dark:#1b4332; --accent:#f4a261; --accent2:#e76f51;
+    --bg:#f8f9f4; --card:#ffffff; --text:#1d2a1f; --muted:#6b7a6d;
+    --radius:16px; --shadow:0 4px 20px rgba(29,42,31,0.08);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.7;}
+  [lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .hidden{display:none !important;}
+  /* GATE */
+  #gate-screen{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;}
+  .gate-card{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:36px 30px; max-width:420px; width:100%;}
+  .gate-card h1{font-size:1.3rem; color:var(--primary-dark); margin-bottom:6px;}
+  .gate-card p.tag{color:var(--muted); font-size:0.9rem; margin-bottom:20px;}
+  .gate-card label{font-size:0.85rem; font-weight:600; color:var(--muted); display:block; margin-bottom:6px;}
+  .gate-card input, .gate-card select{width:100%; padding:12px 14px; border:2px solid #e2e6df; border-radius:10px; font-family:inherit; font-size:0.95rem; margin-bottom:14px;}
+  button.btn{background:var(--primary); color:#fff; border:none; padding:13px 26px; border-radius:10px; font-family:inherit; font-weight:600; cursor:pointer; font-size:0.95rem; width:100%;}
+  button.btn:hover{background:var(--primary-dark);}
+  button.btn.secondary{background:transparent; color:var(--primary); border:2px solid var(--primary); width:auto;}
+  /* APP LAYOUT */
+  #app{display:none; min-height:100vh;}
+  #app.active{display:flex;}
+  .sidebar{width:280px; background:var(--primary-dark); color:#fff; padding:24px 16px; flex-shrink:0; overflow-y:auto;}
+  .sidebar h2{font-size:1rem; margin-bottom:4px;}
+  .sidebar .learner{font-size:0.78rem; opacity:0.75; margin-bottom:20px;}
+  .lang-toggle-side{width:100%; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:#fff; padding:8px; border-radius:8px; font-size:0.8rem; cursor:pointer; margin-bottom:20px; font-weight:600;}
+  .overall-progress{margin-bottom:20px;}
+  .overall-progress .pct{font-size:1.6rem; font-weight:800; color:var(--accent);}
+  .overall-progress .bar-wrap{background:rgba(255,255,255,0.15); height:8px; border-radius:6px; overflow:hidden; margin-top:6px;}
+  .overall-progress .bar{background:var(--accent); height:100%; transition:width 0.3s;}
+  .module-nav-item{display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px; cursor:pointer; margin-bottom:4px; font-size:0.85rem; transition:background 0.15s;}
+  .module-nav-item:hover{background:rgba(255,255,255,0.08);}
+  .module-nav-item.active{background:rgba(255,255,255,0.15); font-weight:600;}
+  .module-nav-item .dot{width:22px; height:22px; border-radius:50%; background:rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center; font-size:0.7rem; flex-shrink:0;}
+  .module-nav-item.done .dot{background:var(--accent); color:var(--primary-dark);}
+  .main{flex:1; padding:36px 40px; max-width:760px; overflow-y:auto;}
+  .module-header{margin-bottom:24px;}
+  .module-header .tag{font-size:0.78rem; text-transform:uppercase; color:var(--primary); font-weight:700; letter-spacing:0.5px;}
+  .module-header h1{font-size:1.6rem; color:var(--primary-dark); margin:6px 0;}
+  .module-header .desc{color:var(--muted); font-size:0.95rem;}
+  .content-block{background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:26px; margin-bottom:20px;}
+  .content-block h3{color:var(--primary-dark); font-size:1.05rem; margin-bottom:12px;}
+  .content-block p{margin-bottom:12px; font-size:0.94rem;}
+  .intro-text{color:var(--muted); font-size:0.95rem; margin-bottom:8px;}
+  .subtopic-card{border:1px solid #e7ebe4; border-radius:14px; padding:22px; margin-bottom:18px; background:#fdfefc;}
+  .subtopic-card h3{display:flex; align-items:center; gap:8px; color:var(--primary-dark); font-size:1rem; margin-bottom:10px;}
+  .subtopic-card h3 .num{background:var(--primary); color:#fff; width:26px; height:26px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-size:0.78rem; flex-shrink:0;}
+  .subtopic-card .explanation{font-size:0.92rem; margin-bottom:12px;}
+  .callout{border-radius:10px; padding:12px 16px; margin-bottom:10px; font-size:0.88rem;}
+  .callout.example{background:#eaf4ee; border-left:3px solid var(--primary);}
+  .callout.metaphor{background:#fdf1e6; border-left:3px solid var(--accent);}
+  .callout .callout-label{font-weight:700; font-size:0.72rem; text-transform:uppercase; letter-spacing:0.3px; display:block; margin-bottom:4px;}
+  .callout.example .callout-label{color:var(--primary);}
+  .callout.metaphor .callout-label{color:var(--accent2);}
+  .tips-list{list-style:none; margin-top:10px;}
+  .tips-list li{padding:8px 0 8px 28px; position:relative; font-size:0.9rem;}
+  .tips-list li::before{content:"✓"; position:absolute; left:0; color:var(--primary); font-weight:700;}
+  .action-box{background:#fff3e0; border-left:4px solid var(--accent); border-radius:0 12px 12px 0; padding:18px 20px; margin-top:16px;}
+  .action-box h4{color:var(--accent2); font-size:0.9rem; margin-bottom:10px;}
+  .action-steps{list-style:none; counter-reset:step;}
+  .action-steps li{counter-increment:step; padding:6px 0 6px 34px; position:relative; font-size:0.9rem;}
+  .action-steps li::before{content:counter(step); position:absolute; left:0; top:6px; background:var(--accent2); color:#fff; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:700;}
+  .reflection-box{background:#eaf4ee; border-radius:12px; padding:18px 20px; margin-top:16px;}
+  .reflection-box textarea{width:100%; border:1px solid #d4dcd1; border-radius:8px; padding:10px; font-family:inherit; font-size:0.88rem; margin-top:8px; min-height:70px; resize:vertical;}
+  .nav-footer{display:flex; justify-content:space-between; margin-top:10px; gap:12px;}
+  .completion-badge{text-align:center; padding:40px 20px;}
+  .completion-badge .emoji{font-size:3rem; margin-bottom:12px;}
+  .whatsapp-btn{display:inline-flex; align-items:center; gap:8px; background:#25D366; color:#fff; padding:12px 24px; border-radius:30px; text-decoration:none; font-weight:700; margin-top:16px;}
+  @media (max-width:768px){
+    #app.active{flex-direction:column;}
+    .sidebar{width:100%; max-height:200px;}
+    .main{padding:20px;}
+  }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+</head>
+<body>
+
+<div id="gate-screen">
+  <div class="gate-card" style="text-align:center;">
+    <p data-en="Checking your access..." data-ta="உங்கள் அணுகலை சரிபார்க்கிறது...">Checking your access...</p>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app">
+  <div class="sidebar">
+    <button class="lang-toggle-side" onclick="toggleLang()">தமிழ் / EN</button>
+    <h2 data-en="Digital Parenting Mastery" data-ta="டிஜிட்டல் பெற்றோர் தேர்ச்சி">Digital Parenting Mastery</h2>
+    <div class="learner" id="learnerName"></div>
+    <button onclick="logoutLearner()" style="background:none; border:1px solid rgba(255,255,255,0.4); color:inherit; padding:6px 12px; border-radius:8px; font-size:12.5px; cursor:pointer; margin-bottom:10px;">Logout</button>
+    <div class="overall-progress">
+      <div class="pct" id="overallPct">0%</div>
+      <div class="bar-wrap"><div class="bar" id="overallBar" style="width:0%"></div></div>
+    </div>
+    <div id="moduleNavList"></div>
+  </div>
+  <div class="main" id="mainContent"></div>
+</div>
+
+<script>
+// ---------------- COURSE CONTENT ----------------
+const modules = [
+{
+  id:1,
+  title:{en:"Understanding the Digital Childhood", ta:"டிஜிட்டல் குழந்தைப் பருவத்தைப் புரிந்துகொள்ளுதல்"},
+  desc:{en:"How screens shape attention, brain development, and sleep.", ta:"திரைகள் கவனம், மூளை வளர்ச்சி மற்றும் தூக்கத்தை எவ்வாறு வடிவமைக்கின்றன."},
+  intro:{en:"Today's children are the first generation to grow up fully surrounded by screens from birth. This isn't automatically good or bad — it's a new reality that needs new parenting skills. Let's break down exactly how screens affect a growing child.", ta:"இன்றைய குழந்தைகள் பிறப்பிலிருந்தே திரைகளால் முழுமையாக சூழப்பட்டு வளரும் முதல் தலைமுறையினர். இது தானாகவே நல்லது அல்லது கெட்டது அல்ல — இது புதிய பெற்றோர் திறன்களை தேவைப்படுத்தும் ஒரு புதிய யதார்த்தம். திரைகள் வளரும் குழந்தையை எவ்வாறு பாதிக்கின்றன என்பதை துல்லியமாகப் பார்ப்போம்."},
+  subtopics:[
+    {
+      title:{en:"How Screens Affect the Brain", ta:"திரைகள் மூளையை எவ்வாறு பாதிக்கின்றன"},
+      explanation:{en:"Fast-moving videos and games — with quick cuts, bright colors, and constant rewards — train a child's brain to expect non-stop stimulation. Over time, slower activities like reading a book or sitting through a classroom lesson start to feel unbearably 'boring' in comparison, even though nothing is actually wrong with those activities.", ta:"வேகமான வீடியோக்கள் மற்றும் கேம்கள் — விரைவான காட்சி மாற்றங்கள், பிரகாசமான வண்ணங்கள் மற்றும் தொடர்ச்சியான வெகுமதிகளுடன் — ஒரு குழந்தையின் மூளையை இடைவிடாத தூண்டுதலை எதிர்பார்க்க பயிற்சி அளிக்கின்றன. காலப்போக்கில், புத்தகம் படிப்பது அல்லது வகுப்பறை பாடத்தில் அமர்ந்திருப்பது போன்ற மெதுவான செயல்பாடுகள் ஒப்பீட்டளவில் தாங்க முடியாத அளவிற்கு 'சலிப்பானதாக' உணரத் தொடங்குகின்றன, அந்த செயல்பாடுகளில் உண்மையில் எந்த தவறும் இல்லாத போதிலும்."},
+      example:{en:"A 7-year-old who watches fast-cut cartoons every evening starts fidgeting and losing focus just 5 minutes into homework, even on easy questions — not because the homework is hard, but because his brain is used to something changing every few seconds.", ta:"ஒரு 7 வயது குழந்தை மாலையில் தினமும் விரைவான காட்சி மாற்ற கார்ட்டூன்களைப் பார்க்கும்போது, வீட்டுப்பாடத்தில் வெறும் 5 நிமிடங்களிலேயே அமைதியின்றி கவனம் இழக்கத் தொடங்குகிறார், எளிய கேள்விகளிலும் கூட — வீட்டுப்பாடம் கடினமாக இருப்பதால் அல்ல, ஒவ்வொரு சில வினாடிகளுக்கும் ஏதேனும் மாறுவதற்குப் பழக்கப்பட்டிருப்பதால்."},
+      metaphor:{en:"Think of attention like a muscle. If you only ever sprint, you never build the endurance to jog for a long time. Fast-paced screens are sprints for the brain; homework and reading are the long, steady jog.", ta:"கவனத்தை ஒரு தசை போல நினைத்துப் பாருங்கள். நீங்கள் எப்போதும் ஓட்டம் மட்டுமே ஓடினால், நீண்ட நேரம் மெதுவாக ஓடும் சகிப்புத்தன்மையை ஒருபோதும் வளர்க்க மாட்டீர்கள். வேகமான திரைகள் மூளைக்கான வேக ஓட்டங்கள்; வீட்டுப்பாடம் மற்றும் வாசிப்பு நீண்ட, நிலையான ஜாகிங்."}
+    },
+    {
+      title:{en:"Screens and Sleep", ta:"திரைகள் மற்றும் தூக்கம்"},
+      explanation:{en:"Screens emit blue light, which is the same wavelength of light our brains associate with daytime. When a child looks at a screen in the evening, their brain delays releasing melatonin — the hormone that makes us feel sleepy — even though it's actually bedtime. This is why screen use right before bed makes falling asleep harder and reduces sleep quality.", ta:"திரைகள் நீல ஒளியை வெளியிடுகின்றன, இது நமது மூளை பகல் நேரத்துடன் தொடர்புபடுத்தும் அதே அலைநீளத்தின் ஒளியாகும். ஒரு குழந்தை மாலையில் திரையைப் பார்க்கும்போது, அவர்களின் மூளை மெலடோனினை வெளியிடுவதை தாமதப்படுத்துகிறது — நமக்கு தூக்கம் வருவதாக உணரவைக்கும் ஹார்மோன் — உண்மையில் அது படுக்கை நேரமாக இருந்தாலும் கூட. இதனால்தான் படுக்கைக்கு முன் திரை பயன்பாடு தூங்குவதை கடினமாக்கி, தூக்கத்தின் தரத்தை குறைக்கிறது."},
+      example:{en:"A teenager who scrolls on their phone until midnight often struggles to fall asleep until 1 am, then wakes up groggy and irritable for school the next morning — even if they were technically in bed for 8 hours.", ta:"நள்ளிரவு வரை தொலைபேசியில் ஸ்க்ரோல் செய்யும் ஒரு இளைஞர் பெரும்பாலும் அதிகாலை 1 மணி வரை தூங்க முடியாமல் தவிக்கிறார், பின்னர் அடுத்த நாள் காலை பள்ளிக்கு தூக்கமயக்கத்துடனும் எரிச்சலுடனும் எழுகிறார் — தொழில்நுட்ப ரீதியாக 8 மணி நேரம் படுக்கையில் இருந்தாலும் கூட."},
+      metaphor:{en:"Blue light in the evening is like your brain being told 'it's still afternoon' even though the sun has set. It confuses your body's internal sunset signal, so the sleep switch never quite flips.", ta:"மாலையில் நீல ஒளி, சூரியன் மறைந்திருந்தாலும் 'இன்னும் மதியம்தான்' என்று உங்கள் மூளையிடம் சொல்வது போன்றது. இது உங்கள் உடலின் உள்ளார்ந்த சூரிய அஸ்தமன சமிக்ஞையை குழப்புகிறது, எனவே தூக்க சுவிட்ச் முழுமையாக மாறாது."}
+    },
+    {
+      title:{en:"Quality Over Quantity", ta:"அளவை விட தரம் முக்கியம்"},
+      explanation:{en:"The type of content and the context in which it's watched matter far more than the raw number of hours. A child watching an educational video with a parent, pausing to talk about what they saw, learns very differently than a child scrolling alone through random short videos for the same amount of time.", ta:"பார்க்கப்படும் உள்ளடக்கத்தின் வகை மற்றும் அது பார்க்கப்படும் சூழல், வெறும் மணிநேர எண்ணிக்கையை விட மிக முக்கியமானது. ஒரு பெற்றோருடன் கல்வி வீடியோவைப் பார்க்கும் குழந்தை, தான் பார்த்ததைப் பற்றி பேசுவதற்கு இடையில் நிறுத்தி, அதே அளவு நேரத்திற்கு தனியாக சீரற்ற குறுகிய வீடியோக்களை ஸ்க்ரோல் செய்யும் குழந்தையிடமிருந்து மிகவும் வித்தியாசமாக கற்றுக்கொள்கிறது."},
+      example:{en:"20 minutes of co-watching a nature documentary and talking about the animals afterward can teach a child more, and cause far less overstimulation, than an hour of solo, unsupervised short-video scrolling.", ta:"20 நிமிடங்கள் ஒரு இயற்கை ஆவணப்படத்தை இணைந்து பார்த்து, பின்னர் விலங்குகளைப் பற்றி பேசுவது, ஒரு மணி நேர தனிமையான, மேற்பார்வையற்ற குறுகிய வீடியோ ஸ்க்ரோலிங்கை விட ஒரு குழந்தைக்கு அதிகம் கற்றுத்தரும், மேலும் மிகக் குறைவான அதிக தூண்டுதலை ஏற்படுத்தும்."},
+      metaphor:{en:"Screen time is like food. It's not just about how much you eat, but what kind of food it is, and whether you eat it alone in a rush or sit down and share it with family.", ta:"திரை நேரம் உணவைப் போன்றது. நீங்கள் எவ்வளவு சாப்பிடுகிறீர்கள் என்பது மட்டுமல்ல, அது எந்த வகையான உணவு, மற்றும் நீங்கள் அதை அவசரமாக தனியாக சாப்பிடுகிறீர்களா அல்லது குடும்பத்துடன் அமர்ந்து பகிர்கிறீர்களா என்பதும் முக்கியம்."}
+    }
+  ],
+  actionPlan:{
+    en:["Honestly track your child's actual screen time for 3 days, without changing anything yet — just observe.","Note what time of day the screen use happens, and what kind of content it is.","Try one screen-free evening this week, starting at least 45 minutes before bedtime.","Pick one thing your child watched this week and ask them to tell you about it."],
+    ta:["இன்னும் எதையும் மாற்றாமல், 3 நாட்களுக்கு உங்கள் குழந்தையின் உண்மையான திரை நேரத்தை நேர்மையாக கண்காணிக்கவும் — வெறும் கவனிக்கவும்.","திரை பயன்பாடு நாளின் எந்த நேரத்தில் நடக்கிறது, மற்றும் அது எந்த வகையான உள்ளடக்கம் என்பதை குறிப்பிடவும்.","இந்த வாரம் ஒரு திரை இல்லாத மாலையை முயற்சிக்கவும், படுக்கை நேரத்திற்கு குறைந்தது 45 நிமிடங்களுக்கு முன் தொடங்கவும்.","இந்த வாரம் உங்கள் குழந்தை பார்த்த ஒரு விஷயத்தைத் தேர்ந்தெடுத்து, அதைப் பற்றி உங்களிடம் சொல்லச் சொல்லுங்கள்."]
+  },
+  reflect:{en:"What surprised you most about how screens might be affecting your child?", ta:"திரைகள் உங்கள் குழந்தையை எவ்வாறு பாதிக்கின்றன என்பதில் உங்களை மிகவும் ஆச்சரியப்படுத்தியது என்ன?"}
+},
+{
+  id:2,
+  title:{en:"Screen Time by Age", ta:"வயதுக்கேற்ப திரை நேரம்"},
+  desc:{en:"Right limits for toddlers, primary schoolers, tweens, and teens.", ta:"குழந்தைகள், தொடக்கப் பள்ளி, இளம் வயதினர் மற்றும் இளைஞர்களுக்கான சரியான வரம்புகள்."},
+  intro:{en:"There's no single 'correct' screen time number for every child. But age-based guidelines give you a sensible starting point, which you then adjust based on your own child's needs and maturity.", ta:"ஒவ்வொரு குழந்தைக்கும் ஒரே 'சரியான' திரை நேர எண் இல்லை. ஆனால் வயது அடிப்படையிலான வழிகாட்டுதல்கள் ஒரு நியாயமான தொடக்க புள்ளியை தருகின்றன, அதை நீங்கள் உங்கள் சொந்த குழந்தையின் தேவைகள் மற்றும் முதிர்ச்சியின் அடிப்படையில் சரிசெய்யலாம்."},
+  subtopics:[
+    {
+      title:{en:"Toddlers (2-5 years)", ta:"குழந்தைகள் (2-5 வயது)"},
+      explanation:{en:"At this age, the brain is developing at its fastest rate through real-world touch, sound, and face-to-face interaction. Screens should be limited to short, high-quality, co-viewed sessions — not used as a way to occupy a child alone for long periods.", ta:"இந்த வயதில், மூளை உண்மையான உலக தொடு, ஒலி மற்றும் நேருக்கு நேர் தொடர்பு மூலம் மிக வேகமான வீதத்தில் வளர்ச்சியடைகிறது. திரைகள் குறுகிய, உயர்தர, இணைந்து பார்க்கப்படும் அமர்வுகளுக்கு மட்டுப்படுத்தப்பட வேண்டும் — நீண்ட நேரத்திற்கு ஒரு குழந்தையை தனியாக பிஸியாக வைக்கும் வழியாக பயன்படுத்தக்கூடாது."},
+      example:{en:"A 4-year-old watching a 5-minute educational rhyme with a parent, then talking about the colors and animals in it, benefits far more than the same child left alone with a tablet for an hour.", ta:"ஒரு 4 வயது குழந்தை பெற்றோருடன் 5 நிமிட கல்வி பாடலைப் பார்த்து, பின்னர் அதில் உள்ள வண்ணங்கள் மற்றும் விலங்குகள் பற்றி பேசுவது, அதே குழந்தை ஒரு மணி நேரத்திற்கு டேப்லெட்டுடன் தனியாக விடப்படுவதை விட மிகவும் பயனுள்ளதாக இருக்கும்."},
+      metaphor:{en:"Feeding a toddler screen time is like feeding them food: small, nutritious portions work far better than one giant buffet they're left alone to finish.", ta:"ஒரு குழந்தைக்கு திரை நேரத்தை கொடுப்பது உணவு கொடுப்பதைப் போன்றது: சிறிய, சத்தான பகுதிகள் அவர்களை தனியாக முடிக்க விடப்படும் ஒரு பெரிய பஃபேயை விட மிகவும் சிறப்பாக செயல்படும்."}
+    },
+    {
+      title:{en:"Middle Childhood (6-13 years)", ta:"நடு குழந்தைப் பருவம் (6-13 வயது)"},
+      explanation:{en:"As school responsibilities grow, screen time works best when it's placed after homework and daily responsibilities are done — not before. Clear daily limits combined with content boundaries (what apps, what type of videos) matter more at this stage than at any other.", ta:"பள்ளி பொறுப்புகள் வளரும்போது, வீட்டுப்பாடம் மற்றும் தினசரி பொறுப்புகள் முடிந்த பிறகு திரை நேரம் வைக்கப்படும்போது சிறப்பாக செயல்படுகிறது — முன்பு அல்ல. தெளிவான தினசரி வரம்புகள், உள்ளடக்க எல்லைகளுடன் (எந்த ஆப்ஸ், எந்த வகையான வீடியோக்கள்) இணைந்து, இந்த கட்டத்தில் வேறு எந்த நேரத்தையும் விட முக்கியமானது."},
+      example:{en:"A 9-year-old is allowed 1 hour of screen time only after homework and dinner are finished — this way screens never compete directly with responsibilities.", ta:"ஒரு 9 வயது குழந்தைக்கு வீட்டுப்பாடம் மற்றும் இரவு உணவு முடிந்த பிறகுதான் 1 மணி நேர திரை நேரம் அனுமதிக்கப்படுகிறது — இந்த வழியில் திரைகள் பொறுப்புகளுடன் நேரடியாக ஒருபோதும் போட்டியிடாது."},
+      metaphor:{en:"Screen time at this age is like dessert. It works best as something that comes after the main meal — the day's responsibilities — not something eaten first that spoils the appetite for everything else.", ta:"இந்த வயதில் திரை நேரம் இனிப்பு போன்றது. இது முதன்மை உணவிற்குப் பிறகு வருவதாக இருக்கும்போது சிறப்பாக செயல்படுகிறது — நாளின் பொறுப்புகள் — மற்ற அனைத்திற்கும் பசியை கெடுக்கும் வகையில் முதலில் சாப்பிடும் ஒன்றாக அல்ல."}
+    },
+    {
+      title:{en:"Teens (14-18 years)", ta:"இளைஞர்கள் (14-18 வயது)"},
+      explanation:{en:"With teens, the focus naturally shifts away from strict hourly counting toward protecting healthy habits: enough sleep, homework done before entertainment, and honest two-way conversation. Direct supervision decreases at this age, so trust and communication matter more than surveillance.", ta:"இளைஞர்களுடன், கவனம் இயல்பாகவே கடுமையான மணிநேர கணக்கீட்டிலிருந்து ஆரோக்கியமான பழக்கங்களைப் பாதுகாப்பதற்கு மாறுகிறது: போதுமான தூக்கம், பொழுதுபோக்கிற்கு முன் வீட்டுப்பாடம் முடிக்கப்படுதல், மற்றும் நேர்மையான இரு-வழி உரையாடல். இந்த வயதில் நேரடி மேற்பார்வை குறைகிறது, எனவே கண்காணிப்பை விட நம்பிக்கை மற்றும் தொடர்பு முக்கியமானது."},
+      example:{en:"Instead of restricting a specific app minute-by-minute, a parent agrees with their 16-year-old on a shared rule: all devices leave the bedroom by 10 pm, no matter what app was being used.", ta:"ஒரு குறிப்பிட்ட ஆப்பை நிமிடம் நிமிடமாக கட்டுப்படுத்துவதற்குப் பதிலாக, ஒரு பெற்றோர் தங்கள் 16 வயது குழந்தையுடன் ஒரு பகிரப்பட்ட விதியில் உடன்படுகிறார்: எந்த ஆப் பயன்படுத்தப்பட்டாலும், அனைத்து சாதனங்களும் இரவு 10 மணிக்கு படுக்கையறையை விட்டு வெளியேற வேண்டும்."},
+      metaphor:{en:"Guiding a teen's screen use is like teaching someone to drive. You move from strict step-by-step rules to trusted independence, with a few important checkpoints still in place.", ta:"ஒரு இளைஞரின் திரை பயன்பாட்டை வழிநடத்துவது ஒருவருக்கு வாகனம் ஓட்டக் கற்றுக்கொடுப்பது போன்றது. நீங்கள் கடுமையான படிப்படியான விதிகளிலிருந்து நம்பகமான சுதந்திரத்திற்கு நகர்கிறீர்கள், இன்னும் சில முக்கியமான சரிபார்ப்பு புள்ளிகளுடன்."}
+    }
+  ],
+  actionPlan:{
+    en:["Identify which age band your child currently falls into.","Write down your child's current actual limit next to the recommended one from this module.","Choose one specific adjustment to make this week (e.g., move screen time after homework).","Set a reminder to revisit this limit again in one month as your child grows."],
+    ta:["உங்கள் குழந்தை தற்போது எந்த வயது குழுவில் உள்ளார் என்பதை அடையாளம் காணவும்.","இந்த பாடத்திலிருந்து பரிந்துரைக்கப்பட்டதற்கு அடுத்ததாக உங்கள் குழந்தையின் தற்போதைய உண்மையான வரம்பை எழுதுங்கள்.","இந்த வாரம் செய்ய ஒரு குறிப்பிட்ட சரிசெய்தலைத் தேர்ந்தெடுக்கவும் (எ.கா., வீட்டுப்பாடத்திற்குப் பிறகு திரை நேரத்தை நகர்த்துங்கள்).","உங்கள் குழந்தை வளரும்போது ஒரு மாதத்தில் இந்த வரம்பை மீண்டும் மறுபரிசீலனை செய்ய நினைவூட்டலை அமைக்கவும்."]
+  },
+  reflect:{en:"Is your current screen time limit closer to what's recommended, or does it need adjusting?", ta:"உங்கள் தற்போதைய திரை நேர வரம்பு பரிந்துரைக்கப்பட்டதற்கு நெருக்கமாக உள்ளதா, அல்லது அதை சரிசெய்ய வேண்டுமா?"}
+},
+{
+  id:3,
+  title:{en:"Signs of Screen Addiction", ta:"திரை அடிமைத்தன்மையின் அறிகுறிகள்"},
+  desc:{en:"Spotting digital overuse before it becomes a bigger problem.", ta:"இது ஒரு பெரிய பிரச்சனையாக மாறுவதற்கு முன் டிஜிட்டல் அதிகப்படியான பயன்பாட்டைக் கண்டறிதல்."},
+  intro:{en:"Not all heavy screen use is 'addiction' — but certain patterns are worth watching closely. The key question is always whether screen use is interfering with your child's daily functioning, relationships, or wellbeing.", ta:"அதிகமான திரை பயன்பாடு அனைத்தும் 'அடிமைத்தனம்' அல்ல — ஆனால் சில வடிவங்களை உன்னிப்பாக கவனிக்க வேண்டும். திரை பயன்பாடு உங்கள் குழந்தையின் அன்றாட செயல்பாடு, உறவுகள் அல்லது நல்வாழ்வில் தலையிடுகிறதா என்பதே எப்போதும் முக்கிய கேள்வி."},
+  subtopics:[
+    {
+      title:{en:"Emotional Warning Signs", ta:"உணர்ச்சி எச்சரிக்கை அறிகுறிகள்"},
+      explanation:{en:"Occasional mild protest when screen time ends is completely normal childhood behavior. But intense anger, anxiety, or distress every single time — far beyond what the situation calls for — can mean your child is relying on screens to regulate their emotions.", ta:"திரை நேரம் முடியும்போது எப்போதாவது லேசான எதிர்ப்பு தெரிவிப்பது முற்றிலும் இயல்பான குழந்தைப் பருவ நடத்தை. ஆனால் ஒவ்வொரு முறையும் — சூழ்நிலைக்குத் தேவைப்படுவதை விட மிக அதிகமாக — தீவிர கோபம், பதட்டம் அல்லது துயரம் உங்கள் குழந்தை தங்கள் உணர்ச்சிகளை ஒழுங்குபடுத்த திரைகளை நம்பியிருப்பதைக் குறிக்கலாம்."},
+      example:{en:"A child who has a full meltdown every single time the tablet is taken away — not just once in a while, but as a consistent pattern over several weeks — is showing a warning sign worth addressing.", ta:"டேப்லெட் எடுக்கப்படும் ஒவ்வொரு முறையும் முழுமையான உடைவை அனுபவிக்கும் ஒரு குழந்தை — எப்போதாவது அல்ல, ஆனால் பல வாரங்களாக ஒரு தொடர்ச்சியான வடிவமாக — கவனிக்க வேண்டிய ஒரு எச்சரிக்கை அறிகுறியை காட்டுகிறது."},
+      metaphor:{en:"Sudden, intense distress when screens are removed is similar to withdrawal from any dependency — the body and mind protest strongly when something they've come to rely on is suddenly taken away.", ta:"திரைகள் அகற்றப்படும்போது திடீர், தீவிர துயரம் எந்தவொரு சார்பிலிருந்தும் திரும்பப் பெறுதலைப் போன்றது — அவை நம்பியிருக்கும் ஒன்று திடீரென எடுக்கப்படும்போது உடலும் மனமும் கடுமையாக எதிர்க்கின்றன."}
+    },
+    {
+      title:{en:"Behavioral Warning Signs", ta:"நடத்தை எச்சரிக்கை அறிகுறிகள்"},
+      explanation:{en:"Watch for lying about how much time was spent online, hiding devices or usage, and a noticeable pulling away from family and friends in favor of more screen time. Secrecy is often a bigger red flag than the screen time itself.", ta:"ஆன்லைனில் எவ்வளவு நேரம் செலவழிக்கப்பட்டது என்பது பற்றி பொய் சொல்வது, சாதனங்கள் அல்லது பயன்பாட்டை மறைப்பது, மேலும் அதிக திரை நேரத்திற்காக குடும்பம் மற்றும் நண்பர்களிடமிருந்து குறிப்பிடத்தக்க அளவில் விலகுவதை கவனியுங்கள். திரை நேரத்தை விட ரகசியம் பெரும்பாலும் ஒரு பெரிய எச்சரிக்கை அறிகுறியாகும்."},
+      example:{en:"A child insists 'I wasn't on my phone much today,' but the device's screen time report shows over 4 hours of use — the gap between what's said and what's true is the real signal.", ta:"ஒரு குழந்தை 'இன்று நான் தொலைபேசியில் அதிகம் இல்லை' என்று வலியுறுத்துகிறார், ஆனால் சாதனத்தின் திரை நேர அறிக்கை 4 மணி நேரத்திற்கும் மேலான பயன்பாட்டைக் காட்டுகிறது — சொல்லப்பட்டதற்கும் உண்மைக்கும் இடையிலான இடைவெளியே உண்மையான சமிக்ஞை."},
+      metaphor:{en:"Secretive screen behavior is like smoke before a fire — it's not the emergency itself, but it's the clearest early signal that something needs your attention before it grows.", ta:"ரகசிய திரை நடத்தை நெருப்பிற்கு முன் புகை போன்றது — இது அவசரநிலை அல்ல, ஆனால் அது வளருவதற்கு முன் உங்கள் கவனம் தேவைப்படும் ஒன்றின் தெளிவான ஆரம்ப சமிக்ஞை."}
+    },
+    {
+      title:{en:"Physical & Academic Warning Signs", ta:"உடல் & கல்வி எச்சரிக்கை அறிகுறிகள்"},
+      explanation:{en:"Sleep that's clearly disrupted by device use, and school grades or homework quality that decline alongside rising screen time, are two of the most measurable and objective warning signs — because they can be tracked over time rather than relying on guesswork.", ta:"சாதன பயன்பாட்டால் தெளிவாக இடையூறு செய்யப்படும் தூக்கம், மற்றும் அதிகரிக்கும் திரை நேரத்துடன் இணைந்து குறையும் பள்ளி மதிப்பெண்கள் அல்லது வீட்டுப்பாட தரம், இரண்டு மிக அளவிடக்கூடிய மற்றும் புறநிலை எச்சரிக்கை அறிகுறிகள் — ஏனெனில் அவற்றை யூகத்தை நம்பாமல் காலப்போக்கில் கண்காணிக்க முடியும்."},
+      example:{en:"A student whose report card shows a clear drop in the same term that gaming time doubled has a measurable, objective pattern worth discussing calmly with them.", ta:"விளையாட்டு நேரம் இரு மடங்காக அதிகரித்த அதே காலாண்டில் அறிக்கை அட்டையில் தெளிவான வீழ்ச்சியைக் காட்டும் ஒரு மாணவர், அவர்களுடன் அமைதியாக விவாதிக்க வேண்டிய ஒரு அளவிடக்கூடிய, புறநிலை வடிவத்தைக் கொண்டுள்ளார்."},
+      metaphor:{en:"A child showing these signs is like a plant slowly wilting — the visible drooping leaves are simply telling you that something about the daily 'soil and water' (habits and routine) needs adjusting.", ta:"இந்த அறிகுறிகளைக் காட்டும் ஒரு குழந்தை மெதுவாக வாடும் ஒரு செடியைப் போன்றது — தெரியும் தொங்கும் இலைகள், தினசரி 'மண் மற்றும் நீர்' (பழக்கங்கள் மற்றும் வழக்கம்) பற்றி ஏதோ ஒன்று சரிசெய்யப்பட வேண்டும் என்று உங்களிடம் சொல்கிறது."}
+    }
+  ],
+  actionPlan:{
+    en:["Honestly rate your child against the signs in this module — observation only, no judgment.","Note how many signs are present and how often, over the next 7 days.","If 3 or more signs appear consistently, plan one calm conversation — not a punishment.","If signs are severe or persistent, consider consulting a counselor or child psychologist for support."],
+    ta:["இந்த பாடத்தில் உள்ள அறிகுறிகளுக்கு எதிராக உங்கள் குழந்தையை நேர்மையாக மதிப்பிடுங்கள் — கவனிப்பு மட்டும், தீர்ப்பு இல்லை.","அடுத்த 7 நாட்களில் எத்தனை அறிகுறிகள் உள்ளன, எவ்வளவு அடிக்கடி என்பதைக் குறிப்பிடவும்.","3 அல்லது அதற்கு மேற்பட்ட அறிகுறிகள் தொடர்ந்து தோன்றினால், ஒரு அமைதியான உரையாடலைத் திட்டமிடுங்கள் — தண்டனை அல்ல.","அறிகுறிகள் கடுமையானதாக அல்லது தொடர்ந்து இருந்தால், ஆதரவிற்காக ஒரு ஆலோசகர் அல்லது குழந்தை உளவியலாளரை அணுக கருதுங்கள்."]
+  },
+  reflect:{en:"Did you notice any of these signs? If so, which one concerns you most?", ta:"இந்த அறிகுறிகளில் ஏதேனும் நீங்கள் கவனித்தீர்களா? அப்படியானால், எது உங்களை மிகவும் கவலைப்படுத்துகிறது?"}
+},
+{
+  id:4,
+  title:{en:"Setting Healthy Boundaries", ta:"ஆரோக்கியமான எல்லைகளை அமைத்தல்"},
+  desc:{en:"Screen time contracts and house rules that actually stick.", ta:"உண்மையில் நீடிக்கும் திரை நேர ஒப்பந்தங்கள் மற்றும் வீட்டு விதிகள்."},
+  intro:{en:"Rules that are simply handed down without explanation or buy-in rarely stick for long. The most effective screen boundaries are co-created with your child, written down clearly, and applied consistently every time.", ta:"விளக்கம் அல்லது ஒப்புதல் இல்லாமல் வெறுமனே வழங்கப்படும் விதிகள் அதிக காலம் நீடிப்பது அரிது. மிகவும் பயனுள்ள திரை எல்லைகள் உங்கள் குழந்தையுடன் இணைந்து உருவாக்கப்பட்டவை, தெளிவாக எழுதப்பட்டவை, மற்றும் ஒவ்வொரு முறையும் தொடர்ச்சியாக பயன்படுத்தப்படுபவை."},
+  subtopics:[
+    {
+      title:{en:"Co-Creating the Rules", ta:"விதிகளை இணைந்து உருவாக்குதல்"},
+      explanation:{en:"When a child helps set the rule, they feel ownership over it, which naturally increases how willingly they follow it. Rules that feel imposed from above, with no input, tend to trigger more resistance and testing of limits.", ta:"ஒரு குழந்தை விதியை அமைக்க உதவும்போது, அவர்கள் அதன் மீது உரிமையை உணர்கிறார்கள், இது இயற்கையாகவே அவர்கள் அதை எவ்வளவு விருப்பத்துடன் பின்பற்றுகிறார்கள் என்பதை அதிகரிக்கிறது. எந்த உள்ளீடும் இல்லாமல் மேலிருந்து திணிக்கப்பட்டதாக உணரும் விதிகள், அதிக எதிர்ப்பு மற்றும் வரம்புகளை சோதிப்பதைத் தூண்டும்."},
+      example:{en:"Instead of announcing 'no phone after 8pm,' a parent sits with their child and asks 'what time do you think devices should stop for the night?' — the child suggests 8:30pm, and now owns that boundary.", ta:"'இரவு 8 மணிக்குப் பிறகு தொலைபேசி இல்லை' என்று அறிவிப்பதற்குப் பதிலாக, ஒரு பெற்றோர் தங்கள் குழந்தையுடன் அமர்ந்து 'இரவுக்கு சாதனங்கள் எத்தனை மணிக்கு நிறுத்தப்பட வேண்டும் என்று நீ நினைக்கிறாய்?' என்று கேட்கிறார் — குழந்தை 8:30 மணியைப் பரிந்துரைக்கிறார், இப்போது அந்த எல்லையை சொந்தமாக்குகிறார்."},
+      metaphor:{en:"A rule built together is like a bridge built from both sides meeting in the middle — it's far stronger and more trusted than one built entirely from just one side.", ta:"இணைந்து கட்டப்பட்ட ஒரு விதி இரு பக்கங்களும் நடுவில் சந்திக்கும் ஒரு பாலம் கட்டுவது போன்றது — இது ஒரே பக்கத்திலிருந்து மட்டும் கட்டப்பட்டதை விட மிகவும் வலுவானது மற்றும் நம்பகமானது."}
+    },
+    {
+      title:{en:"Being Specific, Not Vague", ta:"தெளிவற்றதாக அல்லாமல் குறிப்பிட்டதாக இருத்தல்"},
+      explanation:{en:"Vague rules like 'don't watch too much' fail because nobody actually knows where the line is. Effective rules specify exactly which apps, what time of day, how many minutes, and on which devices.", ta:"'அதிகமாகப் பார்க்காதே' போன்ற தெளிவற்ற விதிகள் தோல்வியடைகின்றன, ஏனெனில் எல்லை எங்கே என்று உண்மையில் யாருக்கும் தெரியாது. பயனுள்ள விதிகள் சரியாக எந்த ஆப்ஸ், நாளின் எந்த நேரம், எத்தனை நிமிடங்கள், மற்றும் எந்த சாதனங்களில் என்பதை குறிப்பிடுகின்றன."},
+      example:{en:"'30 minutes of YouTube on the tablet, only after homework is checked' is a rule everyone can measure. 'Don't watch too much YouTube' is a rule that leads to a different argument every single day.", ta:"'வீட்டுப்பாடம் சரிபார்க்கப்பட்ட பிறகு மட்டும், டேப்லெட்டில் 30 நிமிடங்கள் யூடியூப்' என்பது அனைவரும் அளவிடக்கூடிய ஒரு விதி. 'அதிகமாக யூடியூப் பார்க்காதே' என்பது ஒவ்வொரு நாளும் வேறு வாக்குவாதத்திற்கு இட்டுச் செல்லும் ஒரு விதி."},
+      metaphor:{en:"A vague rule is like fog on a road — nobody can clearly see exactly where the boundary line actually is, so everyone keeps driving a little further into it.", ta:"தெளிவற்ற விதி ஒரு சாலையில் மூடுபனி போன்றது — எல்லைக் கோடு உண்மையில் எங்கே இருக்கிறது என்பதை யாராலும் தெளிவாகப் பார்க்க முடியாது, எனவே அனைவரும் சிறிது தூரம் மேலும் அதனுள் ஓட்டிக்கொண்டே இருப்பார்கள்."}
+    },
+    {
+      title:{en:"Consistency and Consequences", ta:"நிலைத்தன்மை மற்றும் விளைவுகள்"},
+      explanation:{en:"Define what happens if a rule is broken before it's ever broken — and apply it calmly, every single time, not just when it's convenient. Consistency matters more than strictness. A moderate rule enforced every time works better than a strict rule enforced only sometimes.", ta:"ஒரு விதி மீறப்படுவதற்கு முன்பே, அது மீறப்பட்டால் என்ன நடக்கும் என்பதை வரையறுக்கவும் — மேலும் வசதியாக இருக்கும்போது மட்டுமல்லாமல், ஒவ்வொரு முறையும் அமைதியாக அதைப் பயன்படுத்துங்கள். கடுமையை விட நிலைத்தன்மை முக்கியம். எப்போதும் அமல்படுத்தப்படும் மிதமான விதி, சில நேரங்களில் மட்டும் அமல்படுத்தப்படும் கடுமையான விதியை விட சிறப்பாக செயல்படும்."},
+      example:{en:"If the agreed consequence is 'the tablet stays with a parent overnight if not returned on time,' it needs to happen every time it's late — not just on days when the parent has energy to enforce it.", ta:"ஒப்புக்கொள்ளப்பட்ட விளைவு 'சரியான நேரத்தில் திரும்பக் கொடுக்கப்படாவிட்டால் டேப்லெட் இரவு முழுவதும் பெற்றோரிடம் இருக்கும்' என்றால், அது தாமதமான ஒவ்வொரு முறையும் நடக்க வேண்டும் — பெற்றோருக்கு அதை அமல்படுத்த ஆற்றல் இருக்கும் நாட்களில் மட்டும் அல்ல."},
+      metaphor:{en:"A consistently enforced boundary is like a solid riverbank — it holds the water exactly where it should be. A boundary enforced only sometimes is a riverbank full of holes, where water floods through the gaps.", ta:"தொடர்ந்து அமல்படுத்தப்படும் ஒரு எல்லை ஒரு உறுதியான ஆற்றங்கரை போன்றது — இது நீரை அது இருக்க வேண்டிய இடத்தில் சரியாக வைத்திருக்கும். சில நேரங்களில் மட்டும் அமல்படுத்தப்படும் ஒரு எல்லை துளைகள் நிறைந்த ஆற்றங்கரை, அங்கு நீர் இடைவெளிகள் வழியாக வெள்ளமாகிறது."}
+    }
+  ],
+  actionPlan:{
+    en:["Sit down with your child this week and co-draft a simple 5-point screen time agreement.","Write it down in plain language and post it somewhere everyone can see (fridge, notice board).","Agree together, in advance, on exactly what happens if a rule is broken.","Set a calendar reminder to review and adjust the agreement in 2-3 months."],
+    ta:["இந்த வாரம் உங்கள் குழந்தையுடன் அமர்ந்து ஒரு எளிய 5-புள்ளி திரை நேர ஒப்பந்தத்தை இணைந்து வரைவு செய்யுங்கள்.","அதை எளிய மொழியில் எழுதி அனைவரும் பார்க்கக்கூடிய இடத்தில் (குளிர்சாதனப் பெட்டி, அறிவிப்புப் பலகை) ஒட்டவும்.","ஒரு விதி மீறப்பட்டால் சரியாக என்ன நடக்கும் என்பதை முன்கூட்டியே இணைந்து ஒப்புக்கொள்ளுங்கள்.","2-3 மாதங்களில் ஒப்பந்தத்தை மறுபரிசீலனை செய்து சரிசெய்ய ஒரு நாட்காட்டி நினைவூட்டலை அமைக்கவும்."]
+  },
+  reflect:{en:"What's one rule you enforce inconsistently that you could commit to being consistent about?", ta:"நீங்கள் நிலையற்ற முறையில் அமல்படுத்தும் ஒரு விதி எது, அதை நிலையானதாக்க நீங்கள் உறுதிபூண முடியுமா?"}
+},
+{
+  id:5,
+  title:{en:"Social Media & Peer Pressure", ta:"சமூக ஊடகம் & சக அழுத்தம்"},
+  desc:{en:"Helping tweens and teens navigate online social dynamics.", ta:"இளம் வயதினர் மற்றும் இளைஞர்கள் ஆன்லைன் சமூக இயக்கவியலை வழிநடத்த உதவுதல்."},
+  intro:{en:"For tweens and teens, social media isn't just entertainment — it's where their social identity and peer relationships are actively being formed. Banning it outright often backfires; guiding its use thoughtfully tends to work far better.", ta:"இளம் வயதினர் மற்றும் இளைஞர்களுக்கு, சமூக ஊடகம் வெறும் பொழுதுபோக்கு அல்ல — அவர்களின் சமூக அடையாளம் மற்றும் சக உறவுகள் தீவிரமாக உருவாகும் இடம். அதை முழுமையாக தடை செய்வது பெரும்பாலும் பின்வாங்கும்; அதன் பயன்பாட்டை சிந்தனையுடன் வழிநடத்துவது மிகவும் சிறப்பாக செயல்படும்."},
+  subtopics:[
+    {
+      title:{en:"The Comparison Trap", ta:"ஒப்பீட்டு பொறி"},
+      explanation:{en:"Social media shows carefully chosen, edited highlights of other people's lives — never the full picture. Constant exposure to these curated, idealized moments can quietly damage a child's sense of self-worth, because they're comparing their everyday reality to someone else's best moment.", ta:"சமூக ஊடகம் மற்றவர்களின் வாழ்க்கையின் கவனமாக தேர்ந்தெடுக்கப்பட்ட, திருத்தப்பட்ட சிறப்பம்சங்களைக் காட்டுகிறது — முழு படத்தை ஒருபோதும் அல்ல. இந்த தேர்ந்தெடுக்கப்பட்ட, இலட்சியப்படுத்தப்பட்ட தருணங்களுக்கு தொடர்ச்சியான வெளிப்பாடு, ஒரு குழந்தையின் சுய மதிப்பு உணர்வை அமைதியாக சேதப்படுத்தலாம், ஏனெனில் அவர்கள் தங்கள் அன்றாட யதார்த்தத்தை மற்றொருவரின் சிறந்த தருணத்துடன் ஒப்பிடுகிறார்கள்."},
+      example:{en:"A 13-year-old feels her ordinary Saturday is 'boring and sad' after scrolling through friends' vacation photos — not realizing those same friends have equally ordinary days that never get posted.", ta:"நண்பர்களின் விடுமுறை புகைப்படங்களை ஸ்க்ரோல் செய்த பிறகு ஒரு 13 வயது பெண் தனது சாதாரண சனிக்கிழமை 'சலிப்பானது மற்றும் சோகமானது' என்று உணர்கிறார் — அதே நண்பர்களுக்கு ஒருபோதும் பதிவிடப்படாத சமமான சாதாரண நாட்கள் உள்ளன என்பதை உணராமல்."},
+      metaphor:{en:"Comparing your own behind-the-scenes life to someone else's highlight reel is an unfair race — you're comparing your full movie to their trailer.", ta:"உங்கள் சொந்த திரைக்குப் பின்னணி வாழ்க்கையை மற்றொருவரின் சிறப்பம்ச காட்சிகளுடன் ஒப்பிடுவது நியாயமற்ற பந்தயம் — நீங்கள் உங்கள் முழு படத்தை அவர்களின் டிரெய்லருடன் ஒப்பிடுகிறீர்கள்."}
+    },
+    {
+      title:{en:"FOMO and Compulsive Checking", ta:"FOMO மற்றும் கட்டாய சரிபார்ப்பு"},
+      explanation:{en:"FOMO — the fear of missing out — drives many teens to check their phones repeatedly throughout the day, worried they'll miss a message, a photo, or a moment their friends are sharing. This constant checking fragments attention and makes it hard to focus on anything for long.", ta:"FOMO — தவறவிடும் பயம் — பல இளைஞர்களை நாள் முழுவதும் மீண்டும் மீண்டும் தங்கள் தொலைபேசிகளை சரிபார்க்க வைக்கிறது, ஒரு செய்தி, புகைப்படம் அல்லது தங்கள் நண்பர்கள் பகிரும் ஒரு தருணத்தை தவறவிடுவோம் என்ற கவலையுடன். இந்த தொடர்ச்சியான சரிபார்ப்பு கவனத்தை துண்டு துண்டாக்கி, எந்த ஒன்றிலும் நீண்ட நேரம் கவனம் செலுத்துவதை கடினமாக்குகிறது."},
+      example:{en:"A teen checks his phone over 100 times a day, mostly out of anxious habit rather than because something new is actually there — interrupting homework, meals, and conversations each time.", ta:"ஒரு இளைஞர் தனது தொலைபேசியை நாளொன்றுக்கு 100 முறைக்கும் மேல் சரிபார்க்கிறார், உண்மையில் ஏதேனும் புதியது இருப்பதால் அல்ல, பெரும்பாலும் பதட்டமான பழக்கத்தால் — ஒவ்வொரு முறையும் வீட்டுப்பாடம், உணவு மற்றும் உரையாடல்களை குறுக்கிடுகிறது."},
+      metaphor:{en:"FOMO-driven checking is like an itch that gets scratched but never fully relieved — each check briefly calms the urge, but only makes the itch come back stronger a few minutes later.", ta:"FOMO-உந்துதல் சரிபார்ப்பு சொறியப்பட்டாலும் ஒருபோதும் முழுமையாக நிவாரணம் கிடைக்காத அரிப்பு போன்றது — ஒவ்வொரு சரிபார்ப்பும் தூண்டுதலை சுருக்கமாக அமைதிப்படுத்துகிறது, ஆனால் சில நிமிடங்களுக்குப் பிறகு அரிப்பு மேலும் வலுவாக திரும்ப வருகிறது."}
+    },
+    {
+      title:{en:"Peer Pressure to Post and Participate", ta:"பதிவிட மற்றும் பங்கேற்க சக அழுத்தம்"},
+      explanation:{en:"Trends and challenges can create pressure to share content, or participate in something, that genuinely makes a child uncomfortable. The belief that 'everyone else is doing it' is very often not actually true — it just feels that way because of how visible online participation is.", ta:"போக்குகள் மற்றும் சவால்கள் ஒரு குழந்தையை உண்மையிலேயே சங்கடப்படுத்தும் உள்ளடக்கத்தைப் பகிர அல்லது ஏதேனும் ஒன்றில் பங்கேற்க அழுத்தத்தை உருவாக்கலாம். 'மற்றவர்கள் அனைவரும் அதைச் செய்கிறார்கள்' என்ற நம்பிக்கை பெரும்பாலும் உண்மையில் உண்மையல்ல — ஆன்லைன் பங்கேற்பு எவ்வளவு தெரியும் என்பதால் அது அப்படி உணரப்படுகிறது."},
+      example:{en:"A student joins a risky viral trend just to fit in with classmates, later regretting it once the video is seen by teachers and relatives beyond the friend group it was meant for.", ta:"ஒரு மாணவர் வகுப்புத் தோழர்களுடன் பொருந்துவதற்காக மட்டும் ஒரு அபாயகரமான வைரல் போக்கில் சேர்கிறார், அது நோக்கமாக இருந்த நண்பர் குழுவைத் தாண்டி ஆசிரியர்கள் மற்றும் உறவினர்களால் பார்க்கப்பட்ட பிறகு பின்னர் வருந்துகிறார்."},
+      metaphor:{en:"Following the crowd into an uncomfortable trend is like following the crowd off a cliff — just because many people are doing something doesn't mean it's actually safe.", ta:"ஒரு சங்கடமான போக்கிற்குள் கூட்டத்தைப் பின்பற்றுவது ஒரு பள்ளத்தாக்கிலிருந்து கூட்டத்தைப் பின்பற்றுவது போன்றது — பலர் ஒன்றைச் செய்கிறார்கள் என்பதால் அது உண்மையில் பாதுகாப்பானது என்று அர்த்தமல்ல."}
+    }
+  ],
+  actionPlan:{
+    en:["This week, ask your tween/teen: 'What's something on social media that makes you feel bad about yourself?' — and just listen without judging.","Talk through one comparison trap you've noticed together, using real examples if possible.","If your child hasn't yet joined social media, discuss delaying the first account a little longer.","Check in again on this topic once a month, keeping the conversation open and non-judgmental."],
+    ta:["இந்த வாரம், உங்கள் இளம் வயது/இளைஞரிடம் கேளுங்கள்: 'சமூக ஊடகத்தில் உங்களை மோசமாக உணர வைக்கும் ஒன்று என்ன?' — தீர்ப்பளிக்காமல் கேளுங்கள்.","முடிந்தால் உண்மையான உதாரணங்களைப் பயன்படுத்தி, நீங்கள் இணைந்து கவனித்த ஒரு ஒப்பீட்டு பொறியைப் பற்றி பேசுங்கள்.","உங்கள் குழந்தை இன்னும் சமூக ஊடகத்தில் சேரவில்லை என்றால், முதல் கணக்கை இன்னும் கொஞ்சம் தாமதப்படுத்துவது பற்றி விவாதிக்கவும்.","இந்த தலைப்பில் மாதத்திற்கு ஒருமுறை மீண்டும் சரிபார்க்கவும், உரையாடலை திறந்த மற்றும் தீர்ப்பற்றதாக வைத்திருக்கவும்."]
+  },
+  reflect:{en:"How comfortable is your child sharing their online experiences with you, honestly?", ta:"உங்கள் குழந்தை தங்கள் ஆன்லைன் அனுபவங்களை உங்களுடன் பகிர்ந்துகொள்வதில் எவ்வளவு வசதியாக உள்ளார், நேர்மையாக?"}
+},
+{
+  id:6,
+  title:{en:"Online Safety", ta:"ஆன்லைன் பாதுகாப்பு"},
+  desc:{en:"Cyberbullying, predators, privacy, and scam awareness.", ta:"சைபர் கொடுமைப்படுத்துதல், வேட்டையாடுபவர்கள், தனியுரிமை மற்றும் மோசடி விழிப்புணர்வு."},
+  intro:{en:"Online safety isn't about scaring your child away from technology — it's about giving them the same street-smart instincts you'd want them to have out in the physical world.", ta:"ஆன்லைன் பாதுகாப்பு என்பது உங்கள் குழந்தையை தொழில்நுட்பத்திலிருந்து பயமுறுத்துவது அல்ல — இது உடல் உலகில் அவர்களுக்கு இருக்க வேண்டும் என நீங்கள் விரும்பும் அதே தெருவறிவை அவர்களுக்கு வழங்குவதாகும்."},
+  subtopics:[
+    {
+      title:{en:"Strangers and Online Predators", ta:"அந்நியர்கள் மற்றும் ஆன்லைன் வேட்டையாடுபவர்கள்"},
+      explanation:{en:"Anyone your child has not met in person is a stranger, regardless of how long they've been chatting online or how well they feel they 'know' them. Predators often spend weeks or months building trust before ever asking for anything harmful.", ta:"உங்கள் குழந்தை நேரில் சந்திக்காத எவரும் ஒரு அந்நியர், அவர்கள் எவ்வளவு காலமாக ஆன்லைனில் அரட்டையடித்திருந்தாலும் அல்லது அவர்களை எவ்வளவு நன்றாக 'அறிந்திருக்கிறோம்' என்று உணர்ந்தாலும். வேட்டையாடுபவர்கள் பெரும்பாலும் தீங்கு விளைவிக்கும் எதையும் கேட்பதற்கு முன் நம்பிக்கையை உருவாக்க வாரங்கள் அல்லது மாதங்கள் செலவிடுகிறார்கள்."},
+      example:{en:"A 'friend' met inside an online game asks a child to move the conversation to a private app and eventually suggests meeting in person alone — a clear and serious red flag.", ta:"ஒரு ஆன்லைன் கேமிற்குள் சந்தித்த 'நண்பர்' ஒரு குழந்தையிடம் உரையாடலை ஒரு தனியார் ஆப்பிற்கு நகர்த்தச் சொல்லி, இறுதியில் தனியாக நேரில் சந்திக்க பரிந்துரைக்கிறார் — இது ஒரு தெளிவான மற்றும் தீவிரமான எச்சரிக்கை அறிகுறி."},
+      metaphor:{en:"An online stranger is like a masked visitor at the door — you simply cannot verify who is really behind the mask, no matter how friendly their voice sounds.", ta:"ஆன்லைன் அந்நியர் கதவில் இருக்கும் முகமூடி அணிந்த பார்வையாளர் போன்றவர் — அவர்களின் குரல் எவ்வளவு நட்பாக ஒலித்தாலும், முகமூடிக்குப் பின்னால் உண்மையில் யார் இருக்கிறார்கள் என்பதை உங்களால் சரிபார்க்க முடியாது."}
+    },
+    {
+      title:{en:"Privacy and Personal Data", ta:"தனியுரிமை மற்றும் தனிப்பட்ட தரவு"},
+      explanation:{en:"Full name, school name, home address, and real-time location should never be shared publicly. Even small details, when combined across multiple posts, can reveal enough for a stranger to locate a child in the real world.", ta:"முழு பெயர், பள்ளி பெயர், வீட்டு முகவரி மற்றும் நிகழ்நேர இருப்பிடம் ஒருபோதும் பொதுவில் பகிரப்படக்கூடாது. சிறிய விவரங்கள் கூட, பல பதிவுகளில் இணைக்கப்படும்போது, ஒரு அந்நியருக்கு உண்மையான உலகில் ஒரு குழந்தையைக் கண்டுபிடிக்க போதுமான தகவலை வெளிப்படுத்தலாம்."},
+      example:{en:"A child posts a photo in school uniform with the location tag turned on — combined with other posts, this can reveal exactly which school they attend and roughly when they're there each day.", ta:"ஒரு குழந்தை இருப்பிட குறிச்சொல் இயக்கப்பட்ட நிலையில் பள்ளி சீருடையில் ஒரு புகைப்படத்தை பதிவிடுகிறார் — மற்ற பதிவுகளுடன் இணைந்து, இது அவர்கள் எந்த பள்ளியில் படிக்கிறார்கள் மற்றும் ஒவ்வொரு நாளும் அங்கு தோராயமாக எப்போது இருக்கிறார்கள் என்பதை துல்லியமாக வெளிப்படுத்தலாம்."},
+      metaphor:{en:"Sharing personal details online is like leaving your house key under the doormat in full public view — it feels harmless in the moment, but it's an open invitation you can't take back.", ta:"தனிப்பட்ட விவரங்களை ஆன்லைனில் பகிர்வது உங்கள் வீட்டுச் சாவியை முழு பொதுக் காட்சியில் கால் துடைப்பானின் கீழ் விட்டுவிடுவது போன்றது — அந்த தருணத்தில் இது தீங்கற்றதாக உணரப்படுகிறது, ஆனால் இது நீங்கள் திரும்பப் பெற முடியாத ஒரு திறந்த அழைப்பு."}
+    },
+    {
+      title:{en:"Cyberbullying and Scams", ta:"சைபர் கொடுமைப்படுத்துதல் மற்றும் மோசடிகள்"},
+      explanation:{en:"Teach your child to save evidence of bullying, avoid responding in anger, and tell a trusted adult immediately. For scams, remember: messages promising prizes, urgent money requests, or deals that sound too good to be true are almost always fake.", ta:"கொடுமைப்படுத்துதலின் ஆதாரங்களை சேமிக்க, கோபத்தில் பதிலளிக்காமல் இருக்க, மற்றும் உடனடியாக நம்பகமான பெரியவரிடம் சொல்ல உங்கள் குழந்தைக்கு கற்பிக்கவும். மோசடிகளுக்கு, நினைவில் கொள்ளுங்கள்: பரிசுகளை உறுதியளிக்கும் செய்திகள், அவசர பண கோரிக்கைகள், அல்லது மிகவும் நல்லதாகத் தோன்றும் ஒப்பந்தங்கள் கிட்டத்தட்ட எப்போதும் போலியானவை."},
+      example:{en:"A message claiming 'You've won a free smartphone, click here to claim it' is almost always a scam designed to steal personal information or install harmful software.", ta:"'நீங்கள் ஒரு இலவச ஸ்மார்ட்போனை வென்றுள்ளீர்கள், அதைப் பெற இங்கே கிளிக் செய்யுங்கள்' என்று கூறும் ஒரு செய்தி, தனிப்பட்ட தகவலைத் திருடவோ அல்லது தீங்கு விளைவிக்கும் மென்பொருளை நிறுவவோ வடிவமைக்கப்பட்ட ஒரு மோசடியாக கிட்டத்தட்ட எப்போதும் இருக்கும்."},
+      metaphor:{en:"A scam is like a fishing hook hidden inside attractive bait — it looks appealing on the surface, but there's a hook waiting underneath for anyone who bites.", ta:"ஒரு மோசடி கவர்ச்சிகரமான தூண்டிலுக்குள் மறைக்கப்பட்ட மீன்பிடி கொக்கி போன்றது — இது மேற்பரப்பில் கவர்ச்சிகரமாகத் தெரிகிறது, ஆனால் கடிக்கும் எவருக்கும் அடியில் ஒரு கொக்கி காத்திருக்கிறது."}
+    }
+  ],
+  actionPlan:{
+    en:["Have 'the online safety talk' this week using the examples above — keep it a two-way conversation, not a lecture.","Sit together and review privacy settings on your child's most-used apps.","Make a clear promise: 'You can tell me anything online that worries you, and you will never be punished for telling me.'","Repeat this safety conversation every few months, updating it as your child grows and uses new apps."],
+    ta:["இந்த வாரம் மேலே உள்ள உதாரணங்களைப் பயன்படுத்தி 'ஆன்லைன் பாதுகாப்பு பேச்சை' நடத்துங்கள் — இது ஒரு இரு-வழி உரையாடலாக இருக்கட்டும், விரிவுரையாக அல்ல.","உங்கள் குழந்தை அதிகம் பயன்படுத்தும் ஆப்ஸில் தனியுரிமை அமைப்புகளை இணைந்து அமர்ந்து மறுபரிசீலனை செய்யுங்கள்.","ஒரு தெளிவான வாக்குறுதி அளியுங்கள்: 'ஆன்லைனில் உங்களைக் கவலைப்படுத்தும் எதையும் நீங்கள் என்னிடம் சொல்லலாம், அதைச் சொன்னதற்காக நீங்கள் ஒருபோதும் தண்டிக்கப்பட மாட்டீர்கள்.'","உங்கள் குழந்தை வளர்ந்து புதிய ஆப்ஸைப் பயன்படுத்தும்போது, இந்த பாதுகாப்பு உரையாடலை ஒவ்வொரு சில மாதங்களுக்கும் புதுப்பித்து மீண்டும் செய்யுங்கள்."]
+  },
+  reflect:{en:"Does your child know they can come to you with an online problem without fear of punishment?", ta:"தண்டனை பயமின்றி ஆன்லைன் பிரச்சனையுடன் தங்களால் உங்களிடம் வர முடியும் என்று உங்கள் குழந்தைக்குத் தெரியுமா?"}
+},
+{
+  id:7,
+  title:{en:"Gaming: Balance vs. Obsession", ta:"கேமிங்: சமநிலை vs. வெறி"},
+  desc:{en:"Managing gaming time without conflict or shame.", ta:"முரண்பாடு அல்லது வெட்கம் இல்லாமல் கேமிங் நேரத்தை நிர்வகித்தல்."},
+  intro:{en:"Gaming has an outsized reputation as simply 'bad' — but many games genuinely build strategic thinking, teamwork, problem-solving, and even friendship. The real concern isn't gaming itself, but unmanaged, unbalanced gaming.", ta:"கேமிங் வெறுமனே 'மோசமானது' என்று அதிக அளவில் நற்பெயர் பெறுகிறது — ஆனால் பல கேம்கள் உண்மையிலேயே மூலோபாய சிந்தனை, குழுப்பணி, சிக்கல் தீர்த்தல், மற்றும் நட்பையும் கூட உருவாக்குகின்றன. உண்மையான கவலை கேமிங் அல்ல, நிர்வகிக்கப்படாத, சமநிலையற்ற கேமிங்."},
+  subtopics:[
+    {
+      title:{en:"Know the Game Your Child Plays", ta:"உங்கள் குழந்தை விளையாடும் கேமை அறிந்துகொள்ளுங்கள்"},
+      explanation:{en:"Before allowing any game, check its age rating, its content (violence, language, online chat with strangers), and whether it allows unsupervised interaction with other players. This single step prevents most gaming-related surprises later.", ta:"எந்த கேமையும் அனுமதிப்பதற்கு முன், அதன் வயது மதிப்பீடு, அதன் உள்ளடக்கம் (வன்முறை, மொழி, அந்நியர்களுடன் ஆன்லைன் அரட்டை), மற்றும் அது மற்ற வீரர்களுடன் மேற்பார்வையற்ற தொடர்பை அனுமதிக்கிறதா என்பதை சரிபார்க்கவும். இந்த ஒரே படி பின்னர் பெரும்பாலான கேமிங் தொடர்பான ஆச்சரியங்களைத் தடுக்கிறது."},
+      example:{en:"Before downloading a popular new game, a parent spends 5 minutes checking its age rating and reading what real parents say about its chat features — discovering it allows open voice chat with strangers, and adjusting settings accordingly.", ta:"ஒரு பிரபலமான புதிய கேமைப் பதிவிறக்கம் செய்வதற்கு முன், ஒரு பெற்றோர் அதன் வயது மதிப்பீட்டைச் சரிபார்த்து, அதன் அரட்டை அம்சங்கள் பற்றி உண்மையான பெற்றோர்கள் என்ன சொல்கிறார்கள் என்பதைப் படிக்க 5 நிமிடங்களை செலவிடுகிறார் — அது அந்நியர்களுடன் திறந்த குரல் அரட்டையை அனுமதிக்கிறது என்பதைக் கண்டறிந்து, அதற்கேற்ப அமைப்புகளை சரிசெய்கிறார்."},
+      metaphor:{en:"Knowing the game before you allow it is like reading the ingredients label before serving food — a quick check that prevents a much bigger problem later.", ta:"நீங்கள் அனுமதிப்பதற்கு முன் கேமை அறிந்துகொள்வது உணவு பரிமாறுவதற்கு முன் பொருட்களின் லேபிளைப் படிப்பது போன்றது — பின்னர் மிகப் பெரிய பிரச்சனையைத் தடுக்கும் ஒரு விரைவான சரிபார்ப்பு."}
+    },
+    {
+      title:{en:"Reward Loops and Microtransactions", ta:"வெகுமதி சுழற்சிகள் மற்றும் மைக்ரோ டிரான்சாக்ஷன்கள்"},
+      explanation:{en:"Many modern games are deliberately designed with reward loops, loot boxes, and microtransactions that encourage compulsive play and real-money spending — not accidentally, but as a core part of the business model. Recognizing this design helps you set smarter limits.", ta:"பல நவீன கேம்கள் வேண்டுமென்றே வெகுமதி சுழற்சிகள், லூட் பாக்ஸ்கள் மற்றும் மைக்ரோ டிரான்சாக்ஷன்களுடன் வடிவமைக்கப்பட்டுள்ளன, அவை கட்டாய விளையாட்டு மற்றும் உண்மையான பண செலவினத்தை ஊக்குவிக்கின்றன — தற்செயலாக அல்ல, மாறாக வணிக மாதிரியின் முக்கிய பகுதியாக. இந்த வடிவமைப்பை அங்கீகரிப்பது புத்திசாலித்தனமான வரம்புகளை அமைக்க உதவுகிறது."},
+      example:{en:"A child keeps asking for 'just one more chest' or 'just one more spin,' and small amounts of pocket money quietly add up to a significant sum spent on in-game purchases over a month.", ta:"ஒரு குழந்தை 'இன்னும் ஒரு பெட்டி' அல்லது 'இன்னும் ஒரு சுழற்சி' என்று கேட்டுக்கொண்டே இருக்கிறார், மேலும் சிறிய அளவு பாக்கெட் பணம் அமைதியாக ஒரு மாதத்தில் கேம்-உள் கொள்முதலில் செலவழிக்கப்படும் குறிப்பிடத்தக்க தொகையாக சேர்கிறது."},
+      metaphor:{en:"Loot boxes and reward loops are essentially slot machines dressed up as toys — the same psychological pull, just designed for a younger audience.", ta:"லூட் பாக்ஸ்கள் மற்றும் வெகுமதி சுழற்சிகள் அடிப்படையில் பொம்மைகளாக அலங்கரிக்கப்பட்ட ஸ்லாட் இயந்திரங்கள் — அதே உளவியல் ஈர்ப்பு, இளைய பார்வையாளர்களுக்காக மட்டும் வடிவமைக்கப்பட்டுள்ளது."}
+    },
+    {
+      title:{en:"Building a Balanced Gaming Mix", ta:"சமநிலையான கேமிங் கலவையை உருவாக்குதல்"},
+      explanation:{en:"Encourage a healthy mix of single-player story games, offline games, and social multiplayer games rather than one type dominating entirely. Playing together with your child occasionally builds genuine connection and gives you real insight into their gaming world.", ta:"ஒரு வகை முழுவதுமாக ஆதிக்கம் செலுத்துவதை விட, ஒற்றை-வீரர் கதை கேம்கள், ஆஃப்லைன் கேம்கள் மற்றும் சமூக பல்வீரர் கேம்களின் ஆரோக்கியமான கலவையை ஊக்குவிக்கவும். உங்கள் குழந்தையுடன் எப்போதாவது இணைந்து விளையாடுவது உண்மையான தொடர்பை உருவாக்கி, அவர்களின் கேமிங் உலகம் பற்றிய உண்மையான நுண்ணறிவை உங்களுக்கு அளிக்கிறது."},
+      example:{en:"A parent sets aside 20 minutes on a Sunday to play their child's favorite game together, and comes away understanding exactly why the child enjoys it — and where the game's risky features are.", ta:"ஒரு பெற்றோர் ஞாயிற்றுக்கிழமை தங்கள் குழந்தையின் விருப்பமான கேமை இணைந்து விளையாட 20 நிமிடங்களை ஒதுக்குகிறார், மேலும் குழந்தை அதை ஏன் அனுபவிக்கிறார் என்பதையும் — கேமின் ஆபத்தான அம்சங்கள் எங்கே உள்ளன என்பதையும் புரிந்துகொண்டு வெளியேறுகிறார்."},
+      metaphor:{en:"A healthy gaming mix is like a balanced diet — variety keeps it healthy, while eating only one type of 'food' every single day eventually causes problems.", ta:"ஆரோக்கியமான கேமிங் கலவை ஒரு சமநிலையான உணவுமுறை போன்றது — பன்முகத்தன்மை அதை ஆரோக்கியமாக வைத்திருக்கிறது, ஒவ்வொரு நாளும் ஒரே வகையான 'உணவை' மட்டும் சாப்பிடுவது இறுதியில் பிரச்சனைகளை ஏற்படுத்துகிறது."}
+    }
+  ],
+  actionPlan:{
+    en:["This week, learn the name, age rating, and chat features of your child's most-played game.","Set a clear session time limit with a 10-minute advance warning before it ends.","Check whether the game includes loot boxes or microtransactions, and set spending limits if so.","Play the game together with your child once this week, just to understand their world better."],
+    ta:["இந்த வாரம், உங்கள் குழந்தை அதிகம் விளையாடும் கேமின் பெயர், வயது மதிப்பீடு மற்றும் அரட்டை அம்சங்களை அறிந்துகொள்ளுங்கள்.","அது முடிவதற்கு 10-நிமிட முன் எச்சரிக்கையுடன் தெளிவான அமர்வு நேர வரம்பை அமைக்கவும்.","கேமில் லூட் பாக்ஸ்கள் அல்லது மைக்ரோ டிரான்சாக்ஷன்கள் உள்ளதா எனச் சரிபார்த்து, அப்படியானால் செலவு வரம்புகளை அமைக்கவும்.","அவர்களின் உலகத்தை நன்றாக புரிந்துகொள்ள, இந்த வாரம் ஒருமுறை உங்கள் குழந்தையுடன் இணைந்து கேமை விளையாடுங்கள்."]
+  },
+  reflect:{en:"Have you ever played your child's favorite game with them? What did you learn from it?", ta:"உங்கள் குழந்தையின் விருப்பமான கேமை அவர்களுடன் நீங்கள் விளையாடியிருக்கிறீர்களா? அதிலிருந்து நீங்கள் என்ன கற்றுக்கொண்டீர்கள்?"}
+},
+{
+  id:8,
+  title:{en:"Digital Discipline Without Conflict", ta:"மோதல் இல்லாத டிஜிட்டல் ஒழுக்கம்"},
+  desc:{en:"Positive discipline techniques applied to screen behavior.", ta:"திரை நடத்தைக்கு பயன்படுத்தப்படும் நேர்மறை ஒழுக்க நுட்பங்கள்."},
+  intro:{en:"Punitive approaches to screen discipline — sudden bans, confiscation as punishment, shouting matches — tend to escalate conflict rather than resolve it. Positive discipline principles work just as well here as they do anywhere else in parenting.", ta:"திரை ஒழுக்கத்திற்கான தண்டனை அணுகுமுறைகள் — திடீர் தடைகள், தண்டனையாக பறிமுதல், கத்தும் சண்டைகள் — முரண்பாட்டை தீர்ப்பதை விட அதிகரிக்க முனைகின்றன. நேர்மறை ஒழுக்க கொள்கைகள் பெற்றோர் பணியில் வேறு எங்கும் போலவே இங்கும் சிறப்பாக செயல்படுகின்றன."},
+  subtopics:[
+    {
+      title:{en:"Give Warnings, Not Surprises", ta:"எச்சரிக்கைகளைக் கொடுங்கள், ஆச்சரியங்களை அல்ல"},
+      explanation:{en:"Give a clear advance warning — such as '10 minutes left' — rather than abruptly ending screen time without notice. A sudden cutoff feels jarring and unfair to a child mid-activity, and often triggers the exact meltdown parents are trying to avoid.", ta:"அறிவிப்பு இல்லாமல் திடீரென திரை நேரத்தை முடிப்பதற்குப் பதிலாக, '10 நிமிடங்கள் மீதம்' போன்ற தெளிவான முன்கூட்டிய எச்சரிக்கையைக் கொடுங்கள். ஒரு செயல்பாட்டின் நடுவில் திடீர் நிறுத்தம் ஒரு குழந்தைக்கு அதிர்ச்சியூட்டுவதாகவும் அநியாயமாகவும் உணரப்படுகிறது, மேலும் பெற்றோர்கள் தவிர்க்க முயற்சிக்கும் அதே உடைவை பெரும்பாலும் தூண்டுகிறது."},
+      example:{en:"Instead of switching off the TV mid-episode without notice, a parent says '10 more minutes, then we're done' — giving the child time to mentally prepare for the transition.", ta:"அறிவிப்பு இல்லாமல் ஒரு அத்தியாயத்தின் நடுவில் டிவியை அணைப்பதற்குப் பதிலாக, ஒரு பெற்றோர் 'இன்னும் 10 நிமிடங்கள், பிறகு முடிந்துவிடும்' என்று சொல்கிறார் — மாற்றத்திற்கு மனதளவில் தயாராக குழந்தைக்கு நேரம் கொடுக்கிறார்."},
+      metaphor:{en:"Giving an advance warning is like gradually turning down loud music instead of yanking the plug out of the wall — the transition is much less jarring both ways.", ta:"முன்கூட்டிய எச்சரிக்கையைக் கொடுப்பது சுவரிலிருந்து பிளக்கை இழுப்பதற்குப் பதிலாக சத்தமான இசையை படிப்படியாகக் குறைப்பது போன்றது — இரு வழிகளிலும் மாற்றம் மிகவும் குறைவான அதிர்ச்சியூட்டும்."}
+    },
+    {
+      title:{en:"Use Natural, Related Consequences", ta:"இயற்கையான, தொடர்புடைய விளைவுகளைப் பயன்படுத்துங்கள்"},
+      explanation:{en:"A consequence that logically connects to the behavior teaches far more than an unrelated punishment. When the consequence makes sense to the child, they learn cause and effect instead of just feeling punished arbitrarily.", ta:"நடத்தையுடன் தர்க்கரீதியாக இணைக்கும் ஒரு விளைவு, தொடர்பில்லாத தண்டனையை விட மிகவும் அதிகமாகக் கற்பிக்கிறது. விளைவு குழந்தைக்கு அர்த்தமுள்ளதாக இருக்கும்போது, தன்னிச்சையாக தண்டிக்கப்படுவதாக உணர்வதற்குப் பதிலாக காரணம் மற்றும் விளைவை அவர்கள் கற்றுக்கொள்கிறார்கள்."},
+      example:{en:"'Since the tablet wasn't put away on time yesterday, it stays with me until after lunch today' connects directly to the behavior, unlike an unrelated punishment like losing dessert.", ta:"'நேற்று டேப்லெட் சரியான நேரத்தில் வைக்கப்படாததால், இன்று மதிய உணவிற்குப் பிறகு வரை அது என்னிடம் இருக்கும்' என்பது நடத்தையுடன் நேரடியாக இணைகிறது, இனிப்பு இழப்பது போன்ற தொடர்பில்லாத தண்டனையைப் போலல்லாமல்."},
+      metaphor:{en:"A natural consequence is like touching a hot stove — the result itself teaches the lesson clearly, without anyone needing to shout or lecture.", ta:"ஒரு இயற்கையான விளைவு சூடான அடுப்பைத் தொடுவது போன்றது — யாரும் கத்தவோ விரிவுரை செய்யவோ தேவையில்லாமல், விளைவே பாடத்தை தெளிவாகக் கற்பிக்கிறது."}
+    },
+    {
+      title:{en:"Stay Calm and Firm", ta:"அமைதியாகவும் உறுதியாகவும் இருங்கள்"},
+      explanation:{en:"When a child resists or argues, a power struggle rewards the behavior with attention and drama, which can actually make it worse over time. Staying calm and firm, and specifically praising compliance when it happens, works far better long-term.", ta:"ஒரு குழந்தை எதிர்க்கும் அல்லது வாதிடும் போது, ஒரு அதிகார போராட்டம் கவனம் மற்றும் நாடகத்துடன் நடத்தைக்கு வெகுமதி அளிக்கிறது, இது உண்மையில் காலப்போக்கில் அதை மோசமாக்கலாம். அமைதியாகவும் உறுதியாகவும் இருப்பது, மற்றும் இணக்கம் நிகழும்போது குறிப்பாக பாராட்டுவது, நீண்ட காலத்திற்கு மிகவும் சிறப்பாக செயல்படும்."},
+      example:{en:"Instead of raising his voice, a parent calmly repeats 'time's up now' once, waits, and then says 'thank you for stopping right when I asked' the moment the child complies.", ta:"தனது குரலை உயர்த்துவதற்குப் பதிலாக, ஒரு பெற்றோர் அமைதியாக 'இப்போது நேரம் முடிந்தது' என்று ஒருமுறை மீண்டும் கூறி, காத்திருந்து, குழந்தை இணங்கும் தருணத்தில் 'நான் கேட்டவுடன் நிறுத்தியதற்கு நன்றி' என்று சொல்கிறார்."},
+      metaphor:{en:"Staying calm during a child's emotional storm is like being the steady anchor — the storm doesn't need another storm to match it; it needs something solid to hold against.", ta:"ஒரு குழந்தையின் உணர்ச்சி புயலின் போது அமைதியாக இருப்பது நிலையான நங்கூரமாக இருப்பது போன்றது — புயலுக்கு அதை ஒப்பிட மற்றொரு புயல் தேவையில்லை; அதற்கு எதிராக பிடிக்க திடமான ஒன்று தேவை."}
+    }
+  ],
+  actionPlan:{
+    en:["Next time you need to end screen time, try the 10-minute advance warning and notice the difference in your child's reaction.","Choose one natural, related consequence for your most common screen-time conflict, and apply it consistently.","Practice staying calm during the next disagreement — pause before responding if you feel your own frustration rising.","Specifically praise your child the next time they comply with a screen time request smoothly."],
+    ta:["அடுத்த முறை நீங்கள் திரை நேரத்தை முடிக்க வேண்டியிருக்கும்போது, 10-நிமிட முன் எச்சரிக்கையை முயற்சித்து உங்கள் குழந்தையின் எதிர்வினையில் உள்ள வேறுபாட்டைக் கவனியுங்கள்.","உங்கள் மிகவும் பொதுவான திரை நேர முரண்பாட்டிற்கு ஒரு இயற்கையான, தொடர்புடைய விளைவைத் தேர்ந்தெடுத்து, அதை தொடர்ச்சியாகப் பயன்படுத்துங்கள்.","அடுத்த கருத்து வேறுபாட்டின் போது அமைதியாக இருக்கப் பயிற்சி செய்யுங்கள் — உங்கள் சொந்த விரக்தி அதிகரிப்பதாக உணர்ந்தால் பதிலளிப்பதற்கு முன் இடைநிறுத்தவும்.","அடுத்த முறை உங்கள் குழந்தை ஒரு திரை நேர கோரிக்கைக்கு சீராக இணங்கும்போது குறிப்பாக பாராட்டுங்கள்."]
+  },
+  reflect:{en:"What's your default reaction when your child resists ending screen time? Is it working?", ta:"உங்கள் குழந்தை திரை நேரத்தை முடிக்க எதிர்க்கும்போது உங்கள் இயல்பான எதிர்வினை என்ன? அது வேலை செய்கிறதா?"}
+},
+{
+  id:9,
+  title:{en:"Modeling Healthy Tech Use", ta:"ஆரோக்கியமான தொழில்நுட்ப பயன்பாட்டை முன்மாதிரியாக்குதல்"},
+  desc:{en:"Becoming the digital role model your child needs.", ta:"உங்கள் குழந்தைக்குத் தேவையான டிஜிட்டல் முன்மாதிரியாக மாறுதல்."},
+  intro:{en:"Children learn far more from what they observe than from what they're told. If a parent asks a child to put down their phone while scrolling through their own, the message received is confusion, not compliance.", ta:"குழந்தைகள் சொல்லப்படுவதை விட கவனிப்பதிலிருந்து அதிகம் கற்றுக்கொள்கிறார்கள். ஒரு பெற்றோர் தங்கள் சொந்த தொலைபேசியை ஸ்க்ரோல் செய்யும்போது குழந்தையிடம் தொலைபேசியை கீழே வைக்கச் சொன்னால், பெறப்படும் செய்தி குழப்பம், இணக்கம் அல்ல."},
+  subtopics:[
+    {
+      title:{en:"Practicing What You Preach", ta:"நீங்கள் போதிப்பதைச் செய்தல்"},
+      explanation:{en:"Children copy observed behavior far more readily than they follow verbal instructions. A rule that applies only to the child, and not to the parent enforcing it, sends a confusing double message that undermines the rule itself.", ta:"குழந்தைகள் வாய்மொழி வழிமுறைகளைப் பின்பற்றுவதை விட கவனிக்கப்பட்ட நடத்தையை மிகவும் எளிதாக நகலெடுக்கிறார்கள். குழந்தைக்கு மட்டுமே பொருந்தும், அதை அமல்படுத்தும் பெற்றோருக்கு அல்ல என்ற ஒரு விதி, விதியையே குலைக்கும் குழப்பமான இரட்டை செய்தியை அனுப்புகிறது."},
+      example:{en:"A parent tells their child to stop scrolling on the phone at dinner, but continues checking work messages at the same table — the child notices the mismatch immediately, even if they don't say anything.", ta:"ஒரு பெற்றோர் இரவு உணவின் போது தொலைபேசியில் ஸ்க்ரோல் செய்வதை நிறுத்தச் சொல்கிறார், ஆனால் அதே மேசையில் வேலை செய்திகளைத் தொடர்ந்து சரிபார்க்கிறார் — குழந்தை எதுவும் சொல்லாவிட்டாலும், பொருத்தமின்மையை உடனடியாக கவனிக்கிறார்."},
+      metaphor:{en:"A child's actions are the language they actually read; your words are just the subtitles underneath. If the subtitles say one thing and the movie shows another, they trust the movie.", ta:"ஒரு குழந்தையின் செயல்கள் அவர்கள் உண்மையில் படிக்கும் மொழி; உங்கள் வார்த்தைகள் அடியில் உள்ள துணை எழுத்துக்கள் மட்டுமே. துணை எழுத்துக்கள் ஒன்றைச் சொல்லி, படம் வேறொன்றைக் காட்டினால், அவர்கள் படத்தையே நம்புவார்கள்."}
+    },
+    {
+      title:{en:"Making Healthy Habits Visible", ta:"ஆரோக்கியமான பழக்கங்களை தெரியும்படி செய்தல்"},
+      explanation:{en:"Simply narrating your own healthy tech habits out loud helps your child notice and internalize them, rather than assuming your good habits happen invisibly or don't exist at all.", ta:"உங்கள் சொந்த ஆரோக்கியமான தொழில்நுட்ப பழக்கங்களை வெறுமனே சத்தமாக விவரிப்பது, உங்கள் நல்ல பழக்கங்கள் கண்ணுக்குத் தெரியாமல் நிகழ்கின்றன அல்லது இல்லவே இல்லை என்று கருதுவதற்குப் பதிலாக, உங்கள் குழந்தை அவற்றைக் கவனித்து உள்வாங்க உதவுகிறது."},
+      example:{en:"A parent says out loud, 'I'm putting my phone in the other room during dinner so we can talk properly' — turning an invisible habit into something the child consciously registers.", ta:"ஒரு பெற்றோர் சத்தமாகச் சொல்கிறார், 'நாம் சரியாக பேச முடியும் என்பதற்காக இரவு உணவின் போது நான் என் தொலைபேசியை மற்றொரு அறையில் வைக்கிறேன்' — கண்ணுக்குத் தெரியாத பழக்கத்தை குழந்தை உணர்வுபூர்வமாக பதிவு செய்யும் ஒன்றாக மாற்றுகிறார்."},
+      metaphor:{en:"Modeling a habit out loud is like leaving clear footprints in fresh snow — your child can only follow a path they can actually see you walking.", ta:"ஒரு பழக்கத்தை சத்தமாக முன்மாதிரியாக்குவது புதிய பனியில் தெளிவான கால்தடங்களை விடுவது போன்றது — நீங்கள் உண்மையில் நடப்பதை அவர்களால் பார்க்க முடியும் ஒரு பாதையை மட்டுமே உங்கள் குழந்தையால் பின்பற்ற முடியும்."}
+    },
+    {
+      title:{en:"Repair and Honesty", ta:"திருத்தம் மற்றும் நேர்மை"},
+      explanation:{en:"No parent will model perfect tech habits every single day, and that's completely fine. What matters is acknowledging a slip-up honestly and resetting — this models the skill of self-correction, which is just as valuable as the original habit.", ta:"எந்த பெற்றோரும் ஒவ்வொரு நாளும் சரியான தொழில்நுட்ப பழக்கங்களை முன்மாதிரியாக்க மாட்டார்கள், அது முற்றிலும் சரி. ஒரு தவறை நேர்மையாக ஒப்புக்கொண்டு மீட்டமைப்பது தான் முக்கியம் — இது சுய-திருத்தத்தின் திறனை முன்மாதிரியாக்குகிறது, இது அசல் பழக்கத்தைப் போலவே மதிப்புமிக்கது."},
+      example:{en:"A parent says, 'I was on my phone too much yesterday evening — let me put it away properly today,' modeling honest self-correction rather than pretending it never happened.", ta:"ஒரு பெற்றோர் சொல்கிறார், 'நேற்று மாலை நான் தொலைபேசியில் அதிகமாக இருந்தேன் — இன்று அதை சரியாக ஒதுக்கி வைக்கிறேன்,' அது ஒருபோதும் நடக்கவில்லை என்று பாசாங்கு செய்வதற்குப் பதிலாக நேர்மையான சுய-திருத்தத்தை முன்மாதிரியாக்குகிறது."},
+      metaphor:{en:"Even the most skilled gardener sometimes over-waters a plant. Noticing it and correcting course the next day is part of the skill itself, not a failure of it.", ta:"மிகவும் திறமையான தோட்டக்காரர் கூட சில நேரங்களில் ஒரு செடிக்கு அதிக நீர் ஊற்றுவார். அதை கவனித்து அடுத்த நாள் திசையை சரிசெய்வது திறனின் ஒரு பகுதி, அதன் தோல்வி அல்ல."}
+    }
+  ],
+  actionPlan:{
+    en:["Choose one phone-free time this week that applies to every family member, including you.","Narrate one of your own healthy tech habits out loud so your child notices it.","If you slip up this week, acknowledge it honestly to your child instead of ignoring it.","At the end of the week, reflect honestly on what your own behavior taught your child."],
+    ta:["இந்த வாரம் உங்கள் உட்பட ஒவ்வொரு குடும்ப உறுப்பினருக்கும் பொருந்தும் ஒரு தொலைபேசி இல்லாத நேரத்தைத் தேர்ந்தெடுங்கள்.","உங்கள் சொந்த ஆரோக்கியமான தொழில்நுட்ப பழக்கங்களில் ஒன்றை சத்தமாக விவரிக்கவும், உங்கள் குழந்தை அதைக் கவனிக்கும்படி.","இந்த வாரம் நீங்கள் தவறு செய்தால், அதைப் புறக்கணிப்பதற்குப் பதிலாக உங்கள் குழந்தையிடம் நேர்மையாக ஒப்புக்கொள்ளுங்கள்.","வாரயிறுதியில், உங்கள் சொந்த நடத்தை உங்கள் குழந்தைக்கு என்ன கற்பித்தது என்பதை நேர்மையாக சிந்தியுங்கள்."]
+  },
+  reflect:{en:"Honestly, what does your own screen behavior teach your child right now?", ta:"நேர்மையாக, உங்கள் சொந்த திரை நடத்தை இப்போது உங்கள் குழந்தைக்கு என்ன கற்பிக்கிறது?"}
+},
+{
+  id:10,
+  title:{en:"Your Family Digital Wellness Plan", ta:"உங்கள் குடும்ப டிஜிட்டல் நல திட்டம்"},
+  desc:{en:"Put it all together into a personalized, sustainable plan.", ta:"இவை அனைத்தையும் ஒரு தனிப்பயன், நீடிக்கக்கூடிய திட்டமாக ஒன்றிணைத்தல்."},
+  intro:{en:"You've now covered awareness, age-appropriate limits, warning signs, boundaries, social dynamics, safety, gaming, discipline, and modeling. This final module is about integration — turning nine modules of learning into one simple, livable family plan.", ta:"விழிப்புணர்வு, வயதுக்கேற்ற வரம்புகள், எச்சரிக்கை அறிகுறிகள், எல்லைகள், சமூக இயக்கவியல், பாதுகாப்பு, கேமிங், ஒழுக்கம் மற்றும் முன்மாதிரி ஆகியவற்றை நீங்கள் இப்போது உள்ளடக்கியுள்ளீர்கள். இந்த இறுதி பாடம் ஒருங்கிணைப்பு பற்றியது — ஒன்பது பாடங்களின் கற்றலை ஒரு எளிய, வாழக்கூடிய குடும்ப திட்டமாக மாற்றுவது."},
+  subtopics:[
+    {
+      title:{en:"Choosing Your Priorities", ta:"உங்கள் முன்னுரிமைகளைத் தேர்ந்தெடுத்தல்"},
+      explanation:{en:"Trying to fix every single area at once usually overwhelms both parent and child, and rarely lasts. Choosing just 2-3 priorities from everything covered in this course, and focusing deeply on those, creates change that actually sticks.", ta:"ஒரே நேரத்தில் ஒவ்வொரு பகுதியையும் சரிசெய்ய முயற்சிப்பது பொதுவாக பெற்றோர் மற்றும் குழந்தை இருவரையும் மிகைப்படுத்துகிறது, மேலும் அரிதாகவே நீடிக்கும். இந்த படிப்பில் உள்ளடக்கப்பட்ட அனைத்திலிருந்தும் வெறும் 2-3 முன்னுரிமைகளைத் தேர்ந்தெடுத்து, அவற்றில் ஆழமாக கவனம் செலுத்துவது உண்மையில் நீடிக்கும் மாற்றத்தை உருவாக்குகிறது."},
+      example:{en:"A parent reviewing all nine previous modules decides that 'boundaries' and 'modeling' are the two areas needing the most work right now, and consciously sets aside the rest for later.", ta:"முந்தைய ஒன்பது பாடங்களையும் மறுபரிசீலனை செய்யும் ஒரு பெற்றோர், 'எல்லைகள்' மற்றும் 'முன்மாதிரி' ஆகியவை இப்போது அதிக வேலை தேவைப்படும் இரண்டு பகுதிகள் என்று முடிவு செய்து, மற்றவற்றை பின்னருக்கு உணர்வுபூர்வமாக ஒதுக்கி வைக்கிறார்."},
+      metaphor:{en:"Building a family plan is like packing a suitcase for a trip — you can't bring everything, so you choose what matters most and leave room to add more later.", ta:"ஒரு குடும்ப திட்டத்தை உருவாக்குவது ஒரு பயணத்திற்கான சூட்கேஸை பேக் செய்வது போன்றது — நீங்கள் அனைத்தையும் கொண்டு வர முடியாது, எனவே எது மிக முக்கியமானது என்பதைத் தேர்ந்தெடுத்து, பின்னர் மேலும் சேர்க்க இடம் விடுங்கள்."}
+    },
+    {
+      title:{en:"Writing the Plan and Building Rituals", ta:"திட்டத்தை எழுதுதல் மற்றும் சடங்குகளை உருவாக்குதல்"},
+      explanation:{en:"A plan that lives only in your head is easy to forget under daily pressure. Writing it down in simple language, scheduling a short monthly family check-in, and protecting at least one non-screen family ritual turns intention into an actual, lasting routine.", ta:"உங்கள் தலையில் மட்டும் வாழும் ஒரு திட்டத்தை தினசரி அழுத்தத்தின் கீழ் மறந்துவிடுவது எளிது. அதை எளிய மொழியில் எழுதுவது, ஒரு குறுகிய மாதாந்திர குடும்ப செக்-இன் திட்டமிடுவது, மற்றும் குறைந்தது ஒரு திரை அல்லாத குடும்ப சடங்கைப் பாதுகாப்பது ஆகியவை நோக்கத்தை உண்மையான, நீடித்த வழக்கமாக மாற்றுகிறது."},
+      example:{en:"A family writes their agreement on a single page, sticks it to the fridge, and protects a Sunday evening walk as a screen-free ritual everyone actually looks forward to.", ta:"ஒரு குடும்பம் தங்கள் ஒப்பந்தத்தை ஒரு பக்கத்தில் எழுதி, குளிர்சாதனப் பெட்டியில் ஒட்டி, ஞாயிற்றுக்கிழமை மாலை நடைபயிற்சியை அனைவரும் உண்மையிலேயே எதிர்பார்க்கும் திரை இல்லாத சடங்காக பாதுகாக்கிறது."},
+      metaphor:{en:"A plan that's never written down is like a recipe kept only in your memory — easy to forget a step exactly when you need it most. Writing it down is like putting the recipe on the counter where everyone can see it.", ta:"ஒருபோதும் எழுதப்படாத ஒரு திட்டம் உங்கள் நினைவில் மட்டும் வைக்கப்பட்ட ஒரு சமையல் குறிப்பு போன்றது — உங்களுக்கு மிகவும் தேவைப்படும் போது ஒரு படியை மறந்துவிடுவது எளிது. அதை எழுதுவது சமையல் குறிப்பை அனைவரும் பார்க்கக்கூடிய இடத்தில் வைப்பது போன்றது."}
+    },
+    {
+      title:{en:"Growing the Plan With Your Child", ta:"உங்கள் குழந்தையுடன் திட்டத்தை வளர்த்தல்"},
+      explanation:{en:"What works for a 10-year-old will not work the same way when they're 13, and won't work at all by 16. Revisiting the plan every 3-6 months, and adjusting it as your child matures and earns more independence, keeps it relevant instead of outdated.", ta:"10 வயதிற்கு வேலை செய்வது 13 வயதில் அதே வழியில் வேலை செய்யாது, மேலும் 16 வயதில் அது முற்றிலும் வேலை செய்யாது. ஒவ்வொரு 3-6 மாதங்களுக்கும் திட்டத்தை மறுபரிசீலனை செய்து, உங்கள் குழந்தை முதிர்ச்சியடைந்து அதிக சுதந்திரத்தைப் பெறும்போது அதை சரிசெய்வது, அது காலாவதியாகாமல் பொருத்தமானதாக வைத்திருக்கிறது."},
+      example:{en:"The strict app-by-app rules set for a 10-year-old are gradually replaced, by age 13, with broader trust-based agreements that give more room for independent decision-making.", ta:"10 வயதிற்கு அமைக்கப்பட்ட கடுமையான ஆப்-வாரியான விதிகள், 13 வயதில், சுதந்திரமான முடிவெடுப்பதற்கு அதிக இடம் அளிக்கும் பரந்த நம்பிக்கை அடிப்படையிலான ஒப்பந்தங்களால் படிப்படியாக மாற்றப்படுகின்றன."},
+      metaphor:{en:"A family digital plan is like a growing tree — it needs occasional pruning and new support structures as it changes shape over the years, not the exact same care it needed as a sapling.", ta:"ஒரு குடும்ப டிஜிட்டல் திட்டம் வளரும் ஒரு மரம் போன்றது — ஆண்டுகளாக அது வடிவத்தை மாற்றும்போது, ஒரு நாற்றாக இருந்தபோது தேவைப்பட்ட அதே பராமரிப்பு அல்லாமல், அவ்வப்போது கத்தரிப்பு மற்றும் புதிய ஆதரவு கட்டமைப்புகள் தேவை."}
+    }
+  ],
+  actionPlan:{
+    en:["Choose your top 2-3 priorities from everything covered across this course.","Write a simple one-page Family Digital Wellness Plan in plain language.","Schedule your first monthly family digital check-in date on the calendar right now.","Choose and protect one weekly non-screen family ritual, starting this week."],
+    ta:["இந்த படிப்பு முழுவதும் உள்ளடக்கப்பட்ட அனைத்திலிருந்தும் உங்கள் முதல் 2-3 முன்னுரிமைகளைத் தேர்ந்தெடுக்கவும்.","எளிய மொழியில் ஒரு எளிய ஒரு-பக்க குடும்ப டிஜிட்டல் நல திட்டத்தை எழுதுங்கள்.","இப்போதே நாட்காட்டியில் உங்கள் முதல் மாதாந்திர குடும்ப டிஜிட்டல் செக்-இன் தேதியைத் திட்டமிடுங்கள்.","இந்த வாரம் தொடங்கி, ஒரு வாராந்திர திரை அல்லாத குடும்ப சடங்கைத் தேர்ந்தெடுத்து பாதுகாக்கவும்."]
+  },
+  reflect:{en:"What is the single most important change you want to make after this course?", ta:"இந்த படிப்பிற்குப் பிறகு நீங்கள் செய்ய விரும்பும் மிக முக்கியமான மாற்றம் என்ன?"}
+}
+];
+
+let currentLang = 'en';
+let currentModule = 1;
+let learner = {};
+let progress = {}; // {moduleId: true}
+
+// ---------------- FIREBASE ACCESS CHECK ----------------
+const COURSE_ID = "digital-parenting";
+
+function logoutLearner(){
+  auth.signOut().then(()=>{ window.location.href = 'login.html'; });
+}
+
+function loadProgress(){
+  const saved = localStorage.getItem('dp_progress');
+  progress = saved ? JSON.parse(saved) : {};
+}
+function saveProgress(){
+  localStorage.setItem('dp_progress', JSON.stringify(progress));
+}
+
+auth.onAuthStateChanged(async function(user){
+  if(!user){
+    window.location.href = 'login.html';
+    return;
+  }
+  try{
+    const doc = await db.collection('students').doc(user.uid).get();
+    const data = doc.exists ? doc.data() : null;
+    const courses = (data && data.courses) || [];
+    if(!courses.includes(COURSE_ID)){
+      window.location.href = 'not-enrolled.html';
+      return;
+    }
+    learner = { name: (data && data.name) || '' };
+    loadProgress();
+    document.getElementById('gate-screen').classList.add('hidden');
+    document.getElementById('app').classList.add('active');
+    document.getElementById('learnerName').textContent = learner.name;
+    renderSidebar();
+    renderModule(1);
+  }catch(err){
+    console.error('Access check failed:', err);
+    window.location.href = 'login.html';
+  }
+});
+
+
+// ---------------- LANG ----------------
+function toggleLang(){
+  currentLang = currentLang === 'en' ? 'ta' : 'en';
+  renderSidebar();
+  renderModule(currentModule);
+}
+
+// ---------------- SIDEBAR ----------------
+function renderSidebar(){
+  const doneCount = Object.keys(progress).filter(k=>progress[k]).length;
+  const pct = Math.round((doneCount/modules.length)*100);
+  document.getElementById('overallPct').textContent = pct + '%';
+  document.getElementById('overallBar').style.width = pct + '%';
+
+  const listEl = document.getElementById('moduleNavList');
+  listEl.innerHTML = '';
+  modules.forEach(m=>{
+    const div = document.createElement('div');
+    div.className = 'module-nav-item' + (m.id===currentModule?' active':'') + (progress[m.id]?' done':'');
+    div.innerHTML = `<div class="dot">${progress[m.id]?'✓':m.id}</div><div>${m.title[currentLang]}</div>`;
+    div.onclick = ()=>renderModule(m.id);
+    listEl.appendChild(div);
+  });
+}
+
+// ---------------- MAIN CONTENT ----------------
+function renderModule(id){
+  currentModule = id;
+  const m = modules.find(x=>x.id===id);
+  const main = document.getElementById('mainContent');
+
+  if(id > modules.length){
+    renderCompletion();
+    return;
+  }
+
+  const subtopicsHtml = m.subtopics.map((s,idx)=>`
+    <div class="subtopic-card">
+      <h3><span class="num">${idx+1}</span> ${s.title[currentLang]}</h3>
+      <p class="explanation">${s.explanation[currentLang]}</p>
+      <div class="callout example">
+        <span class="callout-label">${currentLang==='en'?'📌 Example':'📌 உதாரணம்'}</span>
+        ${s.example[currentLang]}
+      </div>
+      <div class="callout metaphor">
+        <span class="callout-label">${currentLang==='en'?'💡 Think of it Like This':'💡 இதைப் போல நினைத்துப் பாருங்கள்'}</span>
+        ${s.metaphor[currentLang]}
+      </div>
+    </div>
+  `).join('');
+
+  const actionStepsHtml = m.actionPlan[currentLang].map(step=>`<li>${step}</li>`).join('');
+
+  main.innerHTML = `
+    <div class="module-header">
+      <div class="tag">${currentLang==='en'?'MODULE':'பாடம்'} ${m.id} / ${modules.length}</div>
+      <h1>${m.title[currentLang]}</h1>
+      <div class="desc">${m.desc[currentLang]}</div>
+    </div>
+    <div class="content-block">
+      <p class="intro-text">${m.intro[currentLang]}</p>
+    </div>
+    ${subtopicsHtml}
+    <div class="content-block action-box">
+      <h4>${currentLang==='en'?"📝 THIS WEEK'S ACTION PLAN":'📝 இந்த வார செயல் திட்டம்'}</h4>
+      <ul class="action-steps">${actionStepsHtml}</ul>
+    </div>
+    <div class="content-block reflection-box">
+      <h4 style="color:var(--primary-dark); font-size:0.9rem;">${currentLang==='en'?'💭 REFLECT':'💭 சிந்தியுங்கள்'}</h4>
+      <p style="font-size:0.9rem;">${m.reflect[currentLang]}</p>
+      <textarea id="reflectionInput" placeholder="${currentLang==='en'?'Your thoughts (saved locally on your device)...':'உங்கள் எண்ணங்கள் (உங்கள் சாதனத்தில் உள்நாட்டில் சேமிக்கப்பட்டது)...'}"></textarea>
+    </div>
+    <div class="nav-footer">
+      <button class="btn secondary" onclick="prevModule()" ${id===1?'style="visibility:hidden"':''}>${currentLang==='en'?'← Previous':'← முந்தைய'}</button>
+      <button class="btn" onclick="completeModule(${id})">${id===modules.length ? (currentLang==='en'?'Complete Course →':'படிப்பை முடிக்கவும் →') : (currentLang==='en'?'Mark Complete & Continue →':'முடிந்ததாகக் குறித்து தொடரவும் →')}</button>
+    </div>
+  `;
+  renderSidebar();
+  window.scrollTo(0,0);
+}
+
+function prevModule(){
+  if(currentModule>1) renderModule(currentModule-1);
+}
+
+function completeModule(id){
+  progress[id] = true;
+  saveProgress();
+  if(id < modules.length){
+    renderModule(id+1);
+  } else {
+    logCompletion();
+    renderModule(modules.length+1);
+  }
+}
+
+function renderCompletion(){
+  const main = document.getElementById('mainContent');
+  main.innerHTML = `
+    <div class="content-block completion-badge">
+      <div class="emoji">🎉</div>
+      <h1 style="color:var(--primary-dark); margin-bottom:10px;">${currentLang==='en'?'Course Complete!':'படிப்பு முடிந்தது!'}</h1>
+      <p style="color:var(--muted); max-width:440px; margin:0 auto 20px;">${currentLang==='en'
+        ? "Congratulations! You've completed the Digital Parenting & Screen Time Mastery Program. Your family digital wellness plan is ready to put into action."
+        : "வாழ்த்துக்கள்! நீங்கள் டிஜிட்டல் பெற்றோர் & திரை நேர மேலாண்மை தேர்ச்சி திட்டத்தை முடித்துவிட்டீர்கள். உங்கள் குடும்ப டிஜிட்டல் நல திட்டம் செயல்படுத்த தயாராக உள்ளது."}</p>
+      <a href="https://wa.me/919843702244?text=${encodeURIComponent((currentLang==='en'?"Hi, I've completed the Digital Parenting course. I'd like my certificate.":"வணக்கம், நான் டிஜிட்டல் பெற்றோர் படிப்பை முடித்துவிட்டேன். எனக்கு சான்றிதழ் வேண்டும்."))}" class="whatsapp-btn" target="_blank">📱 ${currentLang==='en'?'Request Your Certificate':'உங்கள் சான்றிதழைக் கோருங்கள்'}</a>
+    </div>
+  `;
+  renderSidebar();
+}
+
+// ---------------- SHEETS LOGGING ----------------
+function logRegistration(){
+  const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbx9dtLbe8gTVJJtI5YhgFAWHjcWUxEXRP9XGKtSrCNXCJYzawVxn-Cc0ukWQ8t4HVrU/exec"; // TODO: replace with your Apps Script Web App URL
+  const params = new URLSearchParams({
+    event: 'registration',
+    name: learner.name, phone: learner.phone, email: learner.email,
+    timestamp: new Date().toISOString()
+  });
+  const img = new Image();
+  img.src = SHEET_ENDPOINT + "?" + params.toString();
+}
+function logCompletion(){
+  const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbx9dtLbe8gTVJJtI5YhgFAWHjcWUxEXRP9XGKtSrCNXCJYzawVxn-Cc0ukWQ8t4HVrU/exec"; // TODO: replace with your Apps Script Web App URL
+  const params = new URLSearchParams({
+    event: 'completion',
+    name: learner.name, phone: learner.phone, email: learner.email,
+    timestamp: new Date().toISOString()
+  });
+  const img = new Image();
+  img.src = SHEET_ENDPOINT + "?" + params.toString();
+}
+</script>
+</body>
+</html>
