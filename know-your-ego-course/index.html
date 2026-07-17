@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Ego — A Course for Self-Aware Adults | NT Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2044; --navy2:#16305e; --gold:#c8a250; --gold-light:#e8d5a3;
+  --cream:#fbf8f2; --ink:#1c2333; --muted:#5a6478; --line:#e4e2da; --card:#fff;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Poppins',sans-serif;line-height:1.65;}
+[data-ta]{display:none;}
+html[lang="ta"] [data-en]{display:none;}
+html[lang="ta"] [data-ta]{display:inline;}
+html[lang="ta"] body{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+a{color:inherit;}
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.lang-toggle{display:flex;background:rgba(255,255,255,.12);border-radius:20px;padding:3px;}
+.lang-toggle button{border:none;background:transparent;color:#fff;padding:6px 14px;border-radius:16px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;}
+.lang-toggle button.active{background:var(--gold);color:var(--navy);}
+.hero{background:radial-gradient(circle at 20% 20%, #1a3562, var(--navy) 60%);color:#fff;padding:70px 24px 60px;text-align:center;}
+.hero .eyebrow{color:var(--gold-light);font-size:13px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;margin-bottom:14px;}
+.hero h1{font-size:clamp(30px,5vw,48px);margin:0 0 16px;}
+.hero p{max-width:640px;margin:0 auto 28px;color:#dfe4ef;font-size:16px;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn{border:none;border-radius:28px;padding:13px 26px;font-weight:600;font-size:14.5px;cursor:pointer;font-family:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-outline{border:1.5px solid rgba(255,255,255,.5);color:#fff;background:transparent;}
+.section{max-width:1000px;margin:0 auto;padding:60px 24px;}
+.section h2{text-align:center;font-size:clamp(22px,3vw,30px);color:var(--navy);margin-bottom:10px;}
+.section .lead{text-align:center;color:var(--muted);max-width:600px;margin:0 auto 36px;}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.pain-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;font-size:14.5px;}
+.pain-card .icon{font-size:22px;margin-bottom:8px;}
+.modules-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+.mod-card{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;}
+.mod-card .num{color:var(--gold);font-weight:700;font-size:12px;letter-spacing:.05em;}
+.mod-card h4{margin:4px 0 0;font-size:14.5px;color:var(--navy);}
+.trainer{display:flex;gap:26px;align-items:center;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;}
+.trainer-avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--gold));flex:0 0 auto;display:flex;align-items:center;justify-content:center;color:#fff;font-size:34px;font-weight:700;}
+.trainer h3{margin:0 0 4px;color:var(--navy);}
+.trainer .role{color:var(--gold);font-weight:600;font-size:13.5px;margin-bottom:8px;}
+.trainer p{margin:0;color:var(--muted);font-size:14px;}
+.included-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.included-card{text-align:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 16px;}
+.included-card .icon{font-size:26px;margin-bottom:10px;}
+.testimonial{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;font-size:14px;color:var(--ink);position:relative;}
+.testimonial .stars{color:var(--gold);margin-bottom:8px;}
+.testimonial .who{margin-top:12px;font-weight:600;color:var(--navy);font-size:13px;}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.cta-final{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:18px;padding:44px 30px;text-align:center;}
+.cta-final h2{color:var(--gold-light);}
+.cta-final p{color:#dbe1ee;max-width:520px;margin:0 auto 24px;}
+.footer{text-align:center;padding:30px 24px;color:var(--muted);font-size:13px;background:var(--card);border-top:1px solid var(--line);}
+.footer .motto{color:var(--gold);font-weight:700;margin-top:6px;}
+.wa-float{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25);z-index:60;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span> NT Somasundaram Life Skills Program</div>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="eyebrow"><span data-en>Bilingual Course for Adults</span><span data-ta>வயது வந்தோருக்கான இருமொழி பாடநெறி</span></div>
+  <h1><span data-en>Know Your Ego</span><span data-ta>உங்கள் ஈகோவை அறியுங்கள்</span></h1>
+  <p><span data-en>A practical, self-paced program to help you understand your ego, recognise its triggers, and build calmer, stronger relationships at home and at work.</span><span data-ta>உங்கள் ஈகோவைப் புரிந்துகொள்ளவும், அதன் தூண்டுதல்களை அடையாளம் காணவும், வீட்டிலும் பணியிடத்திலும் அமைதியான, வலுவான உறவுகளை உருவாக்கவும் உதவும் ஒரு நடைமுறை, சுய-வேக திட்டம்.</span></p>
+  <div class="hero-btns">
+    <a class="btn btn-gold" href="course.html"><span data-en>Start the Free Course</span><span data-ta>இலவச பாடத்தைத் தொடங்கவும்</span></a>
+    <a class="btn btn-outline" href="assessment.html"><span data-en>Take the Ego Self-Assessment</span><span data-ta>ஈகோ சுய மதிப்பீட்டை மேற்கொள்ளுங்கள்</span></a>
+  </div>
+</div>
+
+<div class="section">
+  <h2><span data-en>Does This Sound Familiar?</span><span data-ta>இது பரிச்சயமாக இருக்கிறதா?</span></h2>
+  <p class="lead"><span data-en>Ego shows up quietly in everyday life — often without us noticing until the damage is done.</span><span data-ta>ஈகோ அன்றாட வாழ்க்கையில் அமைதியாக தோன்றும் — சேதம் ஏற்படும் வரை நாம் அதைக் கவனிக்காமலேயே.</span></p>
+  <div class="pain-grid">
+    <div class="pain-card"><div class="icon">🔥</div><span data-en>You find yourself needing to "win" almost every argument, even small ones.</span><span data-ta>கிட்டத்தட்ட ஒவ்வொரு வாதத்திலும், சிறியதாக இருந்தாலும், நீங்கள் "வெற்றி" பெற வேண்டும் என உணர்கிறீர்கள்.</span></div>
+    <div class="pain-card"><div class="icon">💬</div><span data-en>Feedback at work or home feels like a personal attack, even when it isn't.</span><span data-ta>பணியில் அல்லது வீட்டில் கருத்துக்கள் தனிப்பட்ட தாக்குதலாக உணரப்படுகிறது, அது இல்லாதபோதும்.</span></div>
+    <div class="pain-card"><div class="icon">😤</div><span data-en>Small disagreements with loved ones spiral into hours-long tension.</span><span data-ta>அன்புக்குரியவர்களுடனான சிறிய கருத்து வேறுபாடுகள் மணிநேர பதற்றமாக மாறுகிறது.</span></div>
+    <div class="pain-card"><div class="icon">🪞</div><span data-en>You struggle to say "I was wrong" — even to yourself.</span><span data-ta>"நான் தவறு செய்தேன்" என்று சொல்ல நீங்கள் போராடுகிறீர்கள் — உங்களிடமே கூட.</span></div>
+  </div>
+</div>
+
+<div class="section" style="background:#f3f0e8;border-radius:24px;">
+  <h2><span data-en>10 Modules, Real Tools</span><span data-ta>10 பாடங்கள், உண்மையான கருவிகள்</span></h2>
+  <p class="lead"><span data-en>Each module includes a detailed explanation, a real-life example, a metaphor, practical tips, and guidance for improvement.</span><span data-ta>ஒவ்வொரு பாடத்திலும் விரிவான விளக்கம், நிஜ வாழ்க்கை உதாரணம், உருவகம், நடைமுறை குறிப்புகள், முன்னேற்றத்திற்கான வழிகாட்டுதல் ஆகியவை அடங்கும்.</span></p>
+  <div class="modules-list">
+    <div class="mod-card"><div class="num">01</div><h4><span data-en>What Is Ego? Understanding the Concept</span><span data-ta>ஈகோ என்றால் என்ன?</span></h4></div>
+    <div class="mod-card"><div class="num">02</div><h4><span data-en>The Three Ego States: Parent, Adult, Child</span><span data-ta>மூன்று ஈகோ நிலைகள்</span></h4></div>
+    <div class="mod-card"><div class="num">03</div><h4><span data-en>Healthy Ego vs. Inflated Ego vs. Low Self-Worth</span><span data-ta>ஆரோக்கியமான vs பெருமிதமான ஈகோ</span></h4></div>
+    <div class="mod-card"><div class="num">04</div><h4><span data-en>Ego in Relationships</span><span data-ta>உறவுகளில் ஈகோ</span></h4></div>
+    <div class="mod-card"><div class="num">05</div><h4><span data-en>Ego at the Workplace</span><span data-ta>பணியிடத்தில் ஈகோ</span></h4></div>
+    <div class="mod-card"><div class="num">06</div><h4><span data-en>Ego and Communication Patterns</span><span data-ta>ஈகோ மற்றும் தொடர்பு முறைகள்</span></h4></div>
+    <div class="mod-card"><div class="num">07</div><h4><span data-en>Recognizing Your Ego Triggers</span><span data-ta>ஈகோ தூண்டுதல்களை அடையாளம் காணுதல்</span></h4></div>
+    <div class="mod-card"><div class="num">08</div><h4><span data-en>Ego and Emotional Intelligence</span><span data-ta>ஈகோ மற்றும் உணர்ச்சி நுண்ணறிவு</span></h4></div>
+    <div class="mod-card"><div class="num">09</div><h4><span data-en>Practical Techniques to Manage Your Ego</span><span data-ta>ஈகோவை நிர்வகிக்கும் நுட்பங்கள்</span></h4></div>
+    <div class="mod-card"><div class="num">10</div><h4><span data-en>Building an Ego-Balanced Life</span><span data-ta>ஈகோ-சமநிலையான வாழ்க்கை</span></h4></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2><span data-en>What's Included</span><span data-ta>இதில் என்ன அடங்கும்</span></h2>
+  <div class="included-grid">
+    <div class="included-card"><div class="icon">📚</div><span data-en>10 in-depth bilingual modules</span><span data-ta>10 ஆழமான இருமொழி பாடங்கள்</span></div>
+    <div class="included-card"><div class="icon">📝</div><span data-en>Free Ego Self-Assessment</span><span data-ta>இலவச ஈகோ சுய மதிப்பீடு</span></div>
+    <div class="included-card"><div class="icon">📄</div><span data-en>Personalised 5-page printable report</span><span data-ta>தனிப்பயன் 5-பக்க அச்சிடக்கூடிய அறிக்கை</span></div>
+    <div class="included-card"><div class="icon">✍️</div><span data-en>Reflection worksheets in every module</span><span data-ta>ஒவ்வொரு பாடத்திலும் பிரதிபலிப்பு பணித்தாள்கள்</span></div>
+  </div>
+</div>
+
+<div class="section" style="background:#f3f0e8;border-radius:24px;">
+  <h2><span data-en>Your Trainer</span><span data-ta>உங்கள் பயிற்றுநர்</span></h2>
+  <div class="trainer">
+    <div class="trainer-avatar">NT</div>
+    <div>
+      <h3>N T Somasundaram</h3>
+      <div class="role"><span data-en>Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</span><span data-ta>சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்றுநர் · வாழ்க்கை திறன் கல்வியாளர்</span></div>
+      <p><span data-en>Director & Treasurer, SKV International School. With over a decade in corporate banking before moving into training, N T Somasundaram brings a grounded, practical approach to life skills education across Tamil Nadu, certified with IATD, Pick My Career, Emocare International, and Indian Counseling Service.</span><span data-ta>இயக்குநர் & பொருளாளர், SKV சர்வதேச பள்ளி. பயிற்சிக்கு மாறுவதற்கு முன் ஒரு தசாப்தத்திற்கும் மேலாக பெருநிறுவன வங்கியியலில் பணியாற்றிய N T சோமசுந்தரம், Certified from IATD, Pick My Career, Emocare International, Indian Counseling Service தமிழ்நாடு முழுவதும் நடைமுறை வாழ்க்கை திறன் கல்வியை வழங்குகிறார்.</span></p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2><span data-en>What Learners Say</span><span data-ta>பயிலுநர்கள் என்ன சொல்கிறார்கள்</span></h2>
+  <div class="testi-grid">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span data-en>"I realized my ego was quietly damaging my relationship with my son. This course gave me practical language to change that."</span>
+      <span data-ta>"என் ஈகோ என் மகனுடனான உறவை அமைதியாக பாதித்துக்கொண்டிருந்தது என்பதை உணர்ந்தேன். இதை மாற்ற இந்த பாடநெறி நடைமுறை மொழியைத் தந்தது."</span>
+      <div class="who">— <span data-en>Parent, Tiruvannamalai</span><span data-ta>பெற்றோர், திருவண்ணாமலை</span></div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span data-en>"The workplace module changed how I give credit to my team. Simple, but powerful."</span>
+      <span data-ta>"பணியிட பாடம் என் குழுவிற்கு பெருமையை நான் எவ்வாறு அளிக்கிறேன் என்பதை மாற்றியது. எளிமையானது, ஆனால் சக்திவாய்ந்தது."</span>
+      <div class="who">— <span data-en>Team Lead, Chennai</span><span data-ta>குழுத் தலைவர், சென்னை</span></div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <span data-en>"Practical, bilingual, and easy to follow. The metaphors made difficult ideas click instantly."</span>
+      <span data-ta>"நடைமுறை, இருமொழி, பின்பற்ற எளிது. உருவகங்கள் கடினமான யோசனைகளை உடனடியாக புரியவைத்தன."</span>
+      <div class="who">— <span data-en>Teacher, SKV International School</span><span data-ta>ஆசிரியர், SKV சர்வதேச பள்ளி</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="cta-final">
+    <h2><span data-en>Ready to Understand Your Ego?</span><span data-ta>உங்கள் ஈகோவைப் புரிந்துகொள்ள தயாரா?</span></h2>
+    <p><span data-en>Start the free self-paced course today, or reach out directly for the live bilingual program.</span><span data-ta>இன்றே இலவச சுய-வேக பாடத்தைத் தொடங்குங்கள், அல்லது நேரடி இருமொழி திட்டத்திற்கு நேரடியாக தொடர்பு கொள்ளுங்கள்.</span></p>
+    <div class="hero-btns">
+      <a class="btn btn-gold" href="course.html"><span data-en>Start the Course</span><span data-ta>பாடத்தைத் தொடங்கவும்</span></a>
+      <a class="btn btn-outline" href="https://wa.me/919843702244" target="_blank">💬 <span data-en>WhatsApp Us</span><span data-ta>வாட்ஸ்அப் செய்யவும்</span></a>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  N T Somasundaram &nbsp;|&nbsp; Director & Treasurer, SKV International School<br>
+  +91 98437 02244 &nbsp;|&nbsp; somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp; sites.google.com/view/somasundaramnt<br>
+  <div class="motto">God is always with u</div>
+</div>
+
+<a class="wa-float" href="https://wa.me/919843702244" target="_blank">💬</a>
+
+<script>
+function setLang(l){
+  document.documentElement.setAttribute('lang', l);
+  document.getElementById('btnEn').classList.toggle('active', l==='en');
+  document.getElementById('btnTa').classList.toggle('active', l==='ta');
+  localStorage.setItem('egoCourseLang', l);
+}
+(function(){
+  const saved = localStorage.getItem('egoCourseLang') || 'en';
+  setLang(saved);
+})();
+</script>
+</body>
+</html>

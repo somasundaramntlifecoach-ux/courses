@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Know Your Ego — Self-Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2044; --navy2:#16305e; --gold:#c8a250; --gold-light:#e8d5a3;
+  --cream:#fbf8f2; --ink:#1c2333; --muted:#5a6478; --line:#e4e2da; --card:#fff;
+  --success:#2f8f5b; --warn:#c05a2c; --danger:#b23b3b;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:'Poppins',sans-serif;line-height:1.6;}
+[data-ta]{display:none;}
+html[lang="ta"] [data-en]{display:none;}
+html[lang="ta"] [data-ta]{display:inline;}
+html[lang="ta"] body{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+.topbar{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.lang-toggle{display:flex;background:rgba(255,255,255,.12);border-radius:20px;padding:3px;}
+.lang-toggle button{border:none;background:transparent;color:#fff;padding:6px 14px;border-radius:16px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;}
+.lang-toggle button.active{background:var(--gold);color:var(--navy);}
+.wrap{max-width:760px;margin:0 auto;padding:34px 24px 90px;}
+.head{text-align:center;margin-bottom:28px;}
+.head h1{color:var(--navy);margin:0 0 8px;font-size:clamp(24px,4vw,32px);}
+.head p{color:var(--muted);max-width:540px;margin:0 auto;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:18px;}
+.field{margin-bottom:14px;}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--navy2);margin-bottom:6px;}
+.field input, .field select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;font-family:inherit;font-size:14px;}
+.dim-title{font-size:15px;font-weight:700;color:var(--navy);margin:26px 0 12px;padding-top:10px;border-top:1px solid var(--line);}
+.dim-title:first-child{border-top:none;margin-top:0;}
+.q{margin-bottom:16px;}
+.q-text{font-size:14.5px;margin-bottom:8px;}
+.scale{display:flex;gap:6px;flex-wrap:wrap;}
+.scale label{flex:1;min-width:78px;text-align:center;font-size:11.5px;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:8px 4px;cursor:pointer;}
+.scale input{display:none;}
+.scale input:checked + span{color:var(--navy);font-weight:700;}
+.scale label:has(input:checked){border-color:var(--gold);background:#fbf4e6;}
+.btn{border:none;border-radius:26px;padding:13px 28px;font-weight:600;font-size:14.5px;cursor:pointer;font-family:inherit;}
+.btn-primary{background:var(--navy);color:#fff;width:100%;}
+.btn-primary:hover{background:var(--navy2);}
+#reportSection{display:none;}
+/* --- report pages --- */
+.report-page{background:#fff;border:1px solid var(--line);border-radius:10px;padding:44px 40px;margin-bottom:26px;min-height:900px;position:relative;}
+.report-page .pagefoot{position:absolute;bottom:20px;left:40px;right:40px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;}
+.cover-badge{width:70px;height:70px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--gold));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px;margin:0 auto 18px;}
+.report-page h2.cover-title{text-align:center;color:var(--navy);font-size:28px;margin:0 0 6px;}
+.report-page .cover-sub{text-align:center;color:var(--muted);margin-bottom:30px;}
+.meta-table{width:100%;border-collapse:collapse;margin:20px 0;}
+.meta-table td{padding:8px 10px;border-bottom:1px solid var(--line);font-size:14px;}
+.meta-table td:first-child{color:var(--muted);width:40%;}
+.profile-box{background:#f4f1ea;border-radius:12px;padding:20px;text-align:center;margin-top:20px;}
+.profile-box .type{font-size:20px;font-weight:700;color:var(--navy);}
+.profile-box .desc{color:var(--muted);font-size:13.5px;margin-top:6px;}
+.bar-row{margin-bottom:16px;}
+.bar-row .label-line{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:5px;}
+.bar-track{height:12px;background:#eee;border-radius:6px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--gold),var(--navy));}
+.dim-detail{margin-top:18px;padding:14px 16px;border:1px solid var(--line);border-radius:10px;background:#faf9f6;}
+.dim-detail h4{margin:0 0 6px;color:var(--navy2);font-size:14.5px;}
+.dim-detail p{margin:4px 0;font-size:13.5px;color:var(--ink);}
+.action-week{display:flex;gap:12px;margin:10px 0;align-items:flex-start;}
+.action-week .wk{flex:0 0 60px;font-weight:700;color:var(--gold);}
+.promo-page{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;}
+.promo-page h2{color:var(--gold-light);}
+.promo-page p{color:#dfe4ef;}
+.promo-cta{text-align:center;margin-top:26px;}
+.wa-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:12px 26px;border-radius:26px;text-decoration:none;font-weight:600;}
+.print-bar{position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);padding:14px 24px;display:flex;justify-content:center;gap:12px;}
+.footer{text-align:center;padding:26px;color:var(--muted);font-size:13px;}
+.footer .motto{color:var(--gold);font-weight:600;margin-top:4px;}
+@media print{
+  .topbar,.print-bar,#assessmentSection{display:none;}
+  body{background:#fff;}
+  .report-page{border:none;page-break-after:always;min-height:auto;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="dot"></span> NT Somasundaram Life Skills Program</div>
+  <div class="lang-toggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="head">
+    <h1><span data-en>Ego Self-Assessment</span><span data-ta>ஈகோ சுய மதிப்பீடு</span></h1>
+    <p><span data-en>Answer honestly — there are no right or wrong answers. This takes about 6-8 minutes and generates your personalised report.</span><span data-ta>நேர்மையாக பதிலளியுங்கள் — சரி அல்லது தவறு பதில்கள் இல்லை. இது சுமார் 6-8 நிமிடங்கள் எடுக்கும், உங்கள் தனிப்பயன் அறிக்கையை உருவாக்கும்.</span></p>
+  </div>
+
+  <div id="assessmentSection">
+    <div class="card">
+      <div class="field">
+        <label><span data-en>Full Name</span><span data-ta>முழு பெயர்</span></label>
+        <input type="text" id="fName" placeholder="Your name">
+      </div>
+      <div class="field">
+        <label><span data-en>Contact Number</span><span data-ta>தொடர்பு எண்</span></label>
+        <input type="text" id="fPhone" placeholder="+91 ...">
+      </div>
+      <div class="field">
+        <label><span data-en>Role</span><span data-ta>பாத்திரம்</span></label>
+        <select id="fRole">
+          <option value="Working Professional" data-label-en="Working Professional" data-label-ta="பணிபுரியும் நிபுணர்">Working Professional</option>
+          <option value="Parent" data-label-en="Parent" data-label-ta="பெற்றோர்">Parent</option>
+          <option value="Teacher / Educator" data-label-en="Teacher / Educator" data-label-ta="ஆசிரியர் / கல்வியாளர்">Teacher / Educator</option>
+          <option value="Business Owner" data-label-en="Business Owner" data-label-ta="வணிக உரிமையாளர்">Business Owner</option>
+          <option value="Other" data-label-en="Other" data-label-ta="மற்றவை">Other</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card" id="questionsCard"></div>
+
+    <button class="btn btn-primary" onclick="generateReport()"><span data-en>Generate My Report</span><span data-ta>எனது அறிக்கையை உருவாக்கு</span></button>
+  </div>
+
+  <div id="reportSection"></div>
+</div>
+
+<div class="print-bar" id="printBar" style="display:none;">
+  <button class="btn btn-primary" style="width:auto;" onclick="window.print()">🖨️ <span data-en>Print / Save as PDF</span><span data-ta>அச்சிடு / PDF ஆக சேமி</span></button>
+  <button class="btn" style="width:auto;background:#eee;color:var(--navy);" onclick="location.reload()"><span data-en>Retake Assessment</span><span data-ta>மீண்டும் மதிப்பீடு செய்யவும்</span></button>
+</div>
+
+<div class="footer">
+  N T Somasundaram &nbsp;|&nbsp; +91 98437 02244 &nbsp;|&nbsp; somasundaramnt.lifecoach@gmail.com<br>
+  <div class="motto">God is always with u</div>
+</div>
+
+<script>
+function setLang(l){
+  document.documentElement.setAttribute('lang', l);
+  document.getElementById('btnEn').classList.toggle('active', l==='en');
+  document.getElementById('btnTa').classList.toggle('active', l==='ta');
+  localStorage.setItem('egoCourseLang', l);
+}
+
+const SCALE_EN = ['Never','Rarely','Sometimes','Often','Almost Always'];
+const SCALE_TA = ['ஒருபோதும் இல்லை','அரிதாக','சில நேரங்களில்','அடிக்கடி','கிட்டத்தட்ட எப்போதும்'];
+
+// dimensions: id, title, questions[{text_en, text_ta, reverse:boolean}]
+const DIMENSIONS = [
+  {
+    id:'selfimage', title_en:'Self-Image Stability', title_ta:'சுய பிம்ப நிலைத்தன்மை',
+    qs:[
+      {en:'My mood depends heavily on whether others approve of me.', ta:'என் மனநிலை மற்றவர்கள் என்னை ஏற்றுக்கொள்கிறார்களா என்பதைப் பொறுத்தது.', rev:true},
+      {en:'I feel secure in who I am, even when criticized.', ta:'விமர்சிக்கப்பட்டாலும் நான் யார் என்பதில் நான் பாதுகாப்பாக உணர்கிறேன்.', rev:false},
+      {en:'A single mistake makes me question my overall worth.', ta:'ஒரு தவறு என் மொத்த மதிப்பையும் கேள்விக்குள்ளாக்குகிறது.', rev:true},
+      {en:'I can celebrate my success quietly, without needing others to notice.', ta:'மற்றவர்கள் கவனிக்க வேண்டும் என்ற தேவையின்றி என் வெற்றியை அமைதியாக கொண்டாட முடியும்.', rev:false},
+    ]
+  },
+  {
+    id:'validation', title_en:'Need for Validation', title_ta:'ஒப்புதலுக்கான தேவை',
+    qs:[
+      {en:'I feel a strong urge to share my achievements publicly for recognition.', ta:'என் சாதனைகளை அங்கீகாரத்திற்காக பகிரங்கமாக பகிர வேண்டும் என்ற வலுவான உந்துதலை உணர்கிறேன்.', rev:true},
+      {en:'I am comfortable when someone else gets credit for a joint effort.', ta:'ஒரு கூட்டு முயற்சிக்கு வேறு ஒருவர் பெருமை பெறும்போது நான் வசதியாக உணர்கிறேன்.', rev:false},
+      {en:'I find it hard to enjoy something unless others acknowledge it too.', ta:'மற்றவர்களும் அதை ஒப்புக்கொள்ளாவிட்டால் ஒன்றை அனுபவிப்பது எனக்குக் கடினமாக இருக்கிறது.', rev:true},
+      {en:'I can make a decision confidently even if no one praises it.', ta:'யாரும் பாராட்டாவிட்டாலும் நம்பிக்கையுடன் ஒரு முடிவை எடுக்க முடியும்.', rev:false},
+    ]
+  },
+  {
+    id:'feedback', title_en:'Reaction to Criticism & Feedback', title_ta:'விமர்சனம் மற்றும் கருத்துக்கான எதிர்வினை',
+    qs:[
+      {en:'When corrected, my first instinct is to defend myself before considering if it is true.', ta:'திருத்தப்படும்போது, அது உண்மையா என்று பரிசீலிப்பதற்கு முன் என் முதல் உள்ளுணர்வு என்னை பாதுகாப்பதே.', rev:true},
+      {en:'I actively ask others for honest feedback about my work or behaviour.', ta:'என் வேலை அல்லது நடத்தை பற்றி நேர்மையான கருத்துகளை மற்றவர்களிடம் தீவிரமாக கேட்கிறேன்.', rev:false},
+      {en:'I remember criticism for a long time and feel resentful about it.', ta:'விமர்சனத்தை நீண்ட காலம் நினைவில் வைத்து அதைப் பற்றி வருத்தமாக உணர்கிறேன்.', rev:true},
+      {en:'I can say "I was wrong" without feeling like a failure.', ta:'ஒரு தோல்வியாளராக உணராமல் "நான் தவறு செய்தேன்" என்று சொல்ல முடியும்.', rev:false},
+    ]
+  },
+  {
+    id:'control', title_en:'Control & Dominance in Relationships', title_ta:'உறவுகளில் கட்டுப்பாடு மற்றும் ஆதிக்கம்',
+    qs:[
+      {en:'I feel the need to have the final say in most discussions.', ta:'பெரும்பாலான விவாதங்களில் இறுதி முடிவு எனதாக இருக்க வேண்டும் என உணர்கிறேன்.', rev:true},
+      {en:'I am comfortable letting someone else lead, even if I disagree with their approach.', ta:'யாராவது வழிநடத்தினாலும், அவர்களின் அணுகுமுறையுடன் நான் உடன்படாவிட்டாலும் வசதியாக உணர்கிறேன்.', rev:false},
+      {en:'I interrupt others often because I feel my point is more important.', ta:'என் கருத்து மிக முக்கியம் என்று நினைத்து அடிக்கடி மற்றவர்களை குறுக்கிடுகிறேன்.', rev:true},
+      {en:'I genuinely enjoy compromising when it helps the relationship.', ta:'உறவுக்கு உதவும் போது சமரசம் செய்வதை உண்மையிலேயே அனுபவிக்கிறேன்.', rev:false},
+    ]
+  },
+  {
+    id:'listening', title_en:'Listening & Communication', title_ta:'கேட்டல் மற்றும் தொடர்பு',
+    qs:[
+      {en:'While someone is speaking, I am often already preparing my reply.', ta:'யாராவது பேசும்போது, நான் பெரும்பாலும் ஏற்கனவே என் பதிலை தயார் செய்து கொண்டிருக்கிறேன்.', rev:true},
+      {en:'I paraphrase what others say to make sure I understood them correctly.', ta:'நான் சரியாக புரிந்துகொண்டேனா என்பதை உறுதிசெய்ய மற்றவர்கள் சொல்வதை மறுபடியும் சொல்கிறேன்.', rev:false},
+      {en:'I get impatient when someone explains something I already know.', ta:'எனக்கு ஏற்கனவே தெரிந்த ஒன்றை யாராவது விளக்கும்போது பொறுமையிழக்கிறேன்.', rev:true},
+      {en:'I ask genuine follow-up questions before sharing my own opinion.', ta:'என் சொந்த கருத்தைப் பகிர்வதற்கு முன் உண்மையான பின்தொடர் கேள்விகளைக் கேட்கிறேன்.', rev:false},
+    ]
+  },
+  {
+    id:'humility', title_en:'Humility & Openness to Growth', title_ta:'பணிவு மற்றும் வளர்ச்சிக்கு திறந்த மனது',
+    qs:[
+      {en:'I believe I am usually right in most disagreements.', ta:'பெரும்பாலான கருத்து வேறுபாடுகளில் நான் பொதுவாக சரியானவன் என நம்புகிறேன்.', rev:true},
+      {en:'I am open to changing my opinion when shown good evidence.', ta:'நல்ல ஆதாரங்கள் காட்டப்படும்போது என் கருத்தை மாற்ற தயாராக இருக்கிறேன்.', rev:false},
+      {en:'I find it difficult to say "thank you for the correction" sincerely.', ta:'"திருத்தத்திற்கு நன்றி" என்று நேர்மையாக சொல்வது எனக்குக் கடினமாக உள்ளது.', rev:true},
+      {en:'I regularly give genuine credit and praise to people around me.', ta:'என்னைச் சுற்றியுள்ளவர்களுக்கு தொடர்ந்து உண்மையான பெருமையையும் பாராட்டையும் தருகிறேன்.', rev:false},
+    ]
+  },
+];
+
+function buildQuestions(){
+  const card = document.getElementById('questionsCard');
+  let html = '';
+  DIMENSIONS.forEach(dim=>{
+    html += `<div class="dim-title"><span data-en>${dim.title_en}</span><span data-ta>${dim.title_ta}</span></div>`;
+    dim.qs.forEach((q,i)=>{
+      const name = dim.id+'_'+i;
+      html += `<div class="q">
+        <div class="q-text"><span data-en>${q.en}</span><span data-ta>${q.ta}</span></div>
+        <div class="scale">`;
+      for(let v=1; v<=5; v++){
+        html += `<label><input type="radio" name="${name}" value="${v}" ${v===3?'':''}><span data-en>${SCALE_EN[v-1]}</span><span data-ta>${SCALE_TA[v-1]}</span></label>`;
+      }
+      html += `</div></div>`;
+    });
+  });
+  card.innerHTML = html;
+}
+buildQuestions();
+
+function scoreDimension(dim){
+  let total = 0, count = 0;
+  dim.qs.forEach((q,i)=>{
+    const sel = document.querySelector(`input[name="${dim.id}_${i}"]:checked`);
+    const val = sel ? parseInt(sel.value) : 3;
+    const score = q.rev ? (6 - val) : val; // reverse-scored where higher raw = more ego risk
+    total += score; count++;
+  });
+  return Math.round((total/(count*5))*100); // 0-100, higher = healthier/lower ego risk
+}
+
+function bandFor(pct){
+  if(pct >= 75) return {label_en:'Well-Balanced', label_ta:'நன்கு சமநிலையானது', color:'var(--success)'};
+  if(pct >= 55) return {label_en:'Developing Awareness', label_ta:'வளர்ந்துவரும் விழிப்புணர்வு', color:'var(--gold)'};
+  return {label_en:'Needs Attention', label_ta:'கவனம் தேவை', color:'var(--danger)'};
+}
+
+const DIM_GUIDANCE = {
+  selfimage: {
+    en:'Work on anchoring your self-worth internally rather than in others\' reactions. Practice the daily check: "Did my mood depend on someone else\'s opinion today?"',
+    ta:'உங்கள் சுய மதிப்பை மற்றவர்களின் எதிர்வினைகளில் அல்லாமல் உள்ளுக்குள் நங்கூரமிட வேலை செய்யுங்கள். "இன்று என் மனநிலை மற்றவர்களின் கருத்தைப் பொறுத்திருந்ததா?" என்ற தினசரி சரிபார்ப்பை பயிற்சி செய்யுங்கள்.'
+  },
+  validation: {
+    en:'Practice celebrating wins quietly before sharing them, and notice how it feels to let others take credit sometimes.',
+    ta:'பகிர்வதற்கு முன் வெற்றிகளை அமைதியாக கொண்டாடும் பயிற்சி செய்யுங்கள், சில நேரங்களில் மற்றவர்கள் பெருமை பெற அனுமதிப்பது எப்படி உணர்கிறது என்பதைக் கவனியுங்கள்.'
+  },
+  feedback: {
+    en:'Before reacting to correction, pause and ask "Is this useful data?" rather than "Is this an attack?" Practice the ownership sentence: "I made an error in X, here is the fix."',
+    ta:'திருத்தத்திற்கு எதிர்வினையாற்றுவதற்கு முன், "இது தாக்குதலா?" என்பதற்குப் பதிலாக "இது பயனுள்ள தரவா?" என்று நிறுத்தி கேளுங்கள். "நான் X-ல் ஒரு தவறு செய்தேன், இதோ சரிசெய்தல்" என்ற உரிமை வாக்கியத்தை பயிற்சி செய்யுங்கள்.'
+  },
+  control: {
+    id:'control',
+    en:'Practice letting go of the "final say" in low-stakes situations. Ask "Am I trying to solve this, or trying to win this?" before responding.',
+    ta:'குறைந்த-அபாய சூழல்களில் "இறுதி முடிவை" விட்டுக்கொடுக்கும் பயிற்சி செய்யுங்கள். பதிலளிக்கும் முன் "நான் இதை தீர்க்க முயற்சிக்கிறேனா, வெற்றி பெற முயற்சிக்கிறேனா?" எனக் கேளுங்கள்.'
+  },
+  listening: {
+    en:'Practice paraphrasing what the other person said before replying: "Let me make sure I understood you correctly..."',
+    ta:'பதிலளிப்பதற்கு முன் மற்றவர் சொன்னதை மறுபடியும் சொல்லும் பயிற்சி செய்யுங்கள்: "நான் உங்களை சரியாக புரிந்துகொண்டேன் என்பதை உறுதிசெய்யட்டும்..."'
+  },
+  humility: {
+    en:'Actively seek one piece of honest feedback each month, and give genuine credit to someone else at least once a week.',
+    ta:'ஒவ்வொரு மாதமும் ஒரு நேர்மையான கருத்தை தீவிரமாக தேடுங்கள், வாரத்திற்கு ஒரு முறையாவது வேறு ஒருவருக்கு உண்மையான பெருமையை அளியுங்கள்.'
+  }
+};
+
+function overallType(avg){
+  if(avg >= 78) return {en:'The Grounded Balancer', ta:'நிலைத்த சமநிலையாளர்', desc_en:'You generally hold a stable, secure sense of self. You can handle feedback and disagreement without your ego taking over — keep nurturing this strength.', desc_ta:'நீங்கள் பொதுவாக ஒரு நிலையான, பாதுகாப்பான சுய உணர்வை வைத்திருக்கிறீர்கள். உங்கள் ஈகோ கட்டுப்பாட்டை எடுக்காமல் கருத்துக்களையும் கருத்து வேறுபாடுகளையும் கையாள முடியும் — இந்த பலத்தை தொடர்ந்து வளர்க்கவும்.'};
+  if(avg >= 60) return {en:'The Aware Improver', ta:'விழிப்புணர்வு கொண்ட முன்னேற்றுநர்', desc_en:'You have real self-awareness and are actively working on ego-balance, though certain triggers still catch you off guard. Focused practice in your lower-scoring areas will make a real difference.', desc_ta:'உங்களுக்கு உண்மையான சுய விழிப்புணர்வு உள்ளது, ஈகோ-சமநிலைக்காக தீவிரமாக பணியாற்றுகிறீர்கள், ஆனாலும் சில தூண்டுதல்கள் இன்னும் உங்களை திடீரென பிடிக்கின்றன. குறைந்த மதிப்பெண் உள்ள பகுதிகளில் கவனம் செலுத்தப்பட்ட பயிற்சி உண்மையான வித்தியாசத்தை ஏற்படுத்தும்.'};
+  return {en:'The Reactive Protector', ta:'எதிர்வினையான பாதுகாவலர்', desc_en:'Your ego is currently working hard to protect you — often more than the situation requires. This is very common and very changeable. Start small: pick one dimension below and practice its guidance daily for two weeks.', desc_ta:'உங்கள் ஈகோ தற்போது உங்களைப் பாதுகாக்க கடினமாக உழைக்கிறது — சூழ்நிலை தேவைப்படுவதை விட அதிகமாக. இது மிகவும் பொதுவானது, மிகவும் மாற்றக்கூடியது. சிறியதாக தொடங்குங்கள்: கீழே உள்ள ஒரு பரிமாணத்தைத் தேர்ந்தெடுத்து, இரண்டு வாரங்களுக்கு தினமும் அதன் வழிகாட்டுதலை பயிற்சி செய்யுங்கள்.'};
+}
+
+function generateReport(){
+  const name = document.getElementById('fName').value || 'Learner';
+  const phone = document.getElementById('fPhone').value || '-';
+  const roleSel = document.getElementById('fRole');
+  const roleLabelEn = roleSel.options[roleSel.selectedIndex].getAttribute('data-label-en');
+  const roleLabelTa = roleSel.options[roleSel.selectedIndex].getAttribute('data-label-ta');
+  const roleVal = roleSel.value;
+
+  const scores = DIMENSIONS.map(d=>({dim:d, pct:scoreDimension(d)}));
+  const avg = Math.round(scores.reduce((a,s)=>a+s.pct,0)/scores.length);
+  const type = overallType(avg);
+  const sorted = [...scores].sort((a,b)=>a.pct-b.pct);
+  const priority = sorted.slice(0,3);
+  const strengths = [...scores].sort((a,b)=>b.pct-a.pct).slice(0,2);
+  const dateStr = new Date().toLocaleDateString('en-IN', {day:'2-digit',month:'long',year:'numeric'});
+
+  let barsHtml = '';
+  scores.forEach(s=>{
+    const band = bandFor(s.pct);
+    barsHtml += `<div class="bar-row">
+      <div class="label-line">
+        <span><span data-en>${s.dim.title_en}</span><span data-ta>${s.dim.title_ta}</span></span>
+        <span style="color:${band.color};font-weight:700;">${s.pct}%</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:${s.pct}%;"></div></div>
+    </div>`;
+  });
+
+  let dim1Html = '', dim2Html = '';
+  scores.forEach((s,idx)=>{
+    const band = bandFor(s.pct);
+    const g = DIM_GUIDANCE[s.dim.id];
+    const block = `<div class="dim-detail">
+      <h4><span data-en>${s.dim.title_en}</span><span data-ta>${s.dim.title_ta}</span> — ${s.pct}% (<span data-en>${band.label_en}</span><span data-ta>${band.label_ta}</span>)</h4>
+      <p><span data-en>${g.en}</span><span data-ta>${g.ta}</span></p>
+    </div>`;
+    if(idx < 3) dim1Html += block; else dim2Html += block;
+  });
+
+  const weeks = priority.map((p,i)=>{
+    const g = DIM_GUIDANCE[p.dim.id];
+    return `<div class="action-week"><div class="wk"><span data-en>Week ${i+1}</span><span data-ta>வாரம் ${i+1}</span></div>
+      <div><b><span data-en>${p.dim.title_en}</span><span data-ta>${p.dim.title_ta}</span></b><br>
+      <span style="font-size:13px;color:var(--muted);"><span data-en>${g.en}</span><span data-ta>${g.ta}</span></span></div></div>`;
+  }).join('');
+
+  const strengthsText = strengths.map(s=>`<li><span data-en>${s.dim.title_en}</span><span data-ta>${s.dim.title_ta}</span> — ${s.pct}%</li>`).join('');
+
+  const html = `
+  <div class="report-page">
+    <div class="cover-badge">NT</div>
+    <h2 class="cover-title"><span data-en>Ego Self-Assessment Report</span><span data-ta>ஈகோ சுய மதிப்பீட்டு அறிக்கை</span></h2>
+    <div class="cover-sub"><span data-en>NT Somasundaram Life Skills Program</span><span data-ta>NT சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்</span></div>
+    <table class="meta-table">
+      <tr><td><span data-en>Name</span><span data-ta>பெயர்</span></td><td>${name}</td></tr>
+      <tr><td><span data-en>Contact</span><span data-ta>தொடர்பு</span></td><td>${phone}</td></tr>
+      <tr><td><span data-en>Role</span><span data-ta>பாத்திரம்</span></td><td><span data-en>${roleLabelEn}</span><span data-ta>${roleLabelTa}</span></td></tr>
+      <tr><td><span data-en>Date</span><span data-ta>தேதி</span></td><td>${dateStr}</td></tr>
+      <tr><td><span data-en>Overall Ego-Balance Score</span><span data-ta>மொத்த ஈகோ-சமநிலை மதிப்பெண்</span></td><td>${avg}%</td></tr>
+    </table>
+    <div class="profile-box">
+      <div class="type"><span data-en>${type.en}</span><span data-ta>${type.ta}</span></div>
+      <div class="desc"><span data-en>${type.desc_en}</span><span data-ta>${type.desc_ta}</span></div>
+    </div>
+    <div class="pagefoot"><span>Know Your Ego — NT Somasundaram Life Skills Program</span><span>Page 1 / 5</span></div>
+  </div>
+
+  <div class="report-page">
+    <h2 class="cover-title" style="font-size:22px;"><span data-en>Your Dimension-by-Dimension Scores</span><span data-ta>உங்கள் பரிமாண வாரியான மதிப்பெண்கள்</span></h2>
+    <p style="color:var(--muted);font-size:13.5px;text-align:center;margin-bottom:24px;"><span data-en>Higher percentages indicate healthier ego-balance in that dimension.</span><span data-ta>அதிக சதவீதங்கள் அந்த பரிமாணத்தில் ஆரோக்கியமான ஈகோ-சமநிலையைக் குறிக்கின்றன.</span></p>
+    ${barsHtml}
+    <div style="margin-top:24px;">
+      <h4 style="color:var(--navy2);"><span data-en>Your Strongest Areas</span><span data-ta>உங்கள் வலுவான பகுதிகள்</span></h4>
+      <ul>${strengthsText}</ul>
+    </div>
+    <div class="pagefoot"><span>Know Your Ego — NT Somasundaram Life Skills Program</span><span>Page 2 / 5</span></div>
+  </div>
+
+  <div class="report-page">
+    <h2 class="cover-title" style="font-size:22px;"><span data-en>Detailed Analysis (Part 1)</span><span data-ta>விரிவான பகுப்பாய்வு (பகுதி 1)</span></h2>
+    ${dim1Html}
+    <div class="pagefoot"><span>Know Your Ego — NT Somasundaram Life Skills Program</span><span>Page 3 / 5</span></div>
+  </div>
+
+  <div class="report-page">
+    <h2 class="cover-title" style="font-size:22px;"><span data-en>Detailed Analysis (Part 2) & Your Action Plan</span><span data-ta>விரிவான பகுப்பாய்வு (பகுதி 2) & உங்கள் செயல் திட்டம்</span></h2>
+    ${dim2Html}
+    <div style="margin-top:22px;">
+      <h4 style="color:var(--navy2);"><span data-en>Your 3-Week Priority Focus</span><span data-ta>உங்கள் 3-வார முன்னுரிமை கவனம்</span></h4>
+      ${weeks}
+    </div>
+    <div class="pagefoot"><span>Know Your Ego — NT Somasundaram Life Skills Program</span><span>Page 4 / 5</span></div>
+  </div>
+
+  <div class="report-page promo-page">
+    <h2 class="cover-title"><span data-en>Go Further — Join the Live Program</span><span data-ta>மேலும் ஆழமாக — நேரடி பயிற்சியில் சேரவும்</span></h2>
+    <p style="text-align:center;max-width:520px;margin:0 auto 20px;">
+      <span data-en>This report is a starting point. In our live bilingual program, N T Somasundaram works directly with you (or your team) to build lasting ego-balance through guided practice, role-play, and personal coaching.</span>
+      <span data-ta>இந்த அறிக்கை ஒரு தொடக்கப் புள்ளி. எங்கள் நேரடி இருமொழி திட்டத்தில், N T சோமசுந்தரம் வழிகாட்டப்பட்ட பயிற்சி, பாத்திர-நடிப்பு, தனிப்பட்ட பயிற்சி மூலம் நீடித்த ஈகோ-சமநிலையை உருவாக்க உங்களுடன் (அல்லது உங்கள் குழுவுடன்) நேரடியாக பணியாற்றுகிறார்.</span>
+    </p>
+    <table class="meta-table" style="max-width:460px;margin:0 auto 20px;color:#fff;">
+      <tr><td style="color:#cfd6e6;"><span data-en>Batch Dates</span><span data-ta>பேட்ச் தேதிகள்</span></td><td>[[BATCH_DATE]]</td></tr>
+      <tr><td style="color:#cfd6e6;"><span data-en>Live Zoom Sessions</span><span data-ta>நேரடி Zoom அமர்வுகள்</span></td><td>[[ZOOM_DATE_TIME]]</td></tr>
+      <tr><td style="color:#cfd6e6;"><span data-en>Program Fee</span><span data-ta>திட்டக் கட்டணம்</span></td><td>[[PRICE]]</td></tr>
+    </table>
+    <div class="promo-cta">
+      <a class="wa-btn" href="https://wa.me/919843702244?text=Hi%2C%20I%20completed%20the%20Ego%20Self-Assessment%20and%20want%20to%20know%20more%20about%20the%20live%20program" target="_blank">💬 <span data-en>WhatsApp to Enroll</span><span data-ta>சேர வாட்ஸ்அப் செய்யவும்</span></a>
+    </div>
+    <div class="pagefoot" style="border-top-color:rgba(255,255,255,.2);color:#cfd6e6;"><span>God is always with u</span><span>Page 5 / 5</span></div>
+  </div>
+  `;
+
+  document.getElementById('reportSection').innerHTML = html;
+  document.getElementById('reportSection').style.display = 'block';
+  document.getElementById('assessmentSection').style.display = 'none';
+  document.getElementById('printBar').style.display = 'flex';
+  window.scrollTo({top:0, behavior:'smooth'});
+  logToSheet(name, phone, roleVal, avg, type.en);
+}
+
+function logToSheet(name, phone, role, avg, type){
+  try{
+    const GAS_URL = 'REPLACE_WITH_APPS_SCRIPT_WEB_APP_URL';
+    if(GAS_URL.indexOf('REPLACE') !== -1) return;
+    const img = new Image();
+    const params = new URLSearchParams({course:'Know Your Ego', name:name, phone:phone, role:role, score:avg, type:type, ts:new Date().toISOString()});
+    img.src = GAS_URL + '?' + params.toString();
+  }catch(e){}
+}
+
+(function(){
+  const saved = localStorage.getItem('egoCourseLang') || 'en';
+  setLang(saved);
+})();
+</script>
+</body>
+</html>
