@@ -1,0 +1,775 @@
+<!--
+  ============================================================
+  PAYMENT LINKS TO REPLACE BEFORE PUBLISHING
+  Search for each REPLACE-...-PAYMENT-LINK string below and
+  swap in your real Razorpay Payment Link URL.
+  ------------------------------------------------------------
+  1.  ✅ DONE — Life Skills Educators uses live Razorpay Payment Button (pl_TEm4ORrzVWgV9l)
+  2.  ✅ DONE — Positive Discipline Teachers uses live Razorpay Payment Button (pl_TEmPvdvol1SnwU)
+  3.  ✅ DONE — Classroom Behaviour uses live Razorpay Payment Button (pl_TDxaDdU5shsicb)
+  4.  ✅ DONE — Digital Pedagogy uses live Razorpay Payment Button (pl_TDLjvNfh03cjQm)
+  5.  ✅ DONE — Emotional Intelligence Teachers uses live Razorpay Payment Button (pl_TEmWchi0lM6kam)
+  6.  ✅ DONE — Know Your Ego uses live Razorpay Payment Button (pl_TEmalGLt1t804D)
+  7.  ✅ DONE — Anger Management uses live Razorpay Payment Button (pl_TEmd6Afyg8S01B)
+  8.  ✅ DONE — Communication Adults uses live Razorpay Payment Button (pl_TEmfV2XGZQEJgc)
+  9.  ✅ DONE — Digital Parenting uses live Razorpay Payment Button (pl_TEmh4WSbh857AU)
+  10. ✅ DONE — Positive Discipline Parents uses live Razorpay Payment Button (pl_TEmq5XCtXFMkiS)
+  11. ✅ DONE — Stress Management Parents uses live Razorpay Payment Button (pl_TEmk4cAsoqcV2V)
+  12. ✅ DONE — Career Growth uses live Razorpay Payment Button (pl_TEmmzVXBo6xsZN)
+  ------------------------------------------------------------
+  Prices are market-benchmarked placeholders (edit any ₹ figure
+  directly in the page — search "now">₹ to find each one).
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NT Somasundaram Life Skills Program — Course Catalogue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0B1F3F;
+    --navy-ink:#132A54;
+    --navy-soft:#1E3A6B;
+    --gold:#C9A227;
+    --gold-light:#E8C766;
+    --cream:#F7F4EC;
+    --paper:#FFFFFF;
+    --ink:#1C2230;
+    --ink-soft:#5B6478;
+    --line:#E4DFD0;
+
+    --teachers:#C9A227;
+    --teachers-soft:#FBF3DC;
+    --parents:#8C2F39;
+    --parents-soft:#F7E7E5;
+    --pros:#1F6F6B;
+    --pros-soft:#E4F1EF;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Poppins',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  html[lang="ta"] body{ font-family:'Noto Sans Tamil','Poppins',sans-serif; }
+
+  .en{display:inline;}
+  .ta{display:none;}
+  html[lang="ta"] .en{display:none;}
+  html[lang="ta"] .ta{display:inline;}
+  html[lang="ta"] .ta-block{display:block;}
+
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- header ---------- */
+  header{
+    background:var(--navy-deep);
+    color:#fff;
+    position:sticky; top:0; z-index:50;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .header-in{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px; gap:16px; flex-wrap:wrap;
+  }
+  .brand{display:flex; flex-direction:column; line-height:1.25;}
+  .brand .name{font-weight:700; font-size:15px; letter-spacing:.02em;}
+  .brand .tag{font-size:11.5px; color:var(--gold-light); font-weight:500;}
+  nav.segs{display:flex; gap:6px; flex-wrap:wrap;}
+  nav.segs a{
+    font-size:13px; font-weight:600; padding:8px 14px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.18); color:#fff; opacity:.85;
+  }
+  nav.segs a:hover{opacity:1; border-color:var(--gold-light);}
+  .langtoggle{
+    display:flex; border:1px solid rgba(255,255,255,.25); border-radius:999px; overflow:hidden;
+  }
+  .langtoggle button{
+    background:transparent; border:none; color:#fff; font-family:inherit; font-size:12.5px;
+    font-weight:600; padding:7px 14px; cursor:pointer; opacity:.6;
+  }
+  .langtoggle button.active{background:var(--gold); color:var(--navy-deep); opacity:1;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:
+      radial-gradient(900px 420px at 82% -10%, rgba(201,162,39,.20), transparent 60%),
+      linear-gradient(180deg, var(--navy-deep), var(--navy-ink));
+    color:#fff; padding:72px 0 64px; position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; right:-120px; bottom:-160px; width:420px; height:420px;
+    border-radius:50%; border:1px solid rgba(232,199,102,.18);
+  }
+  .hero::before{
+    content:""; position:absolute; right:-40px; bottom:-260px; width:420px; height:420px;
+    border-radius:50%; border:1px solid rgba(232,199,102,.10);
+  }
+  .eyebrow{
+    display:inline-block; font-size:12.5px; font-weight:700; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--gold-light); border:1px solid rgba(232,199,102,.4);
+    padding:6px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  h1{
+    font-size:clamp(32px,4.6vw,52px); line-height:1.12; font-weight:800; max-width:760px; margin:0 0 20px;
+    letter-spacing:-0.01em;
+  }
+  h1 em{color:var(--gold-light); font-style:normal;}
+  .hero p.lead{font-size:17px; line-height:1.7; color:#D9DEEA; max-width:600px; margin:0 0 34px;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:14.5px;
+    padding:14px 26px; border-radius:10px; cursor:pointer; border:1px solid transparent;
+  }
+  .btn-gold{background:var(--gold); color:var(--navy-deep);}
+  .btn-gold:hover{background:var(--gold-light);}
+  .btn-ghost{border-color:rgba(255,255,255,.35); color:#fff;}
+  .btn-ghost:hover{border-color:var(--gold-light); color:var(--gold-light);}
+
+  .stat-row{
+    display:flex; gap:36px; margin-top:48px; flex-wrap:wrap; padding-top:30px;
+    border-top:1px solid rgba(255,255,255,.12);
+  }
+  .stat b{display:block; font-size:26px; color:var(--gold-light); font-weight:800;}
+  .stat span{font-size:12.5px; color:#B7BFD2;}
+
+  /* ---------- path selector ---------- */
+  .paths{padding:56px 0 20px;}
+  .section-head{max-width:640px; margin:0 auto 40px; text-align:center;}
+  .section-head .kicker{
+    font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink-soft); margin-bottom:10px;
+  }
+  .section-head h2{font-size:clamp(24px,3vw,32px); margin:0 0 12px; font-weight:800; color:var(--navy-deep);}
+  .section-head p{color:var(--ink-soft); font-size:15px; line-height:1.7; margin:0;}
+
+  .path-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:8px;}
+  .path-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px; padding:26px 24px;
+    display:flex; flex-direction:column; gap:10px; transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .path-card:hover{transform:translateY(-4px); box-shadow:0 16px 30px -18px rgba(11,31,63,.35);}
+  .path-card .icon{
+    width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    font-size:20px; font-weight:800; color:#fff;
+  }
+  .path-card .count{font-size:12.5px; color:var(--ink-soft); font-weight:600;}
+  .path-card h3{margin:2px 0 0; font-size:19px; color:var(--navy-deep);}
+  .path-card p{margin:0; font-size:13.5px; color:var(--ink-soft); line-height:1.6;}
+  .path-card .go{margin-top:8px; font-size:13px; font-weight:700;}
+
+  .icon.t{background:var(--teachers);}
+  .icon.p{background:var(--parents);}
+  .icon.w{background:var(--pros);}
+  .path-card.t .go{color:var(--teachers);}
+  .path-card.p .go{color:var(--parents);}
+  .path-card.w .go{color:var(--pros);}
+
+  /* ---------- audience sections ---------- */
+  .track{padding:74px 0;}
+  .track-head{display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:34px; flex-wrap:wrap;}
+  .track-head .eyebrow2{
+    font-size:12.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; padding:5px 12px;
+    border-radius:999px; display:inline-block; margin-bottom:10px;
+  }
+  .track-head h2{font-size:clamp(22px,3vw,30px); font-weight:800; margin:0; color:var(--navy-deep);}
+  .track-head p{margin:8px 0 0; color:var(--ink-soft); font-size:14.5px; max-width:480px;}
+  .track-cta{font-size:13.5px; font-weight:700; white-space:nowrap;}
+
+  #teachers .eyebrow2{background:var(--teachers-soft); color:#8a6b0f;}
+  #parents .eyebrow2{background:var(--parents-soft); color:var(--parents);}
+  #professionals .eyebrow2{background:var(--pros-soft); color:var(--pros);}
+
+  .card-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:22px;}
+
+  .course-card{
+    background:var(--paper); border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    display:flex; flex-direction:column; transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .course-card:hover{transform:translateY(-4px); box-shadow:0 18px 32px -20px rgba(11,31,63,.3);}
+  .card-top{padding:22px 22px 0;}
+  .badge{
+    display:inline-block; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px;
+    letter-spacing:.03em; margin-bottom:14px;
+  }
+  #teachers .badge{background:var(--teachers-soft); color:#8a6b0f;}
+  #parents .badge{background:var(--parents-soft); color:var(--parents);}
+  #professionals .badge{background:var(--pros-soft); color:var(--pros);}
+
+  .course-card h3{font-size:18px; margin:0 0 10px; color:var(--navy-deep); line-height:1.35;}
+  .course-card p{font-size:13.5px; color:var(--ink-soft); line-height:1.65; margin:0 0 16px;}
+  .meta-row{display:flex; gap:10px; flex-wrap:wrap; padding:0 22px; margin-bottom:18px;}
+  .meta-pill{font-size:11.5px; font-weight:600; color:var(--navy-soft); background:var(--cream); border:1px solid var(--line); padding:4px 10px; border-radius:8px;}
+  .card-bottom{
+    margin-top:auto; padding:16px 22px; border-top:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+  }
+  .card-bottom a.enroll{font-size:13.5px; font-weight:700; color:var(--navy-deep);}
+  .card-bottom a.enroll:hover{color:var(--gold); }
+  .card-bottom a.wa{
+    font-size:12px; font-weight:600; color:#2E9E5B; display:flex; align-items:center; gap:5px;
+  }
+
+  .price-tease{
+    display:flex; align-items:center; gap:10px; margin:14px 22px 0;
+    padding:12px 14px; background:linear-gradient(135deg, #FBF3DC, #FDF8EC);
+    border:1.5px dashed var(--gold); border-radius:12px;
+  }
+  .tease-icon{font-size:20px; flex-shrink:0;}
+  .tease-text{font-size:12.5px; font-weight:600; color:#7A5C0E; line-height:1.5;}
+  .tease-text strong{color:var(--navy-deep);}
+  #parents .price-tease{background:linear-gradient(135deg, #F7E7E5, #FDF3F2); border-color:var(--parents);}
+  #parents .tease-text{color:#7A3B41;}
+  #professionals .price-tease{background:linear-gradient(135deg, #E4F1EF, #F1F9F8); border-color:var(--pros);}
+  #professionals .tease-text{color:#155551;}
+  .pay-row{padding:0 22px 20px;}
+  .pay-row form{display:flex; justify-content:center;}
+  .pay-btn{
+    display:flex; align-items:center; justify-content:center; width:100%;
+    background:var(--navy-deep); color:#fff; font-size:14px; font-weight:700;
+    padding:12px 16px; border-radius:10px; transition:background .15s ease;
+  }
+  .pay-btn:hover{background:var(--gold); color:var(--navy-deep);}
+  #teachers .pay-btn:hover{background:var(--teachers); color:var(--navy-deep);}
+  #parents .pay-btn:hover{background:var(--parents); color:#fff;}
+  #professionals .pay-btn:hover{background:var(--pros); color:#fff;}
+
+  /* ---------- how it works ---------- */
+  .how{background:var(--navy-deep); color:#fff; padding:70px 0;}
+  .how .section-head h2{color:#fff;}
+  .how .section-head p{color:#B7BFD2;}
+  .how .section-head .kicker{color:var(--gold-light);}
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:40px;}
+  .step{border:1px solid rgba(255,255,255,.14); border-radius:14px; padding:24px;}
+  .step .num{
+    width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--navy-deep);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px; margin-bottom:14px;
+  }
+  .step h4{margin:0 0 8px; font-size:16px;}
+  .step p{margin:0; font-size:13.5px; color:#C6CCDB; line-height:1.6;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--navy-ink); color:#C6CCDB; padding:44px 0 26px;}
+  .foot-top{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap; padding-bottom:26px; border-bottom:1px solid rgba(255,255,255,.1);}
+  .foot-top .motto{font-size:15px; font-weight:600; color:var(--gold-light);}
+  .foot-top .name{font-size:13px; margin-top:6px;}
+  .foot-contact{display:flex; gap:22px; flex-wrap:wrap; font-size:13px;}
+  .foot-contact a:hover{color:var(--gold-light);}
+  .foot-bottom{padding-top:20px; font-size:12px; color:#8B93A8; text-align:center;}
+
+  @media (max-width:860px){
+    .path-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .stat-row{gap:24px;}
+  }
+  @media (max-width:640px){
+    nav.segs{display:none;}
+    .track-head{flex-direction:column; align-items:flex-start;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <div class="brand">
+      <span class="name">NT Somasundaram <span class="en">· Life Skills Program</span><span class="ta">· வாழ்க்கை திறன் திட்டம்</span></span>
+      <span class="tag"><span class="en">God is always with u</span><span class="ta">கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்</span></span>
+    </div>
+    <nav class="segs">
+      <a href="#teachers"><span class="en">Teachers</span><span class="ta">ஆசிரியர்கள்</span></a>
+      <a href="#parents"><span class="en">Parents</span><span class="ta">பெற்றோர்</span></a>
+      <a href="#professionals"><span class="en">Professionals</span><span class="ta">தொழில் வல்லுநர்கள்</span></a>
+    </nav>
+    <div class="langtoggle">
+      <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+      <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="en">12 Courses · 3 Audiences · Bilingual</span><span class="ta">12 படிப்புகள் · 3 பார்வையாளர்கள் · இருமொழி</span></span>
+    <h1>
+      <span class="en">Life skills courses for <em>teachers, parents</em> &amp; <em>working professionals</em></span>
+      <span class="ta">ஆசிரியர்கள், பெற்றோர் &amp; <em>தொழில் வல்லுநர்களுக்கான</em> வாழ்க்கை திறன் படிப்புகள்</span>
+    </h1>
+    <p class="lead">
+      <span class="en">Certified, bilingual (English &amp; Tamil) self-paced courses built by NT Somasundaram — Certified Master Trainer, Career Consultant &amp; Life Skills Educator. Every course opens with a free preview and a self-assessment, before the full modules unlock.</span>
+      <span class="ta">என்.டி. சோமசுந்தரம் — சான்றளிக்கப்பட்ட முதன்மை பயிற்சியாளர், தொழில் ஆலோசகர் &amp; வாழ்க்கை திறன் கல்வியாளர் — உருவாக்கிய சான்றளிக்கப்பட்ட, இருமொழி (ஆங்கிலம் &amp; தமிழ்) சுய-வேக படிப்புகள். ஒவ்வொரு படிப்பும் இலவச முன்னோட்டம் மற்றும் சுய மதிப்பீட்டுடன் தொடங்கி, முழு தொகுதிகள் திறக்கும்.</span>
+    </p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#teachers"><span class="en">Browse all courses</span><span class="ta">அனைத்து படிப்புகளையும் பார்க்க</span></a>
+      <a class="btn btn-ghost" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses" target="_blank" rel="noopener">
+        <span class="en">Ask on WhatsApp</span><span class="ta">WhatsApp-இல் கேளுங்கள்</span>
+      </a>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><b>12</b><span class="en">Full Courses</span><span class="ta">முழு படிப்புகள்</span></div>
+      <div class="stat"><b>3</b><span class="en">Audience Tracks</span><span class="ta">பார்வையாளர் பாதைகள்</span></div>
+      <div class="stat"><b>100+</b><span class="en">Modules &amp; Topics</span><span class="ta">தொகுதிகள் &amp; தலைப்புகள்</span></div>
+      <div class="stat"><b>EN/TA</b><span class="en">Fully Bilingual</span><span class="ta">முழுமையாக இருமொழி</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="paths">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="en">Start here</span><span class="ta">இங்கே தொடங்குங்கள்</span></div>
+      <h2><span class="en">Which path is yours?</span><span class="ta">உங்கள் பாதை எது?</span></h2>
+      <p><span class="en">Every course begins with a free preview module or self-assessment — pick your track below to explore.</span><span class="ta">ஒவ்வொரு படிப்பும் ஒரு இலவச முன்னோட்ட தொகுதி அல்லது சுய மதிப்பீட்டுடன் தொடங்குகிறது — கீழே உங்கள் பாதையை தேர்ந்தெடுக்கவும்.</span></p>
+    </div>
+    <div class="path-grid">
+      <a class="path-card t" href="#teachers">
+        <div class="icon t">T</div>
+        <span class="count"><span class="en">5 Courses</span><span class="ta">5 படிப்புகள்</span></span>
+        <h3><span class="en">For Teachers</span><span class="ta">ஆசிரியர்களுக்கு</span></h3>
+        <p><span class="en">Classroom-ready life skills, discipline, EQ and digital pedagogy training.</span><span class="ta">வகுப்பறைக்கு தயார் வாழ்க்கை திறன், ஒழுக்கம், EQ மற்றும் டிஜிட்டல் கற்பித்தல் பயிற்சி.</span></p>
+        <span class="go"><span class="en">Explore Teacher courses →</span><span class="ta">ஆசிரியர் படிப்புகளைப் பார்க்க →</span></span>
+      </a>
+      <a class="path-card p" href="#parents">
+        <div class="icon p">P</div>
+        <span class="count"><span class="en">6 Courses</span><span class="ta">6 படிப்புகள்</span></span>
+        <h3><span class="en">For Parents</span><span class="ta">பெற்றோருக்கு</span></h3>
+        <p><span class="en">Discipline, screen time, anger, communication and stress management at home.</span><span class="ta">வீட்டில் ஒழுக்கம், ஸ்கிரீன் நேரம், கோபம், தொடர்பு மற்றும் மன அழுத்த மேலாண்மை.</span></p>
+        <span class="go"><span class="en">Explore Parent courses →</span><span class="ta">பெற்றோர் படிப்புகளைப் பார்க்க →</span></span>
+      </a>
+      <a class="path-card w" href="#professionals">
+        <div class="icon w">W</div>
+        <span class="count"><span class="en">1 Course</span><span class="ta">1 படிப்பு</span></span>
+        <h3><span class="en">For Working Professionals</span><span class="ta">தொழில் வல்லுநர்களுக்கு</span></h3>
+        <p><span class="en">Break through a career plateau and get promotion-ready with a structured 10-module path.</span><span class="ta">தொழில் தேக்கத்தை உடைத்து, கட்டமைக்கப்பட்ட 10-தொகுதி பாதையுடன் பதவி உயர்வுக்குத் தயாராகுங்கள்.</span></p>
+        <span class="go"><span class="en">Explore Career course →</span><span class="ta">தொழில் படிப்பைப் பார்க்க →</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TEACHERS ================= -->
+<section class="track" id="teachers">
+  <div class="wrap">
+    <div class="track-head">
+      <div>
+        <span class="eyebrow2"><span class="en">Track 1 · Teachers</span><span class="ta">பாதை 1 · ஆசிரியர்கள்</span></span>
+        <h2><span class="en">Courses for Teachers &amp; School Leaders</span><span class="ta">ஆசிரியர்கள் &amp; பள்ளி தலைவர்களுக்கான படிப்புகள்</span></h2>
+        <p><span class="en">Practical, classroom-tested training in life skills, discipline, behaviour, EQ and digital teaching.</span><span class="ta">வாழ்க்கை திறன், ஒழுக்கம், நடத்தை, EQ மற்றும் டிஜிட்டல் கற்பித்தலில் நடைமுறை, வகுப்பறையில் சோதிக்கப்பட்ட பயிற்சி.</span></p>
+      </div>
+      <a class="track-cta" style="color:var(--teachers)" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20a%20teacher%20interested%20in%20your%20courses" target="_blank" rel="noopener"><span class="en">Ask about Teacher courses →</span><span class="ta">ஆசிரியர் படிப்புகள் பற்றி கேளுங்கள் →</span></a>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Life Skills</span><span class="ta">வாழ்க்கை திறன்</span></span>
+          <h3><span class="en">Life Skills Mastery for Educators</span><span class="ta">ஆசிரியர்களுக்கான வாழ்க்கை திறன் தேர்ச்சி</span></h3>
+          <p><span class="en">Build calm, confident classrooms through 10 core life-skills modules — starting with your own 15-domain self-assessment.</span><span class="ta">உங்கள் சொந்த 15-துறை சுய மதிப்பீட்டில் தொடங்கி, 10 முக்கிய வாழ்க்கை திறன் தொகுதிகள் மூலம் அமைதியான, நம்பிக்கையான வகுப்பறைகளை உருவாக்குங்கள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">10 Modules</span><span class="ta">10 தொகுதிகள்</span></span>
+          <span class="meta-pill"><span class="en">15-Domain Assessment</span><span class="ta">15-துறை மதிப்பீடு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/life-skills-educators-course/module1-life-skills-teachers.html" target="_blank" rel="noopener"><span class="en">Start free preview →</span><span class="ta">இலவச முன்னோட்டம் →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Life%20Skills%20Mastery%20for%20Educators%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEm4ORrzVWgV9l" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Discipline</span><span class="ta">ஒழுக்கம்</span></span>
+          <h3><span class="en">Positive Discipline for Teachers</span><span class="ta">ஆசிரியர்களுக்கான நேர்மறை ஒழுக்கம்</span></h3>
+          <p><span class="en">Move beyond punishment and reward — practical, respectful discipline strategies, with a personal self-assessment report.</span><span class="ta">தண்டனை மற்றும் வெகுமதிக்கு அப்பால் — தனிப்பட்ட சுய மதிப்பீட்டு அறிக்கையுடன், மரியாதையான ஒழுக்க உத்திகள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">10 Modules</span><span class="ta">10 தொகுதிகள்</span></span>
+          <span class="meta-pill"><span class="en">5-Page Report</span><span class="ta">5-பக்க அறிக்கை</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/positive-discipline-teachers-course/positive-discipline-teachers-course-outline.html" target="_blank" rel="noopener"><span class="en">View course outline →</span><span class="ta">படிப்பு அமைப்பு →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Positive%20Discipline%20for%20Teachers%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmPvdvol1SnwU" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Behaviour</span><span class="ta">நடத்தை</span></span>
+          <h3><span class="en">Classroom Behaviour Management &amp; De-escalation</span><span class="ta">வகுப்பறை நடத்தை மேலாண்மை &amp; De-escalation</span></h3>
+          <p><span class="en">De-escalation techniques and behaviour-management strategies to handle disruption calmly — without losing the classroom.</span><span class="ta">வகுப்பறையை இழக்காமல் அமைதியாக சீர்குலைவை கையாள்வதற்கான de-escalation நுட்பங்கள் மற்றும் நடத்தை மேலாண்மை உத்திகள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">10 Modules</span><span class="ta">10 தொகுதிகள்</span></span>
+          <span class="meta-pill"><span class="en">Self-Assessment</span><span class="ta">சுய மதிப்பீடு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/classroom-behaviour/index.html" target="_blank" rel="noopener"><span class="en">Explore course →</span><span class="ta">படிப்பைப் பார்க்க →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Classroom%20Behaviour%20Management%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TDxaDdU5shsicb" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Digital Teaching</span><span class="ta">டிஜிட்டல் கற்பித்தல்</span></span>
+          <h3><span class="en">Digital Pedagogy Course</span><span class="ta">டிஜிட்டல் கற்பித்தல் படிப்பு</span></h3>
+          <p><span class="en">Practical digital teaching tools and techniques to make lessons more engaging in today's connected classroom.</span><span class="ta">இன்றைய இணைய வகுப்பறையில் பாடங்களை மேலும் ஈர்க்கும் வகையில் மாற்ற நடைமுறை டிஜிட்டல் கற்பித்தல் கருவிகள் மற்றும் நுட்பங்கள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">Topic-Based</span><span class="ta">தலைப்பு அடிப்படையிலான</span></span>
+          <span class="meta-pill"><span class="en">Tool Spotlights</span><span class="ta">கருவி சிறப்பம்சங்கள்</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/digital-pedagogy-course/digital-pedagogy-course.dc.html" target="_blank" rel="noopener"><span class="en">Explore course →</span><span class="ta">படிப்பைப் பார்க்க →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Digital%20Pedagogy%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TDLjvNfh03cjQm" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Emotional Intelligence</span><span class="ta">உணர்ச்சி நுண்ணறிவு</span></span>
+          <h3><span class="en">Emotional Intelligence for Teachers</span><span class="ta">ஆசிரியர்களுக்கான உணர்ச்சி நுண்ணறிவு</span></h3>
+          <p><span class="en">A 30-question self-assessment plus practical modules to help teachers read, regulate and respond with emotional intelligence.</span><span class="ta">ஆசிரியர்கள் உணர்ச்சி நுண்ணறிவுடன் புரிந்துகொள்ளவும், கட்டுப்படுத்தவும், பதிலளிக்கவும் உதவும் 30-கேள்வி சுய மதிப்பீடு.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">30-Question Assessment</span><span class="ta">30-கேள்வி மதிப்பீடு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/emotional-intelligence-teachers-course/course.html" target="_blank" rel="noopener"><span class="en">Explore course →</span><span class="ta">படிப்பைப் பார்க்க →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Emotional%20Intelligence%20for%20Teachers%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmWchi0lM6kam" async></script>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PARENTS ================= -->
+<section class="track" id="parents" style="background:var(--paper);">
+  <div class="wrap">
+    <div class="track-head">
+      <div>
+        <span class="eyebrow2"><span class="en">Track 2 · Parents</span><span class="ta">பாதை 2 · பெற்றோர்</span></span>
+        <h2><span class="en">Courses for Parents &amp; Adults</span><span class="ta">பெற்றோர் &amp; பெரியவர்களுக்கான படிப்புகள்</span></h2>
+        <p><span class="en">Practical tools for calmer homes: discipline, screen time, ego, anger, communication and stress.</span><span class="ta">அமைதியான வீடுகளுக்கான நடைமுறை கருவிகள்: ஒழுக்கம், ஸ்கிரீன் நேரம், ஈகோ, கோபம், தொடர்பு &amp; மன அழுத்தம்.</span></p>
+      </div>
+      <a class="track-cta" style="color:var(--parents)" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20your%20parenting%20courses" target="_blank" rel="noopener"><span class="en">Ask about Parent courses →</span><span class="ta">பெற்றோர் படிப்புகள் பற்றி கேளுங்கள் →</span></a>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Inner Awareness</span><span class="ta">உள் விழிப்புணர்வு</span></span>
+          <h3><span class="en">Know Your Ego</span><span class="ta">உங்கள் ஈகோவை அறியுங்கள்</span></h3>
+          <p><span class="en">Understand the ego states that drive your reactions — a 10-module course for calmer relationships at home.</span><span class="ta">உங்கள் எதிர்வினைகளை இயக்கும் ஈகோ நிலைகளைப் புரிந்துகொள்ளுங்கள் — வீட்டில் அமைதியான உறவுகளுக்கான 10-தொகுதி படிப்பு.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">10 Modules</span><span class="ta">10 தொகுதிகள்</span></span>
+          <span class="meta-pill"><span class="en">Passcode Access</span><span class="ta">பாஸ்கோட் அணுகல்</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/know-your-ego-course/index.html" target="_blank" rel="noopener"><span class="en">Explore course →</span><span class="ta">படிப்பைப் பார்க்க →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Know%20Your%20Ego%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmalGLt1t804D" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Anger Management</span><span class="ta">கோப மேலாண்மை</span></span>
+          <h3><span class="en">Anger Management Mastery</span><span class="ta">கோப மேலாண்மை தேர்ச்சி</span></h3>
+          <p><span class="en">30 focused subtopics to help you recognise your anger triggers early and respond instead of react.</span><span class="ta">உங்கள் கோப தூண்டுதல்களை முன்கூட்டியே அடையாளம் கண்டு, எதிர்வினை காட்டாமல் பதிலளிக்க உதவும் 30 குவிமைய துணைத் தலைப்புகள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">30 Subtopics</span><span class="ta">30 துணைத் தலைப்புகள்</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/anger-management-course/login.html" target="_blank" rel="noopener"><span class="en">Log in / Enroll →</span><span class="ta">உள்நுழைய / சேருங்கள் →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Anger%20Management%20Mastery%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmd6Afyg8S01B" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Communication</span><span class="ta">தொடர்பு</span></span>
+          <h3><span class="en">Communication Skills for Adults</span><span class="ta">பெரியவர்களுக்கான தொடர்பு திறன்கள்</span></h3>
+          <p><span class="en">Say what you mean and hear what's meant — practical communication skills for family, work and everyday life.</span><span class="ta">நீங்கள் நினைப்பதைச் சொல்லுங்கள், சொல்வதைக் கேளுங்கள் — குடும்பம், வேலை &amp; அன்றாட வாழ்க்கைக்கான நடைமுறை தொடர்பு திறன்கள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">14-Part Suite</span><span class="ta">14-பகுதி தொகுப்பு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/communication-adults-course/index.html" target="_blank" rel="noopener"><span class="en">Explore course →</span><span class="ta">படிப்பைப் பார்க்க →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Communication%20Skills%20for%20Adults%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmfV2XGZQEJgc" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Digital Parenting</span><span class="ta">டிஜிட்டல் பெற்றோர்</span></span>
+          <h3><span class="en">Digital Parenting &amp; Screen Time Mastery</span><span class="ta">டிஜிட்டல் பெற்றோர் &amp; ஸ்கிரீன் நேர தேர்ச்சி</span></h3>
+          <p><span class="en">Set healthy screen-time boundaries without constant battles — a 10-module guide for digital-first families.</span><span class="ta">நிலையான போராட்டங்கள் இல்லாமல் ஆரோக்கியமான ஸ்கிரீன் நேர எல்லைகளை அமைக்க — 10-தொகுதி வழிகாட்டி.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">10 Modules</span><span class="ta">10 தொகுதிகள்</span></span>
+          <span class="meta-pill"><span class="en">Self-Assessment</span><span class="ta">சுய மதிப்பீடு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/digital-parenting-course/login.html" target="_blank" rel="noopener"><span class="en">Log in / Enroll →</span><span class="ta">உள்நுழைய / சேருங்கள் →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Digital%20Parenting%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmh4WSbh857AU" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Discipline</span><span class="ta">ஒழுக்கம்</span></span>
+          <h3><span class="en">Positive Discipline for Parents</span><span class="ta">பெற்றோருக்கான நேர்மறை ஒழுக்கம்</span></h3>
+          <p><span class="en">Raise capable, cooperative children with kindness and firmness — positive discipline strategies for the home.</span><span class="ta">கருணை மற்றும் உறுதியுடன் திறமையான, ஒத்துழைக்கும் குழந்தைகளை வளர்க்க — வீட்டிற்கான நேர்மறை ஒழுக்க உத்திகள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">Full Course</span><span class="ta">முழு படிப்பு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/positive-discipline-parents/index.html" target="_blank" rel="noopener"><span class="en">Explore course →</span><span class="ta">படிப்பைப் பார்க்க →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Positive%20Discipline%20for%20Parents%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmq5XCtXFMkiS" async></script>
+          </form>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Stress Management</span><span class="ta">மன அழுத்த மேலாண்மை</span></span>
+          <h3><span class="en">Stress Management for Parents</span><span class="ta">பெற்றோருக்கான மன அழுத்த மேலாண்மை</span></h3>
+          <p><span class="en">Practical, everyday tools to manage parenting stress and stay steady when the household gets loud.</span><span class="ta">பெற்றோர் மன அழுத்தத்தை நிர்வகிக்கவும், வீடு சத்தமாக இருக்கும்போது நிலைத்திருக்கவும் நடைமுறை, அன்றாட கருவிகள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">13-Part Suite</span><span class="ta">13-பகுதி தொகுப்பு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/stress-management-parents-course/course-home.html" target="_blank" rel="noopener"><span class="en">Explore course →</span><span class="ta">படிப்பைப் பார்க்க →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Stress%20Management%20for%20Parents%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmk4cAsoqcV2V" async></script>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROFESSIONALS ================= -->
+<section class="track" id="professionals">
+  <div class="wrap">
+    <div class="track-head">
+      <div>
+        <span class="eyebrow2"><span class="en">Track 3 · Working Professionals</span><span class="ta">பாதை 3 · தொழில் வல்லுநர்கள்</span></span>
+        <h2><span class="en">Course for Working Professionals</span><span class="ta">தொழில் வல்லுநர்களுக்கான படிப்பு</span></h2>
+        <p><span class="en">For mid-level professionals who feel stuck at a career plateau and want a clear, structured way forward.</span><span class="ta">தொழில் தேக்கத்தில் சிக்கியிருப்பதாக உணரும் நடுநிலை தொழில் வல்லுநர்களுக்கான தெளிவான, கட்டமைக்கப்பட்ட பாதை.</span></p>
+      </div>
+      <a class="track-cta" style="color:var(--pros)" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Career%20Growth%20course" target="_blank" rel="noopener"><span class="en">Ask about this course →</span><span class="ta">இந்த படிப்பு பற்றி கேளுங்கள் →</span></a>
+    </div>
+
+    <div class="card-grid" style="grid-template-columns:repeat(auto-fit, minmax(320px,420px));">
+
+      <div class="course-card">
+        <div class="card-top">
+          <span class="badge"><span class="en">Career Growth</span><span class="ta">தொழில் வளர்ச்சி</span></span>
+          <h3><span class="en">Career Growth &amp; Promotion Readiness</span><span class="ta">தொழில் வளர்ச்சி &amp; பதவி உயர்வு தயார்நிலை</span></h3>
+          <p><span class="en">Stuck at the same level for too long? A structured 10-module path — with an assessment, action templates and a certificate — to break through your career plateau and get promotion-ready.</span><span class="ta">நீண்ட காலமாக ஒரே நிலையில் நிற்கிறீர்களா? மதிப்பீடு, செயல் டெம்ப்ளேட்கள் &amp; சான்றிதழுடன் கூடிய 10-தொகுதி கட்டமைக்கப்பட்ட பாதை — உங்கள் தொழில் தேக்கத்தை உடைத்து பதவி உயர்வுக்குத் தயாராகுங்கள்.</span></p>
+        </div>
+        <div class="meta-row">
+          <span class="meta-pill"><span class="en">10 Modules</span><span class="ta">10 தொகுதிகள்</span></span>
+          <span class="meta-pill"><span class="en">Assessment + Certificate</span><span class="ta">மதிப்பீடு + சான்றிதழ்</span></span>
+          <span class="meta-pill"><span class="en">Paid Course</span><span class="ta">கட்டண படிப்பு</span></span>
+        </div>
+        <div class="price-tease">
+          <span class="tease-icon">🎁</span>
+          <span class="tease-text"><span class="en">A surprise price is waiting inside — tap <strong>Pay Now</strong> below to reveal it!</span><span class="ta">உள்ளே ஒரு சிறப்பு விலை காத்திருக்கிறது — கீழே <strong>Pay Now</strong>-ஐ அழுத்தி பாருங்கள்!</span></span>
+        </div>
+        <div class="card-bottom">
+          <a class="enroll" href="https://somasundaramntlifecoach-ux.github.io/courses/career-growth-course/login.html" target="_blank" rel="noopener"><span class="en">Log in / Enroll →</span><span class="ta">உள்நுழைய / சேருங்கள் →</span></a>
+          <a class="wa" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Career%20Growth%20%26%20Promotion%20Readiness%20course" target="_blank" rel="noopener">💬 <span class="en">Enroll</span><span class="ta">சேருங்கள்</span></a>
+        </div>
+        <div class="pay-row">
+          <form>
+            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmmzVXBo6xsZN" async></script>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker"><span class="en">Simple by design</span><span class="ta">எளிமையான வடிவமைப்பு</span></div>
+      <h2><span class="en">How enrolment works</span><span class="ta">சேர்க்கை எப்படி வேலை செய்கிறது</span></h2>
+      <p><span class="en">Every course follows the same three steps, whether you're a teacher, parent or professional.</span><span class="ta">நீங்கள் ஆசிரியரா, பெற்றோரா அல்லது தொழில் வல்லுநரா என்பதைப் பொருட்படுத்தாமல், ஒவ்வொரு படிப்பும் ஒரே மூன்று படிகளைப் பின்பற்றுகிறது.</span></p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">1</div>
+        <h4><span class="en">Preview for free</span><span class="ta">இலவசமாக முன்னோட்டம்</span></h4>
+        <p><span class="en">Open any course above and explore Module 1 or the self-assessment at no cost.</span><span class="ta">மேலே உள்ள எந்த படிப்பையும் திறந்து, தொகுதி 1 அல்லது சுய மதிப்பீட்டை இலவசமாக ஆராயுங்கள்.</span></p>
+      </div>
+      <div class="step">
+        <div class="num">2</div>
+        <h4><span class="en">Enroll on WhatsApp</span><span class="ta">WhatsApp-இல் சேருங்கள்</span></h4>
+        <p><span class="en">Message +91 98437 02244 to confirm enrolment and receive your login or passcode.</span><span class="ta">சேர்க்கையை உறுதிப்படுத்த &amp; உங்கள் உள்நுழைவு அல்லது பாஸ்கோடைப் பெற +91 98437 02244-க்கு தொடர்பு கொள்ளுங்கள்.</span></p>
+      </div>
+      <div class="step">
+        <div class="num">3</div>
+        <h4><span class="en">Learn at your pace</span><span class="ta">உங்கள் வேகத்தில் கற்றுக்கொள்ளுங்கள்</span></h4>
+        <p><span class="en">Work through the modules bilingually, track progress, and finish with a report or certificate.</span><span class="ta">தொகுதிகளை இருமொழியில் படித்து, முன்னேற்றத்தைக் கண்காணித்து, அறிக்கை அல்லது சான்றிதழுடன் முடியுங்கள்.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="motto"><span class="en">"God is always with u"</span><span class="ta">"கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"</span></div>
+        <div class="name">NT Somasundaram · <span class="en">Certified Master Trainer, Career Consultant &amp; Life Skills Educator</span><span class="ta">சான்றளிக்கப்பட்ட முதன்மை பயிற்சியாளர், தொழில் ஆலோசகர் &amp; வாழ்க்கை திறன் கல்வியாளர்</span></div>
+      </div>
+      <div class="foot-contact">
+        <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+        <a href="tel:+919843702244">+91 98437 02244</a>
+        <a href="https://sites.google.com/view/somasundaramnt" target="_blank" rel="noopener">sites.google.com/view/somasundaramnt</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span class="en">© NT Somasundaram Life Skills Program. All courses are bilingual (English &amp; Tamil).</span>
+      <span class="ta">© என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம். அனைத்து படிப்புகளும் இருமொழி (ஆங்கிலம் &amp; தமிழ்).</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.getElementById('htmlRoot').setAttribute('lang', lang);
+    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+    document.getElementById('btnTa').classList.toggle('active', lang === 'ta');
+    try{ localStorage.setItem('siteLang', lang); }catch(e){}
+  }
+  (function(){
+    try{
+      var saved = localStorage.getItem('siteLang');
+      if(saved === 'ta') setLang('ta');
+    }catch(e){}
+  })();
+</script>
+
+</body>
+</html>
