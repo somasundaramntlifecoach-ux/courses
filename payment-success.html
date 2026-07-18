@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment Received — NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0B1F3F;
+    --navy-ink:#132A54;
+    --gold:#C9A227;
+    --gold-light:#E8C766;
+    --cream:#F7F4EC;
+    --ink:#1C2230;
+    --ink-soft:#5B6478;
+    --line:#E4DFD0;
+    --green:#2E9E5B;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:linear-gradient(180deg, var(--navy-deep), var(--navy-ink));
+    font-family:'Poppins',sans-serif; color:var(--ink); padding:24px;
+  }
+  html[lang="ta"] body{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .en{display:inline;} .ta{display:none;}
+  html[lang="ta"] .en{display:none;} html[lang="ta"] .ta{display:inline;}
+
+  .card{
+    background:#fff; border-radius:20px; max-width:460px; width:100%; padding:38px 32px 32px;
+    text-align:center; box-shadow:0 30px 60px -20px rgba(0,0,0,.45); position:relative;
+  }
+  .langtoggle{position:absolute; top:16px; right:18px; display:flex; border:1px solid var(--line); border-radius:999px; overflow:hidden;}
+  .langtoggle button{background:transparent; border:none; font-family:inherit; font-size:11.5px; font-weight:600; padding:6px 11px; cursor:pointer; opacity:.55; color:var(--ink);}
+  .langtoggle button.active{background:var(--gold); color:var(--navy-deep); opacity:1;}
+
+  .checkmark{
+    width:64px; height:64px; border-radius:50%; background:#E6F6EC; color:var(--green);
+    display:flex; align-items:center; justify-content:center; font-size:32px; margin:0 auto 18px;
+  }
+  h1{font-size:21px; font-weight:800; color:var(--navy-deep); margin:0 0 8px;}
+  p.sub{font-size:14px; color:var(--ink-soft); line-height:1.6; margin:0 0 22px;}
+
+  .details{
+    background:var(--cream); border:1px solid var(--line); border-radius:12px; padding:16px 18px;
+    text-align:left; font-size:13px; color:var(--ink); margin-bottom:24px;
+  }
+  .details div{display:flex; justify-content:space-between; padding:4px 0;}
+  .details b{color:var(--navy-deep);}
+
+  .wa-btn{
+    display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
+    background:var(--green); color:#fff; font-weight:700; font-size:15px;
+    padding:15px 18px; border-radius:12px; text-decoration:none; margin-bottom:14px;
+  }
+  .wa-btn:hover{background:#268A4F;}
+  .countdown{font-size:12.5px; color:var(--ink-soft);}
+  .countdown b{color:var(--navy-deep);}
+
+  .footnote{font-size:11.5px; color:#9AA2B4; margin-top:22px; line-height:1.6;}
+  .footnote a{color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="langtoggle">
+    <button id="btnEn" class="active" onclick="setLang('en')">EN</button>
+    <button id="btnTa" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+
+  <div class="checkmark">✓</div>
+  <h1><span class="en">Payment Received!</span><span class="ta">பணம் பெறப்பட்டது!</span></h1>
+  <p class="sub">
+    <span class="en">Thank you for enrolling. Tap the button below to message us on WhatsApp and receive your course passcode.</span>
+    <span class="ta">சேர்ந்ததற்கு நன்றி. உங்கள் படிப்பு பாஸ்கோடைப் பெற கீழே உள்ள பொத்தானை அழுத்தி WhatsApp-இல் எங்களுக்கு செய்தி அனுப்புங்கள்.</span>
+  </p>
+
+  <div class="details" id="detailsBox">
+    <div><span class="en">Course</span><span class="ta">படிப்பு</span><b id="courseName">—</b></div>
+    <div><span class="en">Payment ID</span><span class="ta">பணம் ஐடி</span><b id="paymentId">—</b></div>
+  </div>
+
+  <a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener">
+    💬 <span class="en">Get My Passcode on WhatsApp</span><span class="ta">WhatsApp-இல் என் பாஸ்கோடைப் பெறுங்கள்</span>
+  </a>
+  <div class="countdown">
+    <span class="en">Redirecting to WhatsApp in <b id="secs">5</b>s… </span>
+    <span class="ta">WhatsApp-க்கு <b id="secsTa">5</b> வினாடியில் திருப்பி விடப்படுகிறது… </span>
+  </div>
+
+  <div class="footnote">
+    <span class="en">If WhatsApp doesn't open automatically, tap the button above. Trouble? Email <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a> or call <a href="tel:+919843702244">+91 98437 02244</a>.</span>
+    <span class="ta">WhatsApp தானாக திறக்கவில்லை என்றால், மேலே உள்ள பொத்தானை அழுத்தவும். சிக்கலா? <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>-க்கு மின்னஞ்சல் அனுப்பவும் அல்லது <a href="tel:+919843702244">+91 98437 02244</a>-ஐ அழைக்கவும்.</span>
+  </div>
+</div>
+
+<script>
+  function setLang(lang){
+    document.getElementById('htmlRoot').setAttribute('lang', lang);
+    document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+    document.getElementById('btnTa').classList.toggle('active', lang === 'ta');
+    try{ localStorage.setItem('siteLang', lang); }catch(e){}
+  }
+  (function(){
+    try{ if(localStorage.getItem('siteLang') === 'ta') setLang('ta'); }catch(e){}
+  })();
+
+  // ---- Map of course slug -> display name (EN) ----
+  // Add the ?course=SLUG param to each course's Razorpay callback_url.
+  var COURSE_NAMES = {
+    "life-skills-educators":        "Life Skills Mastery for Educators",
+    "positive-discipline-teachers": "Positive Discipline for Teachers",
+    "classroom-behaviour":          "Classroom Behaviour Management & De-escalation",
+    "digital-pedagogy":             "Digital Pedagogy Course",
+    "emotional-intelligence-teachers": "Emotional Intelligence for Teachers",
+    "know-your-ego":                "Know Your Ego",
+    "anger-management":             "Anger Management Mastery",
+    "communication-adults":         "Communication Skills for Adults",
+    "digital-parenting":            "Digital Parenting & Screen Time Mastery",
+    "positive-discipline-parents":  "Positive Discipline for Parents",
+    "stress-management-parents":    "Stress Management for Parents",
+    "career-growth":                "Career Growth & Promotion Readiness"
+  };
+
+  var WHATSAPP_NUMBER = "919843702244";
+
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('course') || '';
+  var paymentId = params.get('razorpay_payment_id') || '';
+  var courseName = COURSE_NAMES[slug] || (slug ? slug : 'your course');
+
+  document.getElementById('courseName').textContent = courseName;
+  document.getElementById('paymentId').textContent = paymentId || '—';
+
+  var message = "Hi, I just paid for the \"" + courseName + "\" course";
+  if (paymentId) { message += " (Payment ID: " + paymentId + ")"; }
+  message += ". Please share my course passcode / login details. Thank you!";
+
+  var waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+  document.getElementById('waBtn').setAttribute('href', waUrl);
+
+  // Auto-redirect countdown
+  var seconds = 5;
+  var secEl = document.getElementById('secs');
+  var secElTa = document.getElementById('secsTa');
+  var timer = setInterval(function(){
+    seconds--;
+    if (secEl) secEl.textContent = seconds;
+    if (secElTa) secElTa.textContent = seconds;
+    if (seconds <= 0){
+      clearInterval(timer);
+      window.location.href = waUrl;
+    }
+  }, 1000);
+</script>
+
+</body>
+</html>
