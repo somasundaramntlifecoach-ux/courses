@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>EQ Assessment | N T Somasundaram Life Skills Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --primary: #5C35A0;
+    --primary-light: #7B52C8;
+    --accent: #F4A300;
+    --accent-soft: #FFF3D6;
+    --bg: #F6F4FB;
+    --card: #FFFFFF;
+    --text: #1E1B2E;
+    --muted: #6B648A;
+    --success: #27AE60;
+    --danger: #E74C3C;
+    --border: #E2DCF5;
+    --radius: 16px;
+    --shadow: 0 4px 24px rgba(92,53,160,0.10);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', 'Noto Sans Tamil', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* HEADER */
+  .header {
+    background: linear-gradient(135deg, var(--primary) 0%, #3A1F7A 100%);
+    color: #fff; padding: 28px 20px 20px; text-align: center; position: relative;
+  }
+  .header .brand { font-size: 13px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 4px; opacity:0.95; }
+  .header h1 { font-size: 20px; font-weight: 700; line-height: 1.3; }
+  .header .subtitle { font-size: 13px; opacity: 0.8; margin-top: 4px; }
+  .lang-toggle {
+    position: absolute; top: 20px; right: 16px;
+    background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; border-radius: 20px; padding: 5px 14px;
+    font-size: 12px; font-weight: 600; cursor: pointer;
+  }
+
+  /* INTRO / STUDENT INFO SCREEN */
+  .intro-screen { padding: 20px 16px 32px; }
+  .intro-card {
+    background: var(--card); border-radius: var(--radius); padding: 22px 18px;
+    box-shadow: var(--shadow); border: 1px solid var(--border); margin-bottom: 16px;
+  }
+  .intro-card h2 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+  .intro-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+  .info-label { font-size: 12px; font-weight: 600; color: var(--primary); margin-bottom: 5px; letter-spacing: 0.5px; }
+  .info-input {
+    width: 100%; padding: 12px 14px; border: 1.5px solid var(--border);
+    border-radius: 10px; font-size: 14px; font-family: 'Poppins','Noto Sans Tamil',sans-serif;
+    color: var(--text); background: #fff; margin-bottom: 14px; outline: none;
+    transition: border-color 0.2s;
+  }
+  .info-input:focus { border-color: var(--primary); }
+  .info-input.error { border-color: var(--danger); }
+  .error-msg { font-size: 11px; color: var(--danger); margin-top: -10px; margin-bottom: 12px; }
+  .dims-preview {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px;
+  }
+  .dim-pill {
+    background: var(--accent-soft); border: 1px solid #F4C060;
+    border-radius: 20px; padding: 5px 12px; font-size: 12px; font-weight: 600; color: #7A5000;
+  }
+  .btn-start {
+    width: 100%; padding: 15px; border-radius: 12px;
+    background: var(--primary); color: #fff; font-size: 15px; font-weight: 700;
+    border: none; cursor: pointer; font-family: 'Poppins', sans-serif;
+    box-shadow: 0 4px 12px rgba(92,53,160,0.3); transition: background 0.2s;
+    margin-top: 4px;
+  }
+  .btn-start:hover { background: var(--primary-light); }
+
+  /* PROGRESS */
+  .progress-wrap { background: #fff; padding: 14px 20px; border-bottom: 1px solid var(--border); display:none; }
+  .progress-top { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+  .progress-bar { height: 6px; background: var(--border); border-radius: 10px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary-light), var(--accent)); border-radius: 10px; transition: width 0.4s ease; }
+
+  /* SECTION HEADER */
+  .section-header {
+    background: var(--accent-soft); border-left: 4px solid var(--accent);
+    margin: 18px 16px 10px; padding: 10px 14px;
+    border-radius: 0 10px 10px 0; font-size: 13px; font-weight: 600; color: var(--primary);
+  }
+
+  /* QUESTION CARD */
+  .question-card {
+    background: var(--card); border-radius: var(--radius);
+    margin: 10px 16px; padding: 18px;
+    box-shadow: var(--shadow); border: 1px solid var(--border);
+  }
+  .q-number { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: 1px; margin-bottom: 6px; }
+  .q-text { font-size: 15px; font-weight: 500; line-height: 1.5; margin-bottom: 14px; }
+  .q-text-ta { font-size: 14px; color: var(--muted); margin-bottom: 14px; line-height: 1.6; }
+  .options { display: flex; flex-direction: column; gap: 8px; }
+  .option-btn {
+    border: 1.5px solid var(--border); background: #fff; border-radius: 10px;
+    padding: 11px 14px; text-align: left; cursor: pointer; font-size: 13px;
+    font-family: 'Poppins', 'Noto Sans Tamil', sans-serif; color: var(--text);
+    display: flex; align-items: center; gap: 10px; transition: all 0.2s;
+  }
+  .option-btn:hover { border-color: var(--primary-light); background: var(--bg); }
+  .option-btn.selected { border-color: var(--primary); background: #EEE8FA; color: var(--primary); font-weight: 600; }
+  .option-btn .opt-dot {
+    width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--border);
+    flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  }
+  .option-btn.selected .opt-dot { border-color: var(--primary); background: var(--primary); }
+  .option-btn.selected .opt-dot::after { content: '✓'; color: #fff; font-size: 11px; font-weight: 700; }
+  .opt-label { flex: 1; }
+
+  /* NAV */
+  .nav-wrap { padding: 16px; display: flex; gap: 10px; }
+  .btn-prev, .btn-next {
+    flex: 1; padding: 13px; border-radius: 12px; font-size: 14px; font-weight: 600;
+    cursor: pointer; border: none; font-family: 'Poppins', sans-serif; transition: all 0.2s;
+  }
+  .btn-prev { background: #fff; border: 1.5px solid var(--border); color: var(--muted); }
+  .btn-next { background: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(92,53,160,0.3); }
+  .btn-next:disabled { background: #C5BAE8; box-shadow: none; cursor: not-allowed; }
+  .btn-next:not(:disabled):hover { background: var(--primary-light); }
+
+  /* RESULT */
+  .result-screen { display: none; padding: 20px 16px 32px; }
+  .result-hero {
+    background: linear-gradient(135deg, var(--primary) 0%, #3A1F7A 100%);
+    border-radius: var(--radius); color: #fff; text-align: center; padding: 28px 20px; margin-bottom: 18px;
+  }
+  .result-hero .student-name { font-size: 14px; opacity: 0.85; margin-bottom: 10px; }
+  .result-hero .eq-label { font-size: 11px; letter-spacing: 2px; opacity: 0.7; text-transform: uppercase; margin-bottom: 6px; }
+  .result-hero .eq-score { font-size: 52px; font-weight: 700; line-height: 1; }
+  .result-hero .eq-max { font-size: 18px; opacity: 0.7; }
+  .result-hero .eq-level { font-size: 18px; font-weight: 600; margin-top: 10px; }
+  .result-hero .eq-level-ta { font-size: 15px; opacity: 0.85; margin-top: 4px; }
+
+  /* SAVE STATUS */
+  .save-status {
+    border-radius: 10px; padding: 10px 14px; font-size: 12px; font-weight: 600;
+    text-align: center; margin-bottom: 14px; display: none;
+  }
+  .save-status.saving { background: #EEE8FA; color: var(--primary); display:block; }
+  .save-status.saved { background: #D5F5E3; color: #1A7A40; display:block; }
+  .save-status.failed { background: #FADBD8; color: #A93226; display:block; }
+
+  /* DIM BARS */
+  .dim-title { font-size: 14px; font-weight: 700; color: var(--primary); margin: 20px 0 10px; }
+  .dim-card { background: var(--card); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; border: 1px solid var(--border); }
+  .dim-head { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .dim-bar { height: 8px; background: var(--border); border-radius: 10px; overflow: hidden; }
+  .dim-fill { height: 100%; border-radius: 10px; transition: width 0.6s ease; }
+  .dim-ta { font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+  /* INTERP */
+  .interp-card { background: var(--accent-soft); border-radius: var(--radius); padding: 18px; border: 1px solid #F4A300; margin-bottom: 16px; }
+  .interp-card h3 { font-size: 14px; font-weight: 700; color: #7A5000; margin-bottom: 8px; }
+  .interp-card p { font-size: 13px; color: #5A3A00; line-height: 1.6; }
+
+  /* TIPS */
+  .tips-card { background: var(--card); border-radius: var(--radius); padding: 18px; border: 1px solid var(--border); margin-bottom: 16px; }
+  .tips-card h3 { font-size: 14px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+  .tip-item { display: flex; gap: 10px; margin-bottom: 9px; font-size: 13px; color: var(--text); line-height: 1.5; }
+  .tip-icon { font-size: 16px; flex-shrink: 0; }
+
+  /* DETAILED REPORT */
+  .report-title { font-size: 15px; font-weight: 700; color: var(--primary); margin: 22px 0 4px; }
+  .report-sub { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
+  .report-dim-card {
+    background: var(--card); border-radius: var(--radius); padding: 16px;
+    margin-bottom: 12px; border: 1px solid var(--border); border-left: 4px solid var(--border);
+  }
+  .report-dim-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+  .report-dim-name { font-size: 14px; font-weight: 700; }
+  .report-dim-name-ta { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .report-dim-score { font-size: 16px; font-weight: 700; }
+  .report-dim-band { display:inline-block; font-size:11px; font-weight:600; padding:3px 10px; border-radius:12px; margin-bottom:10px; }
+  .report-dim-text { font-size: 13px; line-height: 1.6; color: var(--text); margin-bottom: 8px; }
+  .report-dim-text-ta { font-size: 12.5px; line-height: 1.7; color: var(--muted); margin-bottom: 10px; }
+  .report-suggest-box { background: var(--bg); border-radius: 10px; padding: 10px 12px; margin-top: 6px; }
+  .report-suggest-label { font-size: 11px; font-weight: 700; color: var(--primary); letter-spacing: 0.5px; margin-bottom: 6px; }
+  .report-suggest-item { font-size: 12.5px; line-height: 1.5; color: var(--text); margin-bottom: 5px; display:flex; gap:6px; }
+  .report-suggest-item-ta { font-size: 12px; line-height: 1.6; color: var(--muted); margin-bottom: 8px; padding-left: 16px; }
+  .priority-tag { display:inline-block; font-size:10px; font-weight:700; padding:2px 9px; border-radius:10px; margin-left:8px; vertical-align:middle; }
+
+  /* ACTION BUTTONS */
+  .btn-wa {
+    width: 100%; padding: 15px; border-radius: 12px; background: #25D366; color: #fff;
+    font-size: 15px; font-weight: 700; border: none; cursor: pointer; font-family: 'Poppins', sans-serif;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-bottom: 10px; box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+  }
+  .btn-pdf {
+    width: 100%; padding: 13px; border-radius: 12px; background: #fff; color: var(--primary);
+    font-size: 14px; font-weight: 600; border: 1.5px solid var(--primary); cursor: pointer;
+    font-family: 'Poppins', sans-serif; display: flex; align-items: center; justify-content: center;
+    gap: 8px; margin-bottom: 10px;
+  }
+  .btn-retake {
+    width: 100%; padding: 13px; border-radius: 12px; background: var(--bg); color: var(--muted);
+    font-size: 13px; font-weight: 500; border: 1.5px solid var(--border); cursor: pointer;
+    font-family: 'Poppins', sans-serif; margin-bottom: 18px;
+  }
+
+  /* PROMO — STUDENTS EMPOWERMENT */
+  .promo-card {
+    background: linear-gradient(135deg, #0F4C81 0%, #1A6EB5 100%);
+    border-radius: var(--radius); padding: 22px 18px; color: #fff; text-align: center; margin-bottom: 16px;
+  }
+  .promo-card .promo-tag { font-size: 11px; letter-spacing: 2px; opacity: 0.75; text-transform: uppercase; margin-bottom: 6px; }
+  .promo-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .promo-card p { font-size: 12px; opacity: 0.88; margin-bottom: 16px; line-height: 1.6; }
+  .btn-promo {
+    background: var(--accent); color: #1E1B2E; padding: 11px 26px;
+    border-radius: 10px; font-size: 13px; font-weight: 700; border: none;
+    cursor: pointer; font-family: 'Poppins', sans-serif;
+  }
+
+  /* FOOTER */
+  .footer { text-align: center; font-size: 11px; color: var(--muted); padding: 16px; border-top: 1px solid var(--border); margin-top: 8px; }
+
+  /* PRINT */
+  @media print {
+    .nav-wrap, .btn-wa, .btn-pdf, .btn-retake, .promo-card, .lang-toggle, .footer, .save-status { display: none !important; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER (always visible) -->
+<div class="header">
+  <button class="lang-toggle" onclick="toggleLang()" id="langBtn">தமிழ்</button>
+  <div class="brand">N T Somasundaram Life Skills Program</div>
+  <h1 id="h-title">Emotional Intelligence (EQ) Assessment</h1>
+  <div class="subtitle" id="h-sub">For School &amp; College Students</div>
+</div>
+
+<!-- ══ SCREEN 1: STUDENT INFO ══ -->
+<div class="intro-screen" id="introScreen">
+  <div class="intro-card">
+    <h2 id="intro-h">👋 Welcome! Before we begin…</h2>
+    <p id="intro-p">This assessment measures your Emotional Intelligence across 5 key dimensions. Answer all 20 questions honestly. It takes about 5 minutes.</p>
+
+    <div class="info-label" id="lbl-name">YOUR NAME / உங்கள் பெயர்</div>
+    <input class="info-input" id="inp-name" type="text" placeholder="Enter your full name" autocomplete="name"/>
+    <div class="error-msg" id="err-name" style="display:none" id="err-name">Please enter your name</div>
+
+    <div class="info-label" id="lbl-mobile">MOBILE NUMBER / மொபைல் எண்</div>
+    <input class="info-input" id="inp-mobile" type="tel" placeholder="10-digit mobile number" maxlength="10" autocomplete="tel"/>
+    <div class="error-msg" id="err-mobile" style="display:none">Please enter a valid 10-digit number</div>
+
+    <div class="info-label" id="lbl-school">SCHOOL / COLLEGE NAME (optional)</div>
+    <input class="info-input" id="inp-school" type="text" placeholder="Your institution name"/>
+
+    <div class="info-label" id="lbl-dims">5 DIMENSIONS YOU WILL BE ASSESSED ON</div>
+    <div class="dims-preview">
+      <span class="dim-pill">Self-Awareness</span>
+      <span class="dim-pill">Self-Regulation</span>
+      <span class="dim-pill">Motivation</span>
+      <span class="dim-pill">Empathy</span>
+      <span class="dim-pill">Social Skills</span>
+    </div>
+  </div>
+  <button class="btn-start" onclick="startAssessment()" id="btn-start">Start Assessment →</button>
+</div>
+
+<!-- ══ SCREEN 2: PROGRESS + QUIZ ══ -->
+<div class="progress-wrap" id="progressWrap">
+  <div class="progress-top">
+    <span id="prog-label">Question 1 of 20</span>
+    <span id="prog-pct">5%</span>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:5%"></div></div>
+</div>
+<div id="quizArea"></div>
+
+<!-- ══ SCREEN 3: RESULT ══ -->
+<div class="result-screen" id="resultScreen">
+
+  <div class="result-hero">
+    <div class="student-name" id="r-name"></div>
+    <div class="eq-label" id="r-label">Your EQ Score</div>
+    <div><span class="eq-score" id="r-score">0</span><span class="eq-max">/100</span></div>
+    <div class="eq-level" id="r-level">—</div>
+    <div class="eq-level-ta" id="r-level-ta">—</div>
+  </div>
+
+  <div class="save-status" id="saveStatus"></div>
+
+  <div class="dim-title" id="r-dim-title">📊 EQ Dimensions</div>
+  <div id="dimBars"></div>
+
+  <div class="interp-card">
+    <h3 id="r-interp-h">What this means</h3>
+    <p id="r-interp-text"></p>
+  </div>
+
+  <div class="tips-card">
+    <h3 id="r-tips-h">🚀 Tips to Grow Your EQ</h3>
+    <div id="r-tips"></div>
+  </div>
+
+  <div class="report-title" id="report-title">📋 Detailed Improvement Report</div>
+  <div class="report-sub" id="report-sub">Dimension-wise analysis with specific suggestions</div>
+  <div id="detailedReport"></div>
+
+  <button class="btn-wa" onclick="sendWhatsApp()">
+    <span>📲</span> <span id="wa-label">Share My Result on WhatsApp</span>
+  </button>
+  <button class="btn-pdf" onclick="printPDF()">
+    <span>🖨️</span> <span id="pdf-label">Download / Print Report</span>
+  </button>
+  <button class="btn-retake" onclick="retake()" id="retake-btn">🔄 Retake Assessment</button>
+
+  <!-- STUDENTS EMPOWERMENT PROMO -->
+  <div class="promo-card">
+    <div class="promo-tag" id="promo-tag">Special Program</div>
+    <h3 id="promo-h">🎓 Students Empowerment Program</h3>
+    <p id="promo-p">A transformative Life Skills training for School &amp; College Students — covering Goal Setting, Confidence, Communication, Time Management &amp; Emotional Intelligence.<br><br>By N T Somasundaram Life Skills Program, Tiruvannamalai.</p>
+    <button class="btn-promo" onclick="window.open('https://wa.me/919843702244?text=I+am+interested+in+the+Students+Empowerment+Program+by+N+T+Somasundaram','_blank')">
+      <span id="promo-btn">Know More / பதிவு செய்ய →</span>
+    </button>
+  </div>
+
+  <div class="footer">
+    N T Somasundaram Life Skills Program · Tiruvannamalai<br>
+    📞 +91 98437 02244 · somasundaramnt.lifecoach@gmail.com<br>
+    sites.google.com/view/somasundaramnt
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════════
+// GOOGLE APPS SCRIPT WEB APP URL
+// Replace the placeholder below with your actual deployed Web App URL
+// ════════════════════════════════════════════════
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbze2ZRvXmwH7ygxwd7FW7PeTuCtyA89ix5YGsKo4c1DZ6smJ0Q7lEbw5Mf3cWAeMbb9Kg/exec';
+
+// ─── DATA ────────────────────────────────────────────────────────────
+const DIMS = [
+  { key:'se', en:'Self-Awareness',  ta:'சுய விழிப்புணர்வு', color:'#5C35A0' },
+  { key:'sr', en:'Self-Regulation', ta:'சுய கட்டுப்பாடு',   color:'#E67E22' },
+  { key:'mo', en:'Motivation',      ta:'உந்துதல்',           color:'#27AE60' },
+  { key:'em', en:'Empathy',         ta:'பரிவு',              color:'#2980B9' },
+  { key:'ss', en:'Social Skills',   ta:'சமூக திறன்கள்',     color:'#8E44AD' }
+];
+
+const QUESTIONS = [
+  { dim:'se', en:'I am aware of my emotions as they happen.',                              ta:'என் உணர்வுகள் எப்போது வருகின்றன என்பதை நான் அறிவேன்.' },
+  { dim:'se', en:'I understand how my mood affects my behaviour and others.',               ta:'என் மனநிலை என் நடத்தையையும் மற்றவர்களையும் எவ்வாறு பாதிக்கிறது என்று புரிகிறது.' },
+  { dim:'se', en:'I can identify my personal strengths and weaknesses honestly.',           ta:'என் பலங்களையும் பலவீனங்களையும் நேர்மையாக அடையாளம் காண முடிகிறது.' },
+  { dim:'se', en:'I reflect on my actions and learn from mistakes.',                        ta:'என் செயல்களை சிந்திக்கிறேன் மற்றும் தவறுகளிலிருந்து கற்றுக்கொள்கிறேன்.' },
+  { dim:'sr', en:'I can stay calm even when I feel angry or frustrated.',                   ta:'கோபம் அல்லது வருத்தமாக இருந்தாலும் அமைதியாக இருக்க முடிகிறது.' },
+  { dim:'sr', en:'I think before I speak or act, especially in difficult situations.',      ta:'கஷ்டமான சூழ்நிலையில் பேசுவதற்கு அல்லது செயல்படுவதற்கு முன் சிந்திக்கிறேன்.' },
+  { dim:'sr', en:'I adapt well to unexpected changes or challenges.',                       ta:'எதிர்பாராத மாற்றங்கள் அல்லது சவால்களுக்கு நன்கு மாற்றிக்கொள்கிறேன்.' },
+  { dim:'sr', en:'I take responsibility for my mistakes without blaming others.',           ta:'தவறுகளுக்கு பிறரை குற்றம் சாட்டாமல் நான் பொறுப்பேற்கிறேன்.' },
+  { dim:'mo', en:'I set goals and work hard to achieve them even when it is difficult.',    ta:'இலக்குகளை நிர்ணயித்து கஷ்டமாக இருந்தாலும் கடினமாக உழைக்கிறேன்.' },
+  { dim:'mo', en:'I stay positive even when I face setbacks or failures.',                  ta:'தோல்விகள் வரும்போதும் நம்பிக்கையுடன் இருக்கிறேன்.' },
+  { dim:'mo', en:'I feel a strong drive from within to improve myself.',                    ta:'என்னை மேம்படுத்திக்கொள்ள உள்ளிருந்து ஒரு வலுவான தூண்டுதல் உணர்கிறேன்.' },
+  { dim:'mo', en:'I celebrate small achievements and keep myself motivated.',               ta:'சிறிய வெற்றிகளை கொண்டாடி என்னை உந்தித்தள்ளுகிறேன்.' },
+  { dim:'em', en:'I can understand how someone else is feeling even without them telling me.', ta:'ஒருவர் சொல்லாமலேயே அவர் உணர்வை புரிந்துகொள்ள முடிகிறது.' },
+  { dim:'em', en:'I listen carefully and show genuine interest when others share their problems.', ta:'மற்றவர்கள் தம் பிரச்சினைகளை பகிரும்போது கவனமாகக் கேட்கிறேன்.' },
+  { dim:'em', en:'I treat people from different backgrounds with respect and kindness.',     ta:'வெவ்வேறு பின்னணியிலிருந்து வரும் மக்களை மரியாதையுடன் நடத்துகிறேன்.' },
+  { dim:'em', en:'I notice when a friend or classmate is upset and offer help.',            ta:'நண்பர் அல்லது வகுப்பு தோழர் வருத்தமாக இருக்கும்போது கவனிக்கிறேன்.' },
+  { dim:'ss', en:'I communicate my feelings and ideas clearly and confidently.',            ta:'என் உணர்வுகளையும் கருத்துக்களையும் தெளிவாகவும் நம்பிக்கையுடனும் தெரிவிக்கிறேன்.' },
+  { dim:'ss', en:'I can resolve conflicts peacefully without hurting others.',              ta:'மற்றவர்களை காயப்படுத்தாமல் சண்டைகளை அமைதியாக தீர்க்க முடிகிறது.' },
+  { dim:'ss', en:'I work well in a team and encourage others around me.',                   ta:'குழுவில் நன்றாக வேலை செய்கிறேன் மற்றும் என்னைச் சுற்றியுள்ளவர்களை ஊக்குவிக்கிறேன்.' },
+  { dim:'ss', en:'I build positive and trusting relationships with classmates and teachers.', ta:'வகுப்பு தோழர்கள் மற்றும் ஆசிரியர்களிடம் நேர்மையான உறவுகளை உருவாக்குகிறேன்.' }
+];
+
+const OPTIONS_EN = ['Never','Rarely','Sometimes','Often','Always'];
+const OPTIONS_TA = ['ஒருபோதும் இல்லை','அரிதாக','சில நேரம்','அடிக்கடி','எப்போதும்'];
+
+const LEVELS = [
+  { min:0,  max:39,  en:'Developing EQ',  ta:'வளரும் EQ',   color:'#E74C3C' },
+  { min:40, max:59,  en:'Average EQ',     ta:'சராசரி EQ',   color:'#F39C12' },
+  { min:60, max:74,  en:'Good EQ',        ta:'நல்ல EQ',     color:'#3498DB' },
+  { min:75, max:89,  en:'Strong EQ',      ta:'வலுவான EQ',   color:'#27AE60' },
+  { min:90, max:100, en:'Exceptional EQ', ta:'சிறந்த EQ',   color:'#5C35A0' }
+];
+
+const INTERP = {
+  0: { en:"You're at the beginning of your emotional growth journey. With awareness and practice, you can develop strong emotional skills that will transform your relationships and success.",
+       ta:"நீங்கள் உணர்வு வளர்ச்சியின் தொடக்கத்தில் இருக்கிறீர்கள். விழிப்புணர்வு மற்றும் பயிற்சியுடன் வலுவான உணர்வு திறன்களை வளர்த்துக்கொள்ளலாம்." },
+  1: { en:"You have a basic emotional foundation. Some areas need attention. Keep practising self-awareness and empathy daily to level up your EQ.",
+       ta:"உங்களிடம் அடிப்படை உணர்வு அடித்தளம் உள்ளது. சில பகுதிகளில் கவனம் தேவை. EQ அதிகரிக்க தினமும் சுய விழிப்புணர்வும் பரிவும் பயிற்சி செய்யுங்கள்." },
+  2: { en:"You demonstrate good emotional intelligence. You understand your emotions and connect well with others. Focus on the weaker dimensions to become even stronger.",
+       ta:"நீங்கள் நல்ல உணர்வு நுண்ணறிவை வெளிப்படுத்துகிறீர்கள். பலவீனமான பரிமாணங்களில் கவனம் செலுத்துங்கள்." },
+  3: { en:"You have strong emotional intelligence! You manage your emotions effectively and inspire those around you. Keep honing your leadership and social skills.",
+       ta:"உங்களிடம் வலுவான உணர்வு நுண்ணறிவு உள்ளது! உணர்வுகளை திறம்பட நிர்வகித்து சுற்றியுள்ளவர்களை ஊக்குவிக்கிறீர்கள்." },
+  4: { en:"Outstanding! You demonstrate exceptional emotional intelligence. You are a natural leader who empathises deeply and inspires others. Keep being a role model!",
+       ta:"அற்புதம்! நீங்கள் சிறந்த உணர்வு நுண்ணறிவை வெளிப்படுத்துகிறீர்கள். ஆழமான பரிவுடன் மற்றவர்களை ஊக்குவிக்கும் இயல்பான தலைவர் நீங்கள்!" }
+};
+
+const TIPS_EN = [
+  { icon:'📔', text:'Keep an emotion journal — write 3 feelings you experienced today and why.' },
+  { icon:'🧘', text:'Practise 5 deep breaths before reacting to any frustrating situation.' },
+  { icon:'👂', text:'Listen actively — make eye contact and avoid interrupting others.' },
+  { icon:'🎯', text:'Set one small daily goal and celebrate when you achieve it.' },
+  { icon:'🤝', text:'Do one act of kindness every day to strengthen your empathy muscle.' }
+];
+const TIPS_TA = [
+  { icon:'📔', text:'ஒரு உணர்வு நாட்குறிப்பை வைத்திருங்கள் — இன்று 3 உணர்வுகளை எழுதுங்கள்.' },
+  { icon:'🧘', text:'எந்த சவாலான சூழ்நிலையிலும் 5 ஆழமான மூச்சுப் பயிற்சி செய்யுங்கள்.' },
+  { icon:'👂', text:'கவனமாகக் கேளுங்கள் — கண் தொடர்பு வையுங்கள், மற்றவரை இடைமறிக்காதீர்கள்.' },
+  { icon:'🎯', text:'ஒரு சிறிய தினசரி இலக்கை நிர்ணயித்து, அடையும்போது கொண்டாடுங்கள்.' },
+  { icon:'🤝', text:'தினமும் ஒரு அன்பான செயல் செய்து பரிவை வலுப்படுத்துங்கள்.' }
+];
+
+// ─── DETAILED PER-DIMENSION REPORT DATA (bilingual) ───────────────────
+// Band thresholds (per-dimension %): low <50, mid 50-74, high >=75
+function getBand(pct) {
+  if (pct >= 75) return 'high';
+  if (pct >= 50) return 'mid';
+  return 'low';
+}
+const BAND_LABEL = {
+  high: { en:'Strong',  ta:'வலுவான',  color:'#27AE60', bg:'#D5F5E3' },
+  mid:  { en:'Average',  ta:'சராசரி',  color:'#F39C12', bg:'#FEF3D6' },
+  low:  { en:'Needs Focus', ta:'கவனம் தேவை', color:'#E74C3C', bg:'#FADBD8' }
+};
+
+const DIM_REPORT = {
+  se: {
+    high: { en:"You have excellent self-awareness. You understand your emotions clearly and use this insight to make good decisions.",
+            ta:"உங்களுக்கு சிறந்த சுய விழிப்புணர்வு உள்ளது. உங்கள் உணர்வுகளை தெளிவாக புரிந்து நல்ல முடிவுகள் எடுக்கிறீர்கள்." },
+    mid:  { en:"You recognise your emotions sometimes but may miss subtle feelings or their triggers.",
+            ta:"உங்கள் உணர்வுகளை சில நேரங்களில் அறிகிறீர்கள், ஆனால் நுட்பமான உணர்வுகளையோ அவற்றின் காரணங்களையோ தவறவிடலாம்." },
+    low:  { en:"You often find it hard to notice or name what you are feeling, which can lead to confusion or sudden reactions.",
+            ta:"நீங்கள் என்ன உணர்கிறீர்கள் என்பதை அடையாளம் காண்பது கடினமாக உள்ளது, இது குழப்பத்திற்கோ திடீர் எதிர்வினைகளுக்கோ வழிவகுக்கும்." },
+    suggestions: [
+      { en:'Spend 5 minutes every night writing down 3 emotions you felt that day and what caused them.', ta:'ஒவ்வொரு இரவும் 5 நிமிடங்கள் செலவழித்து அன்று உணர்ந்த 3 உணர்வுகளையும் அவற்றின் காரணத்தையும் எழுதுங்கள்.' },
+      { en:'Pause and name your emotion silently before reacting ("I am feeling frustrated right now").', ta:'எதிர்வினை செய்வதற்கு முன் உங்கள் உணர்வை மனதில் பெயரிடுங்கள் ("இப்போது நான் எரிச்சலாக உணர்கிறேன்").' },
+      { en:'Ask a trusted friend or teacher for honest feedback about your strengths and blind spots.', ta:'நம்பகமான நண்பர் அல்லது ஆசிரியரிடம் உங்கள் பலங்கள் மற்றும் குறைகள் பற்றி நேர்மையான கருத்து கேளுங்கள்.' }
+    ]
+  },
+  sr: {
+    high: { en:"You manage your reactions very well, staying calm under pressure and thinking before acting.",
+            ta:"நீங்கள் உங்கள் எதிர்வினைகளை மிகச் சிறப்பாக நிர்வகிக்கிறீர்கள், அழுத்தத்தின் கீழும் அமைதியாக இருக்கிறீர்கள்." },
+    mid:  { en:"You can control your emotions most of the time, but strong situations may still cause impulsive reactions.",
+            ta:"பெரும்பாலான நேரங்களில் உணர்வுகளை கட்டுப்படுத்த முடிகிறது, ஆனால் கடுமையான சூழ்நிலைகள் தூண்டுதலான எதிர்வினைகளை ஏற்படுத்தலாம்." },
+    low:  { en:"Strong emotions like anger or anxiety can overwhelm you quickly, leading to reactions you may regret later.",
+            ta:"கோபம் அல்லது பதற்றம் போன்ற வலுவான உணர்வுகள் உங்களை விரைவாக ஆட்கொள்ளலாம், பின்னர் வருந்தக்கூடிய எதிர்வினைகளுக்கு வழிவகுக்கும்." },
+    suggestions: [
+      { en:'Practice the "STOP" technique: Stop, Take a breath, Observe your feeling, Proceed calmly.', ta:'"STOP" முறையை பயிற்சி செய்யுங்கள்: நிற்கவும், மூச்சு எடுக்கவும், உணர்வை கவனிக்கவும், அமைதியாக தொடரவும்.' },
+      { en:'Before responding when upset, count to 10 or step away for 2 minutes.', ta:'வருத்தமாக இருக்கும்போது பதிலளிக்கும் முன் 10 வரை எண்ணுங்கள் அல்லது 2 நிமிடங்கள் விலகி இருங்கள்.' },
+      { en:'Practice deep breathing or a short walk daily to build your stress tolerance.', ta:'அழுத்த சகிப்புத்தன்மையை வளர்க்க தினமும் ஆழ்ந்த மூச்சுப் பயிற்சி அல்லது சிறு நடைப்பயிற்சி செய்யுங்கள்.' }
+    ]
+  },
+  mo: {
+    high: { en:"You are highly self-motivated, persist through challenges, and stay positive in the face of setbacks.",
+            ta:"நீங்கள் மிகவும் சுய ஊக்கம் பெற்றவர், சவால்களை மீறி தொடர்கிறீர்கள், தோல்விகளிலும் நேர்மறையாக இருக்கிறீர்கள்." },
+    mid:  { en:"You stay motivated for a while but may lose interest or give up when results take time.",
+            ta:"நீங்கள் சில காலம் ஊக்கத்துடன் இருக்கிறீர்கள், ஆனால் முடிவுகள் தாமதமானால் ஆர்வத்தை இழக்கலாம் அல்லது விட்டுவிடலாம்." },
+    low:  { en:"You may struggle to start or finish tasks, and setbacks can easily discourage you from trying further.",
+            ta:"பணிகளை தொடங்கவோ முடிக்கவோ சிரமப்படலாம், மேலும் தோல்விகள் மேலும் முயற்சி செய்வதிலிருந்து உங்களை எளிதில் தடுக்கலாம்." },
+    suggestions: [
+      { en:'Break big goals into small, specific daily targets so progress feels achievable.', ta:'பெரிய இலக்குகளை சிறிய, குறிப்பிட்ட தினசரி இலக்குகளாக பிரியுங்கள், இதனால் முன்னேற்றம் எளிதாக தெரியும்.' },
+      { en:'Keep a "wins" list and review it weekly to remind yourself of your progress.', ta:'ஒரு "வெற்றிகள்" பட்டியலை வைத்து வாரந்தோறும் பார்வையிட்டு உங்கள் முன்னேற்றத்தை நினைவுபடுத்துங்கள்.' },
+      { en:'Find an accountability partner — a friend who checks in on your goals regularly.', ta:'உங்கள் இலக்குகளை தொடர்ந்து கேட்கும் ஒரு நண்பரை பொறுப்பு பங்காளியாக கண்டுபிடியுங்கள்.' }
+    ]
+  },
+  em: {
+    high: { en:"You show deep empathy, understanding others' feelings naturally and responding with genuine care.",
+            ta:"நீங்கள் ஆழமான பரிவை வெளிப்படுத்துகிறீர்கள், மற்றவர்களின் உணர்வுகளை இயல்பாக புரிந்து அக்கறையுடன் பதிலளிக்கிறீர்கள்." },
+    mid:  { en:"You notice when others are upset sometimes, but may not always respond in the most supportive way.",
+            ta:"மற்றவர்கள் வருத்தமாக இருக்கும்போது சில நேரம் கவனிக்கிறீர்கள், ஆனால் எப்போதும் சிறந்த முறையில் ஆதரவளிக்காமல் இருக்கலாம்." },
+    low:  { en:"You may find it difficult to understand how others feel, which can affect your relationships and friendships.",
+            ta:"மற்றவர்கள் எப்படி உணர்கிறார்கள் என்பதை புரிந்துகொள்வது கடினமாக இருக்கலாம், இது உங்கள் உறவுகளையும் நட்புகளையும் பாதிக்கலாம்." },
+    suggestions: [
+      { en:'Practice active listening — focus fully on the speaker without planning your reply.', ta:'கவன கேட்டலை பயிற்சி செய்யுங்கள் — பேசுபவர் மீது முழுமையாக கவனம் செலுத்துங்கள், பதிலை திட்டமிடாமல்.' },
+      { en:'Before judging someone\'s behaviour, ask yourself "What might they be feeling right now?"', ta:'ஒருவரின் நடத்தையை மதிப்பிடுவதற்கு முன், "அவர்கள் இப்போது என்ன உணரக்கூடும்?" என்று கேளுங்கள்.' },
+      { en:'Volunteer or help a classmate in need — empathy grows through practice, not just thought.', ta:'தேவையுள்ள வகுப்பு தோழருக்கு உதவுங்கள் — பரிவு செயல் மூலம் வளரும், சிந்தனை மூலம் மட்டும் அல்ல.' }
+    ]
+  },
+  ss: {
+    high: { en:"You build relationships easily, communicate clearly, and handle conflicts in a mature, constructive way.",
+            ta:"நீங்கள் எளிதாக உறவுகளை உருவாக்குகிறீர்கள், தெளிவாக தொடர்பு கொள்கிறீர்கள், முதிர்ச்சியுடன் சண்டைகளை கையாளுகிறீர்கள்." },
+    mid:  { en:"You interact well with others most of the time but may avoid conflict or struggle to express yourself clearly under pressure.",
+            ta:"பெரும்பாலும் மற்றவர்களுடன் நன்றாக இணைகிறீர்கள், ஆனால் சண்டையை தவிர்க்கலாம் அல்லது அழுத்தத்தின் கீழ் தெளிவாக வெளிப்படுத்த சிரமப்படலாம்." },
+    low:  { en:"You may struggle with teamwork, conflict resolution, or expressing your thoughts confidently to others.",
+            ta:"குழுப்பணி, சண்டை தீர்வு, அல்லது உங்கள் கருத்துக்களை நம்பிக்கையுடன் வெளிப்படுத்துவதில் சிரமப்படலாம்." },
+    suggestions: [
+      { en:'Practice "I feel… when… because…" statements to express yourself without blaming others.', ta:'மற்றவரை குற்றம் சாட்டாமல் உங்களை வெளிப்படுத்த "நான்… உணர்கிறேன்… ஏனெனில்…" வாக்கியங்களை பயிற்சி செய்யுங்கள்.' },
+      { en:'Join group activities, clubs, or team projects to build collaboration skills naturally.', ta:'குழு செயல்பாடுகள், கிளப்புகள் அல்லது குழு திட்டங்களில் இணைந்து இணைந்து பணியாற்றும் திறனை இயல்பாக வளர்த்துக்கொள்ளுங்கள்.' },
+      { en:'When a disagreement arises, focus on finding a solution together rather than winning the argument.', ta:'கருத்து வேறுபாடு ஏற்படும்போது, வாதத்தில் வெல்வதை விட சேர்ந்து தீர்வு காண்பதில் கவனம் செலுத்துங்கள்.' }
+    ]
+  }
+};
+
+
+// ─── STATE ───────────────────────────────────────────────────────────
+let lang = 'en';
+let current = 0;
+let answers = new Array(QUESTIONS.length).fill(null);
+let studentInfo = { name:'', mobile:'', school:'' };
+
+// ─── INTRO / VALIDATION ──────────────────────────────────────────────
+function startAssessment() {
+  const name   = document.getElementById('inp-name').value.trim();
+  const mobile = document.getElementById('inp-mobile').value.trim();
+  const school = document.getElementById('inp-school').value.trim();
+  let valid = true;
+
+  if (!name) {
+    document.getElementById('inp-name').classList.add('error');
+    document.getElementById('err-name').style.display = 'block';
+    valid = false;
+  } else {
+    document.getElementById('inp-name').classList.remove('error');
+    document.getElementById('err-name').style.display = 'none';
+  }
+
+  if (!/^\d{10}$/.test(mobile)) {
+    document.getElementById('inp-mobile').classList.add('error');
+    document.getElementById('err-mobile').style.display = 'block';
+    valid = false;
+  } else {
+    document.getElementById('inp-mobile').classList.remove('error');
+    document.getElementById('err-mobile').style.display = 'none';
+  }
+
+  if (!valid) return;
+
+  studentInfo = { name, mobile, school };
+  document.getElementById('introScreen').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'block';
+  renderQuestion();
+  window.scrollTo(0, 0);
+}
+
+// ─── RENDER QUESTION ─────────────────────────────────────────────────
+function renderQuestion() {
+  const q = QUESTIONS[current];
+  const pct = Math.round(((current + 1) / QUESTIONS.length) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('prog-pct').textContent = pct + '%';
+  document.getElementById('prog-label').textContent = lang === 'en'
+    ? `Question ${current + 1} of ${QUESTIONS.length}`
+    : `கேள்வி ${current + 1} / ${QUESTIONS.length}`;
+
+  const dimIdx = Math.floor(current / 4);
+  const dim = DIMS[dimIdx];
+  const showSection = current % 4 === 0;
+  const opts = lang === 'en' ? OPTIONS_EN : OPTIONS_TA;
+
+  let html = '';
+  if (showSection) {
+    html += `<div class="section-header">${dim.en} <span style="font-weight:400;color:var(--muted)">· ${dim.ta}</span></div>`;
+  }
+
+  html += `<div class="question-card">
+    <div class="q-number">${lang==='en'?'QUESTION':'கேள்வி'} ${current + 1}</div>
+    <div class="q-text">${q.en}</div>
+    ${lang==='ta'?`<div class="q-text-ta">${q.ta}</div>`:''}
+    <div class="options">`;
+
+  opts.forEach((opt, i) => {
+    const sel = answers[current] === i ? ' selected' : '';
+    html += `<button class="option-btn${sel}" onclick="selectOption(${i})">
+      <span class="opt-dot"></span>
+      <span class="opt-label">${opt} (${i+1})</span>
+    </button>`;
+  });
+
+  html += `</div></div><div class="nav-wrap">`;
+
+  if (current > 0) {
+    html += `<button class="btn-prev" onclick="goBack()">${lang==='en'?'← Back':'← முந்தைய'}</button>`;
+  }
+
+  const isLast = current === QUESTIONS.length - 1;
+  const disabled = answers[current] === null ? ' disabled' : '';
+  html += `<button class="btn-next"${disabled} onclick="${isLast ? 'showResult()' : 'nextQ()'}">
+    ${isLast ? (lang==='en'?'View My EQ Report 🎯':'EQ அறிக்கை பார்க்க 🎯') : (lang==='en'?'Next →':'அடுத்து →')}
+  </button></div>`;
+
+  document.getElementById('quizArea').innerHTML = html;
+}
+
+function selectOption(i) { answers[current] = i; renderQuestion(); }
+function nextQ() { if (answers[current] === null) return; current++; renderQuestion(); window.scrollTo(0,0); }
+function goBack() { if (current > 0) { current--; renderQuestion(); window.scrollTo(0,0); } }
+
+// ─── RESULT ──────────────────────────────────────────────────────────
+function showResult() {
+  if (answers[current] === null) return;
+
+  const dimScores = {};
+  DIMS.forEach(d => { dimScores[d.key] = 0; });
+  QUESTIONS.forEach((q, i) => { dimScores[q.dim] += (answers[i] || 0); });
+  const dimPcts = {};
+  DIMS.forEach(d => { dimPcts[d.key] = Math.round((dimScores[d.key] / 16) * 100); });
+  const total = Math.round(Object.values(dimScores).reduce((a,b)=>a+b,0) / (QUESTIONS.length * 4) * 100);
+  const levelIdx = LEVELS.findIndex(l => total >= l.min && total <= l.max);
+  const level = LEVELS[levelIdx >= 0 ? levelIdx : 0];
+
+  document.getElementById('quizArea').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'none';
+  const rs = document.getElementById('resultScreen');
+  rs.style.display = 'block';
+
+  document.getElementById('r-name').textContent = '👤 ' + studentInfo.name;
+  document.getElementById('r-score').textContent = total;
+  document.getElementById('r-level').textContent = lang==='en' ? level.en : level.ta;
+  document.getElementById('r-level').style.color = level.color;
+  document.getElementById('r-level-ta').textContent = lang==='ta' ? level.en : level.ta;
+  document.getElementById('r-label').textContent = lang==='en' ? 'Your EQ Score' : 'உங்கள் EQ மதிப்பெண்';
+
+  let barsHtml = '';
+  DIMS.forEach(d => {
+    const pct = dimPcts[d.key];
+    barsHtml += `<div class="dim-card">
+      <div class="dim-head"><span>${d.en}</span><span style="color:${d.color};font-weight:700">${pct}%</span></div>
+      <div class="dim-bar"><div class="dim-fill" style="width:${pct}%;background:${d.color}"></div></div>
+      <div class="dim-ta">${d.ta}</div>
+    </div>`;
+  });
+  document.getElementById('dimBars').innerHTML = barsHtml;
+
+  const interp = INTERP[levelIdx >= 0 ? levelIdx : 0];
+  document.getElementById('r-interp-text').textContent = lang==='en' ? interp.en : interp.ta;
+  document.getElementById('r-interp-h').textContent   = lang==='en' ? '💡 What this means' : '💡 இதன் பொருள்';
+
+  const tips = lang==='en' ? TIPS_EN : TIPS_TA;
+  document.getElementById('r-tips').innerHTML = tips.map(t =>
+    `<div class="tip-item"><span class="tip-icon">${t.icon}</span><span>${t.text}</span></div>`
+  ).join('');
+  document.getElementById('r-tips-h').textContent = lang==='en' ? '🚀 Tips to Grow Your EQ' : '🚀 EQ வளர்க்க குறிப்புகள்';
+
+  document.getElementById('wa-label').textContent  = lang==='en' ? 'Share My Result on WhatsApp' : 'WhatsApp-ல் பகிரவும்';
+  document.getElementById('pdf-label').textContent = lang==='en' ? 'Download / Print Report' : 'அறிக்கை பிரிண்ட்';
+  document.getElementById('retake-btn').textContent= lang==='en' ? '🔄 Retake Assessment' : '🔄 மீண்டும் தொடங்கு';
+  document.getElementById('r-dim-title').textContent = lang==='en' ? '📊 EQ Dimensions' : '📊 EQ பரிமாணங்கள்';
+
+  document.getElementById('promo-h').textContent = lang==='en'
+    ? '🎓 Students Empowerment Program'
+    : '🎓 மாணவர் வலுவூட்டல் திட்டம்';
+  document.getElementById('promo-p').innerHTML = lang==='en'
+    ? 'A transformative Life Skills training for School &amp; College Students — Goal Setting, Confidence, Communication, Time Management &amp; EQ.<br><br>By N T Somasundaram Life Skills Program, Tiruvannamalai.'
+    : 'பள்ளி மற்றும் கல்லூரி மாணவர்களுக்கான வாழ்க்கை திறன் பயிற்சி — இலக்கு நிர்ணயம், நம்பிக்கை, தொடர்பு, நேர மேலாண்மை, EQ.<br><br>N T சோமசுந்தரம் லைஃப் ஸ்கில்ஸ் புரோகிராம், திருவண்ணாமலை.';
+  document.getElementById('promo-btn').textContent = lang==='en' ? 'Know More / பதிவு செய்ய →' : 'மேலும் அறிய / பதிவு செய்ய →';
+
+  renderDetailedReport(dimPcts);
+  document.getElementById('report-title').textContent = lang==='en' ? '📋 Detailed Improvement Report' : '📋 விரிவான முன்னேற்ற அறிக்கை';
+  document.getElementById('report-sub').textContent = lang==='en' ? 'Dimension-wise analysis with specific suggestions' : 'பரிமாண வாரியான பகுப்பாய்வு மற்றும் குறிப்பிட்ட பரிந்துரைகள்';
+
+  window._eqResult = { total, level, dimPcts, levelIdx };
+  window.scrollTo(0, 0);
+
+  // Submit to Google Sheets
+  submitToSheet(total, level, dimPcts);
+}
+
+// ─── DETAILED BILINGUAL REPORT RENDERER ───────────────────────────────
+function renderDetailedReport(dimPcts) {
+  // Sort dimensions by score ascending so weakest areas show first
+  const sorted = DIMS.slice().sort((a, b) => dimPcts[a.key] - dimPcts[b.key]);
+
+  let html = '';
+  sorted.forEach((d, idx) => {
+    const pct = dimPcts[d.key];
+    const band = getBand(pct);
+    const bandInfo = BAND_LABEL[band];
+    const data = DIM_REPORT[d.key];
+    const isPriority = idx < 2 && band !== 'high'; // flag top 2 weakest as priority if not already strong
+
+    html += `<div class="report-dim-card" style="border-left-color:${bandInfo.color}">
+      <div class="report-dim-head">
+        <div>
+          <div class="report-dim-name">${d.en}${isPriority ? `<span class="priority-tag" style="background:#FADBD8;color:#A93226">${lang==='en'?'PRIORITY':'முன்னுரிமை'}</span>` : ''}</div>
+          <div class="report-dim-name-ta">${d.ta}</div>
+        </div>
+        <div class="report-dim-score" style="color:${bandInfo.color}">${pct}%</div>
+      </div>
+      <div class="report-dim-band" style="background:${bandInfo.bg};color:${bandInfo.color}">
+        ${lang==='en' ? bandInfo.en : bandInfo.ta}
+      </div>
+      <div class="report-dim-text">${data[band].en}</div>
+      <div class="report-dim-text-ta">${data[band].ta}</div>
+      <div class="report-suggest-box">
+        <div class="report-suggest-label">${lang==='en' ? '✅ HOW TO IMPROVE' : '✅ முன்னேற எப்படி'}</div>
+        ${data.suggestions.map(s => `
+          <div class="report-suggest-item"><span>•</span><span>${s.en}</span></div>
+          <div class="report-suggest-item-ta">${s.ta}</div>
+        `).join('')}
+      </div>
+    </div>`;
+  });
+
+  document.getElementById('detailedReport').innerHTML = html;
+}
+
+// ─── GOOGLE SHEETS SUBMISSION ─────────────────────────────────────────
+async function submitToSheet(total, level, dimPcts) {
+  if (!SHEET_URL || SHEET_URL.includes('YOUR_GOOGLE')) return; // placeholder not set
+
+  const ss = document.getElementById('saveStatus');
+  ss.className = 'save-status saving';
+  ss.textContent = lang==='en' ? '⏳ Saving your result…' : '⏳ முடிவை சேமிக்கிறது…';
+
+  const payload = {
+    timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+    name:      studentInfo.name,
+    mobile:    studentInfo.mobile,
+    school:    studentInfo.school,
+    eq_total:  total,
+    eq_level:  level.en,
+    se:        dimPcts['se'],
+    sr:        dimPcts['sr'],
+    mo:        dimPcts['mo'],
+    em:        dimPcts['em'],
+    ss:        dimPcts['ss']
+  };
+
+  try {
+    await fetch(SHEET_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    ss.className = 'save-status saved';
+    ss.textContent = lang==='en' ? '✅ Result saved successfully!' : '✅ முடிவு வெற்றிகரமாக சேமிக்கப்பட்டது!';
+  } catch(e) {
+    ss.className = 'save-status failed';
+    ss.textContent = lang==='en' ? '⚠️ Could not save result. Please screenshot to share.' : '⚠️ சேமிக்க முடியவில்லை. ஸ்கிரீன்ஷாட் எடுக்கவும்.';
+  }
+}
+
+// ─── WHATSAPP ────────────────────────────────────────────────────────
+function sendWhatsApp() {
+  const r = window._eqResult;
+  if (!r) return;
+  const dimLines = DIMS.map(d => `${d.en}: ${r.dimPcts[d.key]}%`).join('%0A');
+  const msg = lang === 'en'
+    ? `🧠 *EQ Assessment Result*%0A%0AName: *${studentInfo.name}*%0AScore: *${r.total}/100* — ${r.level.en}%0A%0A${dimLines}%0A%0A📲 Take the assessment: sites.google.com/view/somasundaramnt%0A%0AN T Somasundaram Life Skills Program | +91 98437 02244`
+    : `🧠 *EQ மதிப்பீடு முடிவு*%0A%0Aபெயர்: *${studentInfo.name}*%0Aமதிப்பெண்: *${r.total}/100* — ${r.level.ta}%0A%0A${dimLines}%0A%0A📲 மதிப்பீடு: sites.google.com/view/somasundaramnt%0A%0AN T சோமசுந்தரம் | +91 98437 02244`;
+  window.open(`https://wa.me/919843702244?text=${msg}`, '_blank');
+}
+
+function printPDF() { window.print(); }
+
+function retake() {
+  current = 0;
+  answers = new Array(QUESTIONS.length).fill(null);
+  studentInfo = { name:'', mobile:'', school:'' };
+  document.getElementById('resultScreen').style.display = 'none';
+  document.getElementById('introScreen').style.display = 'block';
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-mobile').value = '';
+  document.getElementById('inp-school').value = '';
+  window.scrollTo(0, 0);
+}
+
+// ─── LANGUAGE ────────────────────────────────────────────────────────
+function toggleLang() {
+  lang = lang === 'en' ? 'ta' : 'en';
+  document.getElementById('langBtn').textContent = lang === 'en' ? 'தமிழ்' : 'English';
+  document.getElementById('h-title').textContent = lang === 'en' ? 'Emotional Intelligence (EQ) Assessment' : 'உணர்வு நுண்ணறிவு (EQ) மதிப்பீடு';
+  document.getElementById('h-sub').textContent   = lang === 'en' ? 'For School & College Students' : 'பள்ளி மற்றும் கல்லூரி மாணவர்களுக்கு';
+  document.getElementById('intro-h').textContent = lang === 'en' ? '👋 Welcome! Before we begin…' : '👋 வரவேற்கிறோம்! தொடங்குவதற்கு முன்…';
+  document.getElementById('intro-p').textContent = lang === 'en'
+    ? 'This assessment measures your Emotional Intelligence across 5 key dimensions. Answer all 20 questions honestly. It takes about 5 minutes.'
+    : 'இந்த மதிப்பீடு உங்கள் உணர்வு நுண்ணறிவை 5 பரிமாணங்களில் அளவிடுகிறது. 20 கேள்விகளுக்கும் நேர்மையாக பதிலளிக்கவும். சுமார் 5 நிமிடங்கள் ஆகும்.';
+  document.getElementById('lbl-name').textContent   = lang==='en' ? 'YOUR NAME / உங்கள் பெயர்'        : 'உங்கள் பெயர் / YOUR NAME';
+  document.getElementById('lbl-mobile').textContent = lang==='en' ? 'MOBILE NUMBER / மொபைல் எண்'       : 'மொபைல் எண் / MOBILE NUMBER';
+  document.getElementById('lbl-school').textContent = lang==='en' ? 'SCHOOL / COLLEGE NAME (optional)' : 'பள்ளி / கல்லூரி பெயர் (விரும்பினால்)';
+  document.getElementById('lbl-dims').textContent   = lang==='en' ? '5 DIMENSIONS YOU WILL BE ASSESSED ON' : 'மதிப்பீட்டின் 5 பரிமாணங்கள்';
+  document.getElementById('btn-start').textContent  = lang==='en' ? 'Start Assessment →' : 'மதிப்பீட்டை தொடங்கு →';
+
+  const rs = document.getElementById('resultScreen');
+  if (rs.style.display === 'block') showResult();
+  else if (document.getElementById('introScreen').style.display !== 'none') { /* already updated */ }
+  else renderQuestion();
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────
+// Intro screen shown by default; quiz hidden
+document.getElementById('quizArea').style.display = 'block';
+</script>
+
+<!-- ════════════════════════════════════════════════════════════════════
+  GOOGLE APPS SCRIPT — paste this code in a new Apps Script project
+  bound to your Google Sheet, then deploy as Web App.
+
+  function doPost(e) {
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    if (sheet.getLastRow() === 0) {
+      sheet.appendRow(['Timestamp','Name','Mobile','School/College',
+        'EQ Total','EQ Level','Self-Awareness %','Self-Regulation %',
+        'Motivation %','Empathy %','Social Skills %']);
+    }
+    var d = JSON.parse(e.postData.contents);
+    sheet.appendRow([d.timestamp, d.name, d.mobile, d.school,
+      d.eq_total, d.eq_level, d.se, d.sr, d.mo, d.em, d.ss]);
+    return ContentService.createTextOutput('OK');
+  }
+═════════════════════════════════════════════════════════════════════ -->
+</body>
+</html>

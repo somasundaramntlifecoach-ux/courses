@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stress Management for Teachers | N T Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Kalam:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#0B1E36; --navy:#123458; --navy-soft:#1B4368;
+  --gold:#C9A24B; --gold-light:#E8C97E; --paper:#F6F1E4; --ink:#1B2432; --chalk:#F1EEE4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;}
+[data-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+.lang-ta [data-en]{display:none;} .lang-en [data-ta]{display:none;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+.lang-switch{position:fixed;top:16px;right:16px;z-index:50;background:var(--navy-deep);border:1px solid var(--gold);border-radius:999px;display:flex;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.lang-switch button{background:transparent;border:none;color:var(--chalk);font-family:'Poppins',sans-serif;font-weight:600;font-size:12.5px;padding:8px 14px;cursor:pointer;}
+.lang-switch button.active{background:var(--gold);color:var(--navy-deep);}
+.back-link{position:fixed;top:16px;left:16px;z-index:50;background:var(--navy-deep);color:var(--chalk);border:1px solid var(--gold);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:600;}
+.hero{background:linear-gradient(180deg,var(--navy-deep) 0%,#081527 100%);color:var(--chalk);padding:100px 0 56px;text-align:center;}
+.hero .track-tag{font-family:'Kalam',cursive;color:var(--gold-light);font-size:15px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.hero h1{font-size:clamp(26px,4.4vw,42px);font-weight:800;max-width:760px;margin:0 auto 16px;line-height:1.2;}
+.hero .tagline{max-width:600px;margin:0 auto 26px;color:#DCE7E0;font-size:16px;}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.badge{border:1px solid rgba(232,201,126,.4);color:var(--gold-light);font-size:12.5px;padding:6px 14px;border-radius:999px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;background:var(--gold);color:var(--navy-deep);}
+section{padding:56px 0;}
+.section-title{font-size:22px;font-weight:700;color:var(--navy-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.section-title::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.overview p{font-size:15.5px;color:#3A4450;max-width:760px;}
+.audience-line{margin-top:14px;font-size:14px;color:var(--navy-soft);font-weight:600;}
+.obj-list{list-style:none;display:grid;gap:10px;margin-top:6px;}
+.obj-list li{display:flex;gap:10px;font-size:14.5px;color:#3A4450;align-items:flex-start;}
+.obj-list li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;}
+.agenda{background:#fff;border:1px solid rgba(11,30,54,.08);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(11,30,54,.06);}
+.agenda-item{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:18px 22px;border-bottom:1px dashed rgba(11,30,54,.12);}
+.agenda-item:last-child{border-bottom:none;}
+.agenda-time{font-family:'Kalam',cursive;color:var(--navy-soft);font-weight:700;font-size:14px;}
+.agenda-title{font-size:15.5px;font-weight:600;color:var(--navy-deep);margin-bottom:4px;}
+.agenda-desc{font-size:13.5px;color:#5A6470;}
+.outcomes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.outcome-card{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:16px 18px;font-size:14px;color:#3A4450;box-shadow:0 4px 12px rgba(11,30,54,.06);}
+.cta-banner{background:linear-gradient(120deg,var(--gold-light),var(--gold));padding:50px 0;text-align:center;}
+.cta-banner h2{font-size:clamp(20px,3vw,28px);color:var(--navy-deep);font-weight:800;margin-bottom:10px;}
+.cta-banner p{color:#3d2f10;margin-bottom:22px;font-size:14.5px;}
+.cta-banner .btn{background:var(--navy-deep);color:var(--chalk);}
+footer{background:#16342C;color:#C9D3CB;padding:30px 0;text-align:center;font-size:12.5px;}
+footer a{color:var(--gold-light);}
+@media (max-width:600px){
+  .agenda-item{grid-template-columns:1fr;gap:4px;}
+}
+</style>
+</head>
+<body class="lang-en">
+
+<a class="back-link" href="school-training-programs.html">&larr; <span data-en>All Programs</span><span data-ta>அனைத்து திட்டங்கள்</span></a>
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="track-tag"><span data-en>Teachers' Room</span><span data-ta>ஆசிரியர் அறை</span></div>
+    <h1><span data-en>Stress Management for Teachers</span><span data-ta>ஆசிரியர்களுக்கான மன அழுத்த மேலாண்மை</span></h1>
+    <p class="tagline"><span data-en>Simple, sustainable ways for teachers to manage workload and stay balanced through the school year.</span><span data-ta>கல்வி ஆண்டு முழுவதும் பணிச்சுமையை நிர்வகிக்கவும், சமநிலையுடன் இருக்கவும் எளிய, நீடித்த வழிகள்.</span></p>
+    <div class="badges">
+      <span class="badge"><span data-en>Half-day workshop (3 hours)</span><span data-ta>அரை நாள் பயிற்சி (3 மணி நேரம்)</span></span>
+      <span class="badge"><span data-en>Reflective activities, breathing practice & group sharing</span><span data-ta>சிந்தனை செயல்பாடுகள், சுவாசப் பயிற்சி & குழு பகிர்வு</span></span>
+    </div>
+    <a class="btn" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20the%20%27Stress%20Management%20for%20Teachers%27%20training%20session%20for%20our%20school/college." target="_blank" rel="noopener">
+      <span data-en>Book This Session on WhatsApp</span><span data-ta>WhatsApp-இல் இந்த அமர்வை பதிவு செய்யவும்</span>
+    </a>
+  </div>
+</section>
+
+<section class="overview">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Overview</span><span data-ta>கண்ணோட்டம்</span></div>
+    <p><span data-en>Teaching is one of the most emotionally demanding professions, yet teachers rarely get tools to manage their own stress. This workshop helps teachers recognise early signs of burnout, build daily stress-relief habits, and return to the classroom with renewed energy.</span><span data-ta>கற்பித்தல் மிகவும் உணர்ச்சிபூர்வமாகக் கோரும் தொழில்களில் ஒன்று, ஆனாலும் ஆசிரியர்களுக்கு தங்கள் சொந்த மன அழுத்தத்தை நிர்வகிக்க கருவிகள் அரிதாகவே கிடைக்கின்றன. இந்த பயிற்சி ஆசிரியர்கள் சோர்வின் ஆரம்ப அறிகுறிகளை அடையாளம் காணவும், தினசரி மன அழுத்த நிவாரண பழக்கங்களை உருவாக்கவும், புத்துணர்வுடன் வகுப்பறைக்குத் திரும்பவும் உதவுகிறது.</span></p>
+    <div class="audience-line"><span data-en>Who should attend: </span><span data-ta>யார் கலந்துகொள்ளலாம்: </span><span data-en>School & college teaching staff</span><span data-ta>பள்ளி & கல்லூரி கற்பித்தல் ஊழியர்கள்</span></div>
+  </div>
+</section>
+
+<section class="objectives">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Learning Objectives</span><span data-ta>கற்றல் நோக்கங்கள்</span></div>
+    <ul class="obj-list">
+      <li><span data-en>Recognise personal early-warning signs of stress and burnout</span><span data-ta>மன அழுத்தம் மற்றும் சோர்வின் தனிப்பட்ட ஆரம்ப எச்சரிக்கை அறிகுறிகளை அடையாளம் காணுதல்</span></li>
+      <li><span data-en>Learn quick in-the-moment techniques to reset during the school day</span><span data-ta>பள்ளி நாளின் போது மீட்டமைக்க விரைவான உடனடி நுட்பங்களைக் கற்றல்</span></li>
+      <li><span data-en>Build a sustainable weekly self-care routine</span><span data-ta>நீடித்த வாராந்திர சுய பராமரிப்பு வழக்கத்தை உருவாக்குதல்</span></li>
+      <li><span data-en>Set healthier boundaries around workload and expectations</span><span data-ta>பணிச்சுமை மற்றும் எதிர்பார்ப்புகள் தொடர்பாக ஆரோக்கியமான எல்லைகளை அமைத்தல்</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="agenda-section">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Workshop Agenda</span><span data-ta>பயிற்சி நிகழ்ச்சி நிரல்</span></div>
+    <div class="agenda">
+      <div class="agenda-item">
+        <div class="agenda-time">09:00 – 09:30</div>
+        <div>
+          <div class="agenda-title"><span data-en>Understanding Teacher Stress</span><span data-ta>ஆசிரியர் மன அழுத்தத்தைப் புரிந்துகொள்ளுதல்</span></div>
+          <div class="agenda-desc"><span data-en>What makes teaching uniquely stressful, and why self-care isn't selfish.</span><span data-ta>கற்பித்தல் ஏன் தனித்துவமாக மன அழுத்தமானது, சுய பராமரிப்பு ஏன் சுயநலமானது அல்ல.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">09:30 – 10:30</div>
+        <div>
+          <div class="agenda-title"><span data-en>Quick Reset Techniques</span><span data-ta>விரைவு மீட்டமைப்பு நுட்பங்கள்</span></div>
+          <div class="agenda-desc"><span data-en>Breathing, grounding and micro-break techniques usable between periods.</span><span data-ta>பீரியட்களுக்கு இடையில் பயன்படுத்தக்கூடிய சுவாசம், தரையிறங்கல் மற்றும் சிறு-இடைவேளை நுட்பங்கள்.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">10:45 – 11:45</div>
+        <div>
+          <div class="agenda-title"><span data-en>Managing Workload & Boundaries</span><span data-ta>பணிச்சுமை & எல்லைகளை நிர்வகித்தல்</span></div>
+          <div class="agenda-desc"><span data-en>Practical prioritisation and saying no without guilt.</span><span data-ta>நடைமுறை முன்னுரிமை மற்றும் குற்ற உணர்வு இல்லாமல் மறுப்பது.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">11:45 – 12:30</div>
+        <div>
+          <div class="agenda-title"><span data-en>Building a Weekly Self-Care Plan</span><span data-ta>வாராந்திர சுய பராமரிப்பு திட்டத்தை உருவாக்குதல்</span></div>
+          <div class="agenda-desc"><span data-en>Each teacher drafts a personal, realistic self-care routine.</span><span data-ta>ஒவ்வொரு ஆசிரியரும் தனிப்பட்ட, நடைமுறைக்குரிய சுய பராமரிப்பு வழக்கத்தை உருவாக்குகிறார்.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">12:30 – 13:00</div>
+        <div>
+          <div class="agenda-title"><span data-en>Group Sharing & Closing</span><span data-ta>குழு பகிர்வு & நிறைவு</span></div>
+          <div class="agenda-desc"><span data-en>Peer support circle and commitment to one change.</span><span data-ta>சக ஆதரவு வட்டம் மற்றும் ஒரு மாற்றத்திற்கான உறுதிமொழி.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="outcomes-section">
+  <div class="wrap">
+    <div class="section-title"><span data-en>What Participants Take Away</span><span data-ta>பங்கேற்பாளர்கள் பெறுவது</span></div>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><span data-en>Lower day-to-day stress and irritability</span><span data-ta>குறைந்த அன்றாட மன அழுத்தம் மற்றும் எரிச்சல்</span></div>
+      <div class="outcome-card"><span data-en>A personal toolkit of quick reset techniques</span><span data-ta>விரைவு மீட்டமைப்பு நுட்பங்களின் தனிப்பட்ட கருவித்தொகுப்பு</span></div>
+      <div class="outcome-card"><span data-en>Healthier boundaries around workload</span><span data-ta>பணிச்சுமை தொடர்பாக ஆரோக்கியமான எல்லைகள்</span></div>
+      <div class="outcome-card"><span data-en>A renewed sense of purpose in teaching</span><span data-ta>கற்பித்தலில் புத்துப்பிக்கப்பட்ட நோக்க உணர்வு</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2><span data-en>Bring "Stress Management for Teachers" to your campus</span><span data-ta>"ஆசிரியர்களுக்கான மன அழுத்த மேலாண்மை"-ஐ உங்கள் வளாகத்திற்குக் கொண்டு வாருங்கள்</span></h2>
+    <p><span data-en>Free introductory session for schools & colleges.</span><span data-ta>பள்ளிகள் & கல்லூரிகளுக்கான இலவச அறிமுக அமர்வு.</span></p>
+    <a class="btn" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20the%20%27Stress%20Management%20for%20Teachers%27%20training%20session%20for%20our%20school/college." target="_blank" rel="noopener">
+      <span data-en>Chat on WhatsApp</span><span data-ta>WhatsApp-இல் பேசவும்</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-en>N T Somasundaram Life Skills Program &nbsp;•&nbsp; +91 98437 02244 &nbsp;•&nbsp; </span>
+    <span data-ta>என். டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம் &nbsp;•&nbsp; +91 98437 02244 &nbsp;•&nbsp; </span>
+    <a href="school-training-programs.html"><span data-en>Back to all programs</span><span data-ta>அனைத்து திட்டங்களுக்கும் திரும்பு</span></a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.remove('lang-en','lang-ta');
+  document.body.classList.add('lang-' + lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('siteLang', lang); }catch(e){}
+}
+(function(){
+  try{ var saved = localStorage.getItem('siteLang'); if(saved === 'ta'){ setLang('ta'); } }catch(e){}
+})();
+</script>
+</body>
+</html>
