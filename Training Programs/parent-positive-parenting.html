@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Positive Parenting Program | N T Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Kalam:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#0B1E36; --navy:#123458; --navy-soft:#1B4368;
+  --gold:#C9A24B; --gold-light:#E8C97E; --paper:#F6F1E4; --ink:#1B2432; --chalk:#F1EEE4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;}
+[data-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+.lang-ta [data-en]{display:none;} .lang-en [data-ta]{display:none;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+.lang-switch{position:fixed;top:16px;right:16px;z-index:50;background:var(--navy-deep);border:1px solid var(--gold);border-radius:999px;display:flex;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.lang-switch button{background:transparent;border:none;color:var(--chalk);font-family:'Poppins',sans-serif;font-weight:600;font-size:12.5px;padding:8px 14px;cursor:pointer;}
+.lang-switch button.active{background:var(--gold);color:var(--navy-deep);}
+.back-link{position:fixed;top:16px;left:16px;z-index:50;background:var(--navy-deep);color:var(--chalk);border:1px solid var(--gold);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:600;}
+.hero{background:linear-gradient(180deg,var(--navy-deep) 0%,#081527 100%);color:var(--chalk);padding:100px 0 56px;text-align:center;}
+.hero .track-tag{font-family:'Kalam',cursive;color:var(--gold-light);font-size:15px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.hero h1{font-size:clamp(26px,4.4vw,42px);font-weight:800;max-width:760px;margin:0 auto 16px;line-height:1.2;}
+.hero .tagline{max-width:600px;margin:0 auto 26px;color:#DCE7E0;font-size:16px;}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.badge{border:1px solid rgba(232,201,126,.4);color:var(--gold-light);font-size:12.5px;padding:6px 14px;border-radius:999px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;background:var(--gold);color:var(--navy-deep);}
+section{padding:56px 0;}
+.section-title{font-size:22px;font-weight:700;color:var(--navy-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.section-title::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.overview p{font-size:15.5px;color:#3A4450;max-width:760px;}
+.audience-line{margin-top:14px;font-size:14px;color:var(--navy-soft);font-weight:600;}
+.obj-list{list-style:none;display:grid;gap:10px;margin-top:6px;}
+.obj-list li{display:flex;gap:10px;font-size:14.5px;color:#3A4450;align-items:flex-start;}
+.obj-list li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;}
+.agenda{background:#fff;border:1px solid rgba(11,30,54,.08);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(11,30,54,.06);}
+.agenda-item{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:18px 22px;border-bottom:1px dashed rgba(11,30,54,.12);}
+.agenda-item:last-child{border-bottom:none;}
+.agenda-time{font-family:'Kalam',cursive;color:var(--navy-soft);font-weight:700;font-size:14px;}
+.agenda-title{font-size:15.5px;font-weight:600;color:var(--navy-deep);margin-bottom:4px;}
+.agenda-desc{font-size:13.5px;color:#5A6470;}
+.outcomes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.outcome-card{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:16px 18px;font-size:14px;color:#3A4450;box-shadow:0 4px 12px rgba(11,30,54,.06);}
+.cta-banner{background:linear-gradient(120deg,var(--gold-light),var(--gold));padding:50px 0;text-align:center;}
+.cta-banner h2{font-size:clamp(20px,3vw,28px);color:var(--navy-deep);font-weight:800;margin-bottom:10px;}
+.cta-banner p{color:#3d2f10;margin-bottom:22px;font-size:14.5px;}
+.cta-banner .btn{background:var(--navy-deep);color:var(--chalk);}
+footer{background:#16342C;color:#C9D3CB;padding:30px 0;text-align:center;font-size:12.5px;}
+footer a{color:var(--gold-light);}
+@media (max-width:600px){
+  .agenda-item{grid-template-columns:1fr;gap:4px;}
+}
+</style>
+</head>
+<body class="lang-en">
+
+<a class="back-link" href="school-training-programs.html">&larr; <span data-en>All Programs</span><span data-ta>அனைத்து திட்டங்கள்</span></a>
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="track-tag"><span data-en>Parents' Corner</span><span data-ta>பெற்றோர் மூலை</span></div>
+    <h1><span data-en>Positive Parenting Program</span><span data-ta>நேர்மறை பெற்றோர் பயிற்சி திட்டம்</span></h1>
+    <p class="tagline"><span data-en>Practical, loving approaches to raising confident, well-adjusted children.</span><span data-ta>நம்பிக்கையான, நல்ல சரிசெய்யப்பட்ட குழந்தைகளை வளர்ப்பதற்கான நடைமுறை, அன்பான அணுகுமுறைகள்.</span></p>
+    <div class="badges">
+      <span class="badge"><span data-en>Half-day workshop (3 hours)</span><span data-ta>அரை நாள் பயிற்சி (3 மணி நேரம்)</span></span>
+      <span class="badge"><span data-en>Interactive session with real-life scenarios & discussion</span><span data-ta>உண்மையான வாழ்க்கை சூழல்கள் & விவாதத்துடன் ஊடாடும் அமர்வு</span></span>
+    </div>
+    <a class="btn" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20the%20%27Positive%20Parenting%20Program%27%20training%20session%20for%20our%20school/college." target="_blank" rel="noopener">
+      <span data-en>Book This Session on WhatsApp</span><span data-ta>WhatsApp-இல் இந்த அமர்வை பதிவு செய்யவும்</span>
+    </a>
+  </div>
+</section>
+
+<section class="overview">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Overview</span><span data-ta>கண்ணோட்டம்</span></div>
+    <p><span data-en>Positive parenting isn't about being permissive — it's about being firm, warm and consistent at the same time. This workshop gives parents practical tools to set boundaries without conflict, and to build trust that lasts through the teenage years.</span><span data-ta>நேர்மறை பெற்றோர் பயிற்சி என்பது அனுமதிக்கக்கூடியதாக இருப்பது அல்ல — அது ஒரே நேரத்தில் உறுதியாகவும், அன்பாகவும், நிலையாகவும் இருப்பது. இந்த பயிற்சி பெற்றோருக்கு மோதல் இல்லாமல் எல்லைகளை அமைக்கவும், இளமைப்பருவம் வரை நீடிக்கும் நம்பிக்கையை உருவாக்கவும் நடைமுறை கருவிகளை வழங்குகிறது.</span></p>
+    <div class="audience-line"><span data-en>Who should attend: </span><span data-ta>யார் கலந்துகொள்ளலாம்: </span><span data-en>Parents of school-going children (all age groups)</span><span data-ta>பள்ளி செல்லும் குழந்தைகளின் பெற்றோர் (அனைத்து வயதினரும்)</span></div>
+  </div>
+</section>
+
+<section class="objectives">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Learning Objectives</span><span data-ta>கற்றல் நோக்கங்கள்</span></div>
+    <ul class="obj-list">
+      <li><span data-en>Understand the difference between strict, permissive and positive parenting</span><span data-ta>கடுமையான, அனுமதிக்கக்கூடிய மற்றும் நேர்மறை பெற்றோர் பயிற்சிக்கு இடையிலான வேறுபாட்டைப் புரிந்துகொள்ளுதல்</span></li>
+      <li><span data-en>Learn to set firm boundaries without shouting or punishment</span><span data-ta>கத்தாமல் அல்லது தண்டனை இல்லாமல் உறுதியான எல்லைகளை அமைக்கக் கற்றல்</span></li>
+      <li><span data-en>Build daily communication habits that strengthen trust</span><span data-ta>நம்பிக்கையை வலுப்படுத்தும் தினசரி தொடர்பு பழக்கங்களை உருவாக்குதல்</span></li>
+      <li><span data-en>Handle common conflict situations calmly and effectively</span><span data-ta>பொதுவான மோதல் சூழல்களை அமைதியாகவும் திறம்படவும் கையாளுதல்</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="agenda-section">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Workshop Agenda</span><span data-ta>பயிற்சி நிகழ்ச்சி நிரல்</span></div>
+    <div class="agenda">
+      <div class="agenda-item">
+        <div class="agenda-time">09:00 – 09:40</div>
+        <div>
+          <div class="agenda-title"><span data-en>What Is Positive Parenting?</span><span data-ta>நேர்மறை பெற்றோர் பயிற்சி என்றால் என்ன?</span></div>
+          <div class="agenda-desc"><span data-en>Moving beyond strict vs permissive to firm-and-warm parenting.</span><span data-ta>கடுமையான vs அனுமதிக்கக்கூடியதைத் தாண்டி உறுதியான-மற்றும்-அன்பான பெற்றோர் பயிற்சிக்கு நகர்தல்.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">09:40 – 10:40</div>
+        <div>
+          <div class="agenda-title"><span data-en>Setting Boundaries Without Conflict</span><span data-ta>மோதல் இல்லாமல் எல்லைகளை அமைத்தல்</span></div>
+          <div class="agenda-desc"><span data-en>Practical scripts for saying no calmly and consistently.</span><span data-ta>அமைதியாகவும் நிலையாகவும் மறுப்பதற்கான நடைமுறை ஸ்கிரிப்ட்கள்.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">10:55 – 11:55</div>
+        <div>
+          <div class="agenda-title"><span data-en>Communication That Builds Trust</span><span data-ta>நம்பிக்கையை உருவாக்கும் தொடர்பு</span></div>
+          <div class="agenda-desc"><span data-en>Daily habits that keep children opening up instead of shutting down.</span><span data-ta>குழந்தைகள் மூடிக்கொள்வதற்குப் பதிலாக திறந்திருக்க வைக்கும் தினசரி பழக்கங்கள்.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">11:55 – 12:40</div>
+        <div>
+          <div class="agenda-title"><span data-en>Handling Conflict & Tantrums</span><span data-ta>மோதல் & கோபத்தை கையாளுதல்</span></div>
+          <div class="agenda-desc"><span data-en>Role-play: staying calm and firm during difficult moments.</span><span data-ta>வேடமிடல்: கடினமான தருணங்களில் அமைதியாகவும் உறுதியாகவும் இருத்தல்.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">12:40 – 13:00</div>
+        <div>
+          <div class="agenda-title"><span data-en>Q&A & Family Action Plan</span><span data-ta>கேள்வி பதில் & குடும்ப செயல் திட்டம்</span></div>
+          <div class="agenda-desc"><span data-en>Each parent leaves with one change to try this week.</span><span data-ta>ஒவ்வொரு பெற்றோரும் இந்த வாரம் முயற்சிக்க ஒரு மாற்றத்துடன் திரும்புகிறார்.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="outcomes-section">
+  <div class="wrap">
+    <div class="section-title"><span data-en>What Participants Take Away</span><span data-ta>பங்கேற்பாளர்கள் பெறுவது</span></div>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><span data-en>Calmer, more consistent boundary-setting at home</span><span data-ta>வீட்டில் அமைதியான, அதிக நிலையான எல்லை அமைத்தல்</span></div>
+      <div class="outcome-card"><span data-en>Stronger parent-child trust and open communication</span><span data-ta>வலுவான பெற்றோர்-குழந்தை நம்பிக்கை மற்றும் திறந்த தொடர்பு</span></div>
+      <div class="outcome-card"><span data-en>Fewer power struggles and tantrums at home</span><span data-ta>வீட்டில் குறைவான அதிகார போராட்டங்கள் மற்றும் கோபங்கள்</span></div>
+      <div class="outcome-card"><span data-en>A practical, ready-to-use positive parenting toolkit</span><span data-ta>நடைமுறை, உடனடியாகப் பயன்படுத்தக்கூடிய நேர்மறை பெற்றோர் கருவித்தொகுப்பு</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2><span data-en>Bring "Positive Parenting Program" to your campus</span><span data-ta>"நேர்மறை பெற்றோர் பயிற்சி திட்டம்"-ஐ உங்கள் வளாகத்திற்குக் கொண்டு வாருங்கள்</span></h2>
+    <p><span data-en>Free introductory session for schools & colleges.</span><span data-ta>பள்ளிகள் & கல்லூரிகளுக்கான இலவச அறிமுக அமர்வு.</span></p>
+    <a class="btn" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20the%20%27Positive%20Parenting%20Program%27%20training%20session%20for%20our%20school/college." target="_blank" rel="noopener">
+      <span data-en>Chat on WhatsApp</span><span data-ta>WhatsApp-இல் பேசவும்</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-en>N T Somasundaram Life Skills Program &nbsp;•&nbsp; +91 98437 02244 &nbsp;•&nbsp; </span>
+    <span data-ta>என். டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம் &nbsp;•&nbsp; +91 98437 02244 &nbsp;•&nbsp; </span>
+    <a href="school-training-programs.html"><span data-en>Back to all programs</span><span data-ta>அனைத்து திட்டங்களுக்கும் திரும்பு</span></a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.remove('lang-en','lang-ta');
+  document.body.classList.add('lang-' + lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('siteLang', lang); }catch(e){}
+}
+(function(){
+  try{ var saved = localStorage.getItem('siteLang'); if(saved === 'ta'){ setLang('ta'); } }catch(e){}
+})();
+</script>
+</body>
+</html>

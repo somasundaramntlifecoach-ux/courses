@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Guidance – Planning for the Future | N T Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Kalam:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy-deep:#0B1E36; --navy:#123458; --navy-soft:#1B4368;
+  --gold:#C9A24B; --gold-light:#E8C97E; --paper:#F6F1E4; --ink:#1B2432; --chalk:#F1EEE4;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Poppins',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;}
+[data-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+.lang-ta [data-en]{display:none;} .lang-en [data-ta]{display:none;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px;}
+.lang-switch{position:fixed;top:16px;right:16px;z-index:50;background:var(--navy-deep);border:1px solid var(--gold);border-radius:999px;display:flex;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.25);}
+.lang-switch button{background:transparent;border:none;color:var(--chalk);font-family:'Poppins',sans-serif;font-weight:600;font-size:12.5px;padding:8px 14px;cursor:pointer;}
+.lang-switch button.active{background:var(--gold);color:var(--navy-deep);}
+.back-link{position:fixed;top:16px;left:16px;z-index:50;background:var(--navy-deep);color:var(--chalk);border:1px solid var(--gold);border-radius:999px;padding:8px 16px;font-size:12.5px;font-weight:600;}
+.hero{background:linear-gradient(180deg,var(--navy-deep) 0%,#081527 100%);color:var(--chalk);padding:100px 0 56px;text-align:center;}
+.hero .track-tag{font-family:'Kalam',cursive;color:var(--gold-light);font-size:15px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+.hero h1{font-size:clamp(26px,4.4vw,42px);font-weight:800;max-width:760px;margin:0 auto 16px;line-height:1.2;}
+.hero .tagline{max-width:600px;margin:0 auto 26px;color:#DCE7E0;font-size:16px;}
+.badges{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:28px;}
+.badge{border:1px solid rgba(232,201,126,.4);color:var(--gold-light);font-size:12.5px;padding:6px 14px;border-radius:999px;}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:8px;font-weight:600;font-size:15px;cursor:pointer;background:var(--gold);color:var(--navy-deep);}
+section{padding:56px 0;}
+.section-title{font-size:22px;font-weight:700;color:var(--navy-deep);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.section-title::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.overview p{font-size:15.5px;color:#3A4450;max-width:760px;}
+.audience-line{margin-top:14px;font-size:14px;color:var(--navy-soft);font-weight:600;}
+.obj-list{list-style:none;display:grid;gap:10px;margin-top:6px;}
+.obj-list li{display:flex;gap:10px;font-size:14.5px;color:#3A4450;align-items:flex-start;}
+.obj-list li::before{content:"✓";color:var(--gold);font-weight:700;flex-shrink:0;}
+.agenda{background:#fff;border:1px solid rgba(11,30,54,.08);border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(11,30,54,.06);}
+.agenda-item{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:18px 22px;border-bottom:1px dashed rgba(11,30,54,.12);}
+.agenda-item:last-child{border-bottom:none;}
+.agenda-time{font-family:'Kalam',cursive;color:var(--navy-soft);font-weight:700;font-size:14px;}
+.agenda-title{font-size:15.5px;font-weight:600;color:var(--navy-deep);margin-bottom:4px;}
+.agenda-desc{font-size:13.5px;color:#5A6470;}
+.outcomes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.outcome-card{background:#fff;border-left:4px solid var(--gold);border-radius:8px;padding:16px 18px;font-size:14px;color:#3A4450;box-shadow:0 4px 12px rgba(11,30,54,.06);}
+.cta-banner{background:linear-gradient(120deg,var(--gold-light),var(--gold));padding:50px 0;text-align:center;}
+.cta-banner h2{font-size:clamp(20px,3vw,28px);color:var(--navy-deep);font-weight:800;margin-bottom:10px;}
+.cta-banner p{color:#3d2f10;margin-bottom:22px;font-size:14.5px;}
+.cta-banner .btn{background:var(--navy-deep);color:var(--chalk);}
+footer{background:#16342C;color:#C9D3CB;padding:30px 0;text-align:center;font-size:12.5px;}
+footer a{color:var(--gold-light);}
+@media (max-width:600px){
+  .agenda-item{grid-template-columns:1fr;gap:4px;}
+}
+</style>
+</head>
+<body class="lang-en">
+
+<a class="back-link" href="school-training-programs.html">&larr; <span data-en>All Programs</span><span data-ta>அனைத்து திட்டங்கள்</span></a>
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="track-tag"><span data-en>Students' Desk</span><span data-ta>மாணவர் மேசை</span></div>
+    <h1><span data-en>Career Guidance – Planning for the Future</span><span data-ta>தொழில் வழிகாட்டுதல் – எதிர்காலத் திட்டமிடல்</span></h1>
+    <p class="tagline"><span data-en>Clarity on strengths, stream choices and career pathways — before decisions are made in confusion.</span><span data-ta>குழப்பத்தில் முடிவுகள் எடுக்கப்படுவதற்கு முன், திறமைகள், பிரிவு தேர்வுகள் மற்றும் தொழில் பாதைகள் குறித்த தெளிவு.</span></p>
+    <div class="badges">
+      <span class="badge"><span data-en>Half-day session (3 hours)</span><span data-ta>அரை நாள் அமர்வு (3 மணி நேரம்)</span></span>
+      <span class="badge"><span data-en>Interest assessment + guided discussion</span><span data-ta>ஆர்வ மதிப்பீடு + வழிகாட்டப்பட்ட விவாதம்</span></span>
+    </div>
+    <a class="btn" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20the%20%27Career%20Guidance%20%E2%80%93%20Planning%20for%20the%20Future%27%20training%20session%20for%20our%20school/college." target="_blank" rel="noopener">
+      <span data-en>Book This Session on WhatsApp</span><span data-ta>WhatsApp-இல் இந்த அமர்வை பதிவு செய்யவும்</span>
+    </a>
+  </div>
+</section>
+
+<section class="overview">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Overview</span><span data-ta>கண்ணோட்டம்</span></div>
+    <p><span data-en>Many students choose a stream or course under pressure from marks, peers or family — without ever mapping it against their own interests and strengths. This session uses a structured interest assessment to help students see realistic, personally-fit career pathways.</span><span data-ta>பல மாணவர்கள் தங்கள் சொந்த ஆர்வங்கள் மற்றும் திறமைகளுடன் ஒப்பிடாமல், மதிப்பெண்கள், சகாக்கள் அல்லது குடும்பத்தின் அழுத்தத்தின் கீழ் ஒரு பிரிவு அல்லது படிப்பைத் தேர்வு செய்கிறார்கள். இந்த அமர்வு மாணவர்கள் நடைமுறைக்குரிய, தனிப்பட்ட பொருத்தமான தொழில் பாதைகளைப் பார்க்க உதவ கட்டமைக்கப்பட்ட ஆர்வ மதிப்பீட்டைப் பயன்படுத்துகிறது.</span></p>
+    <div class="audience-line"><span data-en>Who should attend: </span><span data-ta>யார் கலந்துகொள்ளலாம்: </span><span data-en>Class 9–12 students, first-year college students</span><span data-ta>9–12 வகுப்பு மாணவர்கள், முதலாம் ஆண்டு கல்லூரி மாணவர்கள்</span></div>
+  </div>
+</section>
+
+<section class="objectives">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Learning Objectives</span><span data-ta>கற்றல் நோக்கங்கள்</span></div>
+    <ul class="obj-list">
+      <li><span data-en>Identify personal interests, strengths and work-style preferences</span><span data-ta>தனிப்பட்ட ஆர்வங்கள், திறமைகள் மற்றும் பணி-பாணி விருப்பங்களை அடையாளம் காணுதல்</span></li>
+      <li><span data-en>Understand common stream/career pathways and what each involves</span><span data-ta>பொதுவான பிரிவு/தொழில் பாதைகள் மற்றும் ஒவ்வொன்றிலும் என்ன உள்ளது என்பதைப் புரிந்துகொள்ளுதல்</span></li>
+      <li><span data-en>Separate outside pressure from genuine personal interest</span><span data-ta>வெளிப்புற அழுத்தத்தை உண்மையான தனிப்பட்ட ஆர்வத்திலிருந்து பிரித்தல்</span></li>
+      <li><span data-en>Leave with a shortlist of career directions to explore further</span><span data-ta>மேலும் ஆராய்வதற்கான தொழில் திசைகளின் குறும்பட்டியலுடன் திரும்புதல்</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="agenda-section">
+  <div class="wrap">
+    <div class="section-title"><span data-en>Workshop Agenda</span><span data-ta>பயிற்சி நிகழ்ச்சி நிரல்</span></div>
+    <div class="agenda">
+      <div class="agenda-item">
+        <div class="agenda-time">09:00 – 09:30</div>
+        <div>
+          <div class="agenda-title"><span data-en>Why Career Choice Feels Confusing</span><span data-ta>தொழில் தேர்வு ஏன் குழப்பமாக உணரப்படுகிறது</span></div>
+          <div class="agenda-desc"><span data-en>Common pressures — marks, peers, family — that cloud real decisions.</span><span data-ta>உண்மையான முடிவுகளை மறைக்கும் பொதுவான அழுத்தங்கள் — மதிப்பெண்கள், சகாக்கள், குடும்பம்.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">09:30 – 10:30</div>
+        <div>
+          <div class="agenda-title"><span data-en>Interest & Strength Assessment</span><span data-ta>ஆர்வம் & திறமை மதிப்பீடு</span></div>
+          <div class="agenda-desc"><span data-en>A guided self-assessment mapping interests to career clusters.</span><span data-ta>ஆர்வங்களை தொழில் குழுக்களுடன் இணைக்கும் வழிகாட்டப்பட்ட சுய மதிப்பீடு.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">10:45 – 11:45</div>
+        <div>
+          <div class="agenda-title"><span data-en>Exploring Pathways</span><span data-ta>பாதைகளை ஆராய்தல்</span></div>
+          <div class="agenda-desc"><span data-en>An honest look at streams, courses and where they realistically lead.</span><span data-ta>பிரிவுகள், படிப்புகள் மற்றும் அவை உண்மையில் எங்கு வழிநடத்துகின்றன என்பதன் நேர்மையான பார்வை.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">11:45 – 12:30</div>
+        <div>
+          <div class="agenda-title"><span data-en>Decision-Making Framework</span><span data-ta>முடிவெடுத்தல் கட்டமைப்பு</span></div>
+          <div class="agenda-desc"><span data-en>A simple tool to weigh interest, aptitude and practical factors together.</span><span data-ta>ஆர்வம், திறமை மற்றும் நடைமுறை காரணிகளை ஒன்றாக நிறுத்திப் பார்க்க எளிய கருவி.</span></div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-time">12:30 – 13:00</div>
+        <div>
+          <div class="agenda-title"><span data-en>Personal Shortlist & Next Steps</span><span data-ta>தனிப்பட்ட குறும்பட்டியல் & அடுத்த படிகள்</span></div>
+          <div class="agenda-desc"><span data-en>Each student leaves with 2–3 directions to research further.</span><span data-ta>ஒவ்வொரு மாணவரும் மேலும் ஆராய 2–3 திசைகளுடன் திரும்புகிறார்.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="outcomes-section">
+  <div class="wrap">
+    <div class="section-title"><span data-en>What Participants Take Away</span><span data-ta>பங்கேற்பாளர்கள் பெறுவது</span></div>
+    <div class="outcomes-grid">
+      <div class="outcome-card"><span data-en>Clarity on personal strengths and genuine interests</span><span data-ta>தனிப்பட்ட திறமைகள் மற்றும் உண்மையான ஆர்வங்கள் குறித்த தெளிவு</span></div>
+      <div class="outcome-card"><span data-en>A shortlist of realistic career directions</span><span data-ta>நடைமுறைக்குரிய தொழில் திசைகளின் குறும்பட்டியல்</span></div>
+      <div class="outcome-card"><span data-en>Reduced confusion and outside pressure in decision-making</span><span data-ta>முடிவெடுத்தலில் குறைந்த குழப்பம் மற்றும் வெளிப்புற அழுத்தம்</span></div>
+      <div class="outcome-card"><span data-en>A framework to revisit as options develop</span><span data-ta>விருப்பங்கள் வளரும்போது மீண்டும் பார்க்க ஒரு கட்டமைப்பு</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2><span data-en>Bring "Career Guidance – Planning for the Future" to your campus</span><span data-ta>"தொழில் வழிகாட்டுதல் – எதிர்காலத் திட்டமிடல்"-ஐ உங்கள் வளாகத்திற்குக் கொண்டு வாருங்கள்</span></h2>
+    <p><span data-en>Free introductory session for schools & colleges.</span><span data-ta>பள்ளிகள் & கல்லூரிகளுக்கான இலவச அறிமுக அமர்வு.</span></p>
+    <a class="btn" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20the%20%27Career%20Guidance%20%E2%80%93%20Planning%20for%20the%20Future%27%20training%20session%20for%20our%20school/college." target="_blank" rel="noopener">
+      <span data-en>Chat on WhatsApp</span><span data-ta>WhatsApp-இல் பேசவும்</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-en>N T Somasundaram Life Skills Program &nbsp;•&nbsp; +91 98437 02244 &nbsp;•&nbsp; </span>
+    <span data-ta>என். டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம் &nbsp;•&nbsp; +91 98437 02244 &nbsp;•&nbsp; </span>
+    <a href="school-training-programs.html"><span data-en>Back to all programs</span><span data-ta>அனைத்து திட்டங்களுக்கும் திரும்பு</span></a>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.remove('lang-en','lang-ta');
+  document.body.classList.add('lang-' + lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('siteLang', lang); }catch(e){}
+}
+(function(){
+  try{ var saved = localStorage.getItem('siteLang'); if(saved === 'ta'){ setLang('ta'); } }catch(e){}
+})();
+</script>
+</body>
+</html>

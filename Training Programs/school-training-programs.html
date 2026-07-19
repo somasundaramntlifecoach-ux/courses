@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training Programs for Schools & Colleges | N T Somasundaram</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Kalam:wght@400;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0B1E36;
+    --navy:#123458;
+    --navy-soft:#1B4368;
+    --gold:#C9A24B;
+    --gold-light:#E8C97E;
+    --paper:#F6F1E4;
+    --ink:#1B2432;
+    --chalk:#F1EEE4;
+    --green-board:#16342C;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  [data-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .lang-ta [data-en]{display:none;}
+  .lang-en [data-ta]{display:none;}
+
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+
+  /* ---- Lang toggle ---- */
+  .lang-switch{
+    position:fixed;top:16px;right:16px;z-index:50;
+    background:var(--navy-deep);border:1px solid var(--gold);
+    border-radius:999px;display:flex;overflow:hidden;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);
+  }
+  .lang-switch button{
+    background:transparent;border:none;color:var(--chalk);
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:12.5px;
+    padding:8px 14px;cursor:pointer;letter-spacing:.03em;
+  }
+  .lang-switch button.active{background:var(--gold);color:var(--navy-deep);}
+
+  /* ---- Hero (blackboard) ---- */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(255,255,255,.05), transparent 55%),
+      linear-gradient(180deg, var(--navy-deep) 0%, #081527 100%);
+    color:var(--chalk);
+    padding:96px 0 84px;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,.015) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,.012) 0 1px, transparent 1px 3px);
+    opacity:.6;pointer-events:none;
+  }
+  .hero-frame{
+    position:absolute;inset:14px;border:10px solid #6b4a2b;border-radius:6px;
+    box-shadow:inset 0 0 0 2px #4a3320, 0 10px 30px rgba(0,0,0,.35);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2;text-align:center;}
+  .eyebrow{
+    font-family:'Kalam',cursive;font-size:19px;color:var(--gold-light);
+    letter-spacing:.02em;margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(30px,5.2vw,54px);font-weight:800;line-height:1.15;
+    max-width:760px;margin:0 auto 18px;
+    text-shadow:0 0 18px rgba(255,255,255,.06);
+  }
+  .hero h1 .accent{color:var(--gold-light);}
+  .hero p.sub{
+    max-width:560px;margin:0 auto 30px;font-size:16.5px;color:#DCE7E0;
+  }
+  .chalk-underline{
+    width:120px;height:10px;margin:0 auto 26px;
+    background:none;position:relative;
+  }
+  .chalk-underline svg{width:100%;height:100%;}
+
+  .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 26px;border-radius:8px;font-weight:600;font-size:15px;
+    cursor:pointer;border:2px solid transparent;transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-gold{background:var(--gold);color:var(--navy-deep);}
+  .btn-outline{border-color:var(--gold-light);color:var(--gold-light);}
+  .btn-outline:hover{background:rgba(232,201,126,.08);}
+
+  .hero-meta{
+    margin-top:34px;font-size:13px;color:#B9C6BE;letter-spacing:.03em;
+  }
+
+  /* ---- Intro / trust strip ---- */
+  .trust-strip{
+    background:var(--navy-deep);color:var(--chalk);padding:22px 0;
+  }
+  .trust-strip .wrap{
+    display:flex;flex-wrap:wrap;gap:10px 34px;justify-content:center;
+    font-size:13.5px;color:#C9D3CB;letter-spacing:.02em;
+  }
+  .trust-strip strong{color:var(--gold-light);font-weight:600;}
+
+  /* ---- Section shell ---- */
+  section.tracks{padding:76px 0 20px;}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 52px;}
+  .section-head .kicker{
+    font-family:'Kalam',cursive;color:var(--navy-soft);font-size:17px;margin-bottom:6px;
+  }
+  .section-head h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;color:var(--navy-deep);}
+
+  .track{margin-bottom:64px;}
+  .track-head{
+    display:flex;align-items:center;gap:16px;margin-bottom:26px;
+    padding-bottom:14px;border-bottom:2px dashed rgba(11,30,54,.18);
+  }
+  .track-pin{
+    width:14px;height:14px;border-radius:50%;background:var(--gold);
+    box-shadow:0 2px 4px rgba(0,0,0,.25);flex-shrink:0;
+  }
+  .track-label{
+    font-family:'Kalam',cursive;font-size:14px;color:var(--navy-soft);
+    text-transform:uppercase;letter-spacing:.08em;
+  }
+  .track-head h3{font-size:22px;font-weight:700;color:var(--navy-deep);}
+
+  .card-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;
+  }
+  .card{
+    display:block;
+    background:#fff;border:1px solid rgba(11,30,54,.08);
+    border-top:4px solid var(--navy);
+    border-radius:10px;padding:22px 20px;
+    box-shadow:0 6px 18px rgba(11,30,54,.06);
+    transition:transform .18s ease, box-shadow .18s ease;
+    cursor:pointer;
+  }
+  .card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(11,30,54,.12);}
+  .card .num{
+    font-family:'Kalam',cursive;font-size:13px;color:var(--gold);font-weight:700;margin-bottom:8px;
+  }
+  .card h4{font-size:16.5px;font-weight:600;color:var(--navy-deep);margin-bottom:8px;line-height:1.35;}
+  .card p{font-size:13.5px;color:#525C68;margin-bottom:10px;}
+  .card .view-more{
+    font-size:12.5px;font-weight:600;color:var(--gold);
+  }
+  .card .view-more::after{content:" →";}
+
+  .track.students .card{border-top-color:#2B6E5C;}
+  .track.parents .card{border-top-color:#A5732C;}
+
+  /* ---- About trainer ---- */
+  .about{
+    background:var(--navy-deep);color:var(--chalk);padding:70px 0;margin-top:30px;
+  }
+  .about .wrap{display:flex;gap:44px;flex-wrap:wrap;align-items:center;}
+  .about-photo{
+    width:150px;height:150px;border-radius:50%;flex-shrink:0;
+    background:linear-gradient(145deg,var(--gold-light),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Kalam',cursive;font-size:38px;color:var(--navy-deep);font-weight:700;
+    border:4px solid rgba(255,255,255,.12);
+  }
+  .about-text{flex:1;min-width:260px;}
+  .about-text .kicker{font-family:'Kalam',cursive;color:var(--gold-light);font-size:16px;margin-bottom:6px;}
+  .about-text h3{font-size:24px;font-weight:700;margin-bottom:10px;}
+  .about-text p{color:#CBD6CE;font-size:14.5px;max-width:600px;}
+  .about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .about-tags span{
+    font-size:12px;border:1px solid rgba(232,201,126,.4);color:var(--gold-light);
+    padding:5px 12px;border-radius:999px;
+  }
+
+  /* ---- CTA banner ---- */
+  .cta-banner{
+    background:linear-gradient(120deg,var(--gold-light),var(--gold));
+    padding:56px 0;text-align:center;
+  }
+  .cta-banner h2{font-size:clamp(22px,3.4vw,30px);color:var(--navy-deep);font-weight:800;margin-bottom:10px;}
+  .cta-banner p{color:#3d2f10;margin-bottom:24px;font-size:15px;}
+  .cta-banner .btn-gold{background:var(--navy-deep);color:var(--chalk);}
+
+  /* ---- Footer ---- */
+  footer{background:var(--green-board);color:#C9D3CB;padding:40px 0 26px;}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px;}
+  footer .motto{font-family:'Kalam',cursive;color:var(--gold-light);font-size:18px;}
+  footer .contact-list{font-size:13.5px;line-height:2;}
+  footer .contact-list a{color:#C9D3CB;}
+  footer .contact-list a:hover{color:var(--gold-light);}
+  .footer-bottom{
+    text-align:center;font-size:12px;color:#7E8E85;margin-top:30px;
+    padding-top:18px;border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  @media (max-width:640px){
+    .hero{padding:78px 0 60px;}
+    .about .wrap{flex-direction:column;text-align:center;}
+    .about-tags{justify-content:center;}
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<div class="lang-switch">
+  <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-frame"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">
+      <span data-en>God is always with u.</span>
+      <span data-ta>கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்.</span>
+    </div>
+    <h1>
+      <span data-en>Training Programs for <span class="accent">Schools & Colleges</span></span>
+      <span data-ta>பள்ளி மற்றும் கல்லூரிகளுக்கான <span class="accent">பயிற்சி திட்டங்கள்</span></span>
+    </h1>
+    <div class="chalk-underline">
+      <svg viewBox="0 0 120 10" preserveAspectRatio="none"><path d="M2,6 Q30,2 60,6 T118,5" stroke="#E8C97E" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    </div>
+    <p class="sub">
+      <span data-en>Practical, bilingual life-skills sessions for teachers, students and parents — brought directly to your campus by N T Somasundaram, Certified Master Trainer & Life Skills Educator.</span>
+      <span data-ta>ஆசிரியர்கள், மாணவர்கள் மற்றும் பெற்றோருக்கான நடைமுறை, இருமொழி வாழ்க்கை திறன் பயிற்சிகள் — உங்கள் வளாகத்திற்கே நேரடியாக, என். டி. சோமசுந்தரம், சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் மூலம்.</span>
+    </p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20a%20free%20training%20session%20for%20our%20school%2Fcollege." target="_blank" rel="noopener">
+        <span data-en>Book a Free Session on WhatsApp</span>
+        <span data-ta>WhatsApp-இல் இலவச அமர்வை பதிவு செய்யவும்</span>
+      </a>
+      <a class="btn btn-outline" href="#tracks">
+        <span data-en>View Programs</span>
+        <span data-ta>திட்டங்களைப் பார்க்க</span>
+      </a>
+    </div>
+    <div class="hero-meta">
+      <span data-en>Bilingual delivery — English & Tamil &nbsp;•&nbsp; For Schools, Colleges & Institutions</span>
+      <span data-ta>இருமொழி வழங்கல் — ஆங்கிலம் & தமிழ் &nbsp;•&nbsp; பள்ளிகள், கல்லூரிகள் மற்றும் நிறுவனங்களுக்கு</span>
+    </div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="wrap">
+    <span><strong>10+ years</strong> <span data-en>corporate & training experience</span><span data-ta>பணி மற்றும் பயிற்சி அனுபவம்</span></span>
+    <span><strong>3 <span data-en>tracks</span><span data-ta>பிரிவுகள்</span></strong> — <span data-en>Teachers, Students, Parents</span><span data-ta>ஆசிரியர்கள், மாணவர்கள், பெற்றோர்</span></span>
+    <span><span data-en>Certified from</span><span data-ta>சான்றளிக்கப்பட்டவர்</span> <strong>IATD, Pickmy Career, Emocare, Indian Counselling Service</strong></span>
+  </div>
+</div>
+
+<!-- TRACKS -->
+<section class="tracks" id="tracks">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker" data-en>What we bring to your campus</div>
+      <div class="kicker" data-ta>உங்கள் வளாகத்திற்கு நாங்கள் வழங்குவது</div>
+      <h2>
+        <span data-en>Choose the right program for your audience</span>
+        <span data-ta>உங்கள் பார்வையாளர்களுக்கு ஏற்ற திட்டத்தைத் தேர்வு செய்யவும்</span>
+      </h2>
+    </div>
+
+    <!-- TEACHERS -->
+    <div class="track teachers">
+      <div class="track-head">
+        <span class="track-pin"></span>
+        <div>
+          <div class="track-label" data-en>Teachers' Room</div>
+          <div class="track-label" data-ta>ஆசிரியர் அறை</div>
+          <h3><span data-en>Teacher Training Programs</span><span data-ta>ஆசிரியர் பயிற்சி திட்டங்கள்</span></h3>
+        </div>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="teacher-classroom-management.html">
+          <div class="num">01</div>
+          <h4><span data-en>Classroom Management & Student Discipline</span><span data-ta>வகுப்பறை மேலாண்மை & மாணவர் ஒழுக்கம்</span></h4>
+          <p><span data-en>Practical strategies to build a positive, well-managed classroom.</span><span data-ta>நேர்மறையான, ஒழுங்கான வகுப்பறையை உருவாக்க நடைமுறை உத்திகள்.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+        <a class="card" href="teacher-stress-management.html">
+          <div class="num">02</div>
+          <h4><span data-en>Stress Management for Teachers</span><span data-ta>ஆசிரியர்களுக்கான மன அழுத்த மேலாண்மை</span></h4>
+          <p><span data-en>Simple, sustainable ways to manage workload and stay balanced.</span><span data-ta>பணிச்சுமையை நிர்வகிக்கவும், சமநிலையுடன் இருக்கவும் எளிய வழிகள்.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+        <a class="card" href="teacher-life-skills.html">
+          <div class="num">03</div>
+          <h4><span data-en>Life Skills Training Program for Teachers</span><span data-ta>ஆசிரியர்களுக்கான வாழ்க்கை திறன் பயிற்சி திட்டம்</span></h4>
+          <p><span data-en>Core life skills that strengthen everyday teaching practice.</span><span data-ta>அன்றாட கற்பித்தலை வலுப்படுத்தும் முக்கிய வாழ்க்கை திறன்கள்.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+        <a class="card" href="teacher-emotional-intelligence.html">
+          <div class="num">04</div>
+          <h4><span data-en>Emotional Intelligence for Educators</span><span data-ta>கல்வியாளர்களுக்கான உணர்ச்சி நுண்ணறிவு</span></h4>
+          <p><span data-en>Building self-awareness and empathy in the classroom.</span><span data-ta>வகுப்பறையில் சுய விழிப்புணர்வு மற்றும் பச்சாதாபத்தை வளர்த்தல்.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- STUDENTS -->
+    <div class="track students">
+      <div class="track-head">
+        <span class="track-pin" style="background:#2B6E5C;"></span>
+        <div>
+          <div class="track-label" data-en>Students' Desk</div>
+          <div class="track-label" data-ta>மாணவர் மேசை</div>
+          <h3><span data-en>Student Training Programs</span><span data-ta>மாணவர் பயிற்சி திட்டங்கள்</span></h3>
+        </div>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="student-exam-stress.html">
+          <div class="num">01</div>
+          <h4><span data-en>Exam Fear & Stress Management</span><span data-ta>தேர்வு பயம் & மன அழுத்த மேலாண்மை</span></h4>
+          <p><span data-en>Techniques to walk into exams calm and confident.</span><span data-ta>அமைதியாகவும் நம்பிக்கையுடனும் தேர்வுகளை எதிர்கொள்ள நுட்பங்கள்.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+        <a class="card" href="student-smart-learning.html">
+          <div class="num">02</div>
+          <h4><span data-en>Smart Learning & Effective Study Skills</span><span data-ta>சிறந்த கற்றல் & திறமையான படிப்பு திறன்கள்</span></h4>
+          <p><span data-en>Study smarter, remember longer, waste less time.</span><span data-ta>திறம்படப் படிக்க, நீண்ட நேரம் நினைவில் வைத்திருக்க, நேரத்தை மிச்சப்படுத்த.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+        <a class="card" href="student-career-guidance.html">
+          <div class="num">03</div>
+          <h4><span data-en>Career Guidance – Planning for the Future</span><span data-ta>தொழில் வழிகாட்டுதல் – எதிர்காலத் திட்டமிடல்</span></h4>
+          <p><span data-en>Clarity on strengths, streams and career pathways.</span><span data-ta>திறமைகள், படிப்பு பிரிவுகள் மற்றும் தொழில் பாதைகள் குறித்த தெளிவு.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+        <a class="card" href="student-life-skills.html">
+          <div class="num">04</div>
+          <h4><span data-en>Life Skills Training Program for Students</span><span data-ta>மாணவர்களுக்கான வாழ்க்கை திறன் பயிற்சி திட்டம்</span></h4>
+          <p><span data-en>Everyday skills for confidence, decisions and relationships.</span><span data-ta>நம்பிக்கை, முடிவெடுத்தல் மற்றும் உறவுகளுக்கான அன்றாட திறன்கள்.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- PARENTS -->
+    <div class="track parents">
+      <div class="track-head">
+        <span class="track-pin" style="background:#A5732C;"></span>
+        <div>
+          <div class="track-label" data-en>Parents' Corner</div>
+          <div class="track-label" data-ta>பெற்றோர் மூலை</div>
+          <h3><span data-en>Parent Training Program</span><span data-ta>பெற்றோர் பயிற்சி திட்டம்</span></h3>
+        </div>
+      </div>
+      <div class="card-grid">
+        <a class="card" href="parent-positive-parenting.html">
+          <div class="num">01</div>
+          <h4><span data-en>Positive Parenting Program</span><span data-ta>நேர்மறை பெற்றோர் பயிற்சி திட்டம்</span></h4>
+          <p><span data-en>Practical, loving approaches to raising confident children.</span><span data-ta>நம்பிக்கையான குழந்தைகளை வளர்ப்பதற்கான நடைமுறை, அன்பான அணுகுமுறைகள்.</span></p>
+          <span class="view-more"><span data-en>View details & agenda</span><span data-ta>விவரங்கள் & நிகழ்ச்சி நிரலைப் பார்க்க</span></span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="wrap">
+    <div class="about-photo">NT</div>
+    <div class="about-text">
+      <div class="kicker" data-en>Your Trainer</div>
+      <div class="kicker" data-ta>உங்கள் பயிற்சியாளர்</div>
+      <h3>N T Somasundaram</h3>
+      <p>
+        <span data-en>Certified Master Trainer, Career Consultant, Life Skills Educator & Parenting Coach. Director & Treasurer, SKV International School, Tiruvannamalai. Over a decade in corporate banking before moving into training and coaching, now delivering bilingual programs across Tamil Nadu.</span>
+        <span data-ta>சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர், தொழில் ஆலோசகர், வாழ்க்கை திறன் கல்வியாளர் & பெற்றோர் பயிற்சியாளர். இயக்குநர் & பொருளாளர், எஸ்.கே.வி இன்டர்நேஷனல் பள்ளி, திருவண்ணாமலை. வங்கித்துறையில் பத்தாண்டுகளுக்கும் மேலான அனுபவத்திற்குப் பிறகு பயிற்சி மற்றும் பயிற்சியாளர் பணியில் ஈடுபட்டு, தமிழ்நாடு முழுவதும் இருமொழி திட்டங்களை வழங்கி வருகிறார்.</span>
+      </p>
+      <div class="about-tags">
+        <span>IATD</span><span>Pickmy Career</span><span>Emocare</span><span>Indian Counselling Service</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="wrap">
+    <h2>
+      <span data-en>Bring this program to your campus</span>
+      <span data-ta>இந்த திட்டத்தை உங்கள் வளாகத்திற்குக் கொண்டு வாருங்கள்</span>
+    </h2>
+    <p>
+      <span data-en>Free introductory session for schools & colleges — write in for dates and availability.</span>
+      <span data-ta>பள்ளிகள் & கல்லூரிகளுக்கான இலவச அறிமுக அமர்வு — தேதிகள் மற்றும் கிடைக்கும் தன்மைக்கு தொடர்பு கொள்ளவும்.</span>
+    </p>
+    <a class="btn btn-gold" href="https://wa.me/919843702244?text=Hello%2C%20I%20would%20like%20to%20book%20a%20free%20training%20session%20for%20our%20school%2Fcollege." target="_blank" rel="noopener">
+      <span data-en>Chat on WhatsApp</span>
+      <span data-ta>WhatsApp-இல் பேசவும்</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="motto" data-en>“God is always with u.”</div>
+      <div class="motto" data-ta>“கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்.”</div>
+    </div>
+    <div class="contact-list">
+      <div>N T Somasundaram</div>
+      <div><a href="tel:+919843702244">+91 98437 02244</a></div>
+      <div><a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+      <div><a href="https://sites.google.com/view/somasundaramnt" target="_blank" rel="noopener">sites.google.com/view/somasundaramnt</a></div>
+      <div><a href="https://www.youtube.com/@Godisalwayswithu" target="_blank" rel="noopener">YouTube: @Godisalwayswithu</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span data-en>© 2026 N T Somasundaram Life Skills Program. All rights reserved.</span>
+    <span data-ta>© 2026 என். டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</span>
+  </div>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.remove('lang-en','lang-ta');
+  document.body.classList.add('lang-' + lang);
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-ta').classList.toggle('active', lang==='ta');
+  try{ localStorage.setItem('siteLang', lang); }catch(e){}
+}
+(function(){
+  try{
+    var saved = localStorage.getItem('siteLang');
+    if(saved === 'ta'){ setLang('ta'); }
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>
