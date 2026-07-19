@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Critical Thinking Self-Assessment | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marigold:#E8A33D;
+    --marigold-dark:#C97F1E;
+    --ink:#2B2118;
+    --ink-soft:#5A4E42;
+    --cream:#FFF8EE;
+    --card:#FFFFFF;
+    --border:#EFE1CB;
+    --green:#3F7A5B;
+    --red:#B8543A;
+    --blue:#3D6E8C;
+    --purple:#7B5C9E;
+    --shadow: 0 8px 24px rgba(93, 64, 20, 0.08);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Poppins', sans-serif;
+    line-height:1.6;
+  }
+  body.ta, .ta-text{ font-family:'Noto Sans Tamil','Poppins', sans-serif; }
+
+  header.hero{
+    background:linear-gradient(135deg, #FFF3DE 0%, #FFE8C2 100%);
+    padding:40px 20px 30px;
+    text-align:center;
+    border-bottom:3px solid var(--marigold);
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-size:clamp(24px, 5vw, 38px);
+    color:var(--marigold-dark);
+    margin:0 0 8px;
+  }
+  .hero p{
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:600px;
+    margin:0 auto;
+  }
+  .lang-toggle{
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:center; gap:8px;
+    background:rgba(255,248,238,0.95);
+    backdrop-filter:blur(4px);
+    padding:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .lang-toggle button{
+    border:1.5px solid var(--marigold);
+    background:transparent;
+    color:var(--marigold-dark);
+    padding:8px 20px;
+    border-radius:24px;
+    font-family:inherit;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+  }
+  .lang-toggle button.active{ background:var(--marigold); color:#fff; }
+
+  main{ max-width:720px; margin:0 auto; padding:28px 18px 60px; }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:24px;
+    margin-bottom:20px;
+    box-shadow:var(--shadow);
+  }
+
+  /* Registration screen */
+  #screen-register .field{ margin-bottom:16px; }
+  #screen-register label{
+    display:block; font-weight:600; font-size:14px; margin-bottom:6px; color:var(--ink);
+  }
+  #screen-register input, #screen-register select{
+    width:100%; padding:11px 14px; border:1px solid var(--border); border-radius:10px;
+    font-family:inherit; font-size:14.5px; background:#FFFDF8;
+  }
+  .req{ color:var(--red); }
+  .btn-primary{
+    background:var(--marigold); color:#fff; border:none; padding:13px 28px;
+    border-radius:24px; font-weight:600; font-size:15px; cursor:pointer; width:100%;
+  }
+  .btn-primary:hover{ background:var(--marigold-dark); }
+  .btn-primary:disabled{ background:#E3D2B2; cursor:not-allowed; }
+  #reg-error{ color:var(--red); font-size:13px; margin-top:8px; display:none; }
+
+  /* Question screen */
+  .progress-wrap{ margin-bottom:22px; }
+  .progress-bar-bg{ background:#F2E4C8; border-radius:10px; height:10px; overflow:hidden; }
+  .progress-bar-fill{ background:var(--marigold); height:100%; width:0%; transition:width .3s ease; }
+  .progress-label{ font-size:13px; color:var(--ink-soft); margin-top:6px; text-align:right; }
+
+  .subskill-tag{
+    display:inline-block; font-size:11.5px; letter-spacing:.05em; text-transform:uppercase;
+    font-weight:700; color:var(--marigold-dark); background:#FCEFD9; padding:3px 10px;
+    border-radius:6px; margin-bottom:10px;
+  }
+  .q-block{
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:22px; margin-bottom:16px; box-shadow:var(--shadow);
+  }
+  .q-text{ font-weight:500; font-size:15.5px; margin:0 0 14px; color:var(--ink); }
+  .likert{ display:flex; flex-direction:column; gap:8px; }
+  .likert label{
+    display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--border);
+    border-radius:10px; cursor:pointer; font-size:14px; background:#FFFDF8;
+  }
+  .likert label:hover{ background:#FFF6E6; }
+  .likert input{ accent-color:var(--marigold); width:18px; height:18px; }
+  .likert label.checked{ border-color:var(--marigold); background:#FFF3DE; }
+
+  .nav-buttons{ display:flex; justify-content:space-between; gap:12px; margin-top:20px; }
+  .btn-secondary{
+    background:transparent; border:1.5px solid var(--marigold); color:var(--marigold-dark);
+    padding:11px 24px; border-radius:22px; font-weight:600; font-size:14px; cursor:pointer;
+  }
+  .btn-secondary:disabled{ opacity:.4; cursor:not-allowed; }
+
+  /* Results screen */
+  .score-summary{ text-align:center; margin-bottom:10px; }
+  .score-summary .big-score{
+    font-family:'Fraunces', serif; font-size:48px; color:var(--marigold-dark); margin:8px 0;
+  }
+  .band-badge{
+    display:inline-block; padding:6px 18px; border-radius:20px; font-weight:600; font-size:14px;
+    margin-top:6px;
+  }
+  .band-developing{ background:#FBE4DD; color:var(--red); }
+  .band-emerging{ background:#FDF0D5; color:var(--marigold-dark); }
+  .band-strong{ background:#E1EEE5; color:var(--green); }
+
+  .radar-wrap{ display:flex; justify-content:center; margin:20px 0; }
+  .subskill-breakdown{ margin-top:20px; }
+  .sb-row{ margin-bottom:16px; }
+  .sb-row-head{ display:flex; justify-content:space-between; font-size:14px; font-weight:600; margin-bottom:6px; }
+  .sb-bar-bg{ background:#F2E4C8; border-radius:8px; height:12px; overflow:hidden; }
+  .sb-bar-fill{ height:100%; border-radius:8px; }
+  .sb-interpretation{ font-size:13px; color:var(--ink-soft); margin-top:5px; }
+
+  .whatsapp-cta{
+    position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff;
+    width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 16px rgba(0,0,0,0.2); text-decoration:none; font-size:26px; z-index:60;
+  }
+  footer{ text-align:center; padding:30px 18px 50px; color:var(--ink-soft); font-size:13px; }
+  footer a{ color:var(--marigold-dark); text-decoration:none; font-weight:600; }
+
+  .hidden{ display:none !important; }
+
+  /* Report pages (3-page professional report) */
+  .report-page{
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:36px 34px;
+    margin-bottom:24px;
+    box-shadow:var(--shadow);
+    min-height:900px;
+  }
+  .report-header{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    border-bottom:2px solid var(--marigold); padding-bottom:16px; margin-bottom:22px;
+  }
+  .report-header .brand-name{ font-family:'Fraunces',serif; font-weight:700; color:var(--marigold-dark); font-size:18px; }
+  .report-header .brand-sub{ font-size:11.5px; color:var(--ink-soft); }
+  .report-header .report-meta{ text-align:right; font-size:12px; color:var(--ink-soft); }
+  .report-page-num{ text-align:center; font-size:11px; color:var(--ink-soft); margin-top:26px; }
+
+  .cover-title{ text-align:center; margin:30px 0 6px; }
+  .cover-title h2{ font-family:'Fraunces',serif; font-size:28px; color:var(--marigold-dark); margin:0 0 6px; }
+  .cover-sub{ text-align:center; color:var(--ink-soft); font-size:14px; margin-bottom:26px; }
+  .student-info-box{
+    background:#FBF4E6; border:1px solid var(--border); border-radius:12px;
+    padding:16px 20px; margin:0 auto 26px; max-width:420px; font-size:14px;
+  }
+  .student-info-box div{ display:flex; justify-content:space-between; padding:4px 0; }
+  .student-info-box span:first-child{ color:var(--ink-soft); font-weight:600; }
+
+  .overall-block{ text-align:center; margin-bottom:20px; }
+  .overall-block .big-score{ font-family:'Fraunces',serif; font-size:54px; color:var(--marigold-dark); margin:6px 0; }
+
+  .section-heading{
+    font-family:'Fraunces',serif; font-size:19px; color:var(--marigold-dark);
+    margin:26px 0 14px; padding-bottom:6px; border-bottom:1px solid var(--border);
+  }
+
+  .highlight-boxes{ display:flex; gap:14px; margin-bottom:10px; flex-wrap:wrap; }
+  .highlight-box{
+    flex:1; min-width:220px; border-radius:12px; padding:14px 16px; font-size:13.5px;
+  }
+  .highlight-box.strength{ background:#E1EEE5; border-left:4px solid var(--green); }
+  .highlight-box.growth{ background:#FBE4DD; border-left:4px solid var(--red); }
+  .highlight-box h4{ margin:0 0 6px; font-size:13.5px; }
+
+  .sb-detail-block{
+    border:1px solid var(--border); border-radius:12px; padding:16px 18px; margin-bottom:16px;
+  }
+  .sb-detail-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+  .sb-detail-head .name{ font-weight:700; font-size:15px; }
+  .sb-detail-head .pct{ font-weight:700; font-size:15px; }
+  .sb-tips{ margin:10px 0 0; padding-left:20px; }
+  .sb-tips li{ font-size:13.5px; color:var(--ink-soft); margin-bottom:5px; }
+
+  .promo-page{ background:linear-gradient(135deg,#FFF3DE,#FFEBCB); }
+  .promo-hero{ text-align:center; margin-bottom:22px; }
+  .promo-hero h2{ font-family:'Fraunces',serif; font-size:24px; color:var(--marigold-dark); margin:0 0 8px; }
+  .promo-module-list{ columns:2; column-gap:24px; margin:16px 0; }
+  .promo-module-list div{ break-inside:avoid; font-size:13px; padding:6px 0; }
+  .promo-cta-box{
+    background:#fff; border:1.5px solid var(--marigold); border-radius:14px;
+    padding:18px 20px; text-align:center; margin-top:20px;
+  }
+  .promo-cta-box a.wa-link{
+    display:inline-block; background:#25D366; color:#fff; padding:10px 22px;
+    border-radius:22px; text-decoration:none; font-weight:600; font-size:14px; margin-top:10px;
+  }
+  .promo-cta-box a.course-link{
+    display:inline-block; background:var(--marigold); color:#fff; padding:10px 22px;
+    border-radius:22px; text-decoration:none; font-weight:600; font-size:14px; margin-top:10px;
+  }
+  .promo-cta-box a.course-link:hover{ background:var(--marigold-dark); }
+
+  @media print{
+    .lang-toggle, .whatsapp-cta, .nav-buttons, #screen-register, #screen-questions{ display:none !important; }
+    header.hero, footer, .print-controls{ display:none !important; }
+    body{ background:#fff; }
+    main{ max-width:none; padding:0; }
+    .report-page{ box-shadow:none; border:none; border-radius:0; margin:0; padding:14mm; page-break-after:always; min-height:0; }
+    .report-page:last-child{ page-break-after:auto; }
+    .promo-cta-box a.course-link, .promo-cta-box a.wa-link{ display:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<header class="hero">
+  <h1 data-en="Critical Thinking Self-Assessment" data-ta="விமர்சன சிந்தனை சுய மதிப்பீடு"></h1>
+  <p data-en="20 quick questions to discover your strengths across Bias Awareness, Logical Reasoning, Root-Cause Analysis, and Decision-Making Under Pressure."
+     data-ta="தப்பெண்ண விழிப்புணர்வு, தர்க்க பகுத்தறிவு, மூல காரண பகுப்பாய்வு, அழுத்தத்தில் முடிவெடுத்தல் ஆகியவற்றில் உங்கள் பலங்களை கண்டறிய 20 விரைவான கேள்விகள்."></p>
+</header>
+
+<main>
+
+  <!-- SCREEN 1: REGISTRATION -->
+  <div id="screen-register" class="card">
+    <h2 style="margin-top:0; font-family:'Fraunces',serif; color:var(--marigold-dark); font-size:22px;"
+        data-en="Before you begin" data-ta="தொடங்குவதற்கு முன்"></h2>
+    <p style="color:var(--ink-soft); font-size:14px;" data-en="This helps us personalize your report."
+       data-ta="இது உங்கள் அறிக்கையை தனிப்பயனாக்க உதவுகிறது."></p>
+
+    <div class="field">
+      <label data-en="Full Name <span class='req'>*</span>" data-ta="முழு பெயர் <span class='req'>*</span>"></label>
+      <input type="text" id="reg-name" placeholder="Enter your name">
+    </div>
+    <div class="field">
+      <label data-en="Class / Grade <span class='req'>*</span>" data-ta="வகுப்பு <span class='req'>*</span>"></label>
+      <select id="reg-class">
+        <option value="">-- Select --</option>
+        <option>8</option><option>9</option><option>10</option><option>11</option><option>12</option>
+      </select>
+    </div>
+    <div class="field">
+      <label data-en="School Name" data-ta="பள்ளியின் பெயர்"></label>
+      <input type="text" id="reg-school" placeholder="Optional">
+    </div>
+    <div class="field">
+      <label data-en="WhatsApp Number" data-ta="வாட்ஸ்அப் எண்"></label>
+      <input type="tel" id="reg-phone" placeholder="Optional, for your report link">
+    </div>
+
+    <button class="btn-primary" onclick="startAssessment()" data-en="Start Assessment" data-ta="மதிப்பீட்டை தொடங்குங்கள்"></button>
+    <div id="reg-error" data-en="Please enter your name and class to continue." data-ta="தொடர பெயரையும் வகுப்பையும் உள்ளிடவும்."></div>
+  </div>
+
+  <!-- SCREEN 2: QUESTIONS -->
+  <div id="screen-questions" class="hidden">
+    <div class="progress-wrap">
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="qProgressFill"></div></div>
+      <div class="progress-label"><span id="qProgressLabel">0 / 20</span></div>
+    </div>
+    <div id="questions-container"></div>
+    <div class="nav-buttons">
+      <button class="btn-secondary" id="prevBtn" onclick="prevQuestion()" data-en="Back" data-ta="பின்"></button>
+      <button class="btn-primary" id="nextBtn" style="width:auto;" onclick="nextQuestion()" data-en="Next" data-ta="அடுத்து"></button>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: RESULTS (3-PAGE PROFESSIONAL REPORT) -->
+  <div id="screen-results" class="hidden">
+
+    <div class="card print-controls" style="text-align:center;">
+      <button class="btn-primary" style="width:auto; padding:12px 26px;" onclick="window.print()"
+              data-en="Print / Save as PDF (3 pages)" data-ta="அச்சிடு / PDF ஆக சேமி (3 பக்கங்கள்)"></button>
+    </div>
+
+    <!-- PAGE 1: COVER + SUMMARY -->
+    <div class="report-page" id="reportPage1">
+      <div class="report-header">
+        <div>
+          <div class="brand-name">NT Somasundaram Life Skills Program</div>
+          <div class="brand-sub" data-en="Certified Master Trainer &amp; Life Skills Educator" data-ta="சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் &amp; வாழ்க்கை திறன் கல்வியாளர்"></div>
+        </div>
+        <div class="report-meta">
+          <div id="reportDate"></div>
+          <div data-en="Page 1 of 3" data-ta="பக்கம் 1 / 3"></div>
+        </div>
+      </div>
+
+      <div class="cover-title">
+        <h2 data-en="Critical Thinking &amp; Problem Solving" data-ta="விமர்சன சிந்தனை &amp; பிரச்சனை தீர்வு"></h2>
+        <div data-en="Personal Assessment Report" data-ta="தனிப்பட்ட மதிப்பீட்டு அறிக்கை"></div>
+      </div>
+      <div class="cover-sub" data-en="A snapshot of your critical thinking and problem-solving skills across four key areas."
+           data-ta="நான்கு முக்கிய பகுதிகளில் உங்கள் விமர்சன சிந்தனை மற்றும் பிரச்சனை தீர்வு திறன்களின் ஒரு பார்வை."></div>
+
+      <div class="student-info-box">
+        <div><span data-en="Name" data-ta="பெயர்"></span><span id="repName"></span></div>
+        <div><span data-en="Class" data-ta="வகுப்பு"></span><span id="repClass"></span></div>
+        <div><span data-en="School" data-ta="பள்ளி"></span><span id="repSchool"></span></div>
+      </div>
+
+      <div class="overall-block">
+        <div data-en="Your Overall Critical Thinking Score" data-ta="உங்கள் ஒட்டுமொத்த விமர்சன சிந்தனை மதிப்பெண்"></div>
+        <div class="big-score" id="overallScore">--%</div>
+        <div class="band-badge" id="overallBand"></div>
+      </div>
+
+      <div class="section-heading" data-en="Your Skill Profile" data-ta="உங்கள் திறன் விவரம்"></div>
+      <div class="radar-wrap" id="radarWrap"></div>
+
+      <div class="highlight-boxes" id="highlightBoxes"></div>
+
+      <div class="report-page-num" data-en="Continued on Page 2 →" data-ta="பக்கம் 2-ல் தொடர்கிறது →"></div>
+    </div>
+
+    <!-- PAGE 2: DETAILED BREAKDOWN + TIPS -->
+    <div class="report-page" id="reportPage2">
+      <div class="report-header">
+        <div>
+          <div class="brand-name">NT Somasundaram Life Skills Program</div>
+          <div class="brand-sub" data-en="Critical Thinking &amp; Problem Solving Report" data-ta="விமர்சன சிந்தனை &amp; பிரச்சனை தீர்வு அறிக்கை"></div>
+        </div>
+        <div class="report-meta">
+          <div id="repNameSmall2"></div>
+          <div data-en="Page 2 of 3" data-ta="பக்கம் 2 / 3"></div>
+        </div>
+      </div>
+
+      <div class="section-heading" data-en="Detailed Breakdown, Guidance &amp; Tips for Improvement"
+           data-ta="விரிவான பகுப்பாய்வு, வழிகாட்டுதல் &amp; மேம்பாட்டிற்கான யோசனைகள்"></div>
+
+      <div id="detailedBreakdown"></div>
+
+      <div class="report-page-num" data-en="Continued on Page 3 →" data-ta="பக்கம் 3-ல் தொடர்கிறது →"></div>
+    </div>
+
+    <!-- PAGE 3: PROMOTION -->
+    <div class="report-page promo-page" id="reportPage3">
+      <div class="report-header" style="border-bottom-color:var(--marigold-dark);">
+        <div>
+          <div class="brand-name">NT Somasundaram Life Skills Program</div>
+          <div class="brand-sub" data-en="Grow These Skills Further" data-ta="இந்த திறன்களை மேலும் வளர்க்கவும்"></div>
+        </div>
+        <div class="report-meta">
+          <div data-en="Page 3 of 3" data-ta="பக்கம் 3 / 3"></div>
+        </div>
+      </div>
+
+      <div class="promo-hero">
+        <h2 data-en="Continue the Journey: Critical Thinking &amp; Problem Solving Course"
+            data-ta="பயணத்தை தொடருங்கள்: விமர்சன சிந்தனை &amp; பிரச்சனை தீர்வு பாடநெறி"></h2>
+        <p data-en="This assessment is just the starting point. Our full 10-module bilingual course helps students build these skills step by step, with real-life practice and guided reflection."
+           data-ta="இந்த மதிப்பீடு ஒரு தொடக்கப்புள்ளி மட்டுமே. எங்கள் முழுமையான 10-பாடங்கள் கொண்ட இரு-மொழி பாடநெறி, நிஜ வாழ்க்கை பயிற்சி மற்றும் வழிகாட்டப்பட்ட பரிசீலனையுடன் மாணவர்கள் இந்த திறன்களை படிப்படியாக வளர்க்க உதவுகிறது."></p>
+      </div>
+
+      <div class="section-heading" data-en="What the Course Covers" data-ta="பாடநெறி என்ன உள்ளடக்கியது"></div>
+      <div class="promo-module-list" id="promoModuleList"></div>
+
+      <div class="section-heading" data-en="Why Join" data-ta="ஏன் சேர வேண்டும்"></div>
+      <ul class="sb-tips" style="padding-left:22px;">
+        <li class="en-only">Bilingual (English/Tamil) content designed for Indian students, Classes 8–12</li>
+        <li class="en-only">Practical frameworks students can apply immediately — at school, home, and with friends</li>
+        <li class="en-only">Real-life, India-relevant case studies and self-paced accordion lessons</li>
+        <li class="ta-only ta-text">இந்திய மாணவர்களுக்காக (வகுப்பு 8–12) வடிவமைக்கப்பட்ட இரு-மொழி (ஆங்கிலம்/தமிழ்) உள்ளடக்கம்</li>
+        <li class="ta-only ta-text">மாணவர்கள் உடனடியாக பயன்படுத்தக்கூடிய நடைமுறை கட்டமைப்புகள் — பள்ளியில், வீட்டில், நண்பர்களுடன்</li>
+        <li class="ta-only ta-text">நிஜ வாழ்க்கை, இந்திய-சார்ந்த வழக்கு ஆய்வுகள் மற்றும் சுய வேக அகார்டியன் பாடங்கள்</li>
+      </ul>
+
+      <div class="promo-cta-box">
+        <div style="font-weight:700; font-size:15px;" data-en="Ready to build stronger thinking skills?" data-ta="வலுவான சிந்தனை திறன்களை உருவாக்க தயாரா?"></div>
+        <div style="font-size:13px; color:var(--ink-soft); margin-top:4px;" data-en="Contact us to enroll or learn more" data-ta="சேர அல்லது மேலும் அறிய எங்களை தொடர்பு கொள்ளுங்கள்"></div>
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:10px;">
+          <a class="course-link" href="critical-thinking-course.html" onclick="logToSheet('course_link_click', regData.name || '')"
+             data-en="📘 Open the Full Course" data-ta="📘 முழு பாடநெறியை திறக்கவும்"></a>
+          <a class="wa-link" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20enroll%20in%20the%20Critical%20Thinking%20%26%20Problem%20Solving%20course" target="_blank" data-en="💬 Chat on WhatsApp" data-ta="💬 வாட்ஸ்அப்பில் அரட்டையடிக்கவும்"></a>
+        </div>
+        <div style="font-size:12px; color:var(--ink-soft); margin-top:12px;">
+          📞 +91 98437 02244 &nbsp;|&nbsp; ✉️ somasundaramnt.lifecoach@gmail.com<br>
+          <a href="https://sites.google.com/view/somasundaramnt" target="_blank" style="color:var(--marigold-dark); font-weight:600;">sites.google.com/view/somasundaramnt</a>
+        </div>
+        <div class="motto" style="margin-top:12px; font-style:italic; color:var(--green); font-size:13px;" data-en="God is always with u" data-ta="கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"></div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<a class="whatsapp-cta" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Critical%20Thinking%20course" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<footer>
+  <div data-en="NT Somasundaram — Certified Master Trainer &amp; Life Skills Educator" data-ta="என்.டி. சோமசுந்தரம் — சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் &amp; வாழ்க்கை திறன் கல்வியாளர்"></div>
+  <div style="margin-top:6px;">
+    📞 +91 98437 02244 &nbsp;|&nbsp;
+    ✉️ somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp;
+    <a href="https://sites.google.com/view/somasundaramnt" target="_blank">sites.google.com/view/somasundaramnt</a>
+  </div>
+</footer>
+
+<script>
+  const SHEET_LOG_URL = 'https://script.google.com/macros/s/AKfycbz28ncsMBY9jyCoP0IZGrY3fVHxC8jUU4VI2SXlsojTH-tlysuqev-OY11weO7_r41-vA/exec';
+
+  const SUBSKILLS = {
+    bias: { en:'Bias Awareness', ta:'தப்பெண்ண விழிப்புணர்வு', color:'#3D6E8C' },
+    logic: { en:'Logical Reasoning', ta:'தர்க்க பகுத்தறிவு', color:'#7B5C9E' },
+    root: { en:'Root-Cause Analysis', ta:'மூல காரண பகுப்பாய்வு', color:'#3F7A5B' },
+    decision: { en:'Decision-Making Under Pressure', ta:'அழுத்தத்தில் முடிவெடுத்தல்', color:'#C97F1E' }
+  };
+
+  const QUESTIONS = [
+    // BIAS AWARENESS
+    { id:1, sub:'bias', en:'I try to consider evidence that goes against my own opinion before deciding I\'m right.', ta:'நான் சரி என்று முடிவெடுப்பதற்கு முன் என் கருத்துக்கு எதிரான ஆதாரங்களையும் கருத்தில் கொள்ள முயற்சிக்கிறேன்.' },
+    { id:2, sub:'bias', en:'Before believing a rumor, I check if there is real proof behind it.', ta:'ஒரு வதந்தியை நம்புவதற்கு முன், அதற்கு பின்னால் உண்மையான ஆதாரம் உள்ளதா என்று சரிபார்க்கிறேன்.' },
+    { id:3, sub:'bias', en:'I notice when I am only remembering the times something went wrong and forgetting the times it went right.', ta:'ஏதோ தவறாக நடந்த நேரங்களை மட்டும் நினைவில் வைத்து, சரியாக நடந்ததை மறந்துவிடும்போது நான் அதை கவனிக்கிறேன்.' },
+    { id:4, sub:'bias', en:'I question my first reaction to something before fully accepting it.', ta:'ஒன்றை முழுமையாக ஏற்றுக்கொள்வதற்கு முன் என் முதல் எதிர்வினையை நான் கேள்விக்குள்ளாக்குகிறேன்.' },
+    { id:5, sub:'bias', en:'I can name at least one bias that affects my own thinking (e.g., assuming a subject is hard because others say so).', ta:'என் சொந்த சிந்தனையை பாதிக்கும் குறைந்தது ஒரு தப்பெண்ணத்தையாவது என்னால் சொல்ல முடியும் (எ.கா., மற்றவர்கள் சொல்வதால் ஒரு பாடம் கடினம் என்று கருதுவது).' },
+
+    // LOGICAL REASONING
+    { id:6, sub:'logic', en:'I can tell the difference between two things happening together and one thing causing the other.', ta:'இரண்டு விஷயங்கள் ஒன்றாக நடப்பதற்கும், ஒன்று மற்றொன்றை ஏற்படுத்துவதற்கும் உள்ள வேறுபாட்டை என்னால் சொல்ல முடியும்.' },
+    { id:7, sub:'logic', en:'I check whether a conclusion is based on one example or on solid evidence.', ta:'ஒரு முடிவு ஒரு உதாரணத்தை அடிப்படையாகக் கொண்டதா அல்லது உறுதியான ஆதாரத்தை அடிப்படையாகக் கொண்டதா என்று சரிபார்க்கிறேன்.' },
+    { id:8, sub:'logic', en:'When someone tells me "either this or that," I try to think if other options exist.', ta:'யாராவது "இது அல்லது அது" என்று சொன்னால், வேறு விருப்பங்கள் உள்ளதா என்று நான் சிந்திக்க முயற்சிக்கிறேன்.' },
+    { id:9, sub:'logic', en:'I ask what proof supports a claim before accepting it as true.', ta:'ஒரு கூற்றை உண்மை என்று ஏற்றுக்கொள்வதற்கு முன் அதை ஆதரிக்கும் ஆதாரம் என்ன என்று கேட்கிறேன்.' },
+    { id:10, sub:'logic', en:'I notice when an argument sounds convincing but does not actually make logical sense.', ta:'ஒரு வாதம் நம்பகமாக தோன்றினாலும் உண்மையில் தர்க்கரீதியாக பொருந்தவில்லை என்பதை நான் கவனிக்கிறேன்.' },
+
+    // ROOT-CAUSE ANALYSIS
+    { id:11, sub:'root', en:'When I face a problem, I ask "why" more than once to find the real cause.', ta:'நான் ஒரு பிரச்சனையை எதிர்கொள்ளும்போது, உண்மையான காரணத்தை கண்டறிய "ஏன்" என்று ஒன்றுக்கு மேற்பட்ட முறை கேட்கிறேன்.' },
+    { id:12, sub:'root', en:'I look past the surface symptom of a problem to find what is really causing it.', ta:'ஒரு பிரச்சனையின் மேலோட்டமான அறிகுறியை தாண்டி, உண்மையில் அதற்கு காரணம் என்ன என்று பார்க்கிறேன்.' },
+    { id:13, sub:'root', en:'Before reacting to a bad result (like a low mark), I try to understand what led to it.', ta:'ஒரு மோசமான முடிவுக்கு (குறைந்த மதிப்பெண் போன்று) எதிர்வினையாற்றுவதற்கு முன், அதற்கு என்ன வழிவகுத்தது என்று புரிந்துகொள்ள முயற்சிக்கிறேன்.' },
+    { id:14, sub:'root', en:'I break a big problem into smaller parts to understand it better.', ta:'ஒரு பெரிய பிரச்சனையை நன்றாக புரிந்துகொள்ள சிறிய பகுதிகளாக பிரிக்கிறேன்.' },
+    { id:15, sub:'root', en:'I reflect on past problems to see if there is a repeating pattern behind them.', ta:'கடந்த கால பிரச்சனைகளில் மீண்டும் மீண்டும் வரும் ஒரு முறை உள்ளதா என்று பரிசீலிக்கிறேன்.' },
+
+    // DECISION-MAKING UNDER PRESSURE
+    { id:16, sub:'decision', en:'When pressured to decide quickly, I try to pause for a few seconds first.', ta:'விரைவாக முடிவெடுக்க அழுத்தப்படும்போது, முதலில் சில வினாடிகள் நிறுத்த முயற்சிக்கிறேன்.' },
+    { id:17, sub:'decision', en:'I can list at least one pro and one con quickly before deciding under pressure.', ta:'அழுத்தத்தில் முடிவெடுப்பதற்கு முன் குறைந்தது ஒரு சாதகம் மற்றும் ஒரு பாதகத்தை விரைவாக பட்டியலிட முடியும்.' },
+    { id:18, sub:'decision', en:'I have a plan for how to respond when peers pressure me to do something risky.', ta:'சக நண்பர்கள் ஆபத்தான ஏதாவது செய்ய அழுத்தும்போது எப்படி பதிலளிப்பது என்பதற்கான திட்டம் என்னிடம் உள்ளது.' },
+    { id:19, sub:'decision', en:'I make decisions based on my longer-term goals, not just how I feel in the moment.', ta:'நான் அந்த நேரத்தில் உணரும் விதத்தை மட்டும் அடிப்படையாகக் கொள்ளாமல், என் நீண்டகால இலக்குகளின் அடிப்படையில் முடிவெடுக்கிறேன்.' },
+    { id:20, sub:'decision', en:'I stay calm enough to think clearly during stressful situations like exams.', ta:'தேர்வுகள் போன்ற மன அழுத்த சூழல்களில் தெளிவாக சிந்திக்கும் அளவுக்கு நான் அமைதியாக இருக்கிறேன்.' }
+  ];
+
+  const LIKERT_OPTIONS = [
+    { v:1, en:'Strongly Disagree', ta:'கடுமையாக மறுக்கிறேன்' },
+    { v:2, en:'Disagree', ta:'மறுக்கிறேன்' },
+    { v:3, en:'Neutral', ta:'நடுநிலை' },
+    { v:4, en:'Agree', ta:'ஒப்புக்கொள்கிறேன்' },
+    { v:5, en:'Strongly Agree', ta:'கடுமையாக ஒப்புக்கொள்கிறேன்' }
+  ];
+
+  let currentLang = 'en';
+  let currentQIndex = 0;
+  const answers = {}; // qId -> value 1-5
+  let regData = {};
+
+  function logToSheet(eventType, detail){
+    try{
+      const img = new Image();
+      const params = new URLSearchParams({
+        event: eventType, detail: detail || '',
+        tool: 'Critical Thinking Self-Assessment',
+        name: regData.name || '', cls: regData.cls || '',
+        ts: new Date().toISOString()
+      });
+      img.src = SHEET_LOG_URL + '?' + params.toString();
+    }catch(e){ /* fail silently */ }
+  }
+
+  function setLang(lang){
+    currentLang = lang;
+    document.body.classList.toggle('ta', lang === 'ta');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ta').classList.toggle('active', lang === 'ta');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = lang === 'ta' ? el.getAttribute('data-ta') : el.getAttribute('data-en');
+      if(text !== null && text !== '') el.innerHTML = text;
+    });
+    if(!document.getElementById('screen-questions').classList.contains('hidden')){
+      renderQuestion(currentQIndex);
+    }
+    if(!document.getElementById('screen-results').classList.contains('hidden')){
+      renderResults();
+    }
+  }
+
+  function startAssessment(){
+    const name = document.getElementById('reg-name').value.trim();
+    const cls = document.getElementById('reg-class').value;
+    const school = document.getElementById('reg-school').value.trim();
+    const phone = document.getElementById('reg-phone').value.trim();
+    const errEl = document.getElementById('reg-error');
+    if(!name || !cls){
+      errEl.style.display = 'block';
+      return;
+    }
+    errEl.style.display = 'none';
+    regData = { name, cls, school, phone };
+    document.getElementById('screen-register').classList.add('hidden');
+    document.getElementById('screen-questions').classList.remove('hidden');
+    logToSheet('assessment_start', name);
+    renderQuestion(0);
+  }
+
+  function renderQuestion(index){
+    currentQIndex = index;
+    const q = QUESTIONS[index];
+    const container = document.getElementById('questions-container');
+    const subLabel = SUBSKILLS[q.sub][currentLang];
+    const qText = currentLang === 'ta' ? q.ta : q.en;
+
+    let optsHtml = '';
+    LIKERT_OPTIONS.forEach(opt => {
+      const checked = answers[q.id] === opt.v ? 'checked' : '';
+      const label = currentLang === 'ta' ? opt.ta : opt.en;
+      optsHtml += `<label class="${checked ? 'checked' : ''}" onclick="selectAnswer(${q.id}, ${opt.v})">
+        <input type="radio" name="q${q.id}" ${checked} readonly>
+        <span class="${currentLang === 'ta' ? 'ta-text' : ''}">${label}</span>
+      </label>`;
+    });
+
+    container.innerHTML = `
+      <div class="q-block">
+        <span class="subskill-tag">${subLabel}</span>
+        <p class="q-text ${currentLang === 'ta' ? 'ta-text' : ''}">${index + 1}. ${qText}</p>
+        <div class="likert">${optsHtml}</div>
+      </div>
+    `;
+
+    document.getElementById('qProgressFill').style.width = (((index) / QUESTIONS.length) * 100) + '%';
+    document.getElementById('qProgressLabel').textContent = (index + 1) + ' / ' + QUESTIONS.length;
+
+    document.getElementById('prevBtn').disabled = (index === 0);
+    const nextBtn = document.getElementById('nextBtn');
+    if(index === QUESTIONS.length - 1){
+      nextBtn.setAttribute('data-en', 'See My Results');
+      nextBtn.setAttribute('data-ta', 'என் முடிவுகளை பார்க்க');
+    } else {
+      nextBtn.setAttribute('data-en', 'Next');
+      nextBtn.setAttribute('data-ta', 'அடுத்து');
+    }
+    nextBtn.innerHTML = currentLang === 'ta' ? nextBtn.getAttribute('data-ta') : nextBtn.getAttribute('data-en');
+  }
+
+  function selectAnswer(qId, value){
+    answers[qId] = value;
+    renderQuestion(currentQIndex);
+  }
+
+  function prevQuestion(){
+    if(currentQIndex > 0) renderQuestion(currentQIndex - 1);
+  }
+
+  function nextQuestion(){
+    const q = QUESTIONS[currentQIndex];
+    if(!answers[q.id]){
+      alert(currentLang === 'ta' ? 'தொடர பதிலைத் தேர்ந்தெடுக்கவும்.' : 'Please select an answer to continue.');
+      return;
+    }
+    if(currentQIndex < QUESTIONS.length - 1){
+      renderQuestion(currentQIndex + 1);
+    } else {
+      finishAssessment();
+    }
+  }
+
+  function computeScores(){
+    const totals = { bias:0, logic:0, root:0, decision:0 };
+    const counts = { bias:0, logic:0, root:0, decision:0 };
+    QUESTIONS.forEach(q => {
+      totals[q.sub] += (answers[q.id] || 0);
+      counts[q.sub] += 1;
+    });
+    const pct = {};
+    Object.keys(totals).forEach(k => {
+      pct[k] = Math.round((totals[k] / (counts[k] * 5)) * 100);
+    });
+    const overall = Math.round((pct.bias + pct.logic + pct.root + pct.decision) / 4);
+    return { pct, overall };
+  }
+
+  function bandFor(pct){
+    if(pct < 50) return { key:'developing', en:'Developing', ta:'வளர்ந்து வருகிறது', cls:'band-developing' };
+    if(pct < 75) return { key:'emerging', en:'Emerging', ta:'உருவாகி வருகிறது', cls:'band-emerging' };
+    return { key:'strong', en:'Strong', ta:'வலுவானது', cls:'band-strong' };
+  }
+
+  function drawRadarChart(pct){
+    const size = 280, center = size/2, maxR = 100;
+    const axes = ['bias','logic','root','decision'];
+    const angleStep = (Math.PI * 2) / axes.length;
+
+    function pointFor(i, value){
+      const angle = -Math.PI/2 + i * angleStep;
+      const r = (value/100) * maxR;
+      return [center + r * Math.cos(angle), center + r * Math.sin(angle)];
+    }
+    function gridPointFor(i, r){
+      const angle = -Math.PI/2 + i * angleStep;
+      return [center + r * Math.cos(angle), center + r * Math.sin(angle)];
+    }
+
+    let gridRings = '';
+    [25,50,75,100].forEach(ringVal => {
+      let pts = axes.map((a,i) => gridPointFor(i, (ringVal/100)*maxR).join(',')).join(' ');
+      gridRings += `<polygon points="${pts}" fill="none" stroke="#EFE1CB" stroke-width="1"/>`;
+    });
+
+    let axisLines = '';
+    let labels = '';
+    axes.forEach((a,i) => {
+      const [x,y] = gridPointFor(i, maxR);
+      axisLines += `<line x1="${center}" y1="${center}" x2="${x}" y2="${y}" stroke="#EFE1CB" stroke-width="1"/>`;
+      const [lx,ly] = gridPointFor(i, maxR + 26);
+      const label = SUBSKILLS[a][currentLang];
+      labels += `<text x="${lx}" y="${ly}" font-size="10.5" text-anchor="middle" fill="#5A4E42" font-family="Poppins, sans-serif">${label}</text>`;
+    });
+
+    let dataPts = axes.map((a,i) => pointFor(i, pct[a]).join(',')).join(' ');
+
+    return `<svg width="${size+60}" height="${size+60}" viewBox="-30 -30 ${size+60} ${size+60}">
+      <g>
+        ${gridRings}
+        ${axisLines}
+        <polygon points="${dataPts}" fill="rgba(232,163,61,0.35)" stroke="#C97F1E" stroke-width="2"/>
+        ${labels}
+      </g>
+    </svg>`;
+  }
+
+  const MODULE_TITLES = [
+    { en:'1. What Is Critical Thinking?', ta:'1. விமர்சன சிந்தனை என்றால் என்ன?' },
+    { en:'2. Spotting Assumptions &amp; Bias', ta:'2. தப்பெண்ணங்கள் &amp; பாரபட்சத்தை கண்டறிதல்' },
+    { en:'3. Asking Better Questions', ta:'3. சிறந்த கேள்விகளை கேட்பது' },
+    { en:'4. Evaluating Information &amp; Sources', ta:'4. தகவல் &amp; ஆதாரங்களை மதிப்பீடு செய்தல்' },
+    { en:'5. Logical Reasoning Basics', ta:'5. தர்க்க பகுத்தறிவு அடிப்படைகள்' },
+    { en:'6. The Problem-Solving Framework', ta:'6. பிரச்சனை தீர்வு கட்டமைப்பு' },
+    { en:'7. Creative &amp; Lateral Thinking', ta:'7. ஆக்கபூர்வ &amp; பக்கவாட்டு சிந்தனை' },
+    { en:'8. Decision-Making Under Pressure', ta:'8. அழுத்தத்தில் முடிவெடுத்தல்' },
+    { en:'9. Real-Life Case Studies', ta:'9. நிஜ வாழ்க்கை வழக்கு ஆய்வுகள்' },
+    { en:'10. Building a Critical Thinking Habit', ta:'10. விமர்சன சிந்தனை பழக்கத்தை உருவாக்குதல்' }
+  ];
+
+  const TIPS = {
+    bias: {
+      developing: {
+        en:['Practice pausing for 5 seconds before accepting information as true.','Ask yourself "What evidence supports this?" at least once a day.','Talk to a friend who thinks differently and try to understand their reasoning.'],
+        ta:['தகவலை உண்மை என ஏற்றுக்கொள்வதற்கு முன் 5 வினாடிகள் நிறுத்த பயிற்சி செய்யுங்கள்.','தினமும் குறைந்தது ஒரு முறையாவது "இதற்கு என்ன ஆதாரம் உள்ளது?" என்று உங்களை கேளுங்கள்.','வேறுபட்ட முறையில் சிந்திக்கும் ஒரு நண்பருடன் பேசி அவர்களின் பகுத்தறிவை புரிந்துகொள்ள முயற்சியுங்கள்.']
+      },
+      emerging: {
+        en:['Keep a short daily note of one belief you questioned.','Before agreeing with a group opinion, list one reason you might be wrong.','Read one article or view from a different perspective each week.'],
+        ta:['நீங்கள் கேள்விக்குட்படுத்திய ஒரு நம்பிக்கையை தினமும் ஒரு சிறு குறிப்பாக எழுதுங்கள்.','ஒரு குழு கருத்துடன் ஒப்புக்கொள்வதற்கு முன், நீங்கள் தவறாக இருக்கலாம் என்ற ஒரு காரணத்தை பட்டியலிடுங்கள்.','வாரம் ஒருமுறை வேறுபட்ட பார்வையிலிருந்து ஒரு கட்டுரையை படியுங்கள்.']
+      },
+      strong: {
+        en:['Mentor a peer on spotting bias in everyday decisions.','Challenge yourself with more complex real-world case studies.','Reflect weekly on how bias awareness improved a specific decision.'],
+        ta:['அன்றாட முடிவுகளில் பாரபட்சத்தை கண்டறிய ஒரு நண்பருக்கு வழிகாட்டுங்கள்.','மேலும் சிக்கலான நிஜ வாழ்க்கை வழக்கு ஆய்வுகளால் உங்களை சவாலுக்கு உட்படுத்துங்கள்.','பாரபட்ச விழிப்புணர்வு ஒரு குறிப்பிட்ட முடிவை எப்படி மேம்படுத்தியது என வாரம்தோறும் பரிசீலிக்கவும்.']
+      }
+    },
+    logic: {
+      developing: {
+        en:['Practice identifying correlation vs. causation using news headlines.','When you hear "always" or "never," pause and ask for evidence.','Solve one logic puzzle per week to build reasoning muscles.'],
+        ta:['செய்தி தலைப்புகளை பயன்படுத்தி தொடர்பு vs. காரணத்தை கண்டறிய பயிற்சி செய்யுங்கள்.','"எப்போதும்" அல்லது "ஒருபோதும் இல்லை" என்று கேட்டால், நிறுத்தி ஆதாரம் கேளுங்கள்.','பகுத்தறிவு திறனை வளர்க்க வாரம் ஒரு தர்க்க புதிரை தீர்க்கவும்.']
+      },
+      emerging: {
+        en:['Debate a topic and argue the opposite side to sharpen reasoning.','Identify one logical fallacy in an ad or social media post weekly.','Practice explaining your reasoning steps out loud.'],
+        ta:['பகுத்தறிவை கூர்மைப்படுத்த ஒரு தலைப்பில் விவாதித்து எதிர் பக்கத்தை வாதிடுங்கள்.','வாரம் ஒரு விளம்பரம் அல்லது சமூக ஊடக இடுகையில் ஒரு தவறான பகுத்தறிவை கண்டறியவும்.','உங்கள் பகுத்தறிவு படிகளை சத்தமாக விளக்க பயிற்சி செய்யுங்கள்.']
+      },
+      strong: {
+        en:['Take on peer-teaching of logic concepts to classmates.','Analyze complex case studies with multiple variables.','Apply reasoning frameworks to real decisions like stream selection.'],
+        ta:['வகுப்பு தோழர்களுக்கு தர்க்க கருத்துகளை கற்பிக்கும் பொறுப்பை ஏற்றுக்கொள்ளுங்கள்.','பல மாறிகள் கொண்ட சிக்கலான வழக்கு ஆய்வுகளை பகுப்பாய்வு செய்யுங்கள்.','ஸ்ட்ரீம் தேர்வு போன்ற நிஜ முடிவுகளுக்கு பகுத்தறிவு கட்டமைப்புகளை பயன்படுத்துங்கள்.']
+      }
+    },
+    root: {
+      developing: {
+        en:['Practice the "5 Whys" on one small daily problem.','Before reacting to a bad result, write down what led to it.','Break one big task into 3 smaller steps this week.'],
+        ta:['ஒரு சிறிய தினசரி பிரச்சனையில் "5 ஏன்கள்" உத்தியை பயிற்சி செய்யுங்கள்.','ஒரு மோசமான முடிவுக்கு எதிர்வினையாற்றுவதற்கு முன், அதற்கு என்ன வழிவகுத்தது என எழுதுங்கள்.','இந்த வாரம் ஒரு பெரிய பணியை 3 சிறிய படிகளாக பிரிக்கவும்.']
+      },
+      emerging: {
+        en:['Apply the Problem-Solving Framework to one ongoing challenge.','Track recurring problems in a weekly journal to spot patterns.','Discuss root causes of a difficulty with a mentor or teacher.'],
+        ta:['தொடர்ச்சியான ஒரு சவாலுக்கு பிரச்சனை தீர்வு கட்டமைப்பை பயன்படுத்துங்கள்.','மீண்டும் மீண்டும் வரும் பிரச்சனைகளை வாராந்திர நாட்குறிப்பில் கண்காணிக்கவும்.','ஒரு சிரமத்தின் மூல காரணத்தை ஆசிரியர் அல்லது வழிகாட்டியிடம் விவாதிக்கவும்.']
+      },
+      strong: {
+        en:['Use root-cause thinking to help a friend solve a problem.','Apply the framework to long-term goals, not just immediate issues.','Document and refine your own problem-solving process.'],
+        ta:['ஒரு நண்பரின் பிரச்சனையை தீர்க்க மூல காரண சிந்தனையை பயன்படுத்துங்கள்.','உடனடி பிரச்சனைகளுக்கு மட்டுமல்ல, நீண்டகால இலக்குகளுக்கும் கட்டமைப்பை பயன்படுத்துங்கள்.','உங்கள் சொந்த பிரச்சனை தீர்வு செயல்முறையை ஆவணப்படுத்தி மேம்படுத்துங்கள்.']
+      }
+    },
+    decision: {
+      developing: {
+        en:['Practice the "pause-weigh-choose" method on small daily decisions.','Prepare one "exit line" for peer-pressure situations.','Take 5 slow breaths before responding under stress.'],
+        ta:['சிறிய தினசரி முடிவுகளில் "நிறுத்து-எடைபோடு-தேர்ந்தெடு" முறையை பயிற்சி செய்யுங்கள்.','சக அழுத்த சூழ்நிலைகளுக்கு ஒரு "வெளியேறும் வாக்கியத்தை" தயார் செய்யுங்கள்.','அழுத்தத்தில் பதிலளிப்பதற்கு முன் 5 மெதுவான மூச்சுகளை எடுங்கள்.']
+      },
+      emerging: {
+        en:['Role-play pressure scenarios with a trusted friend or family member.','Reflect after each pressured decision on what worked.','Set a personal 24-hour rule for non-urgent decisions.'],
+        ta:['நம்பகமான நண்பர் அல்லது குடும்ப உறுப்பினருடன் அழுத்த சூழ்நிலைகளை நடித்துப் பாருங்கள்.','ஒவ்வொரு அழுத்த முடிவிற்கும் பிறகு என்ன வேலை செய்தது என பரிசீலிக்கவும்.','அவசரமற்ற முடிவுகளுக்கு தனிப்பட்ட 24-மணி நேர விதியை அமைக்கவும்.']
+      },
+      strong: {
+        en:['Mentor a younger student on staying calm under pressure.','Take on leadership roles requiring quick, sound decisions.','Reflect weekly on high-pressure decisions and lessons learned.'],
+        ta:['அழுத்தத்தில் அமைதியாக இருப்பது எப்படி என இளைய மாணவருக்கு வழிகாட்டுங்கள்.','விரைவான, சரியான முடிவுகள் தேவைப்படும் தலைமை பொறுப்புகளை ஏற்றுக்கொள்ளுங்கள்.','அதிக அழுத்த முடிவுகள் மற்றும் கற்ற பாடங்களை வாரம்தோறும் பரிசீலிக்கவும்.']
+      }
+    }
+  };
+
+  function renderResults(){
+    const { pct, overall } = computeScores();
+
+    // Page 1: student info + date
+    document.getElementById('repName').textContent = regData.name || '';
+    document.getElementById('repClass').textContent = regData.cls || '';
+    document.getElementById('repSchool').textContent = regData.school || '—';
+    document.getElementById('repNameSmall2').textContent = regData.name || '';
+    document.getElementById('reportDate').textContent = new Date().toLocaleDateString(currentLang === 'ta' ? 'ta-IN' : 'en-IN', { year:'numeric', month:'long', day:'numeric' });
+
+    document.getElementById('overallScore').textContent = overall + '%';
+    const band = bandFor(overall);
+    const bandEl = document.getElementById('overallBand');
+    bandEl.className = 'band-badge ' + band.cls;
+    bandEl.textContent = currentLang === 'ta' ? band.ta : band.en;
+
+    document.getElementById('radarWrap').innerHTML = drawRadarChart(pct);
+
+    // Highlight boxes: top strength + growth area
+    const sorted = Object.keys(pct).sort((a,b) => pct[b] - pct[a]);
+    const topKey = sorted[0], lowKey = sorted[sorted.length - 1];
+    const strengthLabel = SUBSKILLS[topKey][currentLang];
+    const growthLabel = SUBSKILLS[lowKey][currentLang];
+    const strengthTxt = currentLang === 'ta' ? 'உங்கள் மிகவும் வலுவான பகுதி' : 'Your Strongest Area';
+    const growthTxt = currentLang === 'ta' ? 'கவனம் செலுத்த வேண்டிய பகுதி' : 'Your Growth Opportunity';
+    document.getElementById('highlightBoxes').innerHTML = `
+      <div class="highlight-box strength">
+        <h4>${strengthTxt}</h4>
+        <div class="${currentLang === 'ta' ? 'ta-text' : ''}">${strengthLabel} — ${pct[topKey]}%</div>
+      </div>
+      <div class="highlight-box growth">
+        <h4>${growthTxt}</h4>
+        <div class="${currentLang === 'ta' ? 'ta-text' : ''}">${growthLabel} — ${pct[lowKey]}%</div>
+      </div>
+    `;
+
+    // Page 2: detailed breakdown with tips per subskill
+    let detailHtml = '';
+    Object.keys(SUBSKILLS).forEach(key => {
+      const info = SUBSKILLS[key];
+      const val = pct[key];
+      const b = bandFor(val);
+      const tipsArr = TIPS[key][b.key][currentLang];
+      let tipsHtml = tipsArr.map(t => `<li class="${currentLang === 'ta' ? 'ta-text' : ''}">${t}</li>`).join('');
+      detailHtml += `
+        <div class="sb-detail-block">
+          <div class="sb-detail-head">
+            <span class="name ${currentLang === 'ta' ? 'ta-text' : ''}" style="color:${info.color};">${info[currentLang]}</span>
+            <span class="pct">${val}% · <span class="${currentLang === 'ta' ? 'ta-text' : ''}">${currentLang === 'ta' ? b.ta : b.en}</span></span>
+          </div>
+          <div class="sb-bar-bg"><div class="sb-bar-fill" style="width:${val}%; background:${info.color};"></div></div>
+          <ul class="sb-tips">${tipsHtml}</ul>
+        </div>
+      `;
+    });
+    document.getElementById('detailedBreakdown').innerHTML = detailHtml;
+
+    // Page 3: promo module list
+    document.getElementById('promoModuleList').innerHTML = MODULE_TITLES.map(m =>
+      `<div class="${currentLang === 'ta' ? 'ta-text' : ''}">${currentLang === 'ta' ? m.ta : m.en}</div>`
+    ).join('');
+  }
+
+  function finishAssessment(){
+    document.getElementById('screen-questions').classList.add('hidden');
+    document.getElementById('screen-results').classList.remove('hidden');
+    const { overall } = computeScores();
+    logToSheet('assessment_complete', 'Overall: ' + overall + '%');
+    renderResults();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setLang('en');
+    logToSheet('page_view', '');
+  });
+</script>
+
+</body>
+</html>

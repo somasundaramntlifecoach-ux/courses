@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Critical Thinking &amp; Problem Solving | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marigold:#E8A33D;
+    --marigold-dark:#C97F1E;
+    --ink:#2B2118;
+    --ink-soft:#5A4E42;
+    --cream:#FFF8EE;
+    --card:#FFFFFF;
+    --border:#EFE1CB;
+    --green:#3F7A5B;
+    --shadow: 0 8px 24px rgba(93, 64, 20, 0.08);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Poppins', sans-serif;
+    line-height:1.65;
+  }
+  body.ta, .ta-text{ font-family:'Noto Sans Tamil','Poppins', sans-serif; }
+
+  header.hero{
+    background:linear-gradient(135deg, #FFF3DE 0%, #FFE8C2 100%);
+    padding:48px 20px 36px;
+    text-align:center;
+    border-bottom:3px solid var(--marigold);
+  }
+  .hero h1{
+    font-family:'Fraunces', serif;
+    font-size:clamp(26px, 5vw, 42px);
+    color:var(--marigold-dark);
+    margin:0 0 10px;
+  }
+  .hero p.tagline{
+    font-size:16px;
+    color:var(--ink-soft);
+    max-width:620px;
+    margin:0 auto 18px;
+  }
+  .motto{
+    font-style:italic;
+    color:var(--green);
+    font-weight:500;
+    font-size:14px;
+  }
+  .lang-toggle{
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:center; gap:8px;
+    background:rgba(255,248,238,0.95);
+    backdrop-filter:blur(4px);
+    padding:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .lang-toggle button{
+    border:1.5px solid var(--marigold);
+    background:transparent;
+    color:var(--marigold-dark);
+    padding:8px 20px;
+    border-radius:24px;
+    font-family:inherit;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+    transition:all .2s ease;
+  }
+  .lang-toggle button.active{
+    background:var(--marigold);
+    color:#fff;
+  }
+  main{
+    max-width:820px;
+    margin:0 auto;
+    padding:28px 18px 60px;
+  }
+  .intro-card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:22px 24px;
+    margin-bottom:26px;
+    box-shadow:var(--shadow);
+  }
+  .progress-wrap{
+    margin:18px 0 30px;
+  }
+  .progress-bar-bg{
+    background:#F2E4C8;
+    border-radius:10px;
+    height:10px;
+    overflow:hidden;
+  }
+  .progress-bar-fill{
+    background:var(--marigold);
+    height:100%;
+    width:0%;
+    transition:width .4s ease;
+  }
+  .progress-label{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:6px;
+    text-align:right;
+  }
+
+  .module{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:16px;
+    margin-bottom:16px;
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .module-header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:18px 20px;
+    cursor:pointer;
+    user-select:none;
+  }
+  .module-num{
+    flex:0 0 auto;
+    width:38px; height:38px;
+    border-radius:50%;
+    background:var(--marigold);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700;
+    font-size:15px;
+  }
+  .module.done .module-num{ background:var(--green); }
+  .module-title{
+    flex:1;
+    font-weight:600;
+    font-size:16.5px;
+    color:var(--ink);
+  }
+  .chevron{
+    transition:transform .25s ease;
+    color:var(--marigold-dark);
+    font-size:18px;
+  }
+  .module.open .chevron{ transform:rotate(180deg); }
+  .module-body{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .35s ease;
+    padding:0 20px;
+  }
+  .module.open .module-body{
+    padding:0 20px 22px;
+  }
+  .section-label{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--marigold-dark);
+    background:#FCEFD9;
+    padding:3px 10px;
+    border-radius:6px;
+    margin:16px 0 8px;
+  }
+  .module-body p{
+    margin:6px 0 12px;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  .metaphor-box{
+    background:#F4F9F1;
+    border-left:4px solid var(--green);
+    padding:12px 16px;
+    border-radius:0 10px 10px 0;
+    font-style:italic;
+    color:#2F5540;
+    margin:8px 0 14px;
+  }
+  ul.examples{ margin:0 0 12px; padding-left:20px; }
+  ul.examples li{ margin-bottom:6px; color:var(--ink-soft); font-size:15px; }
+
+  .accordion-mini{
+    border:1px solid var(--border);
+    border-radius:10px;
+    margin-top:6px;
+    overflow:hidden;
+  }
+  .accordion-mini summary{
+    padding:10px 14px;
+    cursor:pointer;
+    font-weight:600;
+    font-size:14px;
+    background:#FBF4E6;
+    list-style:none;
+  }
+  .accordion-mini summary::-webkit-details-marker{display:none;}
+  .accordion-mini[open] summary{ border-bottom:1px solid var(--border); }
+  .accordion-mini .inner{ padding:12px 14px; }
+
+  .quiz{
+    background:#FFFBF3;
+    border:1px dashed var(--marigold);
+    border-radius:12px;
+    padding:14px 16px;
+    margin-top:14px;
+  }
+  .quiz h4{ margin:0 0 10px; font-size:14.5px; color:var(--marigold-dark); }
+  .quiz-q{ margin-bottom:14px; }
+  .quiz-q p{ margin:0 0 8px; font-weight:500; color:var(--ink); font-size:14.5px; }
+  .quiz-options label{
+    display:block;
+    padding:8px 10px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    margin-bottom:6px;
+    cursor:pointer;
+    font-size:14px;
+    background:#fff;
+  }
+  .quiz-options label:hover{ background:#FFF6E6; }
+  .quiz-options input{ margin-right:8px; }
+  textarea.reflect{
+    width:100%;
+    min-height:70px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:10px;
+    font-family:inherit;
+    font-size:14px;
+    resize:vertical;
+  }
+  .mark-done-btn{
+    margin-top:14px;
+    background:var(--green);
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    border-radius:20px;
+    font-weight:600;
+    font-size:14px;
+    cursor:pointer;
+  }
+  .mark-done-btn:disabled{ background:#9CB8A9; cursor:default; }
+
+  .addon-card{
+    background:linear-gradient(135deg,#FFF3DE,#FFEBCB);
+    border:1px solid var(--marigold);
+    border-radius:16px;
+    padding:20px;
+    margin-top:24px;
+    text-align:center;
+  }
+  .addon-card h3{ font-family:'Fraunces', serif; color:var(--marigold-dark); margin-top:0; }
+  .btn-primary-link{
+    display:inline-block; background:var(--marigold); color:#fff; text-decoration:none;
+    padding:12px 26px; border-radius:24px; font-weight:600; font-size:14.5px; margin-top:8px;
+  }
+  .btn-primary-link:hover{ background:var(--marigold-dark); }
+
+  .whatsapp-cta{
+    position:fixed;
+    bottom:20px; right:20px;
+    background:#25D366;
+    color:#fff;
+    width:56px; height:56px;
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 16px rgba(0,0,0,0.2);
+    text-decoration:none;
+    font-size:26px;
+    z-index:60;
+  }
+  footer{
+    text-align:center;
+    padding:30px 18px 50px;
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  footer a{ color:var(--marigold-dark); text-decoration:none; font-weight:600; }
+
+  @media print{
+    .lang-toggle, .whatsapp-cta, .mark-done-btn{ display:none !important; }
+    .module-body{ max-height:none !important; padding:0 20px 20px !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<header class="hero">
+  <h1 data-en="Critical Thinking &amp; Problem Solving" data-ta="விமர்சன சிந்தனை &amp; பிரச்சனை தீர்வு"></h1>
+  <p class="tagline" data-en="A 10-module course to help students think clearly, question wisely, and solve problems with confidence."
+     data-ta="மாணவர்கள் தெளிவாக சிந்திக்கவும், புத்திசாலித்தனமாக கேள்வி கேட்கவும், நம்பிக்கையுடன் பிரச்சனைகளை தீர்க்கவும் உதவும் 10 பாட நிரல்."></p>
+  <div class="motto" data-en="God is always with u" data-ta="கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"></div>
+</header>
+
+<main>
+  <div class="intro-card">
+    <p style="margin:0" data-en="Work through each module in order. Open a module, read the explanation, metaphor, and examples, try the quick-check quiz, then mark it complete."
+       data-ta="ஒவ்வொரு பாடத்தையும் வரிசையாக படியுங்கள். ஒரு பாடத்தை திறந்து, விளக்கம், உவமை, உதாரணங்களை படித்து, சிறு வினாடி-வினாவை முயற்சி செய்து, முடிந்ததும் 'முடிந்தது' என குறிக்கவும்."></p>
+    <div class="progress-wrap">
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">0 / 10 <span data-en="modules complete" data-ta="பாடங்கள் முடிந்தன"></span></div>
+    </div>
+  </div>
+
+  <div id="modules-container">
+
+    <!-- MODULE 1 -->
+    <div class="module" data-mod="1">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">1</div>
+        <div class="module-title" data-en="What Is Critical Thinking?" data-ta="விமர்சன சிந்தனை என்றால் என்ன?"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">Critical thinking is the ability to pause before reacting, examine information carefully, and make reasoned decisions instead of jumping to conclusions. Most students operate on <strong>autopilot thinking</strong> — accepting the first thought, opinion, or piece of information that comes their way. Critical thinking slows that process down to ask: "Is this true? Is this the best option? What am I missing?" It has four parts: Observation, Analysis, Reasoning, and Reflection.</p>
+        <p class="ta-only ta-text">விமர்சன சிந்தனை என்பது உடனடியாக செயல்படுவதற்கு முன் சிறிது நேரம் நிறுத்தி, தகவலை கவனமாக ஆராய்ந்து, முடிவுக்கு விரைவதற்கு பதிலாக நியாயமான முடிவுகளை எடுக்கும் திறன் ஆகும். பெரும்பாலான மாணவர்கள் <strong>தானியங்கி சிந்தனையில்</strong> செயல்படுகிறார்கள் — முதலில் வரும் எண்ணம், கருத்து அல்லது தகவலை அப்படியே ஏற்றுக்கொள்கிறார்கள். விமர்சன சிந்தனை இந்த செயல்முறையை மெதுவாக்கி "இது உண்மையா? இதுவே சிறந்த வழியா? நான் எதை தவறவிடுகிறேன்?" என்று கேட்க வைக்கிறது. இதில் நான்கு பகுதிகள் உள்ளன: கவனிப்பு, பகுப்பாய்வு, பகுத்தறிவு, சிந்தனை மீள்பார்வை.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Think of the mind as a <strong>camera with auto-focus and manual-focus</strong>. Auto mode reacts instantly — good for snap decisions, but blurry on complex problems. Critical thinking is switching to manual focus: slower, deliberate, but far sharper.</div>
+        <div class="metaphor-box ta-only ta-text">மனதை <strong>ஆட்டோ-ஃபோகஸ் மற்றும் மேனுவல்-ஃபோகஸ் கேமராவாக</strong> நினைத்துப் பாருங்கள். ஆட்டோ முறை உடனடியாக செயல்படும் — விரைவான முடிவுகளுக்கு நல்லது, ஆனால் சிக்கலான பிரச்சனைகளில் தெளிவின்மை. விமர்சன சிந்தனை என்பது மேனுவல் ஃபோகஸுக்கு மாறுவது — மெதுவாக, சிந்தித்து, ஆனால் மிகவும் தெளிவாக.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li><strong>Academic:</strong> A low mark triggers "the teacher hates me" (auto-focus) vs. reviewing the answer sheet to find the weak concepts (manual focus).</li>
+          <li><strong>Social:</strong> A friend doesn't reply — auto-focus assumes anger; critical thinking considers other explanations.</li>
+          <li><strong>Daily life:</strong> Buying a phone from an ad alone vs. comparing specs, reviews, and value.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li><strong>கல்வி:</strong> குறைந்த மதிப்பெண் "ஆசிரியர் என்னை வெறுக்கிறார்" என்ற எண்ணத்தை தூண்டுகிறது (ஆட்டோ) vs. பதில் தாளை பார்த்து பலவீனமான கருத்துகளை கண்டறிதல் (மேனுவல்).</li>
+          <li><strong>சமூகம்:</strong> நண்பர் பதிலளிக்கவில்லை — ஆட்டோ ஃபோகஸ் கோபத்தை கருதுகிறது; விமர்சன சிந்தனை மற்ற காரணங்களை பரிசீலிக்கிறது.</li>
+          <li><strong>அன்றாட வாழ்க்கை:</strong> விளம்பரத்தை மட்டும் நம்பி மொபைல் வாங்குவது vs. விவரக்குறிப்புகள், விமர்சனங்கள், மதிப்பை ஒப்பிடுவது.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. Which of these is "auto-focus" thinking?</p>
+                <p class="ta-only ta-text">1. இவற்றில் எது "ஆட்டோ-ஃபோகஸ்" சிந்தனை?</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q1-1"> Comparing two options before buying</label>
+                  <label class="en-only"><input type="radio" name="q1-1"> Believing a rumor immediately</label>
+                  <label class="en-only"><input type="radio" name="q1-1"> Reviewing your mistakes after a test</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q1-1"> வாங்குவதற்கு முன் இரண்டு விருப்பங்களை ஒப்பிடுதல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q1-1"> உடனடியாக ஒரு வதந்தியை நம்புதல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q1-1"> தேர்வுக்கு பிறகு தவறுகளை மறுபரிசீலனை செய்தல்</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. Priya failed a quiz and thought "I'm just bad at this subject." Rewrite her thought using all four components of critical thinking.</p>
+                <p class="ta-only ta-text">2. பிரியா ஒரு வினாடி-வினாவில் தோற்று "நான் இந்த பாடத்தில் மோசமானவள்" என்று நினைத்தாள். விமர்சன சிந்தனையின் நான்கு பகுதிகளையும் பயன்படுத்தி அவளின் எண்ணத்தை மீண்டும் எழுதுங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 1)" data-en="Mark Module 1 Complete" data-ta="பாடம் 1 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+    <!-- MODULE 2 -->
+    <div class="module" data-mod="2">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">2</div>
+        <div class="module-title" data-en="Spotting Assumptions &amp; Bias" data-ta="தப்பெண்ணங்கள் &amp; பாரபட்சத்தை கண்டறிதல்"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">Every person carries invisible mental shortcuts called <strong>biases</strong>. Two common ones: <strong>confirmation bias</strong> (only noticing what supports what you already believe) and <strong>herd mentality</strong> (following the group's opinion without checking if it's correct). An <strong>assumption</strong> is something accepted as true without proof — unexamined assumptions quietly steer decisions.</p>
+        <p class="ta-only ta-text">ஒவ்வொரு நபரும் <strong>பாரபட்சங்கள்</strong> எனப்படும் கண்ணுக்குத் தெரியாத மனநிலை குறுக்குவழிகளை சுமந்து செல்கிறார்கள். பொதுவான இரண்டு: <strong>உறுதிப்படுத்தல் பாரபட்சம்</strong> (நீங்கள் ஏற்கனவே நம்புவதை ஆதரிப்பதை மட்டும் கவனித்தல்) மற்றும் <strong>கூட்டு மனநிலை</strong> (சரியா என சரிபார்க்காமல் குழுவின் கருத்தை பின்பற்றுதல்). <strong>தப்பெண்ணம்</strong> என்பது ஆதாரமின்றி உண்மை என ஏற்றுக்கொள்ளப்படும் ஒன்று.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Bias is like <strong>wearing tinted sunglasses without realizing it</strong> — everything looks colored by the tint, but you forget the glasses exist. Critical thinking means occasionally taking them off to check reality.</div>
+        <div class="metaphor-box ta-only ta-text">பாரபட்சம் என்பது <strong>அறியாமலேயே கண்ணாடி மூக்குக் கண்ணாடி அணிந்திருப்பது போன்றது</strong> — எல்லாமே அந்த நிறத்தில் தெரிகிறது, ஆனால் கண்ணாடி இருப்பதையே மறந்துவிடுகிறீர்கள். விமர்சன சிந்தனை என்பது எப்போதாவது அதை கழற்றி உண்மையை சரிபார்ப்பதாகும்.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>A student convinced English is "boring" only notices boring lessons and forgets the interesting ones.</li>
+          <li>A group decides a new teacher is "strict" on day one — others assume the worst before even attending class.</li>
+          <li>Assuming a hard-looking problem takes an hour, without ever timing it.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>ஆங்கிலம் "சலிப்பானது" என நம்பும் மாணவர் சலிப்பான பாடங்களை மட்டும் கவனித்து சுவாரஸ்யமானவற்றை மறந்துவிடுகிறார்.</li>
+          <li>ஒரு புதிய ஆசிரியர் "கண்டிப்பானவர்" என முதல் நாளே குழு முடிவெடுக்கிறது — வகுப்பிற்கு வருவதற்கு முன்பே மற்றவர்கள் மோசமானதை எதிர்பார்க்கிறார்கள்.</li>
+          <li>கடினமாகத் தெரியும் ஒரு பிரச்சனை ஒரு மணி நேரம் ஆகும் என்று நேரத்தை சரிபார்க்காமலேயே கருதுதல்.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. Believing a subject is hard because "everyone says so" is:</p>
+                <p class="ta-only ta-text">1. "எல்லோரும் சொல்கிறார்கள்" என்பதால் ஒரு பாடம் கடினம் என நம்புவது:</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q2-1"> Confirmation bias</label>
+                  <label class="en-only"><input type="radio" name="q2-1"> Herd mentality</label>
+                  <label class="en-only"><input type="radio" name="q2-1"> Logical reasoning</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q2-1"> உறுதிப்படுத்தல் பாரபட்சம்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q2-1"> கூட்டு மனநிலை</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q2-1"> தர்க்க பகுத்தறிவு</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. List one assumption you currently hold about a subject or teacher, with one piece of evidence for and against it.</p>
+                <p class="ta-only ta-text">2. ஒரு பாடம் அல்லது ஆசிரியர் பற்றி நீங்கள் தற்போது வைத்திருக்கும் ஒரு தப்பெண்ணத்தை, அதற்கு சாதகமான மற்றும் பாதகமான ஒரு ஆதாரத்துடன் எழுதுங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 2)" data-en="Mark Module 2 Complete" data-ta="பாடம் 2 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+    <!-- MODULE 3 -->
+    <div class="module" data-mod="3">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">3</div>
+        <div class="module-title" data-en="Asking Better Questions" data-ta="சிறந்த கேள்விகளை கேட்பது"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">Most problems aren't solved because the first question is too shallow. The <strong>"5 Whys" technique</strong> digs past the surface symptom to the root cause by asking "why" repeatedly. Example: "I failed the test" → didn't understand two chapters → didn't do homework → distracted by phone → no fixed study schedule → <strong>root cause: no routine</strong>, not "the test was hard."</p>
+        <p class="ta-only ta-text">முதல் கேள்வி மிக மேலோட்டமானதாக இருப்பதால் பெரும்பாலான பிரச்சனைகள் தீர்க்கப்படுவதில்லை. <strong>"5 ஏன்கள்" உத்தி</strong> மேற்பரப்பு அறிகுறியை தாண்டி மூல காரணத்திற்கு "ஏன்" என்று மீண்டும் மீண்டும் கேட்டு செல்கிறது. உதாரணம்: "தேர்வில் தோற்றேன்" → இரண்டு பாடங்களை புரியவில்லை → வீட்டுப்பாடம் செய்யவில்லை → மொபைலால் கவனச்சிதறல் → ஒழுங்கான படிப்பு அட்டவணை இல்லை → <strong>மூல காரணம்: வழக்கம் இல்லாமை</strong>, "தேர்வு கடினமாக இருந்தது" அல்ல.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Asking shallow questions is like <strong>treating fever with only a cold compress</strong> — it feels better momentarily, but the infection remains. Asking "why" repeatedly is diagnosing the real illness.</div>
+        <div class="metaphor-box ta-only ta-text">மேலோட்டமான கேள்விகள் கேட்பது <strong>காய்ச்சலை குளிர்ந்த துணியால் மட்டும் குணப்படுத்த முயல்வது போன்றது</strong> — சிறிது நேரம் நிம்மதி தரும், ஆனால் தொற்று நீடிக்கும். மீண்டும் மீண்டும் "ஏன்" என கேட்பது உண்மையான நோயை கண்டறிவதாகும்.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>"Why did I lose marks?" (shallow) vs. "Why did I misunderstand the concept originally?" (root cause).</li>
+          <li>"Why did my friend get upset?" — digging deeper reveals it wasn't the joke, but that it was said in front of others.</li>
+          <li>"Why am I always tired?" — deeper digging may reveal late-night phone use, not "bad luck."</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>"ஏன் மதிப்பெண் இழந்தேன்?" (மேலோட்டம்) vs. "ஏன் அந்த கருத்தை முதலிலேயே தவறாக புரிந்துகொண்டேன்?" (மூல காரணம்).</li>
+          <li>"ஏன் என் நண்பர் கோபப்பட்டார்?" — ஆழமாக ஆராயும்போது, நகைச்சுவை காரணமல்ல, மற்றவர்கள் முன் சொல்லப்பட்டது காரணம் என தெரிகிறது.</li>
+          <li>"ஏன் எப்போதும் சோர்வாக இருக்கிறேன்?" — ஆழமாக ஆராயும்போது இரவு தாமதமாக மொபைல் பயன்பாடு காரணமாக இருக்கலாம், "துரதிர்ஷ்டம்" அல்ல.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. The "5 Whys" technique is designed to:</p>
+                <p class="ta-only ta-text">1. "5 ஏன்கள்" உத்தியின் நோக்கம்:</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q3-1"> Find someone to blame</label>
+                  <label class="en-only"><input type="radio" name="q3-1"> Identify the root cause of a problem</label>
+                  <label class="en-only"><input type="radio" name="q3-1"> Make problems more complicated</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q3-1"> குற்றம் சாட்ட ஒருவரை கண்டுபிடித்தல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q3-1"> பிரச்சனையின் மூல காரணத்தை கண்டறிதல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q3-1"> பிரச்சனைகளை மேலும் சிக்கலாக்குதல்</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. Apply the 5 Whys to: "I keep forgetting to submit homework on time." Write all five steps.</p>
+                <p class="ta-only ta-text">2. "நான் வீட்டுப்பாடத்தை சரியான நேரத்தில் சமர்ப்பிக்க மறந்துவிடுகிறேன்" என்பதற்கு 5 ஏன்கள் உத்தியை பயன்படுத்தி ஐந்து படிகளையும் எழுதுங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 3)" data-en="Mark Module 3 Complete" data-ta="பாடம் 3 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+  </div><!-- close temp, more modules appended below via placeholder -->
+  <div id="modules-container-2">
+
+    <!-- MODULE 4 -->
+    <div class="module" data-mod="4">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">4</div>
+        <div class="module-title" data-en="Evaluating Information &amp; Sources" data-ta="தகவல் &amp; ஆதாரங்களை மதிப்பீடு செய்தல்"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">In the age of social media, students are flooded with claims. Learn to distinguish <strong>fact</strong> (verifiable with evidence), <strong>opinion</strong> (personal belief), and <strong>misinformation/disinformation</strong> (false, sometimes deliberate). Evaluation checklist: <strong>Source</strong> (who said it?), <strong>Evidence</strong> (what proof?), <strong>Motive</strong> (why say this?), <strong>Cross-check</strong> (do other reliable sources agree?).</p>
+        <p class="ta-only ta-text">சமூக ஊடக காலத்தில், மாணவர்கள் பல கூற்றுகளால் நிரம்பியுள்ளனர். <strong>உண்மை</strong> (ஆதாரத்துடன் சரிபார்க்கக்கூடியது), <strong>கருத்து</strong> (தனிப்பட்ட நம்பிக்கை), <strong>தவறான தகவல்</strong> (பொய், சில நேரம் வேண்டுமென்றே) ஆகியவற்றை வேறுபடுத்த கற்றுக்கொள்ளுங்கள். மதிப்பீட்டு பட்டியல்: <strong>ஆதாரம்</strong> (யார் சொன்னது?), <strong>சான்று</strong> (என்ன ஆதாரம்?), <strong>நோக்கம்</strong> (ஏன் இதை சொல்கிறார்?), <strong>குறுக்கு-சரிபார்ப்பு</strong> (மற்ற நம்பகமான ஆதாரங்கள் ஒப்புக்கொள்கின்றனவா?).</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Believing everything online without checking is like <strong>drinking water straight from any tap without knowing where the pipe leads</strong> — sometimes clean, sometimes contaminated, and you won't know until too late.</div>
+        <div class="metaphor-box ta-only ta-text">சரிபார்க்காமல் ஆன்லைனில் உள்ள அனைத்தையும் நம்புவது <strong>குழாய் எங்கிருந்து வருகிறது என்று தெரியாமல் நேரடியாக குடிப்பது போன்றது</strong> — சில நேரம் சுத்தமாக இருக்கும், சில நேரம் மாசுபட்டிருக்கும், தாமதமாகும் வரை தெரியாது.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>A WhatsApp forward claims a food item is "dangerous" — checking reveals it's an old, debunked rumor.</li>
+          <li>Two headlines about the same event with opposite tones reveal bias in reporting.</li>
+          <li>Copying a fact from an unreliable website vs. verifying against a textbook or trusted source.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>ஒரு உணவுப் பொருள் "ஆபத்தானது" என WhatsApp தகவல் கூறுகிறது — சரிபார்க்கும்போது அது பழைய, தவறான வதந்தி என தெரிகிறது.</li>
+          <li>ஒரே நிகழ்வு பற்றிய இரண்டு தலைப்புச் செய்திகள் மாறுபட்ட தொனியில் இருப்பது செய்தி பாரபட்சத்தை காட்டுகிறது.</li>
+          <li>நம்பகமற்ற இணையதளத்திலிருந்து உண்மையை நகலெடுப்பது vs. பாடப்புத்தகம் அல்லது நம்பகமான ஆதாரத்துடன் சரிபார்ப்பது.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. Which is a "fact" rather than an "opinion"?</p>
+                <p class="ta-only ta-text">1. "கருத்து" அல்லாமல் "உண்மை" எது?</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q4-1"> Tamil is the most beautiful language</label>
+                  <label class="en-only"><input type="radio" name="q4-1"> Chennai is the capital of Tamil Nadu</label>
+                  <label class="en-only"><input type="radio" name="q4-1"> Cricket is more exciting than football</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q4-1"> தமிழ் மிக அழகான மொழி</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q4-1"> சென்னை தமிழ்நாட்டின் தலைநகரம்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q4-1"> கால்பந்தை விட கிரிக்கெட் சுவாரஸ்யமானது</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. You receive a forwarded message about a scholarship, with no official website mentioned. List three verification steps you'd take.</p>
+                <p class="ta-only ta-text">2. அதிகாரப்பூர்வ இணையதளம் குறிப்பிடப்படாத ஒரு உதவித்தொகை பற்றிய தகவல் உங்களுக்கு வருகிறது. நீங்கள் எடுக்கும் மூன்று சரிபார்ப்பு படிகளை எழுதுங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 4)" data-en="Mark Module 4 Complete" data-ta="பாடம் 4 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+    <!-- MODULE 5 -->
+    <div class="module" data-mod="5">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">5</div>
+        <div class="module-title" data-en="Logical Reasoning Basics" data-ta="தர்க்க பகுத்தறிவு அடிப்படைகள்"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">Logical reasoning connects ideas correctly. Watch for <strong>correlation vs. causation</strong> (two things occurring together doesn't mean one causes the other) and common <strong>fallacies</strong>: hasty generalization (judging all from one example), false cause (assuming sequence means causation), and either/or thinking (assuming only two options exist).</p>
+        <p class="ta-only ta-text">தர்க்க பகுத்தறிவு என்பது எண்ணங்களை சரியாக இணைப்பது. <strong>தொடர்பு vs. காரணம்</strong> (இரண்டு விஷயங்கள் சேர்ந்து நடப்பது ஒன்று மற்றொன்றை ஏற்படுத்துகிறது என்று அர்த்தமல்ல) மற்றும் பொதுவான <strong>தவறான பகுத்தறிவுகள்</strong>: அவசர பொதுமைப்படுத்தல் (ஒரு உதாரணத்தில் இருந்து அனைத்தையும் தீர்மானித்தல்), தவறான காரணம் (வரிசை என்பது காரணம் என கருதுதல்), மற்றும் இரண்டில் ஒன்று சிந்தனை (இரண்டு விருப்பங்கள் மட்டுமே உள்ளன என கருதுதல்) ஆகியவற்றை கவனியுங்கள்.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Logical reasoning is like <strong>following a recipe correctly</strong> — miss a step or swap an ingredient (a fallacy), and the dish doesn't turn out right, even if it looks fine at first.</div>
+        <div class="metaphor-box ta-only ta-text">தர்க்க பகுத்தறிவு <strong>ஒரு சமையல் குறிப்பை சரியாக பின்பற்றுவது போன்றது</strong> — ஒரு படியை தவறவிட்டால் அல்லது ஒரு பொருளை மாற்றினால் (தவறான பகுத்தறிவு), முதலில் நன்றாக தெரிந்தாலும் உணவு சரியாக வராது.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>Ice cream sales and drowning rates both rise in summer — heat causes both, not one causing the other.</li>
+          <li>"My friend didn't get into college with 85%, so 85% is never enough" ignores other factors like stream or cut-offs.</li>
+          <li>"If I don't get into Engineering, my career is over" ignores dozens of other valid paths.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>கோடையில் ஐஸ்கிரீம் விற்பனையும், நீரில் மூழ்கும் விகிதமும் அதிகரிக்கிறது — வெப்பம் இரண்டையும் ஏற்படுத்துகிறது, ஒன்று மற்றொன்றை அல்ல.</li>
+          <li>"என் உறவினருக்கு 85% இருந்தும் கல்லூரியில் இடம் கிடைக்கவில்லை, எனவே 85% ஒருபோதும் போதாது" என்பது ஸ்ட்ரீம் அல்லது கட்-ஆஃப் போன்ற பிற காரணிகளை புறக்கணிக்கிறது.</li>
+          <li>"நான் இன்ஜினியரிங்கில் சேரவில்லை என்றால், என் வாழ்க்கை முடிந்துவிட்டது" என்பது டஜன் கணக்கான பிற செல்லுபடியான பாதைகளை புறக்கணிக்கிறது.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. "Every time I bring an umbrella, it doesn't rain — so umbrellas stop rain" is:</p>
+                <p class="ta-only ta-text">1. "நான் குடை எடுக்கும் போதெல்லாம் மழை பெய்யாது — எனவே குடை மழையை நிறுத்துகிறது" என்பது:</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q5-1"> Valid reasoning</label>
+                  <label class="en-only"><input type="radio" name="q5-1"> False cause fallacy</label>
+                  <label class="en-only"><input type="radio" name="q5-1"> Fact-based reasoning</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q5-1"> சரியான பகுத்தறிவு</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q5-1"> தவறான காரண பிழை</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q5-1"> உண்மை அடிப்படையிலான பகுத்தறிவு</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. Write one "either/or" belief you've had about your future or studies, then list two additional options you hadn't considered.</p>
+                <p class="ta-only ta-text">2. உங்கள் எதிர்காலம் அல்லது படிப்பு பற்றி நீங்கள் வைத்திருந்த ஒரு "இரண்டில் ஒன்று" நம்பிக்கையை எழுதி, நீங்கள் கருதாத மேலும் இரண்டு விருப்பங்களை பட்டியலிடுங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 5)" data-en="Mark Module 5 Complete" data-ta="பாடம் 5 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+    <!-- MODULE 6 -->
+    <div class="module" data-mod="6">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">6</div>
+        <div class="module-title" data-en="The Problem-Solving Framework" data-ta="பிரச்சனை தீர்வு கட்டமைப்பு"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">A repeatable 5-step framework: <strong>Define</strong> the problem clearly, <strong>Analyze</strong> it into parts and find root causes, <strong>Generate options</strong> (brainstorm multiple solutions), <strong>Decide</strong> by weighing pros and cons, and <strong>Reflect</strong> afterward on what worked. Most students skip straight from Define to Decide, missing the richer thinking between.</p>
+        <p class="ta-only ta-text">மீண்டும் பயன்படுத்தக்கூடிய 5-படி கட்டமைப்பு: பிரச்சனையை தெளிவாக <strong>வரையறு</strong>, அதை பகுதிகளாக <strong>பகுப்பாய்வு</strong> செய்து மூல காரணங்களை கண்டறி, பல தீர்வுகளை <strong>உருவாக்கு</strong>, சாதக பாதகங்களை நிறுத்து <strong>முடிவெடு</strong>, பின்னர் என்ன வேலை செய்தது என <strong>பரிசீலனை</strong> செய். பெரும்பாலான மாணவர்கள் வரையறையிலிருந்து நேரடியாக முடிவெடுப்பதற்கு தாவுகிறார்கள், இடையேயுள்ள ஆழமான சிந்தனையை தவறவிடுகிறார்கள்.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Solving a problem without this framework is like <strong>building a house without a blueprint</strong> — walls may go up, but cracks appear later. The framework is the blueprint that prevents wasted effort.</div>
+        <div class="metaphor-box ta-only ta-text">இந்த கட்டமைப்பு இல்லாமல் பிரச்சனையை தீர்ப்பது <strong>வரைபடம் இல்லாமல் வீடு கட்டுவது போன்றது</strong> — சுவர்கள் எழலாம், ஆனால் பின்னர் விரிசல்கள் தோன்றும். கட்டமைப்பே வீண் முயற்சியை தடுக்கும் வரைபடம்.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>"Falling behind in Math" → Define (which topics), Analyze (missed classes), Generate options (tuition/YouTube/peer group), Decide (peer group + 20 min daily), Reflect after 2 weeks.</li>
+          <li>"Keep arguing with my sibling" — applying the same 5 steps instead of reacting emotionally each time.</li>
+          <li>"Procrastinating on homework" — using the framework instead of just feeling guilty repeatedly.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>"கணிதத்தில் பின்தங்கியிருத்தல்" → வரையறு (எந்த தலைப்புகள்), பகுப்பாய்வு (தவறவிட்ட வகுப்புகள்), தீர்வுகள் (டியூஷன்/யூடியூப்/நண்பர் குழு), முடிவு (நண்பர் குழு + தினமும் 20 நிமிடம்), 2 வாரம் கழித்து பரிசீலனை.</li>
+          <li>"சகோதரருடன் தொடர்ந்து வாதிடுதல்" — ஒவ்வொரு முறையும் உணர்ச்சிவசப்படுவதற்கு பதிலாக அதே 5 படிகளை பயன்படுத்துதல்.</li>
+          <li>"வீட்டுப்பாடத்தை தள்ளிப்போடுதல்" — மீண்டும் மீண்டும் குற்ற உணர்வை உணருவதற்கு பதிலாக கட்டமைப்பை பயன்படுத்துதல்.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. Which step comes immediately after "Analyze"?</p>
+                <p class="ta-only ta-text">1. "பகுப்பாய்வு" க்கு உடனடியாக பிறகு வரும் படி எது?</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q6-1"> Decide</label>
+                  <label class="en-only"><input type="radio" name="q6-1"> Reflect</label>
+                  <label class="en-only"><input type="radio" name="q6-1"> Generate options</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q6-1"> முடிவெடு</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q6-1"> பரிசீலனை</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q6-1"> தீர்வுகளை உருவாக்கு</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. Pick a real problem you're facing right now and walk through all 5 steps.</p>
+                <p class="ta-only ta-text">2. நீங்கள் தற்போது எதிர்கொள்ளும் ஒரு உண்மையான பிரச்சனையை தேர்ந்தெடுத்து 5 படிகளையும் எழுதுங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 6)" data-en="Mark Module 6 Complete" data-ta="பாடம் 6 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+  </div>
+  <div id="modules-container-3">
+
+    <!-- MODULE 7 -->
+    <div class="module" data-mod="7">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">7</div>
+        <div class="module-title" data-en="Creative &amp; Lateral Thinking" data-ta="ஆக்கபூர்வ &amp; பக்கவாட்டு சிந்தனை"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only"><strong>Lateral thinking</strong> means approaching a problem from an unexpected angle rather than the direct one. Techniques: <strong>reverse thinking</strong> (ask what would guarantee failure, then avoid it), <strong>random input</strong> (connect an unrelated idea to spark new angles), and <strong>combining ideas</strong> (merge two unrelated solutions into one). This is a trainable skill, not just for "artistic" people.</p>
+        <p class="ta-only ta-text"><strong>பக்கவாட்டு சிந்தனை</strong> என்பது நேரடி வழிக்கு பதிலாக எதிர்பாராத கோணத்தில் ஒரு பிரச்சனையை அணுகுவது. உத்திகள்: <strong>தலைகீழ் சிந்தனை</strong> (தோல்வியை உறுதி செய்வது என்ன என்று கேட்டு, அதை தவிர்த்தல்), <strong>சீரற்ற உள்ளீடு</strong> (புதிய கோணங்களை தூண்ட தொடர்பில்லாத எண்ணத்தை இணைத்தல்), மற்றும் <strong>எண்ணங்களை இணைத்தல்</strong> (தொடர்பில்லாத இரண்டு தீர்வுகளை ஒன்றாக்குதல்). இது "கலை" ஆர்வலர்களுக்கு மட்டுமல்ல, பயிற்சி பெறக்கூடிய திறன்.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Linear thinking is like <strong>walking straight into a maze wall you assume is fixed</strong>; lateral thinking is stepping back and realizing you can walk around the maze entirely.</div>
+        <div class="metaphor-box ta-only ta-text">நேரியல் சிந்தனை <strong>மாறாது என நினைக்கும் புதிரின் சுவற்றில் நேராக நடப்பது போன்றது</strong>; பக்கவாட்டு சிந்தனை என்பது பின்வாங்கி முழு புதிரையும் சுற்றி நடக்கலாம் என உணர்வது.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>Reverse thinking: listing "phone nearby, no sleep, no plan" as guaranteed failure factors, then simply removing them.</li>
+          <li>Random input: using "traffic signals" (red/yellow/green) to design a homework priority system.</li>
+          <li>Combining ideas: merging flashcards with a mobile reminder app to build a recall system.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>தலைகீழ் சிந்தனை: "அருகில் மொபைல், தூக்கமின்மை, திட்டமின்மை" ஆகியவற்றை உறுதியான தோல்வி காரணிகளாக பட்டியலிட்டு, பின்னர் அவற்றை நீக்குதல்.</li>
+          <li>சீரற்ற உள்ளீடு: "போக்குவரத்து சிக்னல்" (சிவப்பு/மஞ்சள்/பச்சை) கருத்தை பயன்படுத்தி வீட்டுப்பாட முன்னுரிமை அமைப்பை வடிவமைத்தல்.</li>
+          <li>எண்ணங்களை இணைத்தல்: ஃபிளாஷ்கார்டுகளையும் மொபைல் நினைவூட்டல் செயலியையும் இணைத்து ஒரு நினைவு அமைப்பை உருவாக்குதல்.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. Lateral thinking is best described as:</p>
+                <p class="ta-only ta-text">1. பக்கவாட்டு சிந்தனையை சிறப்பாக விவரிப்பது:</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q7-1"> Following the most direct, obvious solution</label>
+                  <label class="en-only"><input type="radio" name="q7-1"> Approaching a problem from an unexpected angle</label>
+                  <label class="en-only"><input type="radio" name="q7-1"> Avoiding problems altogether</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q7-1"> மிக நேரடியான, வெளிப்படையான தீர்வை பின்பற்றுதல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q7-1"> எதிர்பாராத கோணத்தில் பிரச்சனையை அணுகுதல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q7-1"> பிரச்சனைகளை முழுவதுமாக தவிர்த்தல்</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. Use "reverse thinking" — list three things that would guarantee failure in your next test, then flip each into a positive action.</p>
+                <p class="ta-only ta-text">2. "தலைகீழ் சிந்தனையை" பயன்படுத்துங்கள் — உங்கள் அடுத்த தேர்வில் தோல்வியை உறுதி செய்யும் மூன்று விஷயங்களை பட்டியலிட்டு, ஒவ்வொன்றையும் நேர்மறை செயலாக மாற்றுங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 7)" data-en="Mark Module 7 Complete" data-ta="பாடம் 7 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+    <!-- MODULE 8 -->
+    <div class="module" data-mod="8">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">8</div>
+        <div class="module-title" data-en="Decision-Making Under Pressure" data-ta="அழுத்தத்தில் முடிவெடுத்தல்"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">Some decisions must be made quickly. The <strong>pause-weigh-choose</strong> method helps: <strong>Pause</strong> (even 5 seconds prevents pure impulse), <strong>Weigh</strong> (list one pro and one con quickly), <strong>Choose</strong> (pick what aligns with your longer-term goal). For peer pressure, prepare an <strong>"exit line"</strong> in advance so you're not deciding from scratch in the moment.</p>
+        <p class="ta-only ta-text">சில முடிவுகளை விரைவாக எடுக்க வேண்டும். <strong>நிறுத்து-நிறுத்தி எடைபோடு-தேர்ந்தெடு</strong> முறை உதவுகிறது: <strong>நிறுத்து</strong> (5 வினாடிகள் கூட தூண்டுதலை தடுக்கும்), <strong>எடைபோடு</strong> (ஒரு சாதகம், ஒரு பாதகத்தை விரைவாக பட்டியலிடு), <strong>தேர்ந்தெடு</strong> (உங்கள் நீண்டகால இலக்குடன் பொருந்துவதை தேர்ந்தெடு). சக அழுத்தத்திற்கு, முன்கூட்டியே ஒரு <strong>"வெளியேறும் வாக்கியத்தை"</strong> தயார் செய்யுங்கள்.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Deciding under pressure is like <strong>a driver reacting to a sudden obstacle</strong> — panic causes swerving into danger, while a trained reflex (brake, check mirror, steer smoothly) leads to safety. Pause-weigh-choose is that trained reflex for the mind.</div>
+        <div class="metaphor-box ta-only ta-text">அழுத்தத்தில் முடிவெடுப்பது <strong>திடீர் தடையை எதிர்கொள்ளும் ஓட்டுநர் போன்றது</strong> — பீதி ஆபத்தில் திருப்புகிறது, பயிற்சி பெற்ற எதிர்வினை (பிரேக், கண்ணாடி பார்த்தல், மென்மையாக திருப்புதல்) பாதுகாப்புக்கு இட்டுச் செல்கிறது. நிறுத்து-எடைபோடு-தேர்ந்தெடு என்பது மனதிற்கான அந்த பயிற்சி பெற்ற எதிர்வினை.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>Panicking on a tough exam question vs. pausing, skipping it, and returning later.</li>
+          <li>Being offered something risky at a gathering — having a prepared response ready instead of deciding on the spot.</li>
+          <li>Being pushed to choose a stream quickly — pausing to weigh personal interest vs. others' expectations.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>கடினமான தேர்வு கேள்வியில் பீதியடைவது vs. நிறுத்தி, தவிர்த்து, பின்னர் திரும்பி வருதல்.</li>
+          <li>ஒரு கூட்டத்தில் ஆபத்தான ஏதோவொன்று வழங்கப்படுதல் — உடனடியாக முடிவெடுப்பதற்கு பதிலாக தயார் பதிலை வைத்திருத்தல்.</li>
+          <li>விரைவாக ஒரு ஸ்ட்ரீமை தேர்ந்தெடுக்க அழுத்தப்படுதல் — தனிப்பட்ட ஆர்வத்தையும் மற்றவர்களின் எதிர்பார்ப்பையும் எடைபோடுதல்.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. The first step in "pause-weigh-choose" is:</p>
+                <p class="ta-only ta-text">1. "நிறுத்து-எடைபோடு-தேர்ந்தெடு" முறையின் முதல் படி:</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q8-1"> Immediately decide</label>
+                  <label class="en-only"><input type="radio" name="q8-1"> Pause for a few seconds</label>
+                  <label class="en-only"><input type="radio" name="q8-1"> Ask a friend</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q8-1"> உடனடியாக முடிவெடு</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q8-1"> சில வினாடிகள் நிறுத்து</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q8-1"> ஒரு நண்பரிடம் கேள்</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. A classmate pressures you to skip class "just this once." Write an exit line you could use, and why preparing it in advance helps.</p>
+                <p class="ta-only ta-text">2. ஒரு வகுப்பு தோழர் உங்களை "இந்த ஒரு முறை மட்டும்" வகுப்பை தவிர்க்க தூண்டுகிறார். நீங்கள் பயன்படுத்தக்கூடிய ஒரு வெளியேறும் வாக்கியத்தை எழுதி, முன்கூட்டியே தயார் செய்வது ஏன் உதவுகிறது என விளக்குங்கள்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 8)" data-en="Mark Module 8 Complete" data-ta="பாடம் 8 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+    <!-- MODULE 9 -->
+    <div class="module" data-mod="9">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">9</div>
+        <div class="module-title" data-en="Real-Life Case Studies" data-ta="நிஜ வாழ்க்கை வழக்கு ஆய்வுகள்"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">This module applies everything learned so far to India-relevant student scenarios: <strong>Case 1 (Academic)</strong> — torn between parent-chosen coaching vs. personal passion, using the Problem-Solving Framework plus bias-checking. <strong>Case 2 (Family)</strong> — a joint-family disagreement about screen time, using logical reasoning to separate genuine concerns from exaggeration. <strong>Case 3 (Social Media)</strong> — a viral forward about an exam date change, using the evaluation checklist before reacting.</p>
+        <p class="ta-only ta-text">இந்த பாடம் இதுவரை கற்றுக்கொண்ட அனைத்தையும் இந்திய-சார்ந்த மாணவர் சூழல்களுக்கு பயன்படுத்துகிறது: <strong>வழக்கு 1 (கல்வி)</strong> — பெற்றோர் தேர்ந்தெடுத்த பயிற்சி vs. தனிப்பட்ட ஆர்வம் இடையே சிக்குதல், பிரச்சனை தீர்வு கட்டமைப்பு மற்றும் தப்பெண்ண சரிபார்ப்பை பயன்படுத்துதல். <strong>வழக்கு 2 (குடும்பம்)</strong> — திரை நேரம் பற்றிய கூட்டுக் குடும்ப கருத்து வேறுபாடு, உண்மையான கவலைகளையும் மிகைப்படுத்தலையும் பிரிக்க தர்க்க பகுத்தறிவை பயன்படுத்துதல். <strong>வழக்கு 3 (சமூக ஊடகம்)</strong> — தேர்வு தேதி மாற்றம் பற்றிய வைரல் தகவல், செயல்படுவதற்கு முன் மதிப்பீட்டு பட்டியலை பயன்படுத்துதல்.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Case studies are like <strong>flight simulators for the mind</strong> — practicing tricky scenarios in a safe space before facing the real, higher-stakes version.</div>
+        <div class="metaphor-box ta-only ta-text">வழக்கு ஆய்வுகள் <strong>மனதிற்கான விமான உருவகப்படுத்திகள் போன்றவை</strong> — உண்மையான, அதிக ஆபத்துள்ள சூழலை எதிர்கொள்வதற்கு முன் பாதுகாப்பான இடத்தில் கடினமான சூழல்களை பயிற்சி செய்தல்.</div>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. In Case 3, what should be the first action before forwarding further?</p>
+                <p class="ta-only ta-text">1. வழக்கு 3-ல், மேலும் அனுப்புவதற்கு முன் முதல் செயல் என்னவாக இருக்க வேண்டும்?</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q9-1"> Forward it to more groups immediately</label>
+                  <label class="en-only"><input type="radio" name="q9-1"> Verify with the official school notice/website</label>
+                  <label class="en-only"><input type="radio" name="q9-1"> Assume it's true because many shared it</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q9-1"> உடனடியாக மேலும் குழுக்களுக்கு அனுப்புதல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q9-1"> அதிகாரப்பூர்வ பள்ளி அறிவிப்பு/இணையதளத்துடன் சரிபார்த்தல்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q9-1"> பலர் பகிர்ந்ததால் உண்மை என கருதுதல்</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. Choose one case study above and solve it using at least three tools/frameworks from this course.</p>
+                <p class="ta-only ta-text">2. மேலுள்ள ஒரு வழக்கு ஆய்வை தேர்ந்தெடுத்து, இந்த பாடத்திலிருந்து குறைந்தது மூன்று கருவிகள்/கட்டமைப்புகளை பயன்படுத்தி தீர்க்கவும்.</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 9)" data-en="Mark Module 9 Complete" data-ta="பாடம் 9 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+    <!-- MODULE 10 -->
+    <div class="module" data-mod="10">
+      <div class="module-header" onclick="toggleModule(this)">
+        <div class="module-num">10</div>
+        <div class="module-title" data-en="Building a Critical Thinking Habit" data-ta="விமர்சன சிந்தனை பழக்கத்தை உருவாக்குதல்"></div>
+        <div class="chevron">▾</div>
+      </div>
+      <div class="module-body">
+        <span class="section-label" data-en="Explanation" data-ta="விளக்கம்"></span>
+        <p class="en-only">A skill only helps when it becomes a <strong>habit</strong>. Three practices: <strong>daily reflection journal</strong> (2 minutes each evening — "what did I assume today that I should double check?"), the <strong>24-hour rule</strong> (wait a day before finalizing non-urgent decisions), and a <strong>weekly self-assessment</strong> reviewing which bias or fallacy showed up most.</p>
+        <p class="ta-only ta-text">ஒரு திறன் அது <strong>பழக்கமாக</strong> மாறும்போது மட்டுமே உதவுகிறது. மூன்று நடைமுறைகள்: <strong>தினசரி பிரதிபலிப்பு நாட்குறிப்பு</strong> (ஒவ்வொரு மாலையும் 2 நிமிடங்கள் — "இன்று நான் எதை தப்பெண்ணமாக கருதினேன், அதை மீண்டும் சரிபார்க்க வேண்டும்?"), <strong>24-மணி நேர விதி</strong> (அவசரமற்ற முடிவுகளை இறுதி செய்வதற்கு முன் ஒரு நாள் காத்திருத்தல்), மற்றும் எந்த தப்பெண்ணம் அல்லது தவறான பகுத்தறிவு அதிகம் தோன்றியது என பரிசீலிக்கும் <strong>வாராந்திர சுய மதிப்பீடு</strong>.</p>
+
+        <span class="section-label" data-en="Metaphor" data-ta="உவமை"></span>
+        <div class="metaphor-box en-only">Building this habit is like <strong>strength training</strong> — one workout doesn't build muscle, but consistent, small daily repetitions compound into real strength over months.</div>
+        <div class="metaphor-box ta-only ta-text">இந்த பழக்கத்தை உருவாக்குவது <strong>உடற்பயிற்சி போன்றது</strong> — ஒரு பயிற்சி தசையை உருவாக்காது, ஆனால் தொடர்ச்சியான, சிறிய தினசரி மறுசெயல்கள் மாதங்களில் உண்மையான வலிமையாக சேர்கின்றன.</div>
+
+        <span class="section-label" data-en="Examples" data-ta="உதாரணங்கள்"></span>
+        <ul class="examples en-only">
+          <li>A student journaling nightly for a month starts noticing their own bias patterns naturally.</li>
+          <li>Applying the 24-hour rule before agreeing to a group decision, then realizing the extra day changed their choice.</li>
+          <li>Weekly review revealing "hasty generalization" is the most frequent fallacy — enabling targeted self-correction.</li>
+        </ul>
+        <ul class="examples ta-only ta-text">
+          <li>ஒரு மாதம் இரவு நாட்குறிப்பு எழுதும் மாணவர் தானாகவே தங்கள் சொந்த தப்பெண்ண முறைகளை கவனிக்க தொடங்குகிறார்.</li>
+          <li>ஒரு குழு முடிவை ஏற்பதற்கு முன் 24-மணி நேர விதியை பயன்படுத்தி, கூடுதல் நாள் தேர்வை மாற்றியது என உணர்தல்.</li>
+          <li>வாராந்திர பரிசீலனை "அவசர பொதுமைப்படுத்தல்" மிக அதிகமாக தோன்றும் தவறு என காட்டுகிறது — இலக்கு வைத்த சுய திருத்தத்தை செயல்படுத்துகிறது.</li>
+        </ul>
+
+        <details class="accordion-mini">
+          <summary class="en-only" data-en="Quick-check quiz" data-ta=""></summary>
+          <summary class="ta-only ta-text" data-en="" data-ta="சிறு வினாடி-வினா"></summary>
+          <div class="inner">
+            <div class="quiz">
+              <div class="quiz-q">
+                <p class="en-only">1. The "24-hour rule" is most useful for:</p>
+                <p class="ta-only ta-text">1. "24-மணி நேர விதி" எதற்கு மிகவும் பயனுள்ளது:</p>
+                <div class="quiz-options">
+                  <label class="en-only"><input type="radio" name="q10-1"> Urgent emergencies</label>
+                  <label class="en-only"><input type="radio" name="q10-1"> Non-urgent decisions that can wait</label>
+                  <label class="en-only"><input type="radio" name="q10-1"> Exam answers</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q10-1"> அவசர நெருக்கடிகள்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q10-1"> காத்திருக்கக்கூடிய அவசரமற்ற முடிவுகள்</label>
+                  <label class="ta-only ta-text"><input type="radio" name="q10-1"> தேர்வு பதில்கள்</label>
+                </div>
+              </div>
+              <div class="quiz-q">
+                <p class="en-only">2. Capstone: Looking back across all 10 modules, which tool did you find most useful, and how will you use it in the next month?</p>
+                <p class="ta-only ta-text">2. இறுதி பிரதிபலிப்பு: 10 பாடங்களையும் திரும்பிப் பார்க்கும்போது, எந்த கருவி மிகவும் பயனுள்ளதாக இருந்தது, அடுத்த மாதம் அதை எப்படி பயன்படுத்துவீர்கள்?</p>
+                <textarea class="reflect" placeholder="Type your answer here / உங்கள் பதிலை இங்கே தட்டச்சு செய்யவும்"></textarea>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <button class="mark-done-btn" onclick="markDone(this, 10)" data-en="Mark Module 10 Complete" data-ta="பாடம் 10 முடிந்ததாக குறிக்கவும்"></button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="addon-card">
+    <h3 data-en="Want to test your critical thinking skills?" data-ta="உங்கள் விமர்சன சிந்தனை திறனை சோதிக்க விரும்புகிறீர்களா?"></h3>
+    <p data-en="Take our full Critical Thinking Self-Assessment for a detailed bilingual report on your Bias Awareness, Logical Reasoning, Root-Cause Analysis, and Decision-Making skills."
+       data-ta="உங்கள் தப்பெண்ண விழிப்புணர்வு, தர்க்க பகுத்தறிவு, மூல காரண பகுப்பாய்வு, முடிவெடுக்கும் திறன் ஆகியவற்றின் விரிவான இரு-மொழி அறிக்கைக்கு எங்கள் முழுமையான மதிப்பீட்டை மேற்கொள்ளுங்கள்."></p>
+    <a class="btn-primary-link" href="critical-thinking-assessment.html" onclick="logToSheet('assessment_link_click','')"
+       data-en="Take the Self-Assessment →" data-ta="சுய மதிப்பீட்டை மேற்கொள்ளுங்கள் →"></a>
+  </div>
+</main>
+
+<a class="whatsapp-cta" href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20the%20Critical%20Thinking%20%26%20Problem%20Solving%20course" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<footer>
+  <div data-en="NT Somasundaram — Certified Master Trainer &amp; Life Skills Educator" data-ta="என்.டி. சோமசுந்தரம் — சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் &amp; வாழ்க்கை திறன் கல்வியாளர்"></div>
+  <div style="margin-top:6px;">
+    📞 +91 98437 02244 &nbsp;|&nbsp;
+    ✉️ somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp;
+    <a href="https://sites.google.com/view/somasundaramnt" target="_blank">sites.google.com/view/somasundaramnt</a>
+  </div>
+</footer>
+
+<script>
+  const TOTAL_MODULES = 10;
+  const STORAGE_KEY = 'ctps_progress_v1';
+  const LANG_KEY = 'ctps_lang';
+  const SHEET_LOG_URL = 'https://script.google.com/macros/s/AKfycbz28ncsMBY9jyCoP0IZGrY3fVHxC8jUU4VI2SXlsojTH-tlysuqev-OY11weO7_r41-vA/exec';
+
+  function getProgress(){
+    try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }catch(e){ return {}; }
+  }
+  function saveProgress(p){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+  }
+
+  function logToSheet(eventType, detail){
+    try{
+      const img = new Image();
+      const params = new URLSearchParams({
+        event: eventType,
+        detail: detail || '',
+        course: 'Critical Thinking & Problem Solving',
+        ts: new Date().toISOString()
+      });
+      // CORS-safe pixel-GET logging pattern
+      img.src = SHEET_LOG_URL + '?' + params.toString();
+    }catch(e){ /* fail silently, never block UX */ }
+  }
+
+  function toggleModule(headerEl){
+    const mod = headerEl.parentElement;
+    const isOpen = mod.classList.contains('open');
+    document.querySelectorAll('.module.open').forEach(m => { if(m!==mod) m.classList.remove('open'); });
+    mod.classList.toggle('open', !isOpen);
+    const body = mod.querySelector('.module-body');
+    if(!isOpen){
+      body.style.maxHeight = body.scrollHeight + 200 + 'px';
+      logToSheet('module_open', 'Module ' + mod.dataset.mod);
+    } else {
+      body.style.maxHeight = '0px';
+    }
+  }
+
+  function markDone(btn, modNum){
+    const progress = getProgress();
+    progress[modNum] = true;
+    saveProgress(progress);
+    const modEl = document.querySelector('.module[data-mod="'+modNum+'"]');
+    modEl.classList.add('done');
+    btn.disabled = true;
+    const lang = document.body.classList.contains('ta') ? 'ta' : 'en';
+    btn.textContent = lang === 'ta' ? '✓ முடிந்தது' : '✓ Completed';
+    updateProgressBar();
+    logToSheet('module_complete', 'Module ' + modNum);
+  }
+
+  function updateProgressBar(){
+    const progress = getProgress();
+    const completedCount = Object.keys(progress).filter(k => progress[k]).length;
+    const pct = Math.round((completedCount / TOTAL_MODULES) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    const lang = document.body.classList.contains('ta') ? 'ta' : 'en';
+    const label = lang === 'ta'
+      ? completedCount + ' / ' + TOTAL_MODULES + ' பாடங்கள் முடிந்தன'
+      : completedCount + ' / ' + TOTAL_MODULES + ' modules complete';
+    document.getElementById('progressLabel').innerHTML = label;
+  }
+
+  function restoreProgress(){
+    const progress = getProgress();
+    Object.keys(progress).forEach(modNum => {
+      if(progress[modNum]){
+        const modEl = document.querySelector('.module[data-mod="'+modNum+'"]');
+        if(modEl){
+          modEl.classList.add('done');
+          const btn = modEl.querySelector('.mark-done-btn');
+          if(btn){
+            btn.disabled = true;
+            const lang = document.body.classList.contains('ta') ? 'ta' : 'en';
+            btn.textContent = lang === 'ta' ? '✓ முடிந்தது' : '✓ Completed';
+          }
+        }
+      }
+    });
+    updateProgressBar();
+  }
+
+  function setLang(lang){
+    document.body.classList.toggle('ta', lang === 'ta');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ta').classList.toggle('active', lang === 'ta');
+    localStorage.setItem(LANG_KEY, lang);
+
+    // Update elements using data-en / data-ta attributes (titles, labels, buttons)
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = lang === 'ta' ? el.getAttribute('data-ta') : el.getAttribute('data-en');
+      if(text !== null && text !== '') el.innerHTML = text;
+    });
+
+    // Refresh "completed" button labels to match language
+    document.querySelectorAll('.module.done .mark-done-btn').forEach(btn => {
+      btn.textContent = lang === 'ta' ? '✓ முடிந்தது' : '✓ Completed';
+    });
+
+    // Recompute open module heights since text length changes
+    document.querySelectorAll('.module.open .module-body').forEach(body => {
+      body.style.maxHeight = body.scrollHeight + 200 + 'px';
+    });
+
+    updateProgressBar();
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    const savedLang = localStorage.getItem(LANG_KEY) || 'en';
+    setLang(savedLang);
+    restoreProgress();
+    logToSheet('page_view', '');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Critical Thinking &amp; Problem Solving Course | NT Somasundaram Life Skills Program</title>
+<meta name="description" content="A bilingual 10-module course for students in Classes 8-12 to build critical thinking, bias awareness, logical reasoning, and problem-solving skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --marigold:#E8A33D;
+    --marigold-dark:#C97F1E;
+    --ink:#2B2118;
+    --ink-soft:#5A4E42;
+    --cream:#FFF8EE;
+    --card:#FFFFFF;
+    --border:#EFE1CB;
+    --green:#3F7A5B;
+    --blue:#3D6E8C;
+    --purple:#7B5C9E;
+    --shadow: 0 8px 24px rgba(93, 64, 20, 0.08);
+  }
+  *{box-sizing:border-box;}
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Poppins', sans-serif;
+    line-height:1.65;
+  }
+  body.ta, .ta-text{ font-family:'Noto Sans Tamil','Poppins', sans-serif; }
+  section{ padding:56px 20px; }
+  .container{ max-width:960px; margin:0 auto; }
+  h1,h2,h3{ font-family:'Fraunces', serif; color:var(--marigold-dark); }
+
+  .lang-toggle{
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:center; gap:8px;
+    background:rgba(255,248,238,0.95);
+    backdrop-filter:blur(4px);
+    padding:10px;
+    border-bottom:1px solid var(--border);
+  }
+  .lang-toggle button{
+    border:1.5px solid var(--marigold); background:transparent; color:var(--marigold-dark);
+    padding:8px 20px; border-radius:24px; font-family:inherit; font-weight:600; font-size:14px; cursor:pointer;
+  }
+  .lang-toggle button.active{ background:var(--marigold); color:#fff; }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg, #FFF3DE 0%, #FFE8C2 100%);
+    text-align:center;
+    padding:64px 20px 50px;
+    border-bottom:3px solid var(--marigold);
+  }
+  .hero .eyebrow{
+    display:inline-block; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+    font-weight:700; color:var(--marigold-dark); background:#FCEFD9; padding:5px 14px;
+    border-radius:20px; margin-bottom:16px;
+  }
+  .hero h1{ font-size:clamp(28px, 5.5vw, 46px); margin:0 0 14px; line-height:1.2; }
+  .hero p.sub{ font-size:16.5px; color:var(--ink-soft); max-width:640px; margin:0 auto 28px; }
+  .hero-ctas{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn-primary{
+    display:inline-block; background:var(--marigold); color:#fff; text-decoration:none;
+    padding:14px 30px; border-radius:26px; font-weight:600; font-size:15px;
+  }
+  .btn-primary:hover{ background:var(--marigold-dark); }
+  .btn-outline{
+    display:inline-block; background:transparent; color:var(--marigold-dark); text-decoration:none;
+    border:1.5px solid var(--marigold); padding:13px 28px; border-radius:26px; font-weight:600; font-size:15px;
+  }
+  .btn-outline:hover{ background:#FFF3DE; }
+  .motto{ font-style:italic; color:var(--green); font-weight:500; font-size:13.5px; margin-top:22px; }
+
+  /* LIVE ZOOM PROGRAM PROMO */
+  .live-zoom-banner{
+    background:linear-gradient(135deg,#FFECEA,#FFF6E8);
+    border-top:3px solid var(--red, #B8543A);
+    border-bottom:3px solid var(--red, #B8543A);
+    padding:44px 20px;
+  }
+  .live-badge{
+    display:inline-flex; align-items:center; gap:6px; background:#B8543A; color:#fff;
+    font-size:12px; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    padding:5px 14px; border-radius:20px; margin-bottom:14px;
+  }
+  .live-dot{
+    width:8px; height:8px; border-radius:50%; background:#fff; animation:pulseDot 1.4s infinite;
+  }
+  @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.3;} }
+  .live-zoom-card{
+    background:#fff; border:1.5px solid #F0C9BE; border-radius:18px; padding:28px 26px;
+    max-width:720px; margin:20px auto 0; box-shadow:var(--shadow);
+  }
+  .live-zoom-card h3{ color:#B8543A; margin-top:0; }
+  .live-zoom-meta{
+    display:flex; flex-wrap:wrap; gap:14px; margin:16px 0; justify-content:center;
+  }
+  .live-zoom-meta div{
+    background:#FFF3F0; border-radius:10px; padding:10px 16px; font-size:13px; color:var(--ink-soft);
+    text-align:center; min-width:130px;
+  }
+  .live-zoom-meta div .label{ display:block; font-weight:700; color:#B8543A; font-size:11.5px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:2px; }
+  .live-zoom-highlights{ margin:16px 0; padding-left:22px; }
+  .live-zoom-highlights li{ font-size:13.5px; color:var(--ink-soft); margin-bottom:6px; }
+  .btn-live{
+    display:inline-block; background:#B8543A; color:#fff; text-decoration:none;
+    padding:13px 30px; border-radius:26px; font-weight:600; font-size:15px; margin-top:6px;
+  }
+  .btn-live:hover{ background:#973F29; }
+  .seats-note{ font-size:12.5px; color:#B8543A; font-weight:600; margin-top:12px; }
+
+  /* WHY IT MATTERS */
+  .why-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:18px; margin-top:26px; }
+  .why-card{ background:var(--card); border:1px solid var(--border); border-radius:14px; padding:20px; box-shadow:var(--shadow); }
+  .why-card .icon{ font-size:26px; margin-bottom:8px; }
+  .why-card h4{ font-family:'Poppins',sans-serif; font-weight:600; font-size:15.5px; color:var(--ink); margin:0 0 6px; }
+  .why-card p{ font-size:13.5px; color:var(--ink-soft); margin:0; }
+
+  /* MODULES */
+  .modules-section{ background:#FFFDF8; }
+  .module-list{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; margin-top:24px; }
+  .module-item{
+    display:flex; gap:12px; align-items:flex-start; background:var(--card); border:1px solid var(--border);
+    border-radius:12px; padding:14px 16px; box-shadow:var(--shadow);
+  }
+  .module-num-badge{
+    flex:0 0 auto; width:30px; height:30px; border-radius:50%; background:var(--marigold); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px;
+  }
+  .module-item .m-title{ font-weight:600; font-size:14.5px; color:var(--ink); margin-bottom:3px; }
+  .module-item .m-desc{ font-size:12.5px; color:var(--ink-soft); }
+
+  /* WHO / SKILLS */
+  .skills-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-top:24px; }
+  .skill-card{
+    text-align:center; background:var(--card); border:1px solid var(--border); border-radius:14px;
+    padding:22px 16px; box-shadow:var(--shadow);
+  }
+  .skill-card .icon{ font-size:30px; margin-bottom:10px; }
+  .skill-card h4{ font-family:'Poppins',sans-serif; font-weight:600; font-size:14.5px; color:var(--ink); margin:0 0 6px; }
+  .skill-card p{ font-size:12.5px; color:var(--ink-soft); margin:0; }
+
+  /* HOW IT WORKS */
+  .steps{ display:flex; flex-direction:column; gap:14px; margin-top:26px; }
+  .step{ display:flex; gap:16px; align-items:flex-start; background:var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 20px; box-shadow:var(--shadow); }
+  .step-num{
+    flex:0 0 auto; width:36px; height:36px; border-radius:50%; background:var(--green); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;
+  }
+  .step h4{ font-family:'Poppins',sans-serif; font-weight:600; font-size:15px; color:var(--ink); margin:0 0 4px; }
+  .step p{ font-size:13.5px; color:var(--ink-soft); margin:0; }
+
+  /* ASSESSMENT TEASER */
+  .assessment-teaser{
+    background:linear-gradient(135deg,#F4F9F1,#E9F3E4); border:1px solid #D3E6CB; border-radius:18px;
+    padding:32px 28px; text-align:center; margin-top:10px;
+  }
+  .assessment-teaser h3{ color:var(--green); }
+
+  /* ENROLL / CONTACT */
+  .enroll-section{ background:linear-gradient(135deg, #FFF3DE 0%, #FFE8C2 100%); text-align:center; }
+  .enroll-box{
+    background:#fff; border:1.5px solid var(--marigold); border-radius:18px; padding:32px 26px;
+    max-width:520px; margin:26px auto 0; box-shadow:var(--shadow);
+  }
+  .contact-line{ font-size:13.5px; color:var(--ink-soft); margin-top:16px; }
+  .contact-line a{ color:var(--marigold-dark); text-decoration:none; font-weight:600; }
+
+  footer{ text-align:center; padding:30px 18px 50px; color:var(--ink-soft); font-size:13px; background:var(--cream); }
+  footer a{ color:var(--marigold-dark); text-decoration:none; font-weight:600; }
+
+  .whatsapp-cta{
+    position:fixed; bottom:20px; right:20px; background:#25D366; color:#fff;
+    width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 6px 16px rgba(0,0,0,0.2); text-decoration:none; font-size:26px; z-index:60;
+  }
+
+  .section-title{ text-align:center; }
+  .section-title p.sub{ text-align:center; color:var(--ink-soft); font-size:14.5px; max-width:600px; margin:8px auto 0; }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+  <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="eyebrow" data-en="For Students · Classes 8–12" data-ta="மாணவர்களுக்காக · வகுப்பு 8–12"></div>
+  <h1 data-en="Critical Thinking &amp; Problem Solving" data-ta="விமர்சன சிந்தனை &amp; பிரச்சனை தீர்வு"></h1>
+  <p class="sub" data-en="A bilingual 10-module course that helps students think clearly, question wisely, spot bias, and solve real-life problems with confidence."
+     data-ta="தெளிவாக சிந்திக்கவும், புத்திசாலித்தனமாக கேள்வி கேட்கவும், தப்பெண்ணங்களை கண்டறியவும், நிஜ வாழ்க்கை பிரச்சனைகளை நம்பிக்கையுடன் தீர்க்கவும் மாணவர்களுக்கு உதவும் இரு-மொழி 10-பாட நிரல்."></p>
+  <div class="hero-ctas">
+    <a class="btn-primary" href="critical-thinking-course.html" onclick="logToSheet('landing_start_course_click','')"
+       data-en="Start the Course →" data-ta="பாடநெறியை தொடங்குங்கள் →"></a>
+    <a class="btn-outline" href="critical-thinking-assessment.html" onclick="logToSheet('landing_assessment_click','')"
+       data-en="Take the Free Assessment" data-ta="இலவச மதிப்பீட்டை மேற்கொள்ளுங்கள்"></a>
+  </div>
+  <div class="motto" data-en="God is always with u" data-ta="கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"></div>
+</header>
+
+<!-- LIVE ZOOM PROGRAM PROMO -->
+<section class="live-zoom-banner">
+  <div class="container" style="text-align:center;">
+    <div class="live-badge"><span class="live-dot"></span>
+      <span data-en="Live on Zoom" data-ta="Zoom-ல் நேரடியாக"></span>
+    </div>
+    <h2 style="margin:0 0 6px; color:#B8543A;" data-en="Student Empowerment Program" data-ta="மாணவர் மேம்பாட்டு நிகழ்ச்சி"></h2>
+    <p style="color:var(--ink-soft); font-size:14.5px; max-width:600px; margin:0 auto;"
+       data-en="Join NT Somasundaram live for an interactive session that brings this course to life — real-time discussion, live Q&amp;A, and guided practice with other students."
+       data-ta="இந்த பாடநெறியை உயிர்ப்புடன் கொண்டுவரும் ஒரு ஊடாடும் அமர்வுக்கு என்.டி. சோமசுந்தரத்துடன் நேரடியாக இணையுங்கள் — நேரடி விவாதம், நேரடி கேள்வி-பதில், மற்றும் மற்ற மாணவர்களுடன் வழிகாட்டப்பட்ட பயிற்சி."></p>
+
+    <div class="live-zoom-card">
+      <h3 data-en="Live Critical Thinking &amp; Problem Solving Workshop" data-ta="நேரடி விமர்சன சிந்தனை &amp; பிரச்சனை தீர்வு பட்டறை"></h3>
+      <p style="color:var(--ink-soft); font-size:14px;"
+         data-en="Part of the ongoing Student Empowerment Program — a live, guided session covering the core tools from this course with real-time practice and personal feedback."
+         data-ta="தொடரும் மாணவர் மேம்பாட்டு நிகழ்ச்சியின் ஒரு பகுதி — இந்த பாடநெறியின் முக்கிய கருவிகளை நேரடி பயிற்சி மற்றும் தனிப்பட்ட கருத்துடன் உள்ளடக்கிய ஒரு நேரடி, வழிகாட்டப்பட்ட அமர்வு."></p>
+
+      <div class="live-zoom-meta">
+        <div><span class="label" data-en="Format" data-ta="வடிவம்"></span>Zoom · <span data-en="Live" data-ta="நேரடி"></span></div>
+        <div><span class="label" data-en="Language" data-ta="மொழி"></span><span data-en="English &amp; Tamil" data-ta="ஆங்கிலம் &amp; தமிழ்"></span></div>
+        <div><span class="label" data-en="For" data-ta="யாருக்கு"></span><span data-en="Classes 8–12" data-ta="வகுப்பு 8–12"></span></div>
+        <div><span class="label" data-en="Next Batch" data-ta="அடுத்த தொகுதி"></span><span data-en="Contact us for dates" data-ta="தேதிகளுக்கு தொடர்பு கொள்ளுங்கள்"></span></div>
+      </div>
+
+      <ul class="live-zoom-highlights">
+        <li class="en-only">Live walkthrough of key frameworks (5 Whys, Problem-Solving Framework, Pause-Weigh-Choose)</li>
+        <li class="en-only">Real-time Q&amp;A directly with NT Somasundaram</li>
+        <li class="en-only">Interactive activities with other students, not just one-way lecture</li>
+        <li class="ta-only ta-text">முக்கிய கட்டமைப்புகளின் நேரடி விளக்கம் (5 ஏன்கள், பிரச்சனை தீர்வு கட்டமைப்பு, நிறுத்து-எடைபோடு-தேர்ந்தெடு)</li>
+        <li class="ta-only ta-text">என்.டி. சோமசுந்தரத்துடன் நேரடி கேள்வி-பதில்</li>
+        <li class="ta-only ta-text">ஒருதலைப்பட்ச விரிவுரை மட்டுமல்லாமல், மற்ற மாணவர்களுடன் ஊடாடும் செயல்பாடுகள்</li>
+      </ul>
+
+      <a class="btn-live" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20join%20the%20next%20Student%20Empowerment%20Program%20live%20Zoom%20session%20on%20Critical%20Thinking%20%26%20Problem%20Solving" target="_blank" onclick="logToSheet('landing_zoom_register_click','')"
+         data-en="Reserve My Seat on WhatsApp →" data-ta="வாட்ஸ்அப்பில் என் இடத்தை பதிவு செய்யுங்கள் →"></a>
+      <div class="seats-note" data-en="Seats are limited to keep the session interactive." data-ta="அமர்வை ஊடாடும் விதத்தில் வைத்திருக்க இடங்கள் வரையறுக்கப்பட்டுள்ளன."></div>
+    </div>
+  </div>
+</section>
+
+
+<main>
+
+  <!-- WHY IT MATTERS -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2 data-en="Why Critical Thinking Matters" data-ta="விமர்சன சிந்தனை ஏன் முக்கியம்"></h2>
+        <p class="sub" data-en="Most students react to information instantly — believing rumors, following the crowd, or panicking under pressure. This course builds the pause between reacting and deciding."
+           data-ta="பெரும்பாலான மாணவர்கள் தகவலுக்கு உடனடியாக எதிர்வினையாற்றுகிறார்கள் — வதந்திகளை நம்புதல், கூட்டத்தை பின்பற்றுதல், அல்லது அழுத்தத்தில் பீதியடைதல். இந்த பாடநெறி எதிர்வினையாற்றுவதற்கும் முடிவெடுப்பதற்கும் இடையேயான இடைவெளியை உருவாக்குகிறது."></p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="icon">🎯</div>
+          <h4 data-en="Better Exam Decisions" data-ta="சிறந்த தேர்வு முடிவுகள்"></h4>
+          <p data-en="Stay calm and think clearly under exam pressure instead of panicking." data-ta="தேர்வு அழுத்தத்தில் பீதியடையாமல் அமைதியாக தெளிவாக சிந்தியுங்கள்."></p>
+        </div>
+        <div class="why-card">
+          <div class="icon">🛡️</div>
+          <h4 data-en="Spot Misinformation" data-ta="தவறான தகவலை கண்டறிதல்"></h4>
+          <p data-en="Learn to verify claims before believing or forwarding them." data-ta="நம்புவதற்கு அல்லது அனுப்புவதற்கு முன் கூற்றுகளை சரிபார்க்க கற்றுக்கொள்ளுங்கள்."></p>
+        </div>
+        <div class="why-card">
+          <div class="icon">🧭</div>
+          <h4 data-en="Handle Peer Pressure" data-ta="சக அழுத்தத்தை கையாளுதல்"></h4>
+          <p data-en="Make decisions based on your own goals, not group pressure." data-ta="குழு அழுத்தத்தை அடிப்படையாக கொள்ளாமல் உங்கள் சொந்த இலக்குகளின் அடிப்படையில் முடிவெடுங்கள்."></p>
+        </div>
+        <div class="why-card">
+          <div class="icon">🧩</div>
+          <h4 data-en="Solve Problems Systematically" data-ta="முறையாக பிரச்சனைகளை தீர்த்தல்"></h4>
+          <p data-en="Use a repeatable framework instead of guessing or reacting emotionally." data-ta="யூகிப்பதற்கு அல்லது உணர்ச்சிவசப்படுவதற்கு பதிலாக மீண்டும் பயன்படுத்தக்கூடிய கட்டமைப்பை பயன்படுத்துங்கள்."></p>
+        </div>
+      </div>
+  <!-- MODULES -->
+  <section class="modules-section" id="modules">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-en="What You'll Learn — 10 Modules" data-ta="நீங்கள் கற்றுக்கொள்வது — 10 பாடங்கள்"></h2>
+        <p class="sub" data-en="Each module includes a clear explanation, a relatable metaphor, real-life examples, and a quick-check quiz."
+           data-ta="ஒவ்வொரு பாடத்திலும் தெளிவான விளக்கம், தொடர்பான உவமை, நிஜ வாழ்க்கை உதாரணங்கள், சிறு வினாடி-வினா ஆகியவை உள்ளன."></p>
+      </div>
+      <div class="module-list">
+        <div class="module-item"><div class="module-num-badge">1</div><div><div class="m-title" data-en="What Is Critical Thinking?" data-ta="விமர்சன சிந்தனை என்றால் என்ன?"></div><div class="m-desc" data-en="Observation, analysis, reasoning &amp; reflection" data-ta="கவனிப்பு, பகுப்பாய்வு, பகுத்தறிவு &amp; மீள்பார்வை"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">2</div><div><div class="m-title" data-en="Spotting Assumptions &amp; Bias" data-ta="தப்பெண்ணங்கள் &amp; பாரபட்சத்தை கண்டறிதல்"></div><div class="m-desc" data-en="Confirmation bias &amp; herd mentality" data-ta="உறுதிப்படுத்தல் பாரபட்சம் &amp; கூட்டு மனநிலை"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">3</div><div><div class="m-title" data-en="Asking Better Questions" data-ta="சிறந்த கேள்விகளை கேட்பது"></div><div class="m-desc" data-en="The 5 Whys technique" data-ta="5 ஏன்கள் உத்தி"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">4</div><div><div class="m-title" data-en="Evaluating Information &amp; Sources" data-ta="தகவல் &amp; ஆதாரங்களை மதிப்பீடு செய்தல்"></div><div class="m-desc" data-en="Fact vs. opinion, spotting misinformation" data-ta="உண்மை vs. கருத்து, தவறான தகவலை கண்டறிதல்"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">5</div><div><div class="m-title" data-en="Logical Reasoning Basics" data-ta="தர்க்க பகுத்தறிவு அடிப்படைகள்"></div><div class="m-desc" data-en="Correlation vs. causation, fallacies" data-ta="தொடர்பு vs. காரணம், தவறான பகுத்தறிவுகள்"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">6</div><div><div class="m-title" data-en="The Problem-Solving Framework" data-ta="பிரச்சனை தீர்வு கட்டமைப்பு"></div><div class="m-desc" data-en="Define → Analyze → Generate → Decide → Reflect" data-ta="வரையறு → பகுப்பாய்வு → உருவாக்கு → முடிவெடு → பரிசீலனை"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">7</div><div><div class="m-title" data-en="Creative &amp; Lateral Thinking" data-ta="ஆக்கபூர்வ &amp; பக்கவாட்டு சிந்தனை"></div><div class="m-desc" data-en="Reverse thinking &amp; combining ideas" data-ta="தலைகீழ் சிந்தனை &amp; எண்ணங்களை இணைத்தல்"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">8</div><div><div class="m-title" data-en="Decision-Making Under Pressure" data-ta="அழுத்தத்தில் முடிவெடுத்தல்"></div><div class="m-desc" data-en="The pause-weigh-choose method" data-ta="நிறுத்து-எடைபோடு-தேர்ந்தெடு முறை"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">9</div><div><div class="m-title" data-en="Real-Life Case Studies" data-ta="நிஜ வாழ்க்கை வழக்கு ஆய்வுகள்"></div><div class="m-desc" data-en="India-relevant academic, family &amp; social media dilemmas" data-ta="இந்திய-சார்ந்த கல்வி, குடும்பம் &amp; சமூக ஊடக சூழல்கள்"></div></div></div>
+        <div class="module-item"><div class="module-num-badge">10</div><div><div class="m-title" data-en="Building a Critical Thinking Habit" data-ta="விமர்சன சிந்தனை பழக்கத்தை உருவாக்குதல்"></div><div class="m-desc" data-en="Daily journaling &amp; the 24-hour rule" data-ta="தினசரி நாட்குறிப்பு &amp; 24-மணி நேர விதி"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR / SKILLS -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2 data-en="Skills You'll Build" data-ta="நீங்கள் வளர்க்கும் திறன்கள்"></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card"><div class="icon">🕵️</div><h4 data-en="Bias Awareness" data-ta="தப்பெண்ண விழிப்புணர்வு"></h4><p data-en="Notice your own mental shortcuts" data-ta="உங்கள் சொந்த மனநிலை குறுக்குவழிகளை கவனியுங்கள்"></p></div>
+        <div class="skill-card"><div class="icon">🧠</div><h4 data-en="Logical Reasoning" data-ta="தர்க்க பகுத்தறிவு"></h4><p data-en="Connect ideas without falling for fallacies" data-ta="தவறான பகுத்தறிவுகளில் விழாமல் எண்ணங்களை இணைக்கவும்"></p></div>
+        <div class="skill-card"><div class="icon">🔍</div><h4 data-en="Root-Cause Analysis" data-ta="மூல காரண பகுப்பாய்வு"></h4><p data-en="Dig past symptoms to find real causes" data-ta="உண்மையான காரணங்களை கண்டறிய அறிகுறிகளை தாண்டி செல்லுங்கள்"></p></div>
+        <div class="skill-card"><div class="icon">⚖️</div><h4 data-en="Decision-Making" data-ta="முடிவெடுத்தல்"></h4><p data-en="Choose well, even under pressure" data-ta="அழுத்தத்திலும் நன்றாக தேர்ந்தெடுங்கள்"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="modules-section">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-en="How It Works" data-ta="இது எப்படி செயல்படுகிறது"></h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <h4 data-en="Learn at your own pace" data-ta="உங்கள் சொந்த வேகத்தில் கற்றுக்கொள்ளுங்கள்"></h4>
+            <p data-en="Open any module, anytime — in English or Tamil — with clear explanations, metaphors, and examples." data-ta="எந்த நேரத்திலும் — ஆங்கிலம் அல்லது தமிழில் — தெளிவான விளக்கங்கள், உவமைகள், உதாரணங்களுடன் எந்த பாடத்தையும் திறக்கவும்."></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <h4 data-en="Practice with quick-check quizzes" data-ta="சிறு வினாடி-வினாக்களுடன் பயிற்சி செய்யுங்கள்"></h4>
+            <p data-en="Each module ends with short questions and reflection prompts to lock in what you've learned." data-ta="ஒவ்வொரு பாடமும் நீங்கள் கற்றதை உறுதிப்படுத்த சிறு கேள்விகள் மற்றும் பரிசீலனை கேள்விகளுடன் முடிவடைகிறது."></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <h4 data-en="Track your progress" data-ta="உங்கள் முன்னேற்றத்தை கண்காணிக்கவும்"></h4>
+            <p data-en="Mark modules complete and watch your progress bar fill up as you go." data-ta="பாடங்களை முடிந்ததாக குறித்து, நீங்கள் முன்னேறும்போது உங்கள் முன்னேற்ற பட்டி நிரம்புவதை பாருங்கள்."></p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <h4 data-en="Get a personal skills report" data-ta="தனிப்பட்ட திறன் அறிக்கையை பெறுங்கள்"></h4>
+            <p data-en="Take the free self-assessment for a bilingual report with a radar chart and personalized improvement tips." data-ta="ரேடார் விளக்கப்படம் மற்றும் தனிப்பயனாக்கப்பட்ட மேம்பாட்டு யோசனைகளுடன் இரு-மொழி அறிக்கைக்கு இலவச சுய மதிப்பீட்டை மேற்கொள்ளுங்கள்."></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT TEASER -->
+  <section>
+    <div class="container">
+      <div class="assessment-teaser">
+        <h3 data-en="Not sure where you stand?" data-ta="நீங்கள் எங்கு நிற்கிறீர்கள் என்று உறுதியாக தெரியவில்லையா?"></h3>
+        <p style="color:var(--ink-soft); font-size:14.5px; max-width:520px; margin:8px auto 20px;"
+           data-en="Take our free 20-question Critical Thinking Self-Assessment first. You'll get a personalized bilingual report showing your strengths and growth areas across all four skill areas — before you even start the course."
+           data-ta="முதலில் எங்கள் இலவச 20-கேள்வி விமர்சன சிந்தனை சுய மதிப்பீட்டை மேற்கொள்ளுங்கள். பாடநெறியை தொடங்குவதற்கு முன்பே, நான்கு திறன் பகுதிகளிலும் உங்கள் பலங்கள் மற்றும் வளர்ச்சி பகுதிகளை காட்டும் தனிப்பயனாக்கப்பட்ட இரு-மொழி அறிக்கையை பெறுவீர்கள்."></p>
+        <a class="btn-primary" style="background:var(--green);" href="critical-thinking-assessment.html" onclick="logToSheet('landing_assessment_click','')"
+           data-en="Take the Free Assessment →" data-ta="இலவச மதிப்பீட்டை மேற்கொள்ளுங்கள் →"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENROLL / CONTACT -->
+  <section class="enroll-section">
+    <div class="container">
+      <h2 data-en="Ready to Get Started?" data-ta="தொடங்க தயாரா?"></h2>
+      <p class="sub" style="max-width:560px; margin:8px auto 0;" data-en="Start learning right away, or reach out for guided enrollment, school partnerships, or group workshops."
+         data-ta="உடனடியாக கற்றுக்கொள்ள தொடங்குங்கள், அல்லது வழிகாட்டப்பட்ட சேர்க்கை, பள்ளி கூட்டாண்மைகள், அல்லது குழு பட்டறைகளுக்கு எங்களை தொடர்பு கொள்ளுங்கள்."></p>
+
+      <div class="enroll-box">
+        <a class="btn-primary" href="critical-thinking-course.html" onclick="logToSheet('landing_start_course_click','')"
+           style="width:100%; text-align:center; display:block; margin-bottom:12px;"
+           data-en="Start the Course Now →" data-ta="இப்போதே பாடநெறியை தொடங்குங்கள் →"></a>
+        <a class="btn-outline" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Critical%20Thinking%20%26%20Problem%20Solving%20course" target="_blank"
+           style="width:100%; text-align:center; display:block; box-sizing:border-box;"
+           data-en="💬 Chat on WhatsApp" data-ta="💬 வாட்ஸ்அப்பில் அரட்டையடிக்கவும்"></a>
+        <div class="contact-line">
+          📞 +91 98437 02244 &nbsp;|&nbsp; ✉️ somasundaramnt.lifecoach@gmail.com<br>
+          <a href="https://sites.google.com/view/somasundaramnt" target="_blank">sites.google.com/view/somasundaramnt</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<a class="whatsapp-cta" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Critical%20Thinking%20%26%20Problem%20Solving%20course" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<footer>
+  <div data-en="NT Somasundaram — Certified Master Trainer &amp; Life Skills Educator" data-ta="என்.டி. சோமசுந்தரம் — சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் &amp; வாழ்க்கை திறன் கல்வியாளர்"></div>
+  <div style="margin-top:6px;">
+    📞 +91 98437 02244 &nbsp;|&nbsp;
+    ✉️ somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp;
+    <a href="https://sites.google.com/view/somasundaramnt" target="_blank">sites.google.com/view/somasundaramnt</a>
+  </div>
+</footer>
+
+<script>
+  const SHEET_LOG_URL = 'https://script.google.com/macros/s/AKfycbz28ncsMBY9jyCoP0IZGrY3fVHxC8jUU4VI2SXlsojTH-tlysuqev-OY11weO7_r41-vA/exec';
+
+  function logToSheet(eventType, detail){
+    try{
+      const img = new Image();
+      const params = new URLSearchParams({
+        event: eventType, detail: detail || '',
+        tool: 'Critical Thinking Landing Page',
+        ts: new Date().toISOString()
+      });
+      img.src = SHEET_LOG_URL + '?' + params.toString();
+    }catch(e){ /* fail silently */ }
+  }
+
+  function setLang(lang){
+    document.body.classList.toggle('ta', lang === 'ta');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ta').classList.toggle('active', lang === 'ta');
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = lang === 'ta' ? el.getAttribute('data-ta') : el.getAttribute('data-en');
+      if(text !== null && text !== '') el.innerHTML = text;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function(){
+    setLang('en');
+    logToSheet('page_view', '');
+  });
+</script>
+
+</body>
+</html>

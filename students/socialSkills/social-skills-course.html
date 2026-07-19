@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Skills Mastery Course for Students | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1e3a5f; --navy-dark:#12253d; --teal:#2a9d8f; --coral:#e76f51; --gold:#e9c46a;
+    --bg:#f7f9fb; --card:#ffffff; --text:#233142; --muted:#6b7a8d; --border:#e2e8f0;
+    --radius:16px; --shadow:0 4px 20px rgba(18,37,61,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;padding-bottom:40px;}
+  body.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  body.ta [data-en]{display:none;} body.ta [data-ta]{display:inline;}
+  body:not(.ta) [data-ta]{display:none;}
+
+  header{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-dark) 100%);color:#fff;padding:24px 20px 80px;text-align:center;position:relative;overflow:hidden;}
+  header::after{content:"";position:absolute;bottom:-40px;left:0;right:0;height:80px;background:var(--bg);border-radius:50% 50% 0 0/100% 100% 0 0;}
+  .lang-toggle{position:absolute;top:16px;right:16px;display:flex;background:rgba(255,255,255,0.15);border-radius:20px;padding:4px;z-index:5;}
+  .lang-toggle button{border:none;background:transparent;color:#fff;padding:6px 14px;border-radius:16px;font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;}
+  .lang-toggle button.active{background:#fff;color:var(--navy);}
+  .brand{font-size:0.82rem;letter-spacing:1px;opacity:0.85;margin-bottom:8px;}
+  header h1{font-size:1.6rem;font-weight:800;max-width:600px;margin:6px auto 10px;}
+  header p.sub{max-width:520px;margin:0 auto;opacity:0.92;font-size:0.92rem;}
+
+  .container{max-width:760px;margin:-50px auto 0;padding:0 16px;position:relative;z-index:2;}
+
+  /* Progress overview */
+  .progress-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px 22px;margin-bottom:18px;}
+  .progress-bar-track{height:10px;background:#e6ecf1;border-radius:6px;overflow:hidden;margin:10px 0 6px;}
+  .progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),var(--gold));width:0%;transition:width 0.3s;}
+  .progress-text{font-size:0.82rem;color:var(--muted);display:flex;justify-content:space-between;}
+
+  /* Module grid */
+  .module-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:18px;}
+  @media(max-width:520px){.module-grid{grid-template-columns:1fr;}}
+  .module-btn{
+    background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:13px 14px;
+    cursor:pointer;text-align:left;font-family:inherit;display:flex;align-items:center;gap:10px;
+    transition:border-color .15s, background .15s;
+  }
+  .module-btn:hover{border-color:var(--teal);background:#f2fbf9;}
+  .module-btn.active{border-color:var(--teal);background:#e6f6f3;}
+  .module-btn.done{border-color:var(--gold);}
+  .module-btn .mnum{
+    width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:700;
+  }
+  .module-btn.done .mnum{background:var(--gold);color:var(--navy-dark);}
+  .module-btn .mtitle{font-size:0.83rem;font-weight:600;line-height:1.3;}
+  .module-btn .check{margin-left:auto;color:var(--teal);font-weight:800;display:none;}
+  .module-btn.done .check{display:inline;}
+
+  /* Module view */
+  .module-view{display:none;}
+  .module-view.active{display:block;}
+  .module-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 24px;margin-bottom:18px;}
+  .module-card h2{color:var(--navy);font-size:1.3rem;margin-bottom:4px;}
+  .module-card .module-intro{color:var(--muted);font-size:0.9rem;margin-bottom:20px;}
+
+  .subtopic{border-left:4px solid var(--teal);background:#fafcfd;border-radius:0 10px 10px 0;padding:16px 18px;margin-bottom:16px;}
+  .subtopic h3{font-size:1rem;color:var(--navy);margin-bottom:8px;}
+  .subtopic .label{font-size:0.72rem;font-weight:700;letter-spacing:0.5px;color:var(--teal);text-transform:uppercase;margin-bottom:4px;display:block;}
+  .subtopic p{font-size:0.9rem;margin-bottom:10px;}
+  .example-box{background:#fff8ec;border:1px solid #f3e3c0;border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:0.87rem;}
+  .example-box .label{color:var(--coral);}
+  .tips-box{background:#eefaf8;border:1px solid #cdeee8;border-radius:8px;padding:10px 12px;font-size:0.87rem;}
+  .tips-box .label{color:var(--teal);}
+  .tips-box ul{margin-left:18px;margin-top:4px;}
+  .tips-box li{margin-bottom:4px;}
+
+  .btn{display:inline-block;background:var(--teal);color:#fff;border:none;padding:12px 22px;border-radius:10px;font-family:inherit;font-weight:700;font-size:0.92rem;cursor:pointer;text-decoration:none;transition:background .15s;}
+  .btn:hover{background:#238276;}
+  .btn.secondary{background:#fff;color:var(--navy);border:1.5px solid var(--navy);}
+  .btn.secondary:hover{background:#f0f4f8;}
+  .btn.coral{background:var(--coral);}
+  .btn.coral:hover{background:#d15b3c;}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;margin-top:6px;}
+  .mark-done-row{text-align:center;margin-top:6px;}
+
+  .promo{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);color:#fff;border-radius:var(--radius);padding:24px 22px;margin-bottom:18px;text-align:center;position:relative;overflow:hidden;}
+  .promo::before{content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(233,196,106,0.18);border-radius:50%;}
+  .promo h3{font-size:1.1rem;margin-bottom:8px;position:relative;}
+  .promo p{font-size:0.88rem;opacity:0.92;margin-bottom:14px;position:relative;max-width:500px;margin-left:auto;margin-right:auto;}
+
+  footer{text-align:center;color:var(--muted);font-size:0.78rem;padding:20px 20px 0;}
+  footer .motto{color:var(--teal);font-weight:600;margin-bottom:6px;}
+  footer a{color:var(--teal);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+    <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="brand" data-en="">NT SOMASUNDARAM LIFE SKILLS PROGRAM</div>
+  <div class="brand" data-ta="">என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்</div>
+  <h1 data-en="">Social Skills Mastery Course</h1>
+  <h1 data-ta="">சமூக திறன் தேர்ச்சி பாடநெறி</h1>
+  <p class="sub" data-en="">10 easy modules, simple language, real-life examples, and practical tips to help you build stronger friendships and confidence.</p>
+  <p class="sub" data-ta="">வலுவான நட்பையும் நம்பிக்கையையும் வளர்க்க உதவும் 10 எளிய பாடங்கள், எளிய மொழி, நடைமுறை வாழ்க்கை உதாரணங்கள் மற்றும் நடைமுறை ஆலோசனைகள்.</p>
+</header>
+
+<div class="container">
+
+  <div class="progress-card">
+    <div class="progress-text">
+      <span><span data-en="">Your Progress</span><span data-ta="">உங்கள் முன்னேற்றம்</span></span>
+      <span id="progress-count">0 / 10</span>
+    </div>
+    <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-fill"></div></div>
+  </div>
+
+  <div class="module-grid" id="module-grid"></div>
+
+  <div id="modules-container"></div>
+
+  <div class="promo">
+    <h3><span data-en="">🌟 Practice These Skills Live — Students Empowerment Program</span><span data-ta="">🌟 இந்த திறன்களை நேரடியாக பயிற்சி செய்யுங்கள் — மாணவர் மேம்பாட்டு திட்டம்</span></h3>
+    <p><span data-en="">Reading is a great start. Our live Students Empowerment Program sessions help you practice these skills with real feedback and guidance — in Tamil and English.</span><span data-ta="">படிப்பது ஒரு நல்ல தொடக்கம். எங்கள் நேரடி மாணவர் மேம்பாட்டு திட்ட அமர்வுகள், உண்மையான கருத்து மற்றும் வழிகாட்டுதலுடன் இந்த திறன்களை பயிற்சி செய்ய உதவுகின்றன — தமிழ் மற்றும் ஆங்கிலத்தில்.</span></p>
+    <a class="btn coral" id="whatsapp-cta" href="#" target="_blank">
+      <span data-en="">Enquire on WhatsApp</span><span data-ta="">WhatsApp-ல் விசாரிக்கவும்</span>
+    </a>
+  </div>
+
+  <div class="module-card" style="text-align:center;">
+    <h2 style="margin-bottom:10px;"><span data-en="">Check Your Own Social Skills</span><span data-ta="">உங்கள் சொந்த சமூக திறன்களை சரிபார்க்கவும்</span></h2>
+    <p style="color:var(--muted);font-size:0.9rem;margin-bottom:16px;">
+      <span data-en="">Take our free 10-minute assessment to see your strengths and get a personalized report.</span>
+      <span data-ta="">உங்கள் பலங்களைப் பார்க்க மற்றும் தனிப்பயன் அறிக்கையைப் பெற எங்கள் இலவச 10 நிமிட மதிப்பீட்டை எடுங்கள்.</span>
+    </p>
+    <a class="btn secondary" href="PASTE_ASSESSMENT_URL_HERE" target="_blank">
+      <span data-en="">Take the Assessment →</span><span data-ta="">மதிப்பீட்டை எடுங்கள் →</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="motto"><span data-en="">"God is always with u"</span><span data-ta="">"கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"</span></div>
+  <div><span data-en="">NT Somasundaram Life Skills Program</span><span data-ta="">என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்</span></div>
+  <div style="margin-top:8px;">
+    somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp; +91 98437 02244<br>
+    <a href="https://sites.google.com/view/somasundaramnt" target="_blank">sites.google.com/view/somasundaramnt</a>
+  </div>
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "919843702244";
+
+/* ============ COURSE DATA ============ */
+const modules = [
+{
+  title_en:"What Are Social Skills & Why They Matter", title_ta:"சமூக திறன்கள் என்றால் என்ன & அவை ஏன் முக்கியம்",
+  intro_en:"Before learning specific skills, let's understand what social skills really mean and why they shape your whole life.",
+  intro_ta:"குறிப்பிட்ட திறன்களைக் கற்கும் முன், சமூக திறன்கள் உண்மையில் என்ன என்றும் அவை உங்கள் முழு வாழ்க்கையையும் எப்படி வடிவமைக்கின்றன என்றும் புரிந்துகொள்வோம்.",
+  subtopics:[
+    {t_en:"What Social Skills Really Mean", t_ta:"சமூக திறன்கள் உண்மையில் என்ன அர்த்தம்",
+     ex_en:"Social skills are simply the everyday habits you use to talk, listen, and get along with people — at home, school, and with friends.",
+     ex_ta:"சமூக திறன்கள் என்பது வீட்டிலும், பள்ளியிலும், நண்பர்களிடமும் பேசவும், கேட்கவும், பொருந்தி வாழவும் நீங்கள் பயன்படுத்தும் அன்றாட பழக்கங்கள்.",
+     eg_en:"Ramesh greets his classmates every morning and asks how their day is going. That small habit is already a social skill in action.",
+     eg_ta:"ரமேஷ் ஒவ்வொரு காலையிலும் தன் வகுப்பு தோழர்களை வாழ்த்தி, அவர்கள் நாள் எப்படி இருக்கிறது என்று கேட்கிறார். அந்த சிறிய பழக்கமே ஒரு சமூக திறன்தான்.",
+     tips_en:["Notice one social habit you already do well today.","Try greeting one new person this week."],
+     tips_ta:["நீங்கள் ஏற்கனவே நன்றாக செய்யும் ஒரு சமூக பழக்கத்தை இன்று கவனியுங்கள்.","இந்த வாரம் ஒரு புதிய நபரை வாழ்த்த முயற்சி செய்யுங்கள்."]},
+    {t_en:"Why Social Skills Matter for Your Future", t_ta:"உங்கள் எதிர்காலத்திற்கு சமூக திறன்கள் ஏன் முக்கியம்",
+     ex_en:"Good marks help you pass exams, but social skills help you make friends, work in teams, and succeed in interviews and jobs later in life.",
+     ex_ta:"நல்ல மதிப்பெண்கள் தேர்வில் தேர்ச்சி பெற உதவும், ஆனால் சமூக திறன்கள் நண்பர்களை உருவாக்கவும், குழுவில் வேலை செய்யவும், பின்னர் நேர்காணல்களிலும் வேலைகளிலும் வெற்றி பெறவும் உதவும்.",
+     eg_en:"Two students score the same marks, but the one who communicates confidently gets picked as class representative — because people trust how she speaks and listens.",
+     eg_ta:"இரண்டு மாணவர்கள் ஒரே மதிப்பெண் பெறுகிறார்கள், ஆனால் நம்பிக்கையுடன் தொடர்பு கொள்பவர் வகுப்பு பிரதிநிதியாக தேர்வு செய்யப்படுகிறார் — ஏனெனில் அவர் பேசும் மற்றும் கேட்கும் விதத்தை மக்கள் நம்புகிறார்கள்.",
+     tips_en:["List 2 situations this month where social skills mattered as much as marks.","Pick one skill from this course to focus on first."],
+     tips_ta:["இந்த மாதம் மதிப்பெண்களைப் போலவே சமூக திறன்களும் முக்கியமான 2 சூழ்நிலைகளை பட்டியலிடுங்கள்.","இந்த பாடத்திலிருந்து முதலில் கவனம் செலுத்த ஒரு திறனைத் தேர்ந்தெடுங்கள்."]},
+    {t_en:"The 5 Building Blocks (A Quick Preview)", t_ta:"5 அடிப்படை கூறுகள் (ஒரு விரைவான முன்னோட்டம்)",
+     ex_en:"This course covers five building blocks: speaking clearly, listening well, being assertive, showing empathy, and handling conflict and teamwork.",
+     ex_ta:"இந்த பாடநெறி ஐந்து அடிப்படை கூறுகளை உள்ளடக்கியது: தெளிவாக பேசுவது, நன்றாக கேட்பது, உறுதியாக இருப்பது, பரிவு காட்டுவது, மற்றும் முரண்பாடு மற்றும் குழுப்பணியை கையாள்வது.",
+     eg_en:"Think of these five skills like the legs of a table — if one is weak, the whole table wobbles. Strengthening all five keeps your relationships steady.",
+     eg_ta:"இந்த ஐந்து திறன்களையும் ஒரு மேசையின் கால்கள் போல நினைத்துப் பாருங்கள் — ஒன்று பலவீனமாக இருந்தால், மேசை முழுவதும் ஆடும். ஐந்தையும் வலுப்படுத்துவது உங்கள் உறவுகளை உறுதியாக வைத்திருக்கும்.",
+     tips_en:["Skim the module titles below and note which one feels hardest for you.","Come back to that module first if you're short on time."],
+     tips_ta:["கீழே உள்ள பாட தலைப்புகளை பார்த்து, எது உங்களுக்கு கடினமாக உணரப்படுகிறது என்று குறிக்கவும்.","நேரம் குறைவாக இருந்தால் அந்த பாடத்தை முதலில் திரும்பிப் பாருங்கள்."]},
+    {t_en:"Social Skills Can Be Learned, Not Just \"Natural\"", t_ta:"சமூக திறன்களை கற்றுக்கொள்ளலாம், இயற்கையாகவே இருக்க வேண்டியதில்லை",
+     ex_en:"Some people seem naturally outgoing, but most confident, socially skilled people actually practiced and improved over time — just like any other skill.",
+     ex_ta:"சிலர் இயற்கையாகவே வெளிப்படையாக தெரிந்தாலும், நம்பிக்கையுடன் சமூக திறன் கொண்ட பெரும்பாலான மக்கள் காலப்போக்கில் பயிற்சி செய்து முன்னேறியவர்கள்தான் — வேறு எந்த திறனையும் போலவே.",
+     eg_en:"A shy student who joined the debate club felt awkward in week one. By the end of the term, she was volunteering to speak first — because she practiced, not because she was 'born confident'.",
+     eg_ta:"விவாத மன்றத்தில் சேர்ந்த ஒரு வெட்கப்படும் மாணவி முதல் வாரத்தில் சங்கடமாக உணர்ந்தாள். பருவம் முடிவடையும் நேரத்தில், அவள் முதலில் பேச முன்வந்தாள் — ஏனெனில் அவள் பயிற்சி செய்தாள், 'பிறவியிலேயே நம்பிக்கை' கொண்டவளாக இல்லை.",
+     tips_en:["Remind yourself: awkward practice today becomes natural confidence later.","Choose one small social risk to take this week (e.g., asking a question in class)."],
+     tips_ta:["உங்களுக்கே நினைவூட்டுங்கள்: இன்றைய சங்கடமான பயிற்சி பின்னர் இயற்கையான நம்பிக்கையாக மாறும்.","இந்த வாரம் ஒரு சிறிய சமூக ஆபத்தை எடுக்க தேர்ந்தெடுங்கள் (எ.கா., வகுப்பில் ஒரு கேள்வி கேட்பது)."]},
+    {t_en:"Signs You Already Have Good Social Skills", t_ta:"உங்களிடம் ஏற்கனவே நல்ல சமூக திறன்கள் உள்ளன என்பதற்கான அறிகுறிகள்",
+     ex_en:"You don't start from zero. If friends come to you for advice, or you notice when someone is upset, those are already strong social skills.",
+     ex_ta:"நீங்கள் பூஜ்ஜியத்திலிருந்து தொடங்கவில்லை. நண்பர்கள் ஆலோசனைக்காக உங்களிடம் வந்தால், அல்லது ஒருவர் வருத்தமாக இருப்பதை நீங்கள் கவனித்தால், அவை ஏற்கனவே வலுவான சமூக திறன்கள்.",
+     eg_en:"Priya always notices when her friend is quiet at lunch and gently asks if everything is okay. She may not realize it, but that's strong empathy already at work.",
+     eg_ta:"பிரியா, மதிய உணவின்போது தன் நண்பர் அமைதியாக இருப்பதை எப்போதும் கவனித்து, எல்லாம் சரியாக உள்ளதா என்று மென்மையாக கேட்கிறாள். அவளுக்கு தெரியாமலேயே, அது ஏற்கனவே வலுவான பரிவு செயலில் உள்ளது.",
+     tips_en:["Write down 2 social skills you already use well, even if small.","Use this course to build on those strengths, not just fix weaknesses."],
+     tips_ta:["சிறியதாக இருந்தாலும், நீங்கள் ஏற்கனவே நன்றாக பயன்படுத்தும் 2 சமூக திறன்களை எழுதுங்கள்.","பலவீனங்களை சரிசெய்வது மட்டுமல்லாமல், அந்த பலங்களின் மீது இந்த பாடத்தைப் பயன்படுத்துங்கள்."]}
+  ]
+},
+{
+  title_en:"Talking So People Listen", title_ta:"மக்கள் கேட்கும்படி பேசுவது",
+  intro_en:"Clear, confident communication is the foundation of every relationship. Let's break it down into simple, learnable parts.",
+  intro_ta:"தெளிவான, நம்பிக்கையான தொடர்பு ஒவ்வொரு உறவின் அடித்தளம். அதை எளிய, கற்கக்கூடிய பகுதிகளாக பிரிப்போம்.",
+  subtopics:[
+    {t_en:"Speaking Clearly and Simply", t_ta:"தெளிவாகவும் எளிமையாகவும் பேசுவது",
+     ex_en:"Use short sentences and simple words instead of long, complicated ones. People understand and trust you more when you're easy to follow.",
+     ex_ta:"நீண்ட, சிக்கலான வார்த்தைகளுக்கு பதிலாக குறுகிய வாக்கியங்களையும் எளிய வார்த்தைகளையும் பயன்படுத்துங்கள். நீங்கள் புரிந்துகொள்ள எளிதாக இருக்கும்போது மக்கள் உங்களை அதிகம் புரிந்துகொண்டு நம்புகிறார்கள்.",
+     eg_en:"When explaining a homework doubt to a friend, Arjun uses one short sentence at a time instead of one long confusing paragraph — his friend understands immediately.",
+     eg_ta:"ஒரு நண்பருக்கு வீட்டுப்பாட சந்தேகத்தை விளக்கும்போது, அர்ஜுன் ஒரு நீண்ட குழப்பமான பத்திக்கு பதிலாக ஒரு நேரத்தில் ஒரு குறுகிய வாக்கியத்தைப் பயன்படுத்துகிறார் — அவரது நண்பர் உடனடியாக புரிந்துகொள்கிறார்.",
+     tips_en:["Before speaking, think of the one main point you want to make.","Pause between sentences instead of rushing everything together."],
+     tips_ta:["பேசுவதற்கு முன், நீங்கள் சொல்ல விரும்பும் ஒரே முக்கிய கருத்தை நினைத்துப் பாருங்கள்.","எல்லாவற்றையும் அவசரமாக சொல்வதற்கு பதிலாக வாக்கியங்களுக்கு இடையே இடைவெளி விடுங்கள்."]},
+    {t_en:"Your Tone of Voice Matters More Than Words", t_ta:"உங்கள் குரலின் தொனி வார்த்தைகளை விட முக்கியமானது",
+     ex_en:"The same sentence said kindly or rudely feels completely different to the listener. A calm, friendly tone makes people more open to what you say.",
+     ex_ta:"ஒரே வாக்கியத்தை அன்பாகவோ முரட்டுத்தனமாகவோ சொன்னால், கேட்பவருக்கு முற்றிலும் வேறுபட்டதாக உணரும். அமைதியான, நட்பான தொனி மக்களை நீங்கள் சொல்வதற்கு அதிகம் திறந்த மனதுடன் ஆக்குகிறது.",
+     eg_en:"When Meena said 'Can you help me?' in a soft, friendly tone, her classmate happily helped. When she snapped the same words in frustration once, he walked away.",
+     eg_ta:"மீனா 'நீ எனக்கு உதவ முடியுமா?' என்று மென்மையான, நட்பான தொனியில் கேட்டபோது, அவளுடைய வகுப்பு தோழர் மகிழ்ச்சியுடன் உதவினார். ஒருமுறை அதே வார்த்தைகளை எரிச்சலுடன் சொன்னபோது, அவர் விலகிச் சென்றார்.",
+     tips_en:["Record yourself saying one sentence and notice your tone.","Practice saying requests with a smile — it changes your tone automatically."],
+     tips_ta:["ஒரு வாக்கியத்தை சொல்லும்போது உங்களை பதிவு செய்து உங்கள் தொனியை கவனியுங்கள்.","புன்னகையுடன் கோரிக்கைகளை சொல்லும் பயிற்சி செய்யுங்கள் — இது உங்கள் தொனியை தானாகவே மாற்றும்."]},
+    {t_en:"Body Language While Speaking", t_ta:"பேசும்போது உடல் மொழி",
+     ex_en:"Standing up straight, facing the person, and making eye contact shows confidence — even before you say a single word.",
+     ex_ta:"நேராக நின்று, நபரை எதிர்கொண்டு, கண் தொடர்பு வைப்பது நம்பிக்கையை காட்டுகிறது — நீங்கள் ஒரு வார்த்தை கூட சொல்வதற்கு முன்பே.",
+     eg_en:"During a class presentation, Kavya kept her shoulders back and looked at her classmates instead of the floor. The teacher noticed her confidence immediately.",
+     eg_ta:"ஒரு வகுப்பு விளக்கக்காட்சியின் போது, காவ்யா தன் தோள்களை நேராக வைத்து, தரையைப் பார்ப்பதற்கு பதிலாக வகுப்பு தோழர்களைப் பார்த்தாள். ஆசிரியர் அவளுடைய நம்பிக்கையை உடனடியாக கவனித்தார்.",
+     tips_en:["Practice standing straight with relaxed shoulders in front of a mirror.","Try holding eye contact for a few seconds longer than feels natural."],
+     tips_ta:["கண்ணாடியின் முன் தளர்ந்த தோள்களுடன் நேராக நிற்கும் பயிற்சி செய்யுங்கள்.","இயற்கையாக உணரும் நேரத்தை விட சில வினாடிகள் அதிகமாக கண் தொடர்பை வைத்திருக்க முயற்சி செய்யுங்கள்."]},
+    {t_en:"Asking Good Questions", t_ta:"நல்ல கேள்விகளைக் கேட்பது",
+     ex_en:"Asking open questions like 'What did you think about it?' invites longer, richer conversation than yes/no questions.",
+     ex_ta:"'அதைப் பற்றி நீ என்ன நினைத்தாய்?' போன்ற திறந்த கேள்விகள் கேட்பது ஆம்/இல்லை கேள்விகளை விட நீண்ட, வளமான உரையாடலை அழைக்கிறது.",
+     eg_en:"Instead of asking 'Did you like the movie?', Suresh asked 'What was your favourite part of the movie?' — and his friend talked excitedly for five minutes.",
+     eg_ta:"'படம் பிடித்ததா?' என்று கேட்பதற்கு பதிலாக, சுரேஷ் 'படத்தில் உனக்கு மிகவும் பிடித்த பகுதி எது?' என்று கேட்டார் — அவரது நண்பர் ஐந்து நிமிடங்கள் உற்சாகமாக பேசினார்.",
+     tips_en:["Practice turning one yes/no question into an open question this week.","Ask a follow-up question the next time a friend shares something."],
+     tips_ta:["இந்த வாரம் ஒரு ஆம்/இல்லை கேள்வியை திறந்த கேள்வியாக மாற்றும் பயிற்சி செய்யுங்கள்.","அடுத்த முறை ஒரு நண்பர் ஏதாவது பகிரும்போது ஒரு தொடர் கேள்வி கேளுங்கள்."]},
+    {t_en:"Speaking Up in a Group", t_ta:"ஒரு குழுவில் பேசுவது",
+     ex_en:"In a group, it helps to prepare one point in your mind beforehand, and to speak during a natural pause rather than interrupting.",
+     ex_ta:"ஒரு குழுவில், முன்கூட்டியே உங்கள் மனதில் ஒரு கருத்தை தயார் செய்வதும், குறுக்கிடுவதற்கு பதிலாக ஒரு இயற்கையான இடைவெளியில் பேசுவதும் உதவுகிறது.",
+     eg_en:"In a group project discussion, Divya waited for a natural gap and then calmly said, 'I have an idea we could try.' Everyone listened because she didn't interrupt.",
+     eg_ta:"ஒரு குழு திட்ட விவாதத்தில், திவ்யா ஒரு இயற்கையான இடைவெளிக்காக காத்திருந்து, 'நாம் முயற்சி செய்யக்கூடிய ஒரு யோசனை என்னிடம் உள்ளது' என்று அமைதியாக சொன்னாள். அவள் குறுக்கிடாததால் அனைவரும் கேட்டனர்.",
+     tips_en:["Before a group discussion, jot down one point you want to share.","Practice raising your hand or waiting for a pause instead of interrupting."],
+     tips_ta:["ஒரு குழு விவாதத்திற்கு முன், நீங்கள் பகிர விரும்பும் ஒரு கருத்தை குறித்துக் கொள்ளுங்கள்.","குறுக்கிடுவதற்கு பதிலாக கை உயர்த்துவது அல்லது இடைவெளிக்காக காத்திருப்பதை பயிற்சி செய்யுங்கள்."]}
+  ]
+},
+{
+  title_en:"Really Listening to Others", title_ta:"மற்றவர்களை உண்மையாக கேட்பது",
+  intro_en:"Listening is just as important as speaking — maybe even more. This module shows you how to listen in a way that makes people feel truly heard.",
+  intro_ta:"கேட்பது பேசுவதைப் போலவே முக்கியமானது — ஒருவேளை அதைவிட அதிகமாகவும் இருக்கலாம். இந்த பாடம் மக்களுக்கு உண்மையாக கேட்கப்படுவதாக உணரவைக்கும் விதத்தில் கேட்பது எப்படி என்பதை காட்டுகிறது.",
+  subtopics:[
+    {t_en:"What Active Listening Really Means", t_ta:"செயலில் கேட்பது என்றால் என்ன",
+     ex_en:"Active listening means giving your full attention — not just hearing words, but understanding the feeling behind them.",
+     ex_ta:"செயலில் கேட்பது என்பது உங்கள் முழு கவனத்தையும் கொடுப்பது — வார்த்தைகளை கேட்பது மட்டுமல்ல, அவற்றுக்குப் பின்னால் உள்ள உணர்வை புரிந்துகொள்வது.",
+     eg_en:"When his friend talked about a tough exam, Kiran put his phone away and looked at him while listening, instead of just nodding while scrolling.",
+     eg_ta:"கடினமான தேர்வைப் பற்றி நண்பர் பேசியபோது, கிரண் ஸ்க்ரோல் செய்தபடி தலையாட்டுவதற்கு பதிலாக, தன் தொலைபேசியை வைத்துவிட்டு அவரைப் பார்த்துக் கேட்டார்.",
+     tips_en:["Put your phone away when a friend is talking to you seriously.","Notice the feeling behind the words, not just the words themselves."],
+     tips_ta:["ஒரு நண்பர் தீவிரமாக பேசும்போது உங்கள் தொலைபேசியை வைத்துவிடுங்கள்.","வார்த்தைகளுக்குப் பின்னால் உள்ள உணர்வை கவனியுங்கள், வார்த்தைகளை மட்டுமல்ல."]},
+    {t_en:"Common Listening Mistakes", t_ta:"பொதுவான கேட்டல் தவறுகள்",
+     ex_en:"Common mistakes include interrupting, thinking about your reply while the other person is still talking, or checking your phone.",
+     ex_ta:"பொதுவான தவறுகளில் குறுக்கிடுவது, மற்றவர் இன்னும் பேசிக்கொண்டிருக்கும்போது உங்கள் பதிலைப் பற்றி யோசிப்பது, அல்லது உங்கள் தொலைபேசியை பார்ப்பது ஆகியவை அடங்கும்.",
+     eg_en:"Rahul realized he kept interrupting his sister to share his own opinion. Once he started waiting till she finished, she began sharing much more with him.",
+     eg_ta:"ராகுல் தன் சொந்த கருத்தைப் பகிர தன் சகோதரியை தொடர்ந்து குறுக்கிடுவதை உணர்ந்தார். அவள் முடிக்கும் வரை காத்திருக்க தொடங்கியதும், அவள் அவரிடம் அதிகமாக பகிர தொடங்கினாள்.",
+     tips_en:["Catch yourself the next time you want to interrupt — pause instead.","After someone finishes speaking, count to two before replying."],
+     tips_ta:["அடுத்த முறை நீங்கள் குறுக்கிட விரும்பும்போது உங்களை கவனியுங்கள் — அதற்கு பதிலாக நிறுத்துங்கள்.","ஒருவர் பேசி முடித்த பிறகு, பதிலளிக்கும் முன் இரண்டு வரை எண்ணுங்கள்."]},
+    {t_en:"Listening with Your Body, Not Just Ears", t_ta:"காதுகளால் மட்டுமல்ல, உடலால் கேட்பது",
+     ex_en:"Nodding, leaning slightly forward, and keeping an open posture shows the speaker that you are truly engaged.",
+     ex_ta:"தலையாட்டுவது, சற்று முன்னோக்கி சாய்வது, திறந்த நிலையை வைத்திருப்பது ஆகியவை நீங்கள் உண்மையாக ஈடுபட்டிருப்பதை பேசுபவருக்கு காட்டுகிறது.",
+     eg_en:"When Anand listened to his friend's problem while nodding and facing him fully, his friend said, 'You always make me feel heard.'",
+     eg_ta:"ஆனந்த் தலையாட்டியபடி முழுமையாக நண்பரை எதிர்கொண்டு பிரச்சினையைக் கேட்டபோது, அவரது நண்பர் 'நீ எப்போதும் என்னை கேட்கப்பட்டதாக உணர வைக்கிறாய்' என்று சொன்னார்.",
+     tips_en:["Face the speaker with your whole body, not just your head.","Nod occasionally to show you're following along."],
+     tips_ta:["தலையை மட்டும் அல்ல, உங்கள் முழு உடலையும் பேசுபவரை நோக்கி வையுங்கள்.","நீங்கள் பின்தொடர்கிறீர்கள் என்பதைக் காட்ட எப்போதாவது தலையாட்டுங்கள்."]},
+    {t_en:"Asking Follow-Up Questions", t_ta:"தொடர் கேள்விகளைக் கேட்பது",
+     ex_en:"A simple follow-up question like 'What happened next?' shows you were really listening and want to know more.",
+     ex_ta:"'அடுத்து என்ன நடந்தது?' போன்ற ஒரு எளிய தொடர் கேள்வி, நீங்கள் உண்மையாக கேட்டீர்கள் மற்றும் மேலும் அறிய விரும்புகிறீர்கள் என்பதைக் காட்டுகிறது.",
+     eg_en:"When his friend mentioned a fight with a cousin, Vikram asked, 'How did that make you feel?' instead of quickly changing the topic.",
+     eg_ta:"நண்பர் ஒரு உறவினருடன் சண்டையைப் பற்றி குறிப்பிட்டபோது, விக்ரம் விரைவாக தலைப்பை மாற்றுவதற்கு பதிலாக, 'அது உன்னை எப்படி உணர வைத்தது?' என்று கேட்டார்.",
+     tips_en:["Practice asking 'What happened next?' or 'How did that feel?' this week.","Resist the urge to talk about yourself right after someone shares something."],
+     tips_ta:["இந்த வாரம் 'அடுத்து என்ன நடந்தது?' அல்லது 'அது எப்படி உணர வைத்தது?' என்று கேட்கும் பயிற்சி செய்யுங்கள்.","ஒருவர் ஏதாவது பகிர்ந்த உடனேயே உங்களைப் பற்றி பேச வேண்டும் என்ற தூண்டுதலை தவிர்க்கவும்."]},
+    {t_en:"Listening When You Disagree", t_ta:"நீங்கள் உடன்படாதபோது கேட்பது",
+     ex_en:"Even when you disagree, listen to the full point before responding — you might understand their side better, and they'll respect you more.",
+     ex_ta:"நீங்கள் உடன்படாதபோதும், பதிலளிக்கும் முன் முழு கருத்தையும் கேளுங்கள் — அவர்களின் பக்கத்தை நீங்கள் நன்றாக புரிந்துகொள்ளலாம், அவர்களும் உங்களை அதிகம் மதிப்பார்கள்.",
+     eg_en:"During a class debate, Nithya disagreed with her opponent's view but listened to his full argument first. Later, he said she was the fairest debater in the room.",
+     eg_ta:"ஒரு வகுப்பு விவாதத்தின்போது, நித்யா தன் எதிராளியின் கருத்துடன் உடன்படவில்லை, ஆனால் முதலில் அவரது முழு வாதத்தையும் கேட்டாள். பின்னர், அவர் அவளை அறையில் மிகவும் நியாயமான விவாதியாக கூறினார்.",
+     tips_en:["Next time you disagree, let the person finish fully before replying.","Say 'I understand your point, and here's how I see it differently' instead of cutting them off."],
+     tips_ta:["அடுத்த முறை நீங்கள் உடன்படாதபோது, பதிலளிக்கும் முன் நபரை முழுமையாக முடிக்க விடுங்கள்.","அவர்களை குறுக்கிடுவதற்கு பதிலாக 'உன் கருத்து புரிகிறது, நான் அதை வேறு விதமாக பார்க்கிறேன்' என்று சொல்லுங்கள்."]}
+  ]
+},
+{
+  title_en:"Saying No Without Guilt (Assertiveness)", title_ta:"குற்ற உணர்வு இல்லாமல் இல்லை என்று சொல்வது (உறுதியான தன்மை)",
+  intro_en:"Being assertive means standing up for yourself calmly and respectfully — without being rude or feeling guilty.",
+  intro_ta:"உறுதியாக இருப்பது என்பது முரட்டுத்தனமாக இல்லாமல் அல்லது குற்ற உணர்வு இல்லாமல் அமைதியாகவும் மரியாதையாகவும் உங்களுக்காக நிற்பது.",
+  subtopics:[
+    {t_en:"Assertive vs Passive vs Aggressive", t_ta:"உறுதியான vs செயலற்ற vs ஆக்ரோஷமான",
+     ex_en:"Passive means staying silent even when unhappy, aggressive means being harsh, and assertive means expressing yourself honestly and respectfully.",
+     ex_ta:"செயலற்றது என்பது மகிழ்ச்சியற்றபோதும் அமைதியாக இருப்பது, ஆக்ரோஷமானது கடுமையாக இருப்பது, உறுதியானது நேர்மையாகவும் மரியாதையாகவும் உங்களை வெளிப்படுத்துவது.",
+     eg_en:"When a friend borrowed his notebook and didn't return it, Sameer didn't shout (aggressive) or stay quiet forever (passive) — he calmly said, 'Can I have my notebook back today, please?' (assertive).",
+     eg_ta:"ஒரு நண்பர் அவரது நோட்புக்கை கடன் வாங்கி திரும்ப கொடுக்காதபோது, சமீர் கத்தவில்லை (ஆக்ரோஷமான) அல்லது என்றென்றும் அமைதியாக இருக்கவில்லை (செயலற்ற) — அவர் அமைதியாக 'இன்று என் நோட்புக்கை திரும்பத் தரமுடியுமா?' என்று சொன்னார் (உறுதியான).",
+     tips_en:["Notice which style (passive/aggressive/assertive) you use most often.","Practice one assertive sentence this week using a calm, clear tone."],
+     tips_ta:["எந்த பாணியை (செயலற்ற/ஆக்ரோஷமான/உறுதியான) நீங்கள் அடிக்கடி பயன்படுத்துகிறீர்கள் என்பதைக் கவனியுங்கள்.","இந்த வாரம் அமைதியான, தெளிவான தொனியில் ஒரு உறுதியான வாக்கியத்தை பயிற்சி செய்யுங்கள்."]},
+    {t_en:"Why Saying No Is Healthy", t_ta:"இல்லை என்று சொல்வது ஏன் ஆரோக்கியமானது",
+     ex_en:"Saying no to things that don't feel right protects your time, energy, and self-respect — it doesn't make you a bad friend.",
+     ex_ta:"சரியாக உணராத விஷயங்களுக்கு இல்லை என்று சொல்வது உங்கள் நேரம், சக்தி, சுய மரியாதையை பாதுகாக்கிறது — அது உங்களை ஒரு கெட்ட நண்பராக ஆக்காது.",
+     eg_en:"When asked to copy homework, Lavanya said no. She felt guilty for a moment, but realized protecting her own honesty mattered more than avoiding a friend's disappointment.",
+     eg_ta:"வீட்டுப்பாடத்தை காப்பி செய்யக் கேட்கப்பட்டபோது, லவண்யா இல்லை என்று சொன்னாள். ஒரு கணம் குற்ற உணர்வு ஏற்பட்டது, ஆனால் நண்பரின் ஏமாற்றத்தை தவிர்ப்பதை விட தன் சொந்த நேர்மையை பாதுகாப்பது முக்கியம் என்று உணர்ந்தாள்.",
+     tips_en:["Remind yourself: a good friend respects your 'no'.","Practice saying no to one small request this week, just to build the habit."],
+     tips_ta:["உங்களுக்கே நினைவூட்டுங்கள்: ஒரு நல்ல நண்பர் உங்கள் 'இல்லை'யை மதிப்பார்.","பழக்கத்தை வளர்க்க, இந்த வாரம் ஒரு சிறிய கோரிக்கைக்கு இல்லை என்று சொல்லும் பயிற்சி செய்யுங்கள்."]},
+    {t_en:"Simple Ways to Say No Politely", t_ta:"கண்ணியமாக இல்லை என்று சொல்லும் எளிய வழிகள்",
+     ex_en:"You can say no politely with simple phrases like 'I'd rather not' or 'That doesn't work for me, but thanks for asking.'",
+     ex_ta:"'எனக்கு அது வேண்டாம்' அல்லது 'அது எனக்கு பொருந்தாது, கேட்டதற்கு நன்றி' போன்ற எளிய வார்த்தைகளால் நீங்கள் கண்ணியமாக இல்லை என்று சொல்லலாம்.",
+     eg_en:"When asked to skip class to hang out, Deepak simply said, 'I'd rather not, but let's meet up after school instead.' His friends respected his honesty.",
+     eg_ta:"வகுப்பை தவிர்த்து சுற்றித் திரிய கேட்கப்பட்டபோது, தீபக் வெறுமனே 'எனக்கு அது வேண்டாம், அதற்கு பதிலாக பள்ளிக்குப் பிறகு சந்திப்போம்' என்று சொன்னார். அவரது நண்பர்கள் அவரது நேர்மையை மதித்தனர்.",
+     tips_en:["Practice one polite 'no' phrase until it feels natural to say.","Offer an alternative when possible — it softens the no."],
+     tips_ta:["இயற்கையாக சொல்லும் வரை ஒரு கண்ணியமான 'இல்லை' வாக்கியத்தை பயிற்சி செய்யுங்கள்.","முடிந்தால் ஒரு மாற்றை வழங்குங்கள் — இது இல்லையை மென்மையாக்குகிறது."]},
+    {t_en:"Standing Up for Yourself Without Being Rude", t_ta:"முரட்டுத்தனமாக இல்லாமல் உங்களுக்காக நிற்பது",
+     ex_en:"You can disagree or push back calmly, using a steady voice and 'I' statements, without shouting or insulting anyone.",
+     ex_ta:"நீங்கள் அமைதியான குரலையும் 'நான்' கூற்றுகளையும் பயன்படுத்தி, கத்தாமல் அல்லது யாரையும் அவமானப்படுத்தாமல், அமைதியாக உடன்படாமல் இருக்கலாம் அல்லது எதிர்க்கலாம்.",
+     eg_en:"When a classmate teased him repeatedly, Harish calmly said, 'I don't like being teased about this — please stop.' It worked better than getting angry.",
+     eg_ta:"ஒரு வகுப்பு தோழர் அவரை தொடர்ந்து கேலி செய்தபோது, ஹரிஷ் அமைதியாக 'இதைப் பற்றி என்னை கேலி செய்வது எனக்கு பிடிக்கவில்லை — தயவுசெய்து நிறுத்துங்கள்' என்று சொன்னார். கோபப்படுவதை விட இது சிறப்பாக வேலை செய்தது.",
+     tips_en:["Practice the phrase 'I don't like it when... please stop' in the mirror.","Keep your voice steady and calm, even if you feel upset inside."],
+     tips_ta:["'...நடக்கும்போது எனக்கு பிடிக்கவில்லை, தயவுசெய்து நிறுத்துங்கள்' என்ற வாக்கியத்தை கண்ணாடியில் பயிற்சி செய்யுங்கள்.","உள்ளே வருத்தமாக இருந்தாலும் உங்கள் குரலை நிலையாகவும் அமைதியாகவும் வையுங்கள்."]},
+    {t_en:"Handling Guilt After Saying No", t_ta:"இல்லை என்று சொன்ன பிறகு குற்ற உணர்வை கையாள்வது",
+     ex_en:"Feeling a little guilty after saying no is normal — it doesn't mean you did something wrong. The feeling usually passes quickly.",
+     ex_ta:"இல்லை என்று சொன்ன பிறகு சிறிது குற்ற உணர்வு ஏற்படுவது இயல்பானது — நீங்கள் ஏதாவது தவறு செய்தீர்கள் என்று அர்த்தமல்ல. அந்த உணர்வு பொதுவாக விரைவில் கடந்து செல்லும்.",
+     eg_en:"After turning down a friend's request to lend money, Sanjay felt guilty for a day. By the next week, he realized his friend wasn't upset at all — and the guilt had been unnecessary.",
+     eg_ta:"பணம் கடன் கொடுக்கும்படி நண்பரின் கோரிக்கையை மறுத்த பிறகு, சஞ்சய் ஒரு நாள் குற்ற உணர்வுடன் இருந்தார். அடுத்த வாரத்தில், அவரது நண்பர் அசைவே இல்லை என்று உணர்ந்தார் — குற்ற உணர்வு தேவையற்றதாக இருந்தது.",
+     tips_en:["Remind yourself that short-term guilt is normal and will fade.","Ask: 'Would I judge a friend for saying no in this same situation?'"],
+     tips_ta:["குறுகிய கால குற்ற உணர்வு இயல்பானது, மறைந்துவிடும் என்று உங்களுக்கே நினைவூட்டுங்கள்.","'இதே சூழ்நிலையில் ஒரு நண்பர் இல்லை என்று சொன்னால் நான் தீர்ப்பளிப்பேனா?' என்று கேளுங்கள்."]}
+  ]
+},
+{
+  title_en:"Understanding How Others Feel (Empathy)", title_ta:"மற்றவர்கள் எப்படி உணர்கிறார்கள் என்பதை புரிந்துகொள்வது (பரிவு)",
+  intro_en:"Empathy means noticing and caring about what someone else is feeling — even without them saying it out loud.",
+  intro_ta:"பரிவு என்பது ஒருவர் உரக்கச் சொல்லாவிட்டாலும், அவர்கள் என்ன உணர்கிறார்கள் என்பதை கவனித்து அக்கறை கொள்வது.",
+  subtopics:[
+    {t_en:"What Empathy Really Means", t_ta:"பரிவு உண்மையில் என்ன அர்த்தம்",
+     ex_en:"Empathy is trying to feel what someone else feels, not just understanding it in your head — it's the difference between 'I know' and 'I get it.'",
+     ex_ta:"பரிவு என்பது அதை உங்கள் தலையில் புரிந்துகொள்வது மட்டுமல்ல, மற்றவர் உணர்வதை உணர முயற்சிப்பது — இது 'எனக்குத் தெரியும்' மற்றும் 'எனக்குப் புரிகிறது' இடையேயான வேறுபாடு.",
+     eg_en:"When his friend failed a test, Vishal didn't just say 'okay, it happens' — he sat with him and said, 'That must feel really disappointing after all your studying.'",
+     eg_ta:"நண்பர் ஒரு தேர்வில் தோல்வியடைந்தபோது, விஷால் 'சரி, அது நடக்கும்' என்று மட்டும் சொல்லவில்லை — அவருடன் அமர்ந்து 'உன் படிப்பு அனைத்திற்கும் பிறகு இது மிகவும் ஏமாற்றமாக இருக்கும்' என்று சொன்னார்.",
+     tips_en:["Next time a friend shares bad news, name the feeling out loud (e.g., 'that sounds frustrating').","Pause before giving advice — sometimes people just want to be understood first."],
+     tips_ta:["அடுத்த முறை ஒரு நண்பர் மோசமான செய்தியைப் பகிரும்போது, உணர்வை உரக்கப் பெயரிடுங்கள் (எ.கா., 'அது எரிச்சலூட்டுவதாக தெரிகிறது').","ஆலோசனை கொடுப்பதற்கு முன் நிறுத்துங்கள் — சில நேரங்களில் மக்கள் முதலில் புரிந்துகொள்ளப்பட வேண்டும் என்று விரும்புகிறார்கள்."]},
+    {t_en:"Noticing Feelings Without Being Told", t_ta:"சொல்லாமலேயே உணர்வுகளை கவனிப்பது",
+     ex_en:"You can often tell how someone feels through their face, tone of voice, or body language, even if they say 'I'm fine.'",
+     ex_ta:"ஒருவர் 'நான் நலமாக இருக்கிறேன்' என்று சொன்னாலும், அவர்களின் முகம், குரல் தொனி, அல்லது உடல் மொழி மூலம் அவர்கள் எப்படி உணர்கிறார்கள் என்பதை பெரும்பாலும் அறியலாம்.",
+     eg_en:"Even though his friend said 'I'm fine' with a low voice and no eye contact, Manoj sensed something was wrong and gently asked again later.",
+     eg_ta:"நண்பர் தாழ்ந்த குரலிலும் கண் தொடர்பு இல்லாமலும் 'நான் நலமாக இருக்கிறேன்' என்று சொன்னாலும், மனோஜ் ஏதோ தவறு என்று உணர்ந்து பின்னர் மென்மையாக மீண்டும் கேட்டார்.",
+     tips_en:["Watch for mismatches between what someone says and how they look while saying it.","If you sense something's wrong, gently check in again later rather than pushing immediately."],
+     tips_ta:["ஒருவர் சொல்வதற்கும் அதை சொல்லும்போது எப்படி தெரிகிறார்கள் என்பதற்கும் இடையேயான பொருந்தாமையை கவனியுங்கள்.","ஏதோ தவறு என்று உணர்ந்தால், உடனடியாக அழுத்தம் கொடுக்காமல் பின்னர் மென்மையாக மீண்டும் கேளுங்கள்."]},
+    {t_en:"Putting Yourself in Someone Else's Shoes", t_ta:"மற்றவரின் இடத்தில் உங்களை வைத்துப் பார்ப்பது",
+     ex_en:"Before judging someone's behavior, ask yourself: 'What might they be going through that I don't know about?'",
+     ex_ta:"ஒருவரின் நடத்தையை தீர்ப்பளிப்பதற்கு முன், 'எனக்குத் தெரியாத என்ன அவர்கள் அனுபவித்துக் கொண்டிருக்கலாம்?' என்று உங்களைக் கேளுங்கள்.",
+     eg_en:"When a usually cheerful classmate suddenly became quiet and irritable, Sneha didn't get annoyed — she wondered if something difficult was happening at his home.",
+     eg_ta:"வழக்கமாக மகிழ்ச்சியான வகுப்பு தோழர் திடீரென அமைதியாகவும் எரிச்சலாகவும் மாறியபோது, ஸ்நேகா எரிச்சலடையவில்லை — அவரது வீட்டில் ஏதாவது கடினமான விஷயம் நடக்கிறதோ என்று யோசித்தாள்.",
+     tips_en:["The next time someone acts unusually, pause and wonder 'why' before reacting.","Give people the benefit of the doubt when their behavior surprises you."],
+     tips_ta:["அடுத்த முறை ஒருவர் வழக்கத்திற்கு மாறாக நடந்துகொள்ளும்போது, நடவடிக்கை எடுப்பதற்கு முன் 'ஏன்' என்று நிறுத்தி யோசியுங்கள்.","ஒருவரின் நடத்தை உங்களை ஆச்சரியப்படுத்தும்போது அவர்களுக்கு சந்தேகத்தின் பலனை கொடுங்கள்."]},
+    {t_en:"Responding to a Sad or Upset Friend", t_ta:"வருத்தமான அல்லது கோபமான நண்பருக்கு பதிலளிப்பது",
+     ex_en:"When a friend is upset, they usually need comfort and listening first, not immediate advice or 'solutions.'",
+     ex_ta:"ஒரு நண்பர் வருத்தமாக இருக்கும்போது, அவர்களுக்கு பொதுவாக முதலில் ஆறுதலும் கேட்பதும் தேவை, உடனடி ஆலோசனை அல்லது 'தீர்வுகள்' அல்ல.",
+     eg_en:"When Priyanka's friend was crying about a family issue, she just sat beside her and said, 'I'm here for you' — instead of jumping straight to advice.",
+     eg_ta:"பிரியங்காவின் நண்பர் ஒரு குடும்ப பிரச்சினையைப் பற்றி அழுதபோது, அவள் நேரடியாக ஆலோசனைக்கு செல்வதற்கு பதிலாக, அவள் அருகில் அமர்ந்து 'நான் உன்னுடன் இருக்கிறேன்' என்று சொன்னாள்.",
+     tips_en:["Before giving advice, ask 'Do you want suggestions, or do you just want me to listen?'","A simple 'I'm here for you' is often more helpful than a solution."],
+     tips_ta:["ஆலோசனை கொடுப்பதற்கு முன், 'உனக்கு ஆலோசனைகள் வேண்டுமா, அல்லது நான் கேட்க வேண்டும் என்று மட்டும் விரும்புகிறாயா?' என்று கேளுங்கள்.","ஒரு எளிய 'நான் உன்னுடன் இருக்கிறேன்' பெரும்பாலும் ஒரு தீர்வை விட உதவிகரமாக இருக்கும்."]},
+    {t_en:"Empathy for People Different from You", t_ta:"உங்களிலிருந்து வேறுபட்டவர்களுக்கு பரிவு",
+     ex_en:"Empathy also means being kind to classmates from different backgrounds, languages, or abilities, even if their life looks different from yours.",
+     ex_ta:"பரிவு என்பது வேறுபட்ட பின்னணி, மொழி, அல்லது திறன்களைக் கொண்ட வகுப்பு தோழர்களிடம் அவர்களது வாழ்க்கை உங்களுடையதிலிருந்து வேறுபட்டதாக இருந்தாலும் அன்பாக இருப்பது.",
+     eg_en:"When a new student who spoke a different first language joined the class, Arun made an effort to include him in games, using simple words and gestures to communicate.",
+     eg_ta:"வேறு தாய்மொழி பேசும் ஒரு புதிய மாணவர் வகுப்பில் சேர்ந்தபோது, அருண் அவரை விளையாட்டுகளில் சேர்க்க முயற்சி செய்தார், தொடர்பு கொள்ள எளிய வார்த்தைகளையும் சைகைகளையும் பயன்படுத்தினார்.",
+     tips_en:["Make an effort to include one classmate who seems different or left out.","Ask questions about others' backgrounds with genuine curiosity, not judgment."],
+     tips_ta:["வேறுபட்டதாக அல்லது விலக்கப்பட்டதாக தெரியும் ஒரு வகுப்பு தோழரை சேர்த்துக்கொள்ள முயற்சி செய்யுங்கள்.","மற்றவர்களின் பின்னணியைப் பற்றி தீர்ப்பின்றி உண்மையான ஆர்வத்துடன் கேள்விகள் கேளுங்கள்."]}
+  ]
+},
+{
+  title_en:"Making and Keeping Friends", title_ta:"நட்பை உருவாக்குதலும் தக்கவைத்துக்கொள்வதும்",
+  intro_en:"Friendships don't just happen — they grow through small, consistent actions. Let's look at how to start and keep good friendships.",
+  intro_ta:"நட்பு தானாக நடக்காது — அது சிறிய, தொடர்ச்சியான செயல்களால் வளர்கிறது. நல்ல நட்புகளை எப்படி தொடங்குவது, தக்கவைத்துக்கொள்வது என்று பார்ப்போம்.",
+  subtopics:[
+    {t_en:"How to Start a Conversation with Someone New", t_ta:"ஒரு புதிய நபருடன் உரையாடலை எப்படி தொடங்குவது",
+     ex_en:"A simple comment about the situation you're both in — like class, weather, or an activity — is often the easiest way to start talking.",
+     ex_ta:"நீங்கள் இருவரும் இருக்கும் சூழ்நிலையைப் பற்றிய ஒரு எளிய கருத்து — வகுப்பு, வானிலை, அல்லது ஒரு செயல்பாடு போன்றவை — பேசத் தொடங்குவதற்கு பெரும்பாலும் எளிதான வழி.",
+     eg_en:"On the first day at a new school, Aditi simply said to the girl next to her, 'This classroom is huge, isn't it?' — and that turned into her first new friendship.",
+     eg_ta:"ஒரு புதிய பள்ளியில் முதல் நாளில், அதிதி தன் அருகில் இருந்த பெண்ணிடம் 'இந்த வகுப்பு அறை பெரியதாக இருக்கிறதா?' என்று வெறுமனே சொன்னாள் — அது அவளுடைய முதல் புதிய நட்பாக மாறியது.",
+     tips_en:["Prepare one simple opener you feel comfortable saying (about class, weather, an activity).","Remember: the other person is often just as nervous as you are."],
+     tips_ta:["நீங்கள் சொல்ல வசதியாக உணரும் ஒரு எளிய தொடக்க வாக்கியத்தை தயார் செய்யுங்கள் (வகுப்பு, வானிலை, செயல்பாடு பற்றி).","நினைவில் கொள்ளுங்கள்: மற்ற நபரும் பெரும்பாலும் உங்களைப் போலவே பதட்டமாக இருக்கிறார்."]},
+    {t_en:"Finding Common Ground", t_ta:"பொதுவான ஆர்வத்தைக் கண்டறிதல்",
+     ex_en:"Shared interests — a subject, sport, game, or show — give you something easy to talk about and build a friendship around.",
+     ex_ta:"பகிரப்பட்ட ஆர்வங்கள் — ஒரு பாடம், விளையாட்டு, ஆட்டம், அல்லது நிகழ்ச்சி — பேச எளிதான ஒன்றையும் நட்பை உருவாக்க ஒரு அடிப்படையையும் தருகின்றன.",
+     eg_en:"Two students who barely spoke discovered they both loved the same cricket team, and within weeks, they were sitting together every lunch break.",
+     eg_ta:"அரிதாகவே பேசிய இரண்டு மாணவர்கள் இருவரும் ஒரே கிரிக்கெட் அணியை விரும்புவதைக் கண்டறிந்தனர், சில வாரங்களில், அவர்கள் ஒவ்வொரு மதிய இடைவேளையிலும் ஒன்றாக அமர்ந்திருந்தனர்.",
+     tips_en:["Ask a new classmate about their hobbies or favourite subjects to find common ground.","Join a club or activity related to something you enjoy — it's an easy way to meet like-minded people."],
+     tips_ta:["பொதுவான ஆர்வத்தைக் கண்டறிய ஒரு புதிய வகுப்பு தோழரிடம் அவர்களின் பொழுதுபோக்குகள் அல்லது விருப்பமான பாடங்களைப் பற்றி கேளுங்கள்.","நீங்கள் விரும்பும் ஒன்றுடன் தொடர்புடைய ஒரு கிளப் அல்லது செயல்பாட்டில் சேருங்கள் — இது ஒத்த மனப்பான்மை கொண்டவர்களை சந்திக்க எளிய வழி."]},
+    {t_en:"Being a Dependable Friend", t_ta:"நம்பகமான நண்பராக இருப்பது",
+     ex_en:"Keeping promises, showing up when you say you will, and being someone others can count on builds deep trust over time.",
+     ex_ta:"வாக்குறுதிகளை காப்பது, நீங்கள் வருவேன் என்று சொன்னால் வருவது, மற்றவர்கள் நம்பக்கூடிய ஒருவராக இருப்பது காலப்போக்கில் ஆழமான நம்பிக்கையை உருவாக்குகிறது.",
+     eg_en:"Whenever Karthik promises to help a classmate study, he actually shows up — so over time, more and more classmates started trusting and relying on him.",
+     eg_ta:"கார்த்திக் ஒரு வகுப்பு தோழருக்கு படிக்க உதவுவேன் என்று வாக்குறுதி அளித்தால், அவர் உண்மையில் வருவார் — எனவே காலப்போக்கில், மேலும் மேலும் வகுப்பு தோழர்கள் அவரை நம்பி சார்ந்திருக்க தொடங்கினர்.",
+     tips_en:["Only promise what you can actually deliver, and follow through on it.","If you can't keep a promise, tell the person honestly and early, not at the last minute."],
+     tips_ta:["நீங்கள் உண்மையில் செய்யக்கூடியதை மட்டும் வாக்குறுதி கொடுங்கள், அதை நிறைவேற்றுங்கள்.","வாக்குறுதியை காக்க முடியாவிட்டால், கடைசி நிமிடத்தில் அல்ல, நேர்மையாகவும் முன்கூட்டியே அந்த நபரிடம் சொல்லுங்கள்."]},
+    {t_en:"Keeping in Touch and Showing You Care", t_ta:"தொடர்பில் இருப்பதும் அக்கறை காட்டுவதும்",
+     ex_en:"Small gestures — asking how an exam went, remembering a birthday, checking in after a tough day — keep friendships strong.",
+     ex_ta:"சிறிய சைகைகள் — ஒரு தேர்வு எப்படி நடந்தது என்று கேட்பது, பிறந்தநாளை நினைவில் வைத்திருப்பது, கடினமான நாளுக்குப் பிறகு விசாரிப்பது — நட்புகளை வலுவாக வைத்திருக்கின்றன.",
+     eg_en:"Weeks after her friend mentioned a difficult family exam, Ananya remembered to ask 'How did it go?' — her friend was touched that she remembered.",
+     eg_ta:"நண்பர் ஒரு கடினமான குடும்ப தேர்வு பற்றி குறிப்பிட்ட வாரங்களுக்குப் பிறகு, அனன்யா 'அது எப்படி நடந்தது?' என்று கேட்க நினைவில் வைத்திருந்தாள் — அவள் நினைவில் வைத்திருந்ததற்காக அவளது நண்பர் நெகிழ்ந்தார்.",
+     tips_en:["Note down something important a friend shares, and ask about it again later.","Send a simple 'thinking of you' message occasionally, without needing a reason."],
+     tips_ta:["ஒரு நண்பர் பகிரும் முக்கியமான ஒன்றை குறித்துக்கொண்டு, பின்னர் மீண்டும் அதைப் பற்றி கேளுங்கள்.","காரணம் தேவையில்லாமல் எப்போதாவது ஒரு எளிய 'உன்னை நினைக்கிறேன்' செய்தி அனுப்புங்கள்."]},
+    {t_en:"Letting Go of Friendships That Hurt You", t_ta:"உங்களை புண்படுத்தும் நட்புகளை விட்டுவிடுவது",
+     ex_en:"Not every friendship is meant to last. If someone repeatedly makes you feel bad about yourself, it's okay to create distance.",
+     ex_ta:"ஒவ்வொரு நட்பும் நீடிக்க வேண்டும் என்று அர்த்தமல்ல. ஒருவர் தொடர்ந்து உங்களைப் பற்றி மோசமாக உணர வைத்தால், தூரம் உருவாக்குவது சரி.",
+     eg_en:"After realizing a 'friend' only spoke to her when they needed help with homework and ignored her otherwise, Meera slowly spent more time with friends who valued her.",
+     eg_ta:"ஒரு 'நண்பர்' வீட்டுப்பாடத்திற்கு உதவி தேவைப்படும்போது மட்டுமே அவளுடன் பேசி, மற்றபடி அவளை புறக்கணிப்பதை உணர்ந்த பிறகு, மீரா படிப்படியாக அவளை மதிக்கும் நண்பர்களுடன் அதிக நேரம் செலவிட்டாள்.",
+     tips_en:["Notice how you feel after spending time with someone — drained or good?","It's okay to quietly spend less time with a friendship that consistently hurts you."],
+     tips_ta:["ஒருவருடன் நேரம் செலவிட்ட பிறகு நீங்கள் எப்படி உணர்கிறீர்கள் என்பதை கவனியுங்கள் — சோர்வாகவா அல்லது நன்றாகவா?","தொடர்ந்து உங்களை புண்படுத்தும் ஒரு நட்புடன் அமைதியாக குறைவான நேரம் செலவிடுவது சரி."]}
+  ]
+},
+{
+  title_en:"Handling Disagreements Calmly (Conflict Resolution)", title_ta:"முரண்பாடுகளை அமைதியாக கையாள்வது (முரண்பாடு தீர்வு)",
+  intro_en:"Disagreements happen in every friendship. What matters is how you handle them — calmly and respectfully.",
+  intro_ta:"ஒவ்வொரு நட்பிலும் கருத்து வேறுபாடுகள் நடக்கும். நீங்கள் அவற்றை எப்படி கையாள்கிறீர்கள் என்பதுதான் முக்கியம் — அமைதியாகவும் மரியாதையாகவும்.",
+  subtopics:[
+    {t_en:"Why Conflicts Happen", t_ta:"முரண்பாடுகள் ஏன் நடக்கின்றன",
+     ex_en:"Most conflicts happen because of misunderstandings or different expectations — not because someone is a bad person.",
+     ex_ta:"பெரும்பாலான முரண்பாடுகள் தவறான புரிதல்கள் அல்லது வேறுபட்ட எதிர்பார்ப்புகளால் நடக்கின்றன — ஒருவர் கெட்டவர் என்பதால் அல்ல.",
+     eg_en:"Two friends fought because one thought 'let's meet later' meant 5pm and the other thought it meant 7pm — a simple misunderstanding, not a real betrayal.",
+     eg_ta:"ஒருவர் 'பிறகு சந்திப்போம்' என்றால் மாலை 5 மணி என்று நினைத்தார், மற்றவர் 7 மணி என்று நினைத்ததால் இரண்டு நண்பர்கள் சண்டையிட்டனர் — ஒரு எளிய தவறான புரிதல், உண்மையான துரோகம் அல்ல.",
+     tips_en:["Before assuming bad intent, consider if it might just be a misunderstanding.","Ask 'What did you mean by that?' instead of jumping to conclusions."],
+     tips_ta:["மோசமான நோக்கம் என்று கருதுவதற்கு முன், அது ஒரு தவறான புரிதலாக இருக்கலாம் என்று கருதுங்கள்.","முடிவுக்கு குதிப்பதற்கு பதிலாக 'அதன் மூலம் நீ என்ன அர்த்தப்படுத்தினாய்?' என்று கேளுங்கள்."]},
+    {t_en:"Pause Before Reacting", t_ta:"நடவடிக்கை எடுப்பதற்கு முன் நிறுத்துங்கள்",
+     ex_en:"Taking a few deep breaths or counting to ten before responding in anger helps you avoid saying something you'll regret.",
+     ex_ta:"கோபத்தில் பதிலளிப்பதற்கு முன் சில ஆழ்ந்த மூச்சுகளை எடுப்பது அல்லது பத்து வரை எண்ணுவது நீங்கள் வருந்தக்கூடிய ஒன்றை சொல்வதைத் தவிர்க்க உதவுகிறது.",
+     eg_en:"When his friend said something hurtful, Rohan felt like snapping back immediately, but took three deep breaths first — and responded much more calmly.",
+     eg_ta:"நண்பர் புண்படுத்தும் ஏதோ சொன்னபோது, ரோகன் உடனடியாக பதிலடி கொடுக்க விரும்பினார், ஆனால் முதலில் மூன்று ஆழ்ந்த மூச்சுகளை எடுத்தார் — மிகவும் அமைதியாக பதிலளித்தார்.",
+     tips_en:["Practice taking three deep breaths before responding when upset.","If you're too angry to speak calmly, say 'Let's talk about this after I calm down.'"],
+     tips_ta:["வருத்தமாக இருக்கும்போது பதிலளிக்கும் முன் மூன்று ஆழ்ந்த மூச்சுகளை எடுக்கும் பயிற்சி செய்யுங்கள்.","அமைதியாக பேச முடியாத அளவு கோபமாக இருந்தால், 'நான் அமைதியான பிறகு இதைப் பற்றி பேசுவோம்' என்று சொல்லுங்கள்."]},
+    {t_en:"Using 'I Feel' Statements", t_ta:"'நான் உணர்கிறேன்' கூற்றுகளைப் பயன்படுத்துவது",
+     ex_en:"Saying 'I feel hurt when...' instead of 'You always...' avoids blame and helps the other person listen without becoming defensive.",
+     ex_ta:"'நீ எப்போதும்...' என்பதற்கு பதிலாக 'நான் ...போது புண்படுகிறேன்' என்று சொல்வது குற்றச்சாட்டைத் தவிர்க்கிறது, மற்றவர் தற்காப்பு இல்லாமல் கேட்க உதவுகிறது.",
+     eg_en:"Instead of saying 'You never include me,' Tara said, 'I feel left out when plans are made without me.' Her friend responded with understanding instead of defensiveness.",
+     eg_ta:"'நீ என்னை ஒருபோதும் சேர்ப்பதில்லை' என்று சொல்வதற்கு பதிலாக, தாரா 'என்னை இல்லாமல் திட்டங்கள் செய்யப்படும்போது நான் விலக்கப்பட்டதாக உணர்கிறேன்' என்று சொன்னாள். அவளுடைய நண்பர் தற்காப்புடன் அல்லாமல் புரிதலுடன் பதிலளித்தார்.",
+     tips_en:["Practice turning 'You always/never...' into 'I feel... when...'","Focus on the specific situation, not the person's whole character."],
+     tips_ta:["'நீ எப்போதும்/ஒருபோதும்...' என்பதை 'நான் ...போது ... உணர்கிறேன்' ஆக மாற்றும் பயிற்சி செய்யுங்கள்.","நபரின் முழு குணத்தில் அல்ல, குறிப்பிட்ட சூழ்நிலையில் கவனம் செலுத்துங்கள்."]},
+    {t_en:"Finding a Middle Ground", t_ta:"நடுநிலைத் தீர்வைக் கண்டறிதல்",
+     ex_en:"Instead of insisting you're completely right, look for a solution where both people get at least part of what they want.",
+     ex_ta:"நீங்கள் முற்றிலும் சரி என்று வலியுறுத்துவதற்கு பதிலாக, இரு நபர்களும் தாங்கள் விரும்புவதில் குறைந்தபட்சம் ஒரு பகுதியையாவது பெறும் தீர்வைத் தேடுங்கள்.",
+     eg_en:"Two friends disagreed on which movie to watch, so instead of arguing, they agreed to watch one friend's choice this week and the other's next week.",
+     eg_ta:"இரண்டு நண்பர்கள் எந்த படத்தைப் பார்ப்பது என்பதில் உடன்படவில்லை, எனவே வாதிடுவதற்கு பதிலாக, இந்த வாரம் ஒரு நண்பரின் தேர்வையும் அடுத்த வாரம் மற்றவரின் தேர்வையும் பார்க்க ஒப்புக்கொண்டனர்.",
+     tips_en:["Ask 'How can we both get some of what we want here?'","Be willing to give a little to reach a solution both people can accept."],
+     tips_ta:["'இங்கே நாம் இருவரும் விரும்புவதில் சிலவற்றை எப்படி பெறலாம்?' என்று கேளுங்கள்.","இரு நபர்களும் ஏற்கக்கூடிய தீர்வை அடைய கொஞ்சம் விட்டுக்கொடுக்க தயாராக இருங்கள்."]},
+    {t_en:"Making Up After a Fight", t_ta:"சண்டைக்குப் பிறகு சமாதானம் செய்வது",
+     ex_en:"A simple, honest apology — even for just your part in the conflict — often repairs a friendship faster than staying silent.",
+     ex_ta:"முரண்பாட்டில் உங்கள் பங்குக்காக மட்டும் என்றாலும், ஒரு எளிய, நேர்மையான மன்னிப்பு, அமைதியாக இருப்பதை விட வேகமாக நட்பை சரிசெய்யும்.",
+     eg_en:"A day after their argument, Yuvan said, 'I'm sorry for raising my voice yesterday, that wasn't fair to you.' His friend immediately softened and they made up.",
+     eg_ta:"அவர்களது வாக்குவாதத்திற்கு ஒரு நாள் கழித்து, யுவன் 'நேற்று என் குரலை உயர்த்தியதற்கு மன்னிக்கவும், அது உனக்கு நியாயமாக இல்லை' என்று சொன்னார். அவரது நண்பர் உடனடியாக மென்மையானார், அவர்கள் சமாதானம் செய்தனர்.",
+     tips_en:["Apologize for your specific part, even if you think the other person was also wrong.","Don't wait too long to make up — a small gap is easier to close than a long silence."],
+     tips_ta:["மற்ற நபரும் தவறு செய்தார் என்று நினைத்தாலும், உங்கள் குறிப்பிட்ட பங்குக்கு மன்னிப்பு கேளுங்கள்.","சமாதானம் செய்ய அதிக நேரம் காத்திருக்காதீர்கள் — ஒரு சிறிய இடைவெளியை மூடுவது ஒரு நீண்ட மௌனத்தை விட எளிது."]}
+  ]
+},
+{
+  title_en:"Dealing with Peer Pressure", title_ta:"தோழர் அழுத்தத்தை கையாள்வது",
+  intro_en:"Peer pressure is a normal part of growing up. This module helps you recognize it and respond with confidence.",
+  intro_ta:"தோழர் அழுத்தம் வளர்வதின் ஒரு இயல்பான பகுதி. இந்த பாடம் அதை அடையாளம் காணவும் நம்பிக்கையுடன் பதிலளிக்கவும் உதவுகிறது.",
+  subtopics:[
+    {t_en:"What Peer Pressure Looks Like", t_ta:"தோழர் அழுத்தம் எப்படி தெரிகிறது",
+     ex_en:"Peer pressure can be direct ('Just do it, everyone's doing it') or indirect (feeling left out unless you go along with the group).",
+     ex_ta:"தோழர் அழுத்தம் நேரடியாக இருக்கலாம் ('அதைச் செய், எல்லோரும் செய்கிறார்கள்') அல்லது மறைமுகமாக இருக்கலாம் (குழுவுடன் ஒத்துப்போகாவிட்டால் விலக்கப்பட்டதாக உணருதல்).",
+     eg_en:"No one directly told Farhan to skip class, but he felt like he'd be 'left out' of the group if he didn't go along — that's indirect peer pressure.",
+     eg_ta:"வகுப்பை தவிர்க்கும்படி யாரும் நேரடியாக ஃபர்ஹானிடம் சொல்லவில்லை, ஆனால் அவர் ஒத்துப்போகாவிட்டால் குழுவிலிருந்து 'விலக்கப்படுவார்' என்று உணர்ந்தார் — அது மறைமுக தோழர் அழுத்தம்.",
+     tips_en:["Notice when you're doing something just to 'fit in' rather than because you want to.","Name the pressure to yourself: 'This feels like peer pressure' — naming it makes it easier to resist."],
+     tips_ta:["நீங்கள் விரும்புவதால் அல்லாமல் 'பொருந்த' மட்டுமே ஏதாவது செய்யும்போது கவனியுங்கள்.","அதை உங்களுக்கே பெயரிடுங்கள்: 'இது தோழர் அழுத்தம் போல தெரிகிறது' — பெயரிடுவது எதிர்க்க எளிதாக்குகிறது."]},
+    {t_en:"Positive vs Negative Peer Pressure", t_ta:"நேர்மறை vs எதிர்மறை தோழர் அழுத்தம்",
+     ex_en:"Not all peer pressure is bad — friends encouraging you to study harder or try a new hobby is positive peer pressure.",
+     ex_ta:"எல்லா தோழர் அழுத்தமும் மோசமானது அல்ல — நண்பர்கள் உங்களை கடினமாக படிக்க அல்லது ஒரு புதிய பொழுதுபோக்கை முயற்சிக்க ஊக்குவிப்பது நேர்மறை தோழர் அழுத்தம்.",
+     eg_en:"When his friends encouraged him to join the school marathon, Ganesh felt pushed at first, but it turned out to be a positive push that helped him get fitter.",
+     eg_ta:"நண்பர்கள் அவரை பள்ளி மாரத்தானில் சேர ஊக்குவித்தபோது, கணேஷ் முதலில் தள்ளப்பட்டதாக உணர்ந்தார், ஆனால் அது அவரை உடல்நிலை மேம்படுத்த உதவிய நேர்மறையான தள்ளுதலாக இருந்தது.",
+     tips_en:["Ask yourself: 'Does this pressure help me grow, or push me to do something I'll regret?'","Welcome positive pressure from friends who want the best for you."],
+     tips_ta:["உங்களைக் கேளுங்கள்: 'இந்த அழுத்தம் என்னை வளர உதவுகிறதா, அல்லது நான் வருந்தக்கூடிய ஒன்றை செய்ய தள்ளுகிறதா?'","உங்களுக்கு நல்லது விரும்பும் நண்பர்களிடமிருந்து நேர்மறை அழுத்தத்தை வரவேற்கவும்."]},
+    {t_en:"Simple Lines to Resist Pressure", t_ta:"அழுத்தத்தை எதிர்க்க எளிய வரிகள்",
+     ex_en:"Short, confident lines like 'Not for me, but you all go ahead' let you decline without a long explanation or argument.",
+     ex_ta:"'எனக்கு வேண்டாம், நீங்கள் தொடருங்கள்' போன்ற குறுகிய, நம்பிக்கையான வரிகள் நீண்ட விளக்கம் அல்லது வாதம் இல்லாமல் மறுக்க அனுமதிக்கின்றன.",
+     eg_en:"When pressured to try something risky at a party, Divya just smiled and said, 'Not my thing, but have fun!' — and no one pushed further.",
+     eg_ta:"ஒரு விழாவில் ஆபத்தான ஒன்றை முயற்சிக்க அழுத்தம் கொடுக்கப்பட்டபோது, திவ்யா வெறுமனே புன்னகைத்து 'எனக்கு பிடிக்காது, நீங்கள் மகிழுங்கள்!' என்று சொன்னாள் — யாரும் மேலும் அழுத்தவில்லை.",
+     tips_en:["Practice one or two 'exit lines' until they feel natural.","A calm smile while declining works better than a nervous or angry tone."],
+     tips_ta:["இயற்கையாக உணரும் வரை ஒன்று அல்லது இரண்டு 'வெளியேறும் வரிகளை' பயிற்சி செய்யுங்கள்.","மறுக்கும்போது ஒரு அமைதியான புன்னகை பதட்டமான அல்லது கோபமான தொனியை விட சிறப்பாக வேலை செய்யும்."]},
+    {t_en:"Choosing Friends Who Respect Your Choices", t_ta:"உங்கள் தேர்வுகளை மதிக்கும் நண்பர்களை தேர்ந்தெடுப்பது",
+     ex_en:"True friends respect your 'no' without mocking or excluding you. If someone keeps pushing after you decline, that's a sign to reconsider the friendship.",
+     ex_ta:"உண்மையான நண்பர்கள் உங்கள் 'இல்லை'யை கேலி செய்யாமல் அல்லது விலக்காமல் மதிக்கிறார்கள். நீங்கள் மறுத்த பிறகும் யாராவது தொடர்ந்து அழுத்தினால், அது நட்பை மறுபரிசீலனை செய்ய வேண்டிய அறிகுறி.",
+     eg_en:"When Rajesh declined to bunk class, one friend respected it immediately, while another kept mocking him for weeks — helping Rajesh see who his real friends were.",
+     eg_ta:"ராஜேஷ் வகுப்பு தவிர்க்க மறுத்தபோது, ஒரு நண்பர் உடனடியாக அதை மதித்தார், மற்றொருவர் வாரங்களாக அவரை கேலி செய்தார் — யார் தன் உண்மையான நண்பர்கள் என்று ராஜேஷ் பார்க்க உதவியது.",
+     tips_en:["Notice how friends react when you say no — respect or repeated pushing?","Spend more time with friends who accept your boundaries."],
+     tips_ta:["நீங்கள் இல்லை என்று சொல்லும்போது நண்பர்கள் எப்படி பதிலளிக்கிறார்கள் என்று கவனியுங்கள் — மரியாதையா அல்லது தொடர்ந்த அழுத்தமா?","உங்கள் எல்லைகளை ஏற்றுக்கொள்ளும் நண்பர்களுடன் அதிக நேரம் செலவிடுங்கள்."]},
+    {t_en:"What to Do If Pressure Continues", t_ta:"அழுத்தம் தொடர்ந்தால் என்ன செய்வது",
+     ex_en:"If saying no once isn't enough, it's okay to walk away from the situation, or talk to a trusted adult like a parent or teacher.",
+     ex_ta:"ஒரு முறை இல்லை என்று சொன்னது போதாதென்றால், அந்த சூழ்நிலையிலிருந்து விலகிச் செல்வது, அல்லது பெற்றோர் அல்லது ஆசிரியர் போன்ற நம்பகமான பெரியவரிடம் பேசுவது சரி.",
+     eg_en:"When a group kept insisting Meena try something she was uncomfortable with, she simply walked over to another group of friends — and later told her mother about it.",
+     eg_ta:"ஒரு குழு மீனா சங்கடமாக உணரும் ஒன்றை முயற்சிக்க தொடர்ந்து வலியுறுத்தியபோது, அவள் வெறுமனே மற்றொரு நண்பர் குழுவிற்கு சென்றாள் — பின்னர் அதைப் பற்றி தன் தாயிடம் சொன்னாள்.",
+     tips_en:["Have a plan: know which trusted adult you can talk to if pressure feels too much.","It's always okay to physically walk away from an uncomfortable situation."],
+     tips_ta:["ஒரு திட்டம் வையுங்கள்: அழுத்தம் அதிகமாக உணரப்பட்டால் நீங்கள் பேசக்கூடிய நம்பகமான பெரியவர் யார் என்று அறியுங்கள்.","சங்கடமான சூழ்நிலையிலிருந்து உடல் ரீதியாக விலகிச் செல்வது எப்போதும் சரி."]}
+  ]
+},
+{
+  title_en:"Working Well in a Group (Teamwork)", title_ta:"ஒரு குழுவில் நன்றாக வேலை செய்வது (குழுப்பணி)",
+  intro_en:"From school projects to future workplaces, teamwork skills help you contribute, cooperate, and succeed together with others.",
+  intro_ta:"பள்ளி திட்டங்களிலிருந்து எதிர்கால பணியிடங்கள் வரை, குழுப்பணி திறன்கள் மற்றவர்களுடன் இணைந்து பங்களிக்கவும், ஒத்துழைக்கவும், வெற்றி பெறவும் உதவுகின்றன.",
+  subtopics:[
+    {t_en:"Why Teamwork Matters", t_ta:"குழுப்பணி ஏன் முக்கியம்",
+     ex_en:"Working with others helps you achieve things you couldn't do alone, and teaches you skills like patience and cooperation.",
+     ex_ta:"மற்றவர்களுடன் வேலை செய்வது நீங்கள் தனியாக செய்ய முடியாதவற்றை அடைய உதவுகிறது, பொறுமை மற்றும் ஒத்துழைப்பு போன்ற திறன்களை கற்பிக்கிறது.",
+     eg_en:"A group science project that seemed impossible for one student to finish alone became manageable and even fun once four classmates split the work.",
+     eg_ta:"ஒரு மாணவர் தனியாக முடிக்க முடியாதது போல தோன்றிய ஒரு குழு அறிவியல் திட்டம், நான்கு வகுப்பு தோழர்கள் வேலையை பிரித்தபோது நிர்வகிக்கக்கூடியதாகவும் மகிழ்ச்சியானதாகவும் மாறியது.",
+     tips_en:["Think of one group task where teamwork made things easier for you.","Volunteer for at least one group activity this month."],
+     tips_ta:["குழுப்பணி உங்களுக்கு விஷயங்களை எளிதாக்கிய ஒரு குழு பணியை நினைத்துப் பாருங்கள்.","இந்த மாதம் குறைந்தபட்சம் ஒரு குழு செயல்பாட்டிற்கு தன்னார்வமாக முன்வாருங்கள்."]},
+    {t_en:"Sharing Work Fairly", t_ta:"வேலையை நியாயமாக பகிர்வது",
+     ex_en:"A fair group divides tasks based on everyone's strengths and time, and checks in regularly so no one person carries the whole load.",
+     ex_ta:"ஒரு நியாயமான குழு, ஒவ்வொருவரின் பலம் மற்றும் நேரத்தின் அடிப்படையில் பணிகளை பிரிக்கிறது, ஒருவர் மட்டும் முழு சுமையையும் தூக்காதவாறு தொடர்ந்து பரிசோதிக்கிறது.",
+     eg_en:"Before starting a project, Ravi's group listed all tasks and let each person pick based on their strengths — the presentation went smoothly because everyone had a clear role.",
+     eg_ta:"ஒரு திட்டத்தைத் தொடங்குவதற்கு முன், ரவியின் குழு அனைத்து பணிகளையும் பட்டியலிட்டு, ஒவ்வொருவரும் தங்கள் பலத்தின் அடிப்படையில் தேர்ந்தெடுக்க அனுமதித்தது — ஒவ்வொருவருக்கும் தெளிவான பங்கு இருந்ததால் விளக்கக்காட்சி சீராக நடந்தது.",
+     tips_en:["At the start of any group task, list out all the work and divide it clearly.","Check in midway to see if the workload still feels fair to everyone."],
+     tips_ta:["எந்த குழு பணியின் தொடக்கத்திலும், அனைத்து வேலைகளையும் பட்டியலிட்டு தெளிவாக பிரிக்கவும்.","பணி சுமை இன்னும் அனைவருக்கும் நியாயமாக உணரப்படுகிறதா என்று பாதி வழியில் சரிபார்க்கவும்."]},
+    {t_en:"Giving and Receiving Feedback", t_ta:"கருத்துகளை கொடுப்பதும் பெறுவதும்",
+     ex_en:"Give feedback kindly and specifically (e.g., 'maybe add one more example here'), and receive feedback without getting defensive.",
+     ex_ta:"கருத்துகளை அன்பாகவும் குறிப்பிட்டும் கொடுங்கள் (எ.கா., 'இங்கே ஒரு உதாரணத்தை மேலும் சேர்க்கலாம்'), தற்காப்பு இல்லாமல் கருத்துகளை பெறுங்கள்.",
+     eg_en:"When a teammate suggested improving his slide, Vignesh said 'Good point, let me fix that' instead of getting upset — and the final project turned out much better.",
+     eg_ta:"ஒரு குழு உறுப்பினர் அவரது ஸ்லைடை மேம்படுத்த பரிந்துரைத்தபோது, விக்நேஷ் வருத்தப்படுவதற்கு பதிலாக 'நல்ல கருத்து, நான் அதை சரிசெய்கிறேன்' என்று சொன்னார் — இறுதி திட்டம் மிகவும் சிறப்பாக மாறியது.",
+     tips_en:["When giving feedback, focus on the work, not the person.","When receiving feedback, pause and consider it before reacting."],
+     tips_ta:["கருத்து கொடுக்கும்போது, நபரில் அல்ல, வேலையில் கவனம் செலுத்துங்கள்.","கருத்தைப் பெறும்போது, எதிர்வினையாற்றுவதற்கு முன் நிறுத்தி அதைக் கருத்தில் கொள்ளுங்கள்."]},
+    {t_en:"Handling Teammates Who Don't Contribute", t_ta:"பங்களிக்காத குழு உறுப்பினர்களை கையாள்வது",
+     ex_en:"Instead of getting angry or doing all the work yourself, calmly ask the teammate directly what's going on and how you can help.",
+     ex_ta:"கோபப்படுவதற்கு அல்லது எல்லா வேலையையும் நீங்களே செய்வதற்கு பதிலாக, என்ன நடக்கிறது, எப்படி உதவலாம் என்று அமைதியாக நேரடியாக குழு உறுப்பினரிடம் கேளுங்கள்.",
+     eg_en:"When one group member kept missing deadlines, instead of complaining behind his back, Aarthi asked him directly, 'Is everything okay? We need your part by Friday.'",
+     eg_ta:"ஒரு குழு உறுப்பினர் தொடர்ந்து காலக்கெடுவை தவறவிட்டபோது, முதுகுக்குப் பின்னால் புகார் செய்வதற்கு பதிலாக, ஆர்த்தி நேரடியாக அவரிடம் 'எல்லாம் சரியா? வெள்ளிக்கிழமைக்குள் உன் பங்கு தேவை' என்று கேட்டாள்.",
+     tips_en:["Talk to the person directly and privately before complaining to others.","Offer help before assuming they're being lazy — there might be a real reason."],
+     tips_ta:["மற்றவர்களிடம் புகார் செய்வதற்கு முன் நேரடியாகவும் தனிப்பட்ட முறையிலும் அந்த நபரிடம் பேசுங்கள்.","அவர்கள் சோம்பேறியாக இருக்கிறார்கள் என்று கருதுவதற்கு முன் உதவி வழங்குங்கள் — ஒரு உண்மையான காரணம் இருக்கலாம்."]},
+    {t_en:"Celebrating Group Success", t_ta:"குழு வெற்றியைக் கொண்டாடுவது",
+     ex_en:"When a group succeeds, acknowledge everyone's contribution, not just your own — it makes people want to work with you again.",
+     ex_ta:"ஒரு குழு வெற்றி பெறும்போது, உங்களுடையது மட்டும் அல்ல, அனைவரின் பங்களிப்பையும் அங்கீகரிக்கவும் — இது மக்கள் உங்களுடன் மீண்டும் வேலை செய்ய விரும்ப வைக்கிறது.",
+     eg_en:"After winning the quiz competition, Nisha made sure to say, 'We all did our part — I couldn't have done this without the team,' even though she captained the team.",
+     eg_ta:"வினாடி வினா போட்டியில் வெற்றி பெற்ற பிறகு, நிஷா குழுவை வழிநடத்தினாலும், 'நாம் அனைவரும் நம் பங்கை செய்தோம் — குழு இல்லாமல் இதை என்னால் செய்திருக்க முடியாது' என்று சொல்ல உறுதி செய்தாள்.",
+     tips_en:["After any group success, name at least one thing each teammate contributed.","Say thank you to your team, even for small wins."],
+     tips_ta:["எந்த குழு வெற்றிக்குப் பிறகும், ஒவ்வொரு குழு உறுப்பினரும் பங்களித்த குறைந்தபட்சம் ஒன்றை பெயரிடுங்கள்.","சிறிய வெற்றிகளுக்கும் உங்கள் குழுவிற்கு நன்றி சொல்லுங்கள்."]}
+  ]
+},
+{
+  title_en:"Bouncing Back from Rejection or Exclusion", title_ta:"நிராகரிப்பு அல்லது விலக்கலிலிருந்து மீள்வது",
+  intro_en:"Everyone experiences rejection or being left out at some point. This module helps you recover and stay confident.",
+  intro_ta:"ஒவ்வொருவரும் ஒரு கட்டத்தில் நிராகரிப்பு அல்லது விலக்கப்படுவதை அனுபவிக்கிறார்கள். இந்த பாடம் மீண்டு நம்பிக்கையுடன் இருக்க உதவுகிறது.",
+  subtopics:[
+    {t_en:"Understanding That Rejection Is Normal", t_ta:"நிராகரிப்பு இயல்பானது என்று புரிந்துகொள்வது",
+     ex_en:"Almost everyone gets left out or rejected sometimes — it's a normal part of growing up, not a sign that something is wrong with you.",
+     ex_ta:"கிட்டத்தட்ட எல்லோரும் சில நேரங்களில் விலக்கப்படுகிறார்கள் அல்லது நிராகரிக்கப்படுகிறார்கள் — இது வளர்வதின் இயல்பான பகுதி, உங்களில் ஏதோ தவறு என்பதற்கான அறிகுறி அல்ல.",
+     eg_en:"When he wasn't picked for the school team, Aravind felt terrible at first — until his coach reminded him that even top players get rejected sometimes before they succeed.",
+     eg_ta:"பள்ளி அணிக்கு தேர்வு செய்யப்படாதபோது, அரவிந்த் முதலில் மிகவும் மோசமாக உணர்ந்தார் — அவரது பயிற்சியாளர் சிறந்த வீரர்கள் கூட வெற்றி பெறுவதற்கு முன் சில நேரங்களில் நிராகரிக்கப்படுகிறார்கள் என்று நினைவூட்டும் வரை.",
+     tips_en:["Remind yourself: rejection happens to everyone, even people who seem always successful.","Talk to someone you trust about how the rejection made you feel."],
+     tips_ta:["உங்களுக்கே நினைவூட்டுங்கள்: எப்போதும் வெற்றி பெறுவது போல தோன்றுபவர்களுக்கும் கூட நிராகரிப்பு நடக்கும்.","நிராகரிப்பு உங்களை எப்படி உணர வைத்தது என்பதைப் பற்றி நீங்கள் நம்பும் ஒருவரிடம் பேசுங்கள்."]},
+    {t_en:"Not Taking It Personally", t_ta:"அதை தனிப்பட்ட முறையில் எடுத்துக்கொள்ளாதது",
+     ex_en:"Often, exclusion has more to do with the other person's situation, mood, or misunderstanding than with your actual worth.",
+     ex_ta:"பெரும்பாலும், விலக்கல் உங்கள் உண்மையான மதிப்பை விட மற்ற நபரின் சூழ்நிலை, மனநிலை, அல்லது தவறான புரிதலுடன் அதிகம் தொடர்புடையது.",
+     eg_en:"When she wasn't invited to a birthday party, Shreya later found out it was a small gathering with only five people — not a personal rejection at all.",
+     eg_ta:"ஒரு பிறந்தநாள் விழாவிற்கு அழைக்கப்படாதபோது, ஸ்ரேயா பின்னர் அது ஐந்து பேர் மட்டும் கொண்ட ஒரு சிறிய கூட்டம் என்று கண்டறிந்தாள் — தனிப்பட்ட நிராகரிப்பு அல்லவே அல்ல.",
+     tips_en:["Before assuming the worst, consider other explanations for what happened.","Remind yourself that one person's decision doesn't define your worth."],
+     tips_ta:["மோசமானதை கருதுவதற்கு முன், என்ன நடந்தது என்பதற்கான மற்ற விளக்கங்களைக் கருத்தில் கொள்ளுங்கள்.","ஒரு நபரின் முடிவு உங்கள் மதிப்பை வரையறுக்காது என்று உங்களுக்கே நினைவூட்டுங்கள்."]},
+    {t_en:"Self-Talk After Rejection", t_ta:"நிராகரிப்புக்குப் பிறகு சுய-பேச்சு",
+     ex_en:"What you say to yourself after rejection matters. Replace 'nobody likes me' with 'this one thing didn't work out, and that's okay.'",
+     ex_ta:"நிராகரிப்புக்குப் பிறகு நீங்கள் உங்களுக்கே சொல்வது முக்கியம். 'யாரும் என்னை விரும்பவில்லை' என்பதற்கு பதிலாக 'இந்த ஒரு விஷயம் நடக்கவில்லை, அது சரிதான்' என்று மாற்றுங்கள்.",
+     eg_en:"After being turned down for the debate team, Rohit caught himself thinking 'I'm just not good at anything' — and consciously replaced it with 'I didn't make it this time, I can try again next year.'",
+     eg_ta:"விவாத அணிக்கு நிராகரிக்கப்பட்ட பிறகு, ரோஹித் 'நான் எதிலும் நல்லவனில்லை' என்று நினைப்பதைக் கண்டுபிடித்தார் — அதை உணர்வுடன் 'இந்த முறை என்னால் முடியவில்லை, அடுத்த ஆண்டு மீண்டும் முயற்சி செய்யலாம்' என்று மாற்றினார்.",
+     tips_en:["Catch negative 'always/never' thoughts and replace them with specific, kinder ones.","Write down one balanced sentence about the situation instead of an extreme one."],
+     tips_ta:["எதிர்மறையான 'எப்போதும்/ஒருபோதும்' எண்ணங்களைக் கண்டறிந்து, குறிப்பிட்ட, கருணையான எண்ணங்களுடன் மாற்றுங்கள்.","தீவிரமான ஒன்றுக்கு பதிலாக அந்த சூழ்நிலையைப் பற்றி ஒரு சமநிலையான வாக்கியத்தை எழுதுங்கள்."]},
+    {t_en:"Rebuilding Confidence", t_ta:"நம்பிக்கையை மீண்டும் கட்டியெழுப்புவது",
+     ex_en:"After a setback, doing something small you're good at helps rebuild your confidence step by step.",
+     ex_ta:"ஒரு பின்னடைவுக்குப் பிறகு, நீங்கள் நன்றாக செய்யும் ஒரு சிறிய விஷயத்தை செய்வது படிப்படியாக உங்கள் நம்பிக்கையை மீண்டும் கட்டியெழுப்ப உதவுகிறது.",
+     eg_en:"After being excluded from a friend group, Kavitha spent that weekend on painting, something she was genuinely good at — and it reminded her of her own worth.",
+     eg_ta:"ஒரு நண்பர் குழுவிலிருந்து விலக்கப்பட்ட பிறகு, கவிதா அந்த வார இறுதியை ஓவியம் வரைவதில் செலவிட்டாள், அவள் உண்மையிலேயே நன்றாக செய்யும் ஒன்று — அது அவளுடைய சொந்த மதிப்பை அவளுக்கு நினைவூட்டியது.",
+     tips_en:["After a rejection, spend time on an activity you're genuinely good at.","Surround yourself with people who make you feel valued during tough times."],
+     tips_ta:["ஒரு நிராகரிப்புக்குப் பிறகு, நீங்கள் உண்மையிலேயே நன்றாக செய்யும் ஒரு செயல்பாட்டில் நேரத்தை செலவிடுங்கள்.","கடினமான நேரங்களில் உங்களை மதிப்புமிக்கதாக உணரவைக்கும் மக்களுடன் இருங்கள்."]},
+    {t_en:"Knowing You Belong", t_ta:"நீங்கள் சொந்தம் என்பதை அறிதல்",
+     ex_en:"You don't need to belong to every group. There is a place and group of people where you truly fit — sometimes it just takes time to find them.",
+     ex_ta:"ஒவ்வொரு குழுவிலும் சொந்தமாக இருக்க வேண்டியதில்லை. நீங்கள் உண்மையிலேயே பொருந்தும் ஒரு இடமும் மக்கள் குழுவும் உள்ளது — சில நேரங்களில் அவர்களைக் கண்டறிய நேரம் எடுக்கும்.",
+     eg_en:"After not fitting in with the popular group, Sahana joined the school choir instead and found a group of friends who truly appreciated who she was.",
+     eg_ta:"பிரபலமான குழுவில் பொருந்தாத பிறகு, சஹானா அதற்கு பதிலாக பள்ளி பாடகர் குழுவில் சேர்ந்தாள், அவள் யார் என்பதை உண்மையிலேயே பாராட்டும் நண்பர்கள் குழுவைக் கண்டறிந்தாள்.",
+     tips_en:["If one group doesn't feel right, try a different club, activity, or friend circle.","Remember: you don't have to shrink yourself to belong — the right group will accept you as you are."],
+     tips_ta:["ஒரு குழு சரியாக உணரவில்லை என்றால், வேறு ஒரு கிளப், செயல்பாடு, அல்லது நண்பர் வட்டத்தை முயற்சி செய்யுங்கள்.","நினைவில் கொள்ளுங்கள்: சொந்தமாக இருக்க நீங்கள் உங்களை சுருக்கிக்கொள்ள வேண்டியதில்லை — சரியான குழு உங்களை நீங்கள் இருப்பது போலவே ஏற்றுக்கொள்ளும்."]}
+  ]
+}
+];
+
+/* ============ RENDER ============ */
+let currentModule = 0;
+let completed = JSON.parse(localStorage.getItem('ssc_completed') || '[]');
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang === 'ta');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-ta').classList.toggle('active', lang === 'ta');
+}
+
+function buildGrid(){
+  const grid = document.getElementById('module-grid');
+  grid.innerHTML = '';
+  modules.forEach((m, i) => {
+    const btn = document.createElement('div');
+    btn.className = 'module-btn' + (i === currentModule ? ' active' : '') + (completed.includes(i) ? ' done' : '');
+    btn.innerHTML = `<div class="mnum">${i+1}</div><div class="mtitle"><span data-en="">${m.title_en}</span><span data-ta="">${m.title_ta}</span></div><span class="check">✓</span>`;
+    btn.onclick = () => showModule(i);
+    grid.appendChild(btn);
+  });
+  setLang(document.body.classList.contains('ta') ? 'ta' : 'en');
+}
+
+function buildModules(){
+  const wrap = document.getElementById('modules-container');
+  wrap.innerHTML = '';
+  modules.forEach((m, i) => {
+    const div = document.createElement('div');
+    div.className = 'module-view' + (i === currentModule ? ' active' : '');
+    div.id = 'module-' + i;
+
+    let subtopicsHtml = '';
+    m.subtopics.forEach((s, si) => {
+      subtopicsHtml += `
+        <div class="subtopic">
+          <h3>${si+1}. <span data-en="">${s.t_en}</span><span data-ta="">${s.t_ta}</span></h3>
+          <p><span data-en="">${s.ex_en}</span><span data-ta="">${s.ex_ta}</span></p>
+          <div class="example-box"><span class="label"><span data-en="">Real-Life Example</span><span data-ta="">நடைமுறை வாழ்க்கை உதாரணம்</span></span>
+            <span data-en="">${s.eg_en}</span><span data-ta="">${s.eg_ta}</span>
+          </div>
+          <div class="tips-box"><span class="label"><span data-en="">Try This</span><span data-ta="">இதை முயற்சி செய்யுங்கள்</span></span>
+            <ul>
+              <li><span data-en="">${s.tips_en[0]}</span><span data-ta="">${s.tips_ta[0]}</span></li>
+              <li><span data-en="">${s.tips_en[1]}</span><span data-ta="">${s.tips_ta[1]}</span></li>
+            </ul>
+          </div>
+        </div>`;
+    });
+
+    div.innerHTML = `
+      <div class="module-card">
+        <h2><span data-en="">Module ${i+1}: ${m.title_en}</span><span data-ta="">பாடம் ${i+1}: ${m.title_ta}</span></h2>
+        <p class="module-intro"><span data-en="">${m.intro_en}</span><span data-ta="">${m.intro_ta}</span></p>
+        ${subtopicsHtml}
+        <div class="mark-done-row">
+          <button class="btn" onclick="markDone(${i})">
+            <span data-en="">✓ Mark Module Complete</span><span data-ta="">✓ பாடத்தை முடிந்ததாக குறிக்கவும்</span>
+          </button>
+        </div>
+        <div class="nav-row">
+          <button class="btn secondary" onclick="prevModule()" ${i===0?'style="visibility:hidden;"':''}>
+            <span data-en="">← Previous</span><span data-ta="">← முந்தைய</span>
+          </button>
+          <button class="btn secondary" onclick="nextModule()" ${i===modules.length-1?'style="visibility:hidden;"':''}>
+            <span data-en="">Next →</span><span data-ta="">அடுத்து →</span>
+          </button>
+        </div>
+      </div>`;
+    wrap.appendChild(div);
+  });
+  setLang(document.body.classList.contains('ta') ? 'ta' : 'en');
+}
+
+function showModule(i){
+  currentModule = i;
+  document.querySelectorAll('.module-view').forEach(el => el.classList.remove('active'));
+  document.getElementById('module-' + i).classList.add('active');
+  buildGrid();
+  window.scrollTo({top: document.getElementById('modules-container').offsetTop - 20, behavior:'smooth'});
+}
+
+function nextModule(){ if(currentModule < modules.length - 1) showModule(currentModule + 1); }
+function prevModule(){ if(currentModule > 0) showModule(currentModule - 1); }
+
+function markDone(i){
+  if(!completed.includes(i)){
+    completed.push(i);
+    localStorage.setItem('ssc_completed', JSON.stringify(completed));
+  }
+  updateProgress();
+  buildGrid();
+}
+
+function updateProgress(){
+  const pct = Math.round((completed.length / modules.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-count').textContent = `${completed.length} / ${modules.length}`;
+}
+
+const waMsg = encodeURIComponent("Hi, I completed some modules of the Social Skills course and would like to know more about the Students Empowerment Program.");
+document.getElementById('whatsapp-cta').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+
+buildGrid();
+buildModules();
+updateProgress();
+</script>
+</body>
+</html>
