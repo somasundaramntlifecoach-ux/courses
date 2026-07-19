@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ego Assessment — Somasundaram Life Skills Academy</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#1a202c;font-size:15px;line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:20px 16px 48px}
+.hdr{background:linear-gradient(135deg,#1e1b6e 0%,#4338ca 55%,#7c3aed 100%);border-radius:18px;padding:34px 30px 26px;color:#fff;text-align:center;margin-bottom:20px;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:rgba(255,255,255,.05);border-radius:50%}
+.hdr::after{content:'';position:absolute;bottom:-70px;left:-40px;width:250px;height:250px;background:rgba(255,255,255,.04);border-radius:50%}
+.hdr-icon{font-size:46px;display:block;margin-bottom:8px}
+.hdr h1{font-size:22px;font-weight:700}
+.hdr h1 .sub{display:block;font-size:13.5px;font-weight:400;opacity:.82;margin-top:4px}
+.hdr-meta{display:flex;justify-content:center;gap:12px;margin-top:14px;flex-wrap:wrap}
+.hbadge{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:4px 13px;font-size:12px}
+.atag{font-size:11.5px;opacity:.7;margin-top:9px}
+.intro{background:#fff;border-radius:12px;padding:16px 20px;margin-bottom:16px;border-left:4px solid #4338ca;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.intro p{font-size:13px;color:#4a5568;margin-bottom:6px}
+.intro p:last-child{margin-bottom:0}
+.stitle{background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;padding:10px 16px;font-size:14px;font-weight:700;color:#3730a3;margin:6px 0 12px}
+.pcard{background:#fff;border-radius:12px;padding:20px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.fg{margin-bottom:13px}.fg:last-child{margin-bottom:0}
+.flabel{display:block;font-size:13px;font-weight:600;color:#374151;margin-bottom:4px}
+.flabel .hint{display:block;font-size:11.5px;font-weight:400;color:#9ca3af;margin-top:2px}
+.finput{width:100%;padding:9px 12px;border:1.5px solid #d1d5db;border-radius:8px;font-size:13.5px;color:#1a202c;outline:none;background:#fafafa;transition:border-color .2s}
+.finput:focus{border-color:#4338ca;background:#fff}
+.req{color:#e53e3e;margin-left:3px}
+.sbox{background:#faf5ff;border:1px solid #e9d5ff;border-radius:10px;padding:12px 16px;margin-bottom:16px}
+.sboxtitle{font-size:12.5px;font-weight:700;color:#6d28d9;margin-bottom:8px}
+.sitems{display:flex;flex-wrap:wrap;gap:7px}
+.si{display:flex;align-items:center;gap:5px;font-size:12px;color:#4a5568}
+.sdot{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0}
+.prog-wrap{background:#e5e7eb;border-radius:20px;height:7px;margin:14px 0 4px;overflow:hidden}
+.prog-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#4338ca,#7c3aed);transition:width .4s;width:0%}
+.prog-text{font-size:11.5px;color:#6b7280;text-align:right;margin-bottom:16px}
+.qcard{background:#fff;border-radius:12px;padding:16px 18px;margin-bottom:11px;border:1.5px solid #e5e7eb;box-shadow:0 1px 3px rgba(0,0,0,.05);transition:border-color .2s}
+.qcard.answered{border-color:#a5b4fc;background:#fafaff}
+.qcard.error{border-color:#f87171}
+.qnum{display:inline-block;background:#4338ca;color:#fff;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:12px;margin-bottom:8px}
+.qen{font-size:13.5px;font-weight:600;color:#1a202c;margin-bottom:3px;line-height:1.5}
+.qta{font-size:12.5px;color:#6b7280;margin-bottom:11px;line-height:1.55}
+.opts{display:flex;flex-direction:column;gap:5px}
+.opt{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:12.5px;color:#374151;border:1px solid transparent;transition:background .15s}
+.opt:hover{background:#eef2ff;border-color:#c7d2fe}
+.opt input[type=radio]{display:none}
+.opt.selected{background:#eef2ff;border-color:#818cf8;color:#3730a3;font-weight:600}
+.rcirc{width:16px;height:16px;border-radius:50%;border:2px solid #9ca3af;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s}
+.opt.selected .rcirc{border-color:#4338ca;background:#4338ca}
+.rdot{width:6px;height:6px;border-radius:50%;background:#fff;display:none}
+.opt.selected .rdot{display:block}
+.errmsg{background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:9px 13px;font-size:12.5px;color:#991b1b;margin-bottom:13px;display:none}
+.sub-sec{text-align:center;margin-top:24px}
+.btn-submit{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;border:none;padding:14px 44px;font-size:15px;font-weight:700;border-radius:40px;cursor:pointer;box-shadow:0 4px 14px rgba(67,56,202,.35);transition:transform .15s,box-shadow .15s}
+.btn-submit:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(67,56,202,.45)}
+.sub-note{font-size:11.5px;color:#9ca3af;margin-top:8px}
+#result-panel{display:none}
+.rhdr{background:linear-gradient(135deg,#1e1b6e,#4338ca,#7c3aed);border-radius:16px;padding:28px 24px;color:#fff;text-align:center;margin-bottom:16px}
+.remoji{font-size:56px;display:block;margin-bottom:8px}
+.rlev-en{font-size:22px;font-weight:700;margin-bottom:2px}
+.rlev-ta{font-size:16px;font-weight:400;opacity:.85;margin-bottom:12px}
+.rpill{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:30px;padding:6px 20px;font-size:13.5px;font-weight:600}
+.rpinfo{background:rgba(255,255,255,.12);border-radius:10px;padding:9px 14px;margin-top:12px;font-size:12.5px;text-align:left}
+.rpinfo span{display:inline-block;margin-right:14px;opacity:.9}
+.rblock{background:#fff;border-radius:14px;padding:20px 22px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.rbt-en{font-size:14.5px;font-weight:700;color:#3730a3;margin-bottom:2px}
+.rbt-ta{font-size:13px;color:#6d28d9;margin-bottom:12px;font-weight:500}
+.desc-en{font-size:13.5px;color:#1a202c;line-height:1.7;margin-bottom:9px}
+.desc-ta{font-size:13px;color:#4b5563;line-height:1.7;padding:11px 13px;background:#f8f4ff;border-radius:8px;border-left:3px solid #7c3aed}
+.catgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.catlabel-en{font-size:12px;font-weight:600;color:#374151}
+.catlabel-ta{font-size:11px;color:#6b7280;margin-bottom:4px}
+.btrack{background:#e5e7eb;border-radius:4px;height:7px;overflow:hidden;margin:3px 0 2px}
+.bfill{height:100%;border-radius:4px;transition:width .8s}
+.bpct{font-size:10.5px;color:#6b7280}
+.tips-list{list-style:none;padding:0}
+.ti{border-bottom:1px dashed #e5e7eb;padding:11px 0}
+.ti:last-child{border-bottom:none}
+.tip-en{font-size:13.5px;color:#1a202c;font-weight:500;padding-left:20px;position:relative;line-height:1.5}
+.tip-en::before{content:'✦';color:#4338ca;position:absolute;left:0;top:1px;font-size:10px}
+.tip-ta{font-size:12.5px;color:#6b7280;padding-left:20px;margin-top:3px;line-height:1.5}
+.progcard{display:flex;align-items:flex-start;gap:11px;background:#f8f4ff;border-radius:10px;padding:13px;margin-bottom:9px;border:1px solid #e9d5ff}
+.progicon{font-size:22px;flex-shrink:0;margin-top:2px}
+.pt-en{font-size:13.5px;font-weight:700;color:#3730a3}
+.pt-ta{font-size:12.5px;color:#6d28d9;margin-bottom:3px}
+.pd-en{font-size:12.5px;color:#374151;line-height:1.5}
+.pd-ta{font-size:12px;color:#6b7280;margin-top:2px;line-height:1.5}
+.rfooter{text-align:center;padding:14px;background:#eef2ff;border-radius:12px;margin-bottom:14px}
+.rfooter p{font-size:12.5px;color:#3730a3}
+.rfooter p.ta{color:#6d28d9;margin-top:3px;font-size:12px}
+.action-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:4px 0 10px}
+.btn-pdf{background:linear-gradient(135deg,#4338ca,#7c3aed);color:#fff;border:none;padding:13px 32px;font-size:14.5px;font-weight:700;border-radius:40px;cursor:pointer;box-shadow:0 4px 14px rgba(67,56,202,.3);transition:transform .15s}
+.btn-pdf:hover{transform:translateY(-2px)}
+.btn-pdf:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.btn-retake{background:#fff;color:#4338ca;border:2px solid #4338ca;padding:12px 30px;font-size:14.5px;font-weight:700;border-radius:40px;cursor:pointer;transition:all .15s}
+.btn-retake:hover{background:#4338ca;color:#fff}
+.pdf-spinner{display:none;text-align:center;padding:12px;font-size:13px;color:#4338ca;font-weight:600}
+@media(max-width:540px){
+  .hdr{padding:24px 16px 20px}.hdr h1{font-size:18px}
+  .catgrid{grid-template-columns:1fr}
+  .action-row{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="hdr">
+  <span class="hdr-icon">🧠</span>
+  <h1>Ego Assessment<span class="sub">அகங்கார மதிப்பீடு — Emotional Intelligence Evaluation</span></h1>
+  <div class="hdr-meta">
+    <span class="hbadge">📋 25 Questions / கேள்விகள்</span>
+    <span class="hbadge">⏱ 10–15 Minutes</span>
+    <span class="hbadge">🔒 Confidential / இரகசியம்</span>
+  </div>
+  <div class="atag">Somasundaram Life Skills Academy | somasundaramnt</div>
+</div>
+
+<div class="intro">
+  <p><strong>English:</strong> This assessment helps you understand your ego level and its impact on your emotional intelligence. Please answer honestly — there are no right or wrong answers.</p>
+  <p><strong>தமிழ்:</strong> இந்த மதிப்பீடு உங்கள் அகங்கார நிலையையும் உணர்வு நுண்ணறிவில் அதன் தாக்கத்தையும் புரிந்துகொள்ள உதவுகிறது. நேர்மையாக பதிலளிக்கவும்.</p>
+</div>
+
+<div id="assessment-form">
+  <div class="stitle">📋 Participant Information / பங்கேற்பாளர் தகவல்</div>
+  <div class="pcard">
+    <div class="fg">
+      <label class="flabel">Name / பெயர் <span class="req">*</span></label>
+      <input type="text" id="p-name" class="finput" placeholder="Full name / முழு பெயர்">
+    </div>
+    <div class="fg">
+      <label class="flabel">Email / மின்னஞ்சல் <span class="req">*</span></label>
+      <input type="email" id="p-email" class="finput" placeholder="yourname@email.com">
+    </div>
+    <div class="fg">
+      <label class="flabel">Mobile / மொபைல் எண் <span class="req">*</span>
+        <span class="hint">Include country code (e.g. +91 9876543210)</span>
+      </label>
+      <input type="tel" id="p-mobile" class="finput" placeholder="+91 9876543210">
+    </div>
+  </div>
+
+  <div class="stitle">🧠 Assessment Questions / மதிப்பீடு கேள்விகள்</div>
+  <div class="sbox">
+    <div class="sboxtitle">📊 Rating Scale / மதிப்பீட்டு அளவு</div>
+    <div class="sitems">
+      <div class="si"><div class="sdot" style="background:#94a3b8">1</div><span>Never / ஒருபோதும் இல்லை</span></div>
+      <div class="si"><div class="sdot" style="background:#60a5fa">2</div><span>Rarely / அரிதாக</span></div>
+      <div class="si"><div class="sdot" style="background:#34d399">3</div><span>Sometimes / சில சமயம்</span></div>
+      <div class="si"><div class="sdot" style="background:#f59e0b">4</div><span>Often / அடிக்கடி</span></div>
+      <div class="si"><div class="sdot" style="background:#f43f5e">5</div><span>Always / எப்போதும்</span></div>
+    </div>
+  </div>
+
+  <div class="prog-wrap"><div class="prog-fill" id="prog-fill"></div></div>
+  <div class="prog-text" id="prog-text">0 of 25 answered / 25 இல் 0 பதிலளிக்கப்பட்டது</div>
+  <div class="errmsg" id="errmsg">⚠️ Please fill all fields and answer all 25 questions. / அனைத்து தகவல்களையும் நிரப்பி 25 கேள்விகளுக்கும் பதிலளிக்கவும்.</div>
+  <div id="qcontainer"></div>
+
+  <div class="sub-sec">
+    <button class="btn-submit" onclick="submitAssessment()">Submit Assessment / மதிப்பீட்டை சமர்ப்பிக்கவும் →</button>
+    <div class="sub-note">Results appear instantly with bilingual report + PDF download / முடிவுகள் உடனடியாக — ஈரமொழி அறிக்கை + PDF பதிவிறக்கம்</div>
+  </div>
+</div>
+
+<div id="result-panel">
+  <div class="rhdr">
+    <span class="remoji" id="r-emoji"></span>
+    <div class="rlev-en" id="r-lev-en"></div>
+    <div class="rlev-ta" id="r-lev-ta"></div>
+    <div class="rpill" id="r-score"></div>
+    <div class="rpinfo" id="r-pinfo"></div>
+  </div>
+  <div class="rblock">
+    <div class="rbt-en">📝 Your Result / உங்கள் முடிவு</div>
+    <div class="rbt-ta">விளக்கம் — What this means for you</div>
+    <div class="desc-en" id="r-desc-en"></div>
+    <div class="desc-ta" id="r-desc-ta"></div>
+  </div>
+  <div class="rblock">
+    <div class="rbt-en">📊 Category Breakdown / பிரிவு வாரியான மதிப்பீடு</div>
+    <div class="rbt-ta">எந்தெந்த பகுதிகளில் அகங்காரம் அதிகமாக உள்ளது?</div>
+    <div class="catgrid" id="r-cats"></div>
+  </div>
+  <div class="rblock">
+    <div class="rbt-en">💡 Growth Tips / வளர்ச்சி குறிப்புகள்</div>
+    <div class="rbt-ta">உணர்வு நுண்ணறிவை வளர்க்க உதவும் ஆலோசனைகள்</div>
+    <ul class="tips-list" id="r-tips"></ul>
+  </div>
+  <div class="rblock">
+    <div class="rbt-en">🎯 Suggested Programs / பரிந்துரைக்கப்பட்ட திட்டங்கள்</div>
+    <div class="rbt-ta">உங்கள் வளர்ச்சிக்கு ஏற்ற பயிற்சி வாய்ப்புகள்</div>
+    <div id="r-progs"></div>
+  </div>
+  <div class="rfooter">
+    <p>🌟 <strong>Somasundaram NT</strong> — Certified Master Trainer | Life Skills Educator | Parenting Coach</p>
+    <p class="ta">🌟 <strong>சோமசுந்தரம் NT</strong> — சான்றளிக்கப்பட்ட முதன்மை பயிற்சியாளர் | வாழ்க்கை திறன் கல்வியாளர்</p>
+  </div>
+  <div class="pdf-spinner" id="pdf-spinner">⏳ Building your PDF... / PDF உருவாக்கப்படுகிறது...</div>
+  <div class="action-row">
+    <button class="btn-pdf" id="btn-pdf" onclick="downloadPDF()">⬇ Download PDF Report / PDF அறிக்கை பதிவிறக்கம்</button>
+    <button class="btn-retake" onclick="location.reload()">🔄 Retake / மீண்டும் எடுக்கவும்</button>
+  </div>
+</div>
+
+</div>
+<script>
+const questions=[
+  {en:"I feel the need to defend or justify my actions when questioned.",ta:"என்னிடம் கேள்வி கேட்கப்படும்போது எனது செயல்களை நியாயப்படுத்த வேண்டும் என்று உணர்கிறேன்."},
+  {en:"I get upset when my efforts or achievements are not recognized by others.",ta:"என் முயற்சிகள் அல்லது சாதனைகள் மற்றவர்களால் அங்கீகரிக்கப்படாதபோது நான் வருத்தமடைகிறேன்."},
+  {en:"I find it difficult to admit when I am wrong.",ta:"நான் தவறு செய்தபோது அதை ஒப்புக்கொள்வது எனக்கு கடினமாக இருக்கிறது."},
+  {en:"I frequently compare myself with others to measure my success.",ta:"எனது வெற்றியை அளவிட மற்றவர்களுடன் என்னை அடிக்கடி ஒப்பிட்டுப் பார்க்கிறேன்."},
+  {en:"I feel defensive when someone criticizes me, even constructively.",ta:"யாராவது என்னை விமர்சிக்கும்போது, அது ஆக்கபூர்வமாக இருந்தாலும், நான் தற்காப்பு உணர்வை உணர்கிறேன்."},
+  {en:"I prefer to be in control of situations and decisions.",ta:"சூழ்நிலைகள் மற்றும் முடிவுகளின் மீது கட்டுப்பாட்டில் இருக்க விரும்புகிறேன்."},
+  {en:"I believe my ideas and opinions are better than most people's.",ta:"என் கருத்துக்கள் மற்றும் எண்ணங்கள் பெரும்பாலான மக்களை விட சிறந்தவை என்று நம்புகிறேன்."},
+  {en:"I interrupt or talk over others during conversations.",ta:"உரையாடல்களின்போது மற்றவர்களின் பேச்சை குறுக்கிடுகிறேன் அல்லது அவர்கள் பேசும்போது பேசுகிறேன்."},
+  {en:"I need to be the center of attention in social gatherings.",ta:"சமூக கூட்டங்களில் கவனத்தின் மையமாக இருக்க வேண்டும் என்று எனக்கு தேவைப்படுகிறது."},
+  {en:"I resist taking advice or suggestions from others.",ta:"மற்றவர்களிடமிருந்து ஆலோசனைகள் அல்லது பரிந்துரைகளை எடுப்பதை நான் எதிர்க்கிறேன்."},
+  {en:"I feel threatened when someone else succeeds or gets praised.",ta:"யாராவது வெற்றி பெறும்போது அல்லது பாராட்டப்படும்போது அச்சுறுத்தலாக உணர்கிறேன்."},
+  {en:"Saying 'I'm sorry' feels like a sign of weakness to me.",ta:"'மன்னிக்கவும்' என்று சொல்வது எனக்கு பலவீனத்தின் அடையாளமாக உணர்கிறது."},
+  {en:"I frequently mention my accomplishments in conversations.",ta:"உரையாடல்களில் என் சாதனைகளை அடிக்கடி குறிப்பிடுகிறேன்."},
+  {en:"I expect perfection from myself and get frustrated with mistakes.",ta:"என்னிடமிருந்து முழுமையை எதிர்பார்க்கிறேன் மற்றும் தவறுகளால் விரக்தியடைகிறேன்."},
+  {en:"I spend more time talking about myself than listening to others.",ta:"மற்றவர்களின் பேச்சைக் கேட்பதை விட என்னைப் பற்றி பேசுவதில் அதிக நேரம் செலவிடுகிறேன்."},
+  {en:"I dismiss feedback that doesn't align with my self-perception.",ta:"எனது சுய உணர்வுடன் ஒத்துப்போகாத கருத்துக்களை நிராகரிக்கிறேன்."},
+  {en:"I see most interactions as competitions I need to win.",ta:"பெரும்பாலான உறவாடல்களை நான் வெல்ல வேண்டிய போட்டிகளாக பார்க்கிறேன்."},
+  {en:"My social status and image are very important to me.",ta:"எனது சமூக அந்தஸ்து மற்றும் பிம்பம் எனக்கு மிகவும் முக்கியம்."},
+  {en:"When things go wrong, I tend to blame external factors or others.",ta:"விஷயங்கள் தவறாக நடக்கும்போது, வெளிப்புற காரணிகள் அல்லது மற்றவர்களை குறை கூறுகிறேன்."},
+  {en:"When someone shares an experience, I feel the need to share a better one.",ta:"யாராவது ஒரு அனுபவத்தைப் பகிர்ந்துகொள்ளும்போது, அதைவிட சிறந்த ஒன்றைப் பகிர வேண்டும் என்று உணர்கிறேன்."},
+  {en:"I struggle to respect people in authority who I think are less competent than me.",ta:"என்னை விட திறமை குறைவானவர்கள் என்று நான் நினைக்கும் அதிகாரத்தில் உள்ளவர்களை மதிக்க போராடுகிறேன்."},
+  {en:"My self-worth depends heavily on external achievements and recognition.",ta:"எனது சுய மதிப்பு வெளிப்புற சாதனைகள் மற்றும் அங்கீகாரத்தை பெரிதும் சார்ந்துள்ளது."},
+  {en:"I avoid showing vulnerability or admitting I need help.",ta:"பலவீனத்தை காட்டுவதையோ அல்லது எனக்கு உதவி தேவை என்பதை ஒப்புக்கொள்வதையோ தவிர்க்கிறேன்."},
+  {en:"I feel uncomfortable celebrating others' achievements genuinely.",ta:"மற்றவர்களின் சாதனைகளை உண்மையாக கொண்டாடுவது எனக்கு சங்கடமாக இருக்கிறது."},
+  {en:"I notice that my need to be right affects my relationships negatively.",ta:"சரியாக இருக்க வேண்டும் என்ற எனது தேவை என் உறவுகளை எதிர்மறையாக பாதிக்கிறது என்பதை கவனிக்கிறேன்."}
+];
+const OPTS=[
+  {label:"Never / ஒருபோதும் இல்லை",v:1,c:"#94a3b8"},
+  {label:"Rarely / அரிதாக",v:2,c:"#60a5fa"},
+  {label:"Sometimes / சில சமயம்",v:3,c:"#34d399"},
+  {label:"Often / அடிக்கடி",v:4,c:"#f59e0b"},
+  {label:"Always / எப்போதும்",v:5,c:"#f43f5e"}
+];
+const CATS=[
+  {en:"Self-Awareness",ta:"சுய விழிப்புணர்வு",qs:[2,3,15,24]},
+  {en:"Social Behavior",ta:"சமூக நடத்தை",qs:[7,8,9,13,19]},
+  {en:"Control & Blame",ta:"கட்டுப்பாடு & குறை",qs:[5,10,17,18]},
+  {en:"Validation Need",ta:"அங்கீகார தேவை",qs:[1,11,12,21]}
+];
+const RESULTS=[
+  {min:0,max:40,emoji:"🌟",levelEn:"Low Ego — Balanced & Humble",levelTa:"குறைந்த அகங்காரம் — சமநிலை மற்றும் பணிவு",
+   descEn:"You demonstrate exceptional humility and emotional balance. You rarely allow ego to interfere with your relationships or decisions. Your openness to feedback, ability to celebrate others' success, and willingness to admit mistakes are remarkable strengths that set you apart as a truly emotionally intelligent person.",
+   descTa:"நீங்கள் அசாதாரண பணிவையும் உணர்வு சமநிலையையும் வெளிப்படுத்துகிறீர்கள். கருத்துக்களை திறந்த மனதுடன் ஏற்கும் திறன், மற்றவர்களின் வெற்றியை கொண்டாடும் ஆற்றல், தவறுகளை ஒப்புக்கொள்ளும் துணிவு — இவை உங்களை உண்மையான உணர்வு நுண்ணறிவு கொண்டவராக வேறுபடுத்துகின்றன.",
+   tips:[
+     {en:"Continue practicing deep active listening — aim to understand before being understood.",ta:"ஆழமான கேட்கும் பழக்கத்தை தொடர்ந்து கடைப்பிடிக்கவும் — புரிந்துகொள்ளப்படுவதற்கு முன் புரிந்துகொள்ள முயற்சிக்கவும்."},
+     {en:"Mentor others using your humility as a living example — your story can transform others.",ta:"உங்கள் பணிவை ஒரு வாழும் எடுத்துக்காட்டாக பயன்படுத்தி மற்றவர்களுக்கு வழிகாட்டுங்கள்."},
+     {en:"Explore advanced Emotional Intelligence (EQ) training to deepen your self-mastery.",ta:"உங்கள் சுய அதிகாரத்தை ஆழப்படுத்த மேம்பட்ட EQ பயிற்சியை ஆராயுங்கள்."},
+     {en:"Journal your daily interactions — note moments of gratitude, compassion, and connection.",ta:"தினசரி தொடர்புகளை குறிப்பேட்டில் பதிவிடுங்கள் — நன்றி, இரக்கம் மற்றும் இணைப்பின் தருணங்களை குறிக்கவும்."},
+     {en:"Share your emotional intelligence journey — a talk or training session can inspire hundreds.",ta:"உங்கள் உணர்வு நுண்ணறிவு பயணத்தை பகிரங்கமாக பகிர்ந்துகொள்ளுங்கள் — நூற்றுக்கணக்கானவர்களை ஊக்குவிக்கலாம்."}
+   ],
+   programs:[
+     {icon:"🎓",enT:"Advanced EQ Leadership Program",taT:"மேம்பட்ட EQ தலைமைத்துவ திட்டம்",enD:"Take your emotional intelligence to the next level with advanced coaching and leadership training.",taD:"உணர்வு நுண்ணறிவை தலைமைத்துவ நிலைக்கு உயர்த்துங்கள்."},
+     {icon:"👨‍👩‍👧",enT:"Loving & Responsible Parenting (3-Day Zoom)",taT:"அன்பான மற்றும் பொறுப்பான பெற்றோரின்மை (3 நாள் ஜூம்)",enD:"A bilingual parenting program to raise emotionally balanced children through conscious parenting.",taD:"உணர்வு சமநிலையான குழந்தைகளை வளர்க்க ஈரமொழி பெற்றோர் திட்டம்."}
+   ]},
+  {min:41,max:65,emoji:"⚖️",levelEn:"Moderate Ego — Growing & Aware",levelTa:"மிதமான அகங்காரம் — வளர்ந்து கொண்டிருக்கிறீர்கள்",
+   descEn:"You have a healthy sense of self with occasional ego-driven reactions. You are aware enough to recognize when ego takes over, but there is meaningful room to grow. With consistent practice, you can build deeper empathy, stronger relationships, and more effective communication.",
+   descTa:"உங்களுக்கு ஆரோக்கியமான சுய உணர்வு உள்ளது, சில நேரங்களில் அகங்காரம் உங்கள் எதிர்வினைகளில் தெரிகிறது. நீங்கள் அதை அடையாளம் காண முடிகிறது — இதுவே மாற்றத்தின் முதல் அடி.",
+   tips:[
+     {en:"Practice the 'Pause Principle' — when you feel defensive, take 3 deep breaths before responding.",ta:"'இடைவேளை கொள்கை'யை கடைப்பிடிக்கவும் — தற்காப்பு உணர்வு வரும்போது 3 ஆழமான மூச்சு எடுக்கவும்."},
+     {en:"Actively seek feedback weekly from a trusted colleague or family member and thank them genuinely.",ta:"வாரம் ஒருமுறை நம்பகமான சக ஊழியரிடம் கருத்து கேட்டு உண்மையாக நன்றி சொல்லுங்கள்."},
+     {en:"Make it a daily habit to ask 'How can I improve this?' instead of defending your position.",ta:"உங்கள் நிலையை நியாயப்படுத்துவதற்கு பதிலாக தினமும் 'இதை எப்படி மேம்படுத்தலாம்?' என்று கேட்கும் பழக்கம் வளர்க்கவும்."},
+     {en:"When comparing yourself to others, redirect the energy: 'What can I learn from this person?'",ta:"மற்றவர்களுடன் ஒப்பிடும்போது ஆற்றலை திசைதிருப்புங்கள்: 'இவரிடமிருந்து என்ன கற்கலாம்?'"},
+     {en:"Join a peer learning group focused on emotional intelligence — accountability accelerates growth.",ta:"உணர்வு நுண்ணறிவில் கவனம் செலுத்தும் சக கற்றல் குழுவில் சேருங்கள் — பொறுப்புணர்வு வளர்ச்சியை துரிதப்படுத்துகிறது."}
+   ],
+   programs:[
+     {icon:"🧠",enT:"Emotional Intelligence Mastery Program",taT:"உணர்வு நுண்ணறிவு தேர்ச்சி திட்டம்",enD:"A structured program to build self-awareness, empathy and social skills through practical exercises.",taD:"நடைமுறை பயிற்சிகள் மூலம் சுய விழிப்புணர்வு, பச்சாத்தாபம் மற்றும் சமூக திறன்களை வளர்க்கும் திட்டம்."},
+     {icon:"👨‍👩‍👧",enT:"Loving & Responsible Parenting (3-Day Zoom)",taT:"அன்பான மற்றும் பொறுப்பான பெற்றோரின்மை (3 நாள் ஜூம்)",enD:"Learn to parent with emotional awareness using Positive Discipline techniques.",taD:"Positive Discipline நுட்பங்களைப் பயன்படுத்தி உணர்வு விழிப்புணர்வுடன் பெற்றோராக இருக்க கற்றுக்கொள்ளுங்கள்."},
+     {icon:"🎯",enT:"Life Skills for Professionals Workshop",taT:"தொழில் வல்லுநர்களுக்கான வாழ்க்கை திறன் பட்டறை",enD:"Build communication, conflict resolution, and leadership skills for professional and personal life.",taD:"தொழில்முறை மற்றும் தனிப்பட்ட வாழ்க்கைக்கான தொடர்பு, மோதல் தீர்வு மற்றும் தலைமைத்துவ திறன்களை வளர்க்கவும்."}
+   ]},
+  {min:66,max:90,emoji:"⚠️",levelEn:"High Ego — Needs Conscious Attention",levelTa:"அதிக அகங்காரம் — நனவான கவனம் தேவை",
+   descEn:"Your ego is significantly influencing your behavior and relationships. You may find it difficult to accept criticism, share success, or admit mistakes. The good news: awareness is the first step to change, and completing this assessment shows your courage to look inward. With the right support, deep transformation is within reach.",
+   descTa:"உங்கள் அகங்காரம் உங்கள் நடத்தைகளையும் உறவுகளையும் கணிசமாக பாதிக்கிறது. விமர்சனத்தை ஏற்றுக்கொள்வது, வெற்றியைப் பகிர்வது அல்லது தவறுகளை ஒப்புக்கொள்வது கடினமாக இருக்கலாம். நல்ல செய்தி: விழிப்புணர்வே மாற்றத்தின் முதல் படி — இந்த மதிப்பீட்டை முடித்தது உங்கள் தைரியத்தை காட்டுகிறது.",
+   tips:[
+     {en:"Start a daily 'Ego Check' journal — write one moment each day where you reacted from ego.",ta:"தினசரி 'அகங்கார சரிபார்ப்பு' குறிப்பேட்டை தொடங்குங்கள் — ஒவ்வொரு நாளும் அகங்காரத்திலிருந்து எதிர்வினையாற்றிய தருணம் எழுதுங்கள்."},
+     {en:"Practice saying 'You're right, I was wrong' once per day — intentionally, even in small matters.",ta:"ஒரு நாளில் ஒருமுறை 'நீங்கள் சரிதான், நான் தவறு செய்தேன்' என்று சொல்லும் பழக்கத்தை வளர்க்கவும்."},
+     {en:"In conflicts, repeat the other person's point of view before sharing yours — this breaks the defensive cycle.",ta:"மோதல்களில், உங்கள் கருத்தை பகிர்வதற்கு முன் மற்றவரின் கண்ணோட்டத்தை மீண்டும் சொல்லுங்கள்."},
+     {en:"Challenge yourself for 7 days: listen fully without interrupting in every conversation.",ta:"உங்களுக்கு 7 நாள் சவால்: ஒவ்வொரு உரையாடலிலும் குறுக்கிடாமல் முழுமையாக கேளுங்கள்."},
+     {en:"Read 'Ego is the Enemy' by Ryan Holiday — a transformative book for high-ego personalities.",ta:"Ryan Holiday இன் 'Ego is the Enemy' படியுங்கள் — அதிக அகங்கார ஆளுமைகளுக்கான ஒரு மாற்றும் புத்தகம்."}
+   ],
+   programs:[
+     {icon:"🧘",enT:"Positive Discipline Mastery Program",taT:"Positive Discipline தேர்ச்சி திட்டம்",enD:"Rewire discipline from ego-based control to connection-based influence using evidence-based methods.",taD:"அகங்கார அடிப்படையிலான கட்டுப்பாட்டிலிருந்து இணைப்பு அடிப்படையிலான ஆற்றலுக்கு மாற்றும் திட்டம்."},
+     {icon:"👨‍👩‍👧",enT:"Loving & Responsible Parenting (3-Day Zoom)",taT:"அன்பான மற்றும் பொறுப்பான பெற்றோரின்மை (3 நாள் ஜூம்)",enD:"Discover how ego patterns are passed to your children — and how to break the cycle.",taD:"குழந்தைப் பருவத்தில் கற்றுக்கொண்ட அகங்கார வடிவங்கள் எவ்வாறு குழந்தைகளுக்கு பரிமாறப்படுகின்றன என்பதை கண்டறியுங்கள்."},
+     {icon:"💬",enT:"NVC (Non-Violent Communication) Workshop",taT:"NVC (அகிம்சை தொடர்பு) பட்டறை",enD:"Learn Marshall Rosenberg's NVC framework to express needs without ego and connect deeply.",taD:"Marshall Rosenberg இன் NVC கட்டமைப்பை கற்று அகங்காரமின்றி தேவைகளை வெளிப்படுத்தவும்."}
+   ]},
+  {min:91,max:125,emoji:"🚨",levelEn:"Very High Ego — Urgent Transformation Needed",levelTa:"மிக அதிக அகங்காரம் — உடனடி மாற்றம் தேவை",
+   descEn:"Your ego is creating significant barriers in your personal and professional life. Relationships may feel strained, criticism may feel unbearable, and you may often feel misunderstood. This is not a judgment — it is a call to action. With the right support and practices, deep transformation is absolutely possible.",
+   descTa:"உங்கள் அகங்காரம் தனிப்பட்ட மற்றும் தொழில்முறை வாழ்க்கையில் குறிப்பிடத்தக்க தடைகளை உருவாக்குகிறது. இது தண்டனை அல்ல — மாற்றத்திற்கான ஒரு அழைப்பு! சரியான ஆதரவு மற்றும் பழக்கங்களால் ஆழமான மாற்றம் முற்றிலும் சாத்தியம்.",
+   tips:[
+     {en:"Begin working with a certified Life Coach or Counselor immediately — professional guidance accelerates transformation.",ta:"உடனடியாக ஒரு சான்றளிக்கப்பட்ட வாழ்க்கை பயிற்சியாளர் அல்லது ஆலோசகருடன் பணியாற்றத் தொடங்குங்கள்."},
+     {en:"Start a 10-minute daily mindfulness meditation practice — apps like Calm or Headspace can help.",ta:"10 நிமிட தினசரி mindfulness தியான பழக்கத்தை தொடங்குங்கள் — Calm அல்லது Headspace போன்ற செயலிகள் உதவலாம்."},
+     {en:"For 30 days, deliberately let others finish their sentences without interrupting — observe the change.",ta:"30 நாட்களுக்கு, மற்றவர்கள் வாக்கியங்களை முடிக்கும்வரை குறுக்கிடாமல் இருங்கள் — மாற்றத்தை கவனிக்கவும்."},
+     {en:"Write down 3 things you genuinely admire about someone you feel competitive with.",ta:"நீங்கள் போட்டி உணர்வு உணரும் ஒருவரிடம் உண்மையிலேயே மதிக்கும் 3 விஷயங்களை எழுதுங்கள்."},
+     {en:"Practice 'I was wrong' and 'Thank you for pointing that out' daily — these phrases rewire the ego.",ta:"தினமும் 'நான் தவறு செய்தேன்' மற்றும் 'அதை சுட்டிக்காட்டியதற்கு நன்றி' பழக்கத்தை கடைப்பிடிக்கவும்."}
+   ],
+   programs:[
+     {icon:"🌱",enT:"Loving & Responsible Parenting (3-Day Zoom) — Priority",taT:"அன்பான மற்றும் பொறுப்பான பெற்றோரின்மை (3 நாள் ஜூம்) — முன்னுரிமை",enD:"This program directly addresses ego patterns in parenting and relationships. Highly recommended as your first step.",taD:"இந்த திட்டம் பெற்றோர் மற்றும் உறவுகளில் அகங்கார வடிவங்களை நேரடியாக நிவர்த்திக்கிறது."},
+     {icon:"🧠",enT:"Positive Discipline Mastery Program",taT:"Positive Discipline தேர்ச்சி திட்டம்",enD:"Restructure how you think about authority, control, and influence using evidence-based methods.",taD:"ஆதாரம் சார்ந்த முறைகளைப் பயன்படுத்தி அதிகாரம் மற்றும் கட்டுப்பாடு பற்றிய சிந்தனையை மறுகட்டமைக்கவும்."},
+     {icon:"💬",enT:"1-on-1 Life Coaching with Somasundaram NT",taT:"சோமசுந்தரம் NT உடன் நேரடி வாழ்க்கை பயிற்சி",enD:"Personalized coaching sessions to address your specific ego patterns and build lasting emotional intelligence.",taD:"உங்கள் குறிப்பிட்ட அகங்கார வடிவங்களை நிவர்த்திக்கவும் நீடித்த உணர்வு நுண்ணறிவை வளர்க்கவும் தனிப்பட்ட அமர்வுகள்."},
+     {icon:"📖",enT:"Five Love Languages & NVC Combined Workshop",taT:"ஐந்து அன்பு மொழிகள் & NVC இணைந்த பட்டறை",enD:"Understand how unmet needs feed the ego and replace them with compassionate communication.",taD:"பூர்த்திசெய்யப்படாத தேவைகள் எவ்வாறு அகங்காரத்தை வளர்க்கின்றன என்பதை புரிந்துகொண்டு இரக்கமுள்ள தொடர்பால் மாற்றுங்கள்."}
+   ]}
+];
+
+const answers={};
+let currentResult=null,participantData={};
+
+function buildQuestions(){
+  const c=document.getElementById('qcontainer');
+  questions.forEach((q,i)=>{
+    const d=document.createElement('div');
+    d.className='qcard';d.id='qc'+i;
+    d.innerHTML='<span class="qnum">Q'+(i+1)+' / கேள்வி '+(i+1)+'</span>'+
+      '<div class="qen">'+q.en+'</div>'+
+      '<div class="qta">'+q.ta+'</div>'+
+      '<div class="opts">'+OPTS.map(o=>
+        '<label class="opt" id="ol'+i+'-'+o.v+'" onclick="pick('+i+','+o.v+',this)">'+
+        '<input type="radio" name="q'+i+'" value="'+o.v+'">'+
+        '<span class="rcirc"><span class="rdot"></span></span>'+
+        '<span style="color:'+o.c+';font-weight:700;min-width:15px">'+o.v+'</span>'+
+        '<span>'+o.label+'</span></label>').join('')+'</div>';
+    c.appendChild(d);
+  });
+}
+
+function pick(qi,v,el){
+  answers[qi]=v;
+  OPTS.forEach(o=>{const e=document.getElementById('ol'+qi+'-'+o.v);if(e)e.classList.remove('selected');});
+  el.classList.add('selected');
+  document.getElementById('qc'+qi).classList.add('answered');
+  document.getElementById('qc'+qi).classList.remove('error');
+  const n=Object.keys(answers).length;
+  document.getElementById('prog-fill').style.width=Math.round(n/25*100)+'%';
+  document.getElementById('prog-text').textContent=n+' of 25 answered / 25 இல் '+n+' பதிலளிக்கப்பட்டது';
+}
+
+function submitAssessment(){
+  const name=document.getElementById('p-name').value.trim();
+  const email=document.getElementById('p-email').value.trim();
+  const mob=document.getElementById('p-mobile').value.trim();
+  const err=document.getElementById('errmsg');
+  if(!name||!email||!mob||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)||Object.keys(answers).length<25){
+    err.style.display='block';
+    questions.forEach((_,i)=>{if(answers[i]===undefined)document.getElementById('qc'+i).classList.add('error');});
+    const first=document.querySelector('.qcard.error');
+    if(first)first.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  err.style.display='none';
+  participantData={name,email,mob,date:new Date().toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'})};
+  const total=Object.values(answers).reduce((a,b)=>a+b,0);
+  currentResult=RESULTS.find(r=>total>=r.min&&total<=r.max);
+  currentResult._total=total;
+  showResults();
+}
+
+function showResults(){
+  document.getElementById('assessment-form').style.display='none';
+  document.getElementById('result-panel').style.display='block';
+  const R=currentResult,p=participantData;
+  document.getElementById('r-emoji').textContent=R.emoji;
+  document.getElementById('r-lev-en').textContent=R.levelEn;
+  document.getElementById('r-lev-ta').textContent=R.levelTa;
+  document.getElementById('r-score').textContent='Total Score: '+R._total+' / 125 | மொத்த மதிப்பு: '+R._total+' / 125';
+  document.getElementById('r-pinfo').innerHTML='<span>👤 '+p.name+'</span><span>✉ '+p.email+'</span><span>📱 '+p.mob+'</span><span>📅 '+p.date+'</span>';
+  document.getElementById('r-desc-en').textContent=R.descEn;
+  document.getElementById('r-desc-ta').textContent=R.descTa;
+  let cH='';
+  CATS.forEach(cat=>{
+    const s=cat.qs.reduce((a,qi)=>a+(answers[qi]||0),0);
+    const pct=Math.round(s/(cat.qs.length*5)*100);
+    const col=pct>70?'#f43f5e':pct>45?'#f59e0b':'#10b981';
+    cH+='<div><div class="catlabel-en">'+cat.en+'</div><div class="catlabel-ta">'+cat.ta+'</div>'+
+      '<div class="btrack"><div class="bfill" style="width:'+pct+'%;background:'+col+'"></div></div>'+
+      '<div class="bpct">'+pct+'% — '+(pct>70?'High/அதிகம்':pct>45?'Moderate/மிதம்':'Low/குறைவு')+'</div></div>';
+  });
+  document.getElementById('r-cats').innerHTML=cH;
+  document.getElementById('r-tips').innerHTML=R.tips.map(t=>
+    '<li class="ti"><div class="tip-en">'+t.en+'</div><div class="tip-ta">'+t.ta+'</div></li>').join('');
+  document.getElementById('r-progs').innerHTML=R.programs.map(pg=>
+    '<div class="progcard"><div class="progicon">'+pg.icon+'</div><div>'+
+    '<div class="pt-en">'+pg.enT+'</div><div class="pt-ta">'+pg.taT+'</div>'+
+    '<div class="pd-en">'+pg.enD+'</div><div class="pd-ta">'+pg.taD+'</div></div></div>').join('');
+  document.getElementById('result-panel').scrollIntoView({behavior:'smooth'});
+}
+
+/* ================================================================
+   DOWNLOAD PDF
+   html2canvas captures a hidden div (preserves Tamil rendering),
+   jsPDF slices it into A4 pages and saves as a .pdf file.
+   Works inside Google Sites iframes — no window.print() needed.
+   ================================================================ */
+function downloadPDF(){
+  if(typeof window.jspdf==='undefined'||typeof html2canvas==='undefined'){
+    alert('PDF libraries still loading. Please wait 5 seconds and try again.\nPDF நூலகங்கள் ஏற்றப்படுகின்றன. 5 விநாடி காத்திருந்து மீண்டும் முயற்சிக்கவும்.');
+    return;
+  }
+  const btn=document.getElementById('btn-pdf');
+  const spinner=document.getElementById('pdf-spinner');
+  btn.disabled=true;
+  btn.textContent='⏳ Generating PDF... / PDF உருவாக்கப்படுகிறது...';
+  spinner.style.display='block';
+
+  const R=currentResult,pd=participantData;
+  const catData=CATS.map(cat=>{
+    const s=cat.qs.reduce((a,qi)=>a+(answers[qi]||0),0);
+    const pct=Math.round(s/(cat.qs.length*5)*100);
+    const col=pct>70?'#f43f5e':pct>45?'#f59e0b':'#10b981';
+    const lbl=pct>70?'High / அதிகம்':pct>45?'Moderate / மிதம்':'Low / குறைவு';
+    return {en:cat.en,ta:cat.ta,pct,col,lbl};
+  });
+  const lvlBg=R._total<=40?'#d1fae5':R._total<=65?'#dbeafe':R._total<=90?'#fef3c7':'#fee2e2';
+  const lvlFg=R._total<=40?'#065f46':R._total<=65?'#1e40af':R._total<=90?'#92400e':'#991b1b';
+
+  const printHTML='<div id="pdf-area" style="width:794px;font-family:Segoe UI,Arial,sans-serif;background:#fff;color:#1a202c;font-size:13px;line-height:1.65;padding:0;">'
+    +'<div style="background:linear-gradient(135deg,#1e1b6e,#4338ca,#7c3aed);padding:26px 32px 20px;color:#fff;text-align:center;">'
+    +'<div style="font-size:21px;font-weight:800;">🧠 EGO ASSESSMENT REPORT</div>'
+    +'<div style="font-size:12.5px;opacity:.85;margin-top:4px;">Emotional Intelligence Evaluation | அகங்கார மதிப்பீடு அறிக்கை</div>'
+    +'<div style="font-size:11px;opacity:.7;margin-top:6px;">Somasundaram Life Skills Academy &nbsp;|&nbsp; somasundaramnt &nbsp;|&nbsp; Certified Master Trainer</div>'
+    +'</div>'
+    +'<div style="background:#eef2ff;border:1px solid #c7d2fe;margin:18px 24px 0;border-radius:10px;padding:13px 16px;">'
+    +'<div style="font-size:10.5px;font-weight:700;color:#3730a3;margin-bottom:7px;text-transform:uppercase;letter-spacing:.05em;">Participant Details / பங்கேற்பாளர் விவரங்கள்</div>'
+    +'<table style="width:100%;font-size:12px;border-collapse:collapse;">'
+    +'<tr><td style="padding:2px 0"><b>Name / பெயர்:</b> '+pd.name+'</td><td style="padding:2px 0;text-align:right"><b>Date / தேதி:</b> '+pd.date+'</td></tr>'
+    +'<tr><td style="padding:2px 0"><b>Email / மின்னஞ்சல்:</b> '+pd.email+'</td><td style="padding:2px 0;text-align:right"><b>Score / மதிப்பு:</b> <span style="font-weight:800;color:#4338ca;">'+R._total+' / 125</span></td></tr>'
+    +'<tr><td style="padding:2px 0"><b>Mobile / மொபைல்:</b> '+pd.mob+'</td></tr>'
+    +'</table></div>'
+    +'<div style="background:'+lvlBg+';border-left:5px solid '+lvlFg+';margin:14px 24px 0;border-radius:10px;padding:12px 16px;">'
+    +'<div style="font-size:17px;font-weight:800;color:'+lvlFg+';">'+R.emoji+' '+R.levelEn+'</div>'
+    +'<div style="font-size:13px;color:'+lvlFg+';opacity:.85;margin-top:3px;">'+R.levelTa+'</div>'
+    +'</div>'
+    +'<div style="margin:18px 24px 0;">'
+    +'<div style="background:#4338ca;color:#fff;border-radius:8px;padding:7px 13px;font-size:11.5px;font-weight:700;margin-bottom:11px;">📝 YOUR RESULT / உங்கள் முடிவு</div>'
+    +'<div style="font-size:13px;color:#1a202c;line-height:1.7;margin-bottom:9px;">'+R.descEn+'</div>'
+    +'<div style="background:#f8f4ff;border-left:3px solid #7c3aed;border-radius:6px;padding:11px 13px;font-size:12px;color:#4b5563;line-height:1.7;">'+R.descTa+'</div>'
+    +'</div>'
+    +'<div style="margin:18px 24px 0;">'
+    +'<div style="background:#4338ca;color:#fff;border-radius:8px;padding:7px 13px;font-size:11.5px;font-weight:700;margin-bottom:13px;">📊 CATEGORY BREAKDOWN / பிரிவு வாரியான மதிப்பீடு</div>'
+    +catData.map(c=>'<div style="margin-bottom:11px;">'
+      +'<div style="display:flex;justify-content:space-between;margin-bottom:3px;">'
+      +'<span style="font-size:12px;font-weight:600;color:#374151;">'+c.en+' <span style="font-weight:400;color:#6b7280;">/ '+c.ta+'</span></span>'
+      +'<span style="font-size:11px;font-weight:700;color:'+c.col+';">'+c.pct+'% — '+c.lbl+'</span></div>'
+      +'<div style="background:#e5e7eb;border-radius:4px;height:8px;overflow:hidden;">'
+      +'<div style="width:'+c.pct+'%;height:100%;background:'+c.col+';border-radius:4px;"></div></div></div>').join('')
+    +'</div>'
+    +'<div style="margin:18px 24px 0;">'
+    +'<div style="background:#4338ca;color:#fff;border-radius:8px;padding:7px 13px;font-size:11.5px;font-weight:700;margin-bottom:11px;">💡 GROWTH TIPS / வளர்ச்சி குறிப்புகள்</div>'
+    +R.tips.map((t,i)=>'<div style="border-bottom:1px dashed #e5e7eb;padding:9px 0;">'
+      +'<div style="font-size:13px;font-weight:600;color:#1a202c;padding-left:16px;position:relative;line-height:1.5;">'
+      +'<span style="position:absolute;left:0;color:#4338ca;font-size:10px;top:3px;">✦</span>'+t.en+'</div>'
+      +'<div style="font-size:12px;color:#6b7280;padding-left:16px;margin-top:3px;line-height:1.5;">'+t.ta+'</div></div>').join('')
+    +'</div>'
+    +'<div style="margin:18px 24px 0;">'
+    +'<div style="background:#4338ca;color:#fff;border-radius:8px;padding:7px 13px;font-size:11.5px;font-weight:700;margin-bottom:11px;">🎯 SUGGESTED PROGRAMS / பரிந்துரைக்கப்பட்ட திட்டங்கள்</div>'
+    +R.programs.map(pg=>'<div style="background:#f8f4ff;border:1px solid #e9d5ff;border-radius:9px;padding:13px;margin-bottom:9px;display:flex;gap:11px;align-items:flex-start;">'
+      +'<div style="font-size:21px;flex-shrink:0;">'+pg.icon+'</div>'
+      +'<div><div style="font-size:13px;font-weight:700;color:#3730a3;">'+pg.enT+'</div>'
+      +'<div style="font-size:12px;color:#6d28d9;margin-bottom:4px;">'+pg.taT+'</div>'
+      +'<div style="font-size:12px;color:#374151;line-height:1.5;">'+pg.enD+'</div>'
+      +'<div style="font-size:11.5px;color:#6b7280;margin-top:3px;line-height:1.5;">'+pg.taD+'</div></div></div>').join('')
+    +'</div>'
+    +'<div style="margin:20px 24px 0;background:#eef2ff;border-radius:10px;padding:13px;text-align:center;">'
+    +'<div style="font-size:12px;font-weight:700;color:#3730a3;">🌟 Somasundaram NT — Certified Master Trainer | Life Skills Educator | Parenting Coach</div>'
+    +'<div style="font-size:11.5px;color:#6d28d9;margin-top:3px;">🌟 சோமசுந்தரம் NT — சான்றளிக்கப்பட்ட முதன்மை பயிற்சியாளர் | வாழ்க்கை திறன் கல்வியாளர்</div>'
+    +'<div style="font-size:11px;color:#6b7280;margin-top:5px;">SKV International School, Tiruvannamalai &nbsp;|&nbsp; WhatsApp: +91 98437 02244 &nbsp;|&nbsp; YouTube: @Godisalwayswithu</div>'
+    +'<div style="font-size:11px;color:#9ca3af;margin-top:3px;font-style:italic;">"God is always with you" — somasundaramnt</div>'
+    +'</div><div style="height:24px;"></div></div>';
+
+  const wrap=document.createElement('div');
+  wrap.style.cssText='position:fixed;left:-9999px;top:0;z-index:-1;background:#fff;';
+  wrap.innerHTML=printHTML;
+  document.body.appendChild(wrap);
+
+  setTimeout(function(){
+    html2canvas(wrap.querySelector('#pdf-area'),{
+      scale:2,useCORS:true,allowTaint:true,backgroundColor:'#ffffff',logging:false
+    }).then(function(canvas){
+      try{
+        var jsPDF=window.jspdf.jsPDF;
+        var A4W=210,A4H=297;
+        var pxPerMm=canvas.width/A4W;
+        var pageHpx=Math.floor(A4H*pxPerMm);
+        var pages=Math.ceil(canvas.height/pageHpx);
+        var doc=new jsPDF({orientation:'portrait',unit:'mm',format:'a4'});
+        for(var i=0;i<pages;i++){
+          if(i>0)doc.addPage();
+          var srcY=i*pageHpx;
+          var sliceH=Math.min(pageHpx,canvas.height-srcY);
+          var pc=document.createElement('canvas');
+          pc.width=canvas.width;pc.height=sliceH;
+          pc.getContext('2d').drawImage(canvas,0,srcY,canvas.width,sliceH,0,0,canvas.width,sliceH);
+          var imgH=sliceH/pxPerMm;
+          doc.addImage(pc.toDataURL('image/jpeg',0.95),'JPEG',0,0,A4W,imgH);
+          doc.setFontSize(7);doc.setTextColor(160,160,170);doc.setFont('helvetica','normal');
+          doc.text('Page '+(i+1)+' of '+pages+' | Ego Assessment Report | Somasundaram Life Skills Academy | somasundaramnt',A4W/2,A4H-2.5,{align:'center'});
+        }
+        var sn=(pd.name||'Report').replace(/[^a-zA-Z0-9 ]/g,'').trim().replace(/\s+/g,'_').slice(0,30);
+        doc.save('Ego_Assessment_'+sn+'_'+new Date().toISOString().slice(0,10)+'.pdf');
+      }catch(e){
+        console.error(e);
+        alert('PDF save error: '+e.message);
+      }finally{
+        document.body.removeChild(wrap);
+        btn.disabled=false;
+        btn.textContent='⬇ Download PDF Report / PDF அறிக்கை பதிவிறக்கம்';
+        spinner.style.display='none';
+      }
+    }).catch(function(e){
+      console.error(e);
+      alert('Screenshot error: '+e.message+'\nTry a different browser if this persists.');
+      document.body.removeChild(wrap);
+      btn.disabled=false;
+      btn.textContent='⬇ Download PDF Report / PDF அறிக்கை பதிவிறக்கம்';
+      spinner.style.display='none';
+    });
+  },400);
+}
+
+buildQuestions();
+</script>
+</body>
+</html>

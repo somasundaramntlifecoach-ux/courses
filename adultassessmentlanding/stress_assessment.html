@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stress Management Assessment | SLS Academy</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins','Noto Sans Tamil',sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 100%);min-height:100vh;padding:16px}
+.card{background:#fff;border-radius:20px;max-width:640px;margin:0 auto;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.2)}
+.header{background:linear-gradient(135deg,#667eea,#764ba2);padding:28px 24px;text-align:center;color:#fff}
+.header h1{font-size:1.3rem;font-weight:700;margin-bottom:6px;line-height:1.4}
+.header p{font-size:0.82rem;opacity:0.9;line-height:1.5}
+.brand{font-size:0.75rem;margin-top:10px;opacity:0.8}
+.screen{padding:28px 24px}
+.hidden{display:none!important}
+/* INTRO */
+.intro-title{font-size:1.1rem;font-weight:700;color:#4c1d95;margin-bottom:8px;line-height:1.4}
+.intro-sub{font-size:0.82rem;color:#555;margin-bottom:20px;line-height:1.6}
+.dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+.dim-card{background:#f3f0ff;border-radius:12px;padding:12px;text-align:center}
+.dim-card .icon{font-size:1.6rem}
+.dim-card .dt{font-size:0.78rem;font-weight:600;color:#5b21b6;margin-top:4px;line-height:1.3}
+/* LEAD FORM */
+.field-label{font-size:0.78rem;font-weight:600;color:#374151;display:block;margin-bottom:6px}
+.field-input{width:100%;padding:13px 16px;border:2px solid #e5e7eb;border-radius:12px;font-size:0.88rem;font-family:'Poppins','Noto Sans Tamil',sans-serif;outline:none;transition:border-color .2s}
+.field-input:focus{border-color:#7c3aed}
+.lead-note{font-size:0.7rem;color:#9ca3af;text-align:center;margin-top:4px}
+/* QUIZ */
+.progress-wrap{margin-bottom:20px}
+.progress-top{display:flex;justify-content:space-between;font-size:0.75rem;color:#888;margin-bottom:6px}
+.progress-bar{background:#e5e7eb;border-radius:99px;height:8px}
+.progress-fill{height:8px;border-radius:99px;background:linear-gradient(90deg,#667eea,#764ba2);transition:width 0.4s}
+.dim-badge{display:inline-block;background:#ede9fe;color:#5b21b6;font-size:0.72rem;font-weight:600;padding:4px 10px;border-radius:99px;margin-bottom:14px}
+.q-text{font-size:0.95rem;font-weight:600;color:#1e1b4b;line-height:1.5;margin-bottom:6px}
+.q-sub{font-size:0.8rem;color:#6b7280;line-height:1.5;margin-bottom:20px}
+.options{display:flex;flex-direction:column;gap:10px}
+.opt-btn{background:#f9fafb;border:2px solid #e5e7eb;border-radius:12px;padding:14px 16px;font-size:0.85rem;font-family:'Poppins','Noto Sans Tamil',sans-serif;cursor:pointer;text-align:left;color:#374151;transition:all 0.2s;line-height:1.4}
+.opt-btn:hover,.opt-btn.selected{background:#ede9fe;border-color:#7c3aed;color:#4c1d95;font-weight:600}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.btn-nav{background:#f3f4f6;border:none;border-radius:10px;padding:10px 20px;font-size:0.82rem;font-family:inherit;cursor:pointer;color:#374151}
+.btn-next{background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:10px;padding:10px 24px;font-size:0.85rem;font-family:inherit;cursor:pointer;font-weight:600;opacity:0.4;pointer-events:none}
+.btn-next.active{opacity:1;pointer-events:auto}
+/* RESULTS */
+.result-header{text-align:center;margin-bottom:24px}
+.result-title{font-size:1.2rem;font-weight:700;color:#4c1d95;margin-bottom:6px}
+.result-sub{font-size:0.82rem;color:#555}
+.overall-box{border-radius:16px;padding:20px;text-align:center;margin-bottom:24px}
+.overall-label{font-size:0.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}
+.overall-level{font-size:1.6rem;font-weight:700;margin-bottom:4px}
+.overall-score{font-size:0.82rem;opacity:0.8}
+.dim-results{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.dim-result{background:#f9fafb;border-radius:14px;padding:16px}
+.dr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.dr-name{font-size:0.85rem;font-weight:700;color:#1e1b4b}
+.dr-badge{font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:99px}
+.dr-bar-wrap{background:#e5e7eb;border-radius:99px;height:7px;margin-bottom:10px}
+.dr-bar{height:7px;border-radius:99px}
+.dr-tip{font-size:0.78rem;color:#374151;line-height:1.6;background:#fff;border-radius:10px;padding:10px 12px;border-left:3px solid #7c3aed}
+.cta-box{background:linear-gradient(135deg,#667eea,#764ba2);border-radius:16px;padding:20px;text-align:center;color:#fff;margin-bottom:20px}
+.cta-box h3{font-size:1rem;font-weight:700;margin-bottom:6px}
+.cta-box p{font-size:0.78rem;opacity:0.9;margin-bottom:14px;line-height:1.5}
+/* BUTTONS */
+.btn-primary{width:100%;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:12px;padding:15px;font-size:0.95rem;font-weight:700;font-family:'Poppins','Noto Sans Tamil',sans-serif;cursor:pointer;margin-top:8px}
+.btn-wa{background:#25D366;color:#fff;border:none;border-radius:10px;padding:12px 20px;font-size:0.85rem;font-weight:700;font-family:inherit;cursor:pointer;width:100%}
+.btn-print{width:100%;background:#f3f4f6;border:none;border-radius:10px;padding:12px;font-size:0.85rem;font-family:inherit;cursor:pointer;color:#374151;font-weight:600;margin-bottom:10px}
+.btn-restart{width:100%;background:#ede9fe;border:none;border-radius:10px;padding:12px;font-size:0.85rem;font-family:inherit;cursor:pointer;color:#5b21b6;font-weight:600}
+.err{color:#ef4444;font-size:0.78rem;text-align:center;min-height:18px;margin-top:4px}
+.wa-float{position:fixed;bottom:24px;right:20px;background:#25D366;color:#fff;border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 16px rgba(37,211,102,0.5);text-decoration:none;z-index:999}
+@media print{.wa-float,.btn-print,.btn-restart,.btn-wa,.btn-primary,.nav-row{display:none!important}.card{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1>🧠 Stress Management<br>Self-Assessment</h1>
+    <p>மன அழுத்த மேலாண்மை சுய மதிப்பீடு</p>
+    <div class="brand">Somasundaram Life Skills Academy</div>
+  </div>
+
+  <!-- SCREEN 1: INTRO -->
+  <div id="s-intro" class="screen">
+    <div class="intro-title">உங்கள் மன அழுத்த நிலையை அறியுங்கள்!<br><span style="font-size:0.9rem;color:#374151">Discover Your Stress Level</span></div>
+    <div class="intro-sub">இந்த 20 கேள்வி மதிப்பீடு உங்கள் மன அழுத்தத்தின் 4 பரிமாணங்களை அளவிடுகிறது. நேர்மையாக பதிலளிக்கவும்.<br><br>This 20-question assessment measures stress across 4 key dimensions. Answer honestly for the most accurate result.</div>
+    <div class="dim-grid">
+      <div class="dim-card"><div class="icon">💪</div><div class="dt">உடல் அழுத்தம்<br>Physical Stress</div></div>
+      <div class="dim-card"><div class="icon">💜</div><div class="dt">உணர்வு அழுத்தம்<br>Emotional Stress</div></div>
+      <div class="dim-card"><div class="icon">🧠</div><div class="dt">மன அழுத்தம்<br>Mental Stress</div></div>
+      <div class="dim-card"><div class="icon">🤝</div><div class="dt">சமூக அழுத்தம்<br>Social Stress</div></div>
+    </div>
+    <button class="btn-primary" onclick="showScreen('s-lead')">தொடங்குவோம் / Let's Begin →</button>
+  </div>
+
+  <!-- SCREEN 2: LEAD FORM -->
+  <div id="s-lead" class="screen hidden">
+    <div style="text-align:center;margin-bottom:22px">
+      <div style="font-size:2rem;margin-bottom:8px">📋</div>
+      <div style="font-size:1.05rem;font-weight:700;color:#4c1d95;line-height:1.4">உங்கள் விவரங்களை பதிவு செய்யுங்கள்</div>
+      <div style="font-size:0.82rem;color:#6b7280;margin-top:4px">Enter your details to begin the assessment</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div>
+        <label class="field-label">👤 பெயர் | Name *</label>
+        <input id="inp-name" class="field-input" type="text" placeholder="உங்கள் பெயர் / Your Name">
+      </div>
+      <div>
+        <label class="field-label">📱 WhatsApp எண் | Phone Number *</label>
+        <input id="inp-phone" class="field-input" type="tel" placeholder="10-digit mobile number">
+      </div>
+      <div id="lead-err" class="err"></div>
+      <button class="btn-primary" onclick="submitLead()">தொடர்க | Continue to Assessment →</button>
+      <div class="lead-note">🔒 உங்கள் தகவல்கள் பாதுகாப்பாக வைக்கப்படும் | Your data is safe with us</div>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: QUIZ -->
+  <div id="s-quiz" class="screen hidden">
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span id="qCounter">கேள்வி 1 / 20 | Question 1 of 20</span>
+        <span id="qPct">0%</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    </div>
+    <div class="dim-badge" id="dimBadge"></div>
+    <div class="q-text" id="qTextTa"></div>
+    <div class="q-sub" id="qTextEn"></div>
+    <div class="options" id="optionsWrap"></div>
+    <div class="nav-row">
+      <button class="btn-nav" id="btnBack" onclick="goBack()">← Back</button>
+      <button class="btn-next" id="btnNext" onclick="goNext()">Next →</button>
+    </div>
+  </div>
+
+  <!-- SCREEN 4: RESULTS -->
+  <div id="s-result" class="screen hidden">
+    <div class="result-header">
+      <div class="result-title">📊 உங்கள் முடிவுகள் | Your Results</div>
+      <div class="result-sub" id="resultName"></div>
+    </div>
+    <div class="overall-box" id="overallBox"></div>
+    <div class="dim-results" id="dimResults"></div>
+    <div class="cta-box">
+      <h3>🌟 அடுத்த படி | Next Step</h3>
+      <p>மன அழுத்தத்தை நிர்வகிக்க கற்றுக்கொள்ளுங்கள் — எங்களின் Life Skills program-ல் சேருங்கள்!<br>Join our Life Skills program to master stress management.</p>
+      <button class="btn-wa" onclick="openWA()">📲 WhatsApp-ல் தொடர்பு கொள்ளுங்கள் | Contact Us</button>
+    </div>
+    <button class="btn-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <button class="btn-restart" onclick="restart()">🔄 மீண்டும் தொடங்கு | Restart</button>
+  </div>
+</div>
+
+<a class="wa-float" href="https://wa.me/919843702244?text=நமஸ்காரம்%20Somasundaram%20Sir!%20I%20completed%20the%20Stress%20Management%20Assessment." target="_blank">💬</a>
+
+<script>
+const SHEET_URL="https://script.google.com/macros/s/AKfycbz6-Gvy8D_eD7acNzwx6nbxQsPzdH_R1OD6cjFP1HC1585WhrvOnl7ucjOlSbaCfUlF/exec";
+let userName='',userPhone='',current=0,answers=Array(20).fill(null);
+
+const dims=[
+  {id:'physical',icon:'💪',ta:'உடல் அழுத்தம்',en:'Physical Stress'},
+  {id:'emotional',icon:'💜',ta:'உணர்வு அழுத்தம்',en:'Emotional Stress'},
+  {id:'mental',icon:'🧠',ta:'மன அழுத்தம்',en:'Mental Stress'},
+  {id:'social',icon:'🤝',ta:'சமூக அழுத்தம்',en:'Social Stress'}
+];
+
+const questions=[
+  {dim:0,ta:'நான் அடிக்கடி தலைவலி அல்லது உடல் வலியை உணர்கிறேன்.',en:'I frequently experience headaches or body aches.'},
+  {dim:0,ta:'எனக்கு தூக்கம் சரியாக வருவதில்லை அல்லது மிகவும் அதிகமாக தூங்குகிறேன்.',en:'I have difficulty sleeping or sleep too much.'},
+  {dim:0,ta:'அழுத்தமான நேரங்களில் என் பசி கட்டுப்பாட்டை இழக்கிறது.',en:'During stress, my appetite becomes uncontrolled.'},
+  {dim:0,ta:'என் உடல் எப்போதும் கடினமாகவும் சோர்வாகவும் இருக்கிறது.',en:'My body often feels tense and fatigued.'},
+  {dim:0,ta:'நான் அடிக்கடி நோய்வாய்ப்படுகிறேன் அல்லது நோய் எதிர்ப்பு சக்தி குறைவாக உணர்கிறேன்.',en:'I frequently fall ill or feel my immunity is low.'},
+  {dim:1,ta:'சிறிய விஷயங்களுக்கு நான் எளிதாக கோபப்படுகிறேன் அல்லது எரிச்சல் படுகிறேன்.',en:'I get angry or irritated easily over small things.'},
+  {dim:1,ta:'நான் அடிக்கடி கவலை, பயம் அல்லது பதட்டம் உணர்கிறேன்.',en:'I frequently feel anxious, fearful or nervous.'},
+  {dim:1,ta:'என் மனம் மகிழ்ச்சியை உணர்வதில் சிரமப்படுகிறது.',en:'I find it difficult to feel happy or joyful.'},
+  {dim:1,ta:'நான் உணர்வுகளை மறைத்து வைத்திருக்கிறேன் அல்லது தனிமையாக உணர்கிறேன்.',en:'I suppress my emotions or feel lonely inside.'},
+  {dim:1,ta:'நான் எளிதில் அழுகிறேன் அல்லது உணர்வு வெளிப்பாடுகளை கட்டுப்படுத்த முடியவில்லை.',en:'I cry easily or struggle to control emotional outbursts.'},
+  {dim:2,ta:'என்னால் ஒரு விஷயத்தில் கவனம் செலுத்துவது கஷ்டமாக இருக்கிறது.',en:'I find it difficult to concentrate on one thing.'},
+  {dim:2,ta:'என் மனம் எப்போதும் எதிர்மறை எண்ணங்களால் நிறைந்திருக்கிறது.',en:'My mind is often filled with negative thoughts.'},
+  {dim:2,ta:'நான் முடிவெடுக்க தயங்குகிறேன் அல்லது குழப்பமாக உணர்கிறேன்.',en:'I hesitate to make decisions or feel mentally confused.'},
+  {dim:2,ta:'நான் கடந்த காலம் அல்லது எதிர்காலத்தைப் பற்றி அதிகமாக யோசிக்கிறேன்.',en:'I overthink about the past or worry about the future.'},
+  {dim:2,ta:'புதிய தகவல்களை கற்றுக்கொள்வதில் அல்லது நினைவில் வைத்திருப்பதில் சிரமம் படுகிறேன்.',en:'I struggle to learn new information or remember things.'},
+  {dim:3,ta:'நான் மக்களை சந்திப்பதை தவிர்க்கிறேன் அல்லது சமூக நிகழ்வுகளிலிருந்து விலகுகிறேன்.',en:'I avoid meeting people or withdraw from social events.'},
+  {dim:3,ta:'என் குடும்பம் அல்லது நண்பர்களுடன் உறவுகள் பாதிக்கப்படுகின்றன.',en:'My relationships with family or friends are getting affected.'},
+  {dim:3,ta:'வேலை அல்லது பொறுப்புகளை சரியாக நிறைவேற்றுவதில் சிரமப்படுகிறேன்.',en:'I struggle to fulfill my work or responsibilities effectively.'},
+  {dim:3,ta:'மற்றவர்களின் கருத்து அல்லது விமர்சனம் என்னை அதிகமாக பாதிக்கிறது.',en:"Others' opinions or criticism affect me excessively."},
+  {dim:3,ta:'நான் மற்றவர்களுக்கு உதவ முடியாத நிலையில் இருக்கிறேன் அல்லது பொறுப்புகளை நிராகரிக்கிறேன்.',en:'I feel unable to help others or keep avoiding responsibilities.'}
+];
+
+const opts=[
+  {ta:'ஒருபோதும் இல்லை',en:'Never',val:1},
+  {ta:'அரிதாக',en:'Rarely',val:2},
+  {ta:'சில நேரம்',en:'Sometimes',val:3},
+  {ta:'எப்போதும்',en:'Always',val:4}
+];
+
+const tips=[
+  {low:{ta:'உங்கள் உடல் நலம் சிறப்பாக உள்ளது. தினமும் உடற்பயிற்சி தொடருங்கள்.',en:'Your physical health is great. Keep up daily exercise and healthy eating.'},mod:{ta:'சிறிது ஓய்வு எடுங்கள். யோகா அல்லது நடைப்பயிற்சி உதவும்.',en:'Take short breaks. Yoga or walking can greatly reduce physical tension.'},high:{ta:'உங்கள் உடல் அழுத்தத்திற்கு உடனடி கவனம் தேவை. மருத்துவரை ஆலோசிக்கவும்.',en:'Your body needs immediate attention. Consider consulting a doctor and practising relaxation daily.'},vhigh:{ta:'உடல் ஆரோக்கியம் கடுமையாக பாதிக்கப்பட்டுள்ளது. தயவுசெய்து உடனடியாக உதவி பெறுங்கள்.',en:'Your physical health is seriously impacted. Please seek professional help immediately.'}},
+  {low:{ta:'உங்கள் உணர்வு சமநிலை நல்லது. நேர்மறை செயல்களை தொடருங்கள்.',en:'Your emotional balance is healthy. Continue positive emotional practices.'},mod:{ta:'உணர்வுகளை வெளிப்படுத்துங்கள். நம்பகமான நண்பரிடம் பேசுங்கள்.',en:'Express your feelings. Talking to a trusted friend or journaling can help.'},high:{ta:'உணர்வு ஆரோக்கியத்திற்கு உதவி தேவை. ஒரு ஆலோசகரை சந்திக்கவும்.',en:'Your emotional health needs support. Consider speaking with a counsellor.'},vhigh:{ta:'உணர்வு அழுத்தம் மிக அதிகம். உடனடியாக ஒரு மனநல நிபுணரை சந்திக்கவும்.',en:'Emotional stress is very high. Please seek professional mental health support immediately.'}},
+  {low:{ta:'உங்கள் மன தெளிவு நல்லது. தியானம் அல்லது வாசிப்பு தொடருங்கள்.',en:'Your mental clarity is good. Continue meditation or reading for mental fitness.'},mod:{ta:'மனதை அமைதிப்படுத்துங்கள். Mindfulness பயிற்சி மிகவும் உதவும்.',en:'Calm your mind with mindfulness practices. Take mental breaks during work.'},high:{ta:'மன அழுத்தம் அதிகமாக உள்ளது. Life Skills பயிற்சி எடுங்கள்.',en:'Mental stress is high. Life Skills training can help you control thought patterns.'},vhigh:{ta:'மன அழுத்தம் தீவிரமாக உள்ளது. உடனடியாக மனோதத்துவ நிபுணரிடம் ஆலோசனை பெறுங்கள்.',en:'Mental stress is severe. Please consult a psychologist or therapist immediately.'}},
+  {low:{ta:'உங்கள் சமூக உறவுகள் ஆரோக்கியமாக உள்ளன.',en:'Your social relationships are healthy. Keep nurturing positive connections.'},mod:{ta:'மக்களிடம் திறந்த மனதுடன் பேசுங்கள். குழு நடவடிக்கைகளில் பங்கு கொள்ளுங்கள்.',en:'Communicate openly. Joining group activities can help rebuild social strength.'},high:{ta:'சமூக அழுத்தம் அதிகம். Life Skills திட்டத்தில் சேருங்கள்.',en:'Social stress is high. Joining a Life Skills program can help heal relationships.'},vhigh:{ta:'சமூக தனிமை ஆபத்தான நிலையில் உள்ளது. உடனடியாக ஒரு ஆலோசகரின் உதவி பெறுங்கள்.',en:'Social isolation is at a critical level. Please seek support from a counsellor immediately.'}}
+];
+
+const oLevels=[
+  {min:20,max:32,key:'low',  ta:'குறைந்த அழுத்தம்',  en:'Low Stress',      color:'#10b981',bg:'#d1fae5'},
+  {min:33,max:48,key:'mod',  ta:'மிதமான அழுத்தம்',  en:'Moderate Stress', color:'#f59e0b',bg:'#fef3c7'},
+  {min:49,max:64,key:'high', ta:'அதிக அழுத்தம்',     en:'High Stress',     color:'#ef4444',bg:'#fee2e2'},
+  {min:65,max:80,key:'vhigh',ta:'மிக அதிக அழுத்தம்',en:'Very High Stress',color:'#7c3aed',bg:'#ede9fe'}
+];
+
+const levels=[
+  {min:5,max:8,  key:'low',  ta:'குறைந்த அழுத்தம்',  en:'Low',        color:'#10b981',bg:'#d1fae5'},
+  {min:9,max:12, key:'mod',  ta:'மிதமான அழுத்தம்',  en:'Moderate',   color:'#f59e0b',bg:'#fef3c7'},
+  {min:13,max:16,key:'high', ta:'அதிக அழுத்தம்',     en:'High',       color:'#ef4444',bg:'#fee2e2'},
+  {min:17,max:20,key:'vhigh',ta:'மிக அதிக அழுத்தம்',en:'Very High',  color:'#7c3aed',bg:'#ede9fe'}
+];
+
+function getLevel(s){return levels.find(l=>s>=l.min&&s<=l.max)||levels[0];}
+
+function showScreen(id){
+  ['s-intro','s-lead','s-quiz','s-result'].forEach(s=>document.getElementById(s).classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+}
+
+function saveToSheet(name,phone,stressLevel){
+  const url=SHEET_URL+'?name='+encodeURIComponent(name)+'&phone='+encodeURIComponent(phone)+'&stressLevel='+encodeURIComponent(stressLevel);
+  new Image().src=url;
+}
+
+function submitLead(){
+  const name=document.getElementById('inp-name').value.trim();
+  const phone=document.getElementById('inp-phone').value.trim();
+  const err=document.getElementById('lead-err');
+  if(!name){err.textContent='⚠️ பெயரை உள்ளிடவும் | Please enter your name.';return;}
+  if(!/^[0-9]{10}$/.test(phone)){err.textContent='⚠️ சரியான 10 இலக்க எண் | Enter a valid 10-digit number.';return;}
+  err.textContent='';
+  userName=name; userPhone=phone;
+  saveToSheet(name,phone,'Assessment Started');
+  showScreen('s-quiz');
+  renderQ();
+}
+
+function renderQ(){
+  const q=questions[current];
+  const d=dims[q.dim];
+  document.getElementById('dimBadge').textContent=d.icon+' '+d.ta+' | '+d.en;
+  document.getElementById('qTextTa').textContent=(current+1)+'. '+q.ta;
+  document.getElementById('qTextEn').textContent=q.en;
+  document.getElementById('qCounter').textContent='கேள்வி '+(current+1)+' / 20 | Question '+(current+1)+' of 20';
+  const pct=Math.round(current/20*100);
+  document.getElementById('qPct').textContent=pct+'%';
+  document.getElementById('progressFill').style.width=pct+'%';
+  const wrap=document.getElementById('optionsWrap');
+  wrap.innerHTML='';
+  opts.forEach((o,i)=>{
+    const b=document.createElement('button');
+    b.className='opt-btn'+(answers[current]===i?' selected':'');
+    b.innerHTML='<strong>'+o.ta+'</strong> &nbsp;|&nbsp; '+o.en;
+    b.onclick=()=>selectOpt(i);
+    wrap.appendChild(b);
+  });
+  document.getElementById('btnBack').style.visibility=current===0?'hidden':'visible';
+  const nx=document.getElementById('btnNext');
+  nx.textContent=current===19?'முடிவுகள் காண | See Results →':'Next →';
+  nx.classList.toggle('active',answers[current]!==null);
+}
+
+function selectOpt(i){
+  answers[current]=i;
+  document.querySelectorAll('.opt-btn').forEach((b,idx)=>b.classList.toggle('selected',idx===i));
+  document.getElementById('btnNext').classList.add('active');
+}
+
+function goNext(){
+  if(answers[current]===null)return;
+  if(current===19){showResults();return;}
+  current++;renderQ();
+}
+
+function goBack(){if(current>0){current--;renderQ();}}
+
+function showResults(){
+  const scores=[0,0,0,0];
+  questions.forEach((q,i)=>{if(answers[i]!==null)scores[q.dim]+=opts[answers[i]].val;});
+  const total=scores.reduce((a,b)=>a+b,0);
+  const oLvl=oLevels.find(l=>total>=l.min&&total<=l.max)||oLevels[0];
+  saveToSheet(userName,userPhone,oLvl.en+' ('+total+'/80)');
+
+  document.getElementById('resultName').textContent='👤 '+userName+' | 📱 '+userPhone;
+  const ob=document.getElementById('overallBox');
+  ob.style.background=oLvl.bg;
+  ob.innerHTML=`<div class="overall-label" style="color:${oLvl.color}">Overall Stress Level | மொத்த அழுத்த நிலை</div>
+    <div class="overall-level" style="color:${oLvl.color}">${oLvl.ta}<br><span style="font-size:1rem">${oLvl.en}</span></div>
+    <div class="overall-score" style="color:${oLvl.color}">Score: ${total} / 80</div>`;
+
+  const dr=document.getElementById('dimResults');
+  dr.innerHTML='';
+  dims.forEach((d,i)=>{
+    const s=scores[i],lvl=getLevel(s),tipSet=tips[i][lvl.key],pct=Math.round((s-5)/15*100);
+    dr.innerHTML+=`<div class="dim-result">
+      <div class="dr-top">
+        <div class="dr-name">${d.icon} ${d.ta} | ${d.en}</div>
+        <div class="dr-badge" style="background:${lvl.bg};color:${lvl.color}">${lvl.ta} (${s}/20)</div>
+      </div>
+      <div class="dr-bar-wrap"><div class="dr-bar" style="width:${pct}%;background:${lvl.color}"></div></div>
+      <div class="dr-tip">💡 ${tipSet.ta}<br><em>${tipSet.en}</em></div>
+    </div>`;
+  });
+  showScreen('s-result');
+}
+
+function openWA(){
+  window.open('https://wa.me/919843702244?text=நமஸ்காரம்%20Somasundaram%20Sir!%20I%20completed%20the%20Stress%20Management%20Self-Assessment.%20I%20would%20like%20to%20know%20more%20about%20your%20Life%20Skills%20program.%20%F0%9F%99%8F','_blank');
+}
+
+function restart(){
+  current=0;answers=Array(20).fill(null);userName='';userPhone='';
+  showScreen('s-intro');
+}
+</script>
+</body>
+</html>

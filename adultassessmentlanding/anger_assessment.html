@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anger Management Assessment | Somasundaram Life Skills Training Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #6d28d9; --primary-dark: #4c1d95; --secondary: #f59e0b;
+    --bg: #f5f3ff; --white: #ffffff; --text: #1e1b4b;
+    --muted: #6b7280; --border: #ddd6fe;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', 'Noto Sans Tamil', sans-serif; background: var(--bg); color: var(--text); }
+
+  .hero { background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 60%, #7c3aed 100%); color: white; text-align: center; padding: 48px 20px 40px; }
+  .hero .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 4px 16px; font-size: 13px; margin-bottom: 16px; }
+  .hero h1 { font-size: clamp(22px,5vw,36px); font-weight: 700; line-height: 1.3; margin-bottom: 8px; }
+  .hero .tamil { font-family: 'Noto Sans Tamil', sans-serif; font-size: clamp(16px,3.5vw,22px); opacity: 0.9; margin-bottom: 16px; }
+  .hero p { font-size: 14px; opacity: 0.85; max-width: 520px; margin: 0 auto 24px; line-height: 1.7; }
+  .hero .stats { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 24px; }
+  .hero .stat .num { font-size: 24px; font-weight: 700; color: #fbbf24; }
+  .hero .stat .label { font-size: 12px; opacity: 0.8; }
+
+  .trainer-section { background: white; padding: 28px 20px; text-align: center; border-bottom: 3px solid var(--border); }
+  .trainer-avatar { width: 68px; height: 68px; border-radius: 50%; background: linear-gradient(135deg,#6d28d9,#a78bfa); display: flex; align-items: center; justify-content: center; font-size: 26px; margin: 0 auto 10px; color: white; font-weight: 700; }
+  .trainer-section h3 { font-size: 17px; font-weight: 700; color: var(--primary-dark); }
+  .trainer-section .creds { font-size: 11.5px; color: var(--muted); margin-top: 4px; line-height: 1.9; }
+  .trainer-section .motto { font-size: 13px; color: var(--secondary); font-weight: 600; margin-top: 8px; }
+
+  .section { padding: 32px 20px; max-width: 680px; margin: 0 auto; }
+  .section-title { text-align: center; margin-bottom: 22px; }
+  .section-title h2 { font-size: 19px; font-weight: 700; color: var(--primary-dark); }
+  .section-title .t { font-family: 'Noto Sans Tamil', sans-serif; font-size: 15px; color: var(--muted); margin-top: 4px; }
+
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .why-card { background: white; border-radius: 12px; padding: 16px 12px; border: 1px solid var(--border); text-align: center; box-shadow: 0 2px 8px rgba(109,40,217,0.06); }
+  .why-card .icon { font-size: 26px; margin-bottom: 6px; }
+  .why-card h4 { font-size: 13px; font-weight: 600; color: var(--primary-dark); }
+  .why-card .t { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12px; color: var(--muted); margin-top: 3px; }
+
+  /* ASSESSMENT WRAPPER */
+  #assess-box { background: white; border-radius: 16px; box-shadow: 0 4px 20px rgba(109,40,217,0.12); overflow: hidden; max-width: 680px; margin: 0 auto 32px; }
+
+  .assess-header { background: linear-gradient(135deg,#4c1d95,#6d28d9); color: white; padding: 22px 20px; text-align: center; }
+  .assess-header h2 { font-size: 17px; font-weight: 700; }
+  .assess-header .t { font-family: 'Noto Sans Tamil', sans-serif; font-size: 13px; opacity: 0.85; margin-top: 3px; }
+  .prog-wrap { background: rgba(255,255,255,0.2); border-radius: 10px; height: 6px; margin-top: 14px; }
+  .prog-bar { background: #fbbf24; height: 6px; border-radius: 10px; transition: width 0.35s ease; width: 5%; }
+  .q-count { font-size: 12px; opacity: 0.8; margin-top: 5px; }
+
+  /* QUESTION PANEL */
+  #q-panel { padding: 24px 20px 8px; }
+  .q-text { font-size: 15px; font-weight: 600; color: var(--primary-dark); margin-bottom: 5px; line-height: 1.5; }
+  .q-tamil { font-family: 'Noto Sans Tamil', sans-serif; font-size: 13.5px; color: var(--muted); margin-bottom: 18px; line-height: 1.8; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt { background: var(--bg); border: 2px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: border-color 0.18s, background 0.18s; text-align: left; width: 100%; font-family: 'Poppins','Noto Sans Tamil',sans-serif; }
+  .opt:hover { border-color: var(--primary); background: #ede9fe; }
+  .opt.sel { border-color: var(--primary); background: #ede9fe; }
+  .opt .en { font-size: 13.5px; font-weight: 500; color: var(--text); }
+  .opt .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+
+  /* NAV */
+  #nav-row { display: flex; gap: 12px; padding: 16px 20px 22px; }
+  #btn-prev { flex: 1; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; border: 2px solid var(--border); background: var(--bg); color: var(--primary); font-family: 'Poppins',sans-serif; }
+  #btn-next { flex: 2; padding: 12px; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; border: none; background: var(--primary); color: white; font-family: 'Poppins',sans-serif; transition: background 0.2s; }
+  #btn-next:disabled { background: #c4b5fd; cursor: not-allowed; }
+  #btn-next:not(:disabled):hover { background: var(--primary-dark); }
+
+  /* RESULT */
+  #result-panel { display: none; padding: 28px 20px; text-align: center; }
+  .score-circle { width: 88px; height: 88px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-direction: column; margin: 0 auto 14px; font-size: 24px; font-weight: 700; color: white; line-height: 1.2; }
+  .res-badge { display: inline-block; padding: 6px 22px; border-radius: 22px; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+  .res-ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 15px; color: var(--primary-dark); margin-bottom: 18px; }
+  .res-desc { font-size: 13.5px; line-height: 1.8; color: #374151; background: var(--bg); border-radius: 12px; padding: 14px 16px; margin-bottom: 18px; text-align: left; }
+  .res-desc .ta { font-family: 'Noto Sans Tamil', sans-serif; margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+  .tips-title { font-size: 14px; font-weight: 700; color: var(--primary-dark); margin-bottom: 10px; text-align: left; }
+  .tip-row { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px; text-align: left; }
+  .tip-dot { min-width: 8px; height: 8px; background: var(--primary); border-radius: 50%; margin-top: 7px; }
+  .tip-en { font-size: 13px; line-height: 1.7; }
+  .tip-ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12px; color: var(--muted); }
+
+  .cta-box { background: linear-gradient(135deg,#4c1d95,#6d28d9); color: white; border-radius: 14px; padding: 22px 18px; margin-top: 22px; }
+  .cta-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 5px; }
+  .cta-box .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12.5px; opacity: 0.85; margin-bottom: 14px; }
+  .wa-btn { display: inline-flex; align-items: center; gap: 8px; background: #25d366; color: white; border-radius: 10px; padding: 12px 22px; font-size: 14px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; font-family: 'Poppins',sans-serif; }
+  .dl-btn { display: inline-flex; align-items: center; gap: 8px; background: #f59e0b; color: #1e1b4b; border-radius: 10px; padding: 11px 22px; font-size: 14px; font-weight: 700; border: none; cursor: pointer; margin-top: 10px; font-family: 'Poppins',sans-serif; }
+  .restart-btn { display: inline-block; margin-top: 10px; background: transparent; border: 2px solid white; color: white; border-radius: 10px; padding: 10px 22px; font-size: 13px; cursor: pointer; font-weight: 600; font-family: 'Poppins',sans-serif; }
+
+  .program-section { background: linear-gradient(135deg,#fef3c7,#fffbeb); padding: 30px 20px; text-align: center; }
+  .program-section h2 { font-size: 19px; font-weight: 700; color: #92400e; }
+  .program-section .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 14px; color: #b45309; margin: 5px 0 18px; }
+  .program-points { text-align: left; max-width: 480px; margin: 0 auto 22px; padding-left: 0; list-style: none; }
+  .program-points li { font-size: 13px; color: #374151; margin-bottom: 10px; padding-left: 22px; position: relative; line-height: 1.7; }
+  .program-points li::before { content: "✅"; position: absolute; left: 0; }
+  .program-points .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12px; color: var(--muted); }
+  .wa-big { display: inline-flex; align-items: center; gap: 10px; background: #25d366; color: white; border-radius: 12px; padding: 14px 26px; font-size: 15px; font-weight: 700; text-decoration: none; }
+
+  footer { background: var(--primary-dark); color: rgba(255,255,255,0.7); text-align: center; padding: 18px; font-size: 12px; }
+  footer strong { color: white; }
+
+  .float-wa { position: fixed; bottom: 20px; right: 20px; z-index: 999; background: #25d366; color: white; border-radius: 50%; width: 54px; height: 54px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,0.25); text-decoration: none; font-size: 26px; }
+
+  /* USER INFO FORM */
+  #user-info-panel { padding: 24px 20px 20px; }
+  .info-intro { text-align: center; margin-bottom: 18px; }
+  .info-intro .icon { font-size: 32px; margin-bottom: 8px; }
+  .info-intro h3 { font-size: 16px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
+  .info-intro .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 13px; color: var(--muted); }
+  .info-field { margin-bottom: 16px; }
+  .info-field label { display: block; font-size: 13px; font-weight: 600; color: var(--primary-dark); margin-bottom: 6px; }
+  .info-field label .ta { font-family: 'Noto Sans Tamil', sans-serif; font-weight: 400; color: var(--muted); margin-left: 4px; }
+  .info-field input { width: 100%; padding: 12px 14px; border: 2px solid var(--border); border-radius: 10px; font-size: 14px; font-family: 'Poppins', sans-serif; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.18s; }
+  .info-field input:focus { border-color: var(--primary); background: #ede9fe; }
+  .info-field .err { font-size: 11.5px; color: #dc2626; margin-top: 4px; display: none; }
+  #btn-start { width: 100%; padding: 14px; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; background: var(--primary); color: white; font-family: 'Poppins', sans-serif; margin-top: 4px; transition: background 0.2s; }
+  #btn-start:hover { background: var(--primary-dark); }
+  .privacy-note { text-align: center; font-size: 11.5px; color: var(--muted); margin-top: 12px; }
+  .privacy-note .ta { font-family: 'Noto Sans Tamil', sans-serif; }
+  #submit-status { text-align: center; font-size: 12.5px; margin-top: 10px; min-height: 18px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">🧠 Free Self-Assessment | இலவச மதிப்பீடு</div>
+  <h1>Anger Management<br>Self-Assessment</h1>
+  <div class="tamil">கோப மேலாண்மை சுய மதிப்பீடு</div>
+  <p>Discover your anger pattern and take the first step toward emotional freedom.<br>
+  <span style="font-family:'Noto Sans Tamil',sans-serif;font-size:13px;">உங்கள் கோபத்தின் தன்மையை அறிந்து, உணர்ச்சி சுதந்திரத்தை நோக்கிய முதல் அடி எடுங்கள்.</span></p>
+  <div class="stats">
+    <div class="stat"><div class="num">20</div><div class="label">Questions</div></div>
+    <div class="stat"><div class="num">4</div><div class="label">Result Levels</div></div>
+    <div class="stat"><div class="num">5</div><div class="label">Min to Complete</div></div>
+  </div>
+</div>
+
+<!-- TRAINER -->
+<div class="trainer-section">
+  <div class="trainer-avatar">S</div>
+  <h3>Somasundaram NT</h3>
+  <div class="creds">Certified Master Trainer | Parenting Coach | Life Skills Educator<br>Certified from IATD | Pick My Career | Emocare International | Indian Counseling Service<br>Director & Treasurer – SKV International School</div>
+  <div class="motto">✨ "God is Always With You" ✨</div>
+</div>
+
+<!-- WHY -->
+<div class="section">
+  <div class="section-title">
+    <h2>Why Take This Assessment?</h2>
+    <div class="t">இந்த மதிப்பீட்டை எடுப்பது ஏன் முக்கியம்?</div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="icon">🔍</div><h4>Know Your Pattern</h4><div class="t">உங்கள் கோப பாங்கை அறியுங்கள்</div></div>
+    <div class="why-card"><div class="icon">💡</div><h4>Get Personalised Tips</h4><div class="t">தனிப்பயன் ஆலோசனை பெறுங்கள்</div></div>
+    <div class="why-card"><div class="icon">❤️</div><h4>Improve Relationships</h4><div class="t">உறவுகளை மேம்படுத்துங்கள்</div></div>
+    <div class="why-card"><div class="icon">🌱</div><h4>Grow Emotionally</h4><div class="t">உணர்ச்சி முதிர்ச்சி பெறுங்கள்</div></div>
+  </div>
+</div>
+
+<!-- ASSESSMENT BOX -->
+<div style="padding: 0 20px;">
+  <div id="assess-box">
+    <!-- USER INFO FORM -->
+    <div id="user-info-panel">
+      <div class="info-intro">
+        <div class="icon">👤</div>
+        <h3>Before We Begin | தொடங்குவதற்கு முன்</h3>
+        <div class="ta">உங்கள் பெயர் மற்றும் தொடர்பு எண்ணை உள்ளிடவும்</div>
+      </div>
+      <div class="info-field">
+        <label>Full Name <span class="ta">| பெயர்</span></label>
+        <input type="text" id="inp-name" placeholder="Enter your name | உங்கள் பெயர்" autocomplete="name" />
+        <div class="err" id="err-name">Please enter your name | பெயர் உள்ளிடவும்</div>
+      </div>
+      <div class="info-field">
+        <label>WhatsApp / Mobile Number <span class="ta">| கைபேசி எண்</span></label>
+        <input type="tel" id="inp-phone" placeholder="e.g. 98437 02244" autocomplete="tel" maxlength="15" />
+        <div class="err" id="err-phone">Please enter a valid 10-digit number | சரியான எண் உள்ளிடவும்</div>
+      </div>
+      <button id="btn-start">🚀 Start Assessment | மதிப்பீட்டை தொடங்குங்கள்</button>
+      <div id="submit-status"></div>
+      <div class="privacy-note">🔒 Your details are confidential and used only for coaching purposes.<br><span class="ta">உங்கள் விவரங்கள் ரகசியமாக வைக்கப்படும்.</span></div>
+    </div>
+
+    <div class="assess-header" id="assess-hdr" style="display:none;">
+      <h2>Anger Management Assessment</h2>
+      <div class="t">கோப மேலாண்மை மதிப்பீடு</div>
+      <div class="prog-wrap"><div class="prog-bar" id="pbar"></div></div>
+      <div class="q-count" id="qcount">Question 1 of 20</div>
+    </div>
+
+    <div id="q-panel" style="display:none;"></div>
+
+    <div id="nav-row" style="display:none;">
+      <button id="btn-prev">◀ Previous</button>
+      <button id="btn-next" disabled>Next ▶</button>
+    </div>
+
+    <div id="result-panel"></div>
+  </div>
+</div>
+
+<!-- PROGRAM -->
+<div class="program-section">
+  <h2>🌟 Loving & Responsible Parenting Program</h2>
+  <div class="ta">அன்பான & பொறுப்பான பெற்றோர்மை திட்டம்</div>
+  <ul class="program-points">
+    <li>Understand your emotional triggers as a parent<br><span class="ta">பெற்றோராக உங்கள் உணர்ச்சி தூண்டுதல்களை புரிந்துகொள்ளுங்கள்</span></li>
+    <li>Learn proven anger management strategies<br><span class="ta">நிரூபிக்கப்பட்ட கோப மேலாண்மை உத்திகளை கற்றுக்கொள்ளுங்கள்</span></li>
+    <li>Build deeper connection with your children<br><span class="ta">உங்கள் குழந்தைகளுடன் ஆழமான தொடர்பை உருவாக்குங்கள்</span></li>
+    <li>Live sessions via Zoom — Tamil & English<br><span class="ta">Zoom வழியாக நேரடி அமர்வுகள் — தமிழ் & ஆங்கிலம்</span></li>
+  </ul>
+  <a class="wa-big" id="prog-wa" href="#">📲 Register on WhatsApp | பதிவு செய்யுங்கள்</a>
+</div>
+
+<footer>
+  <strong>Somasundaram Life Skills Training Program</strong><br>
+  📧 somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp; 📱 +91 98437 02244<br>
+  YouTube: @Godisalwayswithu &nbsp;|&nbsp; Tiruvannamalai, Tamil Nadu
+</footer>
+
+<a class="float-wa" id="float-wa" href="#">💬</a>
+
+<script>
+const QS = [
+  { en:"When someone disagrees with you strongly, how do you typically react?", ta:"யாரோ உங்களுடன் கடுமையாக முரண்படும்போது நீங்கள் பொதுவாக எப்படி நடந்துகொள்கிறீர்கள்?",
+    opts:[{en:"Stay calm and listen",ta:"அமைதியாக கேட்கிறேன்",v:0},{en:"Feel irritated but control myself",ta:"எரிச்சல் ஆனால் கட்டுப்படுத்துகிறேன்",v:1},{en:"Raise my voice to make my point",ta:"குரலை உயர்த்துகிறேன்",v:2},{en:"Lose my temper and argue intensely",ta:"கோபம் தணிக்காமல் வாக்குவாதம்",v:3}]},
+  { en:"How often do you feel angry during a typical week?", ta:"ஒரு வழக்கமான வாரத்தில் எத்தனை முறை கோபமாக உணர்கிறீர்கள்?",
+    opts:[{en:"Rarely or never",ta:"அரிதாக அல்லது ஒருபோதும் இல்லை",v:0},{en:"Once or twice",ta:"ஒன்று அல்லது இரண்டு முறை",v:1},{en:"Several times",ta:"பல முறை",v:2},{en:"Almost every day",ta:"கிட்டதட்ட ஒவ்வொரு நாளும்",v:3}]},
+  { en:"When angry, how long does it take you to calm down?", ta:"கோபமாக இருக்கும்போது அமைதியடைய எவ்வளவு நேரம் ஆகிறது?",
+    opts:[{en:"A few minutes",ta:"சில நிமிடங்கள்",v:0},{en:"About half an hour",ta:"சுமார் அரை மணி நேரம்",v:1},{en:"A few hours",ta:"சில மணி நேரங்கள்",v:2},{en:"A full day or more",ta:"ஒரு நாள் அல்லது அதிகம்",v:3}]},
+  { en:"Do you experience physical symptoms when angry? (racing heart, clenched fists)", ta:"கோபமாக இருக்கும்போது உடல் அறிகுறிகள் உணர்கிறீர்களா? (இதயம் வேகமாக, கைகள் இறுக்கம்)",
+    opts:[{en:"No, rarely any physical signs",ta:"இல்லை, அரிதாக மட்டுமே",v:0},{en:"Mild tension sometimes",ta:"சில நேரம் லேசான இறுக்கம்",v:1},{en:"Noticeable tension often",ta:"அடிக்கடி கணிசமான உடல் இறுக்கம்",v:2},{en:"Intense physical reaction every time",ta:"ஒவ்வொரு முறையும் தீவிர எதிர்வினை",v:3}]},
+  { en:"How do you usually express anger?", ta:"நீங்கள் பொதுவாக கோபத்தை எப்படி வெளிப்படுத்துகிறீர்கள்?",
+    opts:[{en:"Calmly and assertively",ta:"அமைதியாகவும் உறுதியாகவும்",v:0},{en:"Passive-aggressively (silent, sarcasm)",ta:"மறைமுக கோபம் (மௌனம், கிண்டல்)",v:1},{en:"Loud arguing or shouting",ta:"சத்தமாக வாக்குவாதம்",v:2},{en:"Breaking things or physical outburst",ta:"பொருட்களை உடைத்தல்",v:3}]},
+  { en:"After an angry episode, how do you feel?", ta:"கோப சம்பவத்திற்குப் பிறகு நீங்கள் எப்படி உணர்கிறீர்கள்?",
+    opts:[{en:"Fine — I express and move on",ta:"நன்றாக — வெளிப்படுத்தி தொடர்கிறேன்",v:0},{en:"Slightly guilty but okay",ta:"லேசாக குற்ற உணர்வு ஆனால் சரி",v:1},{en:"Quite guilty and ashamed",ta:"மிகவும் குற்ற உணர்வும் வெட்கமும்",v:2},{en:"Deeply regretful, relationships damaged",ta:"ஆழமான வருத்தம், உறவுகள் பாதிக்கப்படுகின்றன",v:3}]},
+  { en:"Do small frustrations (traffic, queues, minor errors) easily trigger your anger?", ta:"சின்ன வெறுப்புகள் (ட்ராஃபிக், வரிசை, சிறு தவறுகள்) உங்கள் கோபத்தை எளிதாக தூண்டுகின்றனவா?",
+    opts:[{en:"No, I handle them patiently",ta:"இல்லை, பொறுமையாக கையாளுகிறேன்",v:0},{en:"Sometimes I feel frustrated",ta:"சில நேரம் வெறுப்படைகிறேன்",v:1},{en:"Often, they irritate me a lot",ta:"அடிக்கடி மிகவும் எரிச்சலடைகிறேன்",v:2},{en:"Yes, even tiny things enrage me",ta:"ஆம், சிறு விஷயங்கள் கூட கோபப்படுத்துகின்றன",v:3}]},
+  { en:"How does your anger affect your relationships?", ta:"உங்கள் கோபம் உங்கள் உறவுகளை எவ்வாறு பாதிக்கிறது?",
+    opts:[{en:"No noticeable negative impact",ta:"குறிப்பிடத்தக்க எதிர்மறை தாக்கம் இல்லை",v:0},{en:"Occasional tension, but usually okay",ta:"அவ்வப்போது பதற்றம், பொதுவாக சரி",v:1},{en:"Frequent conflicts and distance",ta:"அடிக்கடி மோதல்கள் மற்றும் தூரம்",v:2},{en:"Serious damage to key relationships",ta:"முக்கிய உறவுகளுக்கு தீவிர சேதம்",v:3}]},
+  { en:"When someone criticises you, what is your immediate reaction?", ta:"யாரோ உங்களை விமர்சிக்கும்போது உங்கள் உடனடி எதிர்வினை என்ன?",
+    opts:[{en:"Listen and reflect on the feedback",ta:"கேட்டு சிந்திக்கிறேன்",v:0},{en:"Feel defensive but stay quiet",ta:"தற்காப்பாக உணர்கிறேன் ஆனால் அமைதியாக",v:1},{en:"Argue back or justify strongly",ta:"திரும்பவும் வாதிடுகிறேன்",v:2},{en:"Explode in anger immediately",ta:"உடனடியாக கோபமாக வெடிக்கிறேன்",v:3}]},
+  { en:"Do you often think about past events that made you angry?", ta:"உங்களை கோபப்படுத்திய கடந்தகால நிகழ்வுகளை நீங்கள் அடிக்கடி சிந்திக்கிறீர்களா?",
+    opts:[{en:"No, I let go easily",ta:"இல்லை, எளிதாக விட்டுவிடுகிறேன்",v:0},{en:"Occasionally recall them",ta:"எப்போதாவது நினைக்கிறேன்",v:1},{en:"Frequently think about them",ta:"அடிக்கடி சிந்திக்கிறேன்",v:2},{en:"Constantly replay them",ta:"தொடர்ந்து மீண்டும் மீண்டும் நினைக்கிறேன்",v:3}]},
+  { en:"Do you use words during arguments that you later regret?", ta:"வாக்குவாதங்களின் போது பின்னர் வருந்தக்கூடிய வார்த்தைகளை பயன்படுத்துகிறீர்களா?",
+    opts:[{en:"No, I choose words carefully",ta:"இல்லை, வார்த்தைகளை கவனமாக தேர்ந்தெடுக்கிறேன்",v:0},{en:"Rarely slip up",ta:"அரிதாக தவறுகிறேன்",v:1},{en:"Often say things I regret",ta:"அடிக்கடி வருந்தும் வார்த்தைகள்",v:2},{en:"Almost every fight I say hurtful things",ta:"கிட்டதட்ட ஒவ்வொரு சண்டையிலும்",v:3}]},
+  { en:"How well can you identify what triggers your anger?", ta:"உங்கள் கோபத்தை தூண்டுவதை எவ்வளவு நன்றாக அடையாளம் காண முடிகிறது?",
+    opts:[{en:"Very well — I know my triggers clearly",ta:"மிகவும் நன்றாக — தெளிவாக அறிவேன்",v:0},{en:"Somewhat aware of them",ta:"ஓரளவு விழிப்புடன் இருக்கிறேன்",v:1},{en:"Not very sure about them",ta:"அவ்வளவு நிச்சயமில்லை",v:2},{en:"No idea — anger surprises me",ta:"எந்த ஐடியாவும் இல்லை — கோபம் ஆச்சரியப்படுத்துகிறது",v:3}]},
+  { en:"When feeling angry, what do you do to manage it?", ta:"கோபமாக உணரும்போது அதை நிர்வகிக்க என்ன செய்கிறீர்கள்?",
+    opts:[{en:"Breathe, pause, and reflect",ta:"சுவாசிக்கிறேன், இடைநிறுத்துகிறேன், சிந்திக்கிறேன்",v:0},{en:"Distract myself or walk away",ta:"கவனத்தை திசை திருப்புகிறேன்",v:1},{en:"Vent to someone or complain",ta:"யாரிடமாவது கோபத்தை கொட்டுகிறேன்",v:2},{en:"Nothing — I can't control it",ta:"ஒன்றும் இல்லை — கட்டுப்படுத்த முடியாது",v:3}]},
+  { en:"Has your anger ever caused problems at your workplace or school?", ta:"உங்கள் கோபம் ஒருபோதும் பணியிடம் அல்லது பள்ளியில் சிக்கல்களை ஏற்படுத்தியிருக்கிறதா?",
+    opts:[{en:"No, never",ta:"இல்லை, ஒருபோதும் இல்லை",v:0},{en:"Minor misunderstandings once or twice",ta:"ஒன்று இரண்டு முறை சிறு தவறுவிளிகள்",v:1},{en:"Several incidents",ta:"பல சம்பவங்கள்",v:2},{en:"Serious consequences (warnings, job loss)",ta:"தீவிர விளைவுகள் (எச்சரிக்கைகள், வேலை இழப்பு)",v:3}]},
+  { en:"Do you feel respected and heard in your key relationships?", ta:"உங்கள் முக்கிய உறவுகளில் மதிக்கப்படுவதாகவும் கேட்கப்படுவதாகவும் உணர்கிறீர்களா?",
+    opts:[{en:"Yes, mostly",ta:"ஆம், பெரும்பாலும்",v:0},{en:"Sometimes, but not always",ta:"சில நேரங்களில்",v:1},{en:"Rarely feel heard",ta:"அரிதாகவே கேட்கப்படுவதாக உணர்கிறேன்",v:2},{en:"Never — feel ignored or dismissed",ta:"ஒருபோதும் இல்லை — புறக்கணிக்கப்படுவதாக உணர்கிறேன்",v:3}]},
+  { en:"Do you find it easy to forgive people who have hurt you?", ta:"உங்களை புண்படுத்திய மக்களை மன்னிப்பது உங்களுக்கு எளிதாக இருக்கிறதா?",
+    opts:[{en:"Yes, I forgive relatively easily",ta:"ஆம், எளிதாக மன்னிக்கிறேன்",v:0},{en:"It takes time but I manage",ta:"நேரம் ஆகுது ஆனால் மன்னிக்கிறேன்",v:1},{en:"I struggle to forgive",ta:"மன்னிக்க சிரமப்படுகிறேன்",v:2},{en:"I rarely or never forgive",ta:"அரிதாகவோ அல்லது ஒருபோதும் மன்னிக்கவே மாட்டேன்",v:3}]},
+  { en:"When angry, can you still think clearly and make good decisions?", ta:"கோபமாக இருக்கும்போது தெளிவாக சிந்திக்க மற்றும் நல்ல முடிவுகள் எடுக்க முடியுமா?",
+    opts:[{en:"Yes, I stay clear-headed",ta:"ஆம், தெளிவான மனதுடன் இருக்கிறேன்",v:0},{en:"Somewhat, with effort",ta:"ஓரளவு, முயற்சியுடன்",v:1},{en:"My thinking is clouded when angry",ta:"கோபமாக இருக்கும்போது சிந்தனை மங்கிவிடுகிறது",v:2},{en:"I completely lose rational thinking",ta:"முற்றிலும் பகுத்தறிவை இழக்கிறேன்",v:3}]},
+  { en:"Has anyone ever expressed fear of your anger?", ta:"யாராவது உங்கள் கோபத்தைப் பற்றி பயம் வெளிப்படுத்தியிருக்கிறார்களா?",
+    opts:[{en:"No, never",ta:"இல்லை, ஒருபோதும் இல்லை",v:0},{en:"Once or twice someone mentioned it",ta:"ஒன்று இரண்டு முறை யாரோ குறிப்பிட்டார்கள்",v:1},{en:"Several people have expressed this",ta:"பலர் வெளிப்படுத்தியிருக்கிறார்கள்",v:2},{en:"Family / close ones are clearly afraid",ta:"குடும்பத்தினர் தெளிவாக பயப்படுகிறார்கள்",v:3}]},
+  { en:"Have you ever used physical aggression when angry? (hitting, throwing objects)", ta:"கோபமாக இருக்கும்போது உடல் ரீதியான ஆக்கிரமிப்பை பயன்படுத்தியிருக்கிறீர்களா?",
+    opts:[{en:"Never",ta:"ஒருபோதும் இல்லை",v:0},{en:"Once, long ago",ta:"ஒரு முறை, மிகவும் முன்பு",v:1},{en:"A few times",ta:"சில முறை",v:2},{en:"It happens regularly",ta:"இது தொடர்ந்து நடக்கிறது",v:3}]},
+  { en:"Do you feel your anger is getting better or worse over time?", ta:"காலப்போக்கில் உங்கள் கோபம் சிறப்பாகி கொண்டிருக்கிறதா அல்லது மோசமாகி கொண்டிருக்கிறதா?",
+    opts:[{en:"Getting better — I'm improving",ta:"சிறப்பாகி கொண்டிருக்கிறது",v:0},{en:"About the same",ta:"அதே நிலையில் இருக்கிறது",v:1},{en:"Slowly getting worse",ta:"மெதுவாக மோசமாகி கொண்டிருக்கிறது",v:2},{en:"Significantly worse — I need help",ta:"கணிசமாக மோசமாகி கொண்டிருக்கிறது — உதவி தேவை",v:3}]}
+];
+
+const RESULTS = [
+  { level:"Low / Controlled", levelTa:"குறைந்த / கட்டுப்படுத்தப்பட்ட கோபம்", color:"#059669", bg:"#d1fae5", emoji:"🌿",
+    desc:"You demonstrate excellent emotional regulation. Your anger is well-managed and you handle frustrations with maturity and patience.",
+    descTa:"நீங்கள் சிறந்த உணர்ச்சி கட்டுப்பாட்டை காட்டுகிறீர்கள். உங்கள் கோபம் நன்றாக நிர்வகிக்கப்படுகிறது மற்றும் வெறுப்புகளை முதிர்ச்சியுடன் கையாளுகிறீர்கள்.",
+    tips:[{en:"Maintain your practice of pause and reflection before responding.",ta:"பதிலளிப்பதற்கு முன் இடைநிறுத்தம் மற்றும் சிந்தனையை தொடர்ந்து பயிற்சி செய்யுங்கள்."},{en:"Share your healthy coping techniques with family and friends.",ta:"உங்கள் ஆரோக்கியமான நுட்பங்களை குடும்பத்துடன் பகிருங்கள்."},{en:"Keep journaling to stay in tune with your emotional patterns.",ta:"உங்கள் உணர்ச்சி பாங்குகளுடன் இணைந்திருக்க journal எழுதுங்கள்."}]},
+  { level:"Moderate / Manageable", levelTa:"மிதமான / நிர்வகிக்கக்கூடிய கோபம்", color:"#d97706", bg:"#fef3c7", emoji:"⚡",
+    desc:"You experience anger at a manageable level but there are situations where it gets the better of you. With the right skills and awareness, you can significantly improve.",
+    descTa:"நீங்கள் கோபத்தை நிர்வகிக்கக்கூடிய அளவில் அனுபவிக்கிறீர்கள் ஆனால் சில சூழல்களில் அது உங்களை கட்டுப்படுத்துகிறது. சரியான திறன்களுடன் மேம்படுத்தலாம்.",
+    tips:[{en:"Practice deep breathing (4-7-8 technique) when you feel anger rising.",ta:"கோபம் எழும்போது ஆழமான சுவாசம் (4-7-8 நுட்பம்) பயிற்சி செய்யுங்கள்."},{en:"Identify your top 3 anger triggers and prepare responses in advance.",ta:"முக்கிய 3 கோப தூண்டுதல்களை கண்டறிந்து முன்கூட்டியே பதில்களை தயாரிக்கவும்."},{en:"Use 'I feel' statements instead of 'you always' accusations.",ta:"'நீங்கள் எப்போதும்' என்பதற்கு பதிலாக 'நான் உணர்கிறேன்' கூற்றுகளை பயன்படுத்துங்கள்."}]},
+  { level:"High / Needs Attention", levelTa:"அதிக / கவனம் தேவை", color:"#dc2626", bg:"#fee2e2", emoji:"🔥",
+    desc:"Your anger is significantly impacting your relationships and wellbeing. It is important to recognise this pattern now and seek strategies and support to manage it.",
+    descTa:"உங்கள் கோபம் உங்கள் உறவுகள் மற்றும் நலனை கணிசமாக பாதிக்கிறது. இந்த பாங்கை இப்போது அங்கீகரித்து நிர்வகிக்க உத்திகள் மற்றும் ஆதரவை நாடுவது முக்கியம்.",
+    tips:[{en:"Take a 'time-out' — physically leave the situation when anger is escalating.",ta:"'நேர-இடைவேளை' எடுங்கள் — கோபம் அதிகரிக்கும்போது சூழலை விட்டு வெளியேறுங்கள்."},{en:"Seek a life skills coach or counsellor to work through your anger patterns.",ta:"உங்கள் கோப பாங்குகளை சரிசெய்ய life skills பயிற்சியாளரை நாடுங்கள்."},{en:"Join our Loving & Responsible Parenting program for structured emotional support.",ta:"கட்டமைக்கப்பட்ட ஆதரவிற்கு எங்கள் பெற்றோர்மை திட்டத்தில் சேருங்கள்."}]},
+  { level:"Severe / Urgent Help Needed", levelTa:"தீவிர / அவசர உதவி தேவை", color:"#7c2d12", bg:"#fde8d8", emoji:"🆘",
+    desc:"Your anger is at a severe level seriously affecting your life, relationships, and possibly your safety. Please reach out for professional support immediately.",
+    descTa:"உங்கள் கோபம் தீவிர நிலையில் உள்ளது. உங்கள் வாழ்க்கை, உறவுகள் மற்றும் பாதுகாப்பை தீவிரமாக பாதிக்கிறது. தயவுசெய்து உடனடியாக தொழில்முறை ஆதரவை நாடுங்கள்.",
+    tips:[{en:"Speak to a trained counsellor or therapist as soon as possible.",ta:"எவ்வளவு விரைவாக முடியுமோ ஒரு பயிற்சி பெற்ற ஆலோசகரிடம் பேசுங்கள்."},{en:"Inform a trusted family member or friend about your struggles.",ta:"உங்கள் போராட்டங்களை நம்பகமான குடும்பத்தினரிடம் தெரிவியுங்கள்."},{en:"Contact Somasundaram NT directly — personalised guidance is available.",ta:"நேரடியாக Somasundaram NT ஐ தொடர்புகொள்ளுங்கள் — தனிப்பயன் வழிகாட்டுதல் கிடைக்கிறது."}]}
+];
+
+const ALL_TIPS = [
+  {en:"Practice the 4-7-8 Breathing Technique: Inhale 4 sec, hold 7 sec, exhale 8 sec. Repeat 3–4 times when anger rises.",ta:"4-7-8 சுவாச நுட்பம்: 4 விநாடி உள்ளிழுக்கவும், 7 விநாடி நிறுத்தவும், 8 விநாடி வெளியிடவும். கோபம் எழும்போது 3–4 முறை செய்யுங்கள்."},
+  {en:"Use a Feelings Journal: Write what triggered your anger, how you felt, and what you did. Journaling builds self-awareness.",ta:"உணர்வு டைரி பயன்படுத்துங்கள்: என்ன கோபத்தை தூண்டியது என்று எழுதுங்கள். டைரி எழுதுவது சுய விழிப்புணர்வை வளர்க்கிறது."},
+  {en:"Use 'I' Statements: Instead of 'You always do this!' say 'I feel hurt when this happens.' This reduces blame.",ta:"'நான்' கூற்றுகளை பயன்படுத்துங்கள்: 'நீங்கள் எப்போதும் இதை செய்கிறீர்கள்!' என்பதற்கு பதிலாக 'இது நடக்கும்போது நான் வலிக்கிறேன்' என்று சொல்லுங்கள்."},
+  {en:"Take a Time-Out: When anger escalates, say 'I need a few minutes' and step away. Return when calm.",ta:"நேர-இடைவேளை எடுங்கள்: கோபம் அதிகரிக்கும்போது 'எனக்கு சில நிமிடங்கள் தேவை' என்று சொல்லி வெளியே செல்லுங்கள்."},
+  {en:"Identify Your Triggers: Keep a weekly log of anger situations. Patterns will emerge, helping you prepare better.",ta:"உங்கள் தூண்டுதல்களை கண்டறியுங்கள்: வாராந்திர பட்டியலை வைத்திருங்கள். பாங்குகள் தெரியும், சிறந்த பதில்களை தயாரிக்க உதவும்."},
+  {en:"Practice Empathy: Before reacting, ask 'Why might this person act this way?' Understanding others reduces reactive anger.",ta:"பரிவை பயிற்சி செய்யுங்கள்: எதிர்வினை செய்வதற்கு முன், 'ஏன் இந்த நபர் இப்படி நடக்கிறார்?' என்று கேட்டுக்கொள்ளுங்கள்."},
+  {en:"Physical Release: Regular exercise — walking, yoga, or swimming — releases tension and naturally reduces anger.",ta:"உடல் வெளியீடு: நடைபயிற்சி, யோகா அல்லது நீச்சல் போன்ற உடற்பயிற்சி திரட்டப்பட்ட பதற்றத்தை வெளியிட்டு கோப அளவை குறைக்கிறது."},
+  {en:"Forgiveness Practice: Holding grudges keeps anger alive. Forgiveness is releasing yourself from the burden of resentment.",ta:"மன்னிப்பு பயிற்சி: பகைமை வைத்திருப்பது கோபத்தை உயிரோடு வைக்கிறது. மன்னிப்பு சினத்தின் சுமையிலிருந்து உங்களை விடுவிப்பது."}
+];
+
+let cur = 0, ans = new Array(QS.length).fill(null);
+
+function waLink(msg){ return "https://wa.me/919843702244?text="+encodeURIComponent(msg); }
+const REG_MSG = "Hello Somasundaram Sir 🙏\nI completed the Anger Management Assessment.\nI would like to know more about your Life Skills programs.\n\nவணக்கம் சார், நான் கோப மேலாண்மை மதிப்பீட்டை முடித்தேன். உங்கள் திட்டங்களைப் பற்றி மேலும் அறிய விரும்புகிறேன்.";
+document.getElementById('float-wa').href = waLink(REG_MSG);
+document.getElementById('prog-wa').href = waLink(REG_MSG);
+
+function render(){
+  const q = QS[cur];
+  const pct = Math.round(((cur+1)/QS.length)*100);
+  document.getElementById('pbar').style.width = pct+'%';
+  document.getElementById('qcount').textContent = 'Question '+(cur+1)+' of '+QS.length+' | கேள்வி '+(cur+1)+' / '+QS.length;
+
+  let html = '<div class="q-text">'+(cur+1)+'. '+q.en+'</div><div class="q-tamil">'+q.ta+'</div><div class="options">';
+  q.opts.forEach(function(o,i){
+    const sel = ans[cur]===i ? ' sel' : '';
+    html += '<button class="opt'+sel+'" data-idx="'+i+'"><div class="en">'+o.en+'</div><div class="ta">'+o.ta+'</div></button>';
+  });
+  html += '</div>';
+  document.getElementById('q-panel').innerHTML = html;
+
+  // attach click handlers
+  document.querySelectorAll('.opt').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      ans[cur] = parseInt(this.getAttribute('data-idx'));
+      document.querySelectorAll('.opt').forEach(function(b){ b.classList.remove('sel'); });
+      this.classList.add('sel');
+      document.getElementById('btn-next').disabled = false;
+    });
+  });
+
+  document.getElementById('btn-prev').disabled = cur===0;
+  document.getElementById('btn-next').disabled = ans[cur]===null;
+  document.getElementById('btn-next').textContent = cur===QS.length-1 ? '✅ See Results | முடிவுகளை பாருங்கள்' : 'Next ▶';
+}
+
+document.getElementById('btn-prev').addEventListener('click', function(){
+  if(cur>0){ cur--; render(); }
+});
+
+document.getElementById('btn-next').addEventListener('click', function(){
+  if(cur===QS.length-1){ showResult(); }
+  else { cur++; render(); }
+});
+
+function showResult(){
+  const total = ans.reduce(function(s,a,i){ return s+(a!==null?QS[i].opts[a].v:0); },0);
+  const max = QS.length*3;
+  const pct = Math.round((total/max)*100);
+  let lvl = pct<=25?0:pct<=50?1:pct<=75?2:3;
+  const r = RESULTS[lvl];
+
+  // Submit final result to Google Sheets
+  submitToSheet(userName, userPhone, total, r.level, pct);
+  document.getElementById('q-panel').style.display='none';
+  document.getElementById('nav-row').style.display='none';
+
+  const waMsg = "Hello Somasundaram Sir 🙏\nAnger Assessment Result: \""+r.level+"\" (Score: "+total+"/"+max+")\nI would like guidance on managing my anger better.\n\nவணக்கம் சார், என் முடிவு: \""+r.levelTa+"\". மேலும் வழிகாட்டுதல் வேண்டும்.";
+
+  const tipHtml = r.tips.map(function(t){
+    return '<div class="tip-row"><div class="tip-dot"></div><div><div class="tip-en">'+t.en+'</div><div class="tip-ta">'+t.ta+'</div></div></div>';
+  }).join('');
+
+  document.getElementById('result-panel').innerHTML =
+    '<div class="score-circle" style="background:'+r.color+'">'+r.emoji+'<span style="font-size:13px">'+pct+'%</span></div>'+
+    '<div class="res-badge" style="background:'+r.bg+';color:'+r.color+'">'+r.level+'</div>'+
+    '<div class="res-ta">'+r.levelTa+'</div>'+
+    '<div class="res-desc">'+r.desc+'<div class="ta">'+r.descTa+'</div></div>'+
+    '<div class="tips-title">🌱 Growth Tips | வளர்ச்சி குறிப்புகள்</div>'+
+    tipHtml+
+    '<div class="cta-box">'+
+      '<h3>Ready to Transform Your Emotional Life?</h3>'+
+      '<div class="ta">உங்கள் உணர்ச்சி வாழ்க்கையை மாற்ற தயாரா?</div>'+
+      '<a class="wa-btn" href="'+waLink(waMsg)+'" target="_blank">📲 Get Guidance | தொடர்பு கொள்ளுங்கள்</a><br>'+
+      '<button class="dl-btn" id="dl-btn">📄 Download Report | அறிக்கையை பதிவிறக்கவும்</button><br>'+
+      '<button class="restart-btn" id="restart-btn">🔄 Retake | மீண்டும் முயற்சி</button>'+
+    '</div>';
+
+  document.getElementById('result-panel').style.display='block';
+
+  document.getElementById('restart-btn').addEventListener('click', function(){
+    cur=0; ans=new Array(QS.length).fill(null);
+    document.getElementById('assess-hdr').style.display='';
+    document.getElementById('q-panel').style.display='';
+    document.getElementById('nav-row').style.display='';
+    document.getElementById('result-panel').style.display='none';
+    document.getElementById('result-panel').innerHTML='';
+    render();
+  });
+
+  document.getElementById('dl-btn').addEventListener('click', function(){
+    downloadReport(lvl, total, max, pct);
+  });
+}
+
+function downloadReport(lvl, total, max, pct){
+  const r = RESULTS[lvl];
+  const today = new Date().toLocaleDateString('en-IN',{year:'numeric',month:'long',day:'numeric'});
+  const tipRows = r.tips.map(function(t,i){
+    return '<div class="tip"><div class="tip-num">'+(i+1)+'</div><div class="tip-body">'+t.en+'<div class="ta">'+t.ta+'</div></div></div>';
+  }).join('');
+  const allRows = ALL_TIPS.map(function(t,i){
+    return '<div class="tip"><div class="tip-num">'+(i+1)+'</div><div class="tip-body">'+t.en+'<div class="ta">'+t.ta+'</div></div></div>';
+  }).join('');
+
+  const html = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Anger Management Report</title>'+
+  '<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">'+
+  '<style>body{font-family:Poppins,"Noto Sans Tamil",sans-serif;background:#f5f3ff;margin:0;padding:0;color:#1e1b4b}.page{max-width:700px;margin:0 auto;background:#fff}.hdr{background:linear-gradient(135deg,#4c1d95,#6d28d9);color:#fff;padding:32px 28px;text-align:center}.hdr h1{font-size:21px;margin:0 0 4px}.hdr .ta{font-family:"Noto Sans Tamil",sans-serif;font-size:15px;opacity:.85;margin-bottom:10px}.hdr .meta{font-size:12px;opacity:.7}.badge-row{background:#ede9fe;padding:22px 28px;text-align:center;border-bottom:3px solid #ddd6fe}.sc{width:76px;height:76px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-direction:column;font-size:20px;font-weight:700;color:#fff;margin-bottom:10px}.lbadge{display:inline-block;padding:5px 18px;border-radius:18px;font-size:15px;font-weight:700;margin-bottom:3px}.lta{font-family:"Noto Sans Tamil",sans-serif;font-size:13px;color:#4c1d95}.sbar-w{background:#e5e7eb;border-radius:8px;height:10px;margin:12px auto 3px;max-width:380px}.sbar{height:10px;border-radius:8px}.slbl{font-size:11px;color:#6b7280;display:flex;justify-content:space-between;max-width:380px;margin:0 auto}.sec{padding:22px 28px;border-bottom:1px solid #ede9fe}.sec h2{font-size:14px;font-weight:700;color:#4c1d95;margin-bottom:10px;border-left:4px solid #6d28d9;padding-left:9px}.desc{font-size:13px;line-height:1.8;color:#374151;background:#f5f3ff;border-radius:9px;padding:13px}.desc .ta{font-family:"Noto Sans Tamil",sans-serif;margin-top:9px;font-size:12px;color:#6b7280}.tip{display:flex;gap:9px;margin-bottom:12px;align-items:flex-start}.tip-num{min-width:24px;height:24px;background:#6d28d9;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;margin-top:2px}.tip-body{font-size:12.5px;line-height:1.7}.tip-body .ta{font-family:"Noto Sans Tamil",sans-serif;font-size:11.5px;color:#6b7280;margin-top:3px}.trainer-row{display:flex;align-items:center;gap:12px;background:#f5f3ff;border-radius:9px;padding:13px}.ta-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#6d28d9,#a78bfa);display:flex;align-items:center;justify-content:center;font-size:18px;color:#fff;font-weight:700;flex-shrink:0}.ta-info h4{font-size:13px;font-weight:700;color:#4c1d95;margin:0 0 2px}.ta-info p{font-size:11px;color:#6b7280;margin:0;line-height:1.6}.cta-sec{background:linear-gradient(135deg,#4c1d95,#6d28d9);color:#fff;padding:22px 28px;text-align:center}.cta-sec h3{font-size:15px;margin-bottom:5px}.cta-sec .ta{font-family:"Noto Sans Tamil",sans-serif;font-size:12.5px;opacity:.85;margin-bottom:12px}.cta-sec .contact{font-size:12.5px;opacity:.9;line-height:2.1}.foot{background:#2e1065;color:rgba(255,255,255,.6);text-align:center;padding:13px;font-size:11px}.foot strong{color:#fff}@media print{body{background:#fff}}</style></head><body>'+
+  '<div class="page">'+
+  '<div class="hdr"><h1>🧠 Anger Management Assessment Report</h1><div class="ta">கோப மேலாண்மை மதிப்பீடு அறிக்கை</div><div class="meta">Date | தேதி: '+today+' &nbsp;|&nbsp; Somasundaram Life Skills Training Program</div></div>'+
+  '<div class="badge-row"><div class="sc" style="background:'+r.color+'">'+r.emoji+'<span style="font-size:13px">'+pct+'%</span></div><br>'+
+  '<div class="lbadge" style="background:'+r.bg+';color:'+r.color+'">'+r.level+'</div><div class="lta">'+r.levelTa+'</div>'+
+  '<div class="sbar-w"><div class="sbar" style="width:'+pct+'%;background:'+r.color+'"></div></div>'+
+  '<div class="slbl"><span>0 – Low</span><span>Score: '+total+'/'+max+'</span><span>60 – Severe</span></div></div>'+
+  '<div class="sec"><h2>About Your Trainer | உங்கள் பயிற்சியாளர்</h2>'+
+  '<div class="trainer-row"><div class="ta-av">S</div><div class="ta-info"><h4>Somasundaram NT</h4><p>Certified Master Trainer | Parenting Coach | Life Skills Educator<br>IATD · Pick My Career · Emocare International · Indian Counseling Service<br>Director & Treasurer – SKV International School, Tiruvannamalai<br>✨ "God is Always With You"</p></div></div></div>'+
+  '<div class="sec"><h2>Your Result | உங்கள் முடிவு</h2><div class="desc">'+r.desc+'<div class="ta">'+r.descTa+'</div></div></div>'+
+  '<div class="sec"><h2>Personalised Tips | தனிப்பயன் குறிப்புகள்</h2>'+tipRows+'</div>'+
+  '<div class="sec"><h2>8 Proven Anger Management Strategies | 8 நிரூபிக்கப்பட்ட உத்திகள்</h2>'+allRows+'</div>'+
+  '<div class="cta-sec"><h3>🌟 Take the Next Step | அடுத்த அடி எடுங்கள்</h3>'+
+  '<div class="ta">Loving & Responsible Parenting Program – Zoom (Tamil & English)</div>'+
+  '<div class="contact">📱 WhatsApp: +91 98437 02244<br>📧 somasundaramnt.lifecoach@gmail.com<br>▶️ YouTube: @Godisalwayswithu</div></div>'+
+  '<div class="foot"><strong>Somasundaram Life Skills Training Program</strong> · Tiruvannamalai · "God is Always With You"</div>'+
+  '</div></body></html>';
+
+  const blob = new Blob([html],{type:'text/html'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href=url; a.download='Anger_Management_Report.html'; a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ── Google Sheets submission ──────────────────────────────────────────────────
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzM63Exni4SG_buF7ewY49xSokHnmMr_JX63PJ4FMiUYa3BjT0vCy0hVUdkJe-1EoDxSw/exec';
+
+let userName = '', userPhone = '';
+
+function submitToSheet(name, phone, score, level, pct) {
+  const payload = { name, phone, score, level, pct, timestamp: new Date().toLocaleString('en-IN') };
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(function(){});
+}
+
+// ── User info form ────────────────────────────────────────────────────────────
+document.getElementById('btn-start').addEventListener('click', function () {
+  const name  = document.getElementById('inp-name').value.trim();
+  const phone = document.getElementById('inp-phone').value.trim().replace(/\s+/g,'');
+  let valid = true;
+
+  document.getElementById('err-name').style.display  = 'none';
+  document.getElementById('err-phone').style.display = 'none';
+
+  if (!name) {
+    document.getElementById('err-name').style.display = 'block';
+    valid = false;
+  }
+  if (!/^\d{10}$/.test(phone)) {
+    document.getElementById('err-phone').style.display = 'block';
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  userName  = name;
+  userPhone = phone;
+
+  const status = document.getElementById('submit-status');
+  status.innerHTML = '<span style="color:#059669;">✅ Details saved! Starting assessment…</span>';
+
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ name, phone, score: '', level: 'Started', pct: '', timestamp: new Date().toLocaleString('en-IN') })
+  }).catch(function(){});
+
+  setTimeout(function () {
+    document.getElementById('user-info-panel').style.display = 'none';
+    document.getElementById('assess-hdr').style.display = '';
+    document.getElementById('q-panel').style.display = '';
+    document.getElementById('nav-row').style.display = '';
+    render();
+  }, 800);
+});
+</script>
+</body>
+</html>

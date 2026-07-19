@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Self-Assessments for Adults | N T Somasundaram Life Skills Program</title>
+<meta name="description" content="Take 6 free bilingual self-assessments — Anger, Stress, Communication, Ego, Parenting Style & Time Management. Explore our online courses for teachers, parents & working professionals.">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #6d28d9; --primary-dark: #4c1d95; --primary-light: #8b5cf6;
+    --secondary: #f59e0b; --secondary-dark: #d97706;
+    --bg: #f5f3ff; --white: #ffffff; --text: #1e1b4b;
+    --muted: #6b7280; --border: #ddd6fe; --wa: #25d366;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', 'Noto Sans Tamil', sans-serif; background: var(--bg); color: var(--text); }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+
+  /* HERO */
+  .hero { background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 55%, #7c3aed 100%); color: white; text-align: center; padding: 52px 20px 44px; position: relative; overflow: hidden; }
+  .hero .badge { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 5px 18px; font-size: 12.5px; margin-bottom: 18px; letter-spacing: 0.3px; }
+  .hero h1 { font-size: clamp(24px,5.5vw,40px); font-weight: 800; line-height: 1.28; margin-bottom: 10px; }
+  .hero h1 span { color: #fbbf24; }
+  .hero .tamil { font-family: 'Noto Sans Tamil', sans-serif; font-size: clamp(16px,3.6vw,21px); opacity: 0.92; margin-bottom: 16px; }
+  .hero p { font-size: 14.5px; opacity: 0.88; max-width: 560px; margin: 0 auto 26px; line-height: 1.75; }
+  .hero .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: 13px 26px; border-radius: 30px; font-weight: 700; font-size: 14px; cursor: pointer; border: none; }
+  .btn-gold { background: var(--secondary); color: #3b2100; }
+  .btn-gold:hover { background: var(--secondary-dark); }
+  .btn-outline { background: transparent; color: white; border: 2px solid rgba(255,255,255,0.6); }
+  .btn-outline:hover { background: rgba(255,255,255,0.12); }
+  .hero .stats { display: flex; justify-content: center; gap: 34px; flex-wrap: wrap; margin-top: 28px; }
+  .hero .stat .num { font-size: 25px; font-weight: 800; color: #fbbf24; }
+  .hero .stat .label { font-size: 11.5px; opacity: 0.82; }
+
+  /* TRAINER STRIP */
+  .trainer-section { background: white; padding: 26px 20px; text-align: center; border-bottom: 3px solid var(--border); }
+  .trainer-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg,#6d28d9,#a78bfa); display: flex; align-items: center; justify-content: center; font-size: 24px; margin: 0 auto 10px; color: white; font-weight: 700; }
+  .trainer-section h3 { font-size: 16.5px; font-weight: 700; color: var(--primary-dark); }
+  .trainer-section .creds { font-size: 11.5px; color: var(--muted); margin-top: 4px; line-height: 1.85; max-width: 560px; margin-left: auto; margin-right: auto; }
+  .trainer-section .motto { font-size: 12.5px; color: var(--secondary-dark); font-weight: 600; margin-top: 8px; }
+
+  /* SECTION */
+  .section { padding: 40px 20px; max-width: 960px; margin: 0 auto; }
+  .section-title { text-align: center; margin-bottom: 26px; }
+  .section-title .eyebrow { font-size: 11.5px; font-weight: 700; color: var(--secondary-dark); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+  .section-title h2 { font-size: clamp(19px,3.4vw,25px); font-weight: 800; color: var(--primary-dark); }
+  .section-title .t { font-family: 'Noto Sans Tamil', sans-serif; font-size: 14.5px; color: var(--muted); margin-top: 5px; }
+  .section-title p.sub { font-size: 13.5px; color: var(--muted); max-width: 520px; margin: 8px auto 0; line-height: 1.7; }
+  .section.alt { background: white; }
+
+  /* ASSESSMENT GRID */
+  .assess-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 16px; }
+  .a-card { background: white; border-radius: 16px; padding: 22px 20px; border: 1px solid var(--border); box-shadow: 0 3px 14px rgba(109,40,217,0.07); transition: transform .18s, box-shadow .18s; display: flex; flex-direction: column; }
+  .a-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(109,40,217,0.14); }
+  .a-card .icon { font-size: 30px; margin-bottom: 10px; }
+  .a-card .free-tag { display: inline-block; background: #dcfce7; color: #15803d; font-size: 10.5px; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; width: fit-content; }
+  .a-card h4 { font-size: 15.5px; font-weight: 700; color: var(--primary-dark); margin-bottom: 4px; }
+  .a-card .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+  .a-card .desc { font-size: 12.5px; color: var(--muted); line-height: 1.65; margin-bottom: 16px; flex-grow: 1; }
+  .a-card .go-btn { background: var(--bg); color: var(--primary); border: 2px solid var(--border); border-radius: 10px; padding: 10px; text-align: center; font-weight: 700; font-size: 13px; transition: background .18s, color .18s; }
+  .a-card:hover .go-btn { background: var(--primary); color: white; border-color: var(--primary); }
+
+  /* COURSE TRACKS */
+  .track-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px,1fr)); gap: 18px; }
+  .track-card { border-radius: 18px; padding: 26px 22px; color: white; position: relative; overflow: hidden; display: flex; flex-direction: column; min-height: 300px; }
+  .track-card.teachers { background: linear-gradient(150deg,#4c1d95,#7c3aed); }
+  .track-card.parents { background: linear-gradient(150deg,#9d174d,#db2777); }
+  .track-card.professionals { background: linear-gradient(150deg,#0f172a,#1e40af); }
+  .track-card .icon { font-size: 32px; margin-bottom: 10px; }
+  .track-card h3 { font-size: 18px; font-weight: 800; margin-bottom: 3px; }
+  .track-card .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 13px; opacity: 0.85; margin-bottom: 12px; }
+  .track-card ul { list-style: none; margin-bottom: 18px; flex-grow: 1; }
+  .track-card ul li { font-size: 12.5px; padding: 5px 0 5px 20px; position: relative; opacity: 0.95; line-height: 1.5; }
+  .track-card ul li::before { content: "✓"; position: absolute; left: 0; color: #fbbf24; font-weight: 700; }
+  .track-card .track-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .track-card .tb { flex: 1; min-width: 110px; text-align: center; padding: 10px 8px; border-radius: 10px; font-size: 12.5px; font-weight: 700; }
+  .track-card .tb.primary { background: #fbbf24; color: #3b2100; }
+  .track-card .tb.secondary { background: rgba(255,255,255,0.18); color: white; border: 1px solid rgba(255,255,255,0.4); }
+
+  /* PARENTING PROGRAM */
+  .parent-panel { background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border: 1px solid #fde68a; border-radius: 20px; padding: 32px 26px; display: grid; grid-template-columns: 1fr; gap: 20px; }
+  @media (min-width: 720px) { .parent-panel { grid-template-columns: 1.3fr 1fr; align-items: center; } }
+  .parent-panel h3 { font-size: 20px; font-weight: 800; color: var(--primary-dark); margin-bottom: 4px; }
+  .parent-panel .ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 14.5px; color: #92400e; margin-bottom: 10px; }
+  .parent-panel p { font-size: 13.5px; color: #7c2d12; line-height: 1.75; margin-bottom: 14px; }
+  .parent-panel .feat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .parent-panel .feat-list div { font-size: 12px; color: #7c2d12; padding-left: 18px; position: relative; }
+  .parent-panel .feat-list div::before { content: "★"; position: absolute; left: 0; color: var(--secondary-dark); }
+  .parent-side { background: white; border-radius: 16px; padding: 20px; text-align: center; box-shadow: 0 4px 16px rgba(217,119,6,0.12); }
+  .parent-side .prog-name { font-weight: 700; color: var(--primary-dark); font-size: 14.5px; margin-bottom: 3px; }
+  .parent-side .prog-ta { font-family: 'Noto Sans Tamil', sans-serif; font-size: 12.5px; color: var(--muted); margin-bottom: 14px; }
+
+  .wa-btn { display: block; background: var(--wa); color: white; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 13.5px; text-align: center; }
+  .wa-btn:hover { background: #1ea855; }
+  .call-btn { display: block; margin-top: 8px; background: var(--bg); color: var(--primary); border: 2px solid var(--border); padding: 10px; border-radius: 10px; font-weight: 700; font-size: 13px; text-align: center; }
+
+  /* TRUST STRIP */
+  .trust-strip { display: flex; justify-content: center; flex-wrap: wrap; gap: 26px; padding: 26px 20px; background: var(--primary-dark); color: white; text-align: center; }
+  .trust-strip .t-item { font-size: 12px; opacity: 0.9; max-width: 160px; }
+  .trust-strip .t-item .n { font-size: 21px; font-weight: 800; color: #fbbf24; display: block; }
+
+  /* FOOTER */
+  footer { background: #1e1b4b; color: #c4b5fd; padding: 36px 20px 24px; text-align: center; }
+  footer .fname { color: white; font-weight: 700; font-size: 16px; margin-bottom: 6px; }
+  footer .fmotto { color: #fbbf24; font-size: 12.5px; font-weight: 600; margin-bottom: 14px; }
+  footer .fcontact { font-size: 12.5px; line-height: 2; margin-bottom: 16px; }
+  footer .fcontact a { color: #c4b5fd; }
+  footer .fcontact a:hover { color: white; }
+  footer .fnote { font-size: 11px; opacity: 0.6; margin-top: 14px; }
+
+  /* STICKY MOBILE CTA */
+  .sticky-cta { position: sticky; bottom: 0; left: 0; right: 0; background: white; border-top: 2px solid var(--border); padding: 10px 14px; display: flex; gap: 10px; z-index: 50; box-shadow: 0 -4px 14px rgba(0,0,0,0.08); }
+  .sticky-cta a { flex: 1; text-align: center; padding: 11px; border-radius: 10px; font-weight: 700; font-size: 13px; }
+  .sticky-cta .s1 { background: var(--bg); color: var(--primary); border: 2px solid var(--border); }
+  .sticky-cta .s2 { background: var(--wa); color: white; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">✨ 100% Free • No Sign-up Needed</div>
+  <h1>Know Yourself Better with <span>6 Free Self-Assessments</span></h1>
+  <div class="tamil">6 இலவச சுய மதிப்பீடுகள் — உங்களை நன்கு புரிந்துகொள்ளுங்கள்</div>
+  <p>Bilingual (English &amp; Tamil) science-based assessments for adults — covering Anger, Stress, Communication, Ego, Parenting Style &amp; Time Management. Get instant results with personalised tips.</p>
+  <div class="cta-row">
+    <a href="#assessments" class="btn btn-gold">Take a Free Assessment ↓</a>
+    <a href="#courses" class="btn btn-outline">Explore Our Courses</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">6</div><div class="label">Free Assessments</div></div>
+    <div class="stat"><div class="num">12+</div><div class="label">Paid Online Courses</div></div>
+    <div class="stat"><div class="num">10+ yrs</div><div class="label">Corporate + Training Exp.</div></div>
+    <div class="stat"><div class="num">EN / TA</div><div class="label">Bilingual Support</div></div>
+  </div>
+</div>
+
+<!-- TRAINER STRIP -->
+<div class="trainer-section">
+  <div class="trainer-avatar">NT</div>
+  <h3>N T Somasundaram</h3>
+  <div class="creds">Certified Master Trainer &bull; Career Consultant &bull; Life Skills Educator &bull; Parenting Coach<br>Director &amp; Treasurer, SKV International School &bull; Partner: IATD, Pick My Career, Emocare International, Indian Counseling Service</div>
+  <div class="motto">"God is always with u."</div>
+</div>
+
+<!-- ASSESSMENTS -->
+<div class="section" id="assessments">
+  <div class="section-title">
+    <div class="eyebrow">Start Here — It's Free</div>
+    <h2>Free Self-Assessments for Adults</h2>
+    <div class="t">பெரியவர்களுக்கான இலவச சுய மதிப்பீடுகள்</div>
+    <p class="sub">Answer a short set of bilingual questions and get your result instantly, with practical tips you can start using today.</p>
+  </div>
+
+  <div class="assess-grid">
+    <a class="a-card" href="anger_assessment.html">
+      <div class="icon">🔥</div>
+      <div class="free-tag">FREE</div>
+      <h4>Anger Management Assessment</h4>
+      <div class="ta">கோப மேலாண்மை மதிப்பீடு</div>
+      <div class="desc">Understand your anger triggers and response style, with tips to manage reactions calmly.</div>
+      <div class="go-btn">Start Assessment →</div>
+    </a>
+
+    <a class="a-card" href="stress_assessment.html">
+      <div class="icon">🌊</div>
+      <div class="free-tag">FREE</div>
+      <h4>Stress Management Assessment</h4>
+      <div class="ta">மன அழுத்த மேலாண்மை மதிப்பீடு</div>
+      <div class="desc">Measure your current stress levels and discover coping strategies suited to your lifestyle.</div>
+      <div class="go-btn">Start Assessment →</div>
+    </a>
+
+    <a class="a-card" href="communication_style_assessment.html">
+      <div class="icon">💬</div>
+      <div class="free-tag">FREE</div>
+      <h4>Communication Style Assessment</h4>
+      <div class="ta">தொடர்பாடல் பாணி மதிப்பீடு</div>
+      <div class="desc">Discover whether you communicate assertively, passively, aggressively or passive-aggressively.</div>
+      <div class="go-btn">Start Assessment →</div>
+    </a>
+
+    <a class="a-card" href="ego_assessment_google_sites.html">
+      <div class="icon">🪞</div>
+      <div class="free-tag">FREE</div>
+      <h4>Know Your Ego Assessment</h4>
+      <div class="ta">உங்கள் அகங்காரத்தை அறியுங்கள்</div>
+      <div class="desc">Explore how ego shapes your decisions, relationships and reactions in daily life.</div>
+      <div class="go-btn">Start Assessment →</div>
+    </a>
+
+    <a class="a-card" href="parenting-style-assessment.html">
+      <div class="icon">👨‍👩‍👧</div>
+      <div class="free-tag">FREE</div>
+      <h4>Parenting Style Assessment</h4>
+      <div class="ta">பெற்றோர் பாணி மதிப்பீடு</div>
+      <div class="desc">Identify your dominant parenting style — authoritative, authoritarian, permissive or uninvolved.</div>
+      <div class="go-btn">Start Assessment →</div>
+    </a>
+
+    <a class="a-card" href="assessment_tool.html">
+      <div class="icon">⏱️</div>
+      <div class="free-tag">FREE</div>
+      <h4>Time Management Assessment</h4>
+      <div class="ta">நேர மேலாண்மை மதிப்பீடு</div>
+      <div class="desc">See how well you plan, prioritise and use your time — and where you're losing it.</div>
+      <div class="go-btn">Start Assessment →</div>
+    </a>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="t-item"><span class="n">10+</span>Years in Corporate Banking &amp; Training</div>
+  <div class="t-item"><span class="n">3</span>Course Tracks — Teachers, Parents, Professionals</div>
+  <div class="t-item"><span class="n">100%</span>Bilingual — English &amp; Tamil</div>
+</div>
+
+<!-- COURSES -->
+<div class="section alt" id="courses">
+  <div class="section-title">
+    <div class="eyebrow">Go Deeper</div>
+    <h2>Our Online Self-Paced Courses</h2>
+    <div class="t">எங்கள் ஆன்லைன் பாடநெறிகள்</div>
+    <p class="sub">Free assessments show you where you stand — our bilingual, self-paced courses help you actually build the skill. Pick your track below.</p>
+  </div>
+
+  <div class="track-grid">
+    <div class="track-card teachers">
+      <div class="icon">🏫</div>
+      <h3>For Teachers</h3>
+      <div class="ta">ஆசிரியர்களுக்கான பாடநெறிகள்</div>
+      <ul>
+        <li>Positive Discipline for Teachers</li>
+        <li>Emotional Intelligence for Teachers</li>
+        <li>Classroom Behaviour Management</li>
+        <li>Digital Pedagogy &amp; Life Skills Mastery for Educators</li>
+      </ul>
+      <div class="track-btns">
+        <a href="https://sites.google.com/view/somasundaramnt/online-courses" target="_blank" class="tb primary">View Courses</a>
+        <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20your%20Teacher%20training%20courses" target="_blank" class="tb secondary">Ask on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="track-card parents">
+      <div class="icon">👪</div>
+      <h3>For Parents</h3>
+      <div class="ta">பெற்றோர்களுக்கான பாடநெறிகள்</div>
+      <ul>
+        <li>Digital Parenting</li>
+        <li>Positive Discipline Parenting</li>
+        <li>Stress Management for Parents</li>
+        <li>Loving &amp; Responsible Parenting Program</li>
+      </ul>
+      <div class="track-btns">
+        <a href="https://sites.google.com/view/somasundaramnt/online-courses" target="_blank" class="tb primary">View Courses</a>
+        <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20your%20Parenting%20courses" target="_blank" class="tb secondary">Ask on WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="track-card professionals">
+      <div class="icon">💼</div>
+      <h3>For Working Professionals</h3>
+      <div class="ta">பணியாளர்களுக்கான பாடநெறிகள்</div>
+      <ul>
+        <li>Communication Skills for Adults</li>
+        <li>Anger Management</li>
+        <li>Career Growth &amp; Promotion Readiness</li>
+        <li>Know Your Ego &amp; Self-Mastery</li>
+      </ul>
+      <div class="track-btns">
+        <a href="https://sites.google.com/view/somasundaramnt/online-courses" target="_blank" class="tb primary">View Courses</a>
+        <a href="https://wa.me/919843702244?text=Hi%2C%20I%27m%20interested%20in%20your%20Professional%20development%20courses" target="_blank" class="tb secondary">Ask on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PARENTING TRAINING PROGRAM -->
+<div class="section" id="parenting-program">
+  <div class="section-title">
+    <div class="eyebrow">Live &amp; Guided</div>
+    <h2>Parenting Training Programs</h2>
+    <div class="t">பெற்றோர் பயிற்சி திட்டங்கள்</div>
+  </div>
+
+  <div class="parent-panel">
+    <div>
+      <h3>Loving &amp; Responsible Parenting Program</h3>
+      <div class="ta">அன்பான &amp; பொறுப்புள்ள பெற்றோர் பயிற்சி திட்டம்</div>
+      <p>A live, instructor-led bilingual parenting program conducted over Zoom by N T Somasundaram — built on positive discipline, emotional connection and practical day-to-day parenting tools for raising confident, responsible children.</p>
+      <div class="feat-list">
+        <div>Live Zoom sessions</div>
+        <div>English &amp; Tamil</div>
+        <div>Day-wise structured agenda</div>
+        <div>Practical take-home tools</div>
+      </div>
+      <div class="feat-list" style="margin-top:-6px;">
+        <div>Positive Discipline approach</div>
+        <div>Real parent case studies</div>
+      </div>
+    </div>
+    <div class="parent-side">
+      <div class="prog-name">Reserve Your Seat</div>
+      <div class="prog-ta">உங்கள் இடத்தை பதிவு செய்யுங்கள்</div>
+      <a class="wa-btn" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20Loving%20%26%20Responsible%20Parenting%20Program" target="_blank">💬 Enquire on WhatsApp</a>
+      <a class="call-btn" href="tel:+919843702244">📞 Call +91 98437 02244</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fname">N T Somasundaram</div>
+  <div class="fmotto">"God is always with u."</div>
+  <div class="fcontact">
+    📱 <a href="https://wa.me/919843702244" target="_blank">+91 98437 02244</a><br>
+    📧 <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a><br>
+    ▶️ <a href="https://www.youtube.com/@Godisalwayswithu" target="_blank">YouTube: @Godisalwayswithu</a><br>
+    🌐 <a href="https://sites.google.com/view/somasundaramnt" target="_blank">sites.google.com/view/somasundaramnt</a>
+  </div>
+  <div class="fnote">Certified Master Trainer &bull; Career Consultant &bull; Life Skills Educator &bull; Parenting Coach<br>SKV International School, Tiruvannamalai, Tamil Nadu</div>
+</footer>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta">
+  <a href="#assessments" class="s1">🎯 Free Assessment</a>
+  <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20your%20courses" target="_blank" class="s2">💬 WhatsApp Us</a>
+</div>
+
+</body>
+</html>

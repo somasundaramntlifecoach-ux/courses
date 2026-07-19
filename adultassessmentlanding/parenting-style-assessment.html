@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parenting Style Assessment | பெற்றோர் பாணி மதிப்பீடு</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #6C3FB5;
+    --primary-light: #EDE9FA;
+    --accent: #1D9E75;
+    --accent-light: #E1F5EE;
+    --warn: #D85A30;
+    --warn-light: #FAECE7;
+    --info: #185FA5;
+    --info-light: #E6F1FB;
+    --gray: #5F5E5A;
+    --gray-light: #F1EFE8;
+    --text: #2C2C2A;
+    --text-muted: #888780;
+    --border: rgba(0,0,0,0.12);
+    --bg: #ffffff;
+    --bg2: #F7F6F2;
+    --radius: 10px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --wa: #25D366;
+  }
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg2);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+  }
+  .container { max-width: 820px; margin: 0 auto; padding: 24px 16px 60px; }
+  .hero {
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 32px 28px 28px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '🌟';
+    position: absolute; right: 24px; top: 18px;
+    font-size: 52px; opacity: 0.18;
+  }
+  .hero h1 { font-size: 24px; font-weight: 600; margin-bottom: 4px; }
+  .hero .sub { font-size: 15px; opacity: 0.85; margin-bottom: 12px; }
+  .hero .badges { display: flex; gap: 8px; flex-wrap: wrap; }
+  .badge { background: rgba(255,255,255,0.18); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 500; }
+  .lang-bar {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .lang-bar label { font-size: 14px; color: var(--text-muted); }
+  .lang-btn {
+    padding: 7px 18px; border-radius: 20px; border: 1.5px solid var(--border);
+    background: var(--bg2); cursor: pointer; font-size: 13px; font-weight: 500;
+    transition: all 0.15s;
+  }
+  .lang-btn.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .lang-btn:hover:not(.active) { border-color: var(--primary); color: var(--primary); }
+  .steps { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+  .step {
+    flex: 1; min-width: 100px; padding: 10px 14px; border-radius: var(--radius);
+    background: var(--bg); border: 1px solid var(--border); text-align: center;
+    font-size: 13px; color: var(--text-muted);
+  }
+  .step.active { background: var(--primary-light); border-color: var(--primary); color: var(--primary); font-weight: 600; }
+  .step.done { background: var(--accent-light); border-color: var(--accent); color: var(--accent); }
+  .card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 22px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+  }
+  .q-num { font-size: 11px; font-weight: 600; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .q-text { font-size: 15px; margin-bottom: 14px; line-height: 1.5; }
+  .q-tamil { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; }
+  .options { display: grid; grid-template-columns: repeat(5,1fr); gap: 6px; }
+  @media(max-width:560px){ .options { grid-template-columns: 1fr 1fr; } }
+  .opt-label {
+    display: block; cursor: pointer; text-align: center;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    padding: 8px 4px; font-size: 12px; transition: all 0.15s;
+    user-select: none;
+  }
+  .opt-label input { display: none; }
+  .opt-label:hover { border-color: var(--primary); background: var(--primary-light); }
+  .opt-label.selected { background: var(--primary); color: #fff; border-color: var(--primary); }
+  .opt-num { display: block; font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+  .opt-eng { display: block; font-size: 11px; }
+  .opt-tam { display: block; font-size: 10px; opacity: 0.8; }
+  .progress-wrap { background: #E8E6DF; border-radius: 6px; height: 6px; margin-bottom: 16px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--primary); border-radius: 6px; transition: width 0.4s; }
+  .progress-label { font-size: 12px; color: var(--text-muted); margin-bottom: 6px; text-align: right; }
+  .nav-row { display: flex; gap: 12px; justify-content: space-between; margin-top: 20px; }
+  .btn {
+    padding: 11px 26px; border-radius: var(--radius); font-size: 14px; font-weight: 600;
+    cursor: pointer; border: 2px solid var(--primary); transition: all 0.15s;
+  }
+  .btn-primary { background: var(--primary); color: #fff; }
+  .btn-primary:hover { background: #5630A0; }
+  .btn-outline { background: transparent; color: var(--primary); }
+  .btn-outline:hover { background: var(--primary-light); }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  #result-section { display: none; }
+  .result-hero {
+    background: var(--primary);
+    color: #fff;
+    border-radius: var(--radius);
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .result-hero .style-label { font-size: 13px; opacity: 0.8; margin-bottom: 8px; }
+  .result-hero .style-name { font-size: 28px; font-weight: 700; margin-bottom: 4px; }
+  .result-hero .style-tamil { font-size: 18px; opacity: 0.85; }
+  .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media(max-width:500px){ .score-grid { grid-template-columns: 1fr; } }
+  .score-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .score-card .sc-label { font-size: 12px; color: var(--text-muted); margin-bottom: 8px; }
+  .score-card .sc-val { font-size: 26px; font-weight: 700; color: var(--primary); }
+  .score-card .sc-pct { font-size: 13px; color: var(--text-muted); margin-left: 4px; }
+  .bar-wrap { background: #E8E6DF; border-radius: 4px; height: 6px; margin-top: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; background: var(--primary); }
+  .report-tabs { display: flex; gap: 0; margin-bottom: 0; border-bottom: 2px solid var(--border); }
+  .rtab {
+    padding: 10px 20px; font-size: 14px; cursor: pointer; font-weight: 500;
+    color: var(--text-muted); border-bottom: 3px solid transparent; margin-bottom: -2px;
+    transition: all 0.15s;
+  }
+  .rtab.active { color: var(--primary); border-bottom-color: var(--primary); }
+  .report-panel { display: none; }
+  .report-panel.active { display: block; }
+  .tip-box {
+    border-left: 4px solid var(--primary);
+    background: var(--primary-light);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+  .tip-box.green { border-color: var(--accent); background: var(--accent-light); }
+  .tip-box.orange { border-color: var(--warn); background: var(--warn-light); }
+  .tip-box.blue { border-color: var(--info); background: var(--info-light); }
+  .tip-title { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .tip-box ul { padding-left: 18px; }
+  .tip-box li { margin-bottom: 4px; font-size: 14px; }
+  .download-bar {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin-top: 20px;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .download-bar p { flex: 1; font-size: 14px; color: var(--text-muted); }
+  .dl-btn {
+    padding: 10px 20px; border-radius: var(--radius); font-size: 13px; font-weight: 600;
+    cursor: pointer; border: 2px solid; transition: all 0.15s; display: flex; align-items: center; gap: 6px;
+  }
+  .dl-btn.purple { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+  .dl-btn.purple:hover { background: var(--primary); color: #fff; }
+  .dl-btn.green { border-color: var(--accent); color: var(--accent); background: var(--accent-light); }
+  .dl-btn.green:hover { background: var(--accent); color: #fff; }
+  .retake-row { text-align: center; margin-top: 20px; }
+  .retake-btn { background: none; border: none; color: var(--primary); cursor: pointer; font-size: 14px; text-decoration: underline; }
+  .scale-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .scale-chip {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 20px;
+    padding: 4px 12px; font-size: 12px;
+  }
+  section h2 { font-size: 17px; font-weight: 600; margin-bottom: 14px; color: var(--primary); }
+  section h3 { font-size: 15px; font-weight: 600; margin: 14px 0 8px; }
+  section p { font-size: 14px; margin-bottom: 10px; line-height: 1.65; }
+  .program-cta {
+    background: linear-gradient(135deg, #F3E8FF, #E6F1FB);
+    border: 1.5px solid #D7C7EF;
+    border-radius: var(--radius);
+    padding: 22px 24px;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .program-cta .pc-badge {
+    display: inline-block; background: var(--primary); color: #fff;
+    font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px; margin-bottom: 10px;
+  }
+  .program-cta h3 { color: var(--primary); font-size: 17px; margin-bottom: 8px; }
+  .program-cta p { font-size: 13.5px; color: var(--text-muted); line-height: 1.6; margin-bottom: 16px; }
+  .wa-btn {
+    background: var(--wa); color: #fff; border: none;
+    padding: 13px 28px; border-radius: var(--radius); font-size: 14.5px; font-weight: 700;
+    cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+    box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+  }
+  .wa-btn:hover { background: #1ebe5a; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="hero">
+    <h1>Parenting Style Assessment</h1>
+    <div class="sub">பெற்றோர் பாணி மதிப்பீடு · Discover your unique parenting approach</div>
+    <div class="badges">
+      <span class="badge">20 Questions</span>
+      <span class="badge">4 Styles</span>
+      <span class="badge">Bilingual Report</span>
+      <span class="badge">Free Download</span>
+    </div>
+  </div>
+
+  <div class="lang-bar">
+    <label>Report Language / அறிக்கை மொழி:</label>
+    <button class="lang-btn active" onclick="setLang('en')">English</button>
+    <button class="lang-btn" onclick="setLang('ta')">தமிழ்</button>
+    <button class="lang-btn" onclick="setLang('both')">Both / இரண்டும்</button>
+  </div>
+
+  <div class="steps">
+    <div class="step active" id="stp1">1. Assessment</div>
+    <div class="step" id="stp2">2. Scoring</div>
+    <div class="step" id="stp3">3. Report</div>
+  </div>
+
+  <div id="quiz-section">
+    <div class="card" style="background:var(--primary-light); border-color:var(--primary);">
+      <div style="font-size:14px; color:var(--primary); font-weight:600; margin-bottom:8px;">How to respond / எப்படி பதிலளிப்பது:</div>
+      <div style="font-size:13px; color:var(--text); margin-bottom:10px;">Rate each statement based on how often this describes your parenting — <em>நீங்கள் பொதுவாக எவ்வாறு நடந்துகொள்கிறீர்கள்</em> என்பதன் அடிப்படையில் நேர்மையாக பதிலளியுங்கள்.</div>
+      <div class="scale-row">
+        <span class="scale-chip">1 — Never / ஒருபோதும் இல்லை</span>
+        <span class="scale-chip">2 — Rarely / அரிதாக</span>
+        <span class="scale-chip">3 — Sometimes / சில நேரங்களில்</span>
+        <span class="scale-chip">4 — Often / அடிக்கடி</span>
+        <span class="scale-chip">5 — Always / எப்போதும்</span>
+      </div>
+    </div>
+
+    <div class="progress-label" id="prog-label">Question 1 of 20</div>
+    <div class="progress-wrap"><div class="progress-fill" id="prog-bar" style="width:5%"></div></div>
+
+    <div id="questions-container"></div>
+
+    <div class="nav-row">
+      <button class="btn btn-outline" id="prev-btn" onclick="navigate(-1)" disabled>← Back</button>
+      <button class="btn btn-primary" id="next-btn" onclick="navigate(1)">Next →</button>
+    </div>
+  </div>
+
+  <div id="result-section">
+    <div class="result-hero" id="result-hero"></div>
+
+    <div class="score-grid" id="score-grid"></div>
+
+    <div class="card" style="padding:0; overflow:hidden;">
+      <div class="report-tabs">
+        <div class="rtab active" onclick="showTab('en-tab',this)" id="tab-en">English Report</div>
+        <div class="rtab" onclick="showTab('ta-tab',this)" id="tab-ta">தமிழ் அறிக்கை</div>
+        <div class="rtab" onclick="showTab('tips-tab',this)">Tips & Tools</div>
+      </div>
+      <div style="padding:22px;">
+        <div class="report-panel active" id="en-tab"></div>
+        <div class="report-panel" id="ta-tab"></div>
+        <div class="report-panel" id="tips-tab"></div>
+      </div>
+    </div>
+
+    <div class="download-bar">
+      <p>Download your personalised report for offline reference or to share with a parenting coach.</p>
+      <button class="dl-btn purple" onclick="downloadReport('en')">⬇ English PDF</button>
+      <button class="dl-btn green" onclick="downloadReport('ta')">⬇ தமிழ் PDF</button>
+      <button class="dl-btn purple" onclick="downloadReport('both')" style="border-color:#6C3FB5; color:#6C3FB5; background:#EDE9FA;">⬇ Bilingual PDF</button>
+    </div>
+
+    <div class="program-cta">
+      <div class="pc-badge">Next Step</div>
+      <h3>Ready to put this into practice?</h3>
+      <p>
+        An assessment shows you where you are — our live <strong>Loving &amp; Responsible Parenting Program</strong> (Zoom training) helps you build the skills to grow from here, together with other parents.<br>
+        <span style="font-family:'Noto Sans Tamil','Segoe UI',sans-serif;">இந்த மதிப்பீடு உங்கள் தற்போதைய நிலையை காட்டுகிறது — மற்ற பெற்றோர்களுடன் சேர்ந்து வளர எங்கள் நேரடி அன்பான &amp; பொறுப்புள்ள பெற்றோர் பயிற்சி திட்டம் (Zoom) உதவும்.</span>
+      </p>
+      <button class="wa-btn" onclick="openWhatsAppProgram()">📱 Register on WhatsApp | WhatsApp-இல் பதிவு செய்யவும்</button>
+    </div>
+
+    <div class="retake-row">
+      <button class="retake-btn" onclick="retake()">↺ Retake Assessment / மீண்டும் எடுக்க</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const QUESTIONS = [
+  { en: "I explain the reasons behind rules to my child.", ta: "விதிகளுக்குப் பின்னால் உள்ள காரணங்களை என் குழந்தைக்கு விளக்குகிறேன்.", cat: "POSITIVE" },
+  { en: "I listen to my child's opinions and consider their feelings.", ta: "என் குழந்தையின் கருத்துக்களை கேட்டு அவர்களின் உணர்வுகளை கருத்தில் கொள்கிறேன்.", cat: "POSITIVE" },
+  { en: "I set clear boundaries while being warm and supportive.", ta: "அன்பாகவும் ஆதரவாகவும் இருக்கும் போது தெளிவான எல்லைகளை நிர்ணயிக்கிறேன்.", cat: "POSITIVE" },
+  { en: "I praise my child's efforts, not just results.", ta: "முடிவுகளை மட்டுமல்ல, என் குழந்தையின் முயற்சிகளையும் பாராட்டுகிறேன்.", cat: "POSITIVE" },
+  { en: "I encourage my child to solve problems independently with my guidance.", ta: "என் வழிகாட்டுதலுடன் சுதந்திரமாக பிரச்சினைகளை தீர்க்க என் குழந்தையை ஊக்குவிக்கிறேன்.", cat: "POSITIVE" },
+  { en: "I expect my child to obey rules without questioning.", ta: "என் குழந்தை கேள்வி கேட்காமல் விதிகளுக்கு கீழ்ப்படிய வேண்டும் என்று எதிர்பார்க்கிறேன்.", cat: "CONTROLLING" },
+  { en: "I use strict punishment when my child misbehaves.", ta: "என் குழந்தை தவறாக நடந்துகொள்ளும்போது கடுமையான தண்டனையை பயன்படுத்துகிறேன்.", cat: "CONTROLLING" },
+  { en: "I believe 'Because I said so' is a good enough reason.", ta: "'நான் சொன்னேன்' என்பது போதுமான காரணம் என்று நான் நம்புகிறேன்.", cat: "CONTROLLING" },
+  { en: "I make all decisions for my child without their input.", ta: "என் குழந்தையின் கருத்து இல்லாமல் அனைத்து முடிவுகளையும் நான் எடுக்கிறேன்.", cat: "CONTROLLING" },
+  { en: "I prioritize obedience over understanding.", ta: "புரிதலை விட கீழ்ப்படிதலுக்கு முன்னுரிமை தருகிறேன்.", cat: "CONTROLLING" },
+  { en: "I avoid setting firm rules because I don't want to upset my child.", ta: "என் குழந்தையை வருத்தப்படுத்த விரும்பாததால் உறுதியான விதிகளை அமைப்பதை தவிர்க்கிறேன்.", cat: "PERMISSIVE" },
+  { en: "I let my child decide their own bedtime and screen time.", ta: "என் குழந்தை தங்கள் படுக்கை நேரத்தையும் திரை நேரத்தையும் தீர்மானிக்க அனுமதிக்கிறேன்.", cat: "PERMISSIVE" },
+  { en: "I give in when my child argues or complains about rules.", ta: "என் குழந்தை விதிகளைப் பற்றி வாதிடும்போது அல்லது புகார் செய்யும்போது விட்டுக்கொடுக்கிறேன்.", cat: "PERMISSIVE" },
+  { en: "I rarely follow through with consequences when rules are broken.", ta: "விதிகள் மீறப்படும்போது விளைவுகளை அரிதாகவே பின்பற்றுகிறேன்.", cat: "PERMISSIVE" },
+  { en: "I act more like a friend than a parent.", ta: "பெற்றோரை விட நண்பரைப் போல செயல்படுகிறேன்.", cat: "PERMISSIVE" },
+  { en: "I am often too busy to attend my child's school events.", ta: "என் குழந்தையின் பள்ளி நிகழ்வுகளில் கலந்துகொள்ள நான் அடிக்கடி மிகவும் பிஸியாக இருக்கிறேன்.", cat: "UNINVOLVED" },
+  { en: "I don't know much about my child's friends or interests.", ta: "என் குழந்தையின் நண்பர்கள் அல்லது ஆர்வங்களைப் பற்றி எனக்கு அதிகம் தெரியாது.", cat: "UNINVOLVED" },
+  { en: "My child spends most time alone or with others, not with me.", ta: "என் குழந்தை என்னுடன் அல்லாமல் தனியாகவோ அல்லது மற்றவர்களுடனோ அதிக நேரம் செலவிடுகிறது.", cat: "UNINVOLVED" },
+  { en: "I rarely ask about my child's day or problems.", ta: "என் குழந்தையின் நாள் அல்லது பிரச்சினைகளைப் பற்றி அரிதாகவே கேட்கிறேன்.", cat: "UNINVOLVED" },
+  { en: "I don't set expectations for my child's behavior or grades.", ta: "என் குழந்தையின் நடத்தை அல்லது மதிப்பெண்களுக்கு எதிர்பார்ப்புகளை நிர்ணயிக்கவில்லை.", cat: "UNINVOLVED" }
+];
+
+const SCALE = [
+  { num: 1, en: "Never", ta: "இல்லை" },
+  { num: 2, en: "Rarely", ta: "அரிதாக" },
+  { num: 3, en: "Sometimes", ta: "சில நேரம்" },
+  { num: 4, en: "Often", ta: "அடிக்கடி" },
+  { num: 5, en: "Always", ta: "எப்போதும்" }
+];
+
+const STYLES = {
+  POSITIVE: { en: "Positive Parenting", ta: "நேர்மறை பெற்றோர்மை", color: "#1D9E75" },
+  CONTROLLING: { en: "Controlling Parenting", ta: "கட்டுப்படுத்தும் பெற்றோர்மை", color: "#D85A30" },
+  PERMISSIVE: { en: "Permissive Parenting", ta: "அனுமதியளிக்கும் பெற்றோர்மை", color: "#185FA5" },
+  UNINVOLVED: { en: "Uninvolved Parenting", ta: "ஈடுபாடற்ற பெற்றோர்மை", color: "#888780" }
+};
+
+let answers = {};
+let current = 0;
+let reportLang = 'en';
+
+function setLang(lang) {
+  reportLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function renderQuestion(idx) {
+  const q = QUESTIONS[idx];
+  const container = document.getElementById('questions-container');
+  const saved = answers[idx];
+  container.innerHTML = `
+    <div class="card">
+      <div class="q-num">Question ${idx+1} of 20 — ${q.cat.replace('POSITIVE','Positive Parenting').replace('CONTROLLING','Authoritarian').replace('PERMISSIVE','Permissive').replace('UNINVOLVED','Uninvolved')}</div>
+      <div class="q-text">${q.en}</div>
+      <div class="q-tamil" style="font-size:13px; color:#888;">🔤 ${q.ta}</div>
+      <div class="options">
+        ${SCALE.map(s => `
+          <label class="opt-label ${saved==s.num?'selected':''}" onclick="selectAnswer(${idx},${s.num},this)">
+            <input type="radio" name="q${idx}" value="${s.num}" ${saved==s.num?'checked':''}>
+            <span class="opt-num">${s.num}</span>
+            <span class="opt-eng">${s.en}</span>
+            <span class="opt-tam">${s.ta}</span>
+          </label>`).join('')}
+      </div>
+    </div>`;
+  const pct = Math.round(((idx+1)/20)*100);
+  document.getElementById('prog-bar').style.width = pct+'%';
+  document.getElementById('prog-label').textContent = `Question ${idx+1} of 20  (${pct}% complete)`;
+  document.getElementById('prev-btn').disabled = idx===0;
+  document.getElementById('next-btn').textContent = idx===19 ? '✓ View My Results' : 'Next →';
+}
+
+function selectAnswer(idx, val, el) {
+  answers[idx] = val;
+  document.querySelectorAll('.opt-label').forEach(l => l.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function navigate(dir) {
+  if (dir === 1 && answers[current] === undefined) {
+    alert('Please select an answer before continuing.\nதொடர்வதற்கு முன் பதிலை தேர்ந்தெடுக்கவும்.');
+    return;
+  }
+  if (dir === 1 && current === 19) { showResults(); return; }
+  current = Math.max(0, Math.min(19, current + dir));
+  renderQuestion(current);
+  window.scrollTo(0,0);
+}
+
+function showResults() {
+  let scores = { POSITIVE:0, CONTROLLING:0, PERMISSIVE:0, UNINVOLVED:0 };
+  QUESTIONS.forEach((q,i) => { if(answers[i]) scores[q.cat] += answers[i]; });
+  const total = Object.values(scores).reduce((a,b)=>a+b,0);
+  let dominant = Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];
+
+  document.getElementById('quiz-section').style.display = 'none';
+  document.getElementById('result-section').style.display = 'block';
+  document.getElementById('stp1').className='step done';
+  document.getElementById('stp2').className='step done';
+  document.getElementById('stp3').className='step active';
+
+  const s = STYLES[dominant];
+  document.getElementById('result-hero').innerHTML = `
+    <div class="style-label">Your Dominant Parenting Style / உங்கள் முதன்மை பெற்றோர் பாணி</div>
+    <div class="style-name">${s.en}</div>
+    <div class="style-tamil">${s.ta}</div>`;
+
+  const order = ['POSITIVE','CONTROLLING','PERMISSIVE','UNINVOLVED'];
+  const icons = { POSITIVE:'🌟', CONTROLLING:'⚠️', PERMISSIVE:'🤝', UNINVOLVED:'😶' };
+  document.getElementById('score-grid').innerHTML = order.map(k => {
+    const pct = total>0 ? Math.round((scores[k]/total)*100) : 0;
+    return `<div class="score-card">
+      <div class="sc-label">${icons[k]} ${STYLES[k].en}</div>
+      <div><span class="sc-val">${scores[k]}</span><span class="sc-pct">(${pct}%)</span></div>
+      <div class="bar-wrap"><div class="bar-fill" style="width:${pct}%; background:${STYLES[k].color};"></div></div>
+    </div>`;
+  }).join('');
+
+  document.getElementById('en-tab').innerHTML = buildEnReport(dominant, scores, total);
+  document.getElementById('ta-tab').innerHTML = buildTaReport(dominant, scores, total);
+  document.getElementById('tips-tab').innerHTML = buildTips(dominant);
+
+  window.scrollTo(0,0);
+  window._scores = scores; window._dominant = dominant; window._total = total;
+}
+
+function showTab(id, el) {
+  document.querySelectorAll('.report-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
+
+function buildEnReport(dom, scores, total) {
+  const data = {
+    POSITIVE: {
+      title: "Congratulations — You're a Positive Parent!",
+      desc: "Your parenting style is <strong>Positive (Authoritative) Parenting</strong> — the approach most highly recommended by child development researchers worldwide. You balance warmth with structure, love with limits, and communication with clear expectations.",
+      strengths: ["Explain reasons behind rules", "Listen to and validate your child's feelings", "Balance love and boundaries effectively", "Praise effort over outcome", "Encourage independent thinking"],
+      risks: [],
+      tips: ["Keep daily 15-min one-on-one time with your child", "Use emotion coaching — name, validate, then problem-solve", "Adapt your approach as your child grows into new stages", "Stay consistent — predictability builds security"]
+    },
+    CONTROLLING: {
+      title: "Your Style: Authoritarian / Controlling",
+      desc: "Your parenting style shows a <strong>Controlling (Authoritarian)</strong> pattern. You care deeply about your child's future and set high expectations — but research shows this can sometimes create unintended pressure. Small shifts can make a big difference.",
+      strengths: ["You provide clear structure", "You hold high standards for your child", "You are deeply committed to their success"],
+      risks: ["Child may develop low self-esteem over time", "Reduced ability to make independent decisions", "Possible rebellion or withdrawal in adolescence", "Relationship based on fear rather than trust"],
+      tips: ["Always explain the 'why' behind every rule", "Replace punishments with natural/logical consequences", "Ask your child's opinion on age-appropriate matters", "Add warmth: daily hugs, words of affirmation, fun time"]
+    },
+    PERMISSIVE: {
+      title: "Your Style: Permissive / Indulgent",
+      desc: "Your parenting style is <strong>Permissive (Indulgent)</strong>. You are warm, loving, and responsive — wonderful qualities! But children also need firm boundaries to feel secure and develop self-discipline. You can keep all the warmth and simply add structure.",
+      strengths: ["Your child feels deeply loved", "Open communication between you and your child", "You are nurturing and emotionally available"],
+      risks: ["Child may struggle with self-regulation", "Difficulty following rules at school or in society", "Lower resilience when facing challenges", "Possible sense of entitlement"],
+      tips: ["Establish 3-5 non-negotiable family rules — write them down", "Follow through on consequences every time, calmly", "Say 'No' and mean it — validate feelings while holding the boundary", "Remember: your job is to prepare them for life, not just make them happy"]
+    },
+    UNINVOLVED: {
+      title: "Your Style: Uninvolved / Disengaged",
+      desc: "Your assessment suggests an <strong>Uninvolved</strong> parenting pattern. Taking this test shows you care. Uninvolved parenting often results from your own unaddressed stress, burnout, or difficult life circumstances — not lack of love.",
+      strengths: ["Taking this test shows self-awareness", "Recognising the pattern is the first step to change", "Children are resilient — it is never too late to reconnect"],
+      risks: ["Emotional and behavioural difficulties in the child", "Poor academic performance and motivation", "Difficulty forming trusting relationships", "Low self-esteem and coping skills"],
+      tips: ["Begin with 10 focused minutes with your child every day — no phone", "Ask 3 questions daily: 'How was your day?' / 'Best part?' / 'Need anything?'", "Attend at least one school event this month", "Seek your own support first — you cannot pour from an empty cup"]
+    }
+  };
+  const d = data[dom];
+  const hasRisks = d.risks.length > 0;
+  return `
+    <section>
+      <h2>${d.title}</h2>
+      <div class="tip-box green" style="margin-bottom:16px;"><p style="font-size:14px;">${d.desc}</p></div>
+      <h3>Your Strengths</h3>
+      <div class="tip-box green">
+        <ul>${d.strengths.map(s=>`<li>${s}</li>`).join('')}</ul>
+      </div>
+      ${hasRisks ? `<h3>Areas to Watch</h3><div class="tip-box orange"><ul>${d.risks.map(r=>`<li>${r}</li>`).join('')}</ul></div>` : ''}
+      <h3>Action Tips for This Week</h3>
+      <div class="tip-box blue">
+        <ul>${d.tips.map(t=>`<li>${t}</li>`).join('')}</ul>
+      </div>
+      <div class="tip-box" style="margin-top:14px; background:#EDE9FA; border-color:#6C3FB5;">
+        <div class="tip-title">📚 Recommended Books</div>
+        <ul>
+          <li><em>Positive Discipline</em> – Jane Nelsen</li>
+          <li><em>The Whole-Brain Child</em> – Daniel Siegel &amp; Tina Bryson</li>
+          <li><em>How to Talk So Kids Will Listen</em> – Faber &amp; Mazlish</li>
+          <li><em>No-Drama Discipline</em> – Siegel &amp; Bryson</li>
+        </ul>
+      </div>
+    </section>`;
+}
+
+function buildTaReport(dom, scores, total) {
+  const data = {
+    POSITIVE: {
+      title: "வாழ்த்துக்கள் — நீங்கள் ஒரு நேர்மறை பெற்றோர்!",
+      desc: "உங்கள் பெற்றோர் பாணி <strong>நேர்மறை (அதிகாரவாய்ந்த) பெற்றோர்மை</strong> — உலகளவில் குழந்தை வளர்ச்சி ஆராய்ச்சியாளர்களால் மிகவும் பரிந்துரைக்கப்படும் அணுகுமுறை. நீங்கள் அன்பை கட்டமைப்புடன், அக்கறையை வரம்புகளுடன், தொடர்பை தெளிவான எதிர்பார்ப்புகளுடன் சமநிலைப்படுத்துகிறீர்கள்.",
+      strengths: ["விதிகளுக்குப் பின்னால் உள்ள காரணங்களை விளக்குகிறீர்கள்", "குழந்தையின் உணர்வுகளை கேட்கிறீர்கள் மற்றும் சரிபார்க்கிறீர்கள்", "அன்பையும் எல்லைகளையும் திறம்படவும் சமநிலைப்படுத்துகிறீர்கள்", "முடிவுகளை விட முயற்சிகளை பாராட்டுகிறீர்கள்", "சுதந்திர சிந்தனையை ஊக்குவிக்கிறீர்கள்"],
+      risks: [],
+      tips: ["தினசரி 15 நிமிட தனிப்பட்ட நேரத்தை தொடருங்கள்", "உணர்ச்சி பயிற்சியைப் பயன்படுத்துங்கள் — பெயரிடவும், சரிபார்க்கவும், பின்னர் சிக்கலைத் தீர்க்கவும்", "குழந்தை வளரும்போது உங்கள் அணுகுமுறையை மாற்றியமைக்கவும்", "நிலைத்தன்மை இருக்கட்டும் — முன்கணிப்பு பாதுகாப்பை உருவாக்குகிறது"]
+    },
+    CONTROLLING: {
+      title: "உங்கள் பாணி: கட்டுப்படுத்தும் பெற்றோர்மை",
+      desc: "உங்கள் பெற்றோர் பாணி <strong>கட்டுப்படுத்தும் (அதிகாரவாத)</strong> முறையை காட்டுகிறது. நீங்கள் உங்கள் குழந்தையின் எதிர்காலத்தைப் பற்றி ஆழமாக அக்கறை கொள்கிறீர்கள் மற்றும் உயர் எதிர்பார்ப்புகளை நிர்ணயிக்கிறீர்கள். சிறிய மாற்றங்கள் பெரிய வித்தியாசங்களை உருவாக்கலாம்.",
+      strengths: ["தெளிவான கட்டமைப்பை வழங்குகிறீர்கள்", "உங்கள் குழந்தைக்கு உயர் தரநிலைகளை வைத்திருக்கிறீர்கள்", "அவர்களின் வெற்றிக்காக ஆழமாக அர்ப்பணிக்கிறீர்கள்"],
+      risks: ["காலப்போக்கில் குழந்தை குறைந்த சுயமரியாதையை வளர்க்கலாம்", "சுதந்திரமான முடிவுகளை எடுக்கும் திறன் குறைகிறது", "இளமைப்பருவத்தில் கிளர்ச்சி அல்லது தனிமை சாத்தியம்", "நம்பிக்கையை விட பயத்தின் அடிப்படையில் உறவு"],
+      tips: ["ஒவ்வொரு விதிக்கும் பின்னால் உள்ள 'ஏன்' என்பதை எப்போதும் விளக்குங்கள்", "தண்டனைகளை இயற்கையான/தர்க்கரீதியான விளைவுகளால் மாற்றுங்கள்", "வயதுக்கு ஏற்ற விஷயங்களில் குழந்தையின் கருத்தைக் கேளுங்கள்", "அன்பை சேர்க்கவும்: தினசரி கட்டிப்பிடித்தல், வாய்மொழி உறுதிப்படுத்தல், வேடிக்கையான நேரம்"]
+    },
+    PERMISSIVE: {
+      title: "உங்கள் பாணி: அனுமதியளிக்கும் பெற்றோர்மை",
+      desc: "உங்கள் பெற்றோர் பாணி <strong>அனுமதியளிக்கும் (அலட்சிய)</strong> முறையில் உள்ளது. நீங்கள் அன்பாகவும் அக்கறையாகவும் இருக்கிறீர்கள் — அற்புதமான குணங்கள்! ஆனால் குழந்தைகளுக்கு பாதுகாப்பாக உணரவும் சுய-ஒழுக்கத்தை வளர்க்கவும் உறுதியான எல்லைகளும் தேவை.",
+      strengths: ["உங்கள் குழந்தை ஆழமாக நேசிக்கப்படுவதாக உணர்கிறது", "நீங்களும் குழந்தையும் இடையில் திறந்த தொடர்பு உள்ளது", "நீங்கள் வளர்ப்பு மற்றும் உணர்ச்சியளவில் கிடைக்கிறீர்கள்"],
+      risks: ["குழந்தை சுய-ஒழுங்குமுறையுடன் போராடலாம்", "பள்ளியில் அல்லது சமூகத்தில் விதிகளைப் பின்பற்றுவதில் சிரமம்", "சவால்களை எதிர்கொள்ளும்போது குறைந்த நெகிழ்ச்சி", "உரிமை உணர்வு சாத்தியம்"],
+      tips: ["3-5 பேச்சுவார்த்தைக்குட்படாத குடும்ப விதிகளை நிறுவுங்கள் — அவற்றை எழுதுங்கள்", "ஒவ்வொரு முறையும் அமைதியாக விளைவுகளை பின்பற்றுங்கள்", "'இல்லை' என்று சொல்லுங்கள் — உணர்வுகளை சரிபார்க்கும் போது எல்லையை பராமரிக்கவும்", "நினைவில் வைத்துக்கொள்ளுங்கள்: உங்கள் வேலை வாழ்க்கைக்கு அவர்களை தயார்படுத்துவது"]
+    },
+    UNINVOLVED: {
+      title: "உங்கள் பாணி: ஈடுபாடற்ற பெற்றோர்மை",
+      desc: "உங்கள் மதிப்பீடு <strong>ஈடுபாடற்ற</strong> பெற்றோர் முறையை சுட்டுகிறது. இந்த சோதனையை எடுப்பது நீங்கள் அக்கறை கொள்கிறீர்கள் என்பதை காட்டுகிறது. ஈடுபாடற்ற பெற்றோர்மை பெரும்பாலும் உங்கள் சொந்த மன அழுத்தம், எரிந்துபோதல் அல்லது கடினமான வாழ்க்கை சூழ்நிலைகளால் ஏற்படுகிறது.",
+      strengths: ["இந்த சோதனையை எடுப்பது சுய-விழிப்புணர்வை காட்டுகிறது", "முறையை அங்கீகரிப்பது மாற்றத்தின் முதல் படி", "குழந்தைகள் நெகிழ்ச்சியானவர்கள் — மீண்டும் இணைக்க மிகவும் தாமதமாகவில்லை"],
+      risks: ["குழந்தைக்கு உணர்ச்சி மற்றும் நடத்தை சிரமங்கள்", "மோசமான கல்வி செயல்திறன் மற்றும் உந்துதல்", "நம்பகமான உறவுகளை உருவாக்குவதில் சிரமம்", "குறைந்த சுயமரியாதை மற்றும் சமாளிக்கும் திறன்கள்"],
+      tips: ["தினசரி தொலைபேசி இல்லாமல் 10 நிமிட குவிக்கப்பட்ட நேரத்துடன் தொடங்குங்கள்", "தினசரி 3 கேள்விகள்: 'நாள் எப்படி?' / 'சிறந்த பகுதி?' / 'ஏதாவது தேவையா?'", "இந்த மாதம் குறைந்தபட்சம் ஒரு பள்ளி நிகழ்வில் கலந்துகொள்ளுங்கள்", "முதலில் உங்கள் சொந்த ஆதரவை நாடுங்கள் — நீங்கள் காலியான கோப்பையிலிருந்து ஊற்ற முடியாது"]
+    }
+  };
+  const d = data[dom];
+  const hasRisks = d.risks.length > 0;
+  return `
+    <section>
+      <h2>${d.title}</h2>
+      <div class="tip-box green" style="margin-bottom:16px;"><p style="font-size:14px;">${d.desc}</p></div>
+      <h3>உங்கள் வலிமைகள்</h3>
+      <div class="tip-box green"><ul>${d.strengths.map(s=>`<li>${s}</li>`).join('')}</ul></div>
+      ${hasRisks ? `<h3>கவனிக்க வேண்டிய பகுதிகள்</h3><div class="tip-box orange"><ul>${d.risks.map(r=>`<li>${r}</li>`).join('')}</ul></div>` : ''}
+      <h3>இந்த வாரம் செயல் குறிப்புகள்</h3>
+      <div class="tip-box blue"><ul>${d.tips.map(t=>`<li>${t}</li>`).join('')}</ul></div>
+      <div class="tip-box" style="margin-top:14px; background:#EDE9FA; border-color:#6C3FB5;">
+        <div class="tip-title">📚 தமிழ் ஆதாரங்கள் / நெருக்கடி எண்கள்</div>
+        <ul>
+          <li>AASRA (தமிழ்நாடு): 044-24640050</li>
+          <li>Sneha (சென்னை): 044-24640050</li>
+          <li>iCall: 9152987821</li>
+          <li>Vandrevala Foundation: 1860-2662-345</li>
+        </ul>
+      </div>
+    </section>`;
+}
+
+function buildTips(dom) {
+  const tools = {
+    POSITIVE: [
+      { icon: "🧠", title: "Emotion Coaching Script", body: "When child is upset: (1) Name the emotion — 'You seem frustrated.' (2) Validate — 'That makes sense.' (3) Set limit if needed — 'But hitting is not OK.' (4) Problem-solve — 'What else could you do?' | உணர்ச்சியை பெயரிடவும், சரிபார்க்கவும், எல்லை அமைக்கவும், சிக்கல் தீர்க்கவும்." },
+      { icon: "📅", title: "Weekly Family Meeting (15 min)", body: "Sunday ritual: 1. Appreciations (everyone shares one). 2. Problems to solve. 3. Plan for the week. 4. Fun activity decision. | ஞாயிற்றுக்கிழமை நடைமுறை: பாராட்டு → சிக்கல் → திட்டம் → வேடிக்கை." },
+      { icon: "💬", title: "Daily Connection Checklist", body: "□ Undivided attention 15 min □ Asked open question about their day □ Physical affection □ Said 'I love you' □ Caught them doing something good | தினசரி தொடர்பு: கவனம், கேள்வி, பாசம், அன்பு, பாராட்டு." }
+    ],
+    CONTROLLING: [
+      { icon: "🔄", title: "The 'Why' Habit", body: "Every rule → add one sentence reason. 'Put toys away SO THAT no one trips.' 'Bed at 8 BECAUSE your brain needs rest.' Practice 3 times today. | ஒவ்வொரு விதியும் → ஒரு காரணம் சேர்க்கவும். இன்று 3 முறை பயிற்சி செய்யுங்கள்." },
+      { icon: "✅", title: "Choice-Giving (3x Daily)", body: "Replace commands with choices: 'Do you want to start homework now or in 10 minutes?' 'Apple or banana?' Small choices build autonomy safely. | கட்டளைகளை தேர்வுகளாக மாற்றுங்கள்: 'இப்போதா அல்லது 10 நிமிடங்களில்?'" },
+      { icon: "❤️", title: "Warmth Tracker", body: "Each evening ask: □ Did I hug them? □ Did I say I love them? □ Did I praise one effort (not result)? □ Did we laugh together? Aim: all 4 every day. | மாலை சரிபார்ப்பு: கட்டிப்பிடித்தல், அன்பு, பாராட்டு, சிரிப்பு." }
+    ],
+    PERMISSIVE: [
+      { icon: "📋", title: "3 House Rules — Post Visibly", body: "Write 3 non-negotiable rules: 1. We speak kindly. 2. Homework before screen time. 3. Bedtime at ___. Post on fridge. Enforce calmly every time. | 3 விதிகளை எழுதி ஒட்டுங்கள். ஒவ்வொரு முறையும் அமைதியாக செயல்படுத்துங்கள்." },
+      { icon: "🚫", title: "The Calm 'No' Script", body: "'I understand you're disappointed. The answer is still no. I love you.' Do not negotiate after saying no to something important. Practice daily. | 'நீ ஏமாற்றமடைந்திருக்கிறாய் என்று புரிகிறது. பதில் இல்லை. நான் உன்னை நேசிக்கிறேன்.'" },
+      { icon: "⏱", title: "Consequence Follow-Through", body: "State consequence in advance. When rule breaks: say it once calmly, apply it immediately. No warnings, no extensions. Track: Did I follow through today? □ | முன்னரே விளைவை கூறவும். மீறப்படும்போது உடனடியாக பயன்படுத்தவும்." }
+    ],
+    UNINVOLVED: [
+      { icon: "⏰", title: "The 10-Minute Daily Ritual", body: "Set a phone alarm. Same time every day. Put phone away. Ask: 'What shall we do together for 10 minutes?' Let them choose. No agenda. Just presence. | ஒரே நேரத்தில் தினசரி அலாரம். தொலைபேசியை வையுங்கள். அவர்கள் தேர்வு செய்யட்டும். வெறுமனே இருக்கவும்." },
+      { icon: "❓", title: "Daily 3 Questions", body: "Ask every day: 1. 'How was your day?' (listen fully) 2. 'What was the best part?' 3. 'Is there anything you need from me?' Write answers if helps. | தினசரி 3 கேள்விகள்: நாள், சிறந்த பகுதி, தேவை என்ன?" },
+      { icon: "🩺", title: "Self-Care First", body: "Signs to seek help: persistent sadness, exhaustion, anxiety, substance use, trauma. Resources: iCall 9152987821, Vandrevala 1860-2662-345. You matter too. | உதவி நாடுங்கள்: iCall 9152987821, Vandrevala 1860-2662-345." }
+    ]
+  };
+  const t = tools[dom] || tools['POSITIVE'];
+  return `
+    <section>
+      <h2>Practical Tools &amp; Daily Actions / நடைமுறை கருவிகள்</h2>
+      <p style="color:var(--text-muted);font-size:13px;margin-bottom:16px;">Based on your dominant style — pick one tool and use it for 7 days before adding another. / உங்கள் பாணியின் அடிப்படையில் — ஒரு கருவியை தேர்வு செய்து 7 நாட்கள் பயன்படுத்துங்கள்.</p>
+      ${t.map(tool=>`
+        <div class="tip-box blue" style="margin-bottom:12px;">
+          <div class="tip-title">${tool.icon} ${tool.title}</div>
+          <p style="font-size:13px;margin-top:6px;">${tool.body}</p>
+        </div>`).join('')}
+      <div class="tip-box" style="margin-top:14px; background:#F1EFE8; border-color:#888;">
+        <div class="tip-title">📞 Support Resources / ஆதார வளங்கள்</div>
+        <ul style="font-size:13px;">
+          <li>Somasundaram Life Skills Academy — Parenting Workshops (Zoom)</li>
+          <li>iCall (India): 9152987821</li>
+          <li>Vandrevala Foundation: 1860-2662-345</li>
+          <li>AASRA Tamil Nadu: 044-24640050</li>
+          <li>Childline India: 1098</li>
+        </ul>
+      </div>
+    </section>`;
+}
+
+function openWhatsAppProgram() {
+  const dom = window._dominant;
+  const styleEn = dom ? STYLES[dom].en : '';
+  const styleTa = dom ? STYLES[dom].ta : '';
+  const msgEn = `Hi, I completed the Parenting Style Assessment${styleEn ? (' (Result: '+styleEn+')') : ''}. I'm interested in registering for the Loving & Responsible Parenting Program (Live Zoom Training) by Somasundaram Life Skills Academy.`;
+  const msgTa = `வணக்கம், நான் பெற்றோர் பாணி மதிப்பீட்டை முடித்தேன்${styleTa ? (' (முடிவு: '+styleTa+')') : ''}. நேரடி Zoom பயிற்சியான அன்பான & பொறுப்புள்ள பெற்றோர் பயிற்சி திட்டத்தில் பதிவு செய்ய விரும்புகிறேன்.`;
+  const msg = msgEn + '\n' + msgTa;
+  const url = `https://wa.me/919843702244?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+
+function downloadReport(lang) {
+  const dom = window._dominant;
+  const scores = window._scores;
+  const total = window._total;
+  if (!dom) return;
+
+  const enContent = buildEnReport(dom, scores, total);
+  const taContent = buildTaReport(dom, scores, total);
+  const tipsContent = buildTips(dom);
+  const style = STYLES[dom];
+
+  let body = '';
+  if (lang === 'en') body = enContent + tipsContent;
+  else if (lang === 'ta') body = taContent + tipsContent;
+  else body = enContent + '<hr style="margin:32px 0; border:2px solid #6C3FB5;">' + taContent + tipsContent;
+
+  const scoreRows = ['POSITIVE','CONTROLLING','PERMISSIVE','UNINVOLVED'].map(k=>{
+    const pct = total>0?Math.round((scores[k]/total)*100):0;
+    return `<tr><td style="padding:8px 12px;">${STYLES[k].en} / ${STYLES[k].ta}</td><td style="padding:8px 12px; font-weight:700; color:${STYLES[k].color};">${scores[k]}</td><td style="padding:8px 12px;">${pct}%</td></tr>`;
+  }).join('');
+
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+  <title>Parenting Style Report</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; max-width:750px; margin:0 auto; padding:32px; color:#2C2C2A; line-height:1.65; }
+    h1 { color:#6C3FB5; font-size:24px; } h2 { color:#6C3FB5; font-size:18px; } h3 { color:#444; font-size:15px; }
+    .hero { background:#6C3FB5; color:#fff; padding:24px; border-radius:10px; text-align:center; margin-bottom:24px; }
+    table { width:100%; border-collapse:collapse; margin:16px 0; }
+    th { background:#6C3FB5; color:#fff; padding:8px 12px; text-align:left; }
+    td { border-bottom:1px solid #eee; }
+    .tip-box { border-left:4px solid #6C3FB5; background:#EDE9FA; padding:14px; border-radius:0 8px 8px 0; margin:12px 0; }
+    .tip-box.green { border-color:#1D9E75; background:#E1F5EE; }
+    .tip-box.orange { border-color:#D85A30; background:#FAECE7; }
+    .tip-box.blue { border-color:#185FA5; background:#E6F1FB; }
+    ul { padding-left:18px; } li { margin-bottom:4px; font-size:14px; }
+    .footer { margin-top:40px; border-top:1px solid #eee; padding-top:16px; font-size:12px; color:#888; text-align:center; }
+    .parenting-line { margin-top:14px; font-size:12px; color:#6C3FB5; font-weight:600; }
+    @media print { body { padding:16px; } }
+  </style>
+  </head><body>
+  <div class="hero">
+    <div style="font-size:13px;opacity:.8;margin-bottom:6px;">Parenting Style Assessment Report / பெற்றோர் பாணி மதிப்பீட்டு அறிக்கை</div>
+    <div style="font-size:26px;font-weight:700;">${style.en}</div>
+    <div style="font-size:16px;opacity:.85;margin-top:4px;">${style.ta}</div>
+  </div>
+  <h2>Score Summary / மதிப்பெண் சுருக்கம்</h2>
+  <table><thead><tr><th>Style / பாணி</th><th>Score / மதிப்பெண்</th><th>%</th></tr></thead><tbody>${scoreRows}</tbody></table>
+  ${body}
+  <div class="footer">
+    <p>Generated by Somasundaram Life Skills Academy — Parenting Style Assessment<br>
+    © ${new Date().getFullYear()} | For educational purposes only. Not a substitute for professional counselling.</p>
+    <p style="margin-top:8px;">உருவாக்கியது: சோமசுந்தரம் லைஃப் ஸ்கில்ஸ் அகாடமி | கல்வி நோக்கங்களுக்காக மட்டுமே.</p>
+    <p class="parenting-line">Interested in our Loving &amp; Responsible Parenting Program (Live Zoom)? WhatsApp +91 98437 02244<br>அன்பான &amp; பொறுப்புள்ள பெற்றோர் பயிற்சி திட்டம் (நேரடி Zoom) ஆர்வமா? +91 98437 02244 WhatsApp செய்யவும்</p>
+  </div>
+  </body></html>`;
+
+  const blob = new Blob([html], { type: 'text/html' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const langLabel = lang==='en'?'English': lang==='ta'?'Tamil':'Bilingual';
+  a.download = `Parenting_Style_Report_${langLabel}_${new Date().toISOString().slice(0,10)}.html`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function retake() {
+  answers = {}; current = 0;
+  document.getElementById('result-section').style.display='none';
+  document.getElementById('quiz-section').style.display='block';
+  document.getElementById('stp1').className='step active';
+  document.getElementById('stp2').className='step';
+  document.getElementById('stp3').className='step';
+  renderQuestion(0);
+  window.scrollTo(0,0);
+}
+
+renderQuestion(0);
+</script>
+</body>
+</html>

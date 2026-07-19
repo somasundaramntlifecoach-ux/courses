@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Communication Style Assessment | Somasundaram NT Life Skills Training Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#f5f3ff;min-height:100vh;color:#1e1b4b}
+.tamil{font-family:'Noto Sans Tamil',sans-serif}
+header{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:1.5rem 1rem;text-align:center}
+.brand{font-size:0.75rem;letter-spacing:1px;text-transform:uppercase;opacity:0.85;margin-bottom:0.3rem}
+header h1{font-size:1.3rem;font-weight:700;line-height:1.4}
+header p{font-size:0.8rem;opacity:0.8;margin-top:0.3rem}
+.motto{font-size:0.75rem;font-style:italic;opacity:0.75;margin-top:0.25rem}
+.container{max-width:640px;margin:0 auto;padding:1rem}
+.card{background:#fff;border-radius:16px;padding:1.5rem;margin-bottom:1rem;box-shadow:0 2px 12px rgba(79,70,229,0.08)}
+.progress-bar{background:#e0e7ff;border-radius:8px;height:8px;margin:1rem 0 0.5rem}
+.progress-fill{height:8px;border-radius:8px;background:linear-gradient(90deg,#4f46e5,#7c3aed);transition:width 0.4s}
+.q-count{font-size:0.78rem;color:#6366f1;font-weight:600;margin-bottom:0.5rem}
+.q-text{font-size:1rem;font-weight:600;color:#1e1b4b;margin-bottom:0.4rem;line-height:1.5}
+.q-tamil{font-family:'Noto Sans Tamil',sans-serif;font-size:0.92rem;color:#4338ca;margin-bottom:1rem;line-height:1.7}
+.options{display:flex;flex-direction:column;gap:0.6rem}
+.opt-btn{background:#f5f3ff;border:2px solid #e0e7ff;border-radius:12px;padding:0.8rem 1rem;cursor:pointer;text-align:left;transition:all 0.2s;font-family:'Poppins',sans-serif}
+.opt-btn:hover{border-color:#6366f1;background:#eef2ff}
+.opt-btn.selected{border-color:#4f46e5;background:#eef2ff}
+.opt-en{font-size:0.9rem;font-weight:500;color:#1e1b4b}
+.opt-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:0.82rem;color:#4338ca;margin-top:0.2rem}
+.nav{display:flex;gap:0.75rem;margin-top:1.2rem}
+.btn{flex:1;padding:0.75rem;border:none;border-radius:10px;font-family:'Poppins',sans-serif;font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.btn-primary{background:#4f46e5;color:#fff}
+.btn-primary:hover{background:#4338ca}
+.btn-secondary{background:#e0e7ff;color:#4f46e5}
+.btn-secondary:hover{background:#c7d2fe}
+.btn:disabled{opacity:0.4;cursor:not-allowed}
+/* Results */
+#results{display:none}
+.result-header{text-align:center;padding:1.5rem 1rem;background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;border-radius:16px;margin-bottom:1rem}
+.style-badge{display:inline-block;background:rgba(255,255,255,0.2);border-radius:20px;padding:0.4rem 1.2rem;font-size:0.8rem;margin-bottom:0.5rem}
+.result-header h2{font-size:1.4rem;font-weight:700}
+.result-header .ta{font-family:'Noto Sans Tamil',sans-serif;font-size:1rem;margin-top:0.3rem;opacity:0.9}
+.bars-card h3{font-size:0.9rem;font-weight:600;color:#4f46e5;margin-bottom:1rem}
+.bar-row{margin-bottom:0.9rem}
+.bar-label{display:flex;justify-content:space-between;font-size:0.8rem;font-weight:500;color:#374151;margin-bottom:0.3rem}
+.bar-track{background:#e0e7ff;border-radius:6px;height:10px}
+.bar-fill{height:10px;border-radius:6px;transition:width 0.8s ease}
+.b-D{background:#ef4444}
+.b-E{background:#f59e0b}
+.b-P{background:#10b981}
+.b-A{background:#6366f1}
+.tips-card h3{font-size:0.9rem;font-weight:600;color:#4f46e5;margin-bottom:0.8rem}
+.tip-item{background:#f5f3ff;border-left:3px solid #6366f1;border-radius:0 8px 8px 0;padding:0.7rem 0.9rem;margin-bottom:0.6rem}
+.tip-item p{font-size:0.85rem;color:#1e1b4b;line-height:1.5}
+.tip-item .ta{font-family:'Noto Sans Tamil',sans-serif;font-size:0.8rem;color:#4338ca;margin-top:0.3rem;line-height:1.7}
+.cta-card{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;text-align:center;border-radius:16px;padding:1.5rem}
+.cta-card h3{font-size:1rem;font-weight:700;margin-bottom:0.4rem}
+.cta-card .ta{font-family:'Noto Sans Tamil',sans-serif;font-size:0.88rem;margin-bottom:0.9rem;opacity:0.9;line-height:1.7}
+.cta-card p{font-size:0.8rem;opacity:0.85;margin-bottom:1rem;line-height:1.5}
+.cta-btn{display:inline-block;background:#fff;color:#4f46e5;font-family:'Poppins',sans-serif;font-weight:700;font-size:0.9rem;padding:0.7rem 1.5rem;border-radius:10px;text-decoration:none;margin:0.3rem}
+.print-btn{background:rgba(255,255,255,0.2);color:#fff;border:2px solid rgba(255,255,255,0.5);cursor:pointer;font-family:'Poppins',sans-serif;font-weight:600;font-size:0.85rem;padding:0.65rem 1.2rem;border-radius:10px;margin-top:0.5rem}
+.print-btn:hover{background:rgba(255,255,255,0.3)}
+.wa-float{position:fixed;bottom:1.5rem;right:1.2rem;background:#25d366;color:#fff;border-radius:50%;width:54px;height:54px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,0.4);z-index:999}
+.intro-card{text-align:center}
+.intro-card h2{font-size:1.15rem;font-weight:700;color:#4f46e5;margin-bottom:0.4rem}
+.intro-card .ta{font-family:'Noto Sans Tamil',sans-serif;color:#4338ca;font-size:0.95rem;line-height:1.7;margin-bottom:0.5rem}
+.intro-card p{font-size:0.85rem;color:#374151;line-height:1.6;margin-bottom:1rem}
+.style-pills{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center;margin-bottom:1.2rem}
+.pill{padding:0.35rem 0.8rem;border-radius:20px;font-size:0.78rem;font-weight:600}
+.pill-D{background:#fee2e2;color:#b91c1c}
+.pill-E{background:#fef3c7;color:#92400e}
+.pill-P{background:#d1fae5;color:#065f46}
+.pill-A{background:#e0e7ff;color:#3730a3}
+@media print{.wa-float,.nav,.print-btn{display:none!important}body{background:#fff}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">Somasundaram NT Life Skills Training Program</div>
+  <h1>Communication Style Assessment<br><span class="tamil">தொடர்பு நடை மதிப்பீடு</span></h1>
+  <p>Discover how you communicate | உங்கள் பேச்சு நடையை கண்டறியுங்கள்</p>
+  <div class="motto">"God is always with u"</div>
+</header>
+
+<div class="container">
+
+  <!-- Intro -->
+  <div id="intro" class="card intro-card">
+    <h2>What is your Communication Style?<br><span class="ta">உங்கள் தொடர்பு நடை என்ன?</span></h2>
+    <p>This 20-question bilingual assessment helps you identify your dominant communication style — and how to grow as a parent, teacher, or professional.</p>
+    <div class="style-pills">
+      <span class="pill pill-D">🔴 Direct / நேரடி</span>
+      <span class="pill pill-E">🟡 Expressive / உணர்ச்சி</span>
+      <span class="pill pill-P">🟢 Harmonious / அமைதி</span>
+      <span class="pill pill-A">🔵 Analytical / ஆய்வு</span>
+    </div>
+    <button class="btn btn-primary" onclick="startQuiz()">Start Assessment / தொடங்கு ▶</button>
+  </div>
+
+  <!-- Quiz -->
+  <div id="quiz" style="display:none">
+    <div class="card" style="padding:1rem 1.2rem">
+      <div class="q-count" id="qcount">Question 1 of 20</div>
+      <div class="progress-bar"><div class="progress-fill" id="pbar" style="width:5%"></div></div>
+    </div>
+    <div class="card" id="qcard">
+      <div class="q-text" id="qtext"></div>
+      <div class="q-tamil" id="qtamil"></div>
+      <div class="options" id="opts"></div>
+      <div class="nav">
+        <button class="btn btn-secondary" id="prevBtn" onclick="prev()" disabled>◀ Back</button>
+        <button class="btn btn-primary" id="nextBtn" onclick="next()" disabled>Next ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div id="results">
+    <div class="result-header">
+      <div class="style-badge" id="res-badge"></div>
+      <h2 id="res-name"></h2>
+      <div class="ta" id="res-name-ta"></div>
+      <p style="font-size:0.82rem;opacity:0.85;margin-top:0.5rem" id="res-desc"></p>
+    </div>
+
+    <div class="card bars-card">
+      <h3>Your Style Profile / உங்கள் நடை விகிதம்</h3>
+      <div class="bar-row">
+        <div class="bar-label"><span>🔴 Direct / நேரடி</span><span id="sc-D">0%</span></div>
+        <div class="bar-track"><div class="bar-fill b-D" id="bar-D" style="width:0%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>🟡 Expressive / உணர்ச்சி</span><span id="sc-E">0%</span></div>
+        <div class="bar-track"><div class="bar-fill b-E" id="bar-E" style="width:0%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>🟢 Harmonious / அமைதி</span><span id="sc-P">0%</span></div>
+        <div class="bar-track"><div class="bar-fill b-P" id="bar-P" style="width:0%"></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label"><span>🔵 Analytical / ஆய்வு</span><span id="sc-A">0%</span></div>
+        <div class="bar-track"><div class="bar-fill b-A" id="bar-A" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <div class="card tips-card">
+      <h3>Growth Tips / வளர்ச்சி குறிப்புகள்</h3>
+      <div id="tips-content"></div>
+    </div>
+
+    <div class="cta-card">
+      <h3>Take Your Parenting to the Next Level!</h3>
+      <div class="ta">உங்கள் பெற்றோர் திறனை மேம்படுத்துங்கள்!</div>
+      <p>Join our "Loving & Responsible Parenting" Zoom Program by<br><strong>Somasundaram NT</strong> — Certified Master Trainer & Parenting Coach</p>
+      <a class="cta-btn" href="https://wa.me/919843702244?text=Hello%20Somasundaram%20sir%2C%20I%20completed%20the%20Communication%20Style%20Assessment%20and%20want%20to%20know%20more%20about%20the%20Loving%20%26%20Responsible%20Parenting%20Zoom%20Program.%20%0A%0Aவணக்கம்%20சோமசுந்தரம்%20சார்%2C%20தொடர்பு%20நடை%20மதிப்பீடு%20முடித்தேன்.%20Parenting%20Zoom%20Program%20பற்றி%20தெரிந்துகொள்ள%20விரும்புகிறேன்." target="_blank">📲 WhatsApp to Register</a>
+      <br>
+      <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    </div>
+  </div>
+
+</div>
+
+<!-- WhatsApp Float -->
+<a class="wa-float" href="https://wa.me/919843702244?text=Hello%20Somasundaram%20sir%2C%20I%20want%20to%20know%20more%20about%20your%20Life%20Skills%20Training%20Programs.%0A%0Aவணக்கம்%20சார்%2C%20உங்கள்%20Life%20Skills%20Training%20Programs%20பற்றி%20தெரிந்துகொள்ள%20விரும்புகிறேன்." target="_blank" title="WhatsApp">💬</a>
+
+<script>
+const Q=[
+{en:"When there is a disagreement at home, you usually:",ta:"வீட்டில் கருத்து வேறுபாடு வரும்போது நீங்கள்:",opts:[
+{en:"State your view firmly and expect others to listen",ta:"உங்கள் கருத்தை தைரியமாக சொல்வீர்கள்",s:"D"},
+{en:"Express emotions and try to convince through feelings",ta:"உணர்ச்சியுடன் பேசி மனதை மாற்ற முயற்சிப்பீர்கள்",s:"E"},
+{en:"Avoid conflict and try to keep peace",ta:"சண்டையை தவிர்த்து அமைதியை காப்பீர்கள்",s:"P"},
+{en:"Analyse all sides before speaking",ta:"எல்லா கோணங்களையும் ஆய்வு செய்த பிறகு பேசுவீர்கள்",s:"A"}]},
+{en:"When your child makes a mistake, you tend to:",ta:"உங்கள் குழந்தை தவறு செய்தால் நீங்கள்:",opts:[
+{en:"Correct immediately and clearly",ta:"உடனடியாக நேரடியாக திருத்துவீர்கள்",s:"D"},
+{en:"Share how it made you feel",ta:"அது உங்களுக்கு எப்படி உணர்வு தந்தது என்று சொல்வீர்கள்",s:"E"},
+{en:"Gently guide without hurting feelings",ta:"மனம் வருந்தாதவாறு மெதுவாக வழிகாட்டுவீர்கள்",s:"P"},
+{en:"Explain why it was wrong with reasons",ta:"ஏன் தவறு என்று காரணத்துடன் விளக்குவீர்கள்",s:"A"}]},
+{en:"In a group discussion, you are most likely to:",ta:"குழு கலந்துரையாடலில் நீங்கள் பொதுவாக:",opts:[
+{en:"Take charge and lead the conversation",ta:"கலந்துரையாடலை நீங்களே நடத்துவீர்கள்",s:"D"},
+{en:"Energise the group with enthusiasm",ta:"உற்சாகத்துடன் குழுவை தூண்டுவீர்கள்",s:"E"},
+{en:"Listen carefully and support others",ta:"கவனமாக கேட்டு மற்றவர்களை ஆதரிப்பீர்கள்",s:"P"},
+{en:"Ask questions and analyse before concluding",ta:"கேள்விகள் கேட்டு ஆய்வு செய்த பிறகு முடிவுக்கு வருவீர்கள்",s:"A"}]},
+{en:"When your partner is upset, you typically:",ta:"உங்கள் துணை மனம் வருந்தும்போது நீங்கள்:",opts:[
+{en:"Try to quickly solve the problem",ta:"சிக்கலை விரைவாக தீர்க்க முயற்சிப்பீர்கள்",s:"D"},
+{en:"Comfort them warmly and emotionally",ta:"அன்புடன் உணர்வு ரீதியாக ஆறுதல் கூறுவீர்கள்",s:"E"},
+{en:"Stay calm and be quietly supportive",ta:"அமைதியாக இருந்து ஆதரவாக இருப்பீர்கள்",s:"P"},
+{en:"Find the root cause before reacting",ta:"காரணத்தை கண்டறிந்த பிறகு செயல்படுவீர்கள்",s:"A"}]},
+{en:"When giving instructions to your child, you:",ta:"குழந்தைக்கு வழிகாட்டும்போது நீங்கள்:",opts:[
+{en:"Are direct — 'Do this now'",ta:"நேரடியாக சொல்வீர்கள் — 'இதை இப்போதே செய்'",s:"D"},
+{en:"Tell stories or use emotions to motivate",ta:"கதை அல்லது உணர்ச்சியால் உந்துதல் தருவீர்கள்",s:"E"},
+{en:"Ask gently and encourage softly",ta:"மெதுவாக கேட்டு ஊக்கம் தருவீர்கள்",s:"P"},
+{en:"Explain step by step with logic",ta:"படிப்படியாக காரணத்துடன் விளக்குவீர்கள்",s:"A"}]},
+{en:"Your friends describe your communication as:",ta:"உங்கள் நண்பர்கள் உங்கள் பேச்சை இப்படி சொல்வார்கள்:",opts:[
+{en:"Confident and assertive",ta:"நம்பிக்கையான மற்றும் தைரியமான",s:"D"},
+{en:"Lively and expressive",ta:"உற்சாகமான மற்றும் உணர்ச்சிமயமான",s:"E"},
+{en:"Gentle and patient",ta:"மென்மையான மற்றும் பொறுமையான",s:"P"},
+{en:"Thoughtful and precise",ta:"சிந்தனைமிக்க மற்றும் துல்லியமான",s:"A"}]},
+{en:"When you disagree with someone's idea, you:",ta:"யாரோ ஒருவரின் யோசனையோடு உடன்படவில்லை என்றால்:",opts:[
+{en:"State your disagreement clearly",ta:"உங்கள் கருத்து வேறுபாட்டை நேரடியாக சொல்வீர்கள்",s:"D"},
+{en:"React emotionally and passionately",ta:"உணர்ச்சியோடு உங்கள் கருத்தை வெளிப்படுத்துவீர்கள்",s:"E"},
+{en:"Stay quiet to avoid hurting feelings",ta:"மனம் புண்படாதவாறு மெளனமாக இருப்பீர்கள்",s:"P"},
+{en:"Research and respond with evidence",ta:"ஆதாரங்களுடன் பதில் சொல்வீர்கள்",s:"A"}]},
+{en:"During stressful situations, you:",ta:"மன அழுத்தமான சூழ்நிலையில் நீங்கள்:",opts:[
+{en:"Take control and act decisively",ta:"பொறுப்பேற்று உறுதியான முடிவு எடுப்பீர்கள்",s:"D"},
+{en:"Talk to people and seek emotional support",ta:"மற்றவர்களிடம் பேசி உணர்வு ஆதரவு தேடுவீர்கள்",s:"E"},
+{en:"Stay calm and wait for things to settle",ta:"அமைதியாக இருந்து விஷயங்கள் சரியாகும் என்று காத்திருப்பீர்கள்",s:"P"},
+{en:"Analyse the problem before acting",ta:"செயல்படுவதற்கு முன் சிக்கலை ஆய்வு செய்வீர்கள்",s:"A"}]},
+{en:"When your child asks 'why should I do this?', you:",ta:"குழந்தை 'ஏன் இதை செய்யணும்?' என கேட்டால்:",opts:[
+{en:"Say 'Because I said so'",ta:"'நான் சொன்னதால்' என்று சொல்வீர்கள்",s:"D"},
+{en:"Share a story or appeal to their heart",ta:"கதை சொல்லி அல்லது இதயத்தை தொட்டு புரிய வைப்பீர்கள்",s:"E"},
+{en:"Be patient and explain kindly",ta:"பொறுமையுடன் அன்பாக விளக்குவீர்கள்",s:"P"},
+{en:"Give logical reasons and data",ta:"தர்க்கரீதியான காரணங்கள் மற்றும் தகவல்கள் கொடுப்பீர்கள்",s:"A"}]},
+{en:"When someone criticises you, you:",ta:"யாராவது உங்களை விமர்சித்தால்:",opts:[
+{en:"Defend yourself strongly",ta:"உங்களை தைரியமாக பாதுகாத்துக்கொள்வீர்கள்",s:"D"},
+{en:"Feel hurt and may react emotionally",ta:"மனம் புண்பட்டு உணர்ச்சிவசப்படுவீர்கள்",s:"E"},
+{en:"Accept quietly and move on",ta:"அமைதியாக ஏற்று முன்னேறுவீர்கள்",s:"P"},
+{en:"Evaluate if the criticism is valid before responding",ta:"விமர்சனம் சரியானதா என ஆய்வு செய்த பிறகு பதில் சொல்வீர்கள்",s:"A"}]},
+{en:"When planning a family outing, you:",ta:"குடும்ப சுற்றுலா திட்டமிடும்போது நீங்கள்:",opts:[
+{en:"Decide quickly and lead the plan",ta:"விரைவாக முடிவெடுத்து திட்டத்தை வழிநடத்துவீர்கள்",s:"D"},
+{en:"Get everyone excited and involved",ta:"எல்லோரையும் உற்சாகமாக ஈடுபட வைப்பீர்கள்",s:"E"},
+{en:"Make sure everyone is comfortable with the plan",ta:"எல்லோருக்கும் சௌகரியமாக இருக்கும் திட்டம் தேர்வு செய்வீர்கள்",s:"P"},
+{en:"Research options carefully before deciding",ta:"முடிவெடுக்கும் முன் விருப்பங்களை கவனமாக ஆராய்வீர்கள்",s:"A"}]},
+{en:"In a parent-teacher meeting, you:",ta:"பெற்றோர்-ஆசிரியர் சந்திப்பில் நீங்கள்:",opts:[
+{en:"Speak up directly about your child's needs",ta:"குழந்தையின் தேவைகளை நேரடியாக பேசுவீர்கள்",s:"D"},
+{en:"Share your feelings about your child's progress",ta:"குழந்தையின் முன்னேற்றம் பற்றிய உணர்வுகளை பகிர்வீர்கள்",s:"E"},
+{en:"Listen more and cooperate with the teacher",ta:"அதிகமாக கேட்டு ஆசிரியருடன் ஒத்துழைப்பீர்கள்",s:"P"},
+{en:"Ask specific questions and take notes",ta:"குறிப்பிட்ட கேள்விகள் கேட்டு குறிப்புகள் எடுப்பீர்கள்",s:"A"}]},
+{en:"When setting rules at home, you:",ta:"வீட்டில் விதிகள் நிர்ணயிக்கும்போது நீங்கள்:",opts:[
+{en:"Set firm rules and expect compliance",ta:"உறுதியான விதிகளை வகுத்து கடைப்பிடிக்க சொல்வீர்கள்",s:"D"},
+{en:"Inspire family members with enthusiasm",ta:"குடும்பத்தினரை உற்சாகத்துடன் ஊக்குவிப்பீர்கள்",s:"E"},
+{en:"Discuss and get everyone's agreement",ta:"கலந்தாலோசித்து எல்லோரின் ஒப்புதல் பெறுவீர்கள்",s:"P"},
+{en:"Create a structured system with clear guidelines",ta:"தெளிவான வழிகாட்டுதல்களுடன் ஒழுங்கான அமைப்பை உருவாக்குவீர்கள்",s:"A"}]},
+{en:"When you need to say something difficult, you:",ta:"கடினமான விஷயம் சொல்ல வேண்டும் என்றால்:",opts:[
+{en:"Say it directly without hesitation",ta:"தயக்கமின்றி நேரடியாக சொல்வீர்கள்",s:"D"},
+{en:"Use emotion and personal connection",ta:"உணர்வையும் தனிப்பட்ட தொடர்பையும் பயன்படுத்துவீர்கள்",s:"E"},
+{en:"Choose the right moment gently",ta:"சரியான நேரத்தில் மெதுவாக சொல்வீர்கள்",s:"P"},
+{en:"Prepare carefully with facts and reasons",ta:"உண்மைகளும் காரணங்களும் சொல்ல முன்கூட்டியே தயாரிப்பீர்கள்",s:"A"}]},
+{en:"Your child is scared before an exam. You:",ta:"தேர்வுக்கு முன் குழந்தைக்கு பயமாக இருந்தால் நீங்கள்:",opts:[
+{en:"Tell them to be strong and just focus",ta:"'தைரியமாக இரு, கவனி' என்று சொல்வீர்கள்",s:"D"},
+{en:"Motivate with an inspiring story or hug",ta:"ஊக்கமளிக்கும் கதை சொல்வீர்கள் அல்லது கட்டிப்பிடிப்பீர்கள்",s:"E"},
+{en:"Sit beside them and reassure them quietly",ta:"அருகில் அமர்ந்து அமைதியாக ஆறுதல் கூறுவீர்கள்",s:"P"},
+{en:"Help them plan a revision strategy",ta:"திருப்பல் திட்டம் தயாரிக்க உதவுவீர்கள்",s:"A"}]},
+{en:"When a colleague interrupts you while speaking:",ta:"யாரோ உங்கள் பேச்சை இடையில் குறுக்கிட்டால்:",opts:[
+{en:"Firmly continue your point",ta:"உறுதியாக உங்கள் கருத்தை தொடர்வீர்கள்",s:"D"},
+{en:"React visibly and express displeasure",ta:"வெளிப்படையாக அதிருப்தி காட்டுவீர்கள்",s:"E"},
+{en:"Let them finish and then speak",ta:"அவர்கள் முடித்த பிறகு பேசுவீர்கள்",s:"P"},
+{en:"Wait, then logically present your point",ta:"காத்திருந்து தர்க்கரீதியாக கருத்தை சொல்வீர்கள்",s:"A"}]},
+{en:"When praising your child, you tend to:",ta:"குழந்தையை பாராட்டும்போது நீங்கள்:",opts:[
+{en:"Say 'Well done, that's the standard I expect'",ta:"'நன்றாக செய்தாய், இது என் எதிர்பார்ப்பு' என்று சொல்வீர்கள்",s:"D"},
+{en:"Celebrate enthusiastically with hugs and cheers",ta:"உற்சாகமாக கட்டிப்பிடித்து பாராட்டுவீர்கள்",s:"E"},
+{en:"Give a warm smile and gentle words",ta:"அன்பான புன்னகையுடன் மென்மையாக பாராட்டுவீர்கள்",s:"P"},
+{en:"Point out what was done well specifically",ta:"என்ன சரியாக செய்தார்கள் என்று குறிப்பிட்டு சொல்வீர்கள்",s:"A"}]},
+{en:"When a family decision needs to be made, you:",ta:"குடும்ப முடிவு எடுக்கும்போது நீங்கள்:",opts:[
+{en:"Make the call and take responsibility",ta:"முடிவை நீங்களே எடுத்து பொறுப்பேற்பீர்கள்",s:"D"},
+{en:"Rally everyone around the idea with passion",ta:"உற்சாகத்துடன் எல்லோரையும் ஒன்றுதிரட்டுவீர்கள்",s:"E"},
+{en:"Ensure harmony and no one is left out",ta:"யாரும் விலக்கப்படாமல் இணக்கத்தை உறுதி செய்வீர்கள்",s:"P"},
+{en:"Gather all information before concluding",ta:"முடிவெடுக்கும் முன் எல்லா தகவல்களையும் சேகரிப்பீர்கள்",s:"A"}]},
+{en:"When someone is upset with you, you usually:",ta:"யாரோ உங்களிடம் வருத்தப்பட்டால் நீங்கள்:",opts:[
+{en:"Stand your ground if you are right",ta:"நீங்கள் சரியென்றால் உங்கள் நிலையில் இருப்பீர்கள்",s:"D"},
+{en:"Try to fix things emotionally right away",ta:"உணர்வு ரீதியாக விஷயங்களை உடனே சரி செய்ய முயற்சிப்பீர்கள்",s:"E"},
+{en:"Apologise quickly to restore peace",ta:"அமைதியை மீட்க விரைவாக மன்னிப்பு கேட்பீர்கள்",s:"P"},
+{en:"Try to understand the issue logically first",ta:"முதலில் தர்க்கரீதியாக சிக்கலை புரிந்துகொள்ள முயற்சிப்பீர்கள்",s:"A"}]},
+{en:"As a parent, your biggest strength in communication is:",ta:"பெற்றோராக உங்கள் முக்கிய தொடர்பு திறன்:",opts:[
+{en:"Setting clear expectations and boundaries",ta:"தெளிவான எதிர்பார்ப்புகளும் வரம்புகளும் நிர்ணயிப்பது",s:"D"},
+{en:"Inspiring and emotionally connecting with your child",ta:"குழந்தையுடன் உணர்வு ரீதியாக இணைந்து ஊக்கம் தருவது",s:"E"},
+{en:"Creating a safe and loving environment",ta:"பாதுகாப்பான அன்பான சூழலை உருவாக்குவது",s:"P"},
+{en:"Guiding with information and structure",ta:"தகவல்களுடன் ஒழுங்காக வழிகாட்டுவது",s:"A"}]}
+];
+
+const STYLES={
+D:{name:"Direct Communicator",nameTa:"நேரடி தொடர்பாளர்",color:"#ef4444",desc:"You communicate with confidence and clarity. You lead, decide, and expect results.",
+tips:[
+{en:"Balance assertiveness with empathy — being right matters less than being understood.",ta:"நேரடித்தன்மையோடு பச்சாதாபத்தையும் இணையுங்கள் — சரியாக இருப்பதை விட புரிந்துகொள்வது முக்கியம்."},
+{en:"In parenting, listen before you lead — your child needs to feel heard, not just guided.",ta:"பெற்றோர்முறையில், வழிகாட்டும் முன் கேளுங்கள் — குழந்தைக்கு வழிகாட்டல் மட்டுமல்ல, கேட்கப்படுவதும் வேண்டும்."},
+{en:"Soften your tone during emotional moments — your strength is powerful, use it with love.",ta:"உணர்ச்சிமிக்க தருணங்களில் தொனியை மென்மையாக்குங்கள் — உங்கள் வலிமையை அன்புடன் பயன்படுத்துங்கள்."}]},
+E:{name:"Expressive Communicator",nameTa:"உணர்ச்சிமிக்க தொடர்பாளர்",color:"#f59e0b",desc:"You are warm, enthusiastic and inspiring. You motivate others and build emotional bonds.",
+tips:[
+{en:"Channel your emotion into structured communication — feelings are powerful when paired with clarity.",ta:"உங்கள் உணர்ச்சியை ஒழுங்கான தொடர்பில் பயன்படுத்துங்கள் — உணர்வுகள் தெளிவோடு இணையும்போது சக்திவாய்ந்தவை."},
+{en:"In parenting, pair your enthusiasm with consistency — children need both inspiration and stability.",ta:"பெற்றோர்முறையில், உற்சாகத்தை நிலைத்தன்மையுடன் இணையுங்கள் — குழந்தைகளுக்கு உந்துதலும் நிலைப்புத்தன்மையும் இரண்டும் தேவை."},
+{en:"Listen more — your energy is contagious; ensure others also get space to speak.",ta:"அதிகமாக கேளுங்கள் — உங்கள் ஆற்றல் தொற்றக்கூடியது; மற்றவர்களுக்கும் பேசும் இடம் கொடுங்கள்."}]},
+P:{name:"Harmonious Communicator",nameTa:"அமைதியான தொடர்பாளர்",color:"#10b981",desc:"You are calm, kind and a natural peacemaker. You value relationships above all.",
+tips:[
+{en:"Practice speaking up — your voice and needs matter just as much as others'.",ta:"பேசுவதை பயிற்சி செய்யுங்கள் — உங்கள் குரலும் தேவைகளும் மற்றவர்களுக்கு சமமாக முக்கியம்."},
+{en:"In parenting, set clear boundaries with love — peace without boundaries can confuse children.",ta:"பெற்றோர்முறையில், அன்புடன் தெளிவான வரம்புகளை நிர்ணயியுங்கள் — வரம்பில்லா அமைதி குழந்தைகளை குழப்பலாம்."},
+{en:"Learn to handle conflict calmly but directly — avoiding it doesn't make it disappear.",ta:"மோதல்களை அமைதியாக ஆனால் நேரடியாக கையாளக் கற்றுக்கொள்ளுங்கள் — தவிர்ப்பது அவற்றை மறைக்காது."}]},
+A:{name:"Analytical Communicator",nameTa:"ஆய்வுமிக்க தொடர்பாளர்",color:"#6366f1",desc:"You are thoughtful, precise and detail-oriented. You value accuracy and structure.",
+tips:[
+{en:"Balance analysis with action — sometimes a good-enough decision now is better than a perfect one later.",ta:"ஆய்வையும் செயலையும் சமன் செய்யுங்கள் — சில நேரங்களில் இப்போது எடுக்கும் நல்ல முடிவு பின்னர் எடுக்கும் சரியான முடிவை விட சிறப்பானது."},
+{en:"In parenting, add warmth to your wisdom — children need emotional connection, not just correct information.",ta:"பெற்றோர்முறையில், அறிவோடு அன்பையும் சேருங்கள் — குழந்தைகளுக்கு சரியான தகவல்கள் மட்டுமல்ல, உணர்வு தொடர்பும் தேவை."},
+{en:"Be flexible — relationships sometimes need grace over perfection.",ta:"நெகிழ்வாக இருங்கள் — உறவுகளுக்கு சில நேரங்களில் பரிபூரணத்தை விட இரக்கம் தேவை."}]}
+};
+
+let scores={D:0,E:0,P:0,A:0};
+let answers=new Array(Q.length).fill(null);
+let cur=0;
+
+function startQuiz(){
+  document.getElementById('intro').style.display='none';
+  document.getElementById('quiz').style.display='block';
+  render();
+}
+
+function render(){
+  const q=Q[cur];
+  document.getElementById('qcount').textContent=`Question ${cur+1} of ${Q.length} / கேள்வி ${cur+1} / ${Q.length}`;
+  document.getElementById('pbar').style.width=`${Math.round(((cur+1)/Q.length)*100)}%`;
+  document.getElementById('qtext').textContent=q.en;
+  document.getElementById('qtamil').textContent=q.ta;
+  const c=document.getElementById('opts');
+  c.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const b=document.createElement('button');
+    b.className='opt-btn'+(answers[cur]===i?' selected':'');
+    b.innerHTML=`<div class="opt-en">${o.en}</div><div class="opt-ta">${o.ta}</div>`;
+    b.onclick=()=>select(i,o.s);
+    c.appendChild(b);
+  });
+  document.getElementById('prevBtn').disabled=cur===0;
+  document.getElementById('nextBtn').disabled=answers[cur]===null;
+  document.getElementById('nextBtn').textContent=cur===Q.length-1?'See Results / முடிவுகள் ▶':'Next ▶';
+}
+
+function select(i,s){
+  if(answers[cur]!==null){const prev=Q[cur].opts[answers[cur]].s;scores[prev]--;}
+  answers[cur]=i;scores[s]++;
+  document.querySelectorAll('.opt-btn').forEach((b,j)=>b.classList.toggle('selected',j===i));
+  document.getElementById('nextBtn').disabled=false;
+}
+
+function next(){
+  if(answers[cur]===null)return;
+  if(cur===Q.length-1){showResults();return;}
+  cur++;render();
+}
+
+function prev(){if(cur>0){cur--;render();}}
+
+function showResults(){
+  document.getElementById('quiz').style.display='none';
+  document.getElementById('results').style.display='block';
+  const total=Q.length;
+  const dom=Object.keys(scores).reduce((a,b)=>scores[a]>scores[b]?a:b);
+  const st=STYLES[dom];
+  document.getElementById('res-badge').textContent='Your Dominant Style';
+  document.getElementById('res-name').textContent=st.name;
+  document.getElementById('res-name-ta').textContent=st.nameTa;
+  document.getElementById('res-desc').textContent=st.desc;
+  ['D','E','P','A'].forEach(k=>{
+    const pct=Math.round((scores[k]/total)*100);
+    document.getElementById('sc-'+k).textContent=pct+'%';
+    setTimeout(()=>{document.getElementById('bar-'+k).style.width=pct+'%';},100);
+  });
+  const tc=document.getElementById('tips-content');
+  tc.innerHTML='';
+  st.tips.forEach(t=>{
+    tc.innerHTML+=`<div class="tip-item"><p>${t.en}</p><p class="ta">${t.ta}</p></div>`;
+  });
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>

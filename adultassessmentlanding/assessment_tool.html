@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Time Management Assessment | Somasundaramnt</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f5f3ff;color:#1e1b4b;min-height:100vh;}
+.tamil{font-family:'Noto Sans Tamil',sans-serif;}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#4c1d95,#7c3aed);color:#fff;padding:20px;text-align:center;}
+.header h1{font-size:18px;font-weight:700;}
+.header .tamil{font-size:15px;color:#ddd6fe;margin-top:4px;}
+.header p{font-size:11px;opacity:0.8;margin-top:4px;}
+
+/* PROGRESS */
+.progress-wrap{background:#fff;padding:12px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.progress-info{display:flex;justify-content:space-between;font-size:12px;color:#6b7280;margin-bottom:6px;}
+.progress-bar{height:6px;background:#e9d5ff;border-radius:10px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,#6d28d9,#7c3aed);border-radius:10px;transition:width 0.4s ease;}
+
+/* QUESTION CARD */
+.q-wrap{padding:20px;max-width:600px;margin:0 auto;}
+.q-card{background:#fff;border-radius:20px;padding:24px 20px;box-shadow:0 4px 20px rgba(109,40,217,0.08);margin-bottom:16px;}
+.q-num{display:inline-block;background:linear-gradient(135deg,#6d28d9,#7c3aed);color:#fff;font-size:11px;font-weight:700;padding:3px 12px;border-radius:20px;margin-bottom:14px;}
+.q-quadrant{display:inline-block;font-size:10px;padding:3px 10px;border-radius:20px;margin-left:8px;font-weight:600;}
+.q1-tag{background:#fee2e2;color:#991b1b;}
+.q2-tag{background:#dcfce7;color:#166534;}
+.q3-tag{background:#fef9c3;color:#854d0e;}
+.q4-tag{background:#e0e7ff;color:#3730a3;}
+.q-text{font-size:15px;font-weight:600;line-height:1.5;margin-bottom:8px;color:#1e1b4b;}
+.q-text-tamil{font-family:'Noto Sans Tamil',sans-serif;font-size:14px;color:#6d28d9;line-height:1.7;margin-bottom:18px;}
+.options{display:flex;flex-direction:column;gap:10px;}
+.opt{border:2px solid #e9d5ff;border-radius:12px;padding:12px 16px;cursor:pointer;transition:all 0.2s;background:#faf5ff;}
+.opt:hover{border-color:#7c3aed;background:#f3e8ff;}
+.opt.selected{border-color:#6d28d9;background:linear-gradient(135deg,#ede9fe,#f3e8ff);}
+.opt-en{font-size:13px;font-weight:500;color:#1e1b4b;}
+.opt-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:12px;color:#6d28d9;margin-top:2px;}
+.opt-score{float:right;font-size:11px;font-weight:700;color:#7c3aed;background:#ede9fe;padding:2px 8px;border-radius:10px;}
+
+/* NAV */
+.nav{display:flex;gap:12px;justify-content:center;padding:0 20px 24px;max-width:600px;margin:0 auto;}
+.btn{flex:1;padding:14px;border:none;border-radius:14px;font-family:'Poppins',sans-serif;font-size:14px;font-weight:600;cursor:pointer;transition:all 0.2s;}
+.btn-prev{background:#ede9fe;color:#6d28d9;}
+.btn-next{background:linear-gradient(135deg,#6d28d9,#7c3aed);color:#fff;box-shadow:0 4px 14px rgba(109,40,217,0.3);}
+.btn:disabled{opacity:0.4;cursor:not-allowed;}
+.btn-next-ta,.btn-prev-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:11px;display:block;opacity:0.8;margin-top:2px;}
+
+/* SCREENS */
+.screen{display:none;}
+.screen.active{display:block;}
+
+/* INTRO */
+.intro{padding:24px 20px;max-width:600px;margin:0 auto;}
+.intro-card{background:#fff;border-radius:20px;padding:28px 20px;box-shadow:0 4px 20px rgba(109,40,217,0.08);text-align:center;}
+.intro-icon{font-size:48px;margin-bottom:14px;}
+.intro-card h2{font-size:20px;font-weight:700;color:#4c1d95;margin-bottom:6px;}
+.intro-card .tamil{font-size:16px;color:#6d28d9;margin-bottom:14px;}
+.intro-card p{font-size:13px;color:#64748b;line-height:1.7;margin-bottom:6px;}
+.intro-card .tamil-p{font-family:'Noto Sans Tamil',sans-serif;font-size:13px;color:#7c3aed;line-height:1.8;margin-bottom:20px;}
+.instructions{background:#f5f3ff;border-radius:14px;padding:16px;margin-bottom:20px;text-align:left;}
+.instructions p{font-size:12px;color:#4c1d95;margin-bottom:4px;}
+.instructions .tamil{font-size:12px;color:#6d28d9;margin-bottom:8px;}
+.start-btn{width:100%;padding:16px;background:linear-gradient(135deg,#6d28d9,#7c3aed);color:#fff;border:none;border-radius:14px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(109,40,217,0.3);}
+.start-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:13px;display:block;margin-top:3px;opacity:0.85;}
+
+/* RESULT */
+.result{padding:20px;max-width:600px;margin:0 auto;}
+.result-header{background:linear-gradient(135deg,#4c1d95,#7c3aed);color:#fff;border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:16px;}
+.result-header .icon{font-size:48px;margin-bottom:10px;}
+.result-header h2{font-size:20px;font-weight:700;margin-bottom:4px;}
+.result-header .tamil{font-family:'Noto Sans Tamil',sans-serif;font-size:16px;color:#ddd6fe;margin-bottom:8px;}
+.result-header .style-label{font-size:22px;font-weight:800;color:#c4b5fd;}
+.result-header .style-label-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:18px;color:#ddd6fe;margin-top:4px;}
+
+/* SCORE BARS */
+.scores-card{background:#fff;border-radius:20px;padding:22px 18px;box-shadow:0 4px 20px rgba(109,40,217,0.08);margin-bottom:16px;}
+.scores-title{font-size:15px;font-weight:700;color:#4c1d95;margin-bottom:4px;}
+.scores-title-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:13px;color:#6d28d9;margin-bottom:16px;}
+.score-row{margin-bottom:14px;}
+.score-label{display:flex;justify-content:space-between;margin-bottom:5px;}
+.score-en{font-size:12px;font-weight:600;color:#1e1b4b;}
+.score-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:11px;color:#6d28d9;}
+.score-pct{font-size:12px;font-weight:700;color:#6d28d9;}
+.bar-bg{height:8px;background:#e9d5ff;border-radius:10px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:10px;transition:width 1s ease;}
+.b1{background:linear-gradient(90deg,#ef4444,#f87171);}
+.b2{background:linear-gradient(90deg,#10b981,#34d399);}
+.b3{background:linear-gradient(90deg,#f59e0b,#fbbf24);}
+.b4{background:linear-gradient(90deg,#6366f1,#818cf8);}
+
+/* TIPS */
+.tips-card{background:#fff;border-radius:20px;padding:22px 18px;box-shadow:0 4px 20px rgba(109,40,217,0.08);margin-bottom:16px;}
+.tips-title{font-size:15px;font-weight:700;color:#4c1d95;margin-bottom:4px;}
+.tips-title-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:13px;color:#6d28d9;margin-bottom:16px;}
+.tip{display:flex;gap:10px;margin-bottom:12px;align-items:flex-start;}
+.tip-dot{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6d28d9,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.tip-text{font-size:13px;color:#374151;line-height:1.5;}
+.tip-ta{font-family:'Noto Sans Tamil',sans-serif;font-size:12px;color:#6d28d9;line-height:1.6;margin-top:2px;}
+
+/* CTA */
+.cta-card{background:linear-gradient(135deg,#4c1d95,#6d28d9);color:#fff;border-radius:20px;padding:24px 20px;text-align:center;margin-bottom:16px;}
+.cta-card h3{font-size:16px;font-weight:700;margin-bottom:4px;}
+.cta-card .tamil{font-family:'Noto Sans Tamil',sans-serif;font-size:14px;color:#ddd6fe;margin-bottom:14px;}
+.cta-card p{font-size:12px;opacity:0.85;margin-bottom:16px;line-height:1.6;}
+.wa-cta{display:block;background:#25d366;color:#fff;text-decoration:none;padding:13px;border-radius:12px;font-weight:700;font-size:14px;margin-bottom:10px;}
+.wa-cta .tamil{font-family:'Noto Sans Tamil',sans-serif;font-size:12px;color:rgba(255,255,255,0.85);}
+
+.print-btn{width:100%;padding:13px;background:rgba(255,255,255,0.15);color:#fff;border:2px solid rgba(255,255,255,0.3);border-radius:12px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;cursor:pointer;margin-bottom:10px;}
+.retake-btn{width:100%;padding:13px;background:transparent;color:#c4b5fd;border:2px solid #c4b5fd;border-radius:12px;font-family:'Poppins',sans-serif;font-size:13px;font-weight:600;cursor:pointer;}
+
+/* WA FLOAT */
+.wa-btn{position:fixed;bottom:24px;right:20px;width:56px;height:56px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(37,211,102,0.5);z-index:999;text-decoration:none;}
+.wa-btn svg{width:30px;height:30px;fill:#fff;}
+
+@media print{.wa-btn,.nav,.print-btn,.retake-btn,.wa-cta{display:none!important;}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>⏰ Time Management Assessment</h1>
+  <div class="tamil">நேர மேலாண்மை மதிப்பீடு</div>
+  <p>Training Program • Somasundaram N T</p>
+</div>
+
+<!-- INTRO SCREEN -->
+<div class="screen active" id="introScreen">
+  <div class="intro">
+    <div class="intro-card">
+      <div class="intro-icon">🎯</div>
+      <h2>Discover Your Time Management Style</h2>
+      <div class="tamil">உங்கள் நேர மேலாண்மை பாணியை கண்டறியுங்கள்</div>
+      <p>Based on the <strong>Eisenhower Matrix</strong>, this assessment helps you identify how you prioritise your time across 4 quadrants.</p>
+      <div class="tamil-p">ஐசன்ஹோவர் மேட்ரிக்ஸ் அடிப்படையில், 20 கேள்விகளுக்கு பதிலளித்து உங்கள் நேர மேலாண்மை பாணியை கண்டறியுங்கள்.</div>
+      <div class="instructions">
+        <p>📋 20 scenario-based questions</p>
+        <div class="tamil">20 சூழ்நிலை அடிப்படையிலான கேள்விகள்</div>
+        <p>⏱️ Takes only 5–7 minutes</p>
+        <div class="tamil">5–7 நிமிடங்கள் மட்டுமே தேவை</div>
+        <p>🌟 Get personalised growth tips</p>
+        <div class="tamil">தனிப்பட்ட வளர்ச்சி குறிப்புகள் பெறுங்கள்</div>
+      </div>
+      <button class="start-btn" onclick="startAssessment()">
+        Start Assessment
+        <span class="start-ta">மதிப்பீட்டை தொடங்குங்கள்</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- QUESTION SCREEN -->
+<div class="screen" id="questionScreen">
+  <div class="progress-wrap">
+    <div class="progress-info">
+      <span id="qLabel">Question 1 of 20</span>
+      <span id="qLabelTa" style="font-family:'Noto Sans Tamil',sans-serif;font-size:11px;">கேள்வி 1 / 20</span>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:5%"></div></div>
+  </div>
+  <div class="q-wrap">
+    <div class="q-card" id="qCard"></div>
+  </div>
+  <div class="nav">
+    <button class="btn btn-prev" id="prevBtn" onclick="prevQ()" disabled>
+      ← Previous
+      <span class="btn-prev-ta">முந்தைய</span>
+    </button>
+    <button class="btn btn-next" id="nextBtn" onclick="nextQ()" disabled>
+      Next →
+      <span class="btn-next-ta">அடுத்து</span>
+    </button>
+  </div>
+</div>
+
+<!-- RESULT SCREEN -->
+<div class="screen" id="resultScreen">
+  <div class="result" id="resultContent"></div>
+</div>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/919843702244?text=நான்%20Time%20Management%20Assessment%20முடித்தேன்.%20Loving%20%26%20Responsible%20Parenting%20program%20பற்றி%20அறிய%20விரும்புகிறேன்.%0AI%20completed%20the%20Time%20Management%20Assessment%20and%20would%20like%20to%20know%20more%20about%20your%20programs." class="wa-btn" target="_blank">
+  <svg viewBox="0 0 32 32"><path d="M16 0C7.164 0 0 7.163 0 16c0 2.833.742 5.494 2.043 7.807L0 32l8.418-2.009A15.93 15.93 0 0016 32c8.836 0 16-7.163 16-16S24.836 0 16 0zm0 29.333a13.27 13.27 0 01-6.763-1.846l-.485-.287-5.003 1.194 1.235-4.865-.317-.5A13.233 13.233 0 012.667 16C2.667 8.636 8.637 2.667 16 2.667S29.333 8.636 29.333 16 23.363 29.333 16 29.333zm7.27-9.87c-.398-.199-2.354-1.161-2.719-1.294-.365-.133-.631-.199-.897.2-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.2-1.681-.619-3.203-1.974-1.184-1.054-1.983-2.355-2.215-2.753-.232-.398-.025-.613.174-.811.179-.178.398-.465.597-.697.199-.232.265-.398.398-.664.133-.265.066-.497-.033-.696-.1-.199-.897-2.162-1.229-2.96-.324-.778-.653-.672-.897-.685l-.764-.013c-.265 0-.696.1-1.061.497-.365.398-1.394 1.362-1.394 3.322s1.427 3.853 1.626 4.118c.199.265 2.808 4.286 6.803 6.012.951.41 1.693.655 2.271.839.954.304 1.823.261 2.51.158.765-.114 2.354-.962 2.686-1.891.332-.929.332-1.727.232-1.892-.099-.165-.365-.265-.763-.464z"/></svg>
+</a>
+
+<script>
+const questions = [
+  // Q1 — Urgent + Important (Crisis Manager)
+  {q:"I spend most of my day dealing with emergencies and last-minute problems.",qt:"என் நாளின் பெரும்பகுதி அவசரகாலங்கள் மற்றும் கடைசி நிமிட பிரச்சினைகளை சமாளிப்பதில் கழிகிறது.",quad:1},
+  {q:"When a crisis arises at work or home, I am the first one to jump in and resolve it.",qt:"வேலையிலோ அல்லது வீட்டிலோ நெருக்கடி வரும்போது நான் முதலில் தீர்வு காண முனைகிறேன்.",quad:1},
+  {q:"I often feel stressed because urgent deadlines keep piling up.",qt:"அவசர காலக்கெடுக்கள் தொடர்ந்து குவிவதால் நான் அடிக்கடி மன அழுத்தம் உணர்கிறேன்.",quad:1},
+  {q:"I rarely have time to plan ahead because I am always reacting to what is happening right now.",qt:"இப்போது நடப்பதற்கு எதிர்வினை செய்வதால் முன்கூட்டி திட்டமிட எனக்கு நேரம் இருப்பதில்லை.",quad:1},
+  {q:"At the end of the day, I feel exhausted but not sure I achieved my real goals.",qt:"நாளின் இறுதியில் சோர்வாக இருக்கிறேன், ஆனால் என் உண்மையான இலக்குகளை அடைந்தேனா என்று தெரியவில்லை.",quad:1},
+  // Q2 — Not Urgent + Important (Strategic Planner)
+  {q:"I regularly set aside time each week to plan and review my goals.",qt:"என் இலக்குகளை திட்டமிட்டு மதிப்பாய்வு செய்ய ஒவ்வொரு வாரமும் நேரம் ஒதுக்குகிறேன்.",quad:2},
+  {q:"I invest time in learning new skills and self-improvement even when there is no immediate pressure.",qt:"உடனடி அழுத்தம் இல்லாத போதும் புதிய திறன்கள் கற்று சுய மேம்பாட்டில் நேரம் செலவிடுகிறேன்.",quad:2},
+  {q:"I proactively build strong relationships before I actually need help from others.",qt:"மற்றவர்களின் உதவி தேவைப்படுவதற்கு முன்பே நான் முன்கூட்டியே உறவுகளை வலுப்படுத்துகிறேன்.",quad:2},
+  {q:"I work on important long-term projects even when they are not urgently due.",qt:"முக்கியமான நீண்ட கால திட்டங்களில் அவசரம் இல்லாத போதும் வேலை செய்கிறேன்.",quad:2},
+  {q:"I take care of my health, exercise, and wellbeing regularly — not just when I fall sick.",qt:"உடல் நலம் குன்றும் போது மட்டுமல்ல, தொடர்ந்து உடற்பயிற்சி மற்றும் ஆரோக்கியத்தை கவனிக்கிறேன்.",quad:2},
+  // Q3 — Urgent + Not Important (Reactive Responder)
+  {q:"I attend most meetings and calls even when they are not directly related to my goals.",qt:"என் இலக்குகளுடன் நேரடியாக தொடர்பில்லாத கூட்டங்கள் மற்றும் அழைப்புகளிலும் கலந்துகொள்கிறேன்.",quad:3},
+  {q:"I feel obligated to respond to every WhatsApp message or email immediately.",qt:"ஒவ்வொரு வாட்ஸ்அப் செய்தி அல்லது மின்னஞ்சலுக்கும் உடனே பதிலளிக்க வேண்டும் என்று தோன்றுகிறது.",quad:3},
+  {q:"I often help others with their urgent tasks even if it delays my own important work.",qt:"என் முக்கியமான வேலை தாமதமாகினாலும் மற்றவர்களின் அவசர பணிகளுக்கு உதவுகிறேன்.",quad:3},
+  {q:"People often come to me with small urgent requests that interrupt my work.",qt:"சிறிய அவசர கோரிக்கைகளுடன் மக்கள் அடிக்கடி என்னிடம் வந்து என் வேலையை தடைசெய்கிறார்கள்.",quad:3},
+  {q:"I say yes to most requests even when I know it will make me busy without real progress.",qt:"உண்மையான முன்னேற்றம் இல்லாமல் பிஸியாகும் என்று தெரிந்தாலும் பெரும்பாலான கோரிக்கைகளுக்கு ஆம் சொல்கிறேன்.",quad:3},
+  // Q4 — Not Urgent + Not Important (Time Drifter)
+  {q:"I spend more than 2 hours a day on social media, short videos, or entertainment without a plan.",qt:"திட்டமின்றி ஒரு நாளில் 2 மணி நேரத்திற்கும் அதிகமாக சமூக ஊடகங்கள் மற்றும் பொழுதுபோக்கில் செலவிடுகிறேன்.",quad:4},
+  {q:"I often procrastinate important tasks by doing trivial activities that feel productive.",qt:"உற்பத்திகரமானதாக தோன்றும் அற்பமான செயல்களை செய்து முக்கியமான பணிகளை தள்ளி போடுகிறேன்.",quad:4},
+  {q:"I find myself browsing or chatting aimlessly when I should be working.",qt:"வேலை செய்ய வேண்டிய நேரத்தில் லக்ஷ்யமின்றி உலாவுகிறேன் அல்லது அரட்டை அடிக்கிறேன்.",quad:4},
+  {q:"I frequently watch one more video or scroll a little more, losing track of time.",qt:"அடிக்கடி இன்னொரு வீடியோ பார்க்கிறேன் அல்லது கொஞ்சம் கூடுதலாக ஸ்க்ரோல் செய்து நேரத்தை இழக்கிறேன்.",quad:4},
+  {q:"At the end of the week, I feel I could have done much more with my time.",qt:"வாரத்தின் இறுதியில் என் நேரத்தை மிகவும் சிறப்பாக பயன்படுத்தியிருக்கலாம் என்று உணர்கிறேன்.",quad:4},
+];
+
+const opts = [
+  {en:"Always",ta:"எப்போதும்",score:4},
+  {en:"Often",ta:"அடிக்கடி",score:3},
+  {en:"Sometimes",ta:"சில நேரங்களில்",score:2},
+  {en:"Rarely",ta:"அரிதாக",score:1},
+];
+
+const styles = [
+  {name:"Crisis Manager",nameTa:"நெருக்கடி மேலாளர்",icon:"🔥",key:0},
+  {name:"Strategic Planner",nameTa:"மூலோபாய திட்டமிடுபவர்",icon:"🎯",key:1},
+  {name:"Reactive Responder",nameTa:"எதிர்வினை செய்பவர்",icon:"📞",key:2},
+  {name:"Time Drifter",nameTa:"நேரத்தை வீணாக்குபவர்",icon:"📱",key:3},
+];
+
+const tips = [
+  {// Q1 tips
+    en:["Schedule buffer time each day to handle unexpected tasks without derailing your plans.","Practice saying 'Let me check and get back to you' before jumping into every crisis.","Identify recurring emergencies and address their root causes proactively."],
+    ta:["திடீர் பணிகளை கையாள ஒவ்வொரு நாளும் இடையிடையே நேர இடைவெளி திட்டமிடுங்கள்.","ஒவ்வொரு நெருக்கடியிலும் குதிக்கும் முன் 'பார்த்து தெரிவிக்கிறேன்' என்று சொல்லும் பழக்கத்தை வளர்த்துக்கொள்ளுங்கள்.","தொடர்ந்து வரும் அவசரங்களை கண்டறிந்து அவற்றின் மூல காரணத்தை முன்கூட்டியே தீர்க்கவும்."]
+  },
+  {// Q2 tips
+    en:["You are doing great! Protect your planning time by blocking it in your calendar.","Share your goal-setting habit with others to inspire them toward proactive planning.","Keep growing — explore new frameworks like OKRs or time-blocking to stay sharp."],
+    ta:["நீங்கள் சிறப்பாக செய்கிறீர்கள்! உங்கள் திட்டமிடல் நேரத்தை காலண்டரில் தடுத்து வையுங்கள்.","உங்கள் இலக்கு நிர்ணய பழக்கத்தை மற்றவர்களிடம் பகிர்ந்து அவர்களை ஊக்குவியுங்கள்.","OKR அல்லது நேர-தடுப்பு போன்ற புதிய கட்டமைப்புகளை ஆராய்ந்து வளர்ந்து கொண்டே இருங்கள்."]
+  },
+  {// Q3 tips
+    en:["Learn to say 'no' kindly — your time is as valuable as others' urgency.","Filter incoming requests by asking: Is this aligned with MY goals?","Batch your email and message responses instead of checking constantly."],
+    ta:["மென்மையாக 'இல்லை' என்று சொல்ல கற்றுக்கொள்ளுங்கள் — உங்கள் நேரம் மற்றவர்களின் அவசரம் போலவே மதிப்புமிக்கது.","வரும் கோரிக்கைகளை மதிப்பிட கேளுங்கள்: இது என் இலக்குகளுடன் ஒத்துவருகிறதா?","மின்னஞ்சல் மற்றும் செய்திகளை தொடர்ந்து சோதிக்காமல் குறிப்பிட்ட நேரத்தில் பதிலளியுங்கள்."]
+  },
+  {// Q4 tips
+    en:["Set a daily screen time limit and use app timers to stay accountable.","Replace one distraction habit with a 15-minute productive activity each day.","End each day by writing 3 things you achieved — this builds focus and momentum."],
+    ta:["தினசரி திரை நேர வரம்பை நிர்ணயித்து பொறுப்புணர்வுடன் இருக்க அப்ஸ் டைமர் பயன்படுத்துங்கள்.","ஒவ்வொரு நாளும் ஒரு கவனச்சிதறல் பழக்கத்தை 15 நிமிட உற்பத்தி செயலாக மாற்றுங்கள்.","ஒவ்வொரு நாளும் முடிவில் நீங்கள் சாதித்த 3 விஷயங்களை எழுதுங்கள் — இது கவனம் மற்றும் வேகத்தை வளர்க்கும்."]
+  },
+];
+
+let current = 0;
+let answers = new Array(20).fill(null);
+
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function startAssessment(){
+  showScreen('questionScreen');
+  renderQ();
+}
+
+function renderQ(){
+  const q = questions[current];
+  const qTag = ['','q1-tag','q2-tag','q3-tag','q4-tag'];
+  const qLabel = ['','🔥 Crisis','🎯 Planner','📞 Reactive','📱 Drifter'];
+  let html = `<div>
+    <span class="q-num">Q${current+1}</span>
+    <span class="q-quadrant ${qTag[q.quad]}">${qLabel[q.quad]}</span>
+  </div>
+  <div class="q-text">${q.q}</div>
+  <div class="q-text-tamil">${q.qt}</div>
+  <div class="options">`;
+  opts.forEach((o,i)=>{
+    const sel = answers[current]===i ? ' selected':'';
+    html+=`<div class="opt${sel}" onclick="selectOpt(${i})">
+      <span class="opt-score">${o.score}</span>
+      <div class="opt-en">${o.en}</div>
+      <div class="opt-ta">${o.ta}</div>
+    </div>`;
+  });
+  html+='</div>';
+  document.getElementById('qCard').innerHTML=html;
+  document.getElementById('qLabel').textContent=`Question ${current+1} of 20`;
+  document.getElementById('qLabelTa').textContent=`கேள்வி ${current+1} / 20`;
+  document.getElementById('progressFill').style.width=`${((current+1)/20)*100}%`;
+  document.getElementById('prevBtn').disabled = current===0;
+  document.getElementById('nextBtn').disabled = answers[current]===null;
+  document.getElementById('nextBtn').textContent = current===19 ? 'View Results ✓' : 'Next →';
+  const nta = document.querySelector('.btn-next-ta');
+  if(nta) nta.textContent = current===19 ? 'முடிவுகளை காண்க' : 'அடுத்து';
+}
+
+function selectOpt(i){
+  answers[current]=i;
+  document.querySelectorAll('.opt').forEach((el,idx)=>{
+    el.classList.toggle('selected', idx===i);
+  });
+  document.getElementById('nextBtn').disabled=false;
+}
+
+function nextQ(){
+  if(current<19){current++;renderQ();}
+  else{showResults();}
+}
+function prevQ(){
+  if(current>0){current--;renderQ();}
+}
+
+function showResults(){
+  // Calculate scores per quadrant
+  const scores=[0,0,0,0]; // Q1,Q2,Q3,Q4
+  const counts=[0,0,0,0];
+  questions.forEach((q,i)=>{
+    const qi=q.quad-1;
+    scores[qi]+=(answers[i]!==null?opts[answers[i]].score:0);
+    counts[qi]++;
+  });
+  const maxPer=5*4; // 5 questions * max score 4
+  const pcts=scores.map(s=>Math.round((s/maxPer)*100));
+  
+  // Dominant style
+  const maxScore=Math.max(...scores);
+  const domIdx=scores.indexOf(maxScore);
+  const dom=styles[domIdx];
+
+  const barColors=['b1','b2','b3','b4'];
+  const quadNames=[
+    {en:'Q1 — Crisis Manager',ta:'Q1 — நெருக்கடி மேலாளர்'},
+    {en:'Q2 — Strategic Planner',ta:'Q2 — மூலோபாய திட்டமிடுபவர்'},
+    {en:'Q3 — Reactive Responder',ta:'Q3 — எதிர்வினை செய்பவர்'},
+    {en:'Q4 — Time Drifter',ta:'Q4 — நேரத்தை வீணாக்குபவர்'},
+  ];
+
+  let scoreBars='';
+  pcts.forEach((p,i)=>{
+    scoreBars+=`<div class="score-row">
+      <div class="score-label">
+        <div><div class="score-en">${quadNames[i].en}</div><div class="score-ta">${quadNames[i].ta}</div></div>
+        <div class="score-pct">${p}%</div>
+      </div>
+      <div class="bar-bg"><div class="bar-fill ${barColors[i]}" style="width:0%" data-w="${p}%"></div></div>
+    </div>`;
+  });
+
+  const t=tips[domIdx];
+  let tipsHtml='';
+  t.en.forEach((tip,i)=>{
+    tipsHtml+=`<div class="tip">
+      <div class="tip-dot">${i+1}</div>
+      <div><div class="tip-text">${tip}</div><div class="tip-ta">${t.ta[i]}</div></div>
+    </div>`;
+  });
+
+  document.getElementById('resultContent').innerHTML=`
+    <div class="result-header">
+      <div class="icon">${dom.icon}</div>
+      <h2>Your Time Management Style</h2>
+      <div class="tamil">உங்கள் நேர மேலாண்மை பாணி</div>
+      <div class="style-label">${dom.name}</div>
+      <div class="style-label-ta">${dom.nameTa}</div>
+    </div>
+
+    <div class="scores-card">
+      <div class="scores-title">Quadrant Score Breakdown</div>
+      <div class="scores-title-ta">பகுதிவாரியான மதிப்பெண் விவரம்</div>
+      ${scoreBars}
+    </div>
+
+    <div class="tips-card">
+      <div class="tips-title">Your Growth Tips</div>
+      <div class="scores-title-ta">உங்கள் வளர்ச்சி குறிப்புகள்</div>
+      ${tipsHtml}
+    </div>
+
+    <div class="cta-card">
+      <h3>Take Your Growth Further!</h3>
+      <div class="tamil">உங்கள் வளர்ச்சியை மேலும் மேம்படுத்துங்கள்!</div>
+      <p>Join our <strong>Loving & Responsible Parenting</strong> program and Life Skills sessions to build powerful time habits for yourself and your family.</p>
+      <a href="https://wa.me/919843702244?text=நான்%20Time%20Management%20Assessment%20முடித்தேன்.%20உங்கள்%20திட்டங்கள்%20பற்றி%20அறிய%20விரும்புகிறேன்.%0AI%20completed%20the%20Time%20Management%20Assessment%20and%20would%20like%20to%20know%20more%20about%20your%20programs." class="wa-cta" target="_blank">
+        💬 WhatsApp Us to Know More
+        <span class="tamil">மேலும் அறிய வாட்ஸ்அப் செய்யுங்கள்</span>
+      </a>
+      <button class="print-btn" onclick="window.print()">🖨️ Print / Save as PDF | அச்சிடு / PDF சேமிக்க</button>
+      <button class="retake-btn" onclick="retake()">🔄 Retake Assessment | மீண்டும் மதிப்பீடு செய்ய</button>
+    </div>
+  `;
+
+  showScreen('resultScreen');
+  // Animate bars
+  setTimeout(()=>{
+    document.querySelectorAll('.bar-fill').forEach(b=>{
+      b.style.width=b.dataset.w;
+    });
+  },200);
+}
+
+function retake(){
+  current=0;
+  answers=new Array(20).fill(null);
+  showScreen('introScreen');
+}
+</script>
+</body>
+</html>
