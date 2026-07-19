@@ -52,12 +52,18 @@
 
   .wa-btn{
     display:flex; align-items:center; justify-content:center; gap:10px; width:100%;
-    background:var(--green); color:#fff; font-weight:700; font-size:15px;
-    padding:15px 18px; border-radius:12px; text-decoration:none; margin-bottom:14px;
+    background:var(--green); color:#fff; font-weight:700; font-size:16px;
+    padding:18px 18px; border-radius:12px; text-decoration:none; margin-bottom:10px;
+    animation: pulse 1.6s ease-in-out infinite;
+    box-shadow:0 0 0 0 rgba(46,158,91,.5);
+  }
+  @keyframes pulse{
+    0%{ box-shadow:0 0 0 0 rgba(46,158,91,.45); }
+    70%{ box-shadow:0 0 0 14px rgba(46,158,91,0); }
+    100%{ box-shadow:0 0 0 0 rgba(46,158,91,0); }
   }
   .wa-btn:hover{background:#268A4F;}
-  .countdown{font-size:12.5px; color:var(--ink-soft);}
-  .countdown b{color:var(--navy-deep);}
+  .tap-hint{font-size:12.5px; color:var(--ink-soft); font-weight:600; margin-bottom:22px;}
 
   .footnote{font-size:11.5px; color:#9AA2B4; margin-top:22px; line-height:1.6;}
   .footnote a{color:var(--ink-soft);}
@@ -74,8 +80,8 @@
   <div class="checkmark">✓</div>
   <h1><span class="en">Payment Received!</span><span class="ta">பணம் பெறப்பட்டது!</span></h1>
   <p class="sub">
-    <span class="en">Thank you for enrolling. Tap the button below to message us on WhatsApp and receive your course passcode.</span>
-    <span class="ta">சேர்ந்ததற்கு நன்றி. உங்கள் படிப்பு பாஸ்கோடைப் பெற கீழே உள்ள பொத்தானை அழுத்தி WhatsApp-இல் எங்களுக்கு செய்தி அனுப்புங்கள்.</span>
+    <span class="en">Thank you for enrolling! Tap the green button below to message us on WhatsApp and receive your course passcode.</span>
+    <span class="ta">சேர்ந்ததற்கு நன்றி! உங்கள் படிப்பு பாஸ்கோடைப் பெற கீழே உள்ள பச்சை பொத்தானை அழுத்தி WhatsApp-இல் எங்களுக்கு செய்தி அனுப்புங்கள்.</span>
   </p>
 
   <div class="details" id="detailsBox">
@@ -84,16 +90,16 @@
   </div>
 
   <a class="wa-btn" id="waBtn" href="#" target="_blank" rel="noopener">
-    💬 <span class="en">Get My Passcode on WhatsApp</span><span class="ta">WhatsApp-இல் என் பாஸ்கோடைப் பெறுங்கள்</span>
+    💬 <span class="en">Tap Here for WhatsApp — Get My Passcode</span><span class="ta">WhatsApp-க்கு தட்டவும் — என் பாஸ்கோடைப் பெறுங்கள்</span>
   </a>
-  <div class="countdown">
-    <span class="en">Redirecting to WhatsApp in <b id="secs">5</b>s… </span>
-    <span class="ta">WhatsApp-க்கு <b id="secsTa">5</b> வினாடியில் திருப்பி விடப்படுகிறது… </span>
+  <div class="tap-hint">
+    <span class="en">👆 One tap opens WhatsApp with your details already filled in</span>
+    <span class="ta">👆 ஒரு தட்டலில் உங்கள் விவரங்களுடன் WhatsApp திறக்கும்</span>
   </div>
 
   <div class="footnote">
-    <span class="en">If WhatsApp doesn't open automatically, tap the button above. Trouble? Email <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a> or call <a href="tel:+919843702244">+91 98437 02244</a>.</span>
-    <span class="ta">WhatsApp தானாக திறக்கவில்லை என்றால், மேலே உள்ள பொத்தானை அழுத்தவும். சிக்கலா? <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>-க்கு மின்னஞ்சல் அனுப்பவும் அல்லது <a href="tel:+919843702244">+91 98437 02244</a>-ஐ அழைக்கவும்.</span>
+    <span class="en">Trouble opening WhatsApp? Email <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a> or call <a href="tel:+919843702244">+91 98437 02244</a> with your Payment ID above.</span>
+    <span class="ta">WhatsApp திறப்பதில் சிக்கலா? மேலே உள்ள பணம் ஐடியுடன் <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>-க்கு மின்னஞ்சல் அனுப்பவும் அல்லது <a href="tel:+919843702244">+91 98437 02244</a>-ஐ அழைக்கவும்.</span>
   </div>
 </div>
 
@@ -142,19 +148,6 @@
   var waUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
   document.getElementById('waBtn').setAttribute('href', waUrl);
 
-  // Auto-redirect countdown
-  var seconds = 5;
-  var secEl = document.getElementById('secs');
-  var secElTa = document.getElementById('secsTa');
-  var timer = setInterval(function(){
-    seconds--;
-    if (secEl) secEl.textContent = seconds;
-    if (secElTa) secElTa.textContent = seconds;
-    if (seconds <= 0){
-      clearInterval(timer);
-      window.location.href = waUrl;
-    }
-  }, 1000);
 </script>
 
 </body>
