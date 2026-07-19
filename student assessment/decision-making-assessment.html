@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision-Making Skills Assessment | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#d97744;
+    --primary-dark:#b85c2e;
+    --secondary:#f4a460;
+    --accent:#2d6a4f;
+    --accent-light:#e8f3ec;
+    --bg:#fff8f0;
+    --card-bg:#ffffff;
+    --text:#3d2b1f;
+    --text-light:#6b5544;
+    --border:#f0ddc8;
+    --danger:#c0392b;
+    --shadow:0 4px 20px rgba(184,92,46,0.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding-bottom:60px;}
+  [lang="ta"]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .lang-ta{display:none;}
+  body.ta .lang-en{display:none;}
+  body.ta .lang-ta{display:inline;}
+
+  header{
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:#fff;padding:16px 20px;
+    position:sticky;top:0;z-index:100;
+  }
+  .header-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;}
+  .brand-name{font-weight:700;font-size:1rem;}
+  .lang-toggle{
+    background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.6);
+    color:#fff;padding:6px 16px;border-radius:20px;font-weight:600;cursor:pointer;font-size:0.85rem;
+  }
+  .progress-wrap{background:rgba(255,255,255,0.25);border-radius:10px;height:10px;overflow:hidden;}
+  .progress-bar{background:#fff;height:100%;width:0%;transition:width 0.3s;border-radius:10px;}
+  .progress-label{font-size:0.78rem;margin-top:5px;opacity:0.95;text-align:right;}
+
+  main{max-width:720px;margin:0 auto;padding:24px 18px;}
+
+  .card{
+    background:var(--card-bg);border:1px solid var(--border);border-radius:16px;
+    padding:24px;margin-bottom:20px;box-shadow:var(--shadow);
+  }
+  .card h2{color:var(--primary-dark);font-size:1.15rem;margin-bottom:16px;}
+
+  .form-group{margin-bottom:16px;}
+  .form-group label{display:block;font-weight:600;font-size:0.9rem;margin-bottom:6px;}
+  .form-group input{
+    width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;
+    font-family:inherit;font-size:0.95rem;background:#fffdf9;
+  }
+  .form-group input:focus{outline:none;border-color:var(--primary);}
+  .required{color:var(--danger);}
+
+  .domain-header{
+    display:flex;align-items:center;gap:10px;margin-bottom:6px;
+  }
+  .domain-num{
+    background:var(--accent);color:#fff;width:28px;height:28px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;
+  }
+  .domain-header h2{margin-bottom:0;}
+  .domain-sub{font-size:0.82rem;color:var(--text-light);margin-bottom:18px;margin-left:38px;}
+
+  .question{margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid var(--border);}
+  .question:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .q-text{font-weight:500;margin-bottom:12px;font-size:0.95rem;}
+
+  .likert{display:flex;justify-content:space-between;gap:6px;flex-wrap:nowrap;}
+  .likert label{
+    flex:1;text-align:center;cursor:pointer;
+  }
+  .likert input{display:none;}
+  .likert .dot{
+    width:100%;padding:10px 4px;border:2px solid var(--border);border-radius:10px;
+    font-size:0.7rem;color:var(--text-light);transition:all 0.15s;display:block;font-weight:600;
+  }
+  .likert input:checked + .dot{
+    background:var(--primary);border-color:var(--primary);color:#fff;
+  }
+  @media (max-width:480px){
+    .likert{flex-wrap:wrap;}
+    .likert label{flex:1 1 30%;}
+  }
+
+  .nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:24px;}
+  .btn{
+    padding:14px 28px;border-radius:24px;font-weight:700;border:none;cursor:pointer;
+    font-family:inherit;font-size:0.95rem;
+  }
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 4px 14px rgba(45,106,79,0.3);}
+  .btn-secondary{background:transparent;color:var(--text-light);border:1.5px solid var(--border);}
+  .btn:disabled{opacity:0.5;cursor:not-allowed;}
+  .btn-full{width:100%;}
+
+  .error-msg{color:var(--danger);font-size:0.85rem;margin-top:6px;display:none;}
+
+  .step-hidden{display:none;}
+
+  footer{text-align:center;padding:20px;color:var(--text-light);font-size:0.82rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-top">
+    <span class="brand-name">
+      <span class="lang-en">Decision-Making Skills Assessment</span>
+      <span class="lang-ta">முடிவெடுக்கும் திறன் மதிப்பீடு</span>
+    </span>
+    <button class="lang-toggle" onclick="toggleLang()">
+      <span class="lang-en">தமிழ்</span>
+      <span class="lang-ta">English</span>
+    </button>
+  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-label" id="progressLabel">Step 1 of 8</div>
+</header>
+
+<main>
+  <form id="assessmentForm">
+
+    <!-- STEP 0: Student Info -->
+    <div class="card step" data-step="0">
+      <h2><span class="lang-en">Student Information</span><span class="lang-ta">மாணவர் தகவல்</span></h2>
+      <div class="form-group">
+        <label><span class="lang-en">Full Name</span><span class="lang-ta">முழு பெயர்</span> <span class="required">*</span></label>
+        <input type="text" id="studentName" required>
+      </div>
+      <div class="form-group">
+        <label><span class="lang-en">Grade / Class</span><span class="lang-ta">வகுப்பு</span> <span class="required">*</span></label>
+        <input type="text" id="studentGrade" required placeholder="e.g. 10th Std">
+      </div>
+      <div class="form-group">
+        <label><span class="lang-en">School (optional)</span><span class="lang-ta">பள்ளி (விருப்பம்)</span></label>
+        <input type="text" id="studentSchool">
+      </div>
+      <div class="form-group">
+        <label><span class="lang-en">Parent/Contact Phone (optional)</span><span class="lang-ta">பெற்றோர் தொடர்பு எண் (விருப்பம்)</span></label>
+        <input type="tel" id="studentPhone" placeholder="+91">
+      </div>
+      <div class="error-msg" id="infoError">
+        <span class="lang-en">Please fill in your name and grade to continue.</span>
+        <span class="lang-ta">தொடர பெயர் மற்றும் வகுப்பை நிரப்பவும்.</span>
+      </div>
+    </div>
+
+    <!-- Domain steps will be injected here by JS -->
+    <div id="domainSteps"></div>
+
+    <div class="nav-buttons">
+      <button type="button" class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)" style="visibility:hidden;">
+        <span class="lang-en">← Back</span><span class="lang-ta">← பின்</span>
+      </button>
+      <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">
+        <span class="lang-en">Next →</span><span class="lang-ta">அடுத்து →</span>
+      </button>
+    </div>
+  </form>
+</main>
+
+<footer>
+  <span class="lang-en">"God is always with u" — NT Somasundaram Life Skills Program</span>
+  <span class="lang-ta">"கடவுள் எப்போதும் உன்னுடன் இருக்கிறார்" — என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்</span>
+</footer>
+
+<script>
+// ============ CONFIG ============
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQsbVosweRmNhQlxTpUURvnQcwoVYAKbGKE6vtdvsbuoM-wMIaPE4lRF9AveaOncy9/exec";
+
+// ============ DATA ============
+const DOMAINS = [
+  {
+    id:"d1",
+    en:"Problem Identification & Clarity", ta:"பிரச்சினையை அடையாளம் காணுதல் & தெளிவு",
+    subEn:"How clearly you understand a problem before deciding.",
+    subTa:"முடிவெடுப்பதற்கு முன் ஒரு பிரச்சினையை நீங்கள் எவ்வளவு தெளிவாகப் புரிந்துகொள்கிறீர்கள்.",
+    questions:[
+      {en:"I take time to clearly understand what the real problem is before deciding.", ta:"முடிவெடுப்பதற்கு முன் உண்மையான பிரச்சினை என்ன என்பதைத் தெளிவாகப் புரிந்துகொள்ள நேரம் ஒதுக்குகிறேன்."},
+      {en:"I can separate the main issue from smaller distracting details.", ta:"முக்கிய பிரச்சினையை சிறிய திசைதிருப்பும் விவரங்களிலிருந்து பிரிக்க முடியும்."},
+      {en:"I ask questions to make sure I understand a situation before acting.", ta:"செயல்படுவதற்கு முன் ஒரு சூழ்நிலையை புரிந்துகொண்டேனா என்பதை உறுதிசெய்ய கேள்விகள் கேட்கிறேன்."},
+      {en:"I try to see a problem from different points of view before deciding.", ta:"முடிவெடுப்பதற்கு முன் ஒரு பிரச்சினையை வெவ்வேறு கோணங்களில் பார்க்க முயற்சிக்கிறேன்."},
+      {en:"I know when a decision is really necessary versus when it can wait.", ta:"ஒரு முடிவு உண்மையில் அவசியமா அல்லது காத்திருக்கலாமா என்பதை அறிவேன்."}
+    ]
+  },
+  {
+    id:"d2",
+    en:"Information Gathering & Options", ta:"தகவல் சேகரிப்பு & தேர்வுகள்",
+    subEn:"How thoroughly you explore facts and alternatives.",
+    subTa:"நீங்கள் உண்மைகள் மற்றும் மாற்று வழிகளை எவ்வளவு முழுமையாக ஆராய்கிறீர்கள்.",
+    questions:[
+      {en:"I gather enough information before making an important decision.", ta:"ஒரு முக்கியமான முடிவை எடுப்பதற்கு முன் போதுமான தகவல்களை சேகரிக்கிறேன்."},
+      {en:"I list out multiple options before choosing one.", ta:"ஒன்றைத் தேர்ந்தெடுப்பதற்கு முன் பல தேர்வுகளை பட்டியலிடுகிறேன்."},
+      {en:"I ask trusted people (parents, teachers, friends) for advice when needed.", ta:"தேவைப்படும்போது நம்பகமான நபர்களிடம் (பெற்றோர், ஆசிரியர்கள், நண்பர்கள்) ஆலோசனை கேட்கிறேன்."},
+      {en:"I research facts instead of relying only on assumptions.", ta:"வெறும் ஊகங்களை மட்டும் நம்பாமல் உண்மைகளை ஆராய்கிறேன்."},
+      {en:"I consider at least two alternatives before finalizing a choice.", ta:"ஒரு தேர்வை இறுதி செய்வதற்கு முன் குறைந்தது இரண்டு மாற்று வழிகளையாவது கருத்தில் கொள்கிறேன்."}
+    ]
+  },
+  {
+    id:"d3",
+    en:"Risk Assessment & Consequences", ta:"ஆபத்து மதிப்பீடு & விளைவுகள்",
+    subEn:"How well you weigh outcomes before committing.",
+    subTa:"முடிவெடுப்பதற்கு முன் விளைவுகளை எவ்வளவு நன்றாக எடைபோடுகிறீர்கள்.",
+    questions:[
+      {en:"I think about both the short-term and long-term effects of my choices.", ta:"என் தேர்வுகளின் குறுகிய மற்றும் நீண்ட கால விளைவுகள் இரண்டையும் பற்றி சிந்திக்கிறேன்."},
+      {en:"I consider how my decision might affect other people around me.", ta:"என் முடிவு எனை சுற்றியுள்ளவர்களை எவ்வாறு பாதிக்கும் என்பதை கருத்தில் கொள்கிறேன்."},
+      {en:"I weigh the pros and cons before making a decision.", ta:"ஒரு முடிவெடுப்பதற்கு முன் நன்மை தீமைகளை எடைபோடுகிறேன்."},
+      {en:"I think about what could go wrong before committing to a choice.", ta:"ஒரு தேர்வில் உறுதியாக இருப்பதற்கு முன் என்ன தவறாக நடக்கலாம் என்று சிந்திக்கிறேன்."},
+      {en:"I am comfortable evaluating risk without becoming overly anxious.", ta:"அதிக பதற்றமடையாமல் ஆபத்தை மதிப்பிடுவதில் நான் வசதியாக இருக்கிறேன்."}
+    ]
+  },
+  {
+    id:"d4",
+    en:"Values Alignment & Emotional Influence", ta:"மதிப்புகளுக்கேற்ப முடிவெடுத்தல் & உணர்ச்சி தாக்கம்",
+    subEn:"How your emotions and personal values shape your choices.",
+    subTa:"உங்கள் உணர்வுகள் மற்றும் தனிப்பட்ட மதிப்புகள் உங்கள் தேர்வுகளை எவ்வாறு வடிவமைக்கின்றன.",
+    questions:[
+      {en:"My decisions usually match my personal values and what I believe is right.", ta:"என் முடிவுகள் பொதுவாக என் தனிப்பட்ட மதிப்புகளுடனும் நான் சரி என நம்புவதுடனும் பொருந்துகின்றன."},
+      {en:"I notice when strong emotions (anger, excitement, fear) are influencing my choice.", ta:"வலுவான உணர்வுகள் (கோபம், உற்சாகம், பயம்) என் தேர்வை பாதிக்கும்போது நான் கவனிக்கிறேன்."},
+      {en:"I pause before reacting when I feel pressured to decide quickly.", ta:"விரைவாக முடிவெடுக்க அழுத்தம் உணரும்போது, பதிலளிப்பதற்கு முன் நிறுத்துகிறேன்."},
+      {en:"I do not let peer pressure alone determine my decisions.", ta:"சக இணையர் அழுத்தம் மட்டும் என் முடிவுகளை தீர்மானிக்க அனுமதிப்பதில்லை."},
+      {en:"I stay true to my goals even when a decision feels difficult.", ta:"ஒரு முடிவு கடினமாக உணரும்போது கூட என் இலக்குகளுக்கு உண்மையாக இருக்கிறேன்."}
+    ]
+  },
+  {
+    id:"d5",
+    en:"Decisiveness & Follow-Through", ta:"உறுதியான முடிவும் தொடர்ச்சியும்",
+    subEn:"How confidently you commit to and act on decisions.",
+    subTa:"முடிவுகளில் நீங்கள் எவ்வளவு நம்பிக்கையுடன் உறுதியாக இருந்து செயல்படுகிறீர்கள்.",
+    questions:[
+      {en:"Once I decide something important, I follow through with action.", ta:"முக்கியமான ஒன்றை முடிவு செய்தவுடன், நான் செயலில் தொடர்கிறேன்."},
+      {en:"I avoid unnecessarily delaying decisions I need to make.", ta:"நான் எடுக்க வேண்டிய முடிவுகளை தேவையின்றி தாமதப்படுத்துவதைத் தவிர்க்கிறேன்."},
+      {en:"I feel confident sticking to a decision once it's made.", ta:"ஒரு முடிவை எடுத்தவுடன் அதனை பின்பற்றுவதில் நம்பிக்கையாக உணர்கிறேன்."},
+      {en:"I take responsibility for my decisions instead of blaming others.", ta:"மற்றவர்களை குற்றம் சாட்டுவதற்கு பதிலாக என் முடிவுகளுக்கு பொறுப்பேற்கிறேன்."},
+      {en:"I can make a decision even when I don't have 100% certainty.", ta:"எனக்கு 100% உறுதி இல்லாதபோதும் ஒரு முடிவை எடுக்க முடியும்."}
+    ]
+  },
+  {
+    id:"d6",
+    en:"Reflection & Learning from Outcomes", ta:"பிரதிபலிப்பு & விளைவுகளிலிருந்து கற்றல்",
+    subEn:"How much you learn from past decisions to improve future ones.",
+    subTa:"எதிர்கால முடிவுகளை மேம்படுத்த கடந்தகால முடிவுகளிலிருந்து நீங்கள் எவ்வளவு கற்றுக்கொள்கிறீர்கள்.",
+    questions:[
+      {en:"I review my past decisions to understand what worked and what didn't.", ta:"எது வேலை செய்தது எது செய்யவில்லை என்பதைப் புரிந்துகொள்ள என் கடந்தகால முடிவுகளை மறுபரிசீலனை செய்கிறேன்."},
+      {en:"I learn from my mistakes instead of repeating them.", ta:"என் தவறுகளை மீண்டும் செய்வதற்கு பதிலாக அவற்றிலிருந்து கற்றுக்கொள்கிறேன்."},
+      {en:"I ask for feedback after a decision to improve my future choices.", ta:"என் எதிர்கால தேர்வுகளை மேம்படுத்த ஒரு முடிவுக்குப் பிறகு கருத்துக்களைக் கேட்கிறேன்."},
+      {en:"I recognize patterns in my decision-making over time.", ta:"காலப்போக்கில் என் முடிவெடுத்தலில் உள்ள வடிவங்களை நான் அடையாளம் காண்கிறேன்."},
+      {en:"I feel that I am becoming a better decision-maker as I grow.", ta:"நான் வளரும்போது சிறந்த முடிவெடுப்பவனாக மாறி வருவதாக உணர்கிறேன்."}
+    ]
+  }
+];
+
+const LIKERT = [
+  {val:1, en:"Strongly Disagree", ta:"முற்றிலும் உடன்படவில்லை"},
+  {val:2, en:"Disagree", ta:"உடன்படவில்லை"},
+  {val:3, en:"Neutral", ta:"நடுநிலை"},
+  {val:4, en:"Agree", ta:"உடன்படுகிறேன்"},
+  {val:5, en:"Strongly Agree", ta:"முற்றிலும் உடன்படுகிறேன்"}
+];
+
+let currentStep = 0;
+const totalSteps = DOMAINS.length + 1; // info step + 6 domains
+
+// ============ BUILD FORM ============
+function buildDomainSteps(){
+  const container = document.getElementById('domainSteps');
+  DOMAINS.forEach((domain, dIndex) => {
+    const card = document.createElement('div');
+    card.className = 'card step step-hidden';
+    card.setAttribute('data-step', dIndex + 1);
+
+    let html = `
+      <div class="domain-header">
+        <span class="domain-num">${dIndex + 1}</span>
+        <h2><span class="lang-en">${domain.en}</span><span class="lang-ta">${domain.ta}</span></h2>
+      </div>
+      <div class="domain-sub"><span class="lang-en">${domain.subEn}</span><span class="lang-ta">${domain.subTa}</span></div>
+    `;
+
+    domain.questions.forEach((q, qIndex) => {
+      const qName = `${domain.id}_q${qIndex}`;
+      html += `<div class="question">
+        <div class="q-text"><span class="lang-en">${q.en}</span><span class="lang-ta">${q.ta}</span></div>
+        <div class="likert">`;
+      LIKERT.forEach(opt => {
+        html += `<label>
+          <input type="radio" name="${qName}" value="${opt.val}" required>
+          <span class="dot"><span class="lang-en">${opt.en}</span><span class="lang-ta">${opt.ta}</span></span>
+        </label>`;
+      });
+      html += `</div></div>`;
+    });
+
+    card.innerHTML = html;
+    container.appendChild(card);
+  });
+}
+
+// ============ STEP NAVIGATION ============
+function showStep(step){
+  document.querySelectorAll('.step').forEach(el => {
+    el.classList.toggle('step-hidden', parseInt(el.getAttribute('data-step')) !== step);
+  });
+  const pct = Math.round(((step) / totalSteps) * 100);
+  document.getElementById('progressBar').style.width = pct + '%';
+  const label = document.getElementById('progressLabel');
+  label.innerHTML = document.body.classList.contains('ta')
+    ? `படி ${step + 1} / ${totalSteps}`
+    : `Step ${step + 1} of ${totalSteps}`;
+
+  document.getElementById('prevBtn').style.visibility = step === 0 ? 'hidden' : 'visible';
+  const nextBtn = document.getElementById('nextBtn');
+  if(step === totalSteps - 1){
+    nextBtn.innerHTML = `<span class="lang-en">Submit & See Report →</span><span class="lang-ta">சமர்ப்பித்து அறிக்கையைப் பார்க்கவும் →</span>`;
+  } else {
+    nextBtn.innerHTML = `<span class="lang-en">Next →</span><span class="lang-ta">அடுத்து →</span>`;
+  }
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function validateStep(step){
+  if(step === 0){
+    const name = document.getElementById('studentName').value.trim();
+    const grade = document.getElementById('studentGrade').value.trim();
+    const err = document.getElementById('infoError');
+    if(!name || !grade){
+      err.style.display = 'block';
+      return false;
+    }
+    err.style.display = 'none';
+    return true;
+  } else {
+    const domain = DOMAINS[step - 1];
+    for(let i = 0; i < domain.questions.length; i++){
+      const checked = document.querySelector(`input[name="${domain.id}_q${i}"]:checked`);
+      if(!checked){
+        alert(document.body.classList.contains('ta')
+          ? 'தொடர அனைத்து கேள்விகளுக்கும் பதிலளிக்கவும்.'
+          : 'Please answer all questions before continuing.');
+        return false;
+      }
+    }
+    return true;
+  }
+}
+
+function changeStep(direction){
+  if(direction === 1 && !validateStep(currentStep)) return;
+
+  if(direction === 1 && currentStep === totalSteps - 1){
+    submitAssessment();
+    return;
+  }
+
+  currentStep += direction;
+  currentStep = Math.max(0, Math.min(totalSteps - 1, currentStep));
+  showStep(currentStep);
+}
+
+// ============ SCORING & SUBMISSION ============
+function submitAssessment(){
+  const name = document.getElementById('studentName').value.trim();
+  const grade = document.getElementById('studentGrade').value.trim();
+  const school = document.getElementById('studentSchool').value.trim();
+  const phone = document.getElementById('studentPhone').value.trim();
+  const lang = document.body.classList.contains('ta') ? 'ta' : 'en';
+
+  const domainScores = {};
+  const allAnswers = {};
+  let totalSum = 0;
+
+  DOMAINS.forEach(domain => {
+    let sum = 0;
+    domain.questions.forEach((q, i) => {
+      const val = parseInt(document.querySelector(`input[name="${domain.id}_q${i}"]:checked`).value);
+      sum += val;
+      allAnswers[`${domain.id}_q${i}`] = val;
+    });
+    const pct = Math.round((sum / 25) * 100);
+    domainScores[domain.id] = pct;
+    totalSum += pct;
+  });
+
+  const overall = Math.round(totalSum / DOMAINS.length);
+
+  const result = {
+    name, grade, school, phone, lang,
+    timestamp: new Date().toISOString(),
+    domainScores, overall,
+    domains: DOMAINS.map(d => ({id:d.id, en:d.en, ta:d.ta}))
+  };
+
+  // Save for report page
+  localStorage.setItem('dm_assessment_result', JSON.stringify(result));
+
+  // Log to Google Sheets via CORS-safe image pixel GET
+  try {
+    const params = new URLSearchParams({
+      name, grade, school, phone, lang,
+      timestamp: result.timestamp,
+      d1: domainScores.d1, d2: domainScores.d2, d3: domainScores.d3,
+      d4: domainScores.d4, d5: domainScores.d5, d6: domainScores.d6,
+      overall,
+      answers: JSON.stringify(allAnswers)
+    });
+    const img = new Image();
+    img.src = `${APPS_SCRIPT_URL}?${params.toString()}`;
+  } catch(e){
+    console.error('Logging failed:', e);
+  }
+
+  window.location.href = 'decision-making-report.html';
+}
+
+// ============ LANGUAGE TOGGLE ============
+function toggleLang(){
+  document.body.classList.toggle('ta');
+  localStorage.setItem('dm_lang', document.body.classList.contains('ta') ? 'ta' : 'en');
+  showStep(currentStep);
+}
+
+// ============ INIT ============
+(function init(){
+  const saved = localStorage.getItem('dm_lang');
+  if(saved === 'ta'){ document.body.classList.add('ta'); }
+  buildDomainSteps();
+  showStep(0);
+})();
+</script>
+
+</body>
+</html>

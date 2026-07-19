@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Skills Assessment & Free Course | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1e3a5f;
+    --navy-dark:#12253d;
+    --teal:#2a9d8f;
+    --coral:#e76f51;
+    --gold:#e9c46a;
+    --bg:#f7f9fb;
+    --card:#ffffff;
+    --text:#233142;
+    --muted:#6b7a8d;
+    --border:#e2e8f0;
+    --radius:16px;
+    --shadow: 0 4px 20px rgba(18,37,61,0.08);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  body.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  body.ta [data-en]{display:none;}
+  body.ta [data-ta]{display:inline;}
+  body:not(.ta) [data-ta]{display:none;}
+
+  header{
+    background:linear-gradient(120deg,var(--navy) 0%,var(--navy-dark) 100%);
+    color:#fff;
+    padding:26px 20px 100px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    bottom:-40px;left:0;right:0;
+    height:80px;
+    background:var(--bg);
+    border-radius:50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .lang-toggle{
+    position:absolute;
+    top:16px; right:16px;
+    display:flex;
+    background:rgba(255,255,255,0.15);
+    border-radius:20px;
+    padding:4px;
+    z-index:5;
+  }
+  .lang-toggle button{
+    border:none;background:transparent;color:#fff;
+    padding:6px 14px;border-radius:16px;
+    font-family:'Poppins',sans-serif;font-size:0.8rem;font-weight:600;cursor:pointer;
+  }
+  .lang-toggle button.active{background:#fff;color:var(--navy);}
+  .brand{font-size:0.85rem;letter-spacing:1px;opacity:0.85;margin-bottom:10px;}
+  header h1{font-size:1.9rem;font-weight:800;max-width:640px;margin:6px auto 12px;}
+  header p.sub{max-width:540px;margin:0 auto;opacity:0.92;font-size:1rem;}
+  .hero-cta{margin-top:26px;}
+
+  .container{max-width:720px;margin:-60px auto 0;padding:0 18px 40px;position:relative;z-index:2;}
+  .card{
+    background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:28px 26px;margin-bottom:22px;
+  }
+  h2{color:var(--navy);font-size:1.35rem;margin-bottom:16px;text-align:center;}
+
+  .btn{
+    display:inline-block;background:var(--teal);color:#fff;border:none;
+    padding:15px 30px;border-radius:12px;font-family:inherit;font-weight:700;
+    font-size:1.02rem;cursor:pointer;text-decoration:none;transition:transform 0.15s, background 0.15s;
+    text-align:center;
+  }
+  .btn:hover{background:#238276;transform:translateY(-1px);}
+  .btn.coral{background:var(--coral);}
+  .btn.coral:hover{background:#d15b3c;}
+  .btn.block{display:block;width:100%;}
+
+  /* Benefits */
+  .benefit-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:480px){.benefit-grid{grid-template-columns:1fr;}}
+  .benefit{
+    border:1.5px solid var(--border);border-radius:12px;padding:16px;
+  }
+  .benefit .icon{font-size:1.5rem;margin-bottom:8px;}
+  .benefit h3{font-size:0.95rem;color:var(--navy);margin-bottom:6px;}
+  .benefit p{font-size:0.85rem;color:var(--muted);}
+
+  /* Sections covered */
+  .topic-list{display:flex;flex-direction:column;gap:10px;}
+  .topic{
+    display:flex;align-items:center;gap:12px;
+    border-left:4px solid var(--teal);background:#f4faf9;
+    padding:12px 16px;border-radius:8px;
+  }
+  .topic .num{
+    width:30px;height:30px;border-radius:50%;background:var(--teal);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;flex-shrink:0;
+  }
+  .topic span.label{font-size:0.92rem;font-weight:600;color:var(--text);}
+
+  /* How it works */
+  .steps{display:flex;flex-direction:column;gap:16px;}
+  .step{display:flex;gap:14px;align-items:flex-start;}
+  .step .badge{
+    width:36px;height:36px;border-radius:50%;background:var(--gold);color:var(--navy-dark);
+    display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0;
+  }
+  .step h3{font-size:0.98rem;color:var(--navy);margin-bottom:4px;}
+  .step p{font-size:0.87rem;color:var(--muted);}
+
+  /* Who it's for */
+  .audience{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+  .audience span{
+    background:#eef4f8;color:var(--navy);font-size:0.85rem;font-weight:600;
+    padding:8px 16px;border-radius:20px;
+  }
+
+  /* Promo */
+  .promo{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);
+    color:#fff;border-radius:var(--radius);padding:26px 24px;margin-bottom:22px;
+    position:relative;overflow:hidden;text-align:center;
+  }
+  .promo::before{
+    content:"";position:absolute;top:-30px;right:-30px;width:120px;height:120px;
+    background:rgba(233,196,106,0.18);border-radius:50%;
+  }
+  .promo h3{font-size:1.2rem;margin-bottom:10px;position:relative;}
+  .promo p{font-size:0.92rem;opacity:0.92;margin-bottom:16px;position:relative;max-width:520px;margin-left:auto;margin-right:auto;}
+
+  footer{text-align:center;color:var(--muted);font-size:0.8rem;padding:10px 20px 30px;}
+  footer .motto{color:var(--teal);font-weight:600;margin-bottom:6px;}
+  footer .contact{margin-top:8px;}
+  footer a{color:var(--teal);text-decoration:none;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lang-toggle">
+    <button id="btn-en" class="active" onclick="setLang('en')">English</button>
+    <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+  </div>
+  <div class="brand" data-en="">NT SOMASUNDARAM LIFE SKILLS PROGRAM</div>
+  <div class="brand" data-ta="">என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்</div>
+  <h1 data-en="">Discover Your Social Skills Strengths</h1>
+  <h1 data-ta="">உங்கள் சமூக திறன் பலங்களைக் கண்டறியுங்கள்</h1>
+  <p class="sub" data-en="">A free, 10-minute bilingual self-assessment for students — see how you communicate, connect, and handle friendships, with a personalized report at the end.</p>
+  <p class="sub" data-ta="">மாணவர்களுக்கான இலவச, 10 நிமிட இரு மொழி சுய மதிப்பீடு — நீங்கள் எவ்வாறு தொடர்பு கொள்கிறீர்கள், நட்பு கொள்கிறீர்கள் என்பதைப் பாருங்கள், இறுதியில் ஒரு தனிப்பயன் அறிக்கையுடன்.</p>
+  <div class="hero-cta" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+    <a class="btn coral" href="PASTE_ASSESSMENT_URL_HERE" id="cta-hero">
+      <span data-en="">Start Free Assessment →</span>
+      <span data-ta="">இலவச மதிப்பீட்டைத் தொடங்குங்கள் →</span>
+    </a>
+    <a class="btn" style="background:#fff;color:var(--navy);" href="PASTE_COURSE_URL_HERE" id="cta-hero-course">
+      <span data-en="">Explore Free Course →</span>
+      <span data-ta="">இலவச பாடநெறியைப் பாருங்கள் →</span>
+    </a>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- Benefits -->
+  <div class="card">
+    <h2><span data-en="">Why Take This Assessment?</span><span data-ta="">இந்த மதிப்பீட்டை ஏன் எடுக்க வேண்டும்?</span></h2>
+    <div class="benefit-grid">
+      <div class="benefit">
+        <div class="icon">🎯</div>
+        <h3><span data-en="">Know Your Strengths</span><span data-ta="">உங்கள் பலங்களை அறியுங்கள்</span></h3>
+        <p><span data-en="">Understand which social skills already come naturally to you.</span><span data-ta="">எந்த சமூக திறன்கள் உங்களுக்கு இயற்கையாகவே வருகின்றன என்பதைப் புரிந்துகொள்ளுங்கள்.</span></p>
+      </div>
+      <div class="benefit">
+        <div class="icon">📈</div>
+        <h3><span data-en="">See Where to Grow</span><span data-ta="">எங்கு வளர வேண்டும் எனப் பாருங்கள்</span></h3>
+        <p><span data-en="">Get a clear, honest picture of areas needing practice.</span><span data-ta="">பயிற்சி தேவைப்படும் பகுதிகளின் தெளிவான, நேர்மையான படத்தைப் பெறுங்கள்.</span></p>
+      </div>
+      <div class="benefit">
+        <div class="icon">💡</div>
+        <h3><span data-en="">Get Personalized Tips</span><span data-ta="">தனிப்பயன் ஆலோசனைகளைப் பெறுங்கள்</span></h3>
+        <p><span data-en="">Each section comes with practical tips based on your own answers.</span><span data-ta="">ஒவ்வொரு பிரிவிலும் உங்கள் சொந்த பதில்களின் அடிப்படையில் நடைமுறை ஆலோசனைகள் உள்ளன.</span></p>
+      </div>
+      <div class="benefit">
+        <div class="icon">🔒</div>
+        <h3><span data-en="">Private &amp; Judgment-Free</span><span data-ta="">தனிப்பட்ட &amp; தீர்ப்பு இல்லாதது</span></h3>
+        <p><span data-en="">Answer honestly — this is for your own growth, not a test to pass or fail.</span><span data-ta="">நேர்மையாக பதிலளியுங்கள் — இது உங்கள் சொந்த வளர்ச்சிக்காக, தேர்ச்சி பெற வேண்டிய தேர்வு அல்ல.</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- What it covers -->
+  <div class="card">
+    <h2><span data-en="">What It Covers</span><span data-ta="">இதில் என்ன அடங்கும்</span></h2>
+    <div class="topic-list">
+      <div class="topic"><div class="num">1</div><span class="label"><span data-en="">Communication &amp; Assertiveness</span><span data-ta="">தொடர்பு &amp; உறுதியான பேச்சு</span></span></div>
+      <div class="topic"><div class="num">2</div><span class="label"><span data-en="">Empathy &amp; Perspective-Taking</span><span data-ta="">பரிவு &amp; பிறர் பார்வையை புரிதல்</span></span></div>
+      <div class="topic"><div class="num">3</div><span class="label"><span data-en="">Conflict Resolution</span><span data-ta="">முரண்பாடு தீர்வு</span></span></div>
+      <div class="topic"><div class="num">4</div><span class="label"><span data-en="">Teamwork &amp; Cooperation</span><span data-ta="">குழுப்பணி &amp; ஒத்துழைப்பு</span></span></div>
+      <div class="topic"><div class="num">5</div><span class="label"><span data-en="">Social Confidence &amp; Belonging</span><span data-ta="">சமூக நம்பிக்கை &amp; சொந்தம் உணர்வு</span></span></div>
+    </div>
+  </div>
+
+  <!-- Free Course -->
+  <div class="card">
+    <h2><span data-en="">📘 Free Social Skills Mastery Course</span><span data-ta="">📘 இலவச சமூக திறன் தேர்ச்சி பாடநெறி</span></h2>
+    <p style="text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:16px;">
+      <span data-en="">Want to go deeper than the assessment? Our free, self-paced course covers all 10 topics with simple explanations, real-life examples, and practical tips you can start using right away — in English and Tamil.</span>
+      <span data-ta="">மதிப்பீட்டை விட ஆழமாக செல்ல விரும்புகிறீர்களா? எங்கள் இலவச, சுய-வேக பாடநெறி 10 தலைப்புகளையும் எளிய விளக்கங்கள், நடைமுறை வாழ்க்கை உதாரணங்கள், உடனடியாகப் பயன்படுத்தக்கூடிய நடைமுறை ஆலோசனைகளுடன் உள்ளடக்குகிறது — ஆங்கிலம் மற்றும் தமிழில்.</span>
+    </p>
+    <div class="topic-list" style="margin-bottom:18px;">
+      <div class="topic"><div class="num">1</div><span class="label"><span data-en="">What Are Social Skills &amp; Why They Matter</span><span data-ta="">சமூக திறன்கள் என்றால் என்ன & ஏன் முக்கியம்</span></span></div>
+      <div class="topic"><div class="num">2</div><span class="label"><span data-en="">Talking So People Listen</span><span data-ta="">மக்கள் கேட்கும்படி பேசுவது</span></span></div>
+      <div class="topic"><div class="num">3</div><span class="label"><span data-en="">Really Listening to Others</span><span data-ta="">மற்றவர்களை உண்மையாக கேட்பது</span></span></div>
+      <div class="topic"><div class="num">4</div><span class="label"><span data-en="">Saying No Without Guilt</span><span data-ta="">குற்ற உணர்வு இல்லாமல் இல்லை என்று சொல்வது</span></span></div>
+      <div class="topic"><div class="num">5</div><span class="label"><span data-en="">Understanding How Others Feel</span><span data-ta="">மற்றவர்கள் எப்படி உணர்கிறார்கள் என்பதை புரிந்துகொள்வது</span></span></div>
+      <div class="topic"><div class="num">6</div><span class="label"><span data-en="">Making and Keeping Friends</span><span data-ta="">நட்பை உருவாக்குதலும் தக்கவைத்துக்கொள்வதும்</span></span></div>
+      <div class="topic"><div class="num">7</div><span class="label"><span data-en="">Handling Disagreements Calmly</span><span data-ta="">முரண்பாடுகளை அமைதியாக கையாள்வது</span></span></div>
+      <div class="topic"><div class="num">8</div><span class="label"><span data-en="">Dealing with Peer Pressure</span><span data-ta="">தோழர் அழுத்தத்தை கையாள்வது</span></span></div>
+      <div class="topic"><div class="num">9</div><span class="label"><span data-en="">Working Well in a Group</span><span data-ta="">ஒரு குழுவில் நன்றாக வேலை செய்வது</span></span></div>
+      <div class="topic"><div class="num">10</div><span class="label"><span data-en="">Bouncing Back from Rejection</span><span data-ta="">நிராகரிப்பிலிருந்து மீள்வது</span></span></div>
+    </div>
+    <div style="text-align:center;">
+      <a class="btn secondary" href="PASTE_COURSE_URL_HERE" target="_blank">
+        <span data-en="">Start the Free Course →</span>
+        <span data-ta="">இலவச பாடநெறியைத் தொடங்குங்கள் →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="card">
+    <h2><span data-en="">How It Works</span><span data-ta="">இது எப்படி வேலை செய்கிறது</span></h2>
+    <div class="steps">
+      <div class="step">
+        <div class="badge">1</div>
+        <div>
+          <h3><span data-en="">Answer 35 Quick Questions</span><span data-ta="">35 விரைவான கேள்விகளுக்கு பதிலளிக்கவும்</span></h3>
+          <p><span data-en="">Rate how much you agree with each statement — takes about 10 minutes.</span><span data-ta="">ஒவ்வொரு கூற்றுடனும் நீங்கள் எவ்வளவு ஒப்புக்கொள்கிறீர்கள் என்பதை மதிப்பிடுங்கள் — சுமார் 10 நிமிடங்கள் ஆகும்.</span></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="badge">2</div>
+        <div>
+          <h3><span data-en="">Get Your Instant Report</span><span data-ta="">உங்கள் உடனடி அறிக்கையைப் பெறுங்கள்</span></h3>
+          <p><span data-en="">See your overall score and a breakdown across all 5 areas.</span><span data-ta="">உங்கள் ஒட்டுமொத்த மதிப்பெண் மற்றும் 5 பகுதிகளிலும் விவரங்களைப் பாருங்கள்.</span></p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="badge">3</div>
+        <div>
+          <h3><span data-en="">Read Your Personalized Tips</span><span data-ta="">உங்கள் தனிப்பயன் ஆலோசனைகளைப் படியுங்கள்</span></h3>
+          <p><span data-en="">Download or print your report and start practicing one tip at a time.</span><span data-ta="">உங்கள் அறிக்கையைப் பதிவிறக்கம் செய்யுங்கள் அல்லது அச்சிடுங்கள், ஒரு நேரத்தில் ஒரு ஆலோசனையைப் பயிற்சி செய்யத் தொடங்குங்கள்.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Who it's for -->
+  <div class="card">
+    <h2><span data-en="">Who Is This For?</span><span data-ta="">இது யாருக்கானது?</span></h2>
+    <div class="audience">
+      <span><span data-en="">High School Students (Ages 13-18)</span><span data-ta="">உயர்நிலை மாணவர்கள் (13-18 வயது)</span></span>
+      <span><span data-en="">Students Referred by Teachers/Counsellors</span><span data-ta="">ஆசிரியர்கள்/ஆலோசகர்களால் பரிந்துரைக்கப்பட்ட மாணவர்கள்</span></span>
+      <span><span data-en="">Curious Parents</span><span data-ta="">ஆர்வமுள்ள பெற்றோர்</span></span>
+    </div>
+  </div>
+
+  <!-- Bottom CTA -->
+  <div class="card" style="text-align:center;">
+    <h2><span data-en="">Ready to Build Your Social Skills?</span><span data-ta="">உங்கள் சமூக திறன்களை வளர்க்க தயாரா?</span></h2>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn coral" href="PASTE_ASSESSMENT_URL_HERE">
+        <span data-en="">Start Free Assessment →</span>
+        <span data-ta="">இலவச மதிப்பீட்டைத் தொடங்குங்கள் →</span>
+      </a>
+      <a class="btn secondary" href="PASTE_COURSE_URL_HERE">
+        <span data-en="">Start Free Course →</span>
+        <span data-ta="">இலவச பாடநெறியைத் தொடங்குங்கள் →</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Promo: Students Empowerment Program -->
+  <div class="promo">
+    <h3><span data-en="">🌟 Go Further with the Students Empowerment Program</span><span data-ta="">🌟 மாணவர் மேம்பாட்டு திட்டத்துடன் மேலும் முன்னேறுங்கள்</span></h3>
+    <p><span data-en="">This assessment is a starting point. Our Students Empowerment Program helps students build real-world social confidence, communication, emotional regulation, and life skills through structured, practical sessions — in Tamil and English.</span><span data-ta="">இந்த மதிப்பீடு ஒரு தொடக்க புள்ளி மட்டுமே. எங்கள் மாணவர் மேம்பாட்டு திட்டம், கட்டமைக்கப்பட்ட, நடைமுறை அமர்வுகள் மூலம் மாணவர்களுக்கு உண்மையான சமூக நம்பிக்கை, தொடர்பு, உணர்ச்சி கட்டுப்பாடு மற்றும் வாழ்க்கை திறன்களை உருவாக்க உதவுகிறது — தமிழ் மற்றும் ஆங்கிலத்தில்.</span></p>
+    <a class="btn" id="whatsapp-cta" href="#" target="_blank">
+      <span data-en="">Enquire on WhatsApp</span>
+      <span data-ta="">WhatsApp-ல் விசாரிக்கவும்</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="motto">
+    <span data-en="">"God is always with u"</span>
+    <span data-ta="">"கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"</span>
+  </div>
+  <div><span data-en="">NT Somasundaram Life Skills Program</span><span data-ta="">என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்</span></div>
+  <div class="contact">
+    somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp; +91 98437 02244<br>
+    <a href="https://sites.google.com/view/somasundaramnt" target="_blank">sites.google.com/view/somasundaramnt</a>
+  </div>
+</footer>
+
+<script>
+const WHATSAPP_NUMBER = "919843702244";
+
+function setLang(lang){
+  document.body.classList.toggle('ta', lang === 'ta');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-ta').classList.toggle('active', lang === 'ta');
+}
+
+const waMsg = encodeURIComponent("Hi, I would like to know more about the Students Empowerment Program.");
+document.getElementById('whatsapp-cta').href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waMsg}`;
+</script>
+</body>
+</html>

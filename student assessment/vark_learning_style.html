@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Learning Style Assessment | Somasundaram Life Skills</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Poppins',sans-serif;background:#f3f0fa;min-height:100vh;color:#222}
+.ta{font-family:'Noto Sans Tamil',sans-serif!important}
+
+header{background:linear-gradient(135deg,#6C3FB5,#9B59B6);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.hdr-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.hdr-brand{font-size:1rem;font-weight:700;line-height:1.3}
+.hdr-sub{font-size:.72rem;opacity:.88;margin-top:2px}
+.lang-btn{background:#fff;color:#6C3FB5;border:none;border-radius:20px;padding:6px 14px;font-size:.8rem;font-weight:700;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.hdr-contact{font-size:.7rem;opacity:.85;margin-top:6px;text-align:center}
+
+.card{max-width:600px;margin:20px auto;background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(108,63,181,.13);overflow:hidden}
+
+.prog-wrap{padding:14px 20px 0}
+.prog-label{font-size:.75rem;color:#6C3FB5;font-weight:600;margin-bottom:6px}
+.prog-bar{background:#e8e0f7;border-radius:10px;height:8px}
+.prog-fill{background:linear-gradient(90deg,#6C3FB5,#9B59B6);height:8px;border-radius:10px;transition:width .4s}
+
+.section{padding:24px 20px}
+.section-title{font-size:1.1rem;font-weight:700;color:#6C3FB5;margin-bottom:6px}
+.section-sub{font-size:.82rem;color:#666;margin-bottom:18px}
+
+.field-label{font-size:.82rem;font-weight:600;color:#444;margin-bottom:6px}
+.field-input{width:100%;padding:11px 14px;border:2px solid #ddd;border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;transition:border .2s}
+.field-input:focus{border-color:#6C3FB5}
+.field-wrap{margin-bottom:16px}
+.start-btn{width:100%;padding:14px;background:linear-gradient(135deg,#6C3FB5,#9B59B6);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:6px;font-family:inherit}
+
+.q-num{font-size:.75rem;font-weight:600;color:#9B59B6;margin-bottom:8px}
+.q-text{font-size:1rem;font-weight:600;color:#222;line-height:1.55;margin-bottom:18px}
+.options{display:flex;flex-direction:column;gap:10px}
+.opt-btn{text-align:left;padding:13px 16px;border:2px solid #e0d6f5;border-radius:12px;background:#faf7ff;font-size:.9rem;cursor:pointer;font-family:inherit;color:#333;line-height:1.45;transition:all .18s}
+.opt-btn:hover{border-color:#6C3FB5;background:#f0eaff}
+.opt-btn.selected{border-color:#6C3FB5;background:#ede5ff;color:#4a1fa0;font-weight:600}
+
+.style-badge{display:inline-block;background:linear-gradient(135deg,#6C3FB5,#9B59B6);color:#fff;border-radius:30px;padding:8px 22px;font-size:1.1rem;font-weight:700;margin-bottom:16px}
+.style-desc{font-size:.9rem;color:#444;line-height:1.65;margin-bottom:18px}
+.scores-wrap{margin-bottom:18px}
+.score-row{margin-bottom:10px}
+.score-label{font-size:.8rem;font-weight:600;color:#6C3FB5;margin-bottom:4px}
+.score-bar-bg{background:#e8e0f7;border-radius:8px;height:10px}
+.score-bar-fill{background:linear-gradient(90deg,#6C3FB5,#9B59B6);height:10px;border-radius:8px;transition:width .6s}
+.tips-title{font-size:.95rem;font-weight:700;color:#6C3FB5;margin-bottom:10px}
+.tips-list{list-style:none;padding:0}
+.tips-list li{font-size:.85rem;color:#444;padding:7px 0 7px 22px;position:relative;border-bottom:1px solid #f0eaff;line-height:1.5}
+.tips-list li:before{content:"✦";color:#9B59B6;position:absolute;left:0;top:7px;font-size:.7rem}
+
+.promo-box{background:#faf7ff;border:1.5px solid #e0d6f5;border-radius:12px;padding:14px 16px;margin-top:16px}
+.promo-title{font-size:.82rem;font-weight:700;color:#6C3FB5;margin-bottom:10px}
+.promo-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.promo-icon{font-size:1.2rem;flex-shrink:0}
+.promo-text{font-size:.8rem;color:#444;line-height:1.5}
+.promo-text strong{color:#6C3FB5}
+
+.wa-btn{display:block;width:100%;padding:14px;background:#25D366;color:#fff;border:none;border-radius:12px;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:14px;font-family:inherit;text-align:center;text-decoration:none}
+.print-btn{display:block;width:100%;padding:12px;background:#fff;color:#6C3FB5;border:2px solid #6C3FB5;border-radius:12px;font-size:.9rem;font-weight:700;cursor:pointer;margin-top:10px;font-family:inherit}
+.retry-btn{display:block;width:100%;padding:12px;background:#f3f0fa;color:#6C3FB5;border:2px solid #e0d6f5;border-radius:12px;font-size:.9rem;font-weight:700;cursor:pointer;margin-top:10px;font-family:inherit}
+
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hdr-top">
+    <div>
+      <div class="hdr-brand" id="hdr-brand">Somasundaram Life Skills Training Program</div>
+      <div class="hdr-sub" id="hdr-sub">Certified Master Trainer & Life Skills Educator</div>
+    </div>
+    <button class="lang-btn" id="lang-btn" onclick="toggleLang()">தமிழ்</button>
+  </div>
+  <div class="hdr-contact">📱 +91 98437 02244 &nbsp;|&nbsp; ✉️ somasundaramnt.lifecoach@gmail.com</div>
+</header>
+
+<div class="card">
+  <div class="prog-wrap hidden" id="prog-wrap">
+    <div class="prog-label" id="prog-label"></div>
+    <div class="prog-bar"><div class="prog-fill" id="prog-fill" style="width:0%"></div></div>
+  </div>
+
+  <!-- INTAKE -->
+  <div class="section" id="sec-intake">
+    <div class="section-title" id="intake-title">🎓 Learning Style Assessment</div>
+    <div class="section-sub" id="intake-sub">Discover how you learn best! Answer 16 simple questions to find your unique learning style.</div>
+    <div class="field-wrap">
+      <div class="field-label" id="lbl-name">Your Name *</div>
+      <input class="field-input" id="inp-name" type="text"/>
+    </div>
+    <div class="field-wrap">
+      <div class="field-label" id="lbl-mobile">Mobile Number *</div>
+      <input class="field-input" id="inp-mobile" type="tel" maxlength="10"/>
+    </div>
+    <div class="field-wrap">
+      <div class="field-label" id="lbl-class">Class / Grade</div>
+      <input class="field-input" id="inp-class" type="text"/>
+    </div>
+    <button class="start-btn" id="start-btn" onclick="startAssessment()">Start Assessment →</button>
+  </div>
+
+  <!-- QUESTION -->
+  <div class="section hidden" id="sec-question">
+    <div class="q-num" id="q-num"></div>
+    <div class="q-text" id="q-text"></div>
+    <div class="options" id="options"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="section hidden" id="sec-result">
+    <div class="section-title" id="res-title">Your Learning Style</div>
+    <div class="section-sub" id="res-sub">Based on your answers, here's what we found:</div>
+    <div><span class="style-badge" id="style-badge"></span></div>
+    <div class="style-desc" id="style-desc"></div>
+    <div class="scores-wrap" id="scores-wrap"></div>
+    <div class="tips-title" id="tips-title">📚 Study Tips For You</div>
+    <ul class="tips-list" id="tips-list"></ul>
+    <div class="promo-box">
+      <div class="promo-title" id="promo-title">🌟 Programs by Somasundaram Sir</div>
+      <div class="promo-item"><span class="promo-icon">🎯</span><div class="promo-text" id="promo-career"></div></div>
+      <div class="promo-item"><span class="promo-icon">🧘</span><div class="promo-text" id="promo-stress"></div></div>
+    </div>
+    <a class="wa-btn" id="wa-btn" href="#" target="_blank">📲 Share Result on WhatsApp</a>
+    <button class="print-btn" id="print-btn" onclick="window.print()">🖨️ Print / Save as PDF</button>
+    <button class="retry-btn" id="retry-btn" onclick="retake()">🔄 Retake Assessment</button>
+  </div>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz5bj4cDcny1XPZXrc4nyDpy5Mflse8JIPHMYQybOT5fwCEdCqyeNR_j07U7RiEOJNF/exec";
+
+let lang = 'en';
+let currentQ = 0;
+let answers = [];
+let studentName = '', studentMobile = '', studentClass = '';
+let dominantResult = '', scoresResult = {};
+
+// ── BILINGUAL QUESTIONS (shared structure, separate text arrays) ──────────
+const questions = [
+  // Each entry: { en:{q, opts:[4]}, ta:{q, opts:[4]}, styleMap:['V','A','R','K'] }
+  // styleMap[i] = style for option index i (always V,A,R,K order)
+  {en:{q:"When you try to remember someone's phone number, you usually…",opts:["Picture the digits visually in your mind","Say the number aloud or in your head","Write the number down or type it","Dial it a few times until it feels natural"]},ta:{q:"யாரோ ஒருவரின் தொலைபேசி எண்ணை நினைவில் வைக்க முயற்சிக்கும்போது, நீங்கள் பொதுவாக...",opts:["மனதில் இலக்கங்களை காட்சியாக நினைக்கிறீர்கள்","எண்ணை சத்தமாக அல்லது மனதுக்குள் சொல்கிறீர்கள்","எண்ணை எழுதுகிறீர்கள் அல்லது தட்டச்சு செய்கிறீர்கள்","இயற்கையாக தோன்றும் வரை சில முறை டயல் செய்கிறீர்கள்"]}},
+  {en:{q:"When you study a new topic, you prefer to…",opts:["Look at diagrams, charts, or illustrations","Listen to a teacher or audio explanation","Read the textbook or write notes","Try an activity or experiment related to it"]},ta:{q:"புதிய தலைப்பை படிக்கும்போது, நீங்கள் விரும்புவது...",opts:["வரைபடங்கள், விளக்கப்படங்கள் பார்க்க","ஆசிரியர் அல்லது ஆடியோ விளக்கம் கேட்க","பாடப்புத்தகம் படிக்க அல்லது குறிப்பு எழுத","அதனுடன் தொடர்புடைய செயல்பாட்டை முயற்சிக்க"]}},
+  {en:{q:"When you get directions to a new place, you find it easiest to…",opts:["Look at a map or visual guide","Listen to someone explain the route","Read the directions written down","Just drive or walk and figure it out"]},ta:{q:"புதிய இடத்திற்கு வழிசெலுத்தல் பெறும்போது, எது எளிதாக இருக்கிறது?",opts:["வரைபடம் அல்லது காட்சி வழிகாட்டியை பார்க்கவும்","யாரோ வழியை விளக்குவதை கேட்கவும்","எழுதப்பட்ட வழிகளை படிக்கவும்","நடந்து அல்லது ஓட்டிக்கொண்டே கண்டறியவும்"]}},
+  {en:{q:"In class, you focus best when the teacher…",opts:["Uses the board, projector or visual aids","Explains clearly and discusses with students","Gives printed notes or asks you to read","Does demonstrations or practical activities"]},ta:{q:"வகுப்பில், ஆசிரியர் என்ன செய்யும்போது நீங்கள் சிறப்பாக கவனிக்கிறீர்கள்?",opts:["பலகை, திரை அல்லது காட்சி உதவிகளை பயன்படுத்தும்போது","தெளிவாக விளக்கி மாணவர்களுடன் விவாதிக்கும்போது","அச்சிட்ட குறிப்புகளை கொடுக்கும்போது அல்லது படிக்கச் சொல்லும்போது","நிரூபணங்கள் அல்லது நடைமுறை செயல்பாடுகளை செய்யும்போது"]}},
+  {en:{q:"When you learn a new song, you remember it by…",opts:["Watching a music video and seeing the lyrics","Listening to it many times","Reading the lyrics written on paper","Moving or tapping along with the beat"]},ta:{q:"புதிய பாடல் கற்கும்போது, எவ்வாறு நினைவில் வைக்கிறீர்கள்?",opts:["இசை வீடியோ பார்த்து வரிகளை பார்க்கிறீர்கள்","பலமுறை கேட்கிறீர்கள்","காகிதத்தில் எழுதப்பட்ட வரிகளை படிக்கிறீர்கள்","தாளத்துடன் நகர்கிறீர்கள் அல்லது தட்டுகிறீர்கள்"]}},
+  {en:{q:"In a group discussion, you tend to…",opts:["Sketch ideas or draw a mind map","Talk through ideas and listen to others","Take notes or write a summary","Use objects or move around to explain"]},ta:{q:"குழு விவாதத்தில், நீங்கள் பொதுவாக...",opts:["யோசனைகளை வரைகிறீர்கள் அல்லது மனவரைபடம் வரைகிறீர்கள்","யோசனைகளை பேசுகிறீர்கள் மற்றும் மற்றவர்களை கேட்கிறீர்கள்","குறிப்புகள் எடுக்கிறீர்கள் அல்லது சுருக்கம் எழுதுகிறீர்கள்","பொருட்களை பயன்படுத்துகிறீர்கள் அல்லது நகர்ந்து விளக்குகிறீர்கள்"]}},
+  {en:{q:"You understand a concept better when you…",opts:["See a video or diagram about it","Hear it explained in a lecture","Read about it in a book or article","Try it out yourself in a hands-on way"]},ta:{q:"எப்போது ஒரு கருத்தை சிறப்பாக புரிந்துகொள்கிறீர்கள்?",opts:["வீடியோ அல்லது வரைபடம் பார்க்கும்போது","விரிவுரையில் விளக்கம் கேட்கும்போது","புத்தகத்தில் அல்லது கட்டுரையில் படிக்கும்போது","நேரடியாக கைமுறையாக முயற்சிக்கும்போது"]}},
+  {en:{q:"When you are bored in class, you usually…",opts:["Doodle or draw in your notebook","Hum, tap or talk to a neighbour","Read ahead in the textbook","Tap your feet or fidget with something"]},ta:{q:"வகுப்பில் சலிப்பாக இருக்கும்போது, நீங்கள் பொதுவாக...",opts:["நோட்புக்கில் வரைகிறீர்கள் அல்லது படங்கள் வரைகிறீர்கள்","முணுமுணுக்கிறீர்கள், தட்டுகிறீர்கள் அல்லது அண்டை மாணவரிடம் பேசுகிறீர்கள்","பாடப்புத்தகத்தில் முன்னே படிக்கிறீர்கள்","கால்களை தட்டுகிறீர்கள் அல்லது ஏதாவது வைத்து விளையாடுகிறீர்கள்"]}},
+  {en:{q:"Before an exam, you prefer to revise by…",opts:["Going through diagrams, charts and mind maps","Discussing key points with a study partner","Reading your notes and rewriting key ideas","Practising past papers or solving problems"]},ta:{q:"தேர்வுக்கு முன், எவ்வாறு திரும்பப் படிப்பதை விரும்புகிறீர்கள்?",opts:["வரைபடங்கள், விளக்கப்படங்கள் மற்றும் மனவரைபடங்களை பார்க்கவும்","படிப்பு தோழருடன் முக்கிய புள்ளிகளை விவாதிக்கவும்","குறிப்புகளை படிக்கவும் மற்றும் முக்கிய யோசனைகளை மீண்டும் எழுதவும்","கடந்த கால கேள்வித்தாள்களை பயிற்சி செய்யவும்"]}},
+  {en:{q:"When you want to learn something new, you usually…",opts:["Search for videos or pictures online","Ask someone to explain it to you","Look it up in a book or read articles","Try doing it immediately and learn from mistakes"]},ta:{q:"புதிய ஒன்றை கற்க விரும்பும்போது, நீங்கள் பொதுவாக...",opts:["வீடியோக்கள் அல்லது படங்களை தேடுகிறீர்கள்","யாரோ விளக்கச் சொல்கிறீர்கள்","புத்தகத்தில் தேடுகிறீர்கள் அல்லது கட்டுரைகளை படிக்கிறீர்கள்","உடனே முயற்சித்து தவறுகளிலிருந்து கற்கிறீர்கள்"]}},
+  {en:{q:"You tend to remember things better when you…",opts:["Draw or visualise them","Repeat them aloud","Write them down","Physically do them"]},ta:{q:"எப்போது விஷயங்களை சிறப்பாக நினைவில் வைக்கிறீர்கள்?",opts:["வரைந்து அல்லது காட்சியாக நினைக்கும்போது","சத்தமாக திரும்பச் சொல்லும்போது","எழுதும்போது","உடலால் செய்யும்போது"]}},
+  {en:{q:"When reading a story or novel, you enjoy…",opts:["Creating mental images of the scenes","Reading it aloud or listening to an audiobook","Analysing the writing and taking notes","Acting out scenes or imagining being there"]},ta:{q:"கதை அல்லது நாவல் படிக்கும்போது, நீங்கள் ரசிப்பது...",opts:["காட்சிகளை மனதில் படமாக உருவாக்குவது","சத்தமாக படிப்பது அல்லது ஆடியோ புக் கேட்பது","எழுத்துநடையை ஆராய்ந்து குறிப்புகள் எடுப்பது","காட்சிகளை நடிப்பது அல்லது அங்கே இருப்பதாக கற்பனை செய்வது"]}},
+  {en:{q:"When you try something new (sport, hobby, skill), you prefer to…",opts:["Watch a demonstration first","Listen to instructions and ask questions","Read the manual or instructions","Just try it and learn as you go"]},ta:{q:"புதிய ஒன்றை (விளையாட்டு, பொழுதுபோக்கு, திறன்) முயற்சிக்கும்போது, நீங்கள் விரும்புவது...",opts:["முதலில் நிரூபணம் பார்க்க","வழிமுறைகளை கேட்டு கேள்விகள் கேட்க","கையேடு அல்லது வழிமுறைகளை படிக்க","நேரடியாக முயற்சித்து கற்க"]}},
+  {en:{q:"You remember lessons best when they include…",opts:["Colourful visuals and images","Class discussions and oral explanations","Written notes and reading materials","Lab work, field trips, or practical tasks"]},ta:{q:"வகுப்பு பாடங்களில் எப்போது சிறப்பாக நினைவில் வைக்கிறீர்கள்?",opts:["வண்ணமயமான காட்சிகள் மற்றும் படங்கள் இருக்கும்போது","வகுப்பு விவாதங்கள் மற்றும் வாய்மொழி விளக்கங்கள் இருக்கும்போது","எழுத்து குறிப்புகள் மற்றும் படிக்கும் வகை பொருட்கள் இருக்கும்போது","ஆய்வக பணி, கள பயணங்கள் அல்லது நடைமுறை பணிகள் இருக்கும்போது"]}},
+  {en:{q:"After a class trip or practical session, you…",opts:["Remember what things looked like","Remember what the guide or teacher said","Make notes about what you observed","Remember what you did and how it felt"]},ta:{q:"வகுப்பு பயணம் அல்லது நடைமுறை அமர்விற்கு பிறகு, நீங்கள்...",opts:["விஷயங்கள் எவ்வாறு காட்சியாக இருந்தன என்று நினைவில் வைக்கிறீர்கள்","வழிகாட்டி அல்லது ஆசிரியர் என்ன சொன்னார் என்று நினைவில் வைக்கிறீர்கள்","கவனித்ததை குறிப்புகளாக எழுதுகிறீர்கள்","என்ன செய்தீர்கள் மற்றும் எப்படி உணர்ந்தீர்கள் என்று நினைவில் வைக்கிறீர்கள்"]}},
+  {en:{q:"When you feel restless while studying, you…",opts:["Look at colourful charts or photos","Play background music or read aloud","Switch to writing notes or making lists","Take a break and do some physical movement"]},ta:{q:"படிக்கும்போது அமைதியின்மை உணரும்போது, நீங்கள்...",opts:["வண்ணமயமான விளக்கப்படங்கள் அல்லது படங்களை பார்க்கிறீர்கள்","பின்னணி இசை போடுகிறீர்கள் அல்லது சத்தமாக படிக்கிறீர்கள்","குறிப்புகள் எழுதுவதற்கு அல்லது பட்டியல் தயாரிக்க மாறுகிறீர்கள்","இடைவேளை எடுத்து உடல் இயக்கத்தை செய்கிறீர்கள்"]}}
+];
+// option index 0=V, 1=A, 2=R, 3=K for all questions
+const styleMap = ['V','A','R','K'];
+
+const txt = {
+  en:{
+    hdrBrand:"Somasundaram Life Skills Training Program",
+    hdrSub:"Certified Master Trainer & Life Skills Educator",
+    langBtn:"தமிழ்",
+    intakeTitle:"🎓 Learning Style Assessment",
+    intakeSub:"Discover how you learn best! Answer 16 simple questions to find your unique learning style.",
+    lblName:"Your Name *", lblMobile:"Mobile Number *", lblClass:"Class / Grade",
+    placeName:"Enter your full name", placeMobile:"Enter 10-digit mobile number", placeClass:"e.g. Class 10 / 11 / 12",
+    startBtn:"Start Assessment →",
+    progLabel:(c,t)=>`Question ${c} of ${t}`,
+    qNum:(c,t)=>`Question ${c} of ${t}`,
+    resTitle:"Your Learning Style", resSub:"Based on your answers, here's what we found:",
+    tipsTitle:"📚 Study Tips For You",
+    promoTitle:"🌟 Programs by Somasundaram Sir",
+    promoCareer:"<strong>Career Consulting Program</strong> — Personalized career guidance using psychometric assessments. Ideal for Class 8–12 students and parents. Call or WhatsApp to book your session.",
+    promoStress:"<strong>Stress Management Program</strong> — Learn proven techniques to manage exam stress, build confidence and perform at your best. Online & in-person sessions available.",
+    waBtn:"📲 Share Result on WhatsApp",
+    printBtn:"🖨️ Print / Save as PDF",
+    retryBtn:"🔄 Retake Assessment",
+    errName:"Please enter your name.",
+    errMobile:"Please enter a valid 10-digit mobile number.",
+    styleName:{V:"Visual Learner",A:"Auditory Learner",R:"Read/Write Learner",K:"Kinesthetic Learner"},
+    styleDesc:{
+      V:"You learn best through images, diagrams, charts, and visual representations. Seeing information helps you understand and remember it better.",
+      A:"You learn best by listening — lectures, discussions, audio, and verbal explanation work great for you.",
+      R:"You learn best through reading and writing. Taking notes, reading textbooks, and writing summaries are your strengths.",
+      K:"You learn best through hands-on experience — doing, experimenting, and practising. Movement and real-world application help you remember."
+    },
+    tips:{
+      V:["Use mind maps, diagrams and colour-coded notes","Watch educational videos and YouTube explanations","Draw pictures or charts to represent concepts","Use highlighters and visual organizers while studying","Convert notes into infographics or posters"],
+      A:["Record lectures and replay them while studying","Discuss topics with friends or family","Read aloud while studying to reinforce memory","Listen to educational podcasts or audio books","Explain concepts to others in your own words"],
+      R:["Take detailed notes during class and rewrite them at home","Read textbooks and reference books thoroughly","Make lists, summaries and flashcards","Write practice answers and essays regularly","Use written quizzes and past question papers"],
+      K:["Use practical experiments and models to learn","Take frequent short breaks while studying","Act out or role-play concepts where possible","Connect lessons to real-life situations and examples","Use hands-on activities, projects, and field work"]
+    }
+  },
+  ta:{
+    hdrBrand:"சோமசுந்தரம் லைஃப் ஸ்கில்ஸ் பயிற்சி நிறுவனம்",
+    hdrSub:"சான்றிதழ் பெற்ற மாஸ்டர் பயிற்சியாளர் & வாழ்க்கை திறன் கல்வியாளர்",
+    langBtn:"English",
+    intakeTitle:"🎓 கற்றல் பாணி மதிப்பீடு",
+    intakeSub:"நீங்கள் எவ்வாறு சிறப்பாகக் கற்றுக்கொள்கிறீர்கள் என்பதை கண்டறியுங்கள்! உங்கள் தனிப்பட்ட கற்றல் பாணியை அறிய 16 எளிய கேள்விகளுக்கு பதிலளிக்கவும்.",
+    lblName:"உங்கள் பெயர் *", lblMobile:"மொபைல் எண் *", lblClass:"வகுப்பு",
+    placeName:"உங்கள் முழு பெயரை உள்ளிடவும்", placeMobile:"10 இலக்க மொபைல் எண்ணை உள்ளிடவும்", placeClass:"எ.கா. வகுப்பு 10 / 11 / 12",
+    startBtn:"மதிப்பீட்டை தொடங்கு →",
+    progLabel:(c,t)=>`கேள்வி ${c} / ${t}`,
+    qNum:(c,t)=>`கேள்வி ${c} / ${t}`,
+    resTitle:"உங்கள் கற்றல் பாணி", resSub:"உங்கள் பதில்களின் அடிப்படையில், இதோ நாங்கள் கண்டறிந்தது:",
+    tipsTitle:"📚 உங்களுக்கான படிப்பு குறிப்புகள்",
+    promoTitle:"🌟 சோமசுந்தரம் சாரின் நிகழ்ச்சிகள்",
+    promoCareer:"<strong>தொழில் ஆலோசனை நிகழ்ச்சி</strong> — உளவியல் மதிப்பீடுகள் மூலம் தனிப்பயனாக்கப்பட்ட தொழில் வழிகாட்டுதல். 8–12 வகுப்பு மாணவர்களுக்கும் பெற்றோர்களுக்கும் ஏற்றது.",
+    promoStress:"<strong>மன அழுத்த மேலாண்மை நிகழ்ச்சி</strong> — தேர்வு மன அழுத்தத்தை நிர்வகிக்க நிரூபிக்கப்பட்ட நுட்பங்களை கற்றுக்கொள்ளுங்கள். ஆன்லைன் மற்றும் நேரடி அமர்வுகள் கிடைக்கின்றன.",
+    waBtn:"📲 WhatsApp-ல் பகிர்",
+    printBtn:"🖨️ அச்சிடு / PDF சேமி",
+    retryBtn:"🔄 மீண்டும் செய்",
+    errName:"தயவுசெய்து உங்கள் பெயரை உள்ளிடவும்.",
+    errMobile:"சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.",
+    styleName:{V:"காட்சி கற்பவர்",A:"செவிவழி கற்பவர்",R:"படிக்கும்/எழுதும் கற்பவர்",K:"கைமுறை கற்பவர்"},
+    styleDesc:{
+      V:"நீங்கள் படங்கள், வரைபடங்கள், விளக்கப்படங்கள் மூலம் சிறப்பாகக் கற்றுக்கொள்கிறீர்கள்.",
+      A:"நீங்கள் கேட்பதன் மூலம் சிறப்பாகக் கற்றுக்கொள்கிறீர்கள் — விரிவுரைகள், விவாதங்கள், ஆடியோ விளக்கங்கள் உங்களுக்கு பயனுள்ளதாக இருக்கும்.",
+      R:"நீங்கள் படிப்பதன் மூலமும் எழுதுவதன் மூலமும் சிறப்பாகக் கற்றுக்கொள்கிறீர்கள்.",
+      K:"நீங்கள் நடைமுறை அனுபவத்தின் மூலம் சிறப்பாகக் கற்றுக்கொள்கிறீர்கள் — செய்வது, பரிசோதிப்பது, பயிற்சி செய்வது."
+    },
+    tips:{
+      V:["மனவரைபடம், வரைபடம், வண்ண குறிப்புகளை பயன்படுத்துங்கள்","கல்வி வீடியோக்கள் மற்றும் YouTube விளக்கங்களை பாருங்கள்","கருத்துகளை வரைபடங்களாக அல்லது படங்களாக மாற்றுங்கள்","படிக்கும்போது ஹைலைட்டர் மற்றும் காட்சி ஒழுங்கமைப்பாளர்களை பயன்படுத்துங்கள்","குறிப்புகளை இன்போகிராபிக்ஸ் அல்லது சுவரொட்டிகளாக மாற்றுங்கள்"],
+      A:["விரிவுரைகளை பதிவுசெய்து படிக்கும்போது மீண்டும் கேளுங்கள்","நண்பர்கள் அல்லது குடும்பத்தினருடன் தலைப்புகளை விவாதியுங்கள்","படிக்கும்போது சத்தமாக படியுங்கள்","கல்வி பாட்காஸ்ட்கள் அல்லது ஆடியோ புத்தகங்களை கேளுங்கள்","கருத்துகளை மற்றவர்களுக்கு உங்கள் சொந்த வார்த்தைகளில் விளக்குங்கள்"],
+      R:["வகுப்பில் விரிவான குறிப்புகள் எடுத்து வீட்டில் மீண்டும் எழுதுங்கள்","பாடப்புத்தகங்கள் மற்றும் குறிப்பு புத்தகங்களை நன்கு படியுங்கள்","பட்டியல்கள், சுருக்கங்கள் மற்றும் ஃப்ளாஷ்கார்டுகளை தயாரியுங்கள்","தொடர்ந்து பயிற்சி விடைகள் மற்றும் கட்டுரைகள் எழுதுங்கள்","எழுத்துப் போட்டிகள் மற்றும் கடந்த கால கேள்வித்தாள்களை பயன்படுத்துங்கள்"],
+      K:["நடைமுறை பரிசோதனைகள் மற்றும் மாதிரிகளை பயன்படுத்தி கற்கவும்","படிக்கும்போது அடிக்கடி சிறிய இடைவேளைகள் எடுங்கள்","கருத்துகளை நடிப்பு அல்லது பங்கு வகிப்பு மூலம் புரிந்துகொள்ளுங்கள்","பாடங்களை நிஜ வாழ்க்கை சூழ்நிலைகளுடன் இணைக்கவும்","திட்டங்கள், கள பயணங்கள் மற்றும் நடைமுறை செயல்பாடுகளை பயன்படுத்துங்கள்"]
+    }
+  }
+};
+
+// ── LANG TOGGLE ───────────────────────────────────────────────
+function applyLang(){
+  const d = txt[lang];
+  const isTa = lang==='ta';
+  const set = (id, val, html=false) => {
+    const el = document.getElementById(id);
+    if(!el) return;
+    if(html) el.innerHTML = val; else el.textContent = val;
+    el.classList.toggle('ta', isTa);
+  };
+  set('hdr-brand', d.hdrBrand);
+  set('hdr-sub', d.hdrSub);
+  set('lang-btn', d.langBtn);
+  set('intake-title', d.intakeTitle);
+  set('intake-sub', d.intakeSub);
+  set('lbl-name', d.lblName);
+  set('lbl-mobile', d.lblMobile);
+  set('lbl-class', d.lblClass);
+  set('start-btn', d.startBtn);
+  document.getElementById('inp-name').placeholder = d.placeName;
+  document.getElementById('inp-mobile').placeholder = d.placeMobile;
+  document.getElementById('inp-class').placeholder = d.placeClass;
+  // if in question phase, re-render current question
+  if(!document.getElementById('sec-question').classList.contains('hidden')){
+    renderQuestion();
+  }
+}
+
+function toggleLang(){
+  lang = lang==='en' ? 'ta' : 'en';
+  applyLang();
+}
+
+// ── ASSESSMENT FLOW ───────────────────────────────────────────
+function startAssessment(){
+  const d = txt[lang];
+  studentName = document.getElementById('inp-name').value.trim();
+  studentMobile = document.getElementById('inp-mobile').value.trim();
+  studentClass = document.getElementById('inp-class').value.trim();
+  if(!studentName){alert(d.errName);return;}
+  if(!/^\d{10}$/.test(studentMobile)){alert(d.errMobile);return;}
+  answers = [];
+  currentQ = 0;
+  document.getElementById('sec-intake').classList.add('hidden');
+  document.getElementById('prog-wrap').classList.remove('hidden');
+  document.getElementById('sec-question').classList.remove('hidden');
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const d = txt[lang];
+  const total = questions.length;
+  const isTa = lang==='ta';
+  // progress
+  document.getElementById('prog-label').textContent = d.progLabel(currentQ+1, total);
+  document.getElementById('prog-label').className = 'prog-label' + (isTa?' ta':'');
+  document.getElementById('prog-fill').style.width = Math.round((currentQ/total)*100)+'%';
+  // question number
+  const qNumEl = document.getElementById('q-num');
+  qNumEl.textContent = d.qNum(currentQ+1, total);
+  qNumEl.className = 'q-num' + (isTa?' ta':'');
+  // question text
+  const qTextEl = document.getElementById('q-text');
+  qTextEl.textContent = questions[currentQ][lang].q;
+  qTextEl.className = 'q-text' + (isTa?' ta':'');
+  // options
+  const optsEl = document.getElementById('options');
+  optsEl.innerHTML = '';
+  questions[currentQ][lang].opts.forEach((opt, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'opt-btn' + (isTa?' ta':'');
+    btn.textContent = opt;
+    btn.dataset.idx = idx;
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('#options .opt-btn').forEach(b=>b.classList.remove('selected'));
+      this.classList.add('selected');
+      const chosenIdx = parseInt(this.dataset.idx);
+      setTimeout(()=>{
+        answers.push(styleMap[chosenIdx]);
+        currentQ++;
+        if(currentQ < questions.length) renderQuestion();
+        else showResult();
+      }, 280);
+    });
+    optsEl.appendChild(btn);
+  });
+}
+
+// ── RESULT ────────────────────────────────────────────────────
+function showResult(){
+  const d = txt[lang];
+  const isTa = lang==='ta';
+  const scores = {V:0,A:0,R:0,K:0};
+  answers.forEach(s => scores[s]++);
+  const dominant = Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];
+  dominantResult = dominant;
+  scoresResult = scores;
+  const total = answers.length;
+
+  document.getElementById('sec-question').classList.add('hidden');
+  document.getElementById('prog-wrap').classList.add('hidden');
+  document.getElementById('sec-result').classList.remove('hidden');
+
+  const setT = (id, val, isTaOverride=isTa) => {
+    const el = document.getElementById(id);
+    el.textContent = val;
+    el.className = el.className.replace(/\bta\b/,'').trim() + (isTaOverride?' ta':'');
+  };
+  const setH = (id, val) => {
+    const el = document.getElementById(id);
+    el.innerHTML = val;
+    el.className = el.className.replace(/\bta\b/,'').trim() + (isTa?' ta':'');
+  };
+
+  setT('res-title', d.resTitle);
+  setT('res-sub', d.resSub);
+  setT('style-badge', d.styleName[dominant]);
+  setT('style-desc', d.styleDesc[dominant]);
+  setT('tips-title', d.tipsTitle);
+  setT('promo-title', d.promoTitle);
+  setH('promo-career', d.promoCareer);
+  setH('promo-stress', d.promoStress);
+  setT('print-btn', d.printBtn);
+  setT('retry-btn', d.retryBtn);
+  setT('wa-btn', d.waBtn);
+
+  // scores
+  const sw = document.getElementById('scores-wrap');
+  sw.innerHTML = '';
+  ['V','A','R','K'].forEach(s=>{
+    const pct = Math.round((scores[s]/total)*100);
+    const row = document.createElement('div');
+    row.className = 'score-row';
+    row.innerHTML = `<div class="score-label${isTa?' ta':''}">${d.styleName[s]} — ${scores[s]}/${total}</div>
+    <div class="score-bar-bg"><div class="score-bar-fill" style="width:${pct}%"></div></div>`;
+    sw.appendChild(row);
+  });
+
+  // tips
+  const tl = document.getElementById('tips-list');
+  tl.innerHTML = '';
+  d.tips[dominant].forEach(t=>{
+    const li = document.createElement('li');
+    li.className = isTa?'ta':'';
+    li.textContent = t;
+    tl.appendChild(li);
+  });
+
+  // WhatsApp
+  const msg = encodeURIComponent(
+    `🎓 Learning Style Assessment Result\n\nName: ${studentName}\nMobile: ${studentMobile}\nClass: ${studentClass||'-'}\n\nLearning Style: ${txt.en.styleName[dominant]} / ${txt.ta.styleName[dominant]}\n\nScores:\nVisual: ${scores.V}  |  Auditory: ${scores.A}  |  Read-Write: ${scores.R}  |  Kinesthetic: ${scores.K}\n\nAssessed via Somasundaram Life Skills Training Program\n📱 +91 98437 02244`
+  );
+  document.getElementById('wa-btn').href = `https://wa.me/919843702244?text=${msg}`;
+
+  sendToSheet(dominant, scores);
+}
+
+// ── GOOGLE SHEET ──────────────────────────────────────────────
+function sendToSheet(dominant, scores){
+  if(!SCRIPT_URL || SCRIPT_URL.includes('YOUR_GOOGLE')) return;
+  fetch(SCRIPT_URL,{
+    method:'POST', mode:'no-cors',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({
+      name:studentName, mobile:studentMobile, studentClass,
+      language:lang==='ta'?'Tamil':'English',
+      dominantStyle:dominant,
+      visual:scores.V, auditory:scores.A, readWrite:scores.R, kinesthetic:scores.K,
+      timestamp:new Date().toISOString()
+    })
+  }).catch(()=>{});
+}
+
+// ── RETAKE ────────────────────────────────────────────────────
+function retake(){
+  answers=[]; currentQ=0;
+  document.getElementById('sec-result').classList.add('hidden');
+  document.getElementById('sec-intake').classList.remove('hidden');
+  ['inp-name','inp-mobile','inp-class'].forEach(id=>document.getElementById(id).value='');
+}
+</script>
+</body>
+</html>

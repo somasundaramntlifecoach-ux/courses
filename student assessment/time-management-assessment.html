@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Time Management Self-Assessment | Students Empowerment Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16243E;
+    --navy-light:#22365C;
+    --amber:#E8A33D;
+    --amber-dark:#C9821F;
+    --cream:#FBF6EC;
+    --ink:#23262B;
+    --muted:#6B7280;
+    --good:#2E8B57;
+    --warn:#D9822B;
+    --bad:#C24B4B;
+    --line:#E7DFCB;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Poppins',sans-serif;
+    line-height:1.5;
+  }
+  body.lang-ta, body.lang-ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .wrap{max-width:760px;margin:0 auto;padding:0 18px 60px;}
+
+  /* HEADER */
+  header.top{
+    background:var(--navy);
+    color:#fff;
+    padding:22px 18px 26px;
+    position:relative;
+    overflow:hidden;
+  }
+  header.top::after{
+    content:"";
+    position:absolute;
+    right:-40px;top:-60px;
+    width:220px;height:220px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(232,163,61,.25), transparent 70%);
+  }
+  .brand-row{display:flex;justify-content:space-between;align-items:flex-start;max-width:760px;margin:0 auto;position:relative;z-index:1;}
+  .brand-name{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--amber);font-weight:600;}
+  .brand-sub{font-size:11px;color:#cdd5e3;margin-top:2px;}
+  .lang-toggle{
+    display:flex;background:rgba(255,255,255,.08);border-radius:999px;padding:3px;border:1px solid rgba(255,255,255,.18);
+  }
+  .lang-toggle button{
+    border:none;background:transparent;color:#cdd5e3;font-family:inherit;font-weight:600;font-size:12px;
+    padding:6px 14px;border-radius:999px;cursor:pointer;transition:.2s;
+  }
+  .lang-toggle button.active{background:var(--amber);color:var(--navy);}
+  .hero{max-width:760px;margin:24px auto 0;position:relative;z-index:1;}
+  .hero h1{font-size:26px;margin:0 0 8px;font-weight:800;letter-spacing:-.01em;}
+  .hero p{color:#cdd5e3;font-size:14.5px;margin:0;max-width:520px;}
+  .clock-mark{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border-radius:50%;
+    border:2px solid var(--amber);margin-bottom:14px;position:relative;z-index:1;
+  }
+  .clock-mark::before{
+    content:"";position:absolute;width:2px;height:13px;background:var(--amber);top:8px;left:50%;transform-origin:bottom center;transform:translateX(-50%) rotate(35deg);
+  }
+  .clock-mark::after{
+    content:"";position:absolute;width:2px;height:9px;background:var(--amber);top:14px;left:50%;transform-origin:bottom center;transform:translateX(-50%) rotate(120deg);
+  }
+
+  /* CARD */
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:26px 24px;margin-top:-18px;position:relative;z-index:2;
+    box-shadow:0 10px 30px rgba(22,36,62,.08);
+  }
+  .screen{display:none;}
+  .screen.active{display:block;}
+
+  h2.section-title{font-size:18px;font-weight:700;margin:0 0 6px;color:var(--navy);}
+  .section-desc{color:var(--muted);font-size:13.5px;margin:0 0 20px;}
+
+  label{display:block;font-size:13px;font-weight:600;color:var(--navy);margin-bottom:6px;}
+  input[type=text], input[type=tel]{
+    width:100%;padding:11px 13px;border:1.5px solid var(--line);border-radius:8px;
+    font-family:inherit;font-size:14px;margin-bottom:16px;background:#FCFAF4;
+  }
+  input:focus{outline:none;border-color:var(--amber);}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    background:var(--navy);color:#fff;border:none;border-radius:9px;
+    padding:13px 22px;font-family:inherit;font-weight:600;font-size:14.5px;
+    cursor:pointer;transition:.2s;width:100%;
+  }
+  .btn:hover{background:var(--navy-light);}
+  .btn.amber{background:var(--amber);color:var(--navy);}
+  .btn.amber:hover{background:var(--amber-dark);color:#fff;}
+  .btn.outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+  .btn-row{display:flex;gap:10px;margin-top:18px;}
+  .err{color:var(--bad);font-size:12.5px;margin:-10px 0 14px;display:none;}
+
+  /* QUESTIONS */
+  .progress-bar{height:6px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:22px;}
+  .progress-fill{height:100%;background:var(--amber);width:0%;transition:.3s;}
+  .q-counter{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:6px;letter-spacing:.04em;text-transform:uppercase;}
+  .q-text{font-size:17px;font-weight:600;color:var(--ink);margin:6px 0 20px;line-height:1.45;}
+  .scale{display:flex;flex-direction:column;gap:8px;}
+  .scale-opt{
+    display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);
+    border-radius:10px;padding:12px 14px;cursor:pointer;transition:.15s;
+  }
+  .scale-opt:hover{border-color:var(--amber);background:#FFFBF2;}
+  .scale-opt.selected{border-color:var(--amber);background:#FFF5E2;}
+  .scale-opt .num{
+    width:26px;height:26px;border-radius:50%;border:1.5px solid var(--line);
+    display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--muted);flex-shrink:0;
+  }
+  .scale-opt.selected .num{background:var(--amber);border-color:var(--amber);color:var(--navy);}
+  .scale-opt .opt-label{font-size:14px;color:var(--ink);}
+  .q-nav{display:flex;justify-content:space-between;margin-top:22px;}
+  .q-nav button{flex:1;}
+  .q-nav button:first-child{margin-right:10px;}
+
+  /* REPORT */
+  .score-hero{
+    text-align:center;padding:18px 0 22px;border-bottom:1px dashed var(--line);margin-bottom:22px;
+  }
+  .score-big{font-size:46px;font-weight:800;color:var(--navy);}
+  .score-big span{font-size:18px;color:var(--muted);font-weight:600;}
+  .score-tag{
+    display:inline-block;margin-top:8px;padding:5px 14px;border-radius:999px;
+    font-size:12.5px;font-weight:700;letter-spacing:.02em;
+  }
+  .tag-good{background:#E6F4EB;color:var(--good);}
+  .tag-warn{background:#FCF0DF;color:var(--warn);}
+  .tag-bad{background:#FBE9E9;color:var(--bad);}
+
+  .breakdown{margin-bottom:22px;}
+  .breakdown h3{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:12px;}
+  .bd-row{margin-bottom:14px;}
+  .bd-row .bd-label{display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;margin-bottom:5px;}
+  .bd-track{height:9px;background:var(--line);border-radius:99px;overflow:hidden;}
+  .bd-fill{height:100%;border-radius:99px;background:var(--amber);}
+
+  .block{margin-bottom:18px;padding:16px;border-radius:10px;background:#FAF7EF;border:1px solid var(--line);}
+  .block h4{margin:0 0 8px;font-size:14px;color:var(--navy);}
+  .block ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--ink);}
+  .block li{margin-bottom:6px;}
+
+  .dim-heading{font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:26px 0 12px;}
+  .dim-card{border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:14px;background:#fff;}
+  .dim-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+  .dim-name{font-size:14.5px;font-weight:700;color:var(--navy);}
+  .dim-pct{font-size:14.5px;font-weight:800;color:var(--navy);}
+  .dim-track{height:9px;background:var(--line);border-radius:99px;overflow:hidden;margin-bottom:10px;}
+  .dim-fill{height:100%;border-radius:99px;}
+  .dim-fill.lvl-good{background:var(--good);}
+  .dim-fill.lvl-warn{background:var(--warn);}
+  .dim-fill.lvl-bad{background:var(--bad);}
+  .dim-status{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;margin-bottom:10px;}
+  .dim-status.lvl-good{background:#E6F4EB;color:var(--good);}
+  .dim-status.lvl-warn{background:#FCF0DF;color:var(--warn);}
+  .dim-status.lvl-bad{background:#FBE9E9;color:var(--bad);}
+  .dim-tip{font-size:13px;color:var(--ink);background:#FAF7EF;border-radius:8px;padding:10px 12px;margin:0;}
+  .dim-tip b{color:var(--navy);}
+
+  footer.site-footer{
+    text-align:center;padding:26px 18px 40px;color:var(--muted);font-size:12.5px;border-top:1px solid var(--line);margin-top:10px;
+  }
+  footer.site-footer .motto{color:var(--amber-dark);font-weight:700;margin-bottom:6px;font-size:13px;}
+  footer.site-footer a{color:var(--navy);text-decoration:none;font-weight:600;}
+
+  @media print{
+    header.top, .lang-toggle, .btn-row, .q-nav, .no-print{display:none !important;}
+    body{background:#fff;}
+    .card{box-shadow:none;border:none;margin-top:0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="brand-row">
+    <div>
+      <div class="brand-name" data-en="Students Empowerment Program" data-ta="மாணவர் மேம்பாட்டுத் திட்டம்">Students Empowerment Program</div>
+      <div class="brand-sub" data-en="by NT Somasundaram Life Skills Academy" data-ta="NT சோமசுந்தரம் வாழ்க்கைத் திறன்கள் அகாடமி">by NT Somasundaram Life Skills Academy</div>
+    </div>
+    <div class="lang-toggle no-print">
+      <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+      <button id="btn-ta" onclick="setLang('ta')">தமிழ்</button>
+    </div>
+  </div>
+  <div class="hero">
+    <div class="clock-mark"></div>
+    <h1 data-en="Time Management Self-Assessment" data-ta="நேர மேலாண்மை சுயமதிப்பீடு">Time Management Self-Assessment</h1>
+    <p data-en="Discover how well you manage your time, and get a personalised report with practical tips to improve." data-ta="நீங்கள் உங்கள் நேரத்தை எவ்வளவு திறமையாக நிர்வகிக்கிறீர்கள் என்பதைக் கண்டறியுங்கள், மேம்படுத்த நடைமுறை குறிப்புகளுடன் தனிப்பயன் அறிக்கையைப் பெறுங்கள்.">Discover how well you manage your time, and get a personalised report with practical tips to improve.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="card">
+
+    <!-- SCREEN 0: INTAKE -->
+    <div class="screen active" id="screen-intake">
+      <h2 class="section-title" data-en="Before we begin" data-ta="தொடங்குவதற்கு முன்">Before we begin</h2>
+      <p class="section-desc" data-en="Please share your details so we can send you your personalised report." data-ta="உங்கள் தனிப்பயன் அறிக்கையை அனுப்ப உங்கள் விவரங்களைப் பகிரவும்.">Please share your details so we can send you your personalised report.</p>
+
+      <label data-en="Full Name" data-ta="முழு பெயர்">Full Name</label>
+      <input type="text" id="inp-name" placeholder="">
+      <div class="err" id="err-name" data-en="Please enter your name" data-ta="உங்கள் பெயரை உள்ளிடவும்">Please enter your name</div>
+
+      <label data-en="Mobile Number" data-ta="மொபைல் எண்">Mobile Number</label>
+      <input type="tel" id="inp-mobile" placeholder="">
+      <div class="err" id="err-mobile" data-en="Please enter a valid 10-digit mobile number" data-ta="சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்">Please enter a valid 10-digit mobile number</div>
+
+      <label data-en="School / College Name" data-ta="பள்ளி / கல்லூரி பெயர்">School / College Name</label>
+      <input type="text" id="inp-school" placeholder="">
+
+      <label data-en="Class / Standard" data-ta="வகுப்பு">Class / Standard</label>
+      <input type="text" id="inp-class" placeholder="">
+
+      <button class="btn amber" onclick="startAssessment()" data-en="Start Assessment →" data-ta="மதிப்பீட்டைத் தொடங்கு →">Start Assessment →</button>
+    </div>
+
+    <!-- SCREEN 1: QUESTIONS -->
+    <div class="screen" id="screen-quiz">
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="q-counter"><span id="q-num">1</span> / <span id="q-total">12</span></div>
+      <div class="q-text" id="q-text"></div>
+      <div class="scale" id="scale-options"></div>
+      <div class="q-nav">
+        <button class="btn outline" id="btn-prev" onclick="prevQ()" data-en="← Back" data-ta="← பின்னால்">← Back</button>
+        <button class="btn amber" id="btn-next" onclick="nextQ()" disabled data-en="Next →" data-ta="அடுத்து →">Next →</button>
+      </div>
+    </div>
+
+    <!-- SCREEN 2: REPORT -->
+    <div class="screen" id="screen-report">
+      <h2 class="section-title" data-en="Your Time Management Report" data-ta="உங்கள் நேர மேலாண்மை அறிக்கை">Your Time Management Report</h2>
+      <p class="section-desc" id="report-name-line"></p>
+
+      <div class="score-hero">
+        <div class="score-big"><span id="score-pct"></span><span>%</span></div>
+        <div data-en="Time Management Score" data-ta="நேர மேலாண்மை மதிப்பெண்">Time Management Score</div>
+        <div class="score-tag" id="score-tag"></div>
+      </div>
+
+      <div class="breakdown">
+        <h3 data-en="Skill Breakdown" data-ta="திறன் பகுப்பாய்வு">Skill Breakdown</h3>
+        <div id="breakdown-rows"></div>
+      </div>
+
+      <h3 class="dim-heading" data-en="Dimension-wise Report" data-ta="பரிமாண வாரியான அறிக்கை">Dimension-wise Report</h3>
+      <div id="dimension-cards"></div>
+
+      <div class="block">
+        <h4 data-en="✅ Overall Strengths" data-ta="✅ ஒட்டுமொத்த பலங்கள்">✅ Overall Strengths</h4>
+        <ul id="strengths-list"></ul>
+      </div>
+
+      <div class="block">
+        <h4 data-en="🎯 Overall Areas to Improve" data-ta="🎯 ஒட்டுமொத்தமாக மேம்படுத்த வேண்டிய பகுதிகள்">🎯 Overall Areas to Improve</h4>
+        <ul id="improve-list"></ul>
+      </div>
+
+      <div class="btn-row no-print">
+        <button class="btn outline" onclick="window.print()" data-en="🖨 Download / Print PDF" data-ta="🖨 PDF பதிவிறக்கம்">🖨 Download / Print PDF</button>
+        <button class="btn amber" id="whatsapp-btn" onclick="sendWhatsApp()" data-en="📲 Share on WhatsApp" data-ta="📲 WhatsApp-இல் பகிரவும்">📲 Share on WhatsApp</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="motto">God is always with u 🙏</div>
+    <div data-en="NT Somasundaram &middot; Certified Master Trainer &amp; Life Skills Educator" data-ta="NT சோமசுந்தரம் &middot; சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் &amp; வாழ்க்கைத் திறன் கல்வியாளர்">NT Somasundaram &middot; Certified Master Trainer &amp; Life Skills Educator</div>
+    <div style="margin-top:6px;">📞 +91 98437 02244 &nbsp;|&nbsp; ✉️ <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+  </footer>
+</div>
+
+<script>
+/* ============ CONFIG ============ */
+// TODO: Replace with your deployed Apps Script Web App URL (see setup-instructions.md)
+const SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+
+/* ============ LANGUAGE ============ */
+let currentLang = 'en';
+function setLang(lang){
+  currentLang = lang;
+  document.body.classList.toggle('lang-ta', lang === 'ta');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-ta').classList.toggle('active', lang === 'ta');
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = el.getAttribute('data-' + lang);
+  });
+  if(document.getElementById('screen-quiz').classList.contains('active')){
+    renderQuestion();
+  }
+  if(document.getElementById('screen-report').classList.contains('active')){
+    showReport();
+  }
+}
+
+/* ============ QUESTIONS DATA ============ */
+// 12 questions across 4 sub-skills of time management
+const QUESTIONS = [
+  {sub:'planning', en:"I plan my day or week in advance using a list, timetable, or planner.", ta:"நான் ஒரு பட்டியல், கால அட்டவணை அல்லது திட்டமிடல் கருவியைப் பயன்படுத்தி எனது நாள் அல்லது வாரத்தை முன்கூட்டியே திட்டமிடுகிறேன்."},
+  {sub:'planning', en:"I set clear, realistic goals for my study sessions.", ta:"எனது படிப்பு நேரங்களுக்கு தெளிவான, யதார்த்தமான இலக்குகளை நிர்ணயிக்கிறேன்."},
+  {sub:'planning', en:"I know which tasks are most important and do them first.", ta:"எந்த பணிகள் மிக முக்கியமானவை என்பதை அறிந்து அவற்றை முதலில் செய்கிறேன்."},
+  {sub:'prioritization', en:"I am able to say no to distractions when I have important work to finish.", ta:"முக்கியமான வேலையை முடிக்க வேண்டியிருக்கும்போது கவனச்சிதறல்களுக்கு 'இல்லை' என்று சொல்ல முடியும்."},
+  {sub:'prioritization', en:"I focus on one task at a time instead of switching between many.", ta:"பல பணிகளுக்கு இடையே மாறுவதற்குப் பதிலாக ஒரு நேரத்தில் ஒரு பணியில் கவனம் செலுத்துகிறேன்."},
+  {sub:'prioritization', en:"I rarely leave important assignments until the last moment.", ta:"முக்கியமான பணிகளை கடைசி நேரம் வரை விட்டுவைப்பது அரிது."},
+  {sub:'execution', en:"I complete tasks within the time I originally planned for them.", ta:"நான் திட்டமிட்ட நேரத்திற்குள் பணிகளை முடிக்கிறேன்."},
+  {sub:'execution', en:"I avoid procrastinating (delaying) on things I find difficult or boring.", ta:"கடினமான அல்லது சலிப்பான விஷயங்களை தாமதப்படுத்துவதை தவிர்க்கிறேன்."},
+  {sub:'execution', en:"I take short, planned breaks instead of getting distracted randomly.", ta:"தற்செயலாக கவனச்சிதறல் அடைவதற்குப் பதிலாக, திட்டமிட்ட சிறிய ஓய்வு நேரங்களை எடுக்கிறேன்."},
+  {sub:'balance', en:"I balance my study time with rest, sleep, and physical activity well.", ta:"படிப்பு நேரத்தை ஓய்வு, தூக்கம், உடற்பயிற்சியுடன் சரியாக சமநிலைப்படுத்துகிறேன்."},
+  {sub:'balance', en:"I feel in control of my schedule rather than overwhelmed by it.", ta:"எனது கால அட்டவணையால் பாதிக்கப்படுவதை விட அதைக் கட்டுப்படுத்துகிறேன் என உணர்கிறேன்."},
+  {sub:'balance', en:"I review how I spent my time and adjust my plans for next time.", ta:"நான் எனது நேரத்தை எவ்வாறு செலவிட்டேன் என்பதை மதிப்பாய்வு செய்து அடுத்த முறை திட்டங்களை சரிசெய்கிறேன்."}
+];
+
+const SCALE_LABELS = [
+  {en:"Never", ta:"ஒருபோதும் இல்லை", val:1},
+  {en:"Rarely", ta:"அரிதாக", val:2},
+  {en:"Sometimes", ta:"சில நேரங்களில்", val:3},
+  {en:"Often", ta:"பெரும்பாலும்", val:4},
+  {en:"Always", ta:"எப்போதும்", val:5}
+];
+
+const SUB_LABELS = {
+  planning:      {en:"Planning", ta:"திட்டமிடல்"},
+  prioritization:{en:"Prioritisation & Focus", ta:"முன்னுரிமை & கவனம்"},
+  execution:     {en:"Execution & Discipline", ta:"செயல்படுத்துதல் & ஒழுக்கம்"},
+  balance:       {en:"Balance & Review", ta:"சமநிலை & மதிப்பாய்வு"}
+};
+
+// Personalized tip text per dimension, per performance level (good / warn / bad)
+const DIMENSION_TIPS = {
+  planning: {
+    good:{en:"You plan ahead consistently. Keep refining your planner with weekly reviews to stay even sharper.", ta:"நீங்கள் தொடர்ந்து முன்கூட்டியே திட்டமிடுகிறீர்கள். இன்னும் கூர்மையாக இருக்க வாராந்திர மதிப்பாய்வுகளுடன் உங்கள் திட்டத்தைச் செம்மைப்படுத்துங்கள்."},
+    warn:{en:"Your planning is inconsistent. Try writing a simple daily plan each morning before you start work.", ta:"உங்கள் திட்டமிடல் நிலையற்றது. வேலையைத் தொடங்கும் முன் ஒவ்வொரு காலையும் எளிய தினசரி திட்டத்தை எழுதிப் பாருங்கள்."},
+    bad:{en:"Planning needs real attention. Start small: list just 3 tasks for tomorrow before you sleep tonight.", ta:"திட்டமிடலுக்கு கவனம் தேவை. சிறிதாகத் தொடங்குங்கள்: இன்று இரவு தூங்குவதற்கு முன் நாளைய 3 பணிகளை மட்டும் பட்டியலிடுங்கள்."}
+  },
+  prioritization: {
+    good:{en:"You focus well on what matters. Protect this strength by blocking distraction-free time for top tasks.", ta:"முக்கியமானவற்றில் நீங்கள் நன்கு கவனம் செலுத்துகிறீர்கள். முக்கிய பணிகளுக்கு கவனச்சிதறல் இல்லாத நேரத்தை ஒதுக்கி இந்த பலத்தைப் பாதுகாக்கவும்."},
+    warn:{en:"You sometimes lose focus. Identify your top 3 priorities each day and tackle the hardest one first.", ta:"சில நேரங்களில் கவனம் சிதறுகிறது. ஒவ்வொரு நாளும் உங்கள் முக்கிய 3 முன்னுரிமைகளை அடையாளம் கண்டு, கடினமானதை முதலில் செய்யுங்கள்."},
+    bad:{en:"Distractions are taking over. Turn off phone notifications during study time and use a 'Do Not Disturb' rule.", ta:"கவனச்சிதறல்கள் ஆதிக்கம் செலுத்துகின்றன. படிக்கும் நேரத்தில் மொபைல் அறிவிப்புகளை அணைத்து 'தொந்தரவு செய்ய வேண்டாம்' விதியைப் பின்பற்றுங்கள்."}
+  },
+  execution: {
+    good:{en:"You follow through with discipline. Keep using timed work blocks to maintain this momentum.", ta:"நீங்கள் ஒழுக்கத்துடன் பின்பற்றுகிறீர்கள். இந்த வேகத்தைத் தொடர நேரம் குறிக்கப்பட்ட வேலை பகுதிகளைப் பயன்படுத்தத் தொடருங்கள்."},
+    warn:{en:"You sometimes delay tasks. Try the Pomodoro method: 25 minutes focused work, then a 5-minute break.", ta:"சில நேரங்களில் பணிகளை தாமதப்படுத்துகிறீர்கள். போமோடோரோ முறையை முயற்சிக்கவும்: 25 நிமிடம் கவனத்துடன் வேலை, பின் 5 நிமிட ஓய்வு."},
+    bad:{en:"Procrastination is a challenge for you. Break tasks into tiny 10-minute steps to make starting easier.", ta:"தாமதப்படுத்துதல் உங்களுக்கு ஒரு சவாலாக உள்ளது. தொடங்குவதை எளிதாக்க பணிகளை 10 நிமிட சிறிய படிகளாகப் பிரியுங்கள்."}
+  },
+  balance: {
+    good:{en:"You balance work and rest well. Keep protecting your sleep and downtime as your routines grow busier.", ta:"வேலை மற்றும் ஓய்வை நீங்கள் நன்கு சமநிலைப்படுத்துகிறீர்கள். வேலைப்பளு அதிகரிக்கும்போதும் தூக்கம் மற்றும் ஓய்வு நேரத்தைப் பாதுகாத்துக் கொள்ளுங்கள்."},
+    warn:{en:"Your balance dips sometimes. Fix a regular sleep time and take short breaks between study sessions.", ta:"உங்கள் சமநிலை சில நேரங்களில் குறைகிறது. ஒரு நிலையான தூக்க நேரத்தை நிர்ணயித்து, படிப்பு நேரங்களுக்கு இடையே சிறிய இடைவெளி எடுங்கள்."},
+    bad:{en:"You may be overextending yourself. Schedule fixed rest and sleep hours and treat them as non-negotiable.", ta:"நீங்கள் தேவைக்கு அதிகமாக உழைக்கலாம். நிலையான ஓய்வு மற்றும் தூக்க நேரங்களை திட்டமிட்டு அவற்றை மாற்ற முடியாதவையாகக் கருதுங்கள்."}
+  }
+};
+
+let answers = new Array(QUESTIONS.length).fill(null);
+let currentQ = 0;
+let studentData = {};
+
+/* ============ INTAKE ============ */
+function startAssessment(){
+  const name = document.getElementById('inp-name').value.trim();
+  const mobile = document.getElementById('inp-mobile').value.trim();
+  const school = document.getElementById('inp-school').value.trim();
+  const cls = document.getElementById('inp-class').value.trim();
+
+  let ok = true;
+  if(!name){ document.getElementById('err-name').style.display='block'; ok=false; } else { document.getElementById('err-name').style.display='none'; }
+  if(!/^[0-9]{10}$/.test(mobile)){ document.getElementById('err-mobile').style.display='block'; ok=false; } else { document.getElementById('err-mobile').style.display='none'; }
+  if(!ok) return;
+
+  studentData = {name, mobile, school, cls};
+  document.getElementById('screen-intake').classList.remove('active');
+  document.getElementById('screen-quiz').classList.add('active');
+  document.getElementById('q-total').textContent = QUESTIONS.length;
+  renderQuestion();
+}
+
+/* ============ QUIZ ============ */
+function renderQuestion(){
+  const q = QUESTIONS[currentQ];
+  document.getElementById('q-num').textContent = currentQ + 1;
+  document.getElementById('q-text').textContent = currentLang === 'en' ? q.en : q.ta;
+  document.getElementById('progress-fill').style.width = ((currentQ) / QUESTIONS.length * 100) + '%';
+
+  const wrap = document.getElementById('scale-options');
+  wrap.innerHTML = '';
+  SCALE_LABELS.forEach(opt => {
+    const div = document.createElement('div');
+    div.className = 'scale-opt' + (answers[currentQ] === opt.val ? ' selected' : '');
+    div.innerHTML = `<div class="num">${opt.val}</div><div class="opt-label">${currentLang==='en'?opt.en:opt.ta}</div>`;
+    div.onclick = () => selectAnswer(opt.val);
+    wrap.appendChild(div);
+  });
+
+  document.getElementById('btn-prev').style.visibility = currentQ === 0 ? 'hidden' : 'visible';
+  document.getElementById('btn-next').disabled = answers[currentQ] === null;
+  document.getElementById('btn-next').innerHTML = currentQ === QUESTIONS.length - 1
+    ? (currentLang==='en' ? 'See My Report →' : 'எனது அறிக்கையைப் பார் →')
+    : (currentLang==='en' ? 'Next →' : 'அடுத்து →');
+}
+
+function selectAnswer(val){
+  answers[currentQ] = val;
+  renderQuestion();
+}
+
+function prevQ(){
+  if(currentQ > 0){ currentQ--; renderQuestion(); }
+}
+
+function nextQ(){
+  if(answers[currentQ] === null) return;
+  if(currentQ < QUESTIONS.length - 1){
+    currentQ++;
+    renderQuestion();
+  } else {
+    showReport();
+  }
+}
+
+/* ============ SCORING & REPORT ============ */
+function showReport(){
+  document.getElementById('screen-quiz').classList.remove('active');
+  document.getElementById('screen-report').classList.add('active');
+
+  // Per-subskill scores
+  const subs = {planning:[], prioritization:[], execution:[], balance:[]};
+  QUESTIONS.forEach((q, i) => subs[q.sub].push(answers[i]));
+
+  const subScores = {};
+  Object.keys(subs).forEach(key => {
+    const arr = subs[key];
+    const sum = arr.reduce((a,b)=>a+b,0);
+    subScores[key] = Math.round((sum / (arr.length * 5)) * 100);
+  });
+
+  const totalSum = answers.reduce((a,b)=>a+b,0);
+  const overallPct = Math.round((totalSum / (QUESTIONS.length * 5)) * 100);
+
+  document.getElementById('score-pct').textContent = overallPct;
+
+  const nameLine = currentLang==='en'
+    ? `Report for ${studentData.name}${studentData.school ? ' · ' + studentData.school : ''}`
+    : `${studentData.name}${studentData.school ? ' · ' + studentData.school : ''} - அறிக்கை`;
+  document.getElementById('report-name-line').textContent = nameLine;
+
+  // Tag
+  let tagClass, tagText;
+  if(overallPct >= 75){ tagClass='tag-good'; tagText = currentLang==='en' ? 'Strong Time Manager' : 'சிறந்த நேர மேலாளர்'; }
+  else if(overallPct >= 50){ tagClass='tag-warn'; tagText = currentLang==='en' ? 'Developing Time Manager' : 'வளர்ந்து வரும் நேர மேலாளர்'; }
+  else { tagClass='tag-bad'; tagText = currentLang==='en' ? 'Needs Focused Improvement' : 'கவனம் தேவைப்படுகிறது'; }
+  const tagEl = document.getElementById('score-tag');
+  tagEl.className = 'score-tag ' + tagClass;
+  tagEl.textContent = tagText;
+
+  // Breakdown bars
+  const bdWrap = document.getElementById('breakdown-rows');
+  bdWrap.innerHTML = '';
+  Object.keys(subScores).forEach(key => {
+    const label = currentLang==='en' ? SUB_LABELS[key].en : SUB_LABELS[key].ta;
+    const pct = subScores[key];
+    const row = document.createElement('div');
+    row.className = 'bd-row';
+    row.innerHTML = `<div class="bd-label"><span>${label}</span><span>${pct}%</span></div>
+      <div class="bd-track"><div class="bd-fill" style="width:${pct}%"></div></div>`;
+    bdWrap.appendChild(row);
+  });
+
+  // Dimension-wise report cards (bar + status + personalized tip per dimension)
+  const dimWrap = document.getElementById('dimension-cards');
+  dimWrap.innerHTML = '';
+  Object.keys(subScores).forEach(key => {
+    const pct = subScores[key];
+    let level, statusEn, statusTa;
+    if(pct >= 70){ level='good'; statusEn='Strong'; statusTa='சிறந்தது'; }
+    else if(pct >= 45){ level='warn'; statusEn='Developing'; statusTa='வளர்ந்து வருகிறது'; }
+    else { level='bad'; statusEn='Needs Focus'; statusTa='கவனம் தேவை'; }
+
+    const label = currentLang==='en' ? SUB_LABELS[key].en : SUB_LABELS[key].ta;
+    const status = currentLang==='en' ? statusEn : statusTa;
+    const tip = currentLang==='en' ? DIMENSION_TIPS[key][level].en : DIMENSION_TIPS[key][level].ta;
+    const tipLabel = currentLang==='en' ? 'Tip' : 'குறிப்பு';
+
+    const card = document.createElement('div');
+    card.className = 'dim-card';
+    card.innerHTML = `
+      <div class="dim-top"><span class="dim-name">${label}</span><span class="dim-pct">${pct}%</span></div>
+      <div class="dim-track"><div class="dim-fill lvl-${level}" style="width:${pct}%"></div></div>
+      <span class="dim-status lvl-${level}">${status}</span>
+      <p class="dim-tip"><b>${tipLabel}:</b> ${tip}</p>
+    `;
+    dimWrap.appendChild(card);
+  });
+
+  // Overall strengths / improvement summary lists
+  const STRENGTH_TEXT = {
+    planning:{en:"You plan your tasks and goals well in advance.", ta:"நீங்கள் உங்கள் பணிகளையும் இலக்குகளையும் நன்கு முன்கூட்டியே திட்டமிடுகிறீர்கள்."},
+    prioritization:{en:"You're good at focusing on what matters most and avoiding distraction.", ta:"முக்கியமானவற்றில் கவனம் செலுத்தி கவனச்சிதறலைத் தவிர்ப்பதில் நீங்கள் சிறந்தவர்."},
+    execution:{en:"You follow through and complete tasks with discipline.", ta:"நீங்கள் ஒழுக்கத்துடன் பணிகளை முடிக்கிறீர்கள்."},
+    balance:{en:"You maintain a healthy balance between work, rest and reflection.", ta:"வேலை, ஓய்வு மற்றும் சிந்தனைக்கு இடையே ஆரோக்கியமான சமநிலையை பராமரிக்கிறீர்கள்."}
+  };
+  const IMPROVE_TEXT = {
+    planning:{en:"Planning ahead — try writing a daily plan before you start your day.", ta:"முன்கூட்டியே திட்டமிடுதல் — நாள் தொடங்குவதற்கு முன் தினசரி திட்டத்தை எழுதிப் பாருங்கள்."},
+    prioritization:{en:"Prioritising tasks — identify your top 3 important tasks each day.", ta:"பணிகளுக்கு முன்னுரிமை அளித்தல் — ஒவ்வொரு நாளும் உங்கள் முக்கிய 3 பணிகளை அடையாளம் காணவும்."},
+    execution:{en:"Sticking to your plan — break big tasks into smaller, timed chunks.", ta:"உங்கள் திட்டத்தைப் பின்பற்றுதல் — பெரிய பணிகளை சிறிய, நேரம் குறிக்கப்பட்ட பகுதிகளாகப் பிரிக்கவும்."},
+    balance:{en:"Balancing rest and work — schedule fixed time for sleep and breaks.", ta:"ஓய்வு மற்றும் வேலையை சமநிலைப்படுத்துதல் — தூக்கம் மற்றும் ஓய்விற்கு நிலையான நேரத்தை திட்டமிடவும்."}
+  };
+
+  const sorted = Object.entries(subScores).sort((a,b)=>b[1]-a[1]);
+  const strengths = sorted.filter(([k,v])=>v>=65).map(([k])=>k);
+  const weak = sorted.filter(([k,v])=>v<65).map(([k])=>k);
+  if(strengths.length===0) strengths.push(sorted[0][0]);
+  if(weak.length===0) weak.push(sorted[sorted.length-1][0]);
+
+  document.getElementById('strengths-list').innerHTML =
+    strengths.map(k=>`<li>${currentLang==='en'?STRENGTH_TEXT[k].en:STRENGTH_TEXT[k].ta}</li>`).join('');
+  document.getElementById('improve-list').innerHTML =
+    weak.map(k=>`<li>${currentLang==='en'?IMPROVE_TEXT[k].en:IMPROVE_TEXT[k].ta}</li>`).join('');
+
+  // store for whatsapp + sheet submission
+  studentData.overallPct = overallPct;
+  studentData.subScores = subScores;
+  studentData.tagText = tagText;
+
+  if(!studentData._submitted){
+    submitToSheet();
+    studentData._submitted = true;
+  }
+}
+
+/* ============ GOOGLE SHEETS SUBMISSION ============ */
+function submitToSheet(){
+  if(!SCRIPT_URL || SCRIPT_URL.indexOf('PASTE_YOUR') === 0){
+    console.warn('Apps Script URL not configured yet. Skipping submission.');
+    return;
+  }
+  const params = new URLSearchParams({
+    name: studentData.name,
+    mobile: studentData.mobile,
+    school: studentData.school,
+    class: studentData.cls,
+    overall: studentData.overallPct,
+    planning: studentData.subScores.planning,
+    prioritization: studentData.subScores.prioritization,
+    execution: studentData.subScores.execution,
+    balance: studentData.subScores.balance,
+    tag: studentData.tagText,
+    timestamp: new Date().toLocaleString('en-IN')
+  });
+  // GET-based pixel trick to bypass CORS, matching existing toolkit pattern
+  const img = new Image();
+  img.src = SCRIPT_URL + '?' + params.toString();
+}
+
+/* ============ WHATSAPP ============ */
+function sendWhatsApp(){
+  const msg = currentLang === 'en'
+    ? `Hi! I just completed the Time Management Self-Assessment.\nName: ${studentData.name}\nScore: ${studentData.overallPct}% (${studentData.tagText})\n- Students Empowerment Program`
+    : `வணக்கம்! நான் நேர மேலாண்மை சுயமதிப்பீட்டை முடித்தேன்.\nபெயர்: ${studentData.name}\nமதிப்பெண்: ${studentData.overallPct}% (${studentData.tagText})\n- மாணவர் மேம்பாட்டுத் திட்டம்`;
+  const url = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+  window.open(url, '_blank');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Skills Mastery for High School Students | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF8F0; --panel:#FFFFFF; --ink:#2B2118; --sub:#6B5D4F;
+  --clay:#C1602A; --clay-dark:#9C4A1E; --gold:#D9A441; --sage:#6B8F71;
+  --sky:#4A7A8C; --border:#EADFD0; --shadow:0 4px 20px rgba(43,33,24,0.08);
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.65;}
+.tamil,[lang="ta"]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+a{color:inherit;}
+[lang-block]{display:none;}
+[lang-block].lang-active{display:block;}
+span[lang-block].lang-active{display:inline;}
+li[lang-block].lang-active{display:list-item;}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,248,240,0.92);backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--border);padding:14px 20px;display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:10px;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.brand-mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--clay),var(--gold));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:16px;flex-shrink:0;}
+.brand-text b{display:block;font-size:14px;}
+.brand-text span{font-size:11px;color:var(--sub);}
+.controls{display:flex;gap:10px;align-items:center;}
+.lang-toggle{display:flex;background:var(--panel);border:1px solid var(--border);border-radius:20px;overflow:hidden;}
+.lang-toggle button{border:none;background:transparent;padding:8px 16px;font-family:inherit;font-weight:600;
+  font-size:13px;color:var(--sub);cursor:pointer;}
+.lang-toggle button.active{background:var(--clay);color:#fff;}
+.btn-nav-cta{background:var(--clay);color:#fff;text-decoration:none;padding:9px 18px;border-radius:20px;
+  font-weight:700;font-size:13px;}
+
+/* Hero */
+.hero{max-width:920px;margin:0 auto;padding:60px 20px 20px;text-align:center;}
+.hero-badge{display:inline-block;font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);
+  font-weight:700;background:#FBF3E8;border:1px solid #EFD8B8;padding:6px 16px;border-radius:20px;margin-bottom:20px;}
+.hero h1{font-size:clamp(30px,6vw,52px);font-weight:800;line-height:1.15;margin:0 0 18px;}
+.hero .lead{font-size:17px;color:var(--sub);max-width:620px;margin:0 auto 30px;}
+.hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:16px;}
+.btn{border:none;border-radius:12px;padding:14px 26px;font-family:inherit;font-weight:700;font-size:15px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary{background:var(--clay);color:#fff;}
+.btn-primary:hover{background:var(--clay-dark);}
+.btn-outline{background:transparent;border:1.5px solid var(--clay);color:var(--clay);}
+.btn-whatsapp{background:#25D366;color:#fff;}
+.motto{font-style:italic;color:var(--clay-dark);font-weight:600;font-size:14px;margin-top:10px;}
+
+/* Stats strip */
+.stats-strip{max-width:880px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.stat-box{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:18px 10px;text-align:center;}
+.stat-box .num{font-size:24px;font-weight:800;color:var(--clay);}
+.stat-box .label{font-size:11px;color:var(--sub);font-weight:600;margin-top:4px;}
+
+/* Section shell */
+section{max-width:920px;margin:0 auto;padding:50px 20px;}
+.section-eyebrow{font-size:11.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--clay);font-weight:700;margin-bottom:10px;text-align:center;}
+.section-title{font-size:clamp(22px,4vw,32px);font-weight:800;text-align:center;margin:0 0 14px;}
+.section-lead{text-align:center;color:var(--sub);font-size:15px;max-width:600px;margin:0 auto 36px;}
+
+/* Why it matters */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;}
+.why-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:22px;box-shadow:var(--shadow);}
+.why-icon{font-size:26px;margin-bottom:10px;}
+.why-card h3{font-size:15.5px;margin:0 0 8px;}
+.why-card p{font-size:13.5px;color:var(--sub);margin:0;}
+
+/* Module list */
+.module-grid{display:flex;flex-direction:column;gap:12px;}
+.module-row{display:flex;align-items:flex-start;gap:16px;background:var(--panel);border:1px solid var(--border);
+  border-radius:14px;padding:18px 20px;}
+.module-row .m-num{min-width:42px;height:42px;border-radius:11px;background:var(--cream);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--clay);flex-shrink:0;}
+.module-row .m-text b{font-size:15px;display:block;margin-bottom:3px;}
+.module-row .m-text span{font-size:13px;color:var(--sub);}
+
+/* How it works */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.step{text-align:center;}
+.step-num{width:46px;height:46px;border-radius:50%;background:var(--clay);color:#fff;font-weight:800;font-size:17px;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
+.step h4{font-size:14.5px;margin:0 0 6px;}
+.step p{font-size:12.5px;color:var(--sub);margin:0;}
+
+/* Instructor */
+.instructor-card{background:var(--panel);border:1px solid var(--border);border-radius:18px;padding:30px;
+  display:flex;gap:22px;align-items:center;flex-wrap:wrap;box-shadow:var(--shadow);}
+.instructor-avatar{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,var(--clay),var(--gold));
+  display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:26px;flex-shrink:0;}
+.instructor-text{flex:1;min-width:220px;}
+.instructor-text h3{margin:0 0 4px;font-size:17px;}
+.instructor-text .role{font-size:12.5px;color:var(--clay);font-weight:700;margin-bottom:10px;}
+.instructor-text p{font-size:13.5px;color:var(--sub);margin:0;}
+
+/* FAQ */
+.faq-item{background:var(--panel);border:1px solid var(--border);border-radius:12px;margin-bottom:12px;overflow:hidden;}
+.faq-q{padding:16px 20px;font-weight:600;font-size:14.5px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.faq-chevron{color:var(--clay);transition:.2s;}
+.faq-item.open .faq-chevron{transform:rotate(180deg);}
+.faq-a{display:none;padding:0 20px 16px;font-size:13.5px;color:var(--sub);}
+.faq-item.open .faq-a{display:block;}
+
+/* Final CTA */
+.final-cta{background:linear-gradient(135deg,#FBF3E8,var(--cream));border:1px solid var(--border);border-radius:20px;
+  padding:44px 30px;text-align:center;}
+.final-cta h2{font-size:clamp(22px,4vw,30px);margin:0 0 12px;}
+.final-cta p{color:var(--sub);font-size:15px;max-width:520px;margin:0 auto 24px;}
+
+/* Footer */
+footer{max-width:920px;margin:0 auto;padding:30px 20px 60px;text-align:center;}
+.footer-motto{font-style:italic;color:var(--sub);font-size:13px;margin-top:10px;}
+.footer-contact{font-size:12.5px;color:var(--sub);margin-top:6px;}
+.footer-links{display:flex;gap:16px;justify-content:center;margin-top:14px;flex-wrap:wrap;}
+.footer-links a{font-size:12.5px;font-weight:600;color:var(--clay);text-decoration:none;}
+
+@media(max-width:640px){
+  .stats-strip{grid-template-columns:repeat(2,1fr);}
+  .instructor-card{flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a class="brand" href="https://somasundaramntlifecoach-ux.github.io/teacher/studentlifeskills/index.html">
+    <div class="brand-mark">LS</div>
+    <div class="brand-text">
+      <b lang-block="en" class="lang-active">Life Skills Mastery</b>
+      <b lang-block="ta">வாழ்க்கை திறன் தேர்ச்சி</b>
+      <span lang-block="en" class="lang-active">NT Somasundaram Life Skills Program</span>
+      <span lang-block="ta">என்.டி. சோமசுந்தரம் திட்டம்</span>
+    </div>
+  </a>
+  <div class="controls">
+    <div class="lang-toggle">
+      <button id="btnEN" class="active" onclick="setLang('en')">EN</button>
+      <button id="btnTA" onclick="setLang('ta')">தமிழ்</button>
+    </div>
+    <a class="btn-nav-cta" href="https://somasundaramntlifecoach-ux.github.io/teacher/studentlifeskills/index.html">
+      <span lang-block="en" class="lang-active">Start Course</span><span lang-block="ta">பாடத்தைத் தொடங்கு</span>
+    </a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">
+    <span lang-block="en" class="lang-active">BILINGUAL · SELF-PACED</span>
+    <span lang-block="ta">இருமொழி · சுய வேகம்</span>
+  </div>
+  <h1 lang-block="en" class="lang-active">Help Your Teen Build the Life Skills<br>School Doesn't Teach</h1>
+  <h1 lang-block="ta">பள்ளி கற்பிக்காத வாழ்க்கை திறன்களை<br>உங்கள் இளம் வயதினருக்கு கற்பியுங்கள்</h1>
+  <p class="lead" lang-block="en" class="lang-active">A bilingual (English/Tamil) 10-module online course for high school students (ages 15–18) — covering emotional intelligence, decision-making, communication, stress management, career awareness, and more. With real examples, practical tips, and self-assessments at every step.</p>
+  <p class="lead" lang-block="ta">உயர்நிலைப் பள்ளி மாணவர்களுக்கான (வயது 15–18), இருமொழி (ஆங்கிலம்/தமிழ்) 10 பாட ஆன்லைன் பாடநெறி — உணர்ச்சி நுண்ணறிவு, முடிவெடுத்தல், தொடர்பாடல், மன அழுத்த மேலாண்மை, தொழில் விழிப்புணர்வு மற்றும் பலவற்றை உள்ளடக்கியது.</p>
+  <div class="hero-ctas">
+    <a class="btn btn-primary" href="https://somasundaramntlifecoach-ux.github.io/teacher/studentlifeskills/index.html">
+      🚀 <span lang-block="en" class="lang-active">Start the Course </span><span lang-block="ta">பாடத்தைத் தொடங்கு</span>
+    </a>
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi%20Sir%2C%20I%20have%20a%20question%20about%20the%20Life%20Skills%20course%20for%20students" target="_blank">
+      💬 <span lang-block="en" class="lang-active">Ask a Question</span><span lang-block="ta">கேள்வி கேட்கவும்</span>
+    </a>
+  </div>
+  <p class="motto" lang-block="en" class="lang-active">"God is always with u" — N T Somasundaram</p>
+  <p class="motto" lang-block="ta">"கடவுள் எப்போதும் உன்னுடன் இருக்கிறார்" — என்.டி. சோமசுந்தரம்</p>
+</div>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stat-box"><div class="num">10</div><div class="label"><span lang-block="en" class="lang-active">In-Depth Modules</span><span lang-block="ta">ஆழமான பாடங்கள்</span></div></div>
+  <div class="stat-box"><div class="num">2</div><div class="label"><span lang-block="en" class="lang-active">Languages (EN/TA)</span><span lang-block="ta">மொழிகள்</span></div></div>
+  <div class="stat-box"><div class="num">50+</div><div class="label"><span lang-block="en" class="lang-active">Real-Life Examples</span><span lang-block="ta">நிஜ வாழ்க்கை உதாரணங்கள்</span></div></div>
+  <div class="stat-box"><div class="num">₹0</div><div class="label"><span lang-block="en" class="lang-active">Cost to Enroll</span><span lang-block="ta">சேர்க்கை கட்டணம்</span></div></div>
+</div>
+
+<!-- WHY -->
+<section>
+  <div class="section-eyebrow"><span lang-block="en" class="lang-active">Why This Course</span><span lang-block="ta">இந்த பாடநெறி ஏன்</span></div>
+  <div class="section-title"><span lang-block="en" class="lang-active">Textbooks Teach Subjects.<br>This Teaches Life.</span><span lang-block="ta">பாடப்புத்தகங்கள் பாடங்களைக் கற்பிக்கின்றன.<br>இது வாழ்க்கையைக் கற்பிக்கிறது.</span></div>
+  <p class="section-lead" lang-block="en" class="lang-active">High school students face real pressures — exams, peer relationships, screen time, career confusion, self-doubt. This course gives them practical, usable tools for all of it, not just theory.</p>
+  <p class="section-lead" lang-block="ta">உயர்நிலைப் பள்ளி மாணவர்கள் உண்மையான அழுத்தங்களை எதிர்கொள்கிறார்கள் — தேர்வுகள், சக உறவுகள், திரை நேரம், தொழில் குழப்பம், சுய சந்தேகம். இந்த பாடநெறி இவை அனைத்திற்கும் நடைமுறை கருவிகளை வழங்குகிறது.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🌏</div>
+      <h3><span lang-block="en" class="lang-active">Bilingual by Design</span><span lang-block="ta">இருமொழி வடிவமைப்பு</span></h3>
+      <p><span lang-block="en" class="lang-active">Every lesson, example, and question is available in both English and Tamil — toggle anytime with one click.</span><span lang-block="ta">ஒவ்வொரு பாடமும், உதாரணமும், கேள்வியும் ஆங்கிலம் மற்றும் தமிழ் இரண்டிலும் கிடைக்கும்.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📖</div>
+      <h3><span lang-block="en" class="lang-active">Real Examples, Not Just Theory</span><span lang-block="ta">உண்மையான உதாரணங்கள்</span></h3>
+      <p><span lang-block="en" class="lang-active">Every concept is grounded in relatable school and home scenarios students actually face.</span><span lang-block="ta">ஒவ்வொரு கருத்தும் மாணவர்கள் உண்மையில் எதிர்கொள்ளும் பள்ளி மற்றும் வீட்டு சூழ்நிலைகளில் அடிப்படையாக கொண்டது.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📝</div>
+      <h3><span lang-block="en" class="lang-active">Built-In Self-Assessments</span><span lang-block="ta">உள்ளமைந்த சுய மதிப்பீடுகள்</span></h3>
+      <p><span lang-block="en" class="lang-active">Each module ends with a self-check that scores instantly and gives personalized tips based on the result.</span><span lang-block="ta">ஒவ்வொரு பாடமும் உடனடியாக மதிப்பெண் மற்றும் தனிப்பயனாக்கப்பட்ட குறிப்புகளை வழங்கும் சுய-சோதனையுடன் முடிகிறது.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📊</div>
+      <h3><span lang-block="en" class="lang-active">Progress Dashboard</span><span lang-block="ta">முன்னேற்ற பலகை</span></h3>
+      <p><span lang-block="en" class="lang-active">Students can track scores across all 10 modules and see exactly where to focus next.</span><span lang-block="ta">மாணவர்கள் அனைத்து 10 பாடங்களிலும் மதிப்பெண்களை கண்காணித்து அடுத்து எங்கு கவனம் செலுத்த வேண்டும் என்பதை பார்க்கலாம்.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">⏱️</div>
+      <h3><span lang-block="en" class="lang-active">Self-Paced & </span><span lang-block="ta">சுய வேகம்</span></h3>
+      <p><span lang-block="en" class="lang-active">No deadlines, no cost. Students can complete one module a week or move at their own pace.</span><span lang-block="ta">காலக்கெடு இல்லை, கட்டணம் இல்லை. மாணவர்கள் வாரத்திற்கு ஒரு பாடம் அல்லது தங்கள் சொந்த வேகத்தில் முடிக்கலாம்.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎓</div>
+      <h3><span lang-block="en" class="lang-active">Built by a Certified Educator</span><span lang-block="ta">சான்றளிக்கப்பட்ட கல்வியாளரால் உருவாக்கப்பட்டது</span></h3>
+      <p><span lang-block="en" class="lang-active">Designed by a Certified Master Trainer with years of experience in student life skills education.</span><span lang-block="ta">மாணவர் வாழ்க்கை திறன் கல்வியில் பல ஆண்டுகள் அனுபவம் கொண்ட சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளரால் வடிவமைக்கப்பட்டது.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section>
+  <div class="section-eyebrow"><span lang-block="en" class="lang-active">Curriculum</span><span lang-block="ta">பாடத்திட்டம்</span></div>
+  <div class="section-title"><span lang-block="en" class="lang-active">10 Modules, Each Ready to Use Today</span><span lang-block="ta">10 பாடங்கள், ஒவ்வொன்றும் இன்றே பயன்படுத்த தயார்</span></div>
+  <p class="section-lead" lang-block="en" class="lang-active">Click any module below (after starting the course) to see the full lesson, examples, tips, and self-assessment.</p>
+  <p class="section-lead" lang-block="ta">முழு பாடம், உதாரணங்கள், குறிப்புகள் மற்றும் சுய மதிப்பீட்டைப் பார்க்க கீழே உள்ள எந்த பாடத்தையும் கிளிக் செய்யவும்.</p>
+
+  <div class="module-grid" id="moduleGrid"></div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="section-eyebrow"><span lang-block="en" class="lang-active">Getting Started</span><span lang-block="ta">தொடங்குதல்</span></div>
+  <div class="section-title"><span lang-block="en" class="lang-active">How It Works</span><span lang-block="ta">இது எப்படி வேலை செய்கிறது</span></div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4><span lang-block="en" class="lang-active">Enroll in Seconds</span><span lang-block="ta">நொடிகளில் சேரவும்</span></h4>
+      <p><span lang-block="en" class="lang-active">Enter your name, class, school, and phone — no login or payment needed.</span><span lang-block="ta">உங்கள் பெயர், வகுப்பு, பள்ளி, தொலைபேசி எண்ணை உள்ளிடவும்.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4><span lang-block="en" class="lang-active">Learn Module by Module</span><span lang-block="ta">பாடம் பாடமாக கற்றுக்கொள்ளுங்கள்</span></h4>
+      <p><span lang-block="en" class="lang-active">Read the lesson, review examples, and note the tips that apply to you.</span><span lang-block="ta">பாடத்தைப் படித்து, உதாரணங்களை மதிப்பாய்வு செய்து, குறிப்புகளை குறித்துக்கொள்ளுங்கள்.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4><span lang-block="en" class="lang-active">Self-Assess</span><span lang-block="ta">சுயமாக மதிப்பிடுங்கள்</span></h4>
+      <p><span lang-block="en" class="lang-active">Rate yourself honestly and get instant, personalized guidance.</span><span lang-block="ta">நேர்மையாக உங்களை மதிப்பிட்டு உடனடி, தனிப்பயனாக்கப்பட்ட வழிகாட்டுதலைப் பெறுங்கள்.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4><span lang-block="en" class="lang-active">Track & Improve</span><span lang-block="ta">கண்காணித்து மேம்படுத்துங்கள்</span></h4>
+      <p><span lang-block="en" class="lang-active">Check your dashboard to see your strengths and where to focus next.</span><span lang-block="ta">உங்கள் பலம் மற்றும் அடுத்து எங்கு கவனம் செலுத்த வேண்டும் என்பதை பார்க்க உங்கள் பலகையை சரிபார்க்கவும்.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTOR -->
+<section>
+  <div class="section-eyebrow"><span lang-block="en" class="lang-active">Your Instructor</span><span lang-block="ta">உங்கள் பயிற்சியாளர்</span></div>
+  <div class="instructor-card">
+    <div class="instructor-avatar">NT</div>
+    <div class="instructor-text">
+      <h3>N T Somasundaram</h3>
+      <div class="role">
+        <span lang-block="en" class="lang-active">Certified Master Trainer · Career Consultant · Life Skills Educator</span>
+        <span lang-block="ta">சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் · தொழில் ஆலோசகர் · வாழ்க்கை திறன் கல்வியாளர்</span>
+      </div>
+      <p lang-block="en" class="lang-active">Director & Treasurer of SKV International School, and founder of the NT Somasundaram Life Skills Program. Somasundaram has trained teachers, students, and parents across Tamil Nadu, in partnership with IATD, Pick My Career, Emocare International, and Indian Counseling Service.</p>
+      <p lang-block="ta">SKV இன்டர்நேஷனல் பள்ளியின் இயக்குனர் & பொருளாளர், மற்றும் என்.டி. சோமசுந்தரம் வாழ்க்கை திறன் திட்டத்தின் நிறுவனர். தமிழ்நாடு முழுவதும் ஆசிரியர்கள், மாணவர்கள் மற்றும் பெற்றோர்களுக்கு பயிற்சி அளித்துள்ளார்.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-eyebrow"><span lang-block="en" class="lang-active">Questions</span><span lang-block="ta">கேள்விகள்</span></div>
+  <div class="section-title"><span lang-block="en" class="lang-active">Frequently Asked Questions</span><span lang-block="ta">அடிக்கடி கேட்கப்படும் கேள்விகள்</span></div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span><span lang-block="en" class="lang-active">Is this course really free?</span><span lang-block="ta">இந்த பாடநெறி உண்மையிலேயே இலவசமா?</span></span>
+      <span class="faq-chevron">⌄</span>
+    </div>
+    <div class="faq-a">
+      <span lang-block="en" class="lang-active">Yes, free for limited period .</span>
+      <span lang-block="ta">ஆம்,  இலவசம் (limited period)  </span>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span><span lang-block="en" class="lang-active">How long does the course take?</span><span lang-block="ta">பாடநெறி எவ்வளவு நேரம் எடுக்கும்?</span></span>
+      <span class="faq-chevron">⌄</span>
+    </div>
+    <div class="faq-a">
+      <span lang-block="en" class="lang-active">Each module takes about 15–20 minutes to read and complete the self-assessment. Students can go at their own pace — one module a day or one a week.</span>
+      <span lang-block="ta">ஒவ்வொரு பாடமும் படிக்கவும் சுய மதிப்பீட்டை முடிக்கவும் சுமார் 15–20 நிமிடங்கள் ஆகும். மாணவர்கள் தங்கள் சொந்த வேகத்தில் செல்லலாம்.</span>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span><span lang-block="en" class="lang-active">Do I need to complete modules in order?</span><span lang-block="ta">பாடங்களை வரிசையாக முடிக்க வேண்டுமா?</span></span>
+      <span class="faq-chevron">⌄</span>
+    </div>
+    <div class="faq-a">
+      <span lang-block="en" class="lang-active">No — each module stands alone, so you can start with whichever topic feels most relevant to you right now.</span>
+      <span lang-block="ta">இல்லை — ஒவ்வொரு பாடமும் தனித்தனியாக உள்ளது, எனவே இப்போது உங்களுக்கு மிகவும் பொருத்தமான தலைப்புடன் தொடங்கலாம்.</span>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span><span lang-block="en" class="lang-active">Is my information kept private?</span><span lang-block="ta">என் தகவல் தனிப்பட்டதாக வைக்கப்படுகிறதா?</span></span>
+      <span class="faq-chevron">⌄</span>
+    </div>
+    <div class="faq-a">
+      <span lang-block="en" class="lang-active">Your enrollment details stay on your own device. Self-assessment scores are shared only with your instructor for guidance purposes.</span>
+      <span lang-block="ta">உங்கள் சேர்க்கை விவரங்கள் உங்கள் சொந்த சாதனத்தில் மட்டுமே இருக்கும். சுய மதிப்பீட்டு மதிப்பெண்கள் வழிகாட்டுதலுக்காக மட்டும் உங்கள் பயிற்சியாளருடன் பகிரப்படும்.</span>
+    </div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span><span lang-block="en" class="lang-active">Can teachers or parents use this too?</span><span lang-block="ta">ஆசிரியர்கள் அல்லது பெற்றோரும் இதைப் பயன்படுத்தலாமா?</span></span>
+      <span class="faq-chevron">⌄</span>
+    </div>
+    <div class="faq-a">
+      <span lang-block="en" class="lang-active">Absolutely — parents and teachers are welcome to go through the modules alongside students to support conversations at home or in class.</span>
+      <span lang-block="ta">நிச்சயமாக — பெற்றோர் மற்றும் ஆசிரியர்கள் வீட்டில் அல்லது வகுப்பில் உரையாடல்களை ஆதரிக்க மாணவர்களுடன் பாடங்களை பார்க்கலாம்.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="final-cta">
+    <h2><span lang-block="en" class="lang-active">Ready to Begin?</span><span lang-block="ta">தொடங்க தயாரா?</span></h2>
+    <p><span lang-block="en" class="lang-active">Join students across Tamil Nadu building real-world life skills, bilingual, and self-paced.</span><span lang-block="ta">தமிழ்நாடு முழுவதும் உள்ள மாணவர்களுடன் இணைந்து நிஜ வாழ்க்கை திறன்களை உருவாக்குங்கள் , இருமொழி, சுய வேகம்.</span></p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://somasundaramntlifecoach-ux.github.io/teacher/studentlifeskills/index.html">
+        🚀 <span lang-block="en" class="lang-active">Start the Course</span><span lang-block="ta"> தொடங்கு</span>
+      </a>
+      <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi%20Sir%2C%20I%20have%20a%20question%20about%20the%20Life%20Skills%20course%20for%20students" target="_blank">
+        💬 <span lang-block="en" class="lang-active">Ask on WhatsApp</span><span lang-block="ta">வாட்ஸ்அப்பில் கேளுங்கள்</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="footer-motto">"God is always with u" — NT Somasundaram Life Skills Program</p>
+  <p class="footer-contact">somasundaramnt.lifecoach@gmail.com &nbsp;|&nbsp; +91 98437 02244</p>
+  <div class="footer-links">
+    <a href="https://somasundaramntlifecoach-ux.github.io/teacher/studentlifeskills/index.html"><span lang-block="en" class="lang-active">Start Course</span><span lang-block="ta">பாடத்தைத் தொடங்கு</span></a>
+    <a href="dashboard.html"><span lang-block="en" class="lang-active">My Progress</span><span lang-block="ta">என் முன்னேற்றம்</span></a>
+    <a href="https://somasundaramntlifecoach-ux.github.io/teacher/studentlifeskills/index.html" target="_blank">sites.google.com/view/somasundaramnt</a>
+  </div>
+</footer>
+
+<script>
+const modules = [
+  {num:1, en:"Self-Awareness & Emotional Intelligence", ta:"சுய விழிப்புணர்வு & உணர்ச்சி நுண்ணறிவு", sub_en:"Understanding and managing your emotions", sub_ta:"உங்கள் உணர்ச்சிகளை புரிந்துகொள்வதும் நிர்வகிப்பதும்", slug:"self-awareness-eq"},
+  {num:2, en:"Decision-Making & Problem-Solving", ta:"முடிவெடுத்தல் & பிரச்சனை தீர்வு", sub_en:"A simple framework for smarter choices", sub_ta:"சிறந்த தேர்வுகளுக்கான எளிய கட்டமைப்பு", slug:"decision-making"},
+  {num:3, en:"Time Management & Productivity", ta:"நேர மேலாண்மை & உற்பத்தித்திறன்", sub_en:"The Eisenhower Matrix and daily planning", sub_ta:"ஐசன்ஹோவர் அணி மற்றும் தினசரி திட்டமிடல்", slug:"time-management"},
+  {num:4, en:"Communication Skills", ta:"தொடர்பாடல் திறன்கள்", sub_en:"Assertive vs. passive vs. aggressive", sub_ta:"உறுதியான vs செயலற்ற vs ஆக்ரோஷமான", slug:"communication-skills"},
+  {num:5, en:"Goal Setting & Self-Motivation", ta:"இலக்கு நிர்ணயம் & சுய ஊக்கம்", sub_en:"SMART goals and growth mindset", sub_ta:"SMART இலக்குகள் மற்றும் வளர்ச்சி மனநிலை", slug:"goal-setting"},
+  {num:6, en:"Stress & Anxiety Management", ta:"மன அழுத்தம் & கவலை மேலாண்மை", sub_en:"Recognizing signals and healthy coping tools", sub_ta:"அறிகுறிகளை அடையாளம் காணுதல் மற்றும் ஆரோக்கியமான சமாளிப்பு", slug:"stress-management"},
+  {num:7, en:"Social Skills & Peer Relationships", ta:"சமூக திறன்கள் & சக மாணவர் உறவுகள்", sub_en:"Navigating friendships and peer pressure", sub_ta:"நட்பு மற்றும் சக அழுத்தத்தை கையாளுதல்", slug:"social-skills"},
+  {num:8, en:"Career Awareness & Future Planning", ta:"தொழில் விழிப்புணர்வு & எதிர்கால திட்டமிடல்", sub_en:"Introduction to RIASEC interest types", sub_ta:"RIASEC ஆர்வ வகைகளுக்கான அறிமுகம்", slug:"career-awareness"},
+  {num:9, en:"Digital Literacy & Responsible Online Behavior", ta:"டிஜிட்டல் கல்வியறிவு & பொறுப்பான ஆன்லைன் நடத்தை", sub_en:"Screen time, digital footprint, and online safety", sub_ta:"திரை நேரம், டிஜிட்டல் தடம், ஆன்லைன் பாதுகாப்பு", slug:"digital-literacy"},
+  {num:10, en:"Building Self-Esteem & Confidence", ta:"சுயமரியாதை & நம்பிக்கையை வளர்த்தல்", sub_en:"Separating self-worth from achievement", sub_ta:"சுய மதிப்பை சாதனையிலிருந்து பிரித்தல்", slug:"self-esteem-confidence"}
+];
+
+const grid = document.getElementById('moduleGrid');
+grid.innerHTML = modules.map(m => `
+  <a class="module-row" href="https://somasundaramntlifecoach-ux.github.io/teacher/studentlifeskills/index.html" style="text-decoration:none;">
+    <div class="m-num">${m.num}</div>
+    <div class="m-text">
+      <b lang-block="en" class="lang-active">${m.en}</b>
+      <b lang-block="ta">${m.ta}</b>
+      <span lang-block="en" class="lang-active">${m.sub_en}</span>
+      <span lang-block="ta">${m.sub_ta}</span>
+    </div>
+  </a>`).join('');
+
+function setLang(lang){
+  document.getElementById('btnEN').classList.toggle('active', lang==='en');
+  document.getElementById('btnTA').classList.toggle('active', lang==='ta');
+  document.querySelectorAll('[lang-block]').forEach(el=>{
+    el.classList.toggle('lang-active', el.getAttribute('lang-block')===lang);
+  });
+}
+setLang('en');
+
+function toggleFaq(el){
+  el.parentElement.classList.toggle('open');
+}
+</script>
+</body>
+</html>

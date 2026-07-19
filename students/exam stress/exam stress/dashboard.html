@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Dashboard | Exam Stress Management for Students</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2340; --navy-deep:#071830; --gold:#C6A15B; --gold-light:#E4CD9A;
+  --cream:#FAF7F0; --ink:#1C2733; --muted:#5B6B7C; --line:#E4E1D8; --teal:#2E6E62;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;}
+[lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+.ta{display:none;}
+body.show-ta .en{display:none;}
+body.show-ta .ta{display:block;}
+body.show-ta span.ta{display:inline;}
+a{color:inherit;text-decoration:none;}
+.wrap{max-width:920px;margin:0 auto;padding:0 24px;}
+.topbar{background:var(--navy-deep);color:#fff;font-size:13px;padding:9px 0;}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
+.topbar a{color:var(--gold-light);}
+.lang-toggle{display:flex;gap:6px;}
+.lang-toggle button{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;padding:4px 12px;border-radius:20px;font-size:12px;cursor:pointer;font-family:inherit;}
+.lang-toggle button.active{background:var(--gold);border-color:var(--gold);color:var(--navy-deep);font-weight:600;}
+header.pagehead{background:linear-gradient(150deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;padding:40px 0 34px;}
+.brand-row{display:flex;align-items:center;gap:10px;margin-bottom:22px;}
+.brand-mark{width:34px;height:34px;border:2px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold);font-size:13px;}
+.brand-name{font-size:13px;letter-spacing:.06em;color:var(--gold-light);text-transform:uppercase;}
+.eyebrow{display:inline-block;color:var(--gold);font-size:12px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px;font-weight:600;}
+h1{font-size:30px;font-weight:700;line-height:1.25;}
+.subtitle{color:#D6DEE8;font-size:15px;margin-top:10px;font-weight:300;max-width:640px;}
+main{padding:40px 0 60px;}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px 28px;margin-bottom:20px;}
+.card h2{font-size:19px;color:var(--navy-deep);margin-bottom:10px;font-weight:600;}
+.card p{font-size:14.5px;color:var(--ink);}
+.activity{background:#FBF3E4;border-left:4px solid var(--gold);border-radius:6px;padding:18px 22px;margin:22px 0;}
+.activity h3{font-size:14px;color:#7A5A1E;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+.activity p{font-size:14px;color:#4A3B1E;}
+.takeaway{background:var(--navy-deep);color:#fff;border-radius:10px;padding:22px 26px;margin-top:26px;}
+.takeaway h3{font-size:13px;color:var(--gold-light);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;}
+.takeaway p{font-size:14.5px;color:#D6DEE8;font-weight:300;}
+.nav-buttons{display:flex;justify-content:space-between;margin-top:34px;flex-wrap:wrap;gap:12px;}
+.nav-buttons a{padding:12px 22px;border-radius:6px;font-size:14px;font-weight:600;}
+.btn-prev{background:#fff;border:1px solid var(--line);color:var(--ink);}
+.btn-next{background:var(--gold);color:var(--navy-deep);}
+.btn-dash{background:var(--navy-deep);color:#fff;}
+.progress-track{height:6px;background:var(--line);border-radius:4px;overflow:hidden;margin:18px 0 4px;}
+.progress-fill{height:100%;background:var(--gold);}
+.progress-label{font-size:12px;color:var(--muted);margin-bottom:10px;}
+footer{background:var(--navy-deep);color:#9FB0C0;padding:28px 0;font-size:12.5px;text-align:center;}
+footer a{color:var(--gold-light);}
+.whatsapp-fab{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.25);font-size:24px;z-index:50;}
+/* dashboard grid */
+.mod-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.mod-card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;gap:14px;align-items:flex-start;}
+.mod-card .num{width:32px;height:32px;border-radius:50%;border:1px solid var(--gold);color:var(--gold);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;}
+.mod-card h4{font-size:15px;color:var(--navy-deep);margin-bottom:3px;}
+.mod-card p{font-size:12.5px;color:var(--muted);}
+/* landing hero */
+.hero-cta{margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--navy-deep);padding:14px 26px;border-radius:6px;font-weight:600;font-size:15px;display:inline-block;}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.5);color:#fff;padding:14px 26px;border-radius:6px;font-weight:600;font-size:15px;display:inline-block;}
+.strip{background:#fff;padding:44px 0;}
+.strip .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.strip .mini{text-align:center;font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:14px 8px;}
+.strip .mini strong{display:block;color:var(--navy-deep);font-size:13px;margin-bottom:3px;}
+@media(max-width:720px){
+  h1{font-size:24px;}
+  .mod-grid{grid-template-columns:1fr;}
+  .strip .wrap{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap">
+    <div>📞 <a href="tel:+919843702244">+91 98437 02244</a> &nbsp;|&nbsp; ✉️ <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+    <div class="lang-toggle">
+      <button class="active" onclick="setLang('en')">EN</button>
+      <button onclick="setLang('ta')">தமிழ்</button>
+    </div>
+  </div>
+</div>
+
+<header class="pagehead">
+  <div class="wrap">
+    <div class="brand-row">
+      <div class="brand-mark">NT</div>
+      <div class="brand-name">Exam Stress Management for Students</div>
+    </div>
+    <span class="eyebrow en">Course Dashboard</span>
+    <span class="eyebrow ta" lang-ta>பாட டாஷ்போர்டு</span>
+    <h1 class="en">Your 10 Modules</h1>
+    <h1 class="ta" lang-ta>உங்கள் 10 பாடங்கள்</h1>
+    <p class="subtitle en">Work through them in order, or jump to the one you need most right now.</p>
+    <p class="subtitle ta" lang-ta>வரிசையாக படியுங்கள், அல்லது இப்போது தேவையான பாடத்திற்கு நேரடியாக செல்லுங்கள்.</p>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <div class="mod-grid">
+      
+    <a class="mod-card" href="module-01-understanding-exam-stress.html" style="text-decoration:none;">
+      <div class="num">01</div>
+      <div>
+        <h4 class="en">Understanding Exam Stress</h4>
+        <h4 class="ta" lang-ta>தேர்வு மன அழுத்தத்தை புரிந்துகொள்ளுதல்</h4>
+        <p class="en">Module 1 of 10</p>
+        <p class="ta" lang-ta>பாடம் 1 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-02-spotting-your-stress-signals.html" style="text-decoration:none;">
+      <div class="num">02</div>
+      <div>
+        <h4 class="en">Spotting Your Stress Signals</h4>
+        <h4 class="ta" lang-ta>உங்கள் மன அழுத்த அறிகுறிகளை கண்டறிதல்</h4>
+        <p class="en">Module 2 of 10</p>
+        <p class="ta" lang-ta>பாடம் 2 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-03-breathing-and-grounding-techniques.html" style="text-decoration:none;">
+      <div class="num">03</div>
+      <div>
+        <h4 class="en">Breathing & Grounding Techniques</h4>
+        <h4 class="ta" lang-ta>சுவாச மற்றும் நிலைப்படுத்தும் நுட்பங்கள்</h4>
+        <p class="en">Module 3 of 10</p>
+        <p class="ta" lang-ta>பாடம் 3 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-04-smart-study-planning.html" style="text-decoration:none;">
+      <div class="num">04</div>
+      <div>
+        <h4 class="en">Smart Study Planning</h4>
+        <h4 class="ta" lang-ta>திறமையான படிப்பு திட்டமிடல்</h4>
+        <p class="en">Module 4 of 10</p>
+        <p class="ta" lang-ta>பாடம் 4 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-05-beating-procrastination-and-last-minute-panic.html" style="text-decoration:none;">
+      <div class="num">05</div>
+      <div>
+        <h4 class="en">Beating Procrastination & Last-Minute Panic</h4>
+        <h4 class="ta" lang-ta>தள்ளிப்போடுதலையும் கடைசி நேர பதற்றத்தையும் வெல்லுதல்</h4>
+        <p class="en">Module 5 of 10</p>
+        <p class="ta" lang-ta>பாடம் 5 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-06-reframing-negative-self-talk.html" style="text-decoration:none;">
+      <div class="num">06</div>
+      <div>
+        <h4 class="en">Reframing Negative Self-Talk</h4>
+        <h4 class="ta" lang-ta>எதிர்மறை சுய பேச்சை மறுவடிவமைத்தல்</h4>
+        <p class="en">Module 6 of 10</p>
+        <p class="ta" lang-ta>பாடம் 6 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-07-sleep-food-and-exam-day-body-care.html" style="text-decoration:none;">
+      <div class="num">07</div>
+      <div>
+        <h4 class="en">Sleep, Food & Exam-Day Body Care</h4>
+        <h4 class="ta" lang-ta>தூக்கம், உணவு மற்றும் தேர்வு நாள் உடல் பராமரிப்பு</h4>
+        <p class="en">Module 7 of 10</p>
+        <p class="ta" lang-ta>பாடம் 7 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-08-handling-exam-day-nerves.html" style="text-decoration:none;">
+      <div class="num">08</div>
+      <div>
+        <h4 class="en">Handling Exam-Day Nerves</h4>
+        <h4 class="ta" lang-ta>தேர்வு நாள் பதற்றத்தை கையாளுதல்</h4>
+        <p class="en">Module 8 of 10</p>
+        <p class="ta" lang-ta>பாடம் 8 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-09-after-the-exam.html" style="text-decoration:none;">
+      <div class="num">09</div>
+      <div>
+        <h4 class="en">After the Exam</h4>
+        <h4 class="ta" lang-ta>தேர்வுக்குப் பின்</h4>
+        <p class="en">Module 9 of 10</p>
+        <p class="ta" lang-ta>பாடம் 9 / 10</p>
+      </div>
+    </a>
+    <a class="mod-card" href="module-10-my-exam-stress-toolkit.html" style="text-decoration:none;">
+      <div class="num">10</div>
+      <div>
+        <h4 class="en">My Exam Stress Toolkit</h4>
+        <h4 class="ta" lang-ta>என் தேர்வு மன அழுத்த கருவிப்பெட்டி</h4>
+        <p class="en">Module 10 of 10</p>
+        <p class="ta" lang-ta>பாடம் 10 / 10</p>
+      </div>
+    </a>
+    </div>
+  </div>
+</main>
+
+<a href="https://wa.me/919843702244" class="whatsapp-fab" title="WhatsApp">💬</a>
+<footer>
+  <div class="wrap">
+    <div class="en">© NT Somasundaram Life Skills Program &middot; "God is always with u"</div>
+    <div class="ta" lang-ta>© NT Somasundaram Life Skills Program &middot; "கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"</div>
+  </div>
+</footer>
+<script>
+function setLang(l){
+  document.body.classList.toggle('show-ta', l === 'ta');
+  document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  localStorage.setItem('esm_lang', l);
+}
+(function(){
+  const saved = localStorage.getItem('esm_lang');
+  if(saved === 'ta'){ document.body.classList.add('show-ta'); }
+})();
+</script>
+</body>
+</html>

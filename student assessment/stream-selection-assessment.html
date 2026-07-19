@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 10 Stream Selection Psychometric Assessment | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1e3a8a; --primary-light:#3b5bdb; --accent:#f59e0b; --accent2:#059669;
+    --sci:#2563eb; --com:#059669; --art:#db2777; --voc:#d97706;
+    --bg:#f4f6fb; --card:#ffffff; --text:#1f2937; --muted:#6b7280; --border:#e5e7eb;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Poppins','Noto Sans Tamil',sans-serif;background:var(--bg);color:var(--text);}
+  .ta{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+  .wrap{max-width:900px;margin:0 auto;padding:16px;}
+  header.top{background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);color:#fff;padding:26px 16px;text-align:center;}
+  header.top h1{margin:0 0 6px;font-size:22px;font-weight:800;}
+  header.top p{margin:2px 0;opacity:.92;font-size:14px;}
+  .langBtn{position:fixed;top:12px;right:12px;z-index:50;background:var(--accent);color:#111;border:none;padding:9px 16px;border-radius:20px;font-weight:700;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.2);font-size:13px;}
+  .card{background:var(--card);border-radius:14px;padding:22px;margin:16px 0;box-shadow:0 2px 10px rgba(0,0,0,.06);}
+  .progressBar{position:sticky;top:0;background:#fff;padding:10px 16px;z-index:40;box-shadow:0 2px 6px rgba(0,0,0,.06);}
+  .pfill{height:8px;background:var(--border);border-radius:6px;overflow:hidden;}
+  .pfill>div{height:100%;background:linear-gradient(90deg,var(--accent2),var(--primary-light));width:0%;transition:width .3s;}
+  .ptext{font-size:12px;color:var(--muted);margin-top:4px;text-align:center;}
+  h2.sec{color:var(--primary);font-size:19px;margin-top:0;border-left:5px solid var(--accent);padding-left:10px;}
+  .q{margin:18px 0;padding-bottom:16px;border-bottom:1px solid var(--border);}
+  .q:last-child{border-bottom:none;}
+  .qtext{font-weight:600;margin-bottom:10px;font-size:15px;}
+  .likert{display:flex;gap:6px;flex-wrap:wrap;}
+  .likert label{flex:1;min-width:60px;text-align:center;background:#f0f2fa;border:1px solid var(--border);border-radius:8px;padding:8px 4px;cursor:pointer;font-size:12px;transition:.15s;}
+  .likert input{display:none;}
+  .likert input:checked + span{display:block;}
+  .likert label:has(input:checked){background:var(--primary);color:#fff;border-color:var(--primary);}
+  .opts label{display:block;background:#f7f8fc;border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:14px;}
+  .opts label:has(input:checked){background:#e7ecff;border-color:var(--primary-light);}
+  .opts input{margin-right:8px;}
+  input[type=text], input[type=tel], select, textarea{width:100%;padding:11px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;margin-bottom:12px;}
+  textarea{min-height:70px;resize:vertical;}
+  .btnRow{text-align:center;margin-top:18px;}
+  button.nav{background:var(--primary);color:#fff;border:none;padding:12px 28px;border-radius:24px;font-weight:700;font-size:15px;cursor:pointer;margin:4px;}
+  button.nav.secondary{background:#fff;color:var(--primary);border:2px solid var(--primary);}
+  button.nav:disabled{opacity:.5;cursor:not-allowed;}
+  .hidden{display:none !important;}
+  .badge{display:inline-block;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:700;color:#fff;margin-left:6px;}
+  footer.foot{text-align:center;padding:26px 16px;color:var(--muted);font-size:13px;background:#eef1f8;margin-top:20px;}
+  footer.foot b{color:var(--primary);}
+  .promo{background:linear-gradient(135deg,#fff7ed,#fef3c7);border:2px dashed var(--accent);border-radius:14px;padding:18px;margin:18px 0;}
+  .promo h3{color:#92400e;margin-top:0;}
+  .waBtn{display:inline-block;background:#25D366;color:#fff;padding:11px 22px;border-radius:24px;text-decoration:none;font-weight:700;margin-top:10px;}
+  /* Report */
+  .reportPage{background:#fff;padding:26px;margin:14px 0;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.06);page-break-after:always;}
+  .rHead{text-align:center;border-bottom:3px solid var(--primary);padding-bottom:10px;margin-bottom:16px;}
+  .rHead h2{color:var(--primary);margin:4px 0;}
+  .barRow{display:flex;align-items:center;gap:10px;margin:8px 0;}
+  .barLabel{width:170px;font-size:13px;font-weight:600;}
+  .barTrack{flex:1;background:#eee;border-radius:6px;height:16px;overflow:hidden;}
+  .barFill{height:100%;background:linear-gradient(90deg,var(--primary-light),var(--accent2));}
+  .barVal{width:40px;font-size:12px;color:var(--muted);text-align:right;}
+  .streamCard{border-radius:12px;padding:16px;color:#fff;margin:10px 0;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:600px){.grid2{grid-template-columns:1fr;}}
+  table.rt{width:100%;border-collapse:collapse;font-size:13px;}
+  table.rt th,table.rt td{border:1px solid var(--border);padding:8px;text-align:left;}
+  table.rt th{background:#eef1f8;}
+  .tipBox{background:#f0fdf4;border-left:4px solid var(--accent2);padding:10px 14px;border-radius:6px;margin:8px 0;font-size:13px;}
+  @media print{
+    .langBtn,.progressBar,.btnRow,#screen-0,#screen-intake,button{display:none !important;}
+    .reportPage{box-shadow:none;margin:0;}
+    body{background:#fff;}
+  }
+</style>
+</head>
+<body>
+<button class="langBtn" onclick="toggleLang()">தமிழ் / English</button>
+
+<header class="top">
+  <h1 id="hTitle">Class 10 Stream Selection Assessment</h1>
+  <p id="hSub">Psychometric &amp; Aptitude Guidance | NT Somasundaram Life Skills Program</p>
+  <p style="font-size:12px;">Certified Master Trainer &amp; Career Consultant | Tiruvannamalai, Tamil Nadu</p>
+</header>
+
+<div class="progressBar hidden" id="progressBar">
+  <div class="pfill"><div id="pfillInner"></div></div>
+  <div class="ptext" id="ptext">Step 1 of 8</div>
+</div>
+
+<div class="wrap">
+
+<!-- INTRO -->
+<div id="screen-0" class="card">
+  <h2 class="sec" data-en="About this Assessment" data-ta="இந்த மதிப்பீடு பற்றி">About this Assessment</h2>
+  <p data-en="This comprehensive assessment helps Class 10 students choose the right stream (Science, Commerce, Arts/Humanities or Vocational) for Class 11, based on Personality (Big Five), Aptitude, Interests, Situational Judgment, Strengths &amp; Weaknesses and Self-Analysis. Takes about 20-25 minutes. A detailed 5-page bilingual report with personalised tips will be generated at the end."
+     data-ta="இந்த முழுமையான மதிப்பீடு, ஆளுமை (Big Five), திறன் (Aptitude), ஆர்வம், சூழ்நிலை ஆய்வு, பலம்/பலவீனம் மற்றும் சுய பகுப்பாய்வு ஆகியவற்றின் அடிப்படையில், 10ஆம் வகுப்பு மாணவர்கள் 11ஆம் வகுப்பிற்கு சரியான Stream (Science, Commerce, Arts, Vocational) தேர்வு செய்ய உதவுகிறது. இதற்கு சுமார் 20-25 நிமிடங்கள் ஆகும். இறுதியில் தனிப்பயன் ஆலோசனைகளுடன் கூடிய 5 பக்க இருமொழி விரிவான அறிக்கை உருவாக்கப்படும்.">...</p>
+  <div class="btnRow"><button class="nav" onclick="goTo('intake')" data-en="Start Assessment" data-ta="தொடங்குக">Start Assessment</button></div>
+</div>
+
+<!-- INTAKE -->
+<div id="screen-intake" class="card hidden">
+  <h2 class="sec" data-en="Student Details" data-ta="மாணவர் விவரங்கள்">Student Details</h2>
+  <label data-en="Full Name" data-ta="முழு பெயர்">Full Name</label>
+  <input type="text" id="s_name" placeholder="Name / பெயர்">
+  <label data-en="Mobile Number" data-ta="மொபைல் எண்">Mobile Number</label>
+  <input type="tel" id="s_mobile" placeholder="10-digit mobile">
+  <label data-en="School Name" data-ta="பள்ளியின் பெயர்">School Name</label>
+  <input type="text" id="s_school" placeholder="School / பள்ளி">
+  <label data-en="Class / Section" data-ta="வகுப்பு / பிரிவு">Class / Section</label>
+  <input type="text" id="s_class" placeholder="e.g. 10-A">
+  <div class="btnRow">
+    <button class="nav" onclick="startTest()" data-en="Begin Test" data-ta="தேர்வைத் தொடங்கு">Begin Test</button>
+  </div>
+</div>
+
+<div id="testArea"></div>
+
+<div id="reportArea" class="hidden"></div>
+
+</div>
+
+<footer class="foot">
+  <b>NT Somasundaram</b> — Certified Master Trainer | Parenting Coach | Career Consultant | Life Skills Educator<br>
+  Director &amp; Treasurer, SKV International School, Tiruvannamalai<br>
+  📞 +91 98437 02244 | ✉️ somasundaramnt.lifecoach@gmail.com<br>
+  <span class="ta">"God is always with u"</span> | YouTube: @Godisalwayswithu
+</footer>
+
+<script>
+/* ===================== LANGUAGE TOGGLE ===================== */
+let lang = 'en';
+function toggleLang(){
+  lang = (lang==='en')?'ta':'en';
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.innerHTML = el.getAttribute('data-'+lang);
+    el.classList.toggle('ta', lang==='ta');
+  });
+  renderQuestion();
+}
+function T(en,ta){ return lang==='en'?en:ta; }
+
+/* ===================== QUESTION BANK ===================== */
+// Big Five (5 traits x 4 items) - Likert 1-5
+const bigFive = [
+ {t:'O',en:'I enjoy exploring new ideas and creative activities.',ta:'புதிய கருத்துக்கள் மற்றும் படைப்பாற்றல் செயல்பாடுகளை ஆராய்வதில் எனக்கு ஆர்வம் உண்டு.'},
+ {t:'O',en:'I like imagining new possibilities and abstract concepts.',ta:'புதிய சாத்தியங்களையும் கருத்தியல் விஷயங்களையும் கற்பனை செய்ய விரும்புகிறேன்.'},
+ {t:'C',en:'I complete my homework and tasks on time without being reminded.',ta:'நினைவூட்டாமலேயே என் வீட்டுப்பாடங்களை நேரத்திற்கு முடிக்கிறேன்.'},
+ {t:'C',en:'I plan my study schedule and stick to it.',ta:'என் படிப்பு அட்டவணையை திட்டமிட்டு அதைப் பின்பற்றுகிறேன்.'},
+ {t:'E',en:'I feel energetic when I am around many people.',ta:'நிறைய பேருடன் இருக்கும்போது எனக்கு உற்சாகம் ஏற்படும்.'},
+ {t:'E',en:'I enjoy speaking in front of a group or class.',ta:'குழு அல்லது வகுப்பறையில் பேசுவதில் எனக்கு ஆர்வம் உண்டு.'},
+ {t:'A',en:'I try to help my classmates when they need support.',ta:'என் வகுப்பு தோழர்களுக்கு உதவி தேவைப்படும்போது உதவ முயற்சிக்கிறேன்.'},
+ {t:'A',en:'I find it easy to cooperate with others in group work.',ta:'குழு வேலையில் மற்றவர்களுடன் ஒத்துழைப்பது எனக்கு எளிது.'},
+ {t:'N',en:'I get anxious easily before exams or tests.',ta:'தேர்வுகளுக்கு முன் நான் எளிதில் பதற்றம் அடைவேன்.'},
+ {t:'N',en:'Small setbacks affect my mood for a long time.',ta:'சிறிய தோல்விகள் என் மனநிலையை நீண்ட நேரம் பாதிக்கும்.'},
+ {t:'O',en:'I ask "why" and "how" questions often, even outside class.',ta:'வகுப்பிற்கு வெளியேயும் "ஏன்" "எப்படி" என்ற கேள்விகளை அடிக்கடி கேட்பேன்.'},
+ {t:'C',en:'I keep my books and notes well organised.',ta:'என் புத்தகங்களையும் குறிப்புகளையும் ஒழுங்காக வைத்திருப்பேன்.'},
+ {t:'E',en:'I make friends easily in new environments.',ta:'புதிய சூழலில் எளிதாக நண்பர்களை உருவாக்குவேன்.'},
+ {t:'A',en:'I avoid arguments and prefer to keep peace.',ta:'வாக்குவாதங்களைத் தவிர்த்து அமைதியைப் பேணுவதை விரும்புவேன்.'},
+ {t:'N',en:'I worry about what could go wrong in the future.',ta:'எதிர்காலத்தில் என்ன தவறாக நடக்கலாம் என்று கவலைப்படுவேன்.'},
+ {t:'O',en:'I enjoy solving puzzles or brain-teasers for fun.',ta:'புதிர்களை விடுவிப்பதில் மகிழ்ச்சி அடைவேன்.'},
+ {t:'C',en:'I double-check my work before submitting it.',ta:'சமர்ப்பிக்கும் முன் என் வேலையை மீண்டும் சரிபார்ப்பேன்.'},
+ {t:'E',en:'I prefer group study over studying alone.',ta:'தனியாக படிப்பதை விட குழுவாக படிப்பதை விரும்புவேன்.'},
+ {t:'A',en:'I feel bad when someone around me is upset.',ta:'என் அருகில் உள்ளவர் வருத்தமாக இருந்தால் எனக்கும் வருத்தமாக இருக்கும்.'},
+ {t:'N',en:'I find it hard to stay calm under pressure.',ta:'அழுத்தத்தின் கீழ் அமைதியாக இருப்பது எனக்கு கடினம்.'},
+];
+
+// Interest inventory mapped to streams (RIASEC-lite -> Sci/Com/Art/Voc)
+const interest = [
+ {s:'SCI',en:'I like doing science experiments and understanding how things work.',ta:'அறிவியல் பரிசோதனைகள் செய்வதும் விஷயங்கள் எப்படி வேலை செய்கின்றன என்பதைப் புரிந்துகொள்வதும் எனக்குப் பிடிக்கும்.'},
+ {s:'SCI',en:'I enjoy Maths problems and logical puzzles.',ta:'கணித சிக்கல்களும் தர்க்க புதிர்களும் எனக்குப் பிடிக்கும்.'},
+ {s:'SCI',en:'I am curious about how the human body / nature works (Biology).',ta:'மனித உடல் / இயற்கை எப்படி செயல்படுகிறது என்பதில் எனக்கு ஆர்வம் உண்டு (உயிரியல்).'},
+ {s:'COM',en:'I am interested in business, money matters and how markets work.',ta:'வணிகம், பணம் தொடர்பான விஷயங்கள், சந்தை எப்படி இயங்குகிறது என்பதில் எனக்கு ஆர்வம் உண்டு.'},
+ {s:'COM',en:'I like planning, organising events, or managing small budgets.',ta:'திட்டமிடுதல், நிகழ்வுகளை ஏற்பாடு செய்தல், சிறு பட்ஜெட் நிர்வகித்தல் ஆகியவை எனக்குப் பிடிக்கும்.'},
+ {s:'COM',en:'I enjoy activities involving numbers, accounts or record keeping.',ta:'எண்கள், கணக்குகள் அல்லது பதிவுகளை பராமரிக்கும் செயல்பாடுகள் எனக்குப் பிடிக்கும்.'},
+ {s:'ART',en:'I enjoy writing, drawing, music, drama or other creative arts.',ta:'எழுதுதல், வரைதல், இசை, நாடகம் போன்ற படைப்பாற்றல் கலைகள் எனக்குப் பிடிக்கும்.'},
+ {s:'ART',en:'I like reading about history, society, languages or civics.',ta:'வரலாறு, சமூகம், மொழிகள் அல்லது குடிமையியல் பற்றி படிப்பது எனக்குப் பிடிக்கும்.'},
+ {s:'ART',en:'I enjoy debating or expressing my opinion on social issues.',ta:'சமூக பிரச்சனைகள் பற்றி விவாதிப்பதும் என் கருத்தை தெரிவிப்பதும் எனக்குப் பிடிக்கும்.'},
+ {s:'VOC',en:'I enjoy hands-on/practical work like building, repairing or crafting things.',ta:'கட்டுதல், பழுதுபார்த்தல் அல்லது கைவினைப் பொருட்கள் செய்தல் போன்ற செயல்முறை வேலைகள் எனக்குப் பிடிக்கும்.'},
+ {s:'VOC',en:'I am interested in technical/vocational skills (computers, design, culinary, etc.).',ta:'தொழில்நுட்ப / தொழில்முறை திறன்களில் (கணினி, வடிவமைப்பு, சமையல் போன்றவை) எனக்கு ஆர்வம் உண்டு.'},
+ {s:'VOC',en:'I prefer learning by doing rather than long theory classes.',ta:'நீண்ட கோட்பாடு வகுப்புகளை விட, செய்து கற்றுக்கொள்வதை நான் விரும்புகிறேன்.'},
+];
+
+// Aptitude sample (quick reasoning, scored correct/incorrect) - MCQ
+const aptitude = [
+ {type:'Numerical',en:'If a train covers 60 km in 1.5 hours, its speed is:',ta:'ஒரு ரயில் 1.5 மணி நேரத்தில் 60 கிமீ செல்கிறது எனில், அதன் வேகம்:',
+   opts:[{en:'30 km/hr',ta:'30 கிமீ/மணி',c:false},{en:'40 km/hr',ta:'40 கிமீ/மணி',c:true},{en:'45 km/hr',ta:'45 கிமீ/மணி',c:false},{en:'90 km/hr',ta:'90 கிமீ/மணி',c:false}]},
+ {type:'Verbal',en:'Choose the word closest in meaning to "ABUNDANT":',ta:'"ABUNDANT" என்பதற்கு நெருங்கிய பொருள் கொண்ட வார்த்தையைத் தேர்ந்தெடு:',
+   opts:[{en:'Scarce',ta:'Scarce',c:false},{en:'Plentiful',ta:'Plentiful',c:true},{en:'Empty',ta:'Empty',c:false},{en:'Broken',ta:'Broken',c:false}]},
+ {type:'Logical',en:'Find the next number: 2, 4, 8, 16, ?',ta:'அடுத்த எண்ணைக் கண்டறி: 2, 4, 8, 16, ?',
+   opts:[{en:'18',ta:'18',c:false},{en:'24',ta:'24',c:false},{en:'32',ta:'32',c:true},{en:'20',ta:'20',c:false}]},
+ {type:'Spatial',en:'A cube has how many faces?',ta:'ஒரு கனசதுரத்திற்கு எத்தனை பரப்புகள் உள்ளன?',
+   opts:[{en:'4',ta:'4',c:false},{en:'6',ta:'6',c:true},{en:'8',ta:'8',c:false},{en:'12',ta:'12',c:false}]},
+ {type:'Numerical',en:'What is 15% of 200?',ta:'200-இன் 15% என்ன?',
+   opts:[{en:'20',ta:'20',c:false},{en:'25',ta:'25',c:false},{en:'30',ta:'30',c:true},{en:'35',ta:'35',c:false}]},
+ {type:'Verbal',en:'"Book is to Reading as Fork is to ___"',ta:'"Book — Reading எனில், Fork — ___"',
+   opts:[{en:'Eating',ta:'Eating',c:true},{en:'Kitchen',ta:'Kitchen',c:false},{en:'Spoon',ta:'Spoon',c:false},{en:'Plate',ta:'Plate',c:false}]},
+ {type:'Logical',en:'All roses are flowers. Some flowers fade quickly. Which is certainly true?',ta:'எல்லா ரோஜாக்களும் மலர்கள். சில மலர்கள் விரைவில் வாடிவிடும். எது நிச்சயமாக உண்மை?',
+   opts:[{en:'All roses fade quickly',ta:'எல்லா ரோஜாக்களும் விரைவில் வாடும்',c:false},{en:'Some flowers are roses',ta:'சில மலர்கள் ரோஜாக்கள்',c:true},{en:'No roses fade',ta:'எந்த ரோஜாவும் வாடாது',c:false},{en:'All flowers are roses',ta:'எல்லா மலர்களும் ரோஜாக்கள்',c:false}]},
+ {type:'Spatial',en:'Which shape has no straight sides?',ta:'எந்த வடிவத்திற்கு நேர்கோட்டு பக்கங்கள் இல்லை?',
+   opts:[{en:'Triangle',ta:'முக்கோணம்',c:false},{en:'Square',ta:'சதுரம்',c:false},{en:'Circle',ta:'வட்டம்',c:true},{en:'Rectangle',ta:'செவ்வகம்',c:false}]},
+ {type:'Numerical',en:'If x + 5 = 12, what is x?',ta:'x + 5 = 12 எனில், x எவ்வளவு?',
+   opts:[{en:'5',ta:'5',c:false},{en:'6',ta:'6',c:false},{en:'7',ta:'7',c:true},{en:'8',ta:'8',c:false}]},
+ {type:'Verbal',en:'Choose the correctly spelt word:',ta:'சரியாக எழுதப்பட்ட வார்த்தையைத் தேர்ந்தெடு:',
+   opts:[{en:'Recieve',ta:'Recieve',c:false},{en:'Receive',ta:'Receive',c:true},{en:'Receeve',ta:'Receeve',c:false},{en:'Receve',ta:'Receve',c:false}]},
+];
+
+// Situational Judgment (mapped loosely to stream tendencies, not scored right/wrong)
+const situational = [
+ {en:'Your class is given a group project with a tight deadline. You would most likely:',ta:'உங்கள் வகுப்பிற்கு குறுகிய காலக்கெடுவில் ஒரு குழு திட்டப்பணி கொடுக்கப்படுகிறது. நீங்கள் பொதுவாக என்ன செய்வீர்கள்?',
+  opts:[{en:'Break it into logical steps and analyse data carefully',ta:'அதை தர்க்கரீதியான படிகளாகப் பிரித்து தரவை கவனமாக ஆய்வு செய்வேன்',s:'SCI'},
+        {en:'Take charge of organising the team and budget/time',ta:'குழுவையும் நேரம்/வளங்களையும் ஒழுங்கமைக்கும் பொறுப்பை ஏற்பேன்',s:'COM'},
+        {en:'Focus on creative presentation and storytelling',ta:'படைப்பாற்றல் விளக்கக்காட்சி மற்றும் கதை சொல்லலில் கவனம் செலுத்துவேன்',s:'ART'},
+        {en:'Volunteer for the hands-on/practical part of the work',ta:'நடைமுறை வேலையில் தன்னார்வத்துடன் ஈடுபடுவேன்',s:'VOC'}]},
+ {en:'A friend is upset after failing a test. You would:',ta:'ஒரு நண்பர் தேர்வில் தோல்வியடைந்து வருத்தமாக இருக்கிறார். நீங்கள் என்ன செய்வீர்கள்?',
+  opts:[{en:'Help them analyse mistakes logically and plan next steps',ta:'தவறுகளை தர்க்கரீதியாக ஆய்வு செய்து அடுத்த படிகளைத் திட்டமிட உதவுவேன்',s:'SCI'},
+        {en:'Encourage them and organise a study group for support',ta:'ஊக்குவித்து ஒரு படிப்பு குழுவை ஏற்பாடு செய்வேன்',s:'COM'},
+        {en:'Listen empathetically and express support through words/art',ta:'அனுதாபத்துடன் கேட்டு வார்த்தைகள்/கலை மூலம் ஆதரவளிப்பேன்',s:'ART'},
+        {en:'Suggest a practical activity to help them relax',ta:'ஓய்வெடுக்க உதவும் ஒரு நடைமுறை செயல்பாட்டை பரிந்துரைப்பேன்',s:'VOC'}]},
+ {en:'Given free time at school, you prefer to:',ta:'பள்ளியில் ஓய்வு நேரம் கிடைத்தால், நீங்கள் விரும்புவது:',
+  opts:[{en:'Solve puzzles, read about science/technology',ta:'புதிர்களை விடுவித்தல், அறிவியல்/தொழில்நுட்பம் பற்றி படித்தல்',s:'SCI'},
+        {en:'Discuss current affairs, business news',ta:'நடப்பு நிகழ்வுகள், வணிக செய்திகளைப் பற்றி விவாதித்தல்',s:'COM'},
+        {en:'Draw, write, act or play music',ta:'வரைதல், எழுதுதல், நடிப்பு அல்லது இசை',s:'ART'},
+        {en:'Build/fix something or learn a practical skill online',ta:'ஏதாவது ஒன்றை உருவாக்குதல்/பழுதுபார்த்தல் அல்லது நடைமுறை திறனைக் கற்றல்',s:'VOC'}]},
+ {en:'Your school is organising an exhibition. You would choose to:',ta:'உங்கள் பள்ளி ஒரு கண்காட்சியை ஏற்பாடு செய்கிறது. நீங்கள் எதைத் தேர்வு செய்வீர்கள்?',
+  opts:[{en:'Set up a science/working-model stall',ta:'அறிவியல்/மாதிரி நிலையம் அமைத்தல்',s:'SCI'},
+        {en:'Manage ticket sales and stall accounts',ta:'டிக்கெட் விற்பனை மற்றும் கணக்குகளை நிர்வகித்தல்',s:'COM'},
+        {en:'Design posters, perform, or host the event',ta:'சுவரொட்டிகள் வடிவமைத்தல், நிகழ்ச்சி நடத்துதல்',s:'ART'},
+        {en:'Handle setup, wiring, and technical arrangements',ta:'அமைப்பு, வயரிங், தொழில்நுட்ப ஏற்பாடுகளை கையாளுதல்',s:'VOC'}]},
+ {en:'When solving a difficult homework problem you cannot understand, you:',ta:'புரியாத கடினமான வீட்டுப்பாட சிக்கலை எதிர்கொள்ளும்போது நீங்கள்:',
+  opts:[{en:'Try multiple methods until you find the logical solution',ta:'தர்க்கரீதியான தீர்வு கிடைக்கும் வரை பல முறைகளை முயற்சிப்பேன்',s:'SCI'},
+        {en:'Ask a friend and work together efficiently',ta:'நண்பரிடம் கேட்டு திறமையாக இணைந்து வேலை செய்வேன்',s:'COM'},
+        {en:'Look at it from a different, creative angle',ta:'வேறு படைப்பாற்றல் கோணத்தில் இருந்து அணுகுவேன்',s:'ART'},
+        {en:'Try a practical/trial-and-error hands-on approach',ta:'நடைமுறை / முயற்சி-தவறு அணுகுமுறையை முயற்சிப்பேன்',s:'VOC'}]},
+ {en:'Ten years from now, you would most like to be known for:',ta:'இன்னும் பத்து ஆண்டுகளில், நீங்கள் எதற்காக அறியப்பட விரும்புகிறீர்கள்?',
+  opts:[{en:'A scientific/technical discovery or innovation',ta:'ஒரு அறிவியல்/தொழில்நுட்ப கண்டுபிடிப்பு',s:'SCI'},
+        {en:'Building a successful business or organisation',ta:'ஒரு வெற்றிகரமான வணிகம் அல்லது நிறுவனத்தை உருவாக்கியது',s:'COM'},
+        {en:'Creative or social work that inspires people',ta:'மக்களை ஊக்குவிக்கும் படைப்பு அல்லது சமூகப் பணி',s:'ART'},
+        {en:'A skilled expert respected for practical mastery',ta:'நடைமுறை திறமைக்காக மதிக்கப்படும் திறமையான நிபுணர்',s:'VOC'}]},
+];
+
+// Strengths/Weaknesses self-rating (1-5)
+const strengths = [
+ {en:'Analytical / logical thinking',ta:'பகுப்பாய்வு / தர்க்க சிந்தனை'},
+ {en:'Communication skills',ta:'தொடர்பாடல் திறன்'},
+ {en:'Creativity / imagination',ta:'படைப்பாற்றல் / கற்பனை'},
+ {en:'Leadership & teamwork',ta:'தலைமைத்துவம் & குழுப்பணி'},
+ {en:'Time management & discipline',ta:'நேர மேலாண்மை & ஒழுக்கம்'},
+ {en:'Practical / hands-on skill',ta:'நடைமுறை / கைத்திறன்'},
+ {en:'Memory & recall',ta:'நினைவாற்றல்'},
+ {en:'Patience & perseverance',ta:'பொறுமை & விடாமுயற்சி'},
+];
+
+// Self-analysis open reflection (not scored, shown in report as-is)
+const selfAnalysisQs = [
+ {en:'What subject do you enjoy the most and why?',ta:'எந்த பாடத்தை மிகவும் விரும்புகிறீர்கள், ஏன்?'},
+ {en:'What activity makes you lose track of time?',ta:'எந்த செயல்பாட்டில் நேரம் போவதே தெரியாமல் இருப்பீர்கள்?'},
+ {en:'What career do you dream of, and why?',ta:'நீங்கள் கனவு காணும் தொழில் என்ன, ஏன்?'},
+ {en:'What is one skill you want to improve this year?',ta:'இந்த ஆண்டு நீங்கள் மேம்படுத்த விரும்பும் ஒரு திறமை என்ன?'},
+];
+
+/* ===================== TEST ENGINE ===================== */
+// Build unified list of "screens": each screen = section with its own render function
+const sections = ['bigfive','interest','aptitude','situational','strengths','selfanalysis'];
+let secIndex = 0;
+let answers = {bigfive:{}, interest:{}, aptitude:{}, situational:{}, strengths:{}, selfanalysis:{}};
+
+function goTo(id){
+  document.getElementById('screen-0').classList.add('hidden');
+  document.getElementById('screen-intake').classList.add('hidden');
+  if(id==='intake') document.getElementById('screen-intake').classList.remove('hidden');
+}
+
+function startTest(){
+  if(!document.getElementById('s_name').value.trim()){ alert(T('Please enter your name','தயவுசெய்து பெயரை உள்ளிடவும்')); return; }
+  document.getElementById('screen-intake').classList.add('hidden');
+  document.getElementById('progressBar').classList.remove('hidden');
+  secIndex = 0;
+  renderSection();
+}
+
+function updateProgress(){
+  const pct = Math.round((secIndex/sections.length)*100);
+  document.getElementById('pfillInner').style.width = pct+'%';
+  document.getElementById('ptext').textContent = T('Step '+(secIndex+1)+' of '+sections.length, 'படி '+(secIndex+1)+' / '+sections.length);
+}
+
+function sectionTitle(sec){
+  const m = {
+    bigfive:{en:'Personality Assessment (Big Five)',ta:'ஆளுமை மதிப்பீடு (Big Five)'},
+    interest:{en:'Interest Analysis',ta:'ஆர்வ பகுப்பாய்வு'},
+    aptitude:{en:'Aptitude Test',ta:'திறன் தேர்வு'},
+    situational:{en:'Situational Judgment Test',ta:'சூழ்நிலை ஆய்வு தேர்வு'},
+    strengths:{en:'Strengths &amp; Weaknesses',ta:'பலம் &amp; பலவீனம்'},
+    selfanalysis:{en:'Self-Analysis',ta:'சுய பகுப்பாய்வு'},
+  };
+  return m[sec];
+}
+
+function renderSection(){
+  updateProgress();
+  const sec = sections[secIndex];
+  const area = document.getElementById('testArea');
+  const title = sectionTitle(sec);
+  let html = '<div class="card"><h2 class="sec">'+T(title.en,title.ta)+'</h2><div id="qList"></div>';
+  html += '<div class="btnRow">';
+  if(secIndex>0) html += '<button class="nav secondary" onclick="prevSection()">'+T('Back','பின்செல்')+'</button>';
+  html += '<button class="nav" id="nextBtn" onclick="nextSection()">'+(secIndex===sections.length-1? T('Generate Report','அறிக்கை உருவாக்கு') : T('Next','அடுத்து'))+'</button>';
+  html += '</div></div>';
+  area.innerHTML = html;
+  renderQuestion();
+}
+
+function likertLabels(){
+  return [
+    {v:1,en:'Strongly Disagree',ta:'முற்றிலும் மறுக்கிறேன்'},
+    {v:2,en:'Disagree',ta:'மறுக்கிறேன்'},
+    {v:3,en:'Neutral',ta:'நடுநிலை'},
+    {v:4,en:'Agree',ta:'ஒப்புக்கொள்கிறேன்'},
+    {v:5,en:'Strongly Agree',ta:'முற்றிலும் ஒப்புக்கொள்கிறேன்'},
+  ];
+}
+
+function renderQuestion(){
+  const sec = sections[secIndex];
+  const qList = document.getElementById('qList');
+  if(!qList) return;
+  let html = '';
+  if(sec==='bigfive'){
+    bigFive.forEach((q,i)=>{
+      html += '<div class="q"><div class="qtext">'+(i+1)+'. '+T(q.en,q.ta)+'</div><div class="likert">';
+      likertLabels().forEach(l=>{
+        const checked = answers.bigfive[i]===l.v ? 'checked':'';
+        html += '<label><input type="radio" name="bf'+i+'" value="'+l.v+'" '+checked+' onchange="answers.bigfive['+i+']='+l.v+'"><span>'+T(l.en,l.ta)+'</span></label>';
+      });
+      html += '</div></div>';
+    });
+  } else if(sec==='interest'){
+    interest.forEach((q,i)=>{
+      html += '<div class="q"><div class="qtext">'+(i+1)+'. '+T(q.en,q.ta)+'</div><div class="likert">';
+      likertLabels().forEach(l=>{
+        const checked = answers.interest[i]===l.v ? 'checked':'';
+        html += '<label><input type="radio" name="in'+i+'" value="'+l.v+'" '+checked+' onchange="answers.interest['+i+']='+l.v+'"><span>'+T(l.en,l.ta)+'</span></label>';
+      });
+      html += '</div></div>';
+    });
+  } else if(sec==='aptitude'){
+    aptitude.forEach((q,i)=>{
+      html += '<div class="q"><div class="qtext">'+(i+1)+'. ['+q.type+'] '+T(q.en,q.ta)+'</div><div class="opts">';
+      q.opts.forEach((o,oi)=>{
+        const checked = answers.aptitude[i]===oi ? 'checked':'';
+        html += '<label><input type="radio" name="ap'+i+'" '+checked+' onchange="answers.aptitude['+i+']='+oi+'">'+T(o.en,o.ta)+'</label>';
+      });
+      html += '</div></div>';
+    });
+  } else if(sec==='situational'){
+    situational.forEach((q,i)=>{
+      html += '<div class="q"><div class="qtext">'+(i+1)+'. '+T(q.en,q.ta)+'</div><div class="opts">';
+      q.opts.forEach((o,oi)=>{
+        const checked = answers.situational[i]===oi ? 'checked':'';
+        html += '<label><input type="radio" name="si'+i+'" '+checked+' onchange="answers.situational['+i+']='+oi+'">'+T(o.en,o.ta)+'</label>';
+      });
+      html += '</div></div>';
+    });
+  } else if(sec==='strengths'){
+    strengths.forEach((q,i)=>{
+      html += '<div class="q"><div class="qtext">'+(i+1)+'. '+T(q.en,q.ta)+'</div><div class="likert">';
+      [1,2,3,4,5].forEach(v=>{
+        const checked = answers.strengths[i]===v ? 'checked':'';
+        html += '<label><input type="radio" name="st'+i+'" value="'+v+'" '+checked+' onchange="answers.strengths['+i+']='+v+'"><span>'+v+'</span></label>';
+      });
+      html += '</div></div>';
+    });
+  } else if(sec==='selfanalysis'){
+    selfAnalysisQs.forEach((q,i)=>{
+      html += '<div class="q"><div class="qtext">'+(i+1)+'. '+T(q.en,q.ta)+'</div>';
+      html += '<textarea onchange="answers.selfanalysis['+i+']=this.value" placeholder="'+T('Type your answer...','உங்கள் பதிலை தட்டச்சு செய்யவும்...')+'">'+(answers.selfanalysis[i]||'')+'</textarea></div>';
+    });
+  }
+  qList.innerHTML = html;
+}
+
+function prevSection(){ if(secIndex>0){ secIndex--; renderSection(); window.scrollTo(0,0);} }
+function nextSection(){
+  if(secIndex < sections.length-1){ secIndex++; renderSection(); window.scrollTo(0,0); }
+  else { generateReport(); }
+}
+
+/* ===================== SCORING ===================== */
+function scoreBigFive(){
+  const traits = {O:[],C:[],E:[],A:[],N:[]};
+  bigFive.forEach((q,i)=>{ const v = answers.bigfive[i]||3; traits[q.t].push(v); });
+  const out = {};
+  Object.keys(traits).forEach(t=>{
+    const arr = traits[t];
+    const avg = arr.reduce((a,b)=>a+b,0)/arr.length;
+    out[t] = Math.round((avg/5)*100);
+  });
+  return out;
+}
+function scoreInterest(){
+  const s = {SCI:0,COM:0,ART:0,VOC:0};
+  const cnt = {SCI:0,COM:0,ART:0,VOC:0};
+  interest.forEach((q,i)=>{ const v = answers.interest[i]||3; s[q.s]+=v; cnt[q.s]++; });
+  const out = {};
+  Object.keys(s).forEach(k=> out[k] = Math.round((s[k]/(cnt[k]*5))*100));
+  return out;
+}
+function scoreAptitude(){
+  let correct=0; const byType={};
+  aptitude.forEach((q,i)=>{
+    byType[q.type] = byType[q.type]||{c:0,t:0};
+    byType[q.type].t++;
+    const ai = answers.aptitude[i];
+    if(ai!==undefined && q.opts[ai] && q.opts[ai].c){ correct++; byType[q.type].c++; }
+  });
+  return {total: Math.round((correct/aptitude.length)*100), byType};
+}
+function scoreSituational(){
+  const s = {SCI:0,COM:0,ART:0,VOC:0};
+  situational.forEach((q,i)=>{
+    const oi = answers.situational[i];
+    if(oi!==undefined) s[q.opts[oi].s]++;
+  });
+  return s;
+}
+function scoreStrengths(){
+  return strengths.map((q,i)=>({label:q, val:answers.strengths[i]||3}));
+}
+function computeStreamScores(){
+  const bf = scoreBigFive();
+  const intr = scoreInterest();
+  const apt = scoreAptitude();
+  const sit = scoreSituational();
+  const maxSit = Math.max(...Object.values(sit),1);
+  // weighted composite: interest 40%, situational 25%, aptitude 20%, personality fit 15%
+  const sitNorm = {SCI:sit.SCI/situational.length*100, COM:sit.COM/situational.length*100, ART:sit.ART/situational.length*100, VOC:sit.VOC/situational.length*100};
+  const personalityFit = {
+    SCI: (bf.O*0.6 + bf.C*0.4),
+    COM: (bf.E*0.5 + bf.C*0.5),
+    ART: (bf.O*0.7 + bf.E*0.3),
+    VOC: (bf.C*0.5 + (100-bf.N)*0.5),
+  };
+  const composite = {};
+  ['SCI','COM','ART','VOC'].forEach(k=>{
+    composite[k] = Math.round(intr[k]*0.40 + sitNorm[k]*0.25 + apt.total*0.20 + personalityFit[k]*0.15);
+  });
+  return {bf, intr, apt, sit, composite};
+}
+
+/* ===================== APPS SCRIPT SUBMISSION ===================== */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbweMuFPdJQ-tJe9ChTaKPVgnhHRg7c9YDsM_JayDG1bTQl0c2txYLI0mgyLXZYdaVkb/exec';
+function submitToSheet(data){
+  try{
+    const params = new URLSearchParams(data).toString();
+    const img = new Image();
+    img.src = APPS_SCRIPT_URL + '?' + params;
+  }catch(e){ console.log('submit skipped', e); }
+}
+
+/* ===================== REPORT GENERATION ===================== */
+function streamLabel(k){
+  return {SCI:{en:'Science (PCM / PCB)',ta:'அறிவியல் (PCM / PCB)',color:'var(--sci)'},
+          COM:{en:'Commerce',ta:'வணிகவியல்',color:'var(--com)'},
+          ART:{en:'Arts / Humanities',ta:'கலை / மனிதவியல்',color:'var(--art)'},
+          VOC:{en:'Vocational / Skill-based',ta:'தொழில்முறை / திறன் சார்ந்தது',color:'var(--voc)'}}[k];
+}
+function streamTips(k){
+  const tips = {
+    SCI:{en:['Strengthen Maths and core science fundamentals with daily practice.','Join science clubs, do simple home experiments and read about new innovations.','If unsure between PCM and PCB, take a short trial of both subjects with your teachers.'],
+         ta:['தினமும் பயிற்சி மூலம் கணிதம் மற்றும் அறிவியல் அடிப்படைகளை பலப்படுத்தவும்.','அறிவியல் கிளப்களில் இணையவும், வீட்டில் எளிய பரிசோதனைகள் செய்யவும்.','PCM/PCB இடையே தெளிவில்லை எனில், ஆசிரியர்களுடன் இரண்டையும் முயற்சிக்கவும்.']},
+    COM:{en:['Build strong basics in Maths/Accounts and current business awareness.','Read newspapers business sections and follow simple stock market news.','Practice mental maths and participate in mock business or fest activities.'],
+         ta:['கணிதம்/கணக்கியலில் அடிப்படைகளை பலப்படுத்தவும்.','செய்தித்தாள் வணிகப் பகுதியை படிக்கவும், பங்குச் சந்தை செய்திகளை பின்பற்றவும்.','மனக்கணக்கு பயிற்சி செய்யவும், மாதிரி வணிக நிகழ்வுகளில் பங்கேற்கவும்.']},
+    ART:{en:['Read widely — history, literature, current affairs — to build strong general knowledge.','Practice writing (essays, articles) and participate in debates/elocution.','Explore specific interests: psychology, law, journalism, fine arts, design.'],
+         ta:['வரலாறு, இலக்கியம், நடப்பு நிகழ்வுகள் பற்றி விரிவாக படிக்கவும்.','கட்டுரை எழுதுதல் பயிற்சி செய்யவும், விவாதங்களில் பங்கேற்கவும்.','உளவியல், சட்டம், பத்திரிகை, கலை, வடிவமைப்பு போன்ற துறைகளை ஆராயவும்.']},
+    VOC:{en:['Explore ITI/Polytechnic/Skill India programs aligned with your interest area.','Get hands-on practice through workshops, internships or online skill courses.','Build a portfolio of practical projects to showcase your skill.'],
+         ta:['உங்கள் ஆர்வத்திற்கு ஏற்ப ITI/Polytechnic/Skill India திட்டங்களை ஆராயவும்.','பட்டறைகள், பயிற்சிகள் அல்லது ஆன்லைன் திறன் பாடங்கள் மூலம் நடைமுறை அனுபவம் பெறவும்.','உங்கள் திறமையை காட்டும் நடைமுறை திட்டங்களின் தொகுப்பை உருவாக்கவும்.']},
+  };
+  return T(tips[k].en.join('|||'), tips[k].ta.join('|||')).split('|||');
+}
+function bfLabel(t){
+  return {O:{en:'Openness',ta:'திறந்த மனப்பான்மை'},C:{en:'Conscientiousness',ta:'கடமையுணர்வு'},E:{en:'Extraversion',ta:'வெளிப்படைத்தன்மை'},A:{en:'Agreeableness',ta:'இணக்கத்தன்மை'},N:{en:'Emotional Sensitivity',ta:'உணர்ச்சி உணர்திறன்'}}[t];
+}
+
+function generateReport(){
+  document.getElementById('progressBar').classList.add('hidden');
+  document.getElementById('testArea').classList.add('hidden');
+  document.getElementById('testArea').innerHTML='';
+  const rArea = document.getElementById('reportArea');
+  rArea.classList.remove('hidden');
+
+  const name = document.getElementById('s_name').value.trim();
+  const mobile = document.getElementById('s_mobile').value.trim();
+  const school = document.getElementById('s_school').value.trim();
+  const cls = document.getElementById('s_class').value.trim();
+  const dateStr = new Date().toLocaleDateString('en-IN');
+
+  const {bf, intr, apt, sit, composite} = computeStreamScores();
+  const ranked = Object.entries(composite).sort((a,b)=>b[1]-a[1]);
+  const top = ranked[0][0];
+  const second = ranked[1][0];
+  const strengthList = scoreStrengths().sort((a,b)=>b.val-a.val);
+  const topStrengths = strengthList.slice(0,3);
+  const growthAreas = strengthList.slice(-3);
+
+  let h = '';
+
+  // PAGE 1 - Cover + Student info
+  h += '<div class="reportPage"><div class="rHead"><h2>'+T('Career Stream Guidance Report','தொழில் Stream ஆலோசனை அறிக்கை')+'</h2>'+
+    '<p>'+T('NT Somasundaram Life Skills Program','என்.டி சோமசுந்தரம் வாழ்க்கை திறன் திட்டம்')+' | '+dateStr+'</p></div>';
+  h += '<table class="rt"><tr><th>'+T('Name','பெயர்')+'</th><td>'+name+'</td><th>'+T('Class','வகுப்பு')+'</th><td>'+cls+'</td></tr>'+
+       '<tr><th>'+T('School','பள்ளி')+'</th><td>'+school+'</td><th>'+T('Mobile','மொபைல்')+'</th><td>'+mobile+'</td></tr></table>';
+  h += '<p style="margin-top:16px;">'+T('This report is based on your responses to a Personality Test (Big Five), Interest Analysis, Aptitude Test, Situational Judgment Test, Strengths & Weaknesses self-rating, and Self-Analysis. It is designed to guide — not dictate — your stream choice for Class 11. Please discuss this with your parents and teachers before finalising.',
+    'இந்த அறிக்கை ஆளுமை தேர்வு (Big Five), ஆர்வ பகுப்பாய்வு, திறன் தேர்வு, சூழ்நிலை ஆய்வு தேர்வு, பலம் & பலவீனம் சுய மதிப்பீடு மற்றும் சுய பகுப்பாய்வு ஆகியவற்றின் அடிப்படையில் தயாரிக்கப்பட்டது. இது 11ஆம் வகுப்பு Stream தேர்விற்கு வழிகாட்டியாக மட்டுமே உள்ளது. இறுதி முடிவெடுக்கும் முன் பெற்றோர் மற்றும் ஆசிரியர்களுடன் விவாதிக்கவும்.')+'</p>';
+  h += '<div class="promo"><h3>'+T('🌟 Students Empowerment Program','🌟 மாணவர்கள் மேம்பாட்டு திட்டம்')+'</h3><p>'+
+    T('Join our Students Empowerment Program for structured mentoring on study skills, career planning, confidence building and life skills — tailored to your assessment results.',
+      'உங்கள் மதிப்பீட்டு முடிவுகளுக்கு ஏற்ப, படிப்பு திறன், தொழில் திட்டமிடல், தன்னம்பிக்கை மற்றும் வாழ்க்கை திறன்கள் குறித்த ஒழுங்கமைக்கப்பட்ட வழிகாட்டுதலுக்காக எங்கள் மாணவர்கள் மேம்பாட்டு திட்டத்தில் இணையுங்கள்.')+
+    '</p><a class="waBtn" target="_blank" href="https://wa.me/919843702244?text='+encodeURIComponent(T('Hi, I completed the Stream Selection Assessment for ','வணக்கம், நான் Stream Selection Assessment முடித்துவிட்டேன் - ')+name+T('. I want to know more about the Students Empowerment Program.','. மாணவர்கள் மேம்பாட்டு திட்டம் பற்றி மேலும் அறிய விரும்புகிறேன்.'))+'">'+T('📩 WhatsApp for Empowerment Program','📩 மேம்பாட்டு திட்டத்திற்கு WhatsApp')+'</a></div>';
+  h += '</div>';
+
+  // PAGE 2 - Big Five + Strengths
+  h += '<div class="reportPage"><div class="rHead"><h2>'+T('Personality Profile (Big Five)','ஆளுமை விவரம் (Big Five)')+'</h2></div>';
+  Object.keys(bf).forEach(t=>{
+    const lbl = bfLabel(t);
+    h += '<div class="barRow"><div class="barLabel">'+T(lbl.en,lbl.ta)+'</div><div class="barTrack"><div class="barFill" style="width:'+bf[t]+'%"></div></div><div class="barVal">'+bf[t]+'%</div></div>';
+  });
+  h += '<h2 class="sec" style="margin-top:24px;">'+T('Strengths &amp; Growth Areas','பலம் &amp; வளர்ச்சி பகுதிகள்')+'</h2><div class="grid2">';
+  h += '<div><h3 style="color:var(--com);">'+T('Top Strengths','முதன்மை பலங்கள்')+'</h3><ul>';
+  topStrengths.forEach(s=> h += '<li>'+T(s.label.en,s.label.ta)+' ('+s.val+'/5)</li>');
+  h += '</ul></div><div><h3 style="color:var(--accent);">'+T('Areas to Improve','மேம்படுத்த வேண்டிய பகுதிகள்')+'</h3><ul>';
+  growthAreas.forEach(s=> h += '<li>'+T(s.label.en,s.label.ta)+' ('+s.val+'/5)</li>');
+  h += '</ul></div></div>';
+  h += '<div class="tipBox">'+T('Tip: High Emotional Sensitivity is normal at this age — practice deep breathing, journaling and talking to a trusted adult before exams to manage stress.',
+    'குறிப்பு: இந்த வயதில் அதிக உணர்ச்சி உணர்திறன் இயல்பானது — தேர்வுகளுக்கு முன் ஆழ்ந்த சுவாசம், நாட்குறிப்பு எழுதுதல் மற்றும் நம்பகமான பெரியவரிடம் பேசுவதன் மூலம் மன அழுத்தத்தை நிர்வகிக்கவும்.')+'</div>';
+  h += '</div>';
+
+  // PAGE 3 - Interest + Aptitude
+  h += '<div class="reportPage"><div class="rHead"><h2>'+T('Interest &amp; Aptitude Analysis','ஆர்வம் &amp; திறன் பகுப்பாய்வு')+'</h2></div>';
+  h += '<h3>'+T('Interest Levels by Field','துறை வாரியான ஆர்வ அளவு')+'</h3>';
+  Object.keys(intr).forEach(k=>{
+    const lbl = streamLabel(k);
+    h += '<div class="barRow"><div class="barLabel">'+T(lbl.en,lbl.ta)+'</div><div class="barTrack"><div class="barFill" style="width:'+intr[k]+'%"></div></div><div class="barVal">'+intr[k]+'%</div></div>';
+  });
+  h += '<h3 style="margin-top:20px;">'+T('Aptitude Test Score','திறன் தேர்வு மதிப்பெண்')+': '+apt.total+'%</h3><table class="rt"><tr><th>'+T('Category','பிரிவு')+'</th><th>'+T('Correct','சரியானவை')+'</th></tr>';
+  Object.keys(apt.byType).forEach(t=>{
+    h += '<tr><td>'+t+'</td><td>'+apt.byType[t].c+' / '+apt.byType[t].t+'</td></tr>';
+  });
+  h += '</table>';
+  h += '<h3 style="margin-top:20px;">'+T('Situational Judgment — Response Pattern','சூழ்நிலை ஆய்வு — பதில் அமைப்பு')+'</h3>';
+  Object.keys(sit).forEach(k=>{
+    const lbl = streamLabel(k);
+    h += '<div class="barRow"><div class="barLabel">'+T(lbl.en,lbl.ta)+'</div><div class="barTrack"><div class="barFill" style="width:'+Math.round(sit[k]/situational.length*100)+'%"></div></div><div class="barVal">'+sit[k]+'/'+situational.length+'</div></div>';
+  });
+  h += '</div>';
+
+  // PAGE 4 - Stream Recommendation
+  h += '<div class="reportPage"><div class="rHead"><h2>'+T('Recommended Stream','பரிந்துரைக்கப்படும் Stream')+'</h2></div>';
+  ranked.forEach(([k,v],idx)=>{
+    const lbl = streamLabel(k);
+    h += '<div class="streamCard" style="background:'+lbl.color+';">';
+    h += '<div style="display:flex;justify-content:space-between;align-items:center;"><b style="font-size:16px;">'+(idx+1)+'. '+T(lbl.en,lbl.ta)+'</b><span class="badge" style="background:rgba(255,255,255,.3);">'+v+'%</span></div>';
+    if(idx===0) h += '<p style="margin:6px 0 0;font-size:13px;">'+T('★ Best Fit based on your combined profile','★ உங்கள் ஒட்டுமொத்த விவரத்தின்படி மிகச் சிறந்த பொருத்தம்')+'</p>';
+    h += '</div>';
+  });
+  h += '<h3 style="margin-top:20px;">'+T('Personalised Tips for','தனிப்பயன் ஆலோசனைகள்')+' — '+T(streamLabel(top).en,streamLabel(top).ta)+'</h3>';
+  streamTips(top).forEach(tp=> h += '<div class="tipBox">✔ '+tp+'</div>');
+  h += '<p style="margin-top:14px;">'+T('Your second-best fit is <b>'+T(streamLabel(second).en,streamLabel(second).ta)+'</b> — consider this if you have strong reasons (family business, specific college goals, etc.) to lean that way.',
+    'உங்கள் இரண்டாவது சிறந்த பொருத்தம் <b>'+T(streamLabel(second).en,streamLabel(second).ta)+'</b> — குடும்ப வணிகம், குறிப்பிட்ட கல்லூரி இலக்குகள் போன்ற வலுவான காரணங்கள் இருந்தால் இதையும் பரிசீலிக்கலாம்.')+'</p>';
+  h += '</div>';
+
+  // PAGE 5 - Self analysis + improvement plan + program promo
+  h += '<div class="reportPage"><div class="rHead"><h2>'+T('Self-Analysis &amp; Improvement Plan','சுய பகுப்பாய்வு &amp; மேம்பாட்டு திட்டம்')+'</h2></div>';
+  h += '<h3>'+T('Your Reflections','உங்கள் பதில்கள்')+'</h3>';
+  selfAnalysisQs.forEach((q,i)=>{
+    h += '<p><b>'+T(q.en,q.ta)+'</b><br>'+ (answers.selfanalysis[i]? answers.selfanalysis[i] : T('(no answer)','(பதில் இல்லை)')) +'</p>';
+  });
+  h += '<h3 style="margin-top:16px;">'+T('30-Day Improvement Plan','30 நாள் மேம்பாட்டு திட்டம்')+'</h3><table class="rt"><tr><th>'+T('Week','வாரம்')+'</th><th>'+T('Focus Area','முக்கிய பகுதி')+'</th></tr>'+
+    '<tr><td>1</td><td>'+T('Identify strengths, set a clear stream-based goal','பலங்களை கண்டறிந்து, Stream இலக்கை நிர்ணயித்தல்')+'</td></tr>'+
+    '<tr><td>2</td><td>'+T('Strengthen weakest subject with daily 30-min practice','பலவீனமான பாடத்தில் தினமும் 30-நிமிட பயிற்சி')+'</td></tr>'+
+    '<tr><td>3</td><td>'+T('Explore stream-related activities / talk to seniors in that stream','Stream தொடர்பான செயல்பாடுகளை ஆராய்தல் / மூத்த மாணவர்களுடன் பேசுதல்')+'</td></tr>'+
+    '<tr><td>4</td><td>'+T('Review progress with parents/mentor and finalise stream choice','பெற்றோர்/வழிகாட்டியுடன் முன்னேற்றத்தை மதிப்பாய்வு செய்து Stream தேர்வை உறுதி செய்தல்')+'</td></tr></table>';
+  h += '<div class="promo"><h3>'+T('📚 Continue with SLS Academy','📚 SLS Academy உடன் தொடருங்கள்')+'</h3><p>'+
+    T('For personalised one-on-one career counselling, parenting guidance, and life skills coaching, contact NT Somasundaram — Certified Master Trainer & Career Consultant.',
+      'தனிப்பயன் தொழில் ஆலோசனை, பெற்றோர் வழிகாட்டுதல் மற்றும் வாழ்க்கை திறன் பயிற்சிக்கு, என்.டி சோமசுந்தரம் — சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் & தொழில் ஆலோசகரை தொடர்பு கொள்ளவும்.')+
+    '</p><p>📞 +91 98437 02244 &nbsp;|&nbsp; ✉️ somasundaramnt.lifecoach@gmail.com</p></div>';
+  h += '<div class="btnRow" style="margin-top:10px;">'+
+    '<button class="nav" onclick="window.print()">'+T('🖨️ Print / Save as PDF','🖨️ அச்சிடு / PDF ஆக சேமி')+'</button>'+
+    '<button class="nav secondary" onclick="location.reload()">'+T('Restart','மீண்டும் தொடங்கு')+'</button></div>';
+  h += '</div>';
+
+  rArea.innerHTML = h;
+  window.scrollTo(0,0);
+
+  const strengthsPayload = strengthList.map(s=> s.label.en+':'+s.val).join('|');
+  const selfAnalysisPayload = selfAnalysisQs.map((q,i)=> q.en+':::'+(answers.selfanalysis[i]||'-')).join('|||');
+  const sjtPayload = Object.keys(sit).map(k=> k+':'+sit[k]).join('|');
+  const aptByTypePayload = Object.keys(apt.byType).map(t=> t+':'+apt.byType[t].c+'/'+apt.byType[t].t).join('|');
+
+  submitToSheet({
+    name:name, mobile:mobile, school:school, class:cls, date:dateStr,
+    topStream: top, secondStream: second,
+    compositeSCI: composite.SCI, compositeCOM: composite.COM, compositeART: composite.ART, compositeVOC: composite.VOC,
+    O:bf.O, C:bf.C, E:bf.E, A:bf.A, N:bf.N, aptitude: apt.total,
+    strengths: strengthsPayload,
+    selfAnalysis: selfAnalysisPayload,
+    sjt: sjtPayload,
+    aptByType: aptByTypePayload
+  });
+}
+</script>
+</body>
+</html>

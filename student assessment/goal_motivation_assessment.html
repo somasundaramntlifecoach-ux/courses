@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Goal Setting & Motivation Assessment</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#f5f3ff;min-height:100vh}
+.header{background:linear-gradient(135deg,#6C3FB5,#4a2880);color:#fff;padding:14px 20px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(108,63,181,0.3)}
+.header-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.brand{font-size:15px;font-weight:600}
+.sub-brand{font-size:11px;opacity:.85;margin-top:2px}
+.lang-btn{background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:#fff;padding:5px 14px;border-radius:20px;cursor:pointer;font-size:13px;font-weight:500;transition:all .2s}
+.lang-btn:hover{background:rgba(255,255,255,0.35)}
+.tool-title{font-size:13px;opacity:.9;margin-top:6px}
+.container{max-width:680px;margin:0 auto;padding:20px 16px 40px}
+.card{background:#fff;border-radius:16px;padding:24px 22px;box-shadow:0 2px 12px rgba(108,63,181,.1);margin-bottom:16px}
+.section-badge{display:inline-block;background:#ede8fb;color:#6C3FB5;font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.5px}
+/* INTRO */
+.intro-icon{font-size:48px;text-align:center;margin-bottom:12px}
+.intro-title{font-size:20px;font-weight:700;color:#1a1040;margin-bottom:8px;text-align:center}
+.intro-title.ta{font-family:'Noto Sans Tamil',sans-serif}
+.intro-desc{font-size:14px;color:#5a4a8a;line-height:1.7;margin-bottom:20px;text-align:center}
+.intro-desc.ta{font-family:'Noto Sans Tamil',sans-serif;font-size:13px}
+/* REGISTRATION */
+.reg-title{font-size:16px;font-weight:600;color:#1a1040;margin-bottom:14px}
+.reg-title.ta{font-family:'Noto Sans Tamil',sans-serif}
+.field-label{font-size:13px;font-weight:600;color:#3a2a6e;margin-bottom:5px;display:block}
+.field-label.ta{font-family:'Noto Sans Tamil',sans-serif}
+.field-input{width:100%;border:1.5px solid #ddd6f7;border-radius:10px;padding:11px 14px;font-size:15px;color:#1a1040;outline:none;transition:border .2s;background:#faf8ff;font-family:inherit;margin-bottom:14px}
+.field-input:focus{border-color:#6C3FB5}
+.field-input.error{border-color:#e74c3c}
+.field-error{font-size:12px;color:#e74c3c;margin-top:-10px;margin-bottom:10px;display:none}
+.field-error.ta{font-family:'Noto Sans Tamil',sans-serif}
+/* PROGRESS */
+.progress-bar-wrap{background:#e0d7f7;border-radius:10px;height:8px;margin:20px 0 8px;overflow:hidden}
+.progress-bar{height:8px;border-radius:10px;background:#6C3FB5;transition:width .4s ease}
+.progress-label{font-size:12px;color:#6C3FB5;font-weight:500;text-align:right;margin-bottom:18px}
+/* QUIZ */
+.q-text{font-size:16px;color:#1a1040;line-height:1.6;margin-bottom:18px;font-weight:500}
+.q-text.ta{font-family:'Noto Sans Tamil',sans-serif;font-size:15px}
+.options{display:flex;flex-direction:column;gap:10px}
+.option-btn{background:#faf8ff;border:1.5px solid #ddd6f7;border-radius:12px;padding:12px 16px;cursor:pointer;font-size:14px;color:#3a2a6e;text-align:left;transition:all .18s;font-family:inherit}
+.option-btn.ta{font-family:'Noto Sans Tamil',sans-serif;font-size:13px}
+.option-btn:hover{background:#ede8fb;border-color:#6C3FB5}
+.option-btn.selected{background:#6C3FB5;border-color:#6C3FB5;color:#fff}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:20px;gap:10px}
+.btn{padding:11px 24px;border-radius:24px;border:none;cursor:pointer;font-size:14px;font-weight:600;transition:all .18s}
+.btn.ta{font-family:'Noto Sans Tamil',sans-serif}
+.btn-primary{background:#6C3FB5;color:#fff}
+.btn-primary:hover{background:#5a3299}
+.btn-outline{background:#fff;color:#6C3FB5;border:1.5px solid #6C3FB5}
+.btn-outline:hover{background:#f5f0ff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+/* RESULTS */
+.result-hero{background:linear-gradient(135deg,#6C3FB5,#4a2880);border-radius:16px;padding:28px 24px;color:#fff;text-align:center;margin-bottom:16px}
+.result-profile{font-size:26px;font-weight:700;margin-bottom:6px}
+.result-tagline{font-size:14px;opacity:.9;line-height:1.5}
+.result-score{font-size:13px;opacity:.8;margin-top:8px}
+.result-student{font-size:13px;opacity:.85;margin-top:6px}
+.dim-section{margin-bottom:14px}
+.dim-label{display:flex;justify-content:space-between;font-size:13px;font-weight:600;color:#3a2a6e;margin-bottom:5px}
+.dim-label.ta{font-family:'Noto Sans Tamil',sans-serif}
+.dim-bar-wrap{background:#e8e0f7;border-radius:6px;height:10px;overflow:hidden}
+.dim-bar{height:10px;border-radius:6px;transition:width 1s ease}
+.dim-tip{font-size:12px;color:#6C3FB5;margin-top:4px;line-height:1.5}
+.dim-tip.ta{font-family:'Noto Sans Tamil',sans-serif}
+.feedback-box{background:#faf8ff;border-left:4px solid #6C3FB5;border-radius:0 12px 12px 0;padding:14px 16px;margin-bottom:14px;font-size:14px;line-height:1.8;color:#2d1e5c}
+.feedback-box.ta{font-family:'Noto Sans Tamil',sans-serif;font-size:13px}
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.tip-card{background:#faf8ff;border:1.5px solid #e0d7f7;border-radius:12px;padding:12px 14px}
+.tip-icon{font-size:20px;margin-bottom:6px}
+.tip-text{font-size:12px;color:#5a4a8a;line-height:1.6}
+.tip-text.ta{font-family:'Noto Sans Tamil',sans-serif}
+.steps-list{list-style:none;padding:0;margin-top:4px}
+.steps-list li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid #f0eaff;font-size:13px;color:#2d1e5c;line-height:1.6}
+.steps-list li:last-child{border-bottom:none}
+.steps-list li.ta{font-family:'Noto Sans Tamil',sans-serif;font-size:12px}
+.step-num{background:#6C3FB5;color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;margin-top:1px}
+.quote-box{background:linear-gradient(135deg,#ede8fb,#f5f0ff);border-radius:12px;padding:16px 18px;margin-bottom:14px;text-align:center}
+.quote-text{font-size:15px;font-style:italic;color:#3a2a6e;line-height:1.7;font-weight:500}
+.quote-text.ta{font-family:'Noto Sans Tamil',sans-serif;font-size:14px}
+.program-box{background:#fff3e0;border:1.5px solid #ffcc80;border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.program-title{font-size:13px;font-weight:700;color:#e65100;margin-bottom:6px}
+.program-title.ta{font-family:'Noto Sans Tamil',sans-serif}
+.program-text{font-size:12px;color:#5d4037;line-height:1.7}
+.program-text.ta{font-family:'Noto Sans Tamil',sans-serif}
+.wa-btn{display:block;background:#25D366;color:#fff;text-align:center;padding:14px 20px;border-radius:30px;font-size:15px;font-weight:600;text-decoration:none;margin:14px 0 10px}
+.wa-btn:hover{background:#1ebe5d}
+.print-btn{display:block;background:#6C3FB5;color:#fff;text-align:center;padding:13px 20px;border-radius:30px;font-size:14px;font-weight:600;cursor:pointer;margin-bottom:14px;border:none;width:100%}
+.print-btn:hover{background:#5a3299}
+.save-status{text-align:center;font-size:12px;padding:8px;border-radius:8px;margin-bottom:10px;display:none}
+.save-ok{background:#e8f5e9;color:#2e7d32}
+.save-err{background:#fdecea;color:#c62828}
+.footer-note{font-size:11px;color:#9580c5;text-align:center;margin-top:10px}
+@media(max-width:480px){.tips-grid{grid-template-columns:1fr}}
+@media print{
+  .header{position:relative;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .lang-btn,.nav-row,.wa-btn,.print-btn,.save-status{display:none!important}
+  .result-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .container{padding:0}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-top">
+    <div>
+      <div class="brand">Somasundaram Life Skills Training Program</div>
+      <div class="sub-brand">🙏 God is Always With You</div>
+    </div>
+    <button class="lang-btn" onclick="toggleLang()" id="langBtn">தமிழ்</button>
+  </div>
+  <div class="tool-title" id="headerTitle">Goal Setting & Motivation Assessment | Class 11–12</div>
+</div>
+
+<div class="container">
+
+<!-- INTRO + REGISTRATION -->
+<div id="introScreen" class="card">
+  <div class="intro-icon">🎯</div>
+  <div class="intro-title" id="introTitle">Goal Setting & Motivation Assessment</div>
+  <div class="intro-desc" id="introDesc">A powerful 20-question bilingual assessment that reveals your goal clarity, motivation type, and action strengths — with a personalised report and action plan.<br><br><strong>For Class 11–12 Students</strong> | 5–7 Minutes</div>
+
+  <div class="section-badge" id="regBadge">Student Details</div>
+  <div class="reg-title" id="regTitle">Please enter your details to begin</div>
+
+  <label class="field-label" id="nameLabel" for="studentName">Full Name</label>
+  <input class="field-input" type="text" id="studentName" autocomplete="name" placeholder="Enter your full name">
+  <div class="field-error" id="nameError">Please enter your name.</div>
+
+  <label class="field-label" id="mobileLabel" for="studentMobile">Mobile Number</label>
+  <input class="field-input" type="tel" id="studentMobile" autocomplete="tel" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric">
+  <div class="field-error" id="mobileError">Please enter a valid 10-digit mobile number.</div>
+
+  <button class="btn btn-primary" onclick="startAssessment()" id="startBtn" style="width:100%;padding:14px;margin-top:6px">Start Assessment →</button>
+  <div class="footer-note" id="introNote">By Somasundaram NT | Certified Master Trainer & Life Skills Educator</div>
+</div>
+
+<!-- QUIZ -->
+<div id="quizScreen" style="display:none">
+  <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar" style="width:5%"></div></div>
+  <div class="progress-label" id="progressLabel">Question 1 of 20</div>
+  <div class="card">
+    <div class="section-badge" id="sectionBadge">Clarity of Goals</div>
+    <div class="q-text" id="qText"></div>
+    <div class="options" id="optionsDiv"></div>
+    <div class="nav-row">
+      <button class="btn btn-outline" id="prevBtn" onclick="prevQ()" disabled>← Back</button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextQ()" disabled>Next →</button>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="resultsScreen" style="display:none">
+  <div class="result-hero">
+    <div id="resultEmoji" style="font-size:42px;margin-bottom:8px">🌟</div>
+    <div class="result-profile" id="resultProfile"></div>
+    <div class="result-tagline" id="resultTagline"></div>
+    <div class="result-score" id="resultScore"></div>
+    <div class="result-student" id="resultStudent"></div>
+  </div>
+
+  <div class="card">
+    <div class="section-badge" id="dimHeading">Your Dimension Scores</div>
+    <div id="dimBars"></div>
+  </div>
+  <div class="card" id="quoteCard">
+    <div class="quote-box">
+      <div class="quote-text" id="quoteText"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-badge" id="feedbackHeading">Overall Feedback</div>
+    <div class="feedback-box" id="feedbackText"></div>
+  </div>
+  <div class="card">
+    <div class="section-badge" id="tipsHeading">Tips to Improve</div>
+    <div class="tips-grid" id="tipsGrid"></div>
+  </div>
+  <div class="card">
+    <div class="section-badge" id="stepsHeading">Your 5-Step Action Plan</div>
+    <ul class="steps-list" id="stepsList"></ul>
+  </div>
+  <div class="card">
+    <div class="section-badge">Coaching Program</div>
+    <div class="program-box">
+      <div class="program-title" id="programTitle">🌟 Loving & Responsible Parenting – Zoom Program</div>
+      <div class="program-text" id="programText"></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-badge" id="ctaHeading">Connect with Us</div>
+    <div class="save-status" id="saveStatus"></div>
+    <a class="wa-btn" id="waLink" href="#" target="_blank">💬 Connect on WhatsApp</a>
+    <button class="print-btn" onclick="window.print()" id="printBtn">🖨️ Download / Print Report</button>
+    <div class="footer-note" id="footerNote">Somasundaram NT | +91 98437 02244 | somasundaramnt.lifecoach@gmail.com</div>
+  </div>
+</div>
+
+</div>
+
+<script>
+// ▼▼▼ PASTE YOUR WEB APP URL HERE AFTER DEPLOYING THE APPS SCRIPT ▼▼▼
+var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxQrZg43UpxbIQviQ3W9fMs07KO-91QiaLbpMUPpHcsTvTLuCskN1yta6NvP97ox6OA/exec";
+// ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
+var lang='en', current=0, answers=new Array(20).fill(null);
+var studentName='', studentMobile='';
+
+var dims=[
+  {en:'Clarity of Goals',ta:'இலக்கு தெளிவு'},
+  {en:'Motivation Type',ta:'உந்துதல் வகை'},
+  {en:'Action Planning',ta:'செயல் திட்டமிடல்'},
+  {en:'Persistence & Resilience',ta:'விடாமுயற்சி & மீள்திறன்'},
+  {en:'Self-Belief',ta:'சுயநம்பிக்கை'}
+];
+var dimColors=['#6C3FB5','#e0822a','#1a8f6b','#c0392b','#1a6fbf'];
+var dimTips={
+  en:['Write your goal in one clear sentence and read it every morning.','Remind yourself daily WHY this goal matters to you personally.','Use a planner — break your week into study blocks and review every Sunday.','After a setback, write 3 things you learned before moving forward.','Create a personal mantra and repeat it when doubt creeps in.'],
+  ta:['உன் இலக்கை ஒரு தெளிவான வாக்கியத்தில் எழுது; ஒவ்வொரு காலையும் படி.','இந்த இலக்கு உனக்கு ஏன் முக்கியம் என்று தினமும் நினைவுபடுத்திக்கொள்.','திட்டமிடலைப் பயன்படுத்து — வாரத்தை படிப்பு தொகுதிகளாக பிரி; ஞாயிற்றுக்கிழமை மதிப்பாய்வு செய்.','தோல்விக்குப் பிறகு, முன்னேறும் முன் 3 கற்ற விஷயங்களை எழுது.','ஒரு தனிப்பட்ட மந்திரத்தை உருவாக்கு; சந்தேகம் வரும்போது திரும்பத் திரும்பச் சொல்.']
+};
+var questions=[
+  {dim:0,en:'I have a clear picture of what I want to achieve in the next 2–3 years.',ta:'அடுத்த 2–3 ஆண்டுகளில் நான் என்ன அடைய வேண்டும் என்று தெளிவான படம் என்னிடம் உள்ளது.'},
+  {dim:0,en:'I can describe my long-term goal to someone else in detail.',ta:'என் நீண்ட கால இலக்கை மற்றவர்களிடம் விரிவாக விவரிக்க முடியும்.'},
+  {dim:0,en:'I regularly review and update my goals based on my progress.',ta:'என் முன்னேற்றத்தின் அடிப்படையில் இலக்குகளை தொடர்ந்து மதிப்பாய்வு செய்கிறேன்.'},
+  {dim:0,en:'My daily actions are connected to my bigger life goals.',ta:'என் தினசரி செயல்கள் என் பெரிய வாழ்க்கை இலக்குகளோடு தொடர்புடையவை.'},
+  {dim:1,en:'I work hard because I genuinely enjoy learning and growing.',ta:'கற்றல் மற்றும் வளர்ச்சியில் உண்மையான மகிழ்ச்சி இருப்பதால் கடினமாக உழைக்கிறேன்.'},
+  {dim:1,en:'I stay motivated even when there are no prizes or recognition.',ta:'பரிசு அல்லது அங்கீகாரம் இல்லாத போதும் என் உந்துதல் தொடர்கிறது.'},
+  {dim:1,en:'The desire to make my family proud is a major reason I study hard.',ta:'குடும்பத்தை பெருமைப்படுத்த வேண்டும் என்ற ஆசை என் கடின உழைப்பிற்கு முக்கிய காரணம்.'},
+  {dim:1,en:'I feel excited about my future even without being pushed by others.',ta:'மற்றவர்கள் தள்ளாமலே என் எதிர்காலத்தைப் பற்றி உற்சாகமாக உணர்கிறேன்.'},
+  {dim:2,en:'I break my big goals into smaller weekly or daily tasks.',ta:'என் பெரிய இலக்குகளை வாராந்திர அல்லது தினசரி சிறு பணிகளாக பிரிக்கிறேன்.'},
+  {dim:2,en:'I use a timetable or planner to organise my study schedule.',ta:'படிப்பு அட்டவணையை ஒழுங்கமைக்க நேர அட்டவணை அல்லது திட்டமிடலை பயன்படுத்துகிறேன்.'},
+  {dim:2,en:'I set deadlines for myself and try my best to meet them.',ta:'சொந்தமாக கடைசி தேதி நிர்ணயிக்கிறேன் மற்றும் அதை பூர்த்தி செய்ய முயற்சிக்கிறேன்.'},
+  {dim:2,en:'I have a plan B if my first approach to a goal does not work.',ta:'ஒரு அணுகுமுறை பலன் அளிக்காவிட்டால் மாற்றுத் திட்டம் என்னிடம் தயாராக உள்ளது.'},
+  {dim:3,en:'When I fail at something, I try to learn from it and try again.',ta:'தோல்வி வரும்போது அதிலிருந்து கற்று மீண்டும் முயற்சிக்கிறேன்.'},
+  {dim:3,en:'Setbacks and difficulties do not stop me from pursuing my goals.',ta:'தடைகள் மற்றும் சவால்கள் என் இலக்குகளை விடுவதற்கு காரணமாவதில்லை.'},
+  {dim:3,en:'I remain focused on my goals even when friends distract me.',ta:'நண்பர்கள் கவனச்சிதறல் செய்தாலும் என் இலக்குகளில் கவனம் வைக்கிறேன்.'},
+  {dim:3,en:'I bounce back quickly after a bad exam result or disappointment.',ta:'மோசமான தேர்வு முடிவுக்குப் பிறகும் விரைவில் மீண்டெழுகிறேன்.'},
+  {dim:4,en:'I believe I have the ability to achieve the goals I have set.',ta:'நான் நிர்ணயித்த இலக்குகளை அடைய எனக்கு திறமை இருக்கிறது என்று நம்புகிறேன்.'},
+  {dim:4,en:'I do not give up on my goals just because others doubt me.',ta:'மற்றவர்கள் சந்தேகப்பட்டாலும் என் இலக்குகளை விடுவதில்லை.'},
+  {dim:4,en:'I talk to myself in an encouraging and positive way.',ta:'என்னை ஊக்கமான மற்றும் நேர்மையான முறையில் நானே பேசிக்கொள்கிறேன்.'},
+  {dim:4,en:'I feel confident that I can handle challenges on the way to my goals.',ta:'இலக்குகளை நோக்கிய பயணத்தில் சவால்களை சமாளிக்க எனக்கு நம்பிக்கை இருக்கிறது.'}
+];
+var opts={
+  en:['Strongly Disagree','Disagree','Neutral','Agree','Strongly Agree'],
+  ta:['முற்றிலும் உடன்படவில்லை','உடன்படவில்லை','நடுநிலை','உடன்படுகிறேன்','முழுவதும் உடன்படுகிறேன்']
+};
+var profiles=[
+  {min:0,max:39,emoji:'🌱',en:'The Explorer',ta:'ஆய்வாளன்',enTag:'You are beginning your goal journey — full of untapped potential!',taTag:'இலக்கு பயணத்தின் ஆரம்பத்தில் இருக்கிறாய் — அபார சாத்தியங்கள் உள்ளன!',enFb:'Your goal-setting journey is just beginning, and that is perfectly fine! Right now your goals may feel unclear or motivation inconsistent. The good news: these are learnable skills. Start small — choose ONE goal, write it down, and take one action today. Every champion was once a beginner.',taFb:'உன் இலக்கு பயணம் இப்போதுதான் தொடங்குகிறது — அது முற்றிலும் சரியானது! சிறிதாக தொடங்கு — ஒரு இலக்கை தேர்வு செய், எழுது, இன்றே ஒரு செயலை எடு.',enQuote:'"A goal without a plan is just a wish." — Antoine de Saint-Exupéry',taQuote:'"திட்டமில்லாத இலக்கு வெறும் ஆசைதான்." — Antoine de Saint-Exupéry',enTips:['Start a Goal Journal','Talk to a Mentor','Watch inspiring stories','Join a study group'],taTips:['இலக்கு நோட்டுப்புத்தகம் தொடங்கு','வழிகாட்டியிடம் பேசு','ஊக்கமான கதைகளை பார்','படிப்புக் குழுவில் சேர்'],enSteps:['Write your top 3 wishes in life as proper goals','Choose the ONE most important goal for this year','Break it into 3 monthly milestones','Share your goal with one trusted person','Review progress every Sunday for 4 weeks'],taSteps:['உன் வாழ்க்கையின் 3 விருப்பங்களை சரியான இலக்குகளாக எழுது','இந்த ஆண்டிற்கான ஒரு முக்கியமான இலக்கை தேர்வு செய்','3 மாதாந்திர மைல்கற்களாக பிரி','நம்பகமான ஒருவரிடம் உன் இலக்கை பகிர்','4 வாரங்கள் ஒவ்வொரு ஞாயிற்றுக்கிழமையும் முன்னேற்றத்தை மதிப்பாய்வு செய்']},
+  {min:40,max:59,emoji:'🔥',en:'The Dreamer',ta:'கனவு காண்பவன்',enTag:'Big dreams, rising motivation — now build the systems to match!',taTag:'பெரிய கனவுகள், வளரும் உந்துதல் — இப்போது அதற்கேற்ற அமைப்பை கட்டு!',enFb:'You have vision and passion — a great foundation! However you may find it hard to stay consistent or bounce back from setbacks. Key insight: motivation is an emotion, but discipline is a habit. Build systems, not just intentions.',taFb:'உனக்கு தொலைநோக்கும் ஆர்வமும் உள்ளது — அற்புதமான அடித்தளம்! முக்கிய உண்மை: உந்துதல் ஒரு உணர்வு, ஆனால் ஒழுக்கம் ஒரு பழக்கம். வெறும் நோக்கங்கள் அல்ல — அமைப்புகளை உருவாக்கு.',enQuote:'"Dreams don\'t work unless you do." — John C. Maxwell',taQuote:'"நீ செயல்படாவிட்டால் கனவுகள் நிறைவேறாது." — John C. Maxwell',enTips:['Use the 2-minute rule to start tasks','Track your mood & motivation daily','Celebrate small wins every week','Remove distractions from your study space'],taTips:['பணிகளை தொடங்க 2 நிமிட விதியை பயன்படுத்து','தினமும் உன் மனநிலையை கண்காணி','வாரமும் சிறிய வெற்றிகளை கொண்டாடு','படிக்கும் இடத்தில் கவனச்சிதறல்களை அகற்று'],enSteps:['Write down your goal AND your "why" in detail','Create a weekly study timetable and stick to it for 21 days','Identify your top 3 distractions and plan around them','Find an accountability partner — check in weekly','Practice positive self-talk every morning for 5 minutes'],taSteps:['உன் இலக்கையும் "ஏன்" என்பதையும் விரிவாக எழுது','வாராந்திர படிப்பு அட்டவணை உருவாக்கி 21 நாட்கள் பின்பற்று','உன் 3 கவனச்சிதறல்களை கண்டறிந்து திட்டமிடு','பொறுப்புக் கூட்டாளரை கண்டுபிடி — வாராந்திர சரிபார்ப்பு','தினமும் காலையில் 5 நிமிடம் நேர்மறை சுய உரையாடல் பயிற்சி செய்']},
+  {min:60,max:79,emoji:'🚀',en:'The Achiever',ta:'சாதனையாளன்',enTag:'You are on track — goal-focused, resilient and self-driven!',taTag:'சரியான பாதையில் இருக்கிறாய் — இலக்கு மையப்பட்ட, விடாமுயற்சியாளன்!',enFb:'You demonstrate strong goal-setting habits, good action planning, and healthy self-belief. Your next level is to go from "good" to "great" — refine your strategies, seek mentorship, and start helping others. Greatness multiplies when shared.',taFb:'நீ வலுவான இலக்கு நிர்ணய பழக்கங்கள், நல்ல செயல் திட்டமிடல் மற்றும் ஆரோக்கியமான சுயநம்பிக்கை கொண்டவன். "நல்லது"விலிருந்து "சிறந்தது"க்கு செல்வதே உன் அடுத்த நிலை.',enQuote:'"Success is not final; failure is not fatal. It is the courage to continue that counts." — Churchill',taQuote:'"வெற்றி இறுதியானது அல்ல; தோல்வி மரணகரமானது அல்ல. தொடர்வதற்கான தைரியமே முக்கியம்." — Churchill',enTips:['Apply the SMART goal framework','Find a mentor or life skills coach','Teach what you know — it deepens learning','Review your values and purpose monthly'],taTips:['அனைத்து இலக்குகளுக்கும் SMART கட்டமைப்பை பயன்படுத்து','ஒரு வழிகாட்டியை கண்டுபிடி','உன்னுடையதை கற்பி — இது கற்றலை ஆழப்படுத்தும்','மாதாந்திரம் உன் மதிப்புகளை மதிப்பாய்வு செய்'],enSteps:['Set one "stretch goal" that scares and excites you','Create a vision board or digital goal map','Build a morning routine — 30 minutes before screens','Read one personal growth book every month','Connect with a life skills coach for guided growth'],taSteps:['உன்னை பயமும் உற்சாகமும் ஊட்டும் ஒரு "நீட்சி இலக்கை" நிர்ணய','ஒரு தொலைநோக்கு பலகை அல்லது டிஜிட்டல் இலக்கு வரைபடம் உருவாக்கு','காலை நடைமுறையை கட்டமை — திரைகளுக்கு முன் 30 நிமிடங்கள்','மாதம் ஒரு தனிப்பட்ட வளர்ச்சி புத்தகம் படி','வழிகாட்டப்பட்ட வளர்ச்சிக்கு வாழ்க்கை திறன் பயிற்சியாளரை தொடர்பு கொள்']},
+  {min:80,max:100,emoji:'🏆',en:'The Goal Champion',ta:'இலக்கு சாம்பியன்',enTag:'Exceptional! You are a purpose-driven, self-motivated leader in the making!',taTag:'அசாதாரணம்! நீ உருவாகி வரும் நோக்கம் உள்ள சுய-ஊக்க தலைவன்!',enFb:'Outstanding goal clarity, strong intrinsic motivation, excellent planning, great resilience, and rock-solid self-belief. Your next mission: use your strengths to lift others. True champions create more champions.',taFb:'நீ அசாதாரண இலக்கு தெளிவு, வலுவான உள்ளார்ந்த உந்துதல், சிறந்த திட்டமிடல் மற்றும் உறுதியான சுயநம்பிக்கை கொண்டவன். உன் அடுத்த பணி: உன் பலங்களை மற்றவர்களை உயர்த்த பயன்படுத்து.',enQuote:'"The secret of getting ahead is getting started." — Mark Twain',taQuote:'"முன்னேறுவதன் ரகசியம் தொடங்குவதுதான்." — Mark Twain',enTips:['Mentor at least one peer every month','Set goals in ALL life areas — not just academics','Practice gratitude journaling daily','Explore leadership roles in school'],taTips:['மாதம் ஒரு சகாவை வழிகாட்டு','கல்வி மட்டுமில்லாமல் அனைத்து வாழ்க்கை பகுதிகளிலும் இலக்குகளை நிர்ணய','தினமும் நன்றி நாட்குறிப்பு எழுது','பள்ளியில் தலைமை பாத்திரங்களை ஆராய்'],enSteps:['Design your 5-year life vision across 5 areas: career, health, relationships, finance, purpose','Start mentoring a classmate who is struggling','Lead a study circle or motivation group in school','Write your personal mission statement','Connect with Somasundaram Sir for advanced coaching'],taSteps:['5 பகுதிகளில் 5 ஆண்டு வாழ்க்கை தொலைநோக்கை வடிவமை','சிரமப்படும் ஒரு வகுப்பு தோழனை வழிகாட்டத் தொடங்கு','பள்ளியில் படிப்பு வட்டம் அல்லது உந்துதல் குழுவை வழிநடத்து','உன் தனிப்பட்ட நோக்க அறிக்கையை எழுது','மேம்பட்ட பயிற்சிக்கு சோமசுந்தரம் சாரிடம் தொடர்பு கொள்']}
+];
+var ui={
+  en:{headerTitle:'Goal Setting & Motivation Assessment | Class 11–12',introTitle:'Goal Setting & Motivation Assessment',introDesc:'A powerful 20-question bilingual assessment that reveals your goal clarity, motivation type, and action strengths — with a personalised report and action plan.<br><br><strong>For Class 11–12 Students</strong> | 5–7 Minutes',startBtn:'Start Assessment →',introNote:'By Somasundaram NT | Certified Master Trainer & Life Skills Educator',regBadge:'Student Details',regTitle:'Please enter your details to begin',nameLabel:'Full Name',namePlaceholder:'Enter your full name',nameError:'Please enter your name.',mobileLabel:'Mobile Number',mobilePlaceholder:'10-digit mobile number',mobileError:'Please enter a valid 10-digit mobile number.',back:'← Back',next:'Next →',submit:'View My Results →',qOf:'Question',of:'of',dimHeading:'Your Dimension Scores',feedbackHeading:'Overall Feedback',tipsHeading:'Tips to Improve',stepsHeading:'Your 5-Step Action Plan',ctaHeading:'Connect with Us',programTitle:'🌟 Loving & Responsible Parenting – Zoom Program',programText:'Share this report with your parents and invite them to our "Loving & Responsible Parenting" Zoom program. When parents and children grow together, success becomes a family journey!\n\n📅 Via Zoom | Tamil & English | Certificate provided\n📞 +91 98437 02244',waBtnText:'💬 Connect on WhatsApp',printBtn:'🖨️ Download / Print Report',footerNote:'Somasundaram NT | +91 98437 02244 | somasundaramnt.lifecoach@gmail.com',totalScore:'Overall Score',studentLabel:'Student',langBtn:'தமிழ்',saveOk:'✅ Your details have been saved successfully.',saveErr:'⚠️ Could not save to server. Please screenshot and share via WhatsApp.'},
+  ta:{headerTitle:'இலக்கு நிர்ணயம் & உந்துதல் மதிப்பீடு | வகுப்பு 11–12',introTitle:'இலக்கு நிர்ணயம் & உந்துதல் மதிப்பீடு',introDesc:'5 முக்கிய பகுதிகளில் உன் இலக்கு தெளிவு, உந்துதல் வகை மற்றும் செயல் திறன்களை வெளிப்படுத்தும் 20 கேள்வி இருமொழி மதிப்பீடு.<br><br><strong>வகுப்பு 11–12 மாணவர்களுக்கு</strong> | 5–7 நிமிடங்கள்',startBtn:'மதிப்பீட்டை தொடங்கு →',introNote:'சோமசுந்தரம் NT | சான்றிதழ் பெற்ற மாஸ்டர் பயிற்சியாளர் & வாழ்க்கை திறன் கல்வியாளர்',regBadge:'மாணவர் விவரங்கள்',regTitle:'தொடங்குவதற்கு முன் உன் விவரங்களை உள்ளிடு',nameLabel:'முழு பெயர்',namePlaceholder:'உன் முழு பெயரை உள்ளிடு',nameError:'உன் பெயரை உள்ளிடவும்.',mobileLabel:'மொபைல் எண்',mobilePlaceholder:'10 இலக்க மொபைல் எண்',mobileError:'சரியான 10 இலக்க மொபைல் எண்ணை உள்ளிடவும்.',back:'← பின்செல்',next:'அடுத்து →',submit:'என் முடிவுகளை காண்க →',qOf:'கேள்வி',of:'இல்',dimHeading:'உன் பரிமாண மதிப்பெண்கள்',feedbackHeading:'ஒட்டுமொத்த கருத்துரை',tipsHeading:'மேம்படுத்த குறிப்புகள்',stepsHeading:'உன் 5-படி செயல் திட்டம்',ctaHeading:'எங்களை தொடர்பு கொள்',programTitle:'🌟 அன்பான & பொறுப்பான பெற்றோர் — Zoom நிகழ்ச்சி',programText:'இந்த அறிக்கையை உன் பெற்றோரிடம் பகிர்ந்து, எங்கள் Zoom நிகழ்ச்சிக்கு அழை.\n\n📅 Zoom மூலம் | தமிழ் & ஆங்கிலம் | சான்றிதழ் வழங்கப்படும்\n📞 +91 98437 02244',waBtnText:'💬 WhatsApp-ல் தொடர்பு கொள்',printBtn:'🖨️ அறிக்கையை பதிவிறக்கு / அச்சிடு',footerNote:'சோமசுந்தரம் NT | +91 98437 02244 | somasundaramnt.lifecoach@gmail.com',totalScore:'மொத்த மதிப்பெண்',studentLabel:'மாணவர்',langBtn:'English',saveOk:'✅ உன் விவரங்கள் வெற்றிகரமாக சேமிக்கப்பட்டன.',saveErr:'⚠️ சேர்க்க முடியவில்லை. திரைப்படத்தை எடுத்து WhatsApp மூலம் பகிரவும்.'}
+};
+
+function L(k){return ui[lang][k];}
+
+function toggleLang(){
+  lang=lang==='en'?'ta':'en';
+  applyLang();
+  if(document.getElementById('quizScreen').style.display!=='none')renderQ();
+  if(document.getElementById('resultsScreen').style.display!=='none')renderResults();
+}
+
+function applyLang(){
+  var e=document.getElementById.bind(document);
+  e('langBtn').textContent=L('langBtn');
+  e('headerTitle').textContent=L('headerTitle');
+  e('introTitle').textContent=L('introTitle');
+  e('introTitle').className='intro-title'+(lang==='ta'?' ta':'');
+  e('introDesc').innerHTML=L('introDesc');
+  e('introDesc').className='intro-desc'+(lang==='ta'?' ta':'');
+  e('startBtn').textContent=L('startBtn');
+  e('startBtn').className='btn btn-primary'+(lang==='ta'?' ta':'');
+  e('introNote').textContent=L('introNote');
+  e('regBadge').textContent=L('regBadge');
+  e('regTitle').textContent=L('regTitle');
+  e('regTitle').className='reg-title'+(lang==='ta'?' ta':'');
+  e('nameLabel').textContent=L('nameLabel');
+  e('nameLabel').className='field-label'+(lang==='ta'?' ta':'');
+  e('studentName').placeholder=L('namePlaceholder');
+  e('nameError').textContent=L('nameError');
+  e('nameError').className='field-error'+(lang==='ta'?' ta':'');
+  e('mobileLabel').textContent=L('mobileLabel');
+  e('mobileLabel').className='field-label'+(lang==='ta'?' ta':'');
+  e('studentMobile').placeholder=L('mobilePlaceholder');
+  e('mobileError').textContent=L('mobileError');
+  e('mobileError').className='field-error'+(lang==='ta'?' ta':'');
+}
+
+function startAssessment(){
+  var nm=document.getElementById('studentName').value.trim();
+  var mb=document.getElementById('studentMobile').value.trim();
+  var ok=true;
+  if(!nm){document.getElementById('nameError').style.display='block';document.getElementById('studentName').classList.add('error');ok=false;}
+  else{document.getElementById('nameError').style.display='none';document.getElementById('studentName').classList.remove('error');}
+  if(!/^\d{10}$/.test(mb)){document.getElementById('mobileError').style.display='block';document.getElementById('studentMobile').classList.add('error');ok=false;}
+  else{document.getElementById('mobileError').style.display='none';document.getElementById('studentMobile').classList.remove('error');}
+  if(!ok)return;
+  studentName=nm; studentMobile=mb;
+  document.getElementById('introScreen').style.display='none';
+  document.getElementById('quizScreen').style.display='block';
+  renderQ();
+}
+
+function renderQ(){
+  var q=questions[current];
+  var pct=Math.round((current/20)*100)+5;
+  document.getElementById('progressBar').style.width=pct+'%';
+  document.getElementById('progressLabel').textContent=L('qOf')+' '+(current+1)+' '+L('of')+' 20';
+  document.getElementById('sectionBadge').textContent=lang==='ta'?dims[q.dim].ta:dims[q.dim].en;
+  var qt=document.getElementById('qText');
+  qt.textContent=(current+1)+'. '+(lang==='ta'?q.ta:q.en);
+  qt.className='q-text'+(lang==='ta'?' ta':'');
+  var od=document.getElementById('optionsDiv');od.innerHTML='';
+  opts[lang].forEach(function(o,i){
+    var b=document.createElement('button');
+    b.className='option-btn'+(lang==='ta'?' ta':'');
+    b.textContent=o;
+    if(answers[current]===i)b.classList.add('selected');
+    b.onclick=function(){selectOpt(i);};
+    od.appendChild(b);
+  });
+  document.getElementById('prevBtn').disabled=current===0;
+  document.getElementById('prevBtn').textContent=L('back');
+  var nb=document.getElementById('nextBtn');
+  nb.textContent=current===19?L('submit'):L('next');
+  nb.disabled=answers[current]===null;
+}
+
+function selectOpt(i){
+  answers[current]=i;
+  document.querySelectorAll('.option-btn').forEach(function(b,idx){b.classList.toggle('selected',idx===i);});
+  document.getElementById('nextBtn').disabled=false;
+}
+
+function nextQ(){if(answers[current]===null)return;if(current===19){showResults();return;}current++;renderQ();}
+function prevQ(){if(current>0){current--;renderQ();}}
+
+function calcScores(){
+  var ds=[0,0,0,0,0],dc=[0,0,0,0,0];
+  questions.forEach(function(q,i){if(answers[i]!==null){ds[q.dim]+=answers[i];dc[q.dim]++;}});
+  var dp=ds.map(function(s,i){return dc[i]?Math.round((s/(dc[i]*4))*100):0;});
+  var total=Math.round(dp.reduce(function(a,b){return a+b;},0)/5);
+  return{dimPct:dp,total:total};
+}
+
+function getProfile(t){for(var i=0;i<profiles.length;i++){if(t>=profiles[i].min&&t<=profiles[i].max)return profiles[i];}return profiles[profiles.length-1];}
+
+function saveToSheet(s,p){
+  if(!SCRIPT_URL||SCRIPT_URL==='YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE')return;
+  var payload={
+    name:studentName,
+    mobile:studentMobile,
+    lang:lang,
+    totalScore:s.total,
+    profile:lang==='ta'?p.ta:p.en,
+    dimScores:s.dimPct
+  };
+  fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      var el=document.getElementById('saveStatus');
+      el.style.display='block';
+      if(d.status==='success'){el.textContent=L('saveOk');el.className='save-status save-ok';}
+      else{el.textContent=L('saveErr');el.className='save-status save-err';}
+    })
+    .catch(function(){
+      var el=document.getElementById('saveStatus');
+      el.style.display='block';el.textContent=L('saveErr');el.className='save-status save-err';
+    });
+}
+
+function showResults(){
+  document.getElementById('quizScreen').style.display='none';
+  document.getElementById('resultsScreen').style.display='block';
+  renderResults();
+}
+
+function renderResults(){
+  var s=calcScores();var p=getProfile(s.total);
+  document.getElementById('resultEmoji').textContent=p.emoji;
+  document.getElementById('resultProfile').textContent=lang==='ta'?p.ta:p.en;
+  document.getElementById('resultTagline').textContent=lang==='ta'?p.taTag:p.enTag;
+  document.getElementById('resultScore').textContent=L('totalScore')+': '+s.total+'%';
+  document.getElementById('resultStudent').textContent=L('studentLabel')+': '+studentName+' | '+studentMobile;
+  document.getElementById('dimHeading').textContent=L('dimHeading');
+  var db=document.getElementById('dimBars');db.innerHTML='';
+  dims.forEach(function(d,i){
+    var label=lang==='ta'?d.ta:d.en;
+    var pct=s.dimPct[i];
+    var tip=lang==='ta'?dimTips.ta[i]:dimTips.en[i];
+    var row=document.createElement('div');row.className='dim-section';
+    row.innerHTML='<div class="dim-label'+(lang==='ta'?' ta':'')+'"><span>'+label+'</span><span>'+pct+'%</span></div><div class="dim-bar-wrap"><div class="dim-bar" style="width:0%;background:'+dimColors[i]+'" data-pct="'+pct+'"></div></div><div class="dim-tip'+(lang==='ta'?' ta':'')+'">💡 '+tip+'</div>';
+    db.appendChild(row);
+  });
+  setTimeout(function(){document.querySelectorAll('.dim-bar').forEach(function(b){b.style.width=b.getAttribute('data-pct')+'%';});},120);
+  var qt=document.getElementById('quoteText');
+  qt.textContent=lang==='ta'?p.taQuote:p.enQuote;
+  qt.className='quote-text'+(lang==='ta'?' ta':'');
+  document.getElementById('feedbackHeading').textContent=L('feedbackHeading');
+  var fb=document.getElementById('feedbackText');
+  fb.textContent=lang==='ta'?p.taFb:p.enFb;
+  fb.className='feedback-box'+(lang==='ta'?' ta':'');
+  document.getElementById('tipsHeading').textContent=L('tipsHeading');
+  var tg=document.getElementById('tipsGrid');tg.innerHTML='';
+  var tipList=lang==='ta'?p.taTips:p.enTips;
+  var icons=['🎯','⚡','📅','🔄'];
+  tipList.forEach(function(t,i){
+    var tc=document.createElement('div');tc.className='tip-card';
+    tc.innerHTML='<div class="tip-icon">'+icons[i]+'</div><div class="tip-text'+(lang==='ta'?' ta':'')+'">'+t+'</div>';
+    tg.appendChild(tc);
+  });
+  document.getElementById('stepsHeading').textContent=L('stepsHeading');
+  var sl=document.getElementById('stepsList');sl.innerHTML='';
+  var stepList=lang==='ta'?p.taSteps:p.enSteps;
+  stepList.forEach(function(st,i){
+    var li=document.createElement('li');
+    li.className=lang==='ta'?'ta':'';
+    li.innerHTML='<div class="step-num">'+(i+1)+'</div><span>'+st+'</span>';
+    sl.appendChild(li);
+  });
+  document.getElementById('programTitle').textContent=L('programTitle');
+  document.getElementById('programTitle').className='program-title'+(lang==='ta'?' ta':'');
+  document.getElementById('programText').textContent=L('programText');
+  document.getElementById('programText').className='program-text'+(lang==='ta'?' ta':'');
+  document.getElementById('ctaHeading').textContent=L('ctaHeading');
+  var waMsg=lang==='ta'?'வணக்கம் சோமசுந்தரம் சார், நான் '+studentName+' ('+studentMobile+'). இலக்கு நிர்ணயம் & உந்துதல் மதிப்பீட்டை முடித்தேன்! என் மதிப்பெண்: '+s.total+'%. மேலும் வழிகாட்டல் பெற விரும்புகிறேன்.':'Hello Somasundaram Sir, I am '+studentName+' ('+studentMobile+'). I completed the Goal Setting & Motivation Assessment. My score: '+s.total+'% — Profile: '+(lang==='ta'?p.ta:p.en)+'. I would like coaching guidance.';
+  document.getElementById('waLink').href='https://wa.me/919843702244?text='+encodeURIComponent(waMsg);
+  document.getElementById('waLink').textContent=L('waBtnText');
+  document.getElementById('printBtn').textContent=L('printBtn');
+  document.getElementById('footerNote').textContent=L('footerNote');
+  saveToSheet(s,p);
+}
+
+applyLang();
+</script>
+</body>
+</html>
