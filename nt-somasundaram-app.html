@@ -59,8 +59,8 @@
   .topbar-right{display:flex;flex-direction:column;align-items:flex-end;gap:12px;}
   .brand-logo{height:64px;width:auto;object-fit:contain;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.35));}
   .brand{display:flex;flex-direction:column;gap:2px;}
-  .brand-name{font-weight:700;font-size:16.5px;letter-spacing:0.2px;}
-  .brand-sub{font-size:11.5px;color:var(--gold-light);font-weight:500;}
+  .brand-name{font-weight:700;font-size:21px;letter-spacing:0.2px;}
+  .brand-sub{font-size:14.5px;color:var(--gold-light);font-weight:500;}
   .lang-toggle{
     display:flex;background:rgba(255,255,255,0.12);
     border-radius:20px;padding:3px;gap:2px;
@@ -162,6 +162,14 @@
   .card-meta .dot{width:4px;height:4px;border-radius:50%;background:var(--ink-soft);}
 
   .card-actions{display:flex;gap:8px;}
+
+  .pay-row{
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);
+    display:flex;flex-direction:column;align-items:center;gap:8px;
+  }
+  .pay-label{font-size:11.5px;font-weight:600;color:var(--ink-soft);}
+  .pay-slot{display:flex;justify-content:center;width:100%;}
+  .pay-slot form{display:flex;justify-content:center;width:100%;}
   .btn{
     flex:1;text-align:center;padding:10px 10px;border-radius:11px;
     font-size:12.5px;font-weight:600;cursor:pointer;border:none;
@@ -385,31 +393,36 @@ const COURSES = [
     audience: "teacher",
     en: { title: "Life Skills Mastery for Educators", desc: "10 modules starting with a 15-domain self-assessment, helping teachers model the life skills they teach." },
     ta: { title: "ஆசிரியர்களுக்கான வாழ்க்கை திறன் தேர்ச்சி", desc: "15-துறை சுய மதிப்பீட்டுடன் தொடங்கும், ஆசிரியர்களுக்கான 10 பாடங்கள்." },
-    meta: "10 modules · 15-domain self-assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/life-skills-educators-course/module1-life-skills-teachers.html"
+    meta: "10 modules · 15-domain self-assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/life-skills-educators-course/module1-life-skills-teachers.html",
+    paymentButtonId: "pl_TEm4ORrzVWgV9l"
   },
   {
     audience: "teacher",
     en: { title: "Positive Discipline for Teachers", desc: "A 10-module course on classroom management and life skills through positive, non-punitive discipline." },
     ta: { title: "ஆசிரியர்களுக்கான நேர்மறை ஒழுக்க பயிற்சி", desc: "நேர்மறை ஒழுக்கம் மூலம் வகுப்பறை மேலாண்மை பற்றிய 10 பாட வரிசை." },
-    meta: "10 modules · Self-paced", url: "https://somasundaramntlifecoach-ux.github.io/courses/positive-discipline-teachers-course/positive-discipline-teachers-course-outline.html"
+    meta: "10 modules · Self-paced", url: "https://somasundaramntlifecoach-ux.github.io/courses/positive-discipline-teachers-course/positive-discipline-teachers-course-outline.html",
+    paymentButtonId: "pl_TEmPvdvol1SnwU"
   },
   {
     audience: "teacher",
     en: { title: "Classroom Behaviour Management & De-escalation", desc: "10-module professional course from understanding the roots of misbehaviour to calm, confident de-escalation." },
     ta: { title: "வகுப்பறை நடத்தை மேலாண்மை மற்றும் தணிப்பு", desc: "தவறான நடத்தையின் வேர்களைப் புரிந்துகொள்வதிலிருந்து அமைதியான தணிப்பு வரை 10 பாடங்கள்." },
-    meta: "10 modules · Self-paced", url: "https://somasundaramntlifecoach-ux.github.io/courses/classroom-behaviour/index.html"
+    meta: "10 modules · Self-paced", url: "https://somasundaramntlifecoach-ux.github.io/courses/classroom-behaviour/index.html",
+    paymentButtonId: "pl_TDxaDdU5shsicb"
   },
   {
     audience: "teacher",
     en: { title: "Digital Pedagogy for Teachers", desc: "Practical guidance on using digital tools and techniques to make classroom teaching more engaging." },
     ta: { title: "ஆசிரியர்களுக்கான டிஜிட்டல் கற்பித்தல்", desc: "வகுப்பறை கற்பித்தலை ஈர்க்கக்கூடியதாக மாற்ற டிஜிட்டல் கருவிகள் மற்றும் நுட்பங்கள்." },
-    meta: "Self-paced · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/digital-pedagogy-course/digital-pedagogy-course.dc.html"
+    meta: "Self-paced · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/digital-pedagogy-course/digital-pedagogy-course.dc.html",
+    paymentButtonId: "pl_TDLjvNfh03cjQm"
   },
   {
     audience: "teacher",
     en: { title: "Emotional Intelligence for Teachers", desc: "10 modules plus a personalised EQ self-assessment report for educators." },
     ta: { title: "ஆசிரியர்களுக்கான உணர்வு நுண்ணறிவு", desc: "ஆசிரியர்களுக்கான 10 பாடங்கள் மற்றும் தனிப்பயன் EQ சுய மதிப்பீடு." },
-    meta: "10 modules · Self-assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/emotional-intelligence-teachers-course/course.html"
+    meta: "10 modules · Self-assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/emotional-intelligence-teachers-course/course.html",
+    paymentButtonId: "pl_TEmWchi0lM6kam"
   },
 
   /* ---------------- Working Professionals track ---------------- */
@@ -417,25 +430,29 @@ const COURSES = [
     audience: "professional",
     en: { title: "Know Your Ego", desc: "A self-paced program to understand your ego, recognise its triggers, and build calmer relationships at home and work." },
     ta: { title: "உங்கள் ஈகோவை அறியுங்கள்", desc: "உங்கள் ஈகோவைப் புரிந்துகொண்டு, அமைதியான உறவுகளை உருவாக்க உதவும் திட்டம்." },
-    meta: "10 modules · Free self-assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/know-your-ego-course/index.html"
+    meta: "10 modules · Free self-assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/know-your-ego-course/index.html",
+    paymentButtonId: "pl_TEmalGLt1t804D"
   },
   {
     audience: "professional",
     en: { title: "Anger Management Mastery", desc: "A self-paced course to understand anger triggers and build calmer, healthier responses." },
     ta: { title: "கோப மேலாண்மை தேர்ச்சி", desc: "கோப தூண்டுதல்களை புரிந்துகொண்டு அமைதியான பதில்களை உருவாக்கும் பாடநெறி." },
-    meta: "Self-paced · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/anger-management-course/login.html"
+    meta: "Self-paced · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/anger-management-course/login.html",
+    paymentButtonId: "pl_TEmd6Afyg8S01B"
   },
   {
     audience: "professional",
     en: { title: "Career Growth & Promotion Readiness", desc: "A structured course to help working professionals prepare for their next career move and promotion." },
     ta: { title: "தொழில் வளர்ச்சி & பதவி உயர்வு தயார்நிலை", desc: "அடுத்த தொழில் வளர்ச்சிக்கு தொழில் வல்லுநர்களை தயார்படுத்தும் பாடநெறி." },
-    meta: "10 modules · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/career-growth-course/login.html"
+    meta: "10 modules · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/career-growth-course/login.html",
+    paymentButtonId: "pl_TEmmzVXBo6xsZN"
   },
   {
     audience: "professional",
     en: { title: "Communication Skills for Adults", desc: "10 modules on verbal, non-verbal, assertive and digital communication for home, work and relationships." },
     ta: { title: "பெரியவர்களுக்கான தொடர்பு திறன்கள்", desc: "வீடு, வேலை, உறவுகளுக்கான தொடர்பு திறன்கள் பற்றிய 10 பாடங்கள்." },
-    meta: "10 modules · Includes style assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/communication-adults-course/index.html"
+    meta: "10 modules · Includes style assessment", url: "https://somasundaramntlifecoach-ux.github.io/courses/communication-adults-course/index.html",
+    paymentButtonId: "pl_TEmfV2XGZQEJgc"
   },
 
   /* ---------------- Parent track ---------------- */
@@ -443,19 +460,22 @@ const COURSES = [
     audience: "parent",
     en: { title: "Digital Parenting & Screen Time Mastery", desc: "Practical guidance to help families set healthy, sustainable screen-time boundaries." },
     ta: { title: "டிஜிட்டல் பெற்றோர் & திரை நேர மேலாண்மை", desc: "ஆரோக்கியமான திரை நேர வரம்புகளை அமைக்க குடும்பங்களுக்கு வழிகாட்டுதல்." },
-    meta: "Self-paced · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/digital-parenting-course/login.html"
+    meta: "Self-paced · Login required", url: "https://somasundaramntlifecoach-ux.github.io/courses/digital-parenting-course/login.html",
+    paymentButtonId: "pl_TEmh4WSbh857AU"
   },
   {
     audience: "parent",
     en: { title: "Positive Discipline Parenting", desc: "10 modules on kind-and-firm parenting, based on Jane Nelsen & Rudolf Dreikurs, with real-life examples in every module." },
     ta: { title: "நேர்மறை ஒழுக்க பெற்றோர்மை", desc: "அன்பான, உறுதியான பெற்றோர்மை பற்றிய 10 பாடங்கள், ஒவ்வொன்றிலும் நிஜ வாழ்க்கை உதாரணங்கள்." },
-    meta: "10 modules · Self-paced", url: "https://somasundaramntlifecoach-ux.github.io/courses/positive-discipline-parents/index.html"
+    meta: "10 modules · Self-paced", url: "https://somasundaramntlifecoach-ux.github.io/courses/positive-discipline-parents/index.html",
+    paymentButtonId: "pl_TEmq5XCtXFMkiS"
   },
   {
     audience: "parent",
     en: { title: "Stress Management for Parents", desc: "10 bilingual modules to understand your stress, protect your calm, and build a steadier home." },
     ta: { title: "பெற்றோருக்கான மன அழுத்த மேலாண்மை", desc: "உங்கள் மன அழுத்தத்தை புரிந்துகொண்டு நிலையான வீட்டை உருவாக்க உதவும் 10 பகுதிகள்." },
-    meta: "10 modules · Free assessment included", url: "https://somasundaramntlifecoach-ux.github.io/courses/stress-management-parents-course/course-home.html"
+    meta: "10 modules · Free assessment included", url: "https://somasundaramntlifecoach-ux.github.io/courses/stress-management-parents-course/course-home.html",
+    paymentButtonId: "pl_TEmk4cAsoqcV2V"
   }
 ];
 
@@ -630,7 +650,7 @@ const TRAINING = [
 
 const STR = {
   en: {
-    brand: "NT Somasundaram", brandSub: "Life Skills Program",
+    brand: "N T Somasundaram", brandSub: "Life Skills Program",
     headline_html: 'Courses &amp; assessments for <span class="accent">students, teachers, parents &amp; professionals</span>',
     motto: '"God is always with u"',
     search: "Search courses or assessments",
@@ -638,7 +658,7 @@ const STR = {
     tabs: { courses:"Courses", assessments:"Assessments", training:"Training", about:"About" },
     sectionLabel: { courses:"Courses", assessments:"Assessments", training:"Training Programs (Schools & Colleges)" },
     empty: "Nothing matches your search. Try a different keyword or filter.",
-    viewBtn: "View", enrollBtn: "Enroll", bookBtn: "Book",
+    viewBtn: "View", enrollBtn: "Enroll", bookBtn: "Book", payLabel: "💳 Pay & enroll instantly",
     aboutRole: 'Certified Master Trainer &middot; Career Consultant &middot; Life Skills Educator &middot; Parenting Coach<br>Director &amp; Treasurer, SKV International School &middot; Tiruvannamalai, Tamil Nadu',
     aboutCta: "Chat on WhatsApp",
     waMessage: "Hello, I'm interested in enrolling — could you share more details?",
@@ -653,7 +673,7 @@ const STR = {
     tabs: { courses:"பாடங்கள்", assessments:"மதிப்பீடுகள்", training:"பயிற்சி", about:"பற்றி" },
     sectionLabel: { courses:"பாடங்கள்", assessments:"மதிப்பீடுகள்", training:"பயிற்சி திட்டங்கள் (பள்ளிகள் & கல்லூரிகள்)" },
     empty: "பொருந்தும் முடிவுகள் இல்லை. வேறு வார்த்தையை முயற்சிக்கவும்.",
-    viewBtn: "பார்க்க", enrollBtn: "சேர", bookBtn: "பதிவு",
+    viewBtn: "பார்க்க", enrollBtn: "சேர", bookBtn: "பதிவு", payLabel: "💳 உடனே பணம் செலுத்தி சேருங்கள்",
     aboutRole: 'சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர் &middot; தொழில் ஆலோசகர் &middot; வாழ்க்கை திறன் கல்வியாளர் &middot; பெற்றோர் பயிற்சியாளர்<br>இயக்குநர் &amp; பொருளாளர், SKV சர்வதேச பள்ளி &middot; திருவண்ணாமலை',
     aboutCta: "வாட்ஸ்அப்பில் பேசுங்கள்",
     waMessage: "வணக்கம், நான் சேர விரும்புகிறேன் — மேலும் விவரங்களை பகிர முடியுமா?",
@@ -760,12 +780,15 @@ function render(){
   }
   empty.classList.add('hidden');
 
-  grid.innerHTML = filtered.map(item=>{
+  grid.innerHTML = filtered.map((item, idx)=>{
     const t = item[lang];
     const badgeLabel = s.chips[item.audience];
     const langAttr = lang==='ta' ? 'lang-ta' : '';
     const actionLabel = section === 'training' ? s.bookBtn : s.enrollBtn;
     const waHref = section === 'training' ? waLink(s.waTrainingMessage) : waLink();
+    const payRow = item.paymentButtonId
+      ? `<div class="pay-row"><span class="pay-label">${s.payLabel}</span><div class="pay-slot" id="payslot-${idx}"></div></div>`
+      : '';
     return `
       <div class="card" data-audience="${item.audience}">
         <div class="card-top">
@@ -783,9 +806,26 @@ function render(){
             ${actionLabel}
           </a>
         </div>
+        ${payRow}
       </div>
     `;
   }).join('');
+
+  // Razorpay payment buttons come from an external script that must be
+  // added as a real DOM script element — script markup inserted via innerHTML
+  // never executes, so we create and append it manually for each paid item.
+  filtered.forEach((item, idx)=>{
+    if(!item.paymentButtonId) return;
+    const slot = document.getElementById(`payslot-${idx}`);
+    if(!slot) return;
+    const form = document.createElement('form');
+    const scriptEl = document.createElement('script');
+    scriptEl.src = 'https://checkout.razorpay.com/v1/payment-button.js';
+    scriptEl.setAttribute('data-payment_button_id', item.paymentButtonId);
+    scriptEl.async = true;
+    form.appendChild(scriptEl);
+    slot.appendChild(form);
+  });
 }
 
 applyStaticText();
