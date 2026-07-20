@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Habits Assessment | படிப்பு பழக்க மதிப்பீடு</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--primary:#1a5276;--accent:#f39c12;--green:#1a7a4a;--light:#eaf4fb;--bg:#f5f8fa;--card:#ffffff;--text:#1c2833;--muted:#7f8c8d;--success:#1e8449;--danger:#c0392b;--radius:12px;--font-ta:'Noto Sans Tamil',sans-serif;--font-en:'Poppins',sans-serif}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-ta);min-height:100vh}
+  .header{background:linear-gradient(135deg,var(--primary) 0%,#154360 100%);color:#fff;padding:28px 20px 22px;text-align:center}
+  .header .brand{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;opacity:.75;margin-bottom:6px;font-family:var(--font-en)}
+  .header h1{font-size:22px;font-weight:700;line-height:1.4}
+  .header h1 .sub{display:block;font-size:14px;font-weight:400;opacity:.85;margin-top:4px;font-family:var(--font-en)}
+  .lang-bar{display:flex;justify-content:center;gap:8px;padding:14px 20px;background:var(--card);border-bottom:1px solid #dde}
+  .lang-btn{padding:6px 22px;border-radius:20px;border:2px solid var(--primary);background:transparent;color:var(--primary);font-weight:600;cursor:pointer;font-family:var(--font-en);font-size:13px;transition:all .2s}
+  .lang-btn.active{background:var(--primary);color:#fff}
+  .container{max-width:700px;margin:0 auto;padding:20px 16px 60px}
+  .info-card{background:var(--light);border-left:4px solid var(--accent);border-radius:var(--radius);padding:14px 16px;margin-bottom:20px;font-size:14px;line-height:1.7}
+  .reg-card{background:var(--card);border-radius:var(--radius);padding:24px 20px;box-shadow:0 2px 10px rgba(0,0,0,.07);margin-bottom:18px}
+  .reg-title{font-size:17px;font-weight:700;color:var(--primary);margin-bottom:16px}
+  .form-group{margin-bottom:14px}
+  .form-group label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px}
+  .form-group input{width:100%;padding:11px 14px;border:2px solid #dde;border-radius:8px;font-size:15px;font-family:var(--font-ta);color:var(--text);outline:none;transition:border-color .2s}
+  .form-group input:focus{border-color:var(--primary)}
+  .form-group input.error{border-color:var(--danger)}
+  .err-msg{color:var(--danger);font-size:12px;margin-top:4px;display:none}
+  .err-msg.show{display:block}
+  .btn-start{width:100%;padding:14px;border-radius:8px;border:none;background:var(--primary);color:#fff;font-size:16px;font-weight:700;cursor:pointer;font-family:var(--font-ta);margin-top:6px;transition:opacity .2s}
+  .btn-start:hover{opacity:.9}
+  .progress-wrap{margin-bottom:18px}
+  .progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:5px;font-family:var(--font-en)}
+  .progress-track{height:7px;background:#dde;border-radius:4px;overflow:hidden}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),#e67e22);border-radius:4px;transition:width .4s ease}
+  .q-card{background:var(--card);border-radius:var(--radius);padding:22px 18px;box-shadow:0 2px 10px rgba(0,0,0,.07);margin-bottom:18px}
+  .q-number{font-size:11px;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;font-family:var(--font-en)}
+  .q-text{font-size:16px;font-weight:600;line-height:1.6;margin-bottom:16px}
+  .options{display:flex;flex-direction:column;gap:10px}
+  .option-btn{width:100%;text-align:left;padding:12px 16px;border-radius:8px;border:2px solid #dde;background:#fff;font-size:14px;cursor:pointer;line-height:1.5;transition:all .18s;font-family:var(--font-ta);color:var(--text)}
+  .option-btn:hover{border-color:var(--primary);background:var(--light)}
+  .option-btn.selected{border-color:var(--primary);background:var(--primary);color:#fff}
+  .nav-row{display:flex;gap:10px;margin-top:8px}
+  .btn{flex:1;padding:13px;border-radius:8px;border:none;font-size:15px;font-weight:600;cursor:pointer;font-family:var(--font-ta);transition:opacity .2s}
+  .btn:disabled{opacity:.35;cursor:not-allowed}
+  .btn-prev{background:#e5e8ea;color:var(--text)}
+  .btn-next{background:var(--primary);color:#fff}
+  .btn-submit{background:var(--success);color:#fff}
+  .result-card{display:none}
+  .result-card.show{display:block}
+  .res-header{background:linear-gradient(135deg,var(--primary),#154360);color:#fff;border-radius:var(--radius);padding:28px 20px;text-align:center;margin-bottom:14px}
+  .result-emoji{font-size:46px;margin-bottom:8px}
+  .result-name{font-size:16px;font-weight:700;margin-bottom:3px}
+  .result-phone{font-size:13px;opacity:.75;font-family:var(--font-en);margin-bottom:14px}
+  .score-row{display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:8px}
+  .score-circle{width:82px;height:82px;border-radius:50%;background:var(--accent);color:#1a3a1a;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:var(--font-en);flex-shrink:0}
+  .score-info{text-align:left}
+  .score-level{font-size:18px;font-weight:800}
+  .score-sub{font-size:13px;opacity:.8;font-family:var(--font-en)}
+  .saved-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 14px;font-size:12px;font-family:var(--font-en);margin-top:10px}
+  .report-block{background:var(--card);border-radius:var(--radius);padding:20px 18px;box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:14px}
+  .block-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted);font-family:var(--font-en);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #eef0f2}
+  .block-desc{font-size:14px;line-height:1.8;color:var(--text)}
+  .dim-row{margin-bottom:13px}
+  .dim-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+  .dim-name{font-size:13px;font-weight:600}
+  .dim-score-text{font-size:12px;font-family:var(--font-en);color:var(--muted)}
+  .dim-track{height:9px;background:#e8eef2;border-radius:5px;overflow:hidden}
+  .dim-fill{height:100%;border-radius:5px;transition:width .7s ease}
+  .fill-high{background:linear-gradient(90deg,#1a7a4a,#27ae60)}
+  .fill-medium{background:linear-gradient(90deg,#d4a017,#f39c12)}
+  .fill-low{background:linear-gradient(90deg,#c0392b,#e74c3c)}
+  .dim-tag{font-size:10px;padding:2px 8px;border-radius:10px;font-family:var(--font-en);font-weight:700;margin-left:6px}
+  .tag-high{background:#eafaf1;color:#1a7a4a}
+  .tag-medium{background:#fef9e7;color:#d4a017}
+  .tag-low{background:#fdedec;color:#c0392b}
+  .tips-list{list-style:none;padding:0;margin:0}
+  .tips-list li{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #f0f2f4;font-size:14px;line-height:1.7}
+  .tips-list li:last-child{border-bottom:none}
+  .tip-num{width:26px;height:26px;border-radius:50%;background:var(--primary);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--font-en);margin-top:2px}
+  .improve-item{background:#fff8e1;border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;margin-bottom:10px}
+  .improve-area{font-size:11px;font-weight:700;color:#c87f00;text-transform:uppercase;font-family:var(--font-en);letter-spacing:.8px;margin-bottom:4px}
+  .improve-text{font-size:13px;line-height:1.7;color:var(--text)}
+  .promo-box{margin-top:6px;background:linear-gradient(135deg,#1a7a4a,#0d3320);color:#fff;border-radius:var(--radius);padding:24px 18px;text-align:center}
+  .promo-tag-text{font-size:11px;text-transform:uppercase;letter-spacing:1.2px;opacity:.7;font-family:var(--font-en);margin-bottom:6px}
+  .promo-icon{font-size:32px;margin-bottom:8px}
+  .promo-title{font-size:16px;font-weight:800;margin-bottom:8px;line-height:1.4}
+  .promo-desc{font-size:13px;opacity:.88;line-height:1.7;margin-bottom:14px}
+  .promo-features{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:16px}
+  .promo-feat{background:rgba(255,255,255,.15);border-radius:20px;padding:4px 12px;font-size:12px;font-family:var(--font-en)}
+  .promo-btn{display:inline-block;padding:12px 28px;background:#f39c12;color:#1a3a1a;border-radius:8px;font-size:14px;font-weight:800;text-decoration:none;font-family:var(--font-ta)}
+  .cta-row{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+  .cta-btn{display:block;width:100%;padding:14px;border-radius:8px;border:none;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;text-align:center;font-family:var(--font-ta)}
+  .cta-wa{background:#25d366;color:#fff}
+  .cta-pdf{background:var(--accent);color:#fff}
+  .cta-retry{background:var(--primary);color:#fff}
+  .footer{text-align:center;padding:18px 16px;font-size:11px;color:var(--muted);font-family:var(--font-en)}
+  @media(max-width:420px){.score-row{flex-direction:column;align-items:center}.score-info{text-align:center}}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">Somasundaram Life Skills Academy</div>
+  <h1>
+    <span class="ta-text">படிப்பு பழக்க மதிப்பீடு</span>
+    <span class="sub en-text">Study Habits Self-Assessment</span>
+  </h1>
+</div>
+
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('ta')">தமிழ்</button>
+  <button class="lang-btn" onclick="setLang('en')">English</button>
+</div>
+
+<div class="container">
+
+  <div class="info-card">
+    <span class="ta-text">இந்த மதிப்பீட்டில் <strong>20 கேள்விகள்</strong> உள்ளன. முதலில் உங்கள் பெயர் மற்றும் தொலைபேசி எண் கொடுங்கள், பின்பு நேர்மையாக பதில் அளியுங்கள்.</span>
+    <span class="en-text" style="display:none">This assessment has <strong>20 questions</strong>. Enter your name and phone number first, then answer each question honestly.</span>
+  </div>
+
+  <div class="reg-card" id="regCard">
+    <div class="reg-title">
+      <span class="ta-text">&#x1F4DD; உங்கள் விவரங்கள்</span>
+      <span class="en-text" style="display:none">&#x1F4DD; Your Details</span>
+    </div>
+    <div class="form-group">
+      <label><span class="ta-text">முழு பெயர் *</span><span class="en-text" style="display:none">Full Name *</span></label>
+      <input type="text" id="inputName" placeholder="உங்கள் பெயர் / Your Name" autocomplete="name">
+      <div class="err-msg" id="nameErr"><span class="ta-text">பெயர் அவசியம்</span><span class="en-text" style="display:none">Name is required</span></div>
+    </div>
+    <div class="form-group">
+      <label><span class="ta-text">தொலைபேசி எண் *</span><span class="en-text" style="display:none">Phone Number *</span></label>
+      <input type="tel" id="inputPhone" placeholder="10-digit mobile number" maxlength="15" autocomplete="tel">
+      <div class="err-msg" id="phoneErr"><span class="ta-text">சரியான தொலைபேசி எண் கொடுங்கள்</span><span class="en-text" style="display:none">Enter a valid phone number</span></div>
+    </div>
+    <button class="btn-start" onclick="startQuiz()">
+      <span class="ta-text">மதிப்பீடு தொடங்கு &#x2192;</span>
+      <span class="en-text" style="display:none">Start Assessment &#x2192;</span>
+    </button>
+  </div>
+
+  <div class="progress-wrap" id="progressWrap" style="display:none">
+    <div class="progress-label">
+      <span id="progressLabel">கேள்வி 1 / 20</span>
+      <span id="progressPct" style="font-family:var(--font-en)">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
+
+  <div id="quizArea" style="display:none">
+    <div class="q-card">
+      <div class="q-number" id="qNum">Question 1 of 20</div>
+      <div class="q-text" id="qText"></div>
+      <div class="options" id="optionsArea"></div>
+    </div>
+    <div class="nav-row">
+      <button class="btn btn-prev" id="prevBtn" onclick="navigate(-1)" disabled>
+        <span class="ta-text">&#x2190; முந்தைய</span><span class="en-text" style="display:none">&#x2190; Previous</span>
+      </button>
+      <button class="btn btn-next" id="nextBtn" onclick="navigate(1)">
+        <span class="ta-text">அடுத்து &#x2192;</span><span class="en-text" style="display:none">Next &#x2192;</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="result-card" id="resultCard">
+
+    <div class="res-header">
+      <div class="result-emoji" id="resEmoji"></div>
+      <div class="result-name" id="resName"></div>
+      <div class="result-phone" id="resPhone"></div>
+      <div class="score-row">
+        <div class="score-circle" id="resScore"></div>
+        <div class="score-info">
+          <div class="score-level" id="resLevel"></div>
+          <div class="score-sub" id="resSub"></div>
+        </div>
+      </div>
+      <div class="saved-badge" id="savedBadge" style="display:none">&#x2705; Saved to Google Sheets</div>
+    </div>
+
+    <div class="report-block">
+      <div class="block-label ta-text">மதிப்பீட்டு சுருக்கம்</div>
+      <div class="block-label en-text" style="display:none">Assessment Summary</div>
+      <div class="block-desc" id="catDesc"></div>
+    </div>
+
+    <div class="report-block">
+      <div class="block-label ta-text">பகுதி வாரியான பகுப்பாய்வு</div>
+      <div class="block-label en-text" style="display:none">Dimension-wise Analysis</div>
+      <div id="dimArea"></div>
+    </div>
+
+    <div class="report-block">
+      <div class="block-label ta-text">உங்களுக்கான 5 முக்கிய ஆலோசனைகள்</div>
+      <div class="block-label en-text" style="display:none">5 Key Tips for You</div>
+      <ul class="tips-list" id="tipsList"></ul>
+    </div>
+
+    <div class="report-block" id="improveBlock">
+      <div class="block-label ta-text">மேம்பாட்டுத் திட்டம்</div>
+      <div class="block-label en-text" style="display:none">Improvement Plan</div>
+      <div id="improveArea"></div>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta-btn cta-wa" id="waBtn" href="#" target="_blank">
+        &#x1F4F2; <span class="ta-text">WhatsApp-இல் பகிர</span><span class="en-text" style="display:none">Share on WhatsApp</span>
+      </a>
+      <button class="cta-btn cta-pdf" onclick="printPDF()">
+        &#x1F5A8; <span class="ta-text">விரிவான PDF அறிக்கை</span><span class="en-text" style="display:none">Download Detailed PDF Report</span>
+      </button>
+      <button class="cta-btn cta-retry" onclick="resetQuiz()">
+        &#x1F504; <span class="ta-text">மீண்டும் செய்</span><span class="en-text" style="display:none">Retake Assessment</span>
+      </button>
+    </div>
+
+    <div class="promo-box">
+      <div class="promo-tag-text">Somasundaram Life Skills Academy</div>
+      <div class="promo-icon">&#x1F680;</div>
+      <div class="promo-title ta-text">மாணவர் ஆளுமை மேம்பாட்டு திட்டம்</div>
+      <div class="promo-title en-text" style="display:none">Students Empowerment Program</div>
+      <div class="promo-desc ta-text">படிப்பு பழக்கம், நேர மேலாண்மை, தேர்வு மன அழுத்தம், தன்னம்பிக்கை, இலக்கு நிர்ணயம் — அனைத்தையும் ஒரே திட்டத்தில் மேம்படுத்துங்கள்!</div>
+      <div class="promo-desc en-text" style="display:none">Study habits, time management, exam stress, self-confidence, goal setting — improve everything in one powerful program!</div>
+      <div class="promo-features">
+        <span class="promo-feat">&#x1F4C5; Online Zoom</span>
+        <span class="promo-feat">&#x1F5E3; Tamil &amp; English</span>
+        <span class="promo-feat">&#x1F3C5; Certificate</span>
+        <span class="promo-feat">&#x1F4CB; Personal Plan</span>
+        <span class="promo-feat">&#x1F91D; Ongoing Support</span>
+      </div>
+      <a class="promo-btn" href="https://wa.me/919843702244?text=Hello%20Somasundaram%20Sir%2C%20I%20am%20interested%20in%20the%20Students%20Empowerment%20Program" target="_blank">
+        &#x1F4DE; <span class="ta-text">இப்போதே சேருங்கள்</span><span class="en-text" style="display:none">Join Now</span>
+      </a>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="footer">
+  &copy; Somasundaram Life Skills Academy | +91 98437 02244 | somasundaramnt.lifecoach@gmail.com<br>
+  sites.google.com/view/somasundaramnt | &ldquo;God is always with u&rdquo;
+</div>
+
+<script>
+var WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxZRrG19sGtBTJCQj92m9XSjVFou7pagTEeKzCV74w5oSuHK5UfHiL_PgWj1THqFy9fyA/exec";
+var dimensions={ta:["திட்டமிடல் & கட்டமைப்பு","கவனம் & ஒழுக்கம்","திருத்தம் & பயிற்சி","ஆதரவு & வளங்கள்","மனப்பான்மை & இலக்கு"],en:["Planning & Structure","Focus & Discipline","Revision & Practice","Support & Resources","Mindset & Goals"]};
+var questions=[
+{dim:0,ta:"நான் ஒவ்வொரு நாளும் ஒரு குறிப்பிட்ட நேரத்தில் படிக்கிறேன்.",en:"I study at a fixed time every day.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:0,ta:"படிக்கும் முன் நான் ஒரு திட்டம் (plan) தயாரிக்கிறேன்.",en:"I make a study plan before I start.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:0,ta:"படிக்கும் இடம் சுத்தமாகவும், அமைதியாகவும் இருக்கிறது.",en:"My study space is clean and quiet.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:0,ta:"தேர்வுக்கு முன் மட்டுமே படிக்காமல் தொடர்ந்து படிக்கிறேன்.",en:"I study regularly, not only before exams.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:1,ta:"படிக்கும் போது என்னால் கவனத்தை நிலைத்து வைக்க முடிகிறது.",en:"I can maintain focus while studying.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:1,ta:"நான் mobile / TV விளையாட்டை படிப்பு நேரத்தில் தவிர்க்கிறேன்.",en:"I avoid phone/TV distractions during study time.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:1,ta:"நான் வீட்டுப்பாடம் (homework) நேரத்தில் முடிக்கிறேன்.",en:"I complete homework on time.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:1,ta:"நான் படிப்பில் சிரமம் வந்தாலும் விட்டுவிடாமல் தொடர்கிறேன்.",en:"I persist with studies even when I find them difficult.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:2,ta:"படித்தவற்றை மீட்டுப் பார்க்கிறேன் (revision செய்கிறேன்).",en:"I revise what I have studied.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:2,ta:"படித்தவற்றை நான் சுருக்கமாக குறிப்புகள் எடுக்கிறேன்.",en:"I take short notes of what I study.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:2,ta:"நான் படித்தவற்றை மனதில் நினைவுகூர்ந்து பயிற்சி செய்கிறேன்.",en:"I recall and practise what I have learned.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:2,ta:"தேர்வில் தவறான விடைகளை ஆராய்ந்து திருத்திக்கொள்கிறேன்.",en:"I analyse my mistakes in tests and correct them.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:3,ta:"புரியாத பாடங்களை நான் ஆசிரியர் / நண்பரிடம் கேட்கிறேன்.",en:"I ask my teacher/friend when I don't understand something.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:3,ta:"நான் நூலகம் அல்லது கூடுதல் புத்தகங்கள் படிக்கிறேன்.",en:"I read library books or additional resources.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:3,ta:"படித்த விஷயங்களை நண்பர்களிடம் விளக்கி சொல்கிறேன்.",en:"I explain what I have learned to my friends.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:3,ta:"நான் படிக்கும் போது போதுமான தூக்கம் மற்றும் ஓய்வு எடுக்கிறேன்.",en:"I get enough sleep and rest to study well.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:4,ta:"படிப்பு இலக்கு வைத்து அதை அடைய முயற்சிக்கிறேன்.",en:"I set study goals and work towards them.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:4,ta:"நான் படிக்கும் போது பல்வேறு பாடங்களை மாற்றி மாற்றி படிக்கிறேன்.",en:"I alternate between different subjects while studying.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:4,ta:"நான் படித்தவற்றை மனதில் படங்கள் (mind maps) வரைந்து நினைவில் வைக்கிறேன்.",en:"I use mind maps or visuals to remember what I study.",opts:{ta:["எப்போதும்","பெரும்பாலும்","சில நேரம்","அரிதாக"],en:["Always","Often","Sometimes","Rarely"]},scores:[4,3,2,1]},
+{dim:4,ta:"படிப்பு என் எதிர்காலத்தை வடிவமைக்கும் என்று நம்புகிறேன்.",en:"I believe that studying shapes my future positively.",opts:{ta:["மிகவும் ஒப்புகிறேன்","ஒப்புகிறேன்","தெரியவில்லை","ஒப்பவில்லை"],en:["Strongly Agree","Agree","Neutral","Disagree"]},scores:[4,3,2,1]}
+];
+
+var categories=[
+{min:70,max:80,emoji:"🌟",
+ta:{title:"சிறந்த படிப்பாளி",desc:"உங்கள் படிப்பு பழக்கங்கள் மிகவும் சிறப்பாக உள்ளன! நீங்கள் ஒழுக்கமான, இலக்கு சார்ந்த மாணவர். உங்கள் திட்டமிடல், கவனம், திருத்தம் மற்றும் மனப்பான்மை அனைத்தும் வலுவாக உள்ளன. இந்த சிறந்த பழக்கங்களை தொடர்ந்து கடைப்பிடித்து மற்றவர்களுக்கும் வழிகாட்டியாக திகழுங்கள்."},
+en:{title:"Excellent Learner",desc:"Your study habits are outstanding! You are a disciplined, goal-oriented student. Your planning, focus, revision and mindset are all strong. Keep up these excellent habits and serve as a role model for your classmates."},
+tips:{ta:["உங்கள் படிப்பு அனுபவங்களை வகுப்பு நண்பர்களுடன் பகிர்ந்து group study நடத்துங்கள்.","mind mapping, flashcard, spaced repetition போன்ற advanced உத்திகளை முயற்சியுங்கள்.","உங்கள் weekly goals-ஐ எழுதி, ஒவ்வொரு வாரமும் எவ்வளவு அடைந்தோம் என்று சரிபாருங்கள்.","ஒவ்வொரு பாடத்திலும் 'ஏன்?' என்று கேட்டு ஆழமாக புரிந்துகொள்ளுங்கள் — மனப்பாடம் வேண்டாம்.","உங்கள் வெற்றிகளை celebrate செய்யுங்கள் — இது motivation-ஐ வலுப்படுத்தும்."],en:["Share your experience and organise group study sessions to help classmates.","Try advanced techniques like mind mapping, flashcards, and spaced repetition.","Write weekly goals and review how much you achieved at the end of each week.","Ask 'why?' in every subject to build deep understanding, not rote memorisation.","Celebrate your wins — even small ones build a lasting success mindset."]},
+improve:{ta:[],en:[]}},
+{min:55,max:69,emoji:"👍",
+ta:{title:"நல்ல முன்னேற்றம்",desc:"உங்கள் படிப்பு பழக்கங்கள் நல்ல நிலையில் உள்ளன. பல நல்ல பழக்கங்கள் ஏற்கனவே உங்களுக்கு உள்ளன. சில குறிப்பிட்ட பகுதிகளில் கொஞ்சம் மேலும் கவனம் செலுத்தினால் நீங்கள் மிகச் சிறந்த மாணவராக உயரலாம். நீங்கள் சரியான பாதையில் செல்கிறீர்கள் — தொடர்ந்து முயற்சியுங்கள்!"},
+en:{title:"Good Progress",desc:"Your study habits are in good shape. You already have many positive habits. With a little more focus in specific areas, you can rise to become an excellent student. You are on the right track — keep going!"},
+tips:{ta:["ஒரு நாள் time-table தயாரியுங்கள் — படிப்பு, ஓய்வு, விளையாட்டு எல்லாமும் சேர்த்து திட்டமிடுங்கள்.","mobile phone-ஐ படிக்கும் நேரத்தில் வேறொரு அறையில் வையுங்கள் — கவனம் கணிசமாக அதிகரிக்கும்.","ஒவ்வொரு பாடம் படித்த பிறகும் 5 நிமிட self-quiz எடுத்து நினைவாற்றலை சரிபாருங்கள்.","வாரம் ஒரு முறை கடந்த week-இல் படித்தவற்றை முழுமையாக revision செய்யுங்கள்.","ஆசிரியரிடம் doubts கேட்க தயங்காதீர்கள் — கேள்வி கேட்பது புத்திசாலித்தனம்!"],en:["Create a daily timetable — plan study, rest, and play time together for balance.","Keep your phone in another room while studying — your focus will significantly improve.","Take a 5-minute self-quiz after each subject to verify memory retention.","Do a full weekly revision of everything studied in the previous week.","Never hesitate to ask your teacher when in doubt — it shows wisdom!"]},
+improve:{ta:[{area:"நேர மேலாண்மை",text:"தினசரி time-table வரையுங்கள். ஒவ்வொரு பாடத்திற்கும் குறிப்பிட்ட நேரம் ஒதுக்குங்கள். Pomodoro method முயற்சியுங்கள் — 25 நிமிட படிப்பு, 5 நிமிட ஓய்வு."},{area:"தொடர்ச்சியான படிப்பு",text:"வாரம் 5 நாள் குறைந்தது 1 மணி நேரம் படிக்கும் பழக்கத்தை ஏற்படுத்துங்கள். தேர்வு நேரத்தில் மட்டுமே படிக்கும் பழக்கத்தை மாற்றுங்கள்."},{area:"கவனச் சிதறல்",text:"படிக்கும் நேரத்தில் social media மற்றும் mobile games-ஐ முழுவதும் தவிர்யுங்கள். ஒரு 'screen-free' படிப்பு நேரம் வையுங்கள்."}],en:[{area:"Time Management",text:"Draw a daily timetable and allocate specific time per subject. Try the Pomodoro method — 25 minutes study, 5 minutes break."},{area:"Consistent Study",text:"Build a habit of at least 1 hour of study on 5 days per week. Stop relying only on last-minute exam preparation."},{area:"Distraction Control",text:"Completely avoid social media and mobile games during study time. Set a dedicated screen-free study hour each day."}]}},
+{min:40,max:54,emoji:"💡",
+ta:{title:"மேம்பட வேண்டும்",desc:"உங்கள் படிப்பு பழக்கங்களில் சில முக்கியமான குறைபாடுகள் உள்ளன. ஆனால் கவலைப்பட வேண்டியதில்லை — சரியான மாற்றங்களுடன் விரைவிலேயே பெரிய முன்னேற்றம் காணலாம். ஒவ்வொரு நாளும் ஒரு சிறிய மாற்றம் பெரிய வித்தியாசம் உருவாக்கும்."},
+en:{title:"Needs Improvement",desc:"Your study habits have some important gaps. But don't worry — with the right changes, significant improvement can happen quickly. One small positive change each day is how big transformations begin."},
+tips:{ta:["இன்றே 30 நிமிட படிப்பு நேரம் ஒதுக்குங்கள் — சிறிய ஆரம்பமே பெரிய மாற்றத்தின் முதல் படி!","படிக்கும் முன் mobile phone-ஐ silent mode-இல் வேறு இடத்தில் வையுங்கள் — கவனம் இரட்டிப்பாகும்.","ஒவ்வொரு நாளும் படித்தவற்றை 3 வரியில் குறிப்பு எடுத்து வையுங்கள் — நினைவாற்றல் வலுப்படும்.","உங்கள் ஆசிரியரிடம் அல்லது பெற்றோரிடம் உதவி கேளுங்கள் — தனியாக போராடாதீர்கள்.","ஒரே ஒரு நல்ல பழக்கத்தை தேர்வு செய்து 21 நாள் தொடர்ந்து கடைப்பிடியுங்கள்."],en:["Start today — set aside just 30 minutes for study. A small beginning creates big change!","Put your phone on silent in another place before studying — your focus will double.","Write 3-line notes of what you studied each day — this strengthens memory.","Ask your teacher or parent for help — don't struggle alone in silence.","Choose ONE good habit and practise it for 21 consecutive days without stopping."]},
+improve:{ta:[{area:"திட்டமிடல்",text:"எளிய நாள் திட்டம் உருவாக்குங்கள். காலை எழுந்ததும் 'இன்று என்ன படிப்பேன்?' என்று ஒரு காகிதத்தில் எழுதுங்கள்."},{area:"கவனம்",text:"படிக்கும் முன் 3 நிமிட deep breathing செய்யுங்கள். இது மனதை அமைதிப்படுத்தி கவனத்தை கணிசமாக அதிகரிக்கும்."},{area:"திருத்தம்",text:"ஒவ்வொரு பாடம் முடித்தவுடன் புத்தகம் மூடி 'நான் என்ன படித்தேன்?' என்று மனதில் நினைத்துப் பாருங்கள். இந்த active recall நினைவாற்றலை வலுப்படுத்தும்."},{area:"உதவி பெறுதல்",text:"புரியாத பகுதிகளை தனியாக விட்டுவிடாதீர்கள். ஆசிரியர் அல்லது நண்பரிடம் அன்றே கேளுங்கள். Students Empowerment Program-ல் சேர்ந்தால் தொடர் வழிகாட்டல் கிடைக்கும்."}],en:[{area:"Planning",text:"Create a simple daily plan. Write 'What will I study today?' on paper each morning — it prepares your mind."},{area:"Focus",text:"Do 3 minutes of deep breathing before studying. This calms the mind and significantly improves concentration."},{area:"Revision",text:"After each subject, close the book and mentally recall what you studied. This active recall technique strengthens memory retention."},{area:"Seeking Help",text:"Don't leave unclear topics unresolved. Ask your teacher or friend the same day. The Students Empowerment Program gives continuous structured guidance."}]}},
+{min:0,max:39,emoji:"🌱",
+ta:{title:"மாற்றம் தேவை",desc:"படிப்பு பழக்கங்கள் இன்னும் வளரவில்லை. ஆனால் இப்போது தொடங்குவதே சரியான நேரம்! இந்த மதிப்பீட்டை எடுத்தது ஒரு முக்கியமான முதல் படி. சரியான வழிகாட்டலுடன் விரைவான முன்னேற்றம் நிச்சயம் சாத்தியம்."},
+en:{title:"Time to Begin",desc:"Your study habits need significant development. But right now is the perfect time to start! Taking this assessment was an important first step. With the right guidance, rapid progress is absolutely possible."},
+tips:{ta:["இன்றிரவே நாளைக்கான 3 பாட திட்டம் எழுதுங்கள் — சிறியதாக இருந்தாலும் சரி, ஆரம்பிப்பது முக்கியம்.","படிக்கும் நேரத்தில் mobile phone-ஐ முழுவதும் off செய்யுங்கள் — not silent, off!","ஒரு நண்பரிடம் study buddy ஆகச் சொல்லுங்கள் — சேர்ந்து படிப்பது motivation-ஐ அதிகரிக்கும்.","ஒவ்வொரு நாளும் தூக்கத்திற்கு முன் குறைந்தது 20 நிமிட revision செய்யுங்கள் — நினைவில் தங்கும்.","இந்த அறிக்கையை உங்கள் ஆசிரியர் அல்லது பெற்றோரிடம் காட்டி ஆலோசனை பெறுங்கள்."],en:["Tonight, write a 3-subject plan for tomorrow — small is fine, but starting is what matters.","Switch your phone fully OFF during study time — not silent mode, completely off!","Ask a friend to be your study buddy — studying together increases accountability and motivation.","Do at least 20 minutes of revision before sleeping each night — it locks information in memory.","Show this report to your teacher or parent and ask them for their support."]},
+improve:{ta:[{area:"அடிப்படை பழக்கம்",text:"ஒரே ஒரு பழக்கத்தில் இருந்து தொடங்குங்கள்: ஒவ்வொரு நாளும் இரவு 7 மணிக்கு 30 நிமிட படிப்பு. இதை 7 நாள் தொடர்ந்து செய்தால் பழக்கம் உருவாகும்."},{area:"சூழல் மாற்றம்",text:"படிக்கும் இடத்தை சுத்தமாக வையுங்கள். TV இல்லாத, mobile இல்லாத அமைதியான இடத்தை உருவாக்குங்கள். சூழல் மாறினால் கவனம் தானாக மேம்படும்."},{area:"உதவி பெறுதல்",text:"தனியாக போராடாதீர்கள். ஆசிரியர், பெற்றோர் அல்லது நண்பரிடம் உதவி கேளுங்கள். Students Empowerment Program-இல் சேர்ந்தால் தொடர் வழிகாட்டல் கிடைக்கும்."},{area:"மனோதிடம்",text:"'நான் மாற முடியும் — நான் படிக்க முடியும்' என்று ஒவ்வொரு நாளும் காலையில் சொல்லிக்கொள்ளுங்கள். நம்பிக்கையே வெற்றியின் முதல் படி!"}],en:[{area:"Basic Habit",text:"Start with just one habit: study for 30 minutes at 7 PM every day. Do this for 7 consecutive days and a habit begins to form."},{area:"Environment Change",text:"Clean your study space. Create a quiet area without TV or mobile. When the environment changes, focus automatically improves."},{area:"Seeking Help",text:"Don't struggle alone. Ask your teacher, parent, or friend for support. The Students Empowerment Program gives continuous structured guidance."},{area:"Mindset",text:"Tell yourself every morning: 'I can change — I can study.' Belief is the very first step to real change. You are capable of more!"}]}}
+];
+
+var lang="ta",current=0,answers=new Array(questions.length).fill(null);
+var userName="",userPhone="",lastCat=null,lastTotal=0,lastMax=0,lastPct=0;
+
+function setLang(l){
+  lang=l;
+  document.querySelectorAll(".lang-btn").forEach(function(b,i){b.classList.toggle("active",(i===0&&l==="ta")||(i===1&&l==="en"));});
+  document.querySelectorAll(".ta-text").forEach(function(el){el.style.display=l==="ta"?"":"none";});
+  document.querySelectorAll(".en-text").forEach(function(el){el.style.display=l==="en"?"":"none";});
+  document.documentElement.lang=l==="ta"?"ta":"en";
+  var ni=document.getElementById("inputName");
+  if(ni){ni.placeholder=l==="ta"?"உங்கள் பெயர் / Your Name":"Your full name";document.getElementById("inputPhone").placeholder=l==="ta"?"10 இலக்க மொபைல் எண்":"10-digit mobile number";}
+  if(document.getElementById("quizArea").style.display!=="none") renderQuestion();
+}
+
+function startQuiz(){
+  var name=document.getElementById("inputName").value.trim();
+  var phone=document.getElementById("inputPhone").value.trim();
+  var valid=true;
+  if(!name){document.getElementById("inputName").classList.add("error");document.getElementById("nameErr").classList.add("show");valid=false;}
+  else{document.getElementById("inputName").classList.remove("error");document.getElementById("nameErr").classList.remove("show");}
+  if(!phone||phone.replace(/\D/g,"").length<10){document.getElementById("inputPhone").classList.add("error");document.getElementById("phoneErr").classList.add("show");valid=false;}
+  else{document.getElementById("inputPhone").classList.remove("error");document.getElementById("phoneErr").classList.remove("show");}
+  if(!valid) return;
+  userName=name;userPhone=phone;
+  document.getElementById("regCard").style.display="none";
+  document.getElementById("progressWrap").style.display="";
+  document.getElementById("quizArea").style.display="";
+  renderQuestion();
+}
+
+function renderQuestion(){
+  var q=questions[current];
+  document.getElementById("qNum").textContent="Question "+(current+1)+" of "+questions.length;
+  document.getElementById("qText").textContent=lang==="ta"?q.ta:q.en;
+  var opts=q.opts[lang];
+  var area=document.getElementById("optionsArea");
+  area.innerHTML="";
+  opts.forEach(function(opt,i){
+    var btn=document.createElement("button");
+    btn.className="option-btn"+(answers[current]===i?" selected":"");
+    btn.textContent=opt;
+    btn.onclick=(function(idx){return function(){selectOption(idx);};})(i);
+    area.appendChild(btn);
+  });
+  var pct=Math.round((current/questions.length)*100);
+  document.getElementById("progressFill").style.width=pct+"%";
+  document.getElementById("progressPct").textContent=pct+"%";
+  document.getElementById("progressLabel").textContent=lang==="ta"?"கேள்வி "+(current+1)+" / "+questions.length:"Question "+(current+1)+" / "+questions.length;
+  document.getElementById("prevBtn").disabled=current===0;
+  var nb=document.getElementById("nextBtn");
+  if(current===questions.length-1){nb.className="btn btn-submit";nb.innerHTML=lang==="ta"?"<span>✅ முடிவு காண்</span>":"<span>✅ See Results</span>";}
+  else{nb.className="btn btn-next";nb.innerHTML=lang==="ta"?"<span class='ta-text'>அடுத்து →</span>":"<span class='en-text'>Next →</span>";}
+}
+
+function selectOption(i){answers[current]=i;document.querySelectorAll(".option-btn").forEach(function(b,idx){b.classList.toggle("selected",idx===i);});}
+
+function navigate(dir){
+  if(dir===1&&answers[current]===null){alert(lang==="ta"?"தயவுசெய்து ஒரு விடை தேர்ந்தெடுங்கள்.":"Please select an answer.");return;}
+  if(dir===1&&current===questions.length-1){showResult();return;}
+  current=Math.max(0,Math.min(questions.length-1,current+dir));
+  renderQuestion();
+}
+
+function showResult(){
+  var total=answers.reduce(function(s,a,i){return s+(a!==null?questions[i].scores[a]:0);},0);
+  var max=questions.length*4;
+  var pct=Math.round((total/max)*100);
+  var cat=categories.find(function(c){return total>=c.min&&total<=c.max;})||categories[categories.length-1];
+  lastCat=cat;lastTotal=total;lastMax=max;lastPct=pct;
+  document.getElementById("quizArea").style.display="none";
+  document.getElementById("progressWrap").style.display="none";
+  document.getElementById("resultCard").classList.add("show");
+  document.getElementById("resEmoji").textContent=cat.emoji;
+  document.getElementById("resName").textContent="🎓 "+userName;
+  document.getElementById("resPhone").textContent="📱 "+userPhone;
+  document.getElementById("resScore").textContent=total+"/"+max;
+  document.getElementById("resLevel").textContent=lang==="ta"?cat.ta.title:cat.en.title;
+  document.getElementById("resSub").textContent="Score: "+total+" / "+max+" ("+pct+"%)";
+  document.getElementById("catDesc").textContent=lang==="ta"?cat.ta.desc:cat.en.desc;
+  var ds=[0,0,0,0,0],dm=[0,0,0,0,0];
+  questions.forEach(function(q,i){if(answers[i]!==null){ds[q.dim]+=questions[i].scores[answers[i]];dm[q.dim]+=4;}});
+  var dimHtml="";
+  for(var d=0;d<5;d++){
+    var dp=dm[d]>0?Math.round((ds[d]/dm[d])*100):0;
+    var fc=dp>=75?"fill-high":dp>=50?"fill-medium":"fill-low";
+    var tc=dp>=75?"tag-high":dp>=50?"tag-medium":"tag-low";
+    var tagT=lang==="ta"?(dp>=75?"சிறப்பு":dp>=50?"மேம்படல்":"கவனம் தேவை"):(dp>=75?"Strong":dp>=50?"Developing":"Needs Work");
+    dimHtml+="<div class='dim-row'><div class='dim-header'><span class='dim-name'>"+(lang==="ta"?dimensions.ta[d]:dimensions.en[d])+"<span class='dim-tag "+tc+"'>"+tagT+"</span></span><span class='dim-score-text'>"+ds[d]+"/"+dm[d]+" ("+dp+"%)</span></div><div class='dim-track'><div class='dim-fill "+fc+"' style='width:"+dp+"%'></div></div></div>";
+  }
+  document.getElementById("dimArea").innerHTML=dimHtml;
+  var tips=cat.tips[lang].slice(0,5);
+  document.getElementById("tipsList").innerHTML=tips.map(function(t,i){return "<li><div class='tip-num'>"+(i+1)+"</div><span>"+t+"</span></li>";}).join("");
+  var imps=cat.improve[lang];
+  var ib=document.getElementById("improveBlock");
+  var ia=document.getElementById("improveArea");
+  if(imps&&imps.length>0){
+    ia.innerHTML=imps.map(function(x){return "<div class='improve-item'><div class='improve-area'>"+x.area+"</div><div class='improve-text'>"+x.text+"</div></div>";}).join("");
+  } else {
+    ib.innerHTML="<div class='block-label'>"+(lang==="ta"?"மேம்பாட்டுத் திட்டம்":"Improvement Plan")+"</div><div class='block-desc' style='color:var(--success);font-weight:600;padding:6px 0'>✅ "+(lang==="ta"?"நீங்கள் அனைத்து பகுதிகளிலும் சிறப்பாக உள்ளீர்கள்! இந்த நிலையை தொடர்ந்து பராமரியுங்கள்.":"You are strong across all areas! Keep maintaining this excellent standard.")+"</div>";
+  }
+  var level=lang==="ta"?cat.ta.title:cat.en.title;
+  var msg=encodeURIComponent("✏️ Study Habits Assessment\n👤 "+userName+"\n📱 "+userPhone+"\n\nScore: "+total+"/"+max+" ("+pct+"%)\nLevel: "+level+"\n\n📚 Somasundaram Life Skills Academy\n+91 98437 02244");
+  document.getElementById("waBtn").href="https://wa.me/?text="+msg;
+  saveToSheet(total,max,pct,cat);
+}
+
+function saveToSheet(total,max,pct,cat){
+  // Skip if Web App URL not configured yet
+  if(!WEB_APP_URL || WEB_APP_URL.indexOf("PASTE_YOUR")===0) {
+    console.log("WEB_APP_URL not set — skipping save.");
+    return;
+  }
+  // Use URLSearchParams + no-cors to work inside Google Sites iframe
+  var params=new URLSearchParams();
+  params.append("name",userName);
+  params.append("phone",userPhone);
+  params.append("score",total);
+  params.append("maxScore",max);
+  params.append("percentage",pct+"%");
+  params.append("levelTa",cat.ta.title);
+  params.append("levelEn",cat.en.title);
+  params.append("lang",lang);
+
+  // Primary: try JSON fetch (works on direct URL, may be blocked in iframe)
+  fetch(WEB_APP_URL,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({name:userName,phone:userPhone,score:total,maxScore:max,percentage:pct+"%",levelTa:cat.ta.title,levelEn:cat.en.title,lang:lang})
+  })
+  .then(function(r){return r.json();})
+  .then(function(d){
+    if(d.status==="success") document.getElementById("savedBadge").style.display="inline-block";
+  })
+  .catch(function(){
+    // Fallback: no-cors mode (works in Google Sites iframe — response is opaque but data IS saved)
+    fetch(WEB_APP_URL,{
+      method:"POST",
+      mode:"no-cors",
+      body:params
+    })
+    .then(function(){
+      // no-cors returns opaque response; assume success and show badge
+      document.getElementById("savedBadge").style.display="inline-block";
+    })
+    .catch(function(err){console.error("Save failed:",err);});
+  });
+}
+
+function printPDF(){
+  var cat=lastCat;if(!cat) return;
+  var total=lastTotal,max=lastMax,pct=lastPct;
+  var level=lang==="ta"?cat.ta.title:cat.en.title;
+  var desc=lang==="ta"?cat.ta.desc:cat.en.desc;
+  var tips=cat.tips[lang].slice(0,5).map(function(t,i){return "<li><strong>"+(i+1)+".</strong> "+t+"</li>";}).join("");
+  var imps=cat.improve[lang];
+  var impHtml="";
+  if(imps&&imps.length>0){impHtml=imps.map(function(x){return "<div style='background:#fff8e1;border-left:4px solid #f39c12;border-radius:6px;padding:10px 12px;margin-bottom:10px'><div style='font-size:10px;font-weight:700;color:#c87f00;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;font-family:Poppins,sans-serif'>"+x.area+"</div><div style='font-size:13px;line-height:1.7'>"+x.text+"</div></div>";}).join("");}
+  else{impHtml="<p style='color:#1a7a4a;font-weight:600'>✅ "+(lang==="ta"?"அனைத்து பகுதிகளிலும் சிறப்பாக உள்ளீர்கள்!":"You are strong across all areas!")+"</p>";}
+  var ds=[0,0,0,0,0],dm=[0,0,0,0,0];
+  questions.forEach(function(q,i){if(answers[i]!==null){ds[q.dim]+=questions[i].scores[answers[i]];dm[q.dim]+=4;}});
+  var dimPdf=Array.from({length:5},function(_,d){
+    var dp=dm[d]>0?Math.round((ds[d]/dm[d])*100):0;
+    var col=dp>=75?"#1a7a4a":dp>=50?"#d4a017":"#c0392b";
+    var st=lang==="ta"?(dp>=75?"சிறப்பு":dp>=50?"மேம்படல்":"கவனம் தேவை"):(dp>=75?"Strong":dp>=50?"Developing":"Needs Work");
+    return "<div style='margin-bottom:10px'><div style='display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px'><span>"+(lang==="ta"?dimensions.ta[d]:dimensions.en[d])+" <span style='font-size:10px;background:"+col+"22;color:"+col+";padding:1px 7px;border-radius:10px;font-weight:700'>"+st+"</span></span><span style='color:#666;font-size:12px'>"+ds[d]+"/"+dm[d]+" ("+dp+"%)</span></div><div style='height:8px;background:#e8eef2;border-radius:4px;overflow:hidden'><div style='height:100%;width:"+dp+"%;background:"+col+";border-radius:4px'></div></div></div>";
+  }).join("");
+  var w=window.open("","_blank");
+  w.document.write("<!DOCTYPE html><html><head><meta charset='UTF-8'><link href='https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap' rel='stylesheet'><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Noto Sans Tamil','Poppins',sans-serif;color:#1c2833;max-width:750px;margin:0 auto}.hdr{background:linear-gradient(135deg,#1a5276,#154360);color:#fff;padding:22px 28px;text-align:center}.hdr .br{font-size:10px;opacity:.7;letter-spacing:1.5px;text-transform:uppercase;font-family:'Poppins',sans-serif;margin-bottom:6px}.hdr h1{font-size:17px;font-weight:700;margin-bottom:12px}.sr{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}.sc{width:68px;height:68px;border-radius:50%;background:#f39c12;color:#1a3a1a;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif}.si .lv{font-size:16px;font-weight:800;color:#fff}.si .sb{font-size:12px;opacity:.8;font-family:'Poppins',sans-serif;color:#fff}.body{padding:18px 28px}.sec{margin-bottom:16px}.sl{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:#7f8c8d;font-family:'Poppins',sans-serif;border-bottom:1px solid #eee;padding-bottom:4px;margin-bottom:8px}.desc{font-size:13px;line-height:1.8}.stu{font-size:13px;font-weight:600;margin-bottom:3px}ol{padding-left:18px}ol li{font-size:13px;line-height:1.7;margin-bottom:5px}.promo{background:linear-gradient(135deg,#1a7a4a,#0d3320);color:#fff;padding:14px 18px;border-radius:8px;text-align:center;margin-top:16px}.promo h3{font-size:14px;font-weight:700;margin-bottom:5px}.promo p{font-size:12px;opacity:.85;margin-bottom:8px}.promo a{background:#f39c12;color:#1a3a1a;padding:7px 20px;border-radius:6px;font-size:13px;font-weight:700;text-decoration:none}.footer{font-size:10px;color:#7f8c8d;border-top:1px solid #dde;padding-top:8px;margin-top:14px;font-family:'Poppins',sans-serif;text-align:center}@media print{.hdr,.promo{-webkit-print-color-adjust:exact;print-color-adjust:exact}}</style></head><body>");
+  w.document.write("<div class='hdr'><div class='br'>Somasundaram Life Skills Academy</div><h1>படிப்பு பழக்க மதிப்பீடு அறிக்கை — Study Habits Assessment Report</h1><div class='sr'><div class='sc'>"+total+"/"+max+"</div><div class='si'><div class='lv'>"+level+"</div><div class='sb'>"+pct+"% | "+new Date().toLocaleDateString("en-IN")+"</div></div></div></div>");
+  w.document.write("<div class='body'>");
+  w.document.write("<div class='sec'><div class='sl'>"+(lang==="ta"?"மாணவர் விவரம்":"Student Details")+"</div><div class='stu'>👤 "+userName+" &nbsp;&nbsp; 📱 "+userPhone+"</div></div>");
+  w.document.write("<div class='sec'><div class='sl'>"+(lang==="ta"?"மதிப்பீட்டு சுருக்கம்":"Assessment Summary")+"</div><div class='desc'>"+desc+"</div></div>");
+  w.document.write("<div class='sec'><div class='sl'>"+(lang==="ta"?"பகுதி வாரியான பகுப்பாய்வு":"Dimension-wise Analysis")+"</div>"+dimPdf+"</div>");
+  w.document.write("<div class='sec'><div class='sl'>"+(lang==="ta"?"5 முக்கிய ஆலோசனைகள்":"5 Key Tips")+"</div><ol>"+tips+"</ol></div>");
+  w.document.write("<div class='sec'><div class='sl'>"+(lang==="ta"?"மேம்பாட்டுத் திட்டம்":"Improvement Plan")+"</div>"+impHtml+"</div>");
+  w.document.write("<div class='promo'><h3>"+(lang==="ta"?"🚀 மாணவர் ஆளுமை மேம்பாட்டு திட்டம்":"🚀 Students Empowerment Program")+"</h3><p>"+(lang==="ta"?"படிப்பு திறன், நேர மேலாண்மை, தன்னம்பிக்கை, இலக்கு நிர்ணயம் — Online Zoom பயிற்சி":"Study skills, time management, confidence, goal setting — Online Zoom training")+"</p><a href='https://wa.me/919843702244'>📞 +91 98437 02244</a></div>");
+  w.document.write("<div class='footer'>somasundaramnt.lifecoach@gmail.com | sites.google.com/view/somasundaramnt | \"God is always with u\"</div></div>");
+  w.document.write("<script>window.onload=function(){window.print();}<\/script></body></html>");
+  w.document.close();
+}
+
+function resetQuiz(){
+  current=0;answers=new Array(questions.length).fill(null);userName="";userPhone="";lastCat=null;
+  document.getElementById("inputName").value="";document.getElementById("inputPhone").value="";
+  document.getElementById("resultCard").classList.remove("show");
+  document.getElementById("savedBadge").style.display="none";
+  document.getElementById("regCard").style.display="";
+  document.getElementById("quizArea").style.display="none";
+  document.getElementById("progressWrap").style.display="none";
+}
+
+setLang("ta");
+</script>
+</body>
+</html>
