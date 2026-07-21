@@ -48,6 +48,13 @@
   <h1>Student Enrollment Admin</h1>
   <div class="sub">Not linked from your public site — bookmark this page for your own use.</div>
 
+  <div class="card" style="background:#fff8ea; border:1px solid #f0dca0;">
+    <h2 style="margin-bottom:8px;">📌 If a student's password reset isn't working</h2>
+    <p style="font-size:13.5px; color:#555; margin:0; line-height:1.6;">
+      Don't chase the email link — use <strong>"Recreate Account"</strong> below instead: (1) delete their login in Firebase console → Authentication → Users, (2) come back here and look up their email to restore their enrollments with a fresh password. Takes under a minute, works every time.
+    </p>
+  </div>
+
   <!-- LOGIN -->
   <div class="card" id="loginCard">
     <h2>Admin Login</h2>
@@ -71,21 +78,26 @@
     </div>
 
     <div class="card">
+      <h2>Recreate Account (stuck password reset)</h2>
+      <p style="font-size:13px; color:#777; margin-top:-6px; margin-bottom:14px;">
+        Use this when a student can't get their password reset email to work. <strong>Step 1:</strong> in Firebase console → Authentication → Users, find their account and delete it. <strong>Step 2:</strong> come back here, enter their email, and this will pull up their existing enrollments so you can recreate their login with a fresh password in one click.
+      </p>
+      <input type="email" id="recoverEmail" placeholder="Student's email">
+      <button class="secondary" onclick="lookupForRecovery()">Look Up Enrollments</button>
+      <div id="recoverDetails" style="display:none; margin-top:14px;">
+        <input type="text" id="recoverName" placeholder="Student name">
+        <input type="text" id="recoverPassword" placeholder="New password (min 6 characters)">
+        <div class="courses-grid" id="coursesGridRecover"></div>
+        <button onclick="recreateStudent()">Recreate Account + Restore Enrollments</button>
+      </div>
+      <div class="msg" id="recoverMsg"></div>
+    </div>
+
+    <div class="card">
       <h2>Existing Students</h2>
       <div id="studentsTableWrap"><small class="hint">Loading...</small></div>
     </div>
 
-  </div>
-</div>
-
-<!-- EDIT COURSES MODAL -->
-<div id="editModalOverlay" style="display:none; position:fixed; inset:0; background:rgba(15,32,68,0.45); align-items:center; justify-content:center; z-index:100;">
-  <div class="card" style="max-width:520px; width:92%; max-height:82vh; overflow-y:auto;">
-    <h2 id="editModalTitle">Edit courses</h2>
-    <div class="courses-grid" id="coursesGridEdit"></div>
-    <button onclick="saveEditedCourses()">Save Changes</button>
-    <button class="secondary" style="margin-left:8px;" onclick="closeEditModal()">Cancel</button>
-    <div class="msg" id="editMsg"></div>
   </div>
 </div>
 
@@ -115,8 +127,7 @@ const COURSES = [
   { id: "stress-management-parents", name: "Stress Management for Parents" },
   { id: "critical-thinking-students", name: "Critical Thinking & Problem Solving" },
   { id: "social-skills-students", name: "Social Skills & Peer Relationships" },
-  { id: "life-skills-students", name: "Life Skills Mastery for Students" },
-  { id: "self-discipline-mastery", name: "Self-Discipline Mastery" }
+  { id: "life-skills-students", name: "Life Skills Mastery for Students" }
 ];
 
 // ============================================================
@@ -132,6 +143,84 @@ function renderCourseCheckboxes(containerId, prefix){
   ).join('');
 }
 renderCourseCheckboxes('coursesGridNew', 'new');
+renderCourseCheckboxes('coursesGridRecover', 'recover');
+
+let recoverOldDocId = null; // the old Firestore doc (by old UID) to delete after recreation
+
+function lookupForRecovery(){
+  const email = document.getElementById('recoverEmail').value.trim();
+  if(!email){
+    showMsg('recoverMsg', 'Enter the student\'s email first.', false);
+    return;
+  }
+  db.collection('students').where('email', '==', email).get()
+    .then(function(snap){
+      if(snap.empty){
+        showMsg('recoverMsg', 'No existing enrollment record found for that email. Use "Add New Student" instead.', false);
+        document.getElementById('recoverDetails').style.display = 'none';
+        return;
+      }
+      const doc = snap.docs[0];
+      const d = doc.data();
+      recoverOldDocId = doc.id;
+      document.getElementById('recoverName').value = d.name || '';
+      document.querySelectorAll('#coursesGridRecover input').forEach(cb => {
+        cb.checked = (d.courses || []).includes(cb.value);
+      });
+      document.getElementById('recoverDetails').style.display = 'block';
+      showMsg('recoverMsg', `Found existing record for ${d.name || email}. Make sure you've already deleted their old login in Firebase console, then set a new password below.`, true);
+    })
+    .catch(function(err){
+      showMsg('recoverMsg', 'Error: ' + err.message, false);
+    });
+}
+
+function recreateStudent(){
+  const email = document.getElementById('recoverEmail').value.trim();
+  const name = document.getElementById('recoverName').value.trim();
+  const password = document.getElementById('recoverPassword').value;
+  const checked = Array.from(document.querySelectorAll('#coursesGridRecover input:checked')).map(c => c.value);
+
+  if(!email || !name || !password){
+    showMsg('recoverMsg', 'Please fill in name and new password.', false);
+    return;
+  }
+  if(password.length < 6){
+    showMsg('recoverMsg', 'Password must be at least 6 characters.', false);
+    return;
+  }
+
+  const secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary_" + Date.now());
+  secondaryApp.auth().createUserWithEmailAndPassword(email, password)
+    .then(function(cred){
+      const newUid = cred.user.uid;
+      return db.collection('students').doc(newUid).set({
+        name: name, email: email, courses: checked
+      }).then(function(){
+        return secondaryApp.auth().signOut();
+      });
+    })
+    .then(function(){
+      secondaryApp.delete();
+      // Clean up the old orphaned Firestore doc (old UID no longer has a matching auth account)
+      if(recoverOldDocId){
+        return db.collection('students').doc(recoverOldDocId).delete();
+      }
+    })
+    .then(function(){
+      showMsg('recoverMsg', `Account recreated for ${name}. Give them the new password: "${password}" — they can change it themselves later.`, true);
+      document.getElementById('recoverEmail').value = '';
+      document.getElementById('recoverName').value = '';
+      document.getElementById('recoverPassword').value = '';
+      document.getElementById('recoverDetails').style.display = 'none';
+      recoverOldDocId = null;
+      loadStudents();
+    })
+    .catch(function(err){
+      secondaryApp.delete();
+      showMsg('recoverMsg', 'Error: ' + err.message, false);
+    });
+}
 
 function showMsg(id, text, ok){
   const el = document.getElementById(id);
@@ -228,40 +317,28 @@ function loadStudents(){
   });
 }
 
-let editingUid = null;
-
 function editStudent(uid){
   db.collection('students').doc(uid).get().then(function(doc){
     const d = doc.data();
     const current = d.courses || [];
-    editingUid = uid;
-    document.getElementById('editModalTitle').textContent = `Edit courses — ${d.name} (${d.email})`;
-    const grid = document.getElementById('coursesGridEdit');
-    grid.innerHTML = COURSES.map(c =>
-      `<label class="course-item"><input type="checkbox" value="${c.id}" data-prefix="edit" ${current.includes(c.id) ? 'checked' : ''}> ${c.name}</label>`
-    ).join('');
-    document.getElementById('editMsg').className = 'msg';
-    document.getElementById('editMsg').textContent = '';
-    document.getElementById('editModalOverlay').style.display = 'flex';
+    const checklist = COURSES.map(c =>
+      `${current.includes(c.id) ? '[x]' : '[ ]'} ${c.id} — ${c.name}`
+    ).join('\n');
+    const input = prompt(
+      `Editing courses for ${d.name} (${d.email}).\n\nCurrent list below — type the FULL new comma-separated list of course IDs you want this student to have:\n\n${checklist}\n\nCurrent value:`,
+      current.join(',')
+    );
+    if(input === null) return; // cancelled
+    const newCourses = input.split(',').map(s => s.trim()).filter(Boolean);
+    db.collection('students').doc(uid).set({ courses: newCourses }, { merge: true })
+      .then(function(){
+        alert('Updated.');
+        loadStudents();
+      })
+      .catch(function(err){
+        alert('Error: ' + err.message);
+      });
   });
-}
-
-function closeEditModal(){
-  document.getElementById('editModalOverlay').style.display = 'none';
-  editingUid = null;
-}
-
-function saveEditedCourses(){
-  if(!editingUid) return;
-  const checked = Array.from(document.querySelectorAll('#coursesGridEdit input:checked')).map(c => c.value);
-  db.collection('students').doc(editingUid).set({ courses: checked }, { merge: true })
-    .then(function(){
-      closeEditModal();
-      loadStudents();
-    })
-    .catch(function(err){
-      showMsg('editMsg', 'Error: ' + err.message, false);
-    });
 }
 
 // Auto-login check: if already signed in (session persisted), skip login screen
