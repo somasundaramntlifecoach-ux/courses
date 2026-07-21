@@ -301,44 +301,58 @@ function loadStudents(){
     snap.forEach(function(doc){
       const d = doc.data();
       const courses = d.courses || [];
+      const safeId = doc.id;
       rows += `<tr>
         <td>${d.name || ''}</td>
         <td>${d.email || ''}</td>
-        <td>${courses.map(c => `<span class="tag">${c}</span>`).join('')}</td>
-        <td><button class="secondary" onclick="editStudent('${doc.id}')">Edit courses</button></td>
+        <td id="tags-${safeId}">${courses.map(c => `<span class="tag">${c}</span>`).join('')}</td>
+        <td><button class="secondary" onclick="toggleEditRow('${safeId}')">Edit courses</button></td>
+      </tr>
+      <tr id="edit-row-${safeId}" style="display:none;">
+        <td colspan="4" style="background:#fafafa;">
+          <div class="courses-grid" id="edit-grid-${safeId}" style="margin:10px 0;"></div>
+          <button onclick="saveStudentCourses('${safeId}')">Save</button>
+          <button class="secondary" onclick="toggleEditRow('${safeId}')">Cancel</button>
+        </td>
       </tr>`;
     });
     wrap.innerHTML = `<table>
       <tr><th>Name</th><th>Email</th><th>Courses</th><th></th></tr>
       ${rows}
     </table>`;
+
+    // Render checkboxes for each student's edit row, pre-checked to their current enrollment
+    snap.forEach(function(doc){
+      const d = doc.data();
+      const courses = d.courses || [];
+      const gridId = `edit-grid-${doc.id}`;
+      const el = document.getElementById(gridId);
+      if(el){
+        el.innerHTML = COURSES.map(c =>
+          `<label class="course-item"><input type="checkbox" value="${c.id}" ${courses.includes(c.id) ? 'checked' : ''}> ${c.name}</label>`
+        ).join('');
+      }
+    });
   }).catch(function(err){
     wrap.innerHTML = '<small class="hint">Could not load students: ' + err.message + '</small>';
   });
 }
 
-function editStudent(uid){
-  db.collection('students').doc(uid).get().then(function(doc){
-    const d = doc.data();
-    const current = d.courses || [];
-    const checklist = COURSES.map(c =>
-      `${current.includes(c.id) ? '[x]' : '[ ]'} ${c.id} — ${c.name}`
-    ).join('\n');
-    const input = prompt(
-      `Editing courses for ${d.name} (${d.email}).\n\nCurrent list below — type the FULL new comma-separated list of course IDs you want this student to have:\n\n${checklist}\n\nCurrent value:`,
-      current.join(',')
-    );
-    if(input === null) return; // cancelled
-    const newCourses = input.split(',').map(s => s.trim()).filter(Boolean);
-    db.collection('students').doc(uid).set({ courses: newCourses }, { merge: true })
-      .then(function(){
-        alert('Updated.');
-        loadStudents();
-      })
-      .catch(function(err){
-        alert('Error: ' + err.message);
-      });
-  });
+function toggleEditRow(uid){
+  const row = document.getElementById('edit-row-' + uid);
+  if(row) row.style.display = (row.style.display === 'none') ? 'table-row' : 'none';
+}
+
+function saveStudentCourses(uid){
+  const checked = Array.from(document.querySelectorAll(`#edit-grid-${uid} input:checked`)).map(c => c.value);
+  db.collection('students').doc(uid).set({ courses: checked }, { merge: true })
+    .then(function(){
+      document.getElementById(`tags-${uid}`).innerHTML = checked.map(c => `<span class="tag">${c}</span>`).join('');
+      toggleEditRow(uid);
+    })
+    .catch(function(err){
+      alert('Error: ' + err.message);
+    });
 }
 
 // Auto-login check: if already signed in (session persisted), skip login screen
