@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Self-Discipline Mastery | NT Somasundaram Life Skills Program</title>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Firebase (compat SDK, matches other 11 courses) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<style>
+  :root{
+    --navy:#0A2647;
+    --navy-2:#144272;
+    --gold:#D4AF37;
+    --gold-light:#F1D385;
+    --bg:#F7F8FA;
+    --text:#1B1F27;
+    --muted:#5C6470;
+    --card:#FFFFFF;
+    --success:#1E8A5B;
+    --danger:#C0392B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  body.lang-ta, body.lang-ta *{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+
+  header{
+    background:linear-gradient(135deg,var(--navy),var(--navy-2));
+    color:#fff;
+    padding:18px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  header h1{font-size:1.15rem;font-weight:600;}
+  header h1 span{color:var(--gold-light);}
+  .header-controls{display:flex;align-items:center;gap:10px;}
+  .lang-toggle, .logout-btn{
+    background:rgba(255,255,255,0.12);
+    border:1px solid var(--gold);
+    color:#fff;
+    padding:7px 14px;
+    border-radius:20px;
+    cursor:pointer;
+    font-size:0.85rem;
+    font-family:inherit;
+    transition:.2s;
+  }
+  .lang-toggle:hover, .logout-btn:hover{background:var(--gold);color:var(--navy);}
+
+  .container{max-width:900px;margin:0 auto;padding:24px 16px 60px;}
+
+  /* ---------- Login / Gate screens ---------- */
+  .auth-card{
+    background:var(--card);
+    max-width:420px;
+    margin:60px auto;
+    padding:32px 28px;
+    border-radius:14px;
+    box-shadow:0 8px 30px rgba(10,38,71,0.12);
+    border-top:4px solid var(--gold);
+  }
+  .auth-card h2{color:var(--navy);margin-bottom:6px;font-size:1.3rem;}
+  .auth-card p.sub{color:var(--muted);font-size:0.9rem;margin-bottom:20px;}
+  .auth-card input{
+    width:100%;padding:11px 14px;margin-bottom:12px;
+    border:1px solid #D8DCE3;border-radius:8px;font-size:0.95rem;font-family:inherit;
+  }
+  .auth-card button{
+    width:100%;padding:12px;background:var(--navy);color:#fff;border:none;
+    border-radius:8px;font-weight:600;font-size:0.95rem;cursor:pointer;margin-top:4px;
+    font-family:inherit;transition:.2s;
+  }
+  .auth-card button:hover{background:var(--navy-2);}
+  .auth-toggle-link{display:block;text-align:center;margin-top:14px;color:var(--navy-2);font-size:0.85rem;cursor:pointer;text-decoration:underline;}
+  .auth-error{color:var(--danger);font-size:0.85rem;margin-bottom:10px;min-height:18px;}
+
+  .lock-card{
+    background:var(--card);max-width:520px;margin:50px auto;padding:36px 30px;
+    border-radius:14px;text-align:center;box-shadow:0 8px 30px rgba(10,38,71,0.12);
+    border-top:4px solid var(--gold);
+  }
+  .lock-card h2{color:var(--navy);margin-bottom:10px;}
+  .lock-card p{color:var(--muted);margin-bottom:20px;}
+  .price-tag{font-size:2rem;color:var(--navy);font-weight:700;margin:14px 0;}
+  .price-tag span{font-size:1rem;color:var(--muted);text-decoration:line-through;margin-right:10px;font-weight:400;}
+  .razorpay-slot{margin:18px 0;}
+  .whatsapp-btn{
+    display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;
+    padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:600;margin-top:10px;
+  }
+
+  /* ---------- Dashboard ---------- */
+  .welcome-bar{
+    background:var(--card);border-radius:12px;padding:18px 20px;margin-bottom:20px;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+    border-left:4px solid var(--gold);
+  }
+  .progress-wrap{background:#E7E9EE;border-radius:20px;height:10px;width:180px;overflow:hidden;}
+  .progress-fill{background:linear-gradient(90deg,var(--gold),var(--navy));height:100%;width:0%;transition:width .4s;}
+
+  .module-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .module-card{
+    background:var(--card);border-radius:12px;padding:18px 20px;cursor:pointer;
+    border:1px solid #E7E9EE;transition:.2s;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .module-card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 6px 16px rgba(10,38,71,0.08);}
+  .module-card.completed{border-left:4px solid var(--success);}
+  .module-num{
+    background:var(--navy);color:#fff;width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-weight:600;flex-shrink:0;font-size:0.9rem;
+  }
+  .module-card.completed .module-num{background:var(--success);}
+  .module-title{font-weight:500;flex:1;}
+  .module-check{color:var(--success);font-weight:700;}
+
+  /* ---------- Module view ---------- */
+  .back-btn{
+    background:none;border:none;color:var(--navy-2);cursor:pointer;font-family:inherit;
+    font-size:0.9rem;margin-bottom:16px;display:inline-flex;align-items:center;gap:6px;
+  }
+  .module-view{background:var(--card);border-radius:14px;padding:28px 26px;box-shadow:0 4px 20px rgba(10,38,71,0.06);}
+  .module-view h2{color:var(--navy);margin-bottom:6px;}
+  .module-view .module-intro{color:var(--muted);margin-bottom:20px;font-size:0.95rem;}
+  .section-label{
+    color:var(--gold);text-transform:uppercase;font-size:0.75rem;font-weight:700;letter-spacing:0.5px;
+    margin:20px 0 8px;
+  }
+  .concept-list{list-style:none;}
+  .concept-list li{
+    padding:10px 0 10px 26px;position:relative;border-bottom:1px solid #F0F1F4;font-size:0.95rem;
+  }
+  .concept-list li:before{content:"●";color:var(--gold);position:absolute;left:0;font-size:0.8rem;top:12px;}
+  .reflection-box, .action-box{
+    background:#F7F8FA;border-radius:10px;padding:16px 18px;margin-top:6px;font-size:0.95rem;
+  }
+  .action-box{border-left:3px solid var(--navy);}
+  .complete-btn{
+    margin-top:24px;width:100%;padding:13px;background:var(--gold);color:var(--navy);
+    border:none;border-radius:8px;font-weight:700;cursor:pointer;font-family:inherit;font-size:0.95rem;
+  }
+  .complete-btn.done{background:var(--success);color:#fff;}
+  .nav-buttons{display:flex;justify-content:space-between;margin-top:14px;gap:10px;}
+  .nav-buttons button{
+    flex:1;padding:10px;background:var(--navy);color:#fff;border:none;border-radius:8px;
+    cursor:pointer;font-family:inherit;font-size:0.9rem;
+  }
+  .nav-buttons button:disabled{opacity:0.4;cursor:not-allowed;}
+
+  footer{text-align:center;color:var(--muted);font-size:0.8rem;padding:24px;}
+  .hidden{display:none !important;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Self-Discipline <span>Mastery</span></h1>
+  <div class="header-controls">
+    <button class="lang-toggle" id="langToggle">தமிழ்</button>
+    <button class="logout-btn hidden" id="logoutBtn">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- LOGIN SCREEN -->
+  <div class="auth-card" id="loginScreen">
+    <h2 data-t="loginTitle">Welcome back</h2>
+    <p class="sub" data-t="loginSub">Log in to continue your Self-Discipline Mastery course</p>
+    <div class="auth-error" id="loginError"></div>
+    <input type="email" id="loginEmail" data-t-ph="emailPh" placeholder="Email address">
+    <input type="password" id="loginPassword" data-t-ph="passPh" placeholder="Password">
+    <button id="loginBtn" data-t="loginBtn">Log In</button>
+    <a class="auth-toggle-link" href="#" id="forgotPasswordLink" data-t="forgotPassword">Forgot password?</a>
+    <a class="auth-toggle-link" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20enroll%20in%20Self-Discipline%20Mastery" target="_blank" data-t="noAccount">No account yet? Message us on WhatsApp to enroll</a>
+  </div>
+
+  <!-- PURCHASE / LOCK SCREEN (shown if logged in but not enrolled) -->
+  <div class="lock-card hidden" id="lockScreen">
+    <h2 data-t="lockTitle">Unlock Self-Discipline Mastery</h2>
+    <p data-t="lockSub">12 practical modules to build lasting self-discipline — for working professionals, in English &amp; Tamil.</p>
+    <div class="price-tag"><span>₹2,999</span>₹999</div>
+    <div class="razorpay-slot">
+      <!-- Replace data-payment_button_id with the Razorpay Payment Button ID for this course -->
+      <form>
+        <script src="https://checkout.razorpay.com/v1/payment-button.js"
+          data-payment_button_id="pl_TGLSZfThKcpihG"
+          async></script>
+      </form>
+    </div>
+    <p style="font-size:0.85rem;color:var(--muted);margin-top:6px;" data-t="lockNote">
+      After payment, your access is activated automatically within a few minutes. If it isn't, message us on WhatsApp.
+    </p>
+    <a class="whatsapp-btn" href="https://wa.me/919843702244?text=Hi%2C%20I%20purchased%20the%20Self-Discipline%20Mastery%20course%20and%20need%20access" target="_blank">
+      💬 <span data-t="waHelp">WhatsApp for Help</span>
+    </a>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="hidden" id="dashboardScreen">
+    <div class="welcome-bar">
+      <div>
+        <strong data-t="welcomeBack">Welcome back</strong>, <span id="userName"></span>
+        <div style="font-size:0.8rem;color:var(--muted);margin-top:2px;" data-t="dashSub">Self-Discipline Mastery · 12 Modules</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="progress-wrap"><div class="progress-fill" id="progressFill"></div></div>
+        <span id="progressText" style="font-size:0.85rem;color:var(--muted);">0/12</span>
+      </div>
+    </div>
+    <div class="module-grid" id="moduleGrid"></div>
+  </div>
+
+  <!-- MODULE VIEW -->
+  <div class="hidden" id="moduleScreen">
+    <button class="back-btn" id="backBtn">← <span data-t="backToDashboard">Back to Dashboard</span></button>
+    <div class="module-view">
+      <h2 id="modTitle"></h2>
+      <p class="module-intro" id="modIntro"></p>
+
+      <div class="section-label" data-t="keyConcepts">Key Concepts</div>
+      <ul class="concept-list" id="modConcepts"></ul>
+
+      <div class="section-label" data-t="reflect">Reflect</div>
+      <div class="reflection-box" id="modReflection"></div>
+
+      <div class="section-label" data-t="actionStep">Action Step</div>
+      <div class="action-box" id="modAction"></div>
+
+      <button class="complete-btn" id="completeBtn" data-t="markComplete">Mark Module Complete</button>
+      <div class="nav-buttons">
+        <button id="prevBtn" data-t="prevModule">← Previous</button>
+        <button id="nextBtn" data-t="nextModule">Next →</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  NT Somasundaram Life Skills Program · "God is always with u" · <span id="footerLang">somasundaramnt.lifecoach@gmail.com</span>
+</footer>
+
+<script>
+/* ===================== CONFIG ===================== */
+// Replace with the SAME firebaseConfig object used in your other 11 Firebase-enabled courses (project lifeskills-bd221)
+const firebaseConfig = {
+  apiKey: "AIzaSyABtQjYCN-os9t_pqo8Siqfjod-RSO9kzA",
+  authDomain: "lifeskills-bd221.firebaseapp.com",
+  projectId: "lifeskills-bd221",
+  storageBucket: "lifeskills-bd221.firebasestorage.app",
+  messagingSenderId: "180809708949",
+  appId: "1:180809708949:web:5ca1542bb7a51ba5cc329c"
+};
+
+const COURSE_ID = "self-discipline-mastery"; // kebab-case, matches admin panel convention
+
+// Google Apps Script logging endpoint (pixel-GET), same pattern as your other courses
+const GAS_LOG_URL = "REPLACE_WITH_YOUR_GAS_WEBAPP_URL";
+const GAS_SHARED_KEY = "REPLACE_WITH_SHARED_KEY"; // spam-filter shared key
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+function logEvent(action, extra=""){
+  try{
+    const img = new Image();
+    img.src = `${GAS_LOG_URL}?key=${encodeURIComponent(GAS_SHARED_KEY)}&course=${COURSE_ID}&action=${encodeURIComponent(action)}&extra=${encodeURIComponent(extra)}&t=${Date.now()}`;
+  }catch(e){}
+}
+
+/* ===================== CONTENT (EN/TA) ===================== */
+const MODULES = [
+{
+  id:1,
+  titleEN:"Understanding Self-Discipline: Myths & Reality",
+  titleTA:"சுய கட்டுப்பாட்டைப் புரிந்துகொள்வது: கட்டுக்கதைகளும் உண்மையும்",
+  introEN:"Self-discipline is often misunderstood as harsh willpower. In truth, it's a skill built through small, repeatable choices.",
+  introTA:"சுய கட்டுப்பாடு பெரும்பாலும் கடுமையான மன உறுதி என தவறாக புரிந்து கொள்ளப்படுகிறது. உண்மையில், இது சிறிய, மீண்டும் மீண்டும் செய்யும் தேர்வுகள் மூலம் கட்டமைக்கப்படும் ஒரு திறமையாகும்.",
+  conceptsEN:["Discipline is a trainable skill, not a fixed trait","Motivation is unreliable; systems and habits are dependable","Discipline is about aligning daily actions with long-term goals","Self-discipline works with self-compassion, not against it"],
+  conceptsTA:["கட்டுப்பாடு ஒரு நிலையான குணமல்ல, பயிற்சி மூலம் வளர்க்கக்கூடிய திறமை","உந்துதல் நம்பகமானதல்ல; அமைப்புகளும் பழக்கங்களும் நம்பகமானவை","கட்டுப்பாடு என்பது தினசரி செயல்களை நீண்டகால இலக்குகளுடன் இணைப்பதே","சுய கட்டுப்பாடு தன்னிரக்கத்துடன் இணைந்து செயல்படுகிறது, அதற்கு எதிராக அல்ல"],
+  reflectionEN:"Think of a time you showed strong self-discipline. What made it possible — willpower, or a system you had in place?",
+  reflectionTA:"நீங்கள் வலுவான சுய கட்டுப்பாட்டைக் காட்டிய ஒரு தருணத்தை நினைத்துப் பாருங்கள். அதை சாத்தியமாக்கியது எது — மன உறுதியா, அல்லது நீங்கள் அமைத்திருந்த ஒரு அமைப்பா?",
+  actionEN:"Write down one area of your life where you want stronger discipline, and one small daily action that supports it.",
+  actionTA:"உங்கள் வாழ்க்கையில் வலுவான கட்டுப்பாடு வேண்டிய ஒரு பகுதியையும், அதற்கு உதவும் ஒரு சிறிய தினசரி செயலையும் எழுதுங்கள்."
+},
+{
+  id:2,
+  titleEN:"The Psychology of Willpower & Motivation",
+  titleTA:"மன உறுதி மற்றும் உந்துதலின் உளவியல்",
+  introEN:"Willpower is a limited resource that fluctuates through the day. Understanding this helps you design your day smarter, not harder.",
+  introTA:"மன உறுதி ஒரு வரையறுக்கப்பட்ட வளமாகும், இது நாள் முழுவதும் மாறுபடும். இதைப் புரிந்துகொள்வது உங்கள் நாளை கடினமாக அல்ல, புத்திசாலித்தனமாக திட்டமிட உதவும்.",
+  conceptsEN:["Willpower depletes with use (ego depletion)","Decision fatigue increases as the day progresses","Motivation follows action more often than it precedes it","Environment design reduces reliance on willpower"],
+  conceptsTA:["பயன்படுத்தும் போது மன உறுதி குறைந்து போகிறது","நாள் முன்னேறும் போது முடிவெடுக்கும் சோர்வு அதிகரிக்கிறது","உந்துதல் செயலை பின்பற்றுவதே அதிகம், அதற்கு முன் வருவதில்லை","சூழல் வடிவமைப்பு மன உறுதியின் மீதான சார்பைக் குறைக்கிறது"],
+  reflectionEN:"At what time of day is your willpower strongest? How could you schedule your hardest tasks around that?",
+  reflectionTA:"நாளின் எந்த நேரத்தில் உங்கள் மன உறுதி வலுவாக இருக்கும்? உங்கள் கடினமான பணிகளை அதைச் சுற்றி எப்படி திட்டமிடலாம்?",
+  actionEN:"Identify one decision you make repeatedly each day and turn it into an automatic rule to save willpower.",
+  actionTA:"நீங்கள் ஒவ்வொரு நாளும் மீண்டும் மீண்டும் எடுக்கும் ஒரு முடிவைக் கண்டறிந்து, மன உறுதியைச் சேமிக்க அதை ஒரு தானியங்கி விதியாக மாற்றுங்கள்."
+},
+{
+  id:3,
+  titleEN:"Identifying Your Discipline Gaps (Self-Assessment)",
+  titleTA:"உங்கள் கட்டுப்பாடு இடைவெளிகளை கண்டறிதல் (சுய மதிப்பீடு)",
+  introEN:"Before building new habits, it helps to honestly map where discipline breaks down for you today.",
+  introTA:"புதிய பழக்கங்களை உருவாக்கும் முன், இன்று உங்களுக்கு கட்டுப்பாடு எங்கே உடைகிறது என்பதை நேர்மையாக அடையாளம் காண்பது உதவியாக இருக்கும்.",
+  conceptsEN:["Common gap zones: health, work focus, finances, relationships","Discipline gaps are usually triggered by specific cues","Self-assessment works best without judgment or shame","Patterns matter more than single lapses"],
+  conceptsTA:["பொதுவான இடைவெளி பகுதிகள்: ஆரோக்கியம், வேலை கவனம், நிதி, உறவுகள்","கட்டுப்பாடு இடைவெளிகள் பொதுவாக குறிப்பிட்ட தூண்டுதல்களால் ஏற்படுகின்றன","தீர்ப்பு அல்லது வெட்கம் இல்லாமல் சுய மதிப்பீடு சிறப்பாக செயல்படும்","ஒற்றை தவறுகளை விட மீண்டும் நிகழும் முறைகளே முக்கியம்"],
+  reflectionEN:"List three areas where your discipline slips most often. What usually triggers the slip?",
+  reflectionTA:"உங்கள் கட்டுப்பாடு அடிக்கடி தவறும் மூன்று பகுதிகளை பட்டியலிடுங்கள். பொதுவாக என்ன அதைத் தூண்டுகிறது?",
+  actionEN:"Pick your single biggest discipline gap and name the exact cue that precedes it.",
+  actionTA:"உங்கள் மிகப்பெரிய கட்டுப்பாடு இடைவெளியைத் தேர்ந்தெடுத்து, அதற்கு முன் வரும் சரியான தூண்டுதலை அடையாளம் காணுங்கள்."
+},
+{
+  id:4,
+  titleEN:"Goal Setting & the Power of Clarity",
+  titleTA:"இலக்கு நிர்ணயம் மற்றும் தெளிவின் சக்தி",
+  introEN:"Vague goals produce vague effort. Clear, specific goals give discipline something concrete to attach to.",
+  introTA:"தெளிவற்ற இலக்குகள் தெளிவற்ற முயற்சியை உருவாக்கும். தெளிவான, குறிப்பிட்ட இலக்குகள் கட்டுப்பாட்டை இணைக்க ஒரு உறுதியான அடிப்படையை தருகிறது.",
+  conceptsEN:["SMART goals: Specific, Measurable, Achievable, Relevant, Time-bound","Outcome goals vs. process goals","Break large goals into weekly, controllable actions","Write goals down; unwritten goals rarely survive daily pressure"],
+  conceptsTA:["SMART இலக்குகள்: குறிப்பிட்ட, அளவிடக்கூடிய, அடையக்கூடிய, பொருத்தமான, காலக்கெடு கொண்ட","விளைவு இலக்குகள் Vs. செயல்முறை இலக்குகள்","பெரிய இலக்குகளை வாராந்திர, கட்டுப்படுத்தக்கூடிய செயல்களாக பிரிக்கவும்","இலக்குகளை எழுதி வையுங்கள்; எழுதாத இலக்குகள் தினசரி அழுத்தத்தில் அரிதாகவே நீடிக்கும்"],
+  reflectionEN:"Take one goal you currently hold loosely. Rewrite it in SMART format.",
+  reflectionTA:"நீங்கள் தற்போது தளர்வாக வைத்திருக்கும் ஒரு இலக்கை எடுத்துக்கொள்ளுங்கள். அதை SMART வடிவத்தில் மீண்டும் எழுதுங்கள்.",
+  actionEN:"Break your SMART goal into this week's single controllable action step.",
+  actionTA:"உங்கள் SMART இலக்கை இந்த வாரத்திற்கான ஒரு கட்டுப்படுத்தக்கூடிய செயல் படியாக பிரியுங்கள்."
+},
+{
+  id:5,
+  titleEN:"Building Keystone Habits",
+  titleTA:"முக்கிய அடிப்படை பழக்கங்களை உருவாக்குதல்",
+  introEN:"Keystone habits are small changes that trigger a chain reaction of other positive behaviours.",
+  introTA:"முக்கிய அடிப்படை பழக்கங்கள் என்பவை மற்ற நேர்மறையான நடத்தைகளின் தொடர் எதிர்வினையைத் தூண்டும் சிறிய மாற்றங்கள்.",
+  conceptsEN:["A keystone habit anchors several related behaviours","Common keystones: sleep, exercise, morning routine","Start small enough that failure feels impossible","Stack new habits onto existing ones (habit stacking)"],
+  conceptsTA:["ஒரு முக்கிய பழக்கம் தொடர்புடைய பல நடத்தைகளை நங்கூரமிடுகிறது","பொதுவான முக்கிய பழக்கங்கள்: தூக்கம், உடற்பயிற்சி, காலை வழக்கம்","தோல்வி சாத்தியமற்றது என்று தோன்றும் அளவுக்கு சிறிதாக தொடங்குங்கள்","புதிய பழக்கங்களை ஏற்கனவே உள்ளவற்றுடன் இணைக்கவும் (பழக்க அடுக்கீடு)"],
+  reflectionEN:"Which single habit, if improved, would positively affect the most other areas of your life?",
+  reflectionTA:"எந்த ஒரு பழக்கத்தை மேம்படுத்தினால், உங்கள் வாழ்க்கையின் மற்ற பகுதிகளில் அதிக நேர்மறையான தாக்கத்தை ஏற்படுத்தும்?",
+  actionEN:"Design a keystone habit so small you cannot reasonably say no to it, and attach it to an existing routine.",
+  actionTA:"நீங்கள் நியாயமாக மறுக்க முடியாத அளவு சிறிய ஒரு முக்கிய பழக்கத்தை வடிவமைத்து, அதை ஏற்கனவே உள்ள ஒரு வழக்கத்துடன் இணைக்கவும்."
+},
+{
+  id:6,
+  titleEN:"Overcoming Procrastination",
+  titleTA:"தள்ளிப்போடும் பழக்கத்தை வெல்வது",
+  introEN:"Procrastination is rarely about laziness — it's usually about avoiding discomfort, fear, or overwhelm.",
+  introTA:"தள்ளிப்போடுவது பொதுவாக சோம்பேறித்தனத்தால் அல்ல — இது பெரும்பாலும் அசௌகரியம், பயம் அல்லது மிகுதியான அழுத்தத்தைத் தவிர்ப்பதே ஆகும்.",
+  conceptsEN:["Procrastination is an emotion-regulation strategy, not a time problem","The 2-minute rule: start absurdly small","Task-splitting reduces the perceived size of a task","Reward completion, not just effort, to reinforce follow-through"],
+  conceptsTA:["தள்ளிப்போடுவது ஒரு உணர்ச்சி-கட்டுப்பாட்டு உத்தி, நேர பிரச்சனை அல்ல","2-நிமிட விதி: அபத்தமான அளவு சிறிதாக தொடங்குங்கள்","பணியை பிரிப்பது, அதன் உணரப்படும் அளவைக் குறைக்கிறது","முடிவை வலுப்படுத்த, முயற்சியை மட்டுமல்ல, முடித்ததையும் வெகுமதி அளியுங்கள்"],
+  reflectionEN:"What emotion do you usually avoid when you procrastinate on a specific task?",
+  reflectionTA:"ஒரு குறிப்பிட்ட பணியை தள்ளிப்போடும் போது நீங்கள் பொதுவாக எந்த உணர்ச்சியை தவிர்க்கிறீர்கள்?",
+  actionEN:"Pick your most-avoided task and apply the 2-minute rule to start it today.",
+  actionTA:"நீங்கள் அதிகம் தவிர்க்கும் பணியைத் தேர்ந்தெடுத்து, இன்றே அதைத் தொடங்க 2-நிமிட விதியைப் பயன்படுத்துங்கள்."
+},
+{
+  id:7,
+  titleEN:"Managing Distractions & Digital Discipline",
+  titleTA:"கவனச்சிதறல்களை நிர்வகித்தல் மற்றும் டிஜிட்டல் கட்டுப்பாடு",
+  introEN:"In a hyper-connected world, discipline increasingly means managing your attention, not just your time.",
+  introTA:"அதிக இணைப்புள்ள உலகில், கட்டுப்பாடு என்பது உங்கள் நேரத்தை மட்டுமல்ல, உங்கள் கவனத்தையும் நிர்வகிப்பதைக் குறிக்கிறது.",
+  conceptsEN:["Notifications are engineered to interrupt attention","Deep work needs protected, distraction-free blocks","Digital boundaries: app limits, notification batching","Single-tasking outperforms multitasking on quality work"],
+  conceptsTA:["அறிவிப்புகள் கவனத்தை குறுக்கிட வடிவமைக்கப்பட்டவை","ஆழமான வேலைக்கு பாதுகாக்கப்பட்ட, கவனச்சிதறல் இல்லாத நேரத் தொகுதிகள் தேவை","டிஜிட்டல் எல்லைகள்: ஆப் வரம்புகள், அறிவிப்பு தொகுப்பாக்கம்","தரமான வேலைக்கு ஒரே நேரத்தில் ஒரு பணி, பல பணிகளை விட சிறந்தது"],
+  reflectionEN:"How many times a day do you check your phone without a clear reason? What triggers it?",
+  reflectionTA:"தெளிவான காரணமின்றி நாளுக்கு எத்தனை முறை உங்கள் தொலைபேசியை சரிபார்க்கிறீர்கள்? அதைத் தூண்டுவது என்ன?",
+  actionEN:"Schedule one 45-minute distraction-free focus block today: phone away, notifications off.",
+  actionTA:"இன்று ஒரு 45-நிமிட கவனச்சிதறல் இல்லாத கவன தொகுதியை திட்டமிடுங்கள்: தொலைபேசி தூரம், அறிவிப்புகள் அணைக்கப்பட்ட நிலையில்."
+},
+{
+  id:8,
+  titleEN:"Emotional Regulation & Impulse Control",
+  titleTA:"உணர்ச்சி கட்டுப்பாடு மற்றும் தூண்டுதல் கட்டுப்பாடு",
+  introEN:"Discipline often fails at the moment of impulse. Learning to pause between trigger and reaction is a core skill.",
+  introTA:"தூண்டுதலின் தருணத்தில் கட்டுப்பாடு பெரும்பாலும் தோல்வியடையும். தூண்டுதலுக்கும் எதிர்வினைக்கும் இடையே ஒரு இடைவெளி எடுக்கக் கற்றுக்கொள்வது ஒரு முக்கிய திறமையாகும்.",
+  conceptsEN:["The gap between trigger and response is where discipline lives","Name the emotion to reduce its grip (affect labeling)","Delay tactics: 10-minute rule before impulsive decisions","Regular stress-release reduces impulsive reactions overall"],
+  conceptsTA:["தூண்டுதலுக்கும் பதிலுக்கும் இடையேயான இடைவெளியில்தான் கட்டுப்பாடு உள்ளது","உணர்ச்சியை பெயரிடுவது அதன் பிடியைக் குறைக்கிறது (உணர்வு பெயரிடல்)","தாமத உத்திகள்: தூண்டுதல் முடிவுகளுக்கு முன் 10-நிமிட விதி","தொடர்ச்சியான மன அழுத்த வெளியீடு தூண்டுதல் எதிர்வினைகளை ஒட்டுமொத்தமாக குறைக்கும்"],
+  reflectionEN:"Recall a recent impulsive decision. What would have changed if you had paused for 10 minutes?",
+  reflectionTA:"சமீபத்திய ஒரு தூண்டுதல் முடிவை நினைவுகூருங்கள். நீங்கள் 10 நிமிடங்கள் இடைவெளி எடுத்திருந்தால் என்ன மாறியிருக்கும்?",
+  actionEN:"Practice the 10-minute rule the next time you feel an impulsive urge this week.",
+  actionTA:"இந்த வாரம் அடுத்த முறை தூண்டுதல் உணர்வை உணரும்போது 10-நிமிட விதியைப் பயிற்சி செய்யுங்கள்."
+},
+{
+  id:9,
+  titleEN:"Time Management as a Discipline Tool",
+  titleTA:"கட்டுப்பாட்டு கருவியாக நேர நிர்வாகம்",
+  introEN:"Time management isn't a separate skill from self-discipline — it's discipline made visible on a calendar.",
+  introTA:"நேர நிர்வாகம் சுய கட்டுப்பாட்டிலிருந்து பிரிக்கப்பட்ட ஒரு திறமை அல்ல — இது கட்டுப்பாட்டை ஒரு நாட்காட்டியில் காணக்கூடியதாக்குகிறது.",
+  conceptsEN:["Time-blocking protects priorities from being crowded out","The Eisenhower Matrix: urgent vs. important","Say no to protect yes for what matters most","Buffer time prevents small delays from derailing the day"],
+  conceptsTA:["நேர-தொகுத்தல் முக்கியமானவை நெருக்கப்படாமல் பாதுகாக்கிறது","ஐசன்ஹோவர் மேட்ரிக்ஸ்: அவசரமானது Vs. முக்கியமானது","மிக முக்கியமான விஷயங்களுக்கு ஆம் சொல்ல, மற்றவற்றுக்கு இல்லை சொல்லுங்கள்","இடையக நேரம் சிறிய தாமதங்கள் நாளை பாதிப்பதைத் தடுக்கிறது"],
+  reflectionEN:"Look at your calendar this week. Does it reflect what you say matters most to you?",
+  reflectionTA:"இந்த வாரத்திற்கான உங்கள் நாட்காட்டியைப் பாருங்கள். உங்களுக்கு மிக முக்கியமானது என்று நீங்கள் சொல்வதை அது பிரதிபலிக்கிறதா?",
+  actionEN:"Time-block tomorrow's calendar with your top 3 priorities before anything else gets added.",
+  actionTA:"வேறு எதையும் சேர்க்கும் முன், நாளையத்தினத்தின் நாட்காட்டியை உங்கள் முதல் 3 முன்னுரிமைகளுடன் நேர-தொகுத்து அமையுங்கள்."
+},
+{
+  id:10,
+  titleEN:"Building Routines & Systems",
+  titleTA:"வழக்கங்கள் மற்றும் அமைப்புகளை உருவாக்குதல்",
+  introEN:"Discipline that depends on daily decisions is fragile. Systems make the right choice the default choice.",
+  introTA:"தினசரி முடிவுகளைச் சார்ந்திருக்கும் கட்டுப்பாடு பலவீனமானது. அமைப்புகள் சரியான தேர்வை இயல்பான தேர்வாக மாற்றுகின்றன.",
+  conceptsEN:["A system removes daily decision-making from the equation","Morning and evening routines anchor the entire day","Consistency beats intensity over the long run","Review and adjust systems weekly, not daily"],
+  conceptsTA:["ஒரு அமைப்பு தினசரி முடிவெடுப்பதை சமன்பாட்டிலிருந்து நீக்குகிறது","காலை மற்றும் மாலை வழக்கங்கள் முழு நாளையும் நங்கூரமிடுகின்றன","நீண்ட காலத்தில் தீவிரத்தை விட நிலைத்தன்மையே வெல்கிறது","அமைப்புகளை தினமும் அல்ல, வாரந்தோறும் மதிப்பாய்வு செய்து சரிசெய்யுங்கள்"],
+  reflectionEN:"What would your ideal morning routine look like if designed purely to support your top goal?",
+  reflectionTA:"உங்கள் முதன்மை இலக்கை ஆதரிக்கும் வகையில் மட்டுமே வடிவமைக்கப்பட்டால், உங்கள் இலட்சிய காலை வழக்கம் எப்படி இருக்கும்?",
+  actionEN:"Write out a simple 3-step morning routine and follow it tomorrow without exception.",
+  actionTA:"எளிமையான 3-படி காலை வழக்கத்தை எழுதி, நாளை விதிவிலக்கின்றி அதைப் பின்பற்றுங்கள்."
+},
+{
+  id:11,
+  titleEN:"Resilience: Recovering from Setbacks",
+  titleTA:"தன்னிலைத்தன்மை: பின்னடைவுகளிலிருந்து மீள்வது",
+  introEN:"Discipline isn't about never breaking your streak — it's about how quickly and kindly you get back on track.",
+  introTA:"கட்டுப்பாடு என்பது உங்கள் தொடர்ச்சியை ஒருபோதும் உடைக்காதது அல்ல — எவ்வளவு விரைவாகவும் கருணையாகவும் நீங்கள் மீண்டும் பாதைக்குத் திரும்புகிறீர்கள் என்பதே ஆகும்.",
+  conceptsEN:["The 'never miss twice' rule protects long-term momentum","Self-criticism after a lapse predicts further lapses","Treat setbacks as data, not verdicts on your character","Resilient people plan for setbacks in advance"],
+  conceptsTA:["'இரண்டு முறை தவறவிடாதே' விதி நீண்டகால வேகத்தைப் பாதுகாக்கிறது","ஒரு தவறுக்குப் பிறகு சுய விமர்சனம் மேலும் தவறுகளை முன்னறிவிக்கிறது","பின்னடைவுகளை உங்கள் தன்மையின் தீர்ப்பாக அல்ல, தரவாக கருதுங்கள்","தன்னிலைத்தன்மை உள்ளவர்கள் முன்கூட்டியே பின்னடைவுகளுக்கு திட்டமிடுகிறார்கள்"],
+  reflectionEN:"Recall your last setback in a habit or goal. How did you talk to yourself afterward?",
+  reflectionTA:"ஒரு பழக்கம் அல்லது இலக்கில் உங்கள் கடைசி பின்னடைவை நினைவுகூருங்கள். அதன் பிறகு நீங்கள் உங்களிடம் எப்படி பேசினீர்கள்?",
+  actionEN:"Write your personal 'never miss twice' recovery plan for the next time you slip.",
+  actionTA:"அடுத்த முறை நீங்கள் தவறும் போது பயன்படுத்த, உங்கள் தனிப்பட்ட 'இரண்டு முறை தவறவிடாதே' மீட்பு திட்டத்தை எழுதுங்கள்."
+},
+{
+  id:12,
+  titleEN:"Sustaining Long-Term Discipline & Accountability",
+  titleTA:"நீண்டகால கட்டுப்பாடு மற்றும் பொறுப்புணர்வை நிலைநிறுத்துதல்",
+  introEN:"The final piece of lasting discipline is accountability — to yourself, and ideally to others who care about your growth.",
+  introTA:"நீடித்த கட்டுப்பாட்டின் இறுதிப் பகுதி பொறுப்புணர்வு ஆகும் — உங்களுக்கும், உங்கள் வளர்ச்சியில் அக்கறை கொண்டவர்களுக்கும்.",
+  conceptsEN:["Accountability partners increase follow-through significantly","Track progress visibly — what gets measured gets managed","Revisit your 'why' regularly to renew commitment","Discipline compounds — small consistent actions build identity"],
+  conceptsTA:["பொறுப்புணர்வு கூட்டாளிகள் தொடர்ச்சியான செயல்பாட்டை கணிசமாக அதிகரிக்கின்றனர்","முன்னேற்றத்தை காணக்கூடிய வகையில் கண்காணியுங்கள் — அளக்கப்படுவது நிர்வகிக்கப்படுகிறது","உறுதிமொழியை புதுப்பிக்க உங்கள் 'ஏன்' என்பதை தொடர்ந்து மறுபரிசீலனை செய்யுங்கள்","கட்டுப்பாடு சேர்ந்து வளர்கிறது — சிறிய நிலையான செயல்கள் அடையாளத்தை உருவாக்குகின்றன"],
+  reflectionEN:"Who could act as your accountability partner for the habit you most want to sustain?",
+  reflectionTA:"நீங்கள் மிகவும் நிலைநிறுத்த விரும்பும் பழக்கத்திற்கு யார் உங்கள் பொறுப்புணர்வு கூட்டாளியாக இருக்க முடியும்?",
+  actionEN:"Message one person today and ask them to check in on your top discipline goal weekly.",
+  actionTA:"இன்று ஒருவரிடம் செய்தி அனுப்பி, உங்கள் முதன்மை கட்டுப்பாடு இலக்கை வாராந்திரம் சரிபார்க்கச் சொல்லுங்கள்."
+}
+];
+
+/* ===================== UI TEXT (EN/TA) ===================== */
+const UI = {
+  loginTitle:{en:"Welcome back",ta:"மீண்டும் வருக"},
+  loginSub:{en:"Log in to continue your Self-Discipline Mastery course",ta:"உங்கள் சுய கட்டுப்பாடு மாஸ்டரி பாடத்தைத் தொடர உள்நுழையவும்"},
+  emailPh:{en:"Email address",ta:"மின்னஞ்சல் முகவரி"},
+  passPh:{en:"Password",ta:"கடவுச்சொல்"},
+  passPh2:{en:"Password (min 6 characters)",ta:"கடவுச்சொல் (குறைந்தது 6 எழுத்துகள்)"},
+  namePh:{en:"Full name",ta:"முழு பெயர்"},
+  loginBtn:{en:"Log In",ta:"உள்நுழைக"},
+  forgotPassword:{en:"Forgot password?",ta:"கடவுச்சொல் மறந்துவிட்டதா?"},
+  noAccount:{en:"No account yet? Message us on WhatsApp to enroll",ta:"கணக்கு இல்லையா? சேர வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்"},
+  lockTitle:{en:"Unlock Self-Discipline Mastery",ta:"சுய கட்டுப்பாடு மாஸ்டரியைத் திறக்கவும்"},
+  lockSub:{en:"12 practical modules to build lasting self-discipline — for working professionals, in English & Tamil.",ta:"நீடித்த சுய கட்டுப்பாட்டை உருவாக்க 12 நடைமுறை பாடங்கள் — பணிபுரியும் நிபுணர்களுக்காக, ஆங்கிலம் மற்றும் தமிழில்."},
+  lockNote:{en:"After payment, your access is activated automatically within a few minutes. If it isn't, message us on WhatsApp.",ta:"பணம் செலுத்திய பிறகு, உங்கள் அணுகல் சில நிமிடங்களில் தானாக செயல்படுத்தப்படும். இல்லையெனில் WhatsApp வழியாக எங்களைத் தொடர்பு கொள்ளுங்கள்."},
+  waHelp:{en:"WhatsApp for Help",ta:"உதவிக்கு WhatsApp"},
+  welcomeBack:{en:"Welcome back",ta:"மீண்டும் வருக"},
+  dashSub:{en:"Self-Discipline Mastery · 12 Modules",ta:"சுய கட்டுப்பாடு மாஸ்டரி · 12 பாடங்கள்"},
+  backToDashboard:{en:"Back to Dashboard",ta:"டாஷ்போர்டுக்குத் திரும்பு"},
+  keyConcepts:{en:"Key Concepts",ta:"முக்கிய கருத்துக்கள்"},
+  reflect:{en:"Reflect",ta:"சிந்தியுங்கள்"},
+  actionStep:{en:"Action Step",ta:"செயல் படி"},
+  markComplete:{en:"Mark Module Complete",ta:"பாடத்தை முடிந்ததாக குறிக்கவும்"},
+  moduleDone:{en:"✓ Completed",ta:"✓ முடிந்தது"},
+  prevModule:{en:"← Previous",ta:"← முந்தையது"},
+  nextModule:{en:"Next →",ta:"அடுத்தது →"},
+  logout:{en:"Logout",ta:"வெளியேறு"}
+};
+
+let currentLang = localStorage.getItem('sdm_lang') || 'en';
+let currentUser = null;
+let currentUserName = '';
+let progress = {};
+let activeModuleIndex = 0;
+
+/* ===================== LANGUAGE ===================== */
+function applyLang(){
+  document.body.classList.toggle('lang-ta', currentLang==='ta');
+  document.getElementById('langToggle').textContent = currentLang==='en' ? 'தமிழ்' : 'English';
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const key = el.getAttribute('data-t');
+    if(UI[key]) el.textContent = UI[key][currentLang];
+  });
+  document.querySelectorAll('[data-t-ph]').forEach(el=>{
+    const key = el.getAttribute('data-t-ph');
+    if(UI[key]) el.placeholder = UI[key][currentLang];
+  });
+  document.getElementById('logoutBtn').textContent = UI.logout[currentLang];
+  if(currentUser) renderDashboard();
+  if(!document.getElementById('moduleScreen').classList.contains('hidden')) renderModule(activeModuleIndex);
+}
+document.getElementById('langToggle').addEventListener('click', ()=>{
+  currentLang = currentLang==='en' ? 'ta' : 'en';
+  localStorage.setItem('sdm_lang', currentLang);
+  applyLang();
+});
+
+/* ===================== AUTH UI ===================== */
+const loginScreen=document.getElementById('loginScreen');
+const lockScreen=document.getElementById('lockScreen');
+const dashboardScreen=document.getElementById('dashboardScreen');
+const moduleScreen=document.getElementById('moduleScreen');
+
+document.getElementById('loginBtn').onclick=async ()=>{
+  const email=document.getElementById('loginEmail').value.trim();
+  const pass=document.getElementById('loginPassword').value;
+  const errEl=document.getElementById('loginError');
+  errEl.textContent='';
+  try{
+    await auth.signInWithEmailAndPassword(email,pass);
+    logEvent('login');
+  }catch(e){ errEl.textContent = e.message; }
+};
+
+document.getElementById('forgotPasswordLink').onclick=async (ev)=>{
+  ev.preventDefault();
+  const email=document.getElementById('loginEmail').value.trim();
+  const errEl=document.getElementById('loginError');
+  if(!email){ errEl.textContent = currentLang==='ta' ? 'முதலில் மின்னஞ்சலை உள்ளிடவும்.' : 'Please enter your email first.'; return; }
+  try{
+    await auth.sendPasswordResetEmail(email);
+    errEl.style.color = 'var(--success)';
+    errEl.textContent = currentLang==='ta' ? 'கடவுச்சொல் மீட்டமைப்பு இணைப்பு அனுப்பப்பட்டது.' : 'Password reset link sent to your email.';
+  }catch(e){ errEl.style.color=''; errEl.textContent = e.message; }
+};
+
+document.getElementById('logoutBtn').onclick=()=>{ auth.signOut(); };
+
+/* ===================== ENROLLMENT CHECK =====================
+   Same schema as your other 11 Firebase-enabled courses and admin.html:
+   students/{uid} -> { name, email, courses: [ "self-discipline-mastery", ... ] } */
+async function checkEnrollment(uid){
+  try{
+    const doc = await db.collection('students').doc(uid).get();
+    if(!doc.exists) return { enrolled:false, name:'' };
+    const data = doc.data();
+    const courses = data.courses || [];
+    return { enrolled: courses.includes(COURSE_ID), name: data.name || '' };
+  }catch(e){
+    console.error('Enrollment check failed', e);
+    return { enrolled:false, name:'' };
+  }
+}
+
+/* ===================== PROGRESS ===================== */
+function progressKey(uid){ return `sdm_progress_${uid}`; }
+function loadProgress(uid){
+  try{ progress = JSON.parse(localStorage.getItem(progressKey(uid))) || {}; }catch(e){ progress = {}; }
+}
+function saveProgress(uid){
+  localStorage.setItem(progressKey(uid), JSON.stringify(progress));
+}
+
+/* ===================== RENDER: DASHBOARD ===================== */
+function renderDashboard(){
+  document.getElementById('userName').textContent = currentUserName || currentUser.email;
+  const grid = document.getElementById('moduleGrid');
+  grid.innerHTML='';
+  let doneCount=0;
+  MODULES.forEach((m,i)=>{
+    const isDone = !!progress[m.id];
+    if(isDone) doneCount++;
+    const card=document.createElement('div');
+    card.className='module-card'+(isDone?' completed':'');
+    card.innerHTML=`
+      <div class="module-num">${m.id}</div>
+      <div class="module-title">${currentLang==='en'?m.titleEN:m.titleTA}</div>
+      ${isDone?'<div class="module-check">✓</div>':''}
+    `;
+    card.onclick=()=>{ activeModuleIndex=i; showModule(i); };
+    grid.appendChild(card);
+  });
+  const pct = Math.round((doneCount/MODULES.length)*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressText').textContent = `${doneCount}/${MODULES.length}`;
+}
+
+/* ===================== RENDER: MODULE ===================== */
+function renderModule(i){
+  const m = MODULES[i];
+  document.getElementById('modTitle').textContent = currentLang==='en'?m.titleEN:m.titleTA;
+  document.getElementById('modIntro').textContent = currentLang==='en'?m.introEN:m.introTA;
+  const concepts = currentLang==='en'?m.conceptsEN:m.conceptsTA;
+  document.getElementById('modConcepts').innerHTML = concepts.map(c=>`<li>${c}</li>`).join('');
+  document.getElementById('modReflection').textContent = currentLang==='en'?m.reflectionEN:m.reflectionTA;
+  document.getElementById('modAction').textContent = currentLang==='en'?m.actionEN:m.actionTA;
+
+  const isDone = !!progress[m.id];
+  const completeBtn = document.getElementById('completeBtn');
+  completeBtn.classList.toggle('done', isDone);
+  completeBtn.textContent = isDone ? UI.moduleDone[currentLang] : UI.markComplete[currentLang];
+
+  document.getElementById('prevBtn').disabled = i===0;
+  document.getElementById('nextBtn').disabled = i===MODULES.length-1;
+}
+
+function showModule(i){
+  activeModuleIndex=i;
+  dashboardScreen.classList.add('hidden');
+  moduleScreen.classList.remove('hidden');
+  renderModule(i);
+  logEvent('module_view', MODULES[i].id);
+  window.scrollTo(0,0);
+}
+
+document.getElementById('backBtn').onclick=()=>{
+  moduleScreen.classList.add('hidden');
+  dashboardScreen.classList.remove('hidden');
+  renderDashboard();
+};
+document.getElementById('prevBtn').onclick=()=>{ if(activeModuleIndex>0) showModule(activeModuleIndex-1); };
+document.getElementById('nextBtn').onclick=()=>{ if(activeModuleIndex<MODULES.length-1) showModule(activeModuleIndex+1); };
+document.getElementById('completeBtn').onclick=()=>{
+  const m = MODULES[activeModuleIndex];
+  progress[m.id] = !progress[m.id];
+  saveProgress(currentUser.uid);
+  renderModule(activeModuleIndex);
+  logEvent('module_complete', m.id);
+};
+
+/* ===================== AUTH STATE ===================== */
+auth.onAuthStateChanged(async (user)=>{
+  [loginScreen,lockScreen,dashboardScreen,moduleScreen].forEach(s=>s.classList.add('hidden'));
+  if(!user){
+    document.getElementById('logoutBtn').classList.add('hidden');
+    loginScreen.classList.remove('hidden');
+    applyLang();
+    return;
+  }
+  currentUser = user;
+  document.getElementById('logoutBtn').classList.remove('hidden');
+  loadProgress(user.uid);
+
+  const { enrolled, name } = await checkEnrollment(user.uid);
+  currentUserName = name;
+  if(!enrolled){
+    lockScreen.classList.remove('hidden');
+    applyLang();
+    return;
+  }
+  dashboardScreen.classList.remove('hidden');
+  renderDashboard();
+  applyLang();
+});
+
+applyLang();
+</script>
+</body>
+</html>

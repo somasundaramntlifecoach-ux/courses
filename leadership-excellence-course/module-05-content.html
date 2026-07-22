@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Decision-Making & Problem Solving | Leadership Excellence for Working Professionals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy-2:#132b4d; --gold:#c9a227; --gold-light:#e8cf6f;
+  --bg:#f7f8fb; --text:#1c2530; --muted:#5b6778; --card:#ffffff; --border:#e3e7ee;
+  --success:#1e7d4f; --danger:#b3261e;
+}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+[lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+.navbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.navbar .brand{font-weight:600;font-size:1.05rem;display:flex;align-items:center;gap:10px;}
+.navbar .brand .dot{width:10px;height:10px;background:var(--gold);border-radius:50%;display:inline-block;}
+.lang-toggle{background:transparent;border:1px solid var(--gold);color:var(--gold-light);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.85rem;}
+.lang-toggle:hover{background:var(--gold);color:var(--navy);}
+.container{max-width:900px;margin:0 auto;padding:32px 20px 80px;}
+.eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;font-size:0.78rem;font-weight:600;}
+h1{color:var(--navy);font-size:1.9rem;margin:6px 0 4px;}
+h2{color:var(--navy);font-size:1.3rem;margin-top:32px;border-left:4px solid var(--gold);padding-left:12px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin:18px 0;box-shadow:0 1px 3px rgba(11,31,58,0.05);}
+.objective{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:14px;padding:20px 24px;margin:20px 0;}
+.objective .label{color:var(--gold-light);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
+.progress-bar{height:8px;background:var(--border);border-radius:6px;overflow:hidden;margin:16px 0;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));}
+.btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;padding:12px 26px;border-radius:8px;font-weight:600;border:none;cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.95rem;}
+.btn:hover{background:var(--navy-2);}
+.btn-gold{background:var(--gold);color:var(--navy);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+.whatsapp-fab{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:12px 20px;text-decoration:none;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,0.2);display:flex;align-items:center;gap:8px;z-index:50;}
+.reflection-q{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
+.reflection-q label{font-weight:600;display:block;margin-bottom:8px;color:var(--navy);}
+.reflection-q textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:'Poppins',sans-serif;font-size:0.95rem;}
+.quiz-q{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
+.quiz-q .qtitle{font-weight:600;color:var(--navy);margin-bottom:10px;}
+.quiz-opt{display:block;padding:8px 12px;border:1px solid var(--border);border-radius:8px;margin:6px 0;cursor:pointer;background:#fff;}
+.quiz-opt:hover{border-color:var(--gold);}
+.quiz-opt.selected{border-color:var(--gold);background:#fdf6e0;}
+.quiz-opt.correct{border-color:var(--success);background:#e8f5ee;}
+.quiz-opt.incorrect{border-color:var(--danger);background:#fbeceb;}
+#quizResult{margin-top:20px;padding:16px;border-radius:10px;display:none;}
+.module-nav{display:flex;justify-content:space-between;margin-top:36px;flex-wrap:wrap;gap:10px;}
+.badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:20px;}
+.locked-banner{background:#fff4d6;border:1px solid var(--gold);border-radius:10px;padding:16px;margin-bottom:20px;text-align:center;}
+footer{text-align:center;color:var(--muted);font-size:0.85rem;padding:30px 20px;}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:640px){.grid-2{grid-template-columns:1fr;}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+
+<body>
+
+<div class="navbar">
+  <div class="brand"><span class="dot"></span> <span data-en="Leadership Excellence" data-ta="தலைமைத்துவ சிறப்பு">Leadership Excellence</span></div>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <span class="badge" data-en="Content" data-ta="உள்ளடக்கம்">Content</span>
+    <button onclick="logout()" style="background:transparent;border:1px solid var(--gold);color:var(--gold-light);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.85rem;margin-right:8px;">Logout</button>
+    <button class="lang-toggle" onclick="setLang(document.documentElement.lang==='ta'?'en':'ta')">EN / தமிழ்</button>
+  </div>
+</div>
+
+
+
+
+<script>
+(function(){
+  try {
+    const img = new Image();
+    const params = new URLSearchParams({
+      course: "leadership-excellence-professionals",
+      page: "module-05-content.html",
+      ts: new Date().toISOString(),
+      key: "SHARED_SPAM_FILTER_KEY" // TODO: replace with your Apps Script shared key
+    });
+    img.src = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?" + params.toString();
+  } catch(e) { /* logging should never break the page */ }
+})();
+</script>
+
+<div class="container">
+
+  <div id="courseBody">
+    <div class="eyebrow" data-en="Module 5 of 14" data-ta="பாடம் 5 / 14">Module 5 of 14</div>
+    <h1 data-en="Decision-Making & Problem Solving" data-ta="முடிவெடுத்தல் மற்றும் பிரச்சனை தீர்த்தல்">Decision-Making & Problem Solving</h1>
+
+    <div class="objective">
+      <div class="label" data-en="Learning Objective" data-ta="கற்றல் நோக்கம்">Learning Objective</div>
+      <p data-en="Apply structured frameworks to make sound decisions under pressure and ambiguity." data-ta="அழுத்தம் மற்றும் தெளிவின்மையின் கீழ் சரியான முடிவுகளை எடுக்க கட்டமைக்கப்பட்ட கட்டமைப்புகளைப் பயன்படுத்துங்கள்.">Apply structured frameworks to make sound decisions under pressure and ambiguity.</p>
+    </div>
+
+    
+        <div class="card">
+          <h2 style="margin-top:0;">The Cost of Indecision</h2>
+          <p>Delayed decisions are still decisions — usually to let the default outcome happen. Leaders often overweight the risk of a wrong decision and underweight the cost of no decision at all. Naming this trade-off explicitly improves decision speed.</p>
+        </div>
+        <div class="card">
+          <h2 style="margin-top:0;">A Simple Decision Framework: Define, Gather, Weigh, Decide, Review</h2>
+          <p>1) Define the actual problem, not just the symptom. 2) Gather only the information that changes the decision. 3) Weigh 2-3 realistic options against your key criteria. 4) Decide and commit. 5) Review after implementation to learn, regardless of outcome.</p>
+        </div>
+        <div class="card">
+          <h2 style="margin-top:0;">Reversible vs. Irreversible Decisions</h2>
+          <p>Amazon's 'one-way door / two-way door' concept is useful: most decisions are two-way doors (reversible) and should be made quickly by individuals or small groups. Reserve slow, consensus-heavy processes for true one-way doors (irreversible, high-stakes).</p>
+        </div>
+        <div class="card">
+          <h2 style="margin-top:0;">Root Cause Thinking</h2>
+          <p>Use the '5 Whys' to move past surface symptoms: ask 'why' repeatedly until you reach a cause you can actually act on. This prevents solving the same recurring problem repeatedly without addressing its source.</p>
+        </div>
+
+    <div class="btn-row">
+      <a class="btn btn-gold" href="module-05-activity.html" data-en="Continue to Reflection &amp; Activity →" data-ta="பிரதிபலிப்பு &amp; செயல்பாட்டிற்கு தொடரவும் →">Continue to Reflection &amp; Activity →</a>
+      <a class="btn btn-outline" href="dashboard.html" data-en="Back to Dashboard" data-ta="டாஷ்போர்டுக்கு திரும்பவும்">Back to Dashboard</a>
+    </div>
+
+    <div class="module-nav">
+      <a class="btn btn-outline" href="module-04-content.html" data-en="← Previous Module" data-ta="← முந்தைய பாடம்">← Previous Module</a>
+      <a class="btn btn-outline" href="module-06-content.html" data-en="Next Module →" data-ta="அடுத்த பாடம் →">Next Module →</a>
+    </div>
+  </div>
+</div>
+<a class="whatsapp-fab" href="https://wa.me/919843702244?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Leadership%20Excellence%20course" target="_blank" rel="noopener">💬 <span data-en="WhatsApp Us" data-ta="வாட்ஸ்அப் செய்யவும்">WhatsApp Us</span></a>
+
+<footer>
+  <div>N T Somasundaram — Certified Master Trainer | Career Consultant | Life Skills Educator</div>
+  <div>somasundaramnt.lifecoach@gmail.com | +91 9843702244</div>
+  <div style="margin-top:6px;">"God is always with u."</div>
+</footer>
+
+<script>
+function setLang(lang){
+  localStorage.setItem('courseLang', lang);
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = lang === 'ta' ? el.getAttribute('data-ta') : el.getAttribute('data-en');
+  });
+  document.documentElement.setAttribute('lang', lang === 'ta' ? 'ta' : 'en');
+}
+document.addEventListener('DOMContentLoaded', ()=>{
+  const saved = localStorage.getItem('courseLang') || 'en';
+  setLang(saved);
+});
+</script>
+</body>
+</html>
