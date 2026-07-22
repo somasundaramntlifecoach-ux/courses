@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Influence, Negotiation & Stakeholder Management | Leadership Excellence for Working Professionals</title>
+<title>Influence, Negotiation & Stakeholder Management - Content | Leadership Excellence for Working Professionals</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -13,17 +13,16 @@
   --success:#1e7d4f; --danger:#b3261e;
 }
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-[lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
 .navbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .navbar .brand{font-weight:600;font-size:1.05rem;display:flex;align-items:center;gap:10px;}
 .navbar .brand .dot{width:10px;height:10px;background:var(--gold);border-radius:50%;display:inline-block;}
 .lang-toggle{background:transparent;border:1px solid var(--gold);color:var(--gold-light);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.85rem;}
 .lang-toggle:hover{background:var(--gold);color:var(--navy);}
-.container{max-width:900px;margin:0 auto;padding:32px 20px 80px;}
+.container{max-width:900px;margin:0 auto;padding:32px 20px 90px;}
 .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;font-size:0.78rem;font-weight:600;}
-h1{color:var(--navy);font-size:1.9rem;margin:6px 0 4px;}
-h2{color:var(--navy);font-size:1.3rem;margin-top:32px;border-left:4px solid var(--gold);padding-left:12px;}
+h1{color:var(--navy);font-size:1.85rem;margin:6px 0 4px;}
+h2{color:var(--navy);font-size:1.25rem;margin-top:0;border-left:4px solid var(--gold);padding-left:12px;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin:18px 0;box-shadow:0 1px 3px rgba(11,31,58,0.05);}
 .objective{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:14px;padding:20px 24px;margin:20px 0;}
 .objective .label{color:var(--gold-light);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
@@ -36,97 +35,124 @@ h2{color:var(--navy);font-size:1.3rem;margin-top:32px;border-left:4px solid var(
 .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
 .whatsapp-fab{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:12px 20px;text-decoration:none;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,0.2);display:flex;align-items:center;gap:8px;z-index:50;}
-.reflection-q{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
-.reflection-q label{font-weight:600;display:block;margin-bottom:8px;color:var(--navy);}
-.reflection-q textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:'Poppins',sans-serif;font-size:0.95rem;}
-.quiz-q{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
-.quiz-q .qtitle{font-weight:600;color:var(--navy);margin-bottom:10px;}
-.quiz-opt{display:block;padding:8px 12px;border:1px solid var(--border);border-radius:8px;margin:6px 0;cursor:pointer;background:#fff;}
-.quiz-opt:hover{border-color:var(--gold);}
-.quiz-opt.selected{border-color:var(--gold);background:#fdf6e0;}
-.quiz-opt.correct{border-color:var(--success);background:#e8f5ee;}
-.quiz-opt.incorrect{border-color:var(--danger);background:#fbeceb;}
-#quizResult{margin-top:20px;padding:16px;border-radius:10px;display:none;}
-.module-nav{display:flex;justify-content:space-between;margin-top:36px;flex-wrap:wrap;gap:10px;}
+.page-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 6px;}
+.page-tab{font-size:0.75rem;padding:5px 12px;border-radius:16px;background:var(--bg);border:1px solid var(--border);color:var(--muted);text-decoration:none;font-weight:600;}
+.page-tab.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.concept-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;}
+.concept-card h3{margin:0 0 8px;color:var(--navy);font-size:1.05rem;}
+.concept-card .en{color:var(--text);font-size:0.98rem;margin-bottom:10px;}
+.concept-card .ta{color:var(--muted);font-size:0.95rem;padding-top:10px;border-top:1px dashed var(--border);}
+.example-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;margin:18px 0;position:relative;}
+.example-card .quote-mark{position:absolute;top:14px;left:20px;font-size:2.5rem;color:var(--gold-light);font-family:Georgia,serif;line-height:1;}
+.example-card .body-en{margin-top:20px;font-size:1rem;}
+.example-card .body-ta{margin-top:16px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:0.98rem;}
+.metaphor-block{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:16px;padding:34px 30px;text-align:left;}
+.metaphor-block .line-en{font-size:1.55rem;font-weight:700;font-style:italic;margin-bottom:8px;}
+.metaphor-block .line-ta{font-size:1.2rem;color:var(--gold-light);margin-bottom:20px;}
+.metaphor-block .explain-en{font-size:0.98rem;color:#d6deec;line-height:1.6;}
+.metaphor-block .explain-ta{font-size:0.94rem;color:#9fb1ce;line-height:1.65;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);}
+.worksheet-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
+.worksheet-item .q-en{font-weight:600;color:var(--navy);margin-bottom:4px;}
+.worksheet-item .q-ta{color:var(--muted);font-size:0.92rem;margin-bottom:10px;}
+.worksheet-item textarea{width:100%;min-height:70px;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:'Poppins',sans-serif;font-size:0.95rem;}
 .badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:20px;}
 .locked-banner{background:#fff4d6;border:1px solid var(--gold);border-radius:10px;padding:16px;margin-bottom:20px;text-align:center;}
 footer{text-align:center;color:var(--muted);font-size:0.85rem;padding:30px 20px;}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.save-msg{color:var(--success);font-weight:600;margin-top:10px;display:none;}
 @media(max-width:640px){.grid-2{grid-template-columns:1fr;}}
 </style>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth-guard.js"></script>
 </head>
 
 <body>
 
 <div class="navbar">
   <div class="brand"><span class="dot"></span> <span data-en="Leadership Excellence" data-ta="தலைமைத்துவ சிறப்பு">Leadership Excellence</span></div>
-  <div style="display:flex;align-items:center;gap:14px;">
-    <span class="badge" data-en="Content" data-ta="உள்ளடக்கம்">Content</span>
-    <button onclick="logout()" style="background:transparent;border:1px solid var(--gold);color:var(--gold-light);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.85rem;margin-right:8px;">Logout</button>
-    <button class="lang-toggle" onclick="setLang(document.documentElement.lang==='ta'?'en':'ta')">EN / தமிழ்</button>
-  </div>
+  <button class="lang-toggle" onclick="setLang(document.documentElement.lang==='ta'?'en':'ta')">EN / தமிழ்</button>
 </div>
 
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  
+    // TODO: Replace with your existing Firebase project config (lifeskills-bd221)
+    const firebaseConfig = {
+      apiKey: "YOUR_RESTRICTED_API_KEY",
+      authDomain: "lifeskills-bd221.firebaseapp.com",
+      projectId: "lifeskills-bd221",
+      storageBucket: "lifeskills-bd221.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    const COURSE_ID = "leadership-excellence-professionals";
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) { window.location.href = "login.html?course=" + COURSE_ID; return; }
+    try {
+      const enrollDoc = await getDoc(doc(db, "enrollments", user.uid + "_" + COURSE_ID));
+      if (!enrollDoc.exists() || enrollDoc.data().status !== "active") {
+        document.getElementById('lockedBanner').style.display = 'block';
+        document.getElementById('courseBody').style.display = 'none';
+      } else {
+        document.getElementById('lockedBanner').style.display = 'none';
+        document.getElementById('courseBody').style.display = 'block';
+      }
+    } catch(e) { console.error("Enrollment check failed:", e); }
+  });
+</script>
 
 
 <script>
 (function(){
   try {
     const img = new Image();
-    const params = new URLSearchParams({
-      course: "leadership-excellence-professionals",
-      page: "module-12-content.html",
-      ts: new Date().toISOString(),
-      key: "SHARED_SPAM_FILTER_KEY" // TODO: replace with your Apps Script shared key
-    });
+    const params = new URLSearchParams({ course: "leadership-excellence-professionals", page: "module-12-content.html", ts: new Date().toISOString(), key: "SHARED_SPAM_FILTER_KEY" });
     img.src = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?" + params.toString();
-  } catch(e) { /* logging should never break the page */ }
+  } catch(e) { }
 })();
 </script>
 
 <div class="container">
-
-  <div id="courseBody">
-    <div class="eyebrow" data-en="Module 12 of 14" data-ta="பாடம் 12 / 14">Module 12 of 14</div>
+  <div id="lockedBanner" class="locked-banner" style="display:none;">
+    <strong data-en="Checking your enrollment..." data-ta="உங்கள் பதிவு சரிபார்க்கப்படுகிறது...">Checking your enrollment...</strong>
+    <p data-en="If this course isn't unlocked yet, please complete payment or contact us on WhatsApp." data-ta="இந்த பாடநெறி இன்னும் திறக்கப்படவில்லை என்றால், தயவுசெய்து பணம் செலுத்தவும் அல்லது வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.">If this course isn't unlocked yet, please complete payment or contact us on WhatsApp.</p>
+  </div>
+  <div id="courseBody" style="display:none;">
+    <div class="eyebrow" data-en="Module 12 of 14 · Content" data-ta="பாடம் 12 / 14 · உள்ளடக்கம்">Module 12 of 14 · Content</div>
     <h1 data-en="Influence, Negotiation & Stakeholder Management" data-ta="செல்வாக்கு, பேச்சுவார்த்தை மற்றும் பங்குதாரர் மேலாண்மை">Influence, Negotiation & Stakeholder Management</h1>
-
+    <div class="page-tabs"><a class="page-tab active" href="module-12-content.html" data-en="Content" data-ta="உள்ளடக்கம்">Content</a><a class="page-tab" href="module-12-examples.html" data-en="Real-Life Examples" data-ta="நிஜ வாழ்க்கை உதாரணங்கள்">Real-Life Examples</a><a class="page-tab" href="module-12-metaphor.html" data-en="Metaphor" data-ta="உருவகம்">Metaphor</a><a class="page-tab" href="module-12-worksheet.html" data-en="Worksheet" data-ta="பணித்தாள்">Worksheet</a><a class="page-tab" href="module-12-actionplan.html" data-en="Action Plan" data-ta="செயல் திட்டம்">Action Plan</a></div>
+    
     <div class="objective">
       <div class="label" data-en="Learning Objective" data-ta="கற்றல் நோக்கம்">Learning Objective</div>
       <p data-en="Build influence without formal authority and negotiate win-win outcomes with stakeholders." data-ta="முறையான அதிகாரம் இல்லாமல் செல்வாக்கை உருவாக்கி, பங்குதாரர்களுடன் இரு தரப்புக்கும் வெற்றி தரும் முடிவுகளை பேச்சுவார்த்தை நடத்துங்கள்.">Build influence without formal authority and negotiate win-win outcomes with stakeholders.</p>
     </div>
-
     
-        <div class="card">
-          <h2 style="margin-top:0;">Influence Without Authority</h2>
-          <p>Much of a leader's real work happens with peers, other departments, and senior stakeholders where you have no direct authority. Influence here comes from credibility (track record), reciprocity (having helped others before), and clearly connecting your ask to the other person's own goals.</p>
+        <div class="concept-card">
+          <h3>Influence Without Authority</h3>
+          <div class="en" data-en="Much of a leader's real work happens with peers, other departments, and senior stakeholders where you have no direct authority. Influence here comes from credibility (track record), reciprocity (having helped others before), and clearly connecting your ask to the other person's own goals." data-ta="முறையான அதிகாரம் இல்லாத செல்வாக்கு நம்பகத்தன்மை (கடந்தகால சாதனை), பரஸ்பரம் (முன்பு மற்றவர்களுக்கு உதவியிருப்பது), மற்றும் உங்கள் கோரிக்கையை மற்றவரின் சொந்த இலக்குகளுடன் தெளிவாக இணைப்பதிலிருந்து வருகிறது.">Much of a leader's real work happens with peers, other departments, and senior stakeholders where you have no direct authority. Influence here comes from credibility (track record), reciprocity (having helped others before), and clearly connecting your ask to the other person's own goals.</div>
         </div>
-        <div class="card">
-          <h2 style="margin-top:0;">Cialdini's Principles of Influence (Applied at Work)</h2>
-          <p>Reciprocity (give first), Consistency (get small commitments before big ones), Social Proof (show others have adopted this), Authority (cite relevant expertise, not just seniority), Liking (genuine rapport), Scarcity (real, not manufactured, urgency). Used ethically, these are simply good relationship-building, not manipulation.</p>
+        <div class="concept-card">
+          <h3>Cialdini's Principles of Influence (Applied at Work)</h3>
+          <div class="en" data-en="Reciprocity (give first), Consistency (get small commitments before big ones), Social Proof (show others have adopted this), Authority (cite relevant expertise, not just seniority), Liking (genuine rapport), Scarcity (real, not manufactured, urgency). Used ethically, these are simply good relationship-building, not manipulation." data-ta="பரஸ்பரம் (முதலில் கொடுங்கள்), நிலைத்தன்மை (பெரிய அர்ப்பணிப்புகளுக்கு முன் சிறிய அர்ப்பணிப்புகளைப் பெறுங்கள்), சமூக சான்று (மற்றவர்கள் ஏற்றுக்கொண்டதைக் காட்டுங்கள்), அதிகாரம் (பதவியை அல்ல, பொருத்தமான நிபுணத்துவத்தை மேற்கோள் காட்டுங்கள்), விருப்பம் (உண்மையான நல்லுறவு), பற்றாக்குறை (உண்மையான, செயற்கையான அல்லாத அவசரம்). நெறிமுறையாக பயன்படுத்தப்படும்போது, இவை வெறும் நல்ல உறவு உருவாக்கம்தான்.">Reciprocity (give first), Consistency (get small commitments before big ones), Social Proof (show others have adopted this), Authority (cite relevant expertise, not just seniority), Liking (genuine rapport), Scarcity (real, not manufactured, urgency). Used ethically, these are simply good relationship-building, not manipulation.</div>
         </div>
-        <div class="card">
-          <h2 style="margin-top:0;">Principled Negotiation</h2>
-          <p>Separate the people from the problem. Focus on underlying interests, not stated positions. Generate multiple options before deciding. Use objective criteria (data, market rates, precedent) to resolve disagreements rather than pure willpower or seniority.</p>
+        <div class="concept-card">
+          <h3>Principled Negotiation</h3>
+          <div class="en" data-en="Separate the people from the problem. Focus on underlying interests, not stated positions. Generate multiple options before deciding. Use objective criteria (data, market rates, precedent) to resolve disagreements rather than pure willpower or seniority." data-ta="மக்களை பிரச்சனையிலிருந்து பிரியுங்கள். கூறப்பட்ட நிலைப்பாடுகளை அல்ல, அடிப்படை ஆர்வங்களை மையமாகக் கொள்ளுங்கள். முடிவெடுப்பதற்கு முன் பல விருப்பங்களை உருவாக்குங்கள். விருப்பத்தை அல்லது மூத்த தன்மையை விட, குறிப்புகள் (தரவு, சந்தை விகிதங்கள், முன்னுதாரணம்) போன்ற புறநிலை அளவுகோல்களைப் பயன்படுத்தி கருத்து வேறுபாடுகளை தீர்க்கவும்.">Separate the people from the problem. Focus on underlying interests, not stated positions. Generate multiple options before deciding. Use objective criteria (data, market rates, precedent) to resolve disagreements rather than pure willpower or seniority.</div>
         </div>
-        <div class="card">
-          <h2 style="margin-top:0;">Mapping Your Stakeholders</h2>
-          <p>For any significant initiative, identify stakeholders by their level of influence and level of interest. High-influence, high-interest stakeholders need close, frequent engagement; high-influence, low-interest stakeholders need periodic, concise updates so they stay supportive without feeling burdened.</p>
+        <div class="concept-card">
+          <h3>Mapping Your Stakeholders</h3>
+          <div class="en" data-en="For any significant initiative, identify stakeholders by their level of influence and level of interest. High-influence, high-interest stakeholders need close, frequent engagement; high-influence, low-interest stakeholders need periodic, concise updates so they stay supportive without feeling burdened." data-ta="எந்த முக்கியமான முயற்சிக்கும், அவர்களின் செல்வாக்கு நிலை மற்றும் ஆர்வ நிலை மூலம் பங்குதாரர்களை அடையாளம் காணுங்கள். உயர்-செல்வாக்கு, உயர்-ஆர்வமுள்ள பங்குதாரர்களுக்கு நெருக்கமான, அடிக்கடி ஈடுபாடு தேவை; உயர்-செல்வாக்கு, குறைந்த-ஆர்வமுள்ளவர்களுக்கு அவ்வப்போது, சுருக்கமான புதுப்பிப்புகள் தேவை.">For any significant initiative, identify stakeholders by their level of influence and level of interest. High-influence, high-interest stakeholders need close, frequent engagement; high-influence, low-interest stakeholders need periodic, concise updates so they stay supportive without feeling burdened.</div>
         </div>
-
-    <div class="btn-row">
-      <a class="btn btn-gold" href="module-12-activity.html" data-en="Continue to Reflection &amp; Activity →" data-ta="பிரதிபலிப்பு &amp; செயல்பாட்டிற்கு தொடரவும் →">Continue to Reflection &amp; Activity →</a>
-      <a class="btn btn-outline" href="dashboard.html" data-en="Back to Dashboard" data-ta="டாஷ்போர்டுக்கு திரும்பவும்">Back to Dashboard</a>
-    </div>
-
-    <div class="module-nav">
-      <a class="btn btn-outline" href="module-11-content.html" data-en="← Previous Module" data-ta="← முந்தைய பாடம்">← Previous Module</a>
-      <a class="btn btn-outline" href="module-13-content.html" data-en="Next Module →" data-ta="அடுத்த பாடம் →">Next Module →</a>
+    
+    
+    <div class="btn-row" style="justify-content:space-between;">
+      <a class="btn btn-outline" href="module-11-content.html" data-en="← Previous Module" data-ta="← முந்தையது">← Previous Module</a>
+      <a class="btn btn-outline" href="module-12-examples.html" data-en="Next →" data-ta="அடுத்தது →">Next →</a>
     </div>
   </div>
 </div>
@@ -151,5 +177,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   setLang(saved);
 });
 </script>
+
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vision & Goal Setting | Leadership Excellence for Working Professionals</title>
+<title>Vision & Goal Setting - Content | Leadership Excellence for Working Professionals</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -13,17 +13,16 @@
   --success:#1e7d4f; --danger:#b3261e;
 }
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-[lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.65;}
 .navbar{background:var(--navy);color:#fff;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
 .navbar .brand{font-weight:600;font-size:1.05rem;display:flex;align-items:center;gap:10px;}
 .navbar .brand .dot{width:10px;height:10px;background:var(--gold);border-radius:50%;display:inline-block;}
 .lang-toggle{background:transparent;border:1px solid var(--gold);color:var(--gold-light);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.85rem;}
 .lang-toggle:hover{background:var(--gold);color:var(--navy);}
-.container{max-width:900px;margin:0 auto;padding:32px 20px 80px;}
+.container{max-width:900px;margin:0 auto;padding:32px 20px 90px;}
 .eyebrow{color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;font-size:0.78rem;font-weight:600;}
-h1{color:var(--navy);font-size:1.9rem;margin:6px 0 4px;}
-h2{color:var(--navy);font-size:1.3rem;margin-top:32px;border-left:4px solid var(--gold);padding-left:12px;}
+h1{color:var(--navy);font-size:1.85rem;margin:6px 0 4px;}
+h2{color:var(--navy);font-size:1.25rem;margin-top:0;border-left:4px solid var(--gold);padding-left:12px;}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin:18px 0;box-shadow:0 1px 3px rgba(11,31,58,0.05);}
 .objective{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:14px;padding:20px 24px;margin:20px 0;}
 .objective .label{color:var(--gold-light);font-size:0.8rem;text-transform:uppercase;letter-spacing:1px;font-weight:600;}
@@ -36,97 +35,124 @@ h2{color:var(--navy);font-size:1.3rem;margin-top:32px;border-left:4px solid var(
 .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
 .whatsapp-fab{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:12px 20px;text-decoration:none;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,0.2);display:flex;align-items:center;gap:8px;z-index:50;}
-.reflection-q{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
-.reflection-q label{font-weight:600;display:block;margin-bottom:8px;color:var(--navy);}
-.reflection-q textarea{width:100%;min-height:80px;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:'Poppins',sans-serif;font-size:0.95rem;}
-.quiz-q{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
-.quiz-q .qtitle{font-weight:600;color:var(--navy);margin-bottom:10px;}
-.quiz-opt{display:block;padding:8px 12px;border:1px solid var(--border);border-radius:8px;margin:6px 0;cursor:pointer;background:#fff;}
-.quiz-opt:hover{border-color:var(--gold);}
-.quiz-opt.selected{border-color:var(--gold);background:#fdf6e0;}
-.quiz-opt.correct{border-color:var(--success);background:#e8f5ee;}
-.quiz-opt.incorrect{border-color:var(--danger);background:#fbeceb;}
-#quizResult{margin-top:20px;padding:16px;border-radius:10px;display:none;}
-.module-nav{display:flex;justify-content:space-between;margin-top:36px;flex-wrap:wrap;gap:10px;}
+.page-tabs{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 6px;}
+.page-tab{font-size:0.75rem;padding:5px 12px;border-radius:16px;background:var(--bg);border:1px solid var(--border);color:var(--muted);text-decoration:none;font-weight:600;}
+.page-tab.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+.concept-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:18px 20px;margin:14px 0;}
+.concept-card h3{margin:0 0 8px;color:var(--navy);font-size:1.05rem;}
+.concept-card .en{color:var(--text);font-size:0.98rem;margin-bottom:10px;}
+.concept-card .ta{color:var(--muted);font-size:0.95rem;padding-top:10px;border-top:1px dashed var(--border);}
+.example-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;margin:18px 0;position:relative;}
+.example-card .quote-mark{position:absolute;top:14px;left:20px;font-size:2.5rem;color:var(--gold-light);font-family:Georgia,serif;line-height:1;}
+.example-card .body-en{margin-top:20px;font-size:1rem;}
+.example-card .body-ta{margin-top:16px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:0.98rem;}
+.metaphor-block{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;border-radius:16px;padding:34px 30px;text-align:left;}
+.metaphor-block .line-en{font-size:1.55rem;font-weight:700;font-style:italic;margin-bottom:8px;}
+.metaphor-block .line-ta{font-size:1.2rem;color:var(--gold-light);margin-bottom:20px;}
+.metaphor-block .explain-en{font-size:0.98rem;color:#d6deec;line-height:1.6;}
+.metaphor-block .explain-ta{font-size:0.94rem;color:#9fb1ce;line-height:1.65;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.15);}
+.worksheet-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin:14px 0;}
+.worksheet-item .q-en{font-weight:600;color:var(--navy);margin-bottom:4px;}
+.worksheet-item .q-ta{color:var(--muted);font-size:0.92rem;margin-bottom:10px;}
+.worksheet-item textarea{width:100%;min-height:70px;border:1px solid var(--border);border-radius:8px;padding:10px;font-family:'Poppins',sans-serif;font-size:0.95rem;}
 .badge{display:inline-block;background:var(--gold);color:var(--navy);font-size:0.75rem;font-weight:700;padding:4px 10px;border-radius:20px;}
 .locked-banner{background:#fff4d6;border:1px solid var(--gold);border-radius:10px;padding:16px;margin-bottom:20px;text-align:center;}
 footer{text-align:center;color:var(--muted);font-size:0.85rem;padding:30px 20px;}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.save-msg{color:var(--success);font-weight:600;margin-top:10px;display:none;}
 @media(max-width:640px){.grid-2{grid-template-columns:1fr;}}
 </style>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-<script src="firebase-config.js"></script>
-<script src="auth-guard.js"></script>
 </head>
 
 <body>
 
 <div class="navbar">
   <div class="brand"><span class="dot"></span> <span data-en="Leadership Excellence" data-ta="தலைமைத்துவ சிறப்பு">Leadership Excellence</span></div>
-  <div style="display:flex;align-items:center;gap:14px;">
-    <span class="badge" data-en="Content" data-ta="உள்ளடக்கம்">Content</span>
-    <button onclick="logout()" style="background:transparent;border:1px solid var(--gold);color:var(--gold-light);padding:6px 14px;border-radius:20px;cursor:pointer;font-family:'Poppins',sans-serif;font-size:0.85rem;margin-right:8px;">Logout</button>
-    <button class="lang-toggle" onclick="setLang(document.documentElement.lang==='ta'?'en':'ta')">EN / தமிழ்</button>
-  </div>
+  <button class="lang-toggle" onclick="setLang(document.documentElement.lang==='ta'?'en':'ta')">EN / தமிழ்</button>
 </div>
 
 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+  
+    // TODO: Replace with your existing Firebase project config (lifeskills-bd221)
+    const firebaseConfig = {
+      apiKey: "YOUR_RESTRICTED_API_KEY",
+      authDomain: "lifeskills-bd221.firebaseapp.com",
+      projectId: "lifeskills-bd221",
+      storageBucket: "lifeskills-bd221.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+    const COURSE_ID = "leadership-excellence-professionals";
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  onAuthStateChanged(auth, async (user) => {
+    if (!user) { window.location.href = "login.html?course=" + COURSE_ID; return; }
+    try {
+      const enrollDoc = await getDoc(doc(db, "enrollments", user.uid + "_" + COURSE_ID));
+      if (!enrollDoc.exists() || enrollDoc.data().status !== "active") {
+        document.getElementById('lockedBanner').style.display = 'block';
+        document.getElementById('courseBody').style.display = 'none';
+      } else {
+        document.getElementById('lockedBanner').style.display = 'none';
+        document.getElementById('courseBody').style.display = 'block';
+      }
+    } catch(e) { console.error("Enrollment check failed:", e); }
+  });
+</script>
 
 
 <script>
 (function(){
   try {
     const img = new Image();
-    const params = new URLSearchParams({
-      course: "leadership-excellence-professionals",
-      page: "module-03-content.html",
-      ts: new Date().toISOString(),
-      key: "SHARED_SPAM_FILTER_KEY" // TODO: replace with your Apps Script shared key
-    });
+    const params = new URLSearchParams({ course: "leadership-excellence-professionals", page: "module-03-content.html", ts: new Date().toISOString(), key: "SHARED_SPAM_FILTER_KEY" });
     img.src = "https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?" + params.toString();
-  } catch(e) { /* logging should never break the page */ }
+  } catch(e) { }
 })();
 </script>
 
 <div class="container">
-
-  <div id="courseBody">
-    <div class="eyebrow" data-en="Module 3 of 14" data-ta="பாடம் 3 / 14">Module 3 of 14</div>
+  <div id="lockedBanner" class="locked-banner" style="display:none;">
+    <strong data-en="Checking your enrollment..." data-ta="உங்கள் பதிவு சரிபார்க்கப்படுகிறது...">Checking your enrollment...</strong>
+    <p data-en="If this course isn't unlocked yet, please complete payment or contact us on WhatsApp." data-ta="இந்த பாடநெறி இன்னும் திறக்கப்படவில்லை என்றால், தயவுசெய்து பணம் செலுத்தவும் அல்லது வாட்ஸ்அப்பில் தொடர்பு கொள்ளவும்.">If this course isn't unlocked yet, please complete payment or contact us on WhatsApp.</p>
+  </div>
+  <div id="courseBody" style="display:none;">
+    <div class="eyebrow" data-en="Module 3 of 14 · Content" data-ta="பாடம் 3 / 14 · உள்ளடக்கம்">Module 3 of 14 · Content</div>
     <h1 data-en="Vision & Goal Setting" data-ta="தொலைநோக்கு மற்றும் இலக்கு அமைத்தல்">Vision & Goal Setting</h1>
-
+    <div class="page-tabs"><a class="page-tab active" href="module-03-content.html" data-en="Content" data-ta="உள்ளடக்கம்">Content</a><a class="page-tab" href="module-03-examples.html" data-en="Real-Life Examples" data-ta="நிஜ வாழ்க்கை உதாரணங்கள்">Real-Life Examples</a><a class="page-tab" href="module-03-metaphor.html" data-en="Metaphor" data-ta="உருவகம்">Metaphor</a><a class="page-tab" href="module-03-worksheet.html" data-en="Worksheet" data-ta="பணித்தாள்">Worksheet</a><a class="page-tab" href="module-03-actionplan.html" data-en="Action Plan" data-ta="செயல் திட்டம்">Action Plan</a></div>
+    
     <div class="objective">
       <div class="label" data-en="Learning Objective" data-ta="கற்றல் நோக்கம்">Learning Objective</div>
       <p data-en="Learn to craft a compelling vision and translate it into clear, achievable goals for your team." data-ta="கவர்ச்சிகரமான தொலைநோக்கை உருவாக்கவும், அதை உங்கள் குழுவிற்கான தெளிவான, அடையக்கூடிய இலக்குகளாக மாற்றவும் கற்றுக்கொள்ளுங்கள்.">Learn to craft a compelling vision and translate it into clear, achievable goals for your team.</p>
     </div>
-
     
-        <div class="card">
-          <h2 style="margin-top:0;">Why Vision Matters</h2>
-          <p>A vision answers 'why does this work matter?' Teams with a clear sense of purpose outperform teams that only receive task lists, because purpose sustains motivation when tasks get repetitive or difficult. A good vision is short enough to remember and specific enough to guide decisions.</p>
+        <div class="concept-card">
+          <h3>Why Vision Matters</h3>
+          <div class="en" data-en="A vision answers 'why does this work matter?' Teams with a clear sense of purpose outperform teams that only receive task lists, because purpose sustains motivation when tasks get repetitive or difficult. A good vision is short enough to remember and specific enough to guide decisions." data-ta="ஒரு தொலைநோக்கு 'இந்த வேலை ஏன் முக்கியம்?' என்பதற்கு பதிலளிக்கிறது. நோக்கம் உணரும் குழுக்கள், வெறும் பணி பட்டியல்களை மட்டும் பெறும் குழுக்களை விட சிறப்பாக செயல்படுகின்றன, ஏனெனில் வேலை மீண்டும் மீண்டும் அல்லது கடினமாகும்போதும் நோக்கம் ஊக்கத்தை தக்க வைக்கிறது. ஒரு நல்ல தொலைநோக்கு நினைவில் வைக்க போதுமான அளவு சுருக்கமாகவும், முடிவுகளை வழிநடத்த போதுமான அளவு குறிப்பிட்டதாகவும் இருக்கும்.">A vision answers 'why does this work matter?' Teams with a clear sense of purpose outperform teams that only receive task lists, because purpose sustains motivation when tasks get repetitive or difficult. A good vision is short enough to remember and specific enough to guide decisions.</div>
         </div>
-        <div class="card">
-          <h2 style="margin-top:0;">From Vision to Strategy to Goals</h2>
-          <p>Vision is the destination. Strategy is the broad route. Goals are the concrete milestones along that route. Leaders who skip straight to goals without connecting them to a larger 'why' often see compliance, not commitment.</p>
+        <div class="concept-card">
+          <h3>From Vision to Strategy to Goals</h3>
+          <div class="en" data-en="Vision is the destination. Strategy is the broad route. Goals are the concrete milestones along that route. Leaders who skip straight to goals without connecting them to a larger 'why' often see compliance, not commitment." data-ta="தொலைநோக்கு இலக்கை காட்டுகிறது. உத்தி பரந்த பாதையை காட்டுகிறது. இலக்குகள் அந்த பாதையில் உள்ள உறுதியான மைல்கற்கள். 'ஏன்' உடன் இணைக்காமல் நேரடியாக இலக்குகளுக்கு செல்லும் தலைவர்கள் பெரும்பாலும் இணக்கத்தை மட்டுமே காண்கிறார்கள், அர்ப்பணிப்பை அல்ல.">Vision is the destination. Strategy is the broad route. Goals are the concrete milestones along that route. Leaders who skip straight to goals without connecting them to a larger 'why' often see compliance, not commitment.</div>
         </div>
-        <div class="card">
-          <h2 style="margin-top:0;">SMART and Beyond: OKRs</h2>
-          <p>SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound) remain useful for individual tasks. For team-level alignment, many organizations now use OKRs (Objectives and Key Results) — an ambitious Objective paired with 3-5 measurable Key Results that indicate progress.</p>
+        <div class="concept-card">
+          <h3>SMART and Beyond: OKRs</h3>
+          <div class="en" data-en="SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound) remain useful for individual tasks. For team-level alignment, many organizations now use OKRs (Objectives and Key Results) — an ambitious Objective paired with 3-5 measurable Key Results that indicate progress." data-ta="தனிப்பட்ட பணிகளுக்கு SMART இலக்குகள் (குறிப்பிட்ட, அளவிடக்கூடிய, அடையக்கூடிய, பொருத்தமான, காலக்கெடு கொண்ட) பயனுள்ளதாக இருக்கும். குழு-அளவிலான ஒருங்கிணைப்புக்கு, பல நிறுவனங்கள் இப்போது OKRs பயன்படுத்துகின்றன — ஒரு லட்சிய நோக்கத்துடன் 3-5 அளவிடக்கூடிய முக்கிய முடிவுகள்.">SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound) remain useful for individual tasks. For team-level alignment, many organizations now use OKRs (Objectives and Key Results) — an ambitious Objective paired with 3-5 measurable Key Results that indicate progress.</div>
         </div>
-        <div class="card">
-          <h2 style="margin-top:0;">Communicating Goals So They Stick</h2>
-          <p>Repetition is not nagging — it's reinforcement. Effective leaders repeat the 'why' behind goals in different formats: team meetings, 1:1s, written recaps. People need to hear the purpose multiple times, in multiple ways, before it truly sinks in and shapes behaviour.</p>
+        <div class="concept-card">
+          <h3>Communicating Goals So They Stick</h3>
+          <div class="en" data-en="Repetition is not nagging — it's reinforcement. Effective leaders repeat the 'why' behind goals in different formats: team meetings, 1:1s, written recaps. People need to hear the purpose multiple times, in multiple ways, before it truly sinks in and shapes behaviour." data-ta="மீண்டும் சொல்வது எரிச்சலூட்டுவது அல்ல — அது வலுப்படுத்துதல். சிறந்த தலைவர்கள் இலக்குகளுக்கு பின்னால் உள்ள 'ஏன்' என்பதை வெவ்வேறு வடிவங்களில் மீண்டும் சொல்கிறார்கள்: குழு கூட்டங்கள், 1:1 சந்திப்புகள், எழுத்துப்பூர்வ சுருக்கங்கள். நோக்கம் உண்மையில் மனதில் பதிவதற்கு முன், மக்கள் அதை பல முறை, பல வழிகளில் கேட்க வேண்டும்.">Repetition is not nagging — it's reinforcement. Effective leaders repeat the 'why' behind goals in different formats: team meetings, 1:1s, written recaps. People need to hear the purpose multiple times, in multiple ways, before it truly sinks in and shapes behaviour.</div>
         </div>
-
-    <div class="btn-row">
-      <a class="btn btn-gold" href="module-03-activity.html" data-en="Continue to Reflection &amp; Activity →" data-ta="பிரதிபலிப்பு &amp; செயல்பாட்டிற்கு தொடரவும் →">Continue to Reflection &amp; Activity →</a>
-      <a class="btn btn-outline" href="dashboard.html" data-en="Back to Dashboard" data-ta="டாஷ்போர்டுக்கு திரும்பவும்">Back to Dashboard</a>
-    </div>
-
-    <div class="module-nav">
-      <a class="btn btn-outline" href="module-02-content.html" data-en="← Previous Module" data-ta="← முந்தைய பாடம்">← Previous Module</a>
-      <a class="btn btn-outline" href="module-04-content.html" data-en="Next Module →" data-ta="அடுத்த பாடம் →">Next Module →</a>
+    
+    
+    <div class="btn-row" style="justify-content:space-between;">
+      <a class="btn btn-outline" href="module-02-content.html" data-en="← Previous Module" data-ta="← முந்தையது">← Previous Module</a>
+      <a class="btn btn-outline" href="module-03-examples.html" data-en="Next →" data-ta="அடுத்தது →">Next →</a>
     </div>
   </div>
 </div>
@@ -151,5 +177,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
   setLang(saved);
 });
 </script>
+
 </body>
 </html>

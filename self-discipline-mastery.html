@@ -163,6 +163,41 @@
 
   footer{text-align:center;color:var(--muted);font-size:0.8rem;padding:24px;}
   .hidden{display:none !important;}
+
+  /* ---------- Deep Dive (5-page module detail) ---------- */
+  .deepdive-wrap{margin-top:30px;border-top:2px solid #EEF0F3;padding-top:22px;}
+  .deepdive-heading{color:var(--navy);font-size:1.05rem;font-weight:700;margin-bottom:4px;}
+  .deepdive-sub{color:var(--muted);font-size:0.85rem;margin-bottom:16px;}
+  .dd-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+  .dd-tab{
+    background:#F0F2F6;border:1px solid #E0E3E9;color:var(--navy);
+    padding:8px 14px;border-radius:20px;font-size:0.82rem;cursor:pointer;
+    font-family:inherit;font-weight:500;transition:.2s;
+  }
+  .dd-tab.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .dd-tab:hover:not(.active){border-color:var(--gold);}
+  .dd-panel{background:#F7F8FA;border-radius:12px;padding:20px 20px;border-left:3px solid var(--gold);}
+  .dd-panel p{font-size:0.95rem;line-height:1.75;margin-bottom:0;}
+  .dd-list{list-style:none;counter-reset:dd-counter;}
+  .dd-list li{
+    counter-increment:dd-counter;padding:8px 0 8px 34px;position:relative;
+    font-size:0.95rem;border-bottom:1px solid #E7E9EE;
+  }
+  .dd-list li:last-child{border-bottom:none;}
+  .dd-list li:before{
+    content:counter(dd-counter);position:absolute;left:0;top:8px;
+    background:var(--gold);color:var(--navy);width:22px;height:22px;border-radius:50%;
+    font-size:0.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+  .dd-plan-list li:before{content:"Day "counter(dd-counter);width:auto;padding:0 8px;border-radius:12px;}
+  body.lang-ta .dd-plan-list li:before{content:counter(dd-counter)"-நாள்";}
+  .dd-example-card{
+    background:#fff;border:1px solid #E7E9EE;border-radius:10px;padding:14px 16px;margin-bottom:10px;font-size:0.93rem;
+  }
+  .dd-example-card:last-child{margin-bottom:0;}
+  @media(max-width:520px){
+    .dd-tab{font-size:0.75rem;padding:7px 11px;}
+  }
 </style>
 </head>
 <body>
@@ -240,6 +275,19 @@
 
       <div class="section-label" data-t="actionStep">Action Step</div>
       <div class="action-box" id="modAction"></div>
+
+      <div class="deepdive-wrap">
+        <div class="deepdive-heading" data-t="deepDiveTitle">Deep Dive · 5 Pages</div>
+        <div class="deepdive-sub" data-t="deepDiveSub">Story · Metaphor · Worksheet · 5-Day Action Plan · Real-Life Examples</div>
+        <div class="dd-tabs" id="ddTabs">
+          <button class="dd-tab" data-dd="story" data-t="tabStory">Story</button>
+          <button class="dd-tab" data-dd="metaphor" data-t="tabMetaphor">Metaphor</button>
+          <button class="dd-tab" data-dd="worksheet" data-t="tabWorksheet">Worksheet</button>
+          <button class="dd-tab" data-dd="plan" data-t="tabPlan">Action Plan</button>
+          <button class="dd-tab" data-dd="examples" data-t="tabExamples">Real-Life Examples</button>
+        </div>
+        <div class="dd-panel" id="ddPanel"></div>
+      </div>
 
       <button class="complete-btn" id="completeBtn" data-t="markComplete">Mark Module Complete</button>
       <div class="nav-buttons">
@@ -444,6 +492,513 @@ const MODULES = [
 }
 ];
 
+const DEEPDIVE = {
+  "1": {
+    "storyEN": "Meet Arun, a school teacher in Tiruvannamalai who believed discipline meant punishing himself for missing his morning walk. Every time he skipped it, he called himself lazy and gave up trying for the rest of the week. One day his mentor asked him a simple question: \"Do you scold a child every time they stumble while learning to walk?\" Arun realized he was treating discipline as an all-or-nothing test of willpower, not as a skill he was still learning. He started tracking small wins instead of criticizing missed ones. Within a month, his mornings changed — not because he became stronger, but because he stopped fighting himself.",
+    "storyTA": "அருண், திருவண்ணாமலையில் உள்ள ஒரு பள்ளி ஆசிரியர். காலை நடைப்பயிற்சியை தவறவிடும் ஒவ்வொரு முறையும் தன்னை சோம்பேறி என்று திட்டிக்கொண்டு, அந்த வாரம் முழுவதும் முயற்சியையே கைவிட்டு விடுவார். ஒரு நாள் அவரது வழிகாட்டி ஒரு எளிய கேள்வி கேட்டார்: \"நடக்கக் கற்றுக்கொள்ளும் ஒரு குழந்தை தடுமாறும் ஒவ்வொரு முறையும் நீங்கள் அதைத் திட்டுவீர்களா?\" அருணுக்கு உடனே புரிந்தது — அவர் கட்டுப்பாட்டை மன உறுதியின் அனைத்து-அல்லது-ஒன்றுமில்லை சோதனையாகக் கருதி வந்தார், அது ஒரு கற்றுக்கொள்ளும் திறமை என்பதை மறந்திருந்தார். தவறவிட்டதை விமர்சிப்பதை நிறுத்திவிட்டு, சிறிய வெற்றிகளைக் கண்காணிக்கத் தொடங்கினார். ஒரு மாதத்தில், அவரது காலைகள் மாறின — அவர் வலிமையானவராக மாறியதால் அல்ல, தனக்கெதிராகவே போராடுவதை நிறுத்தியதால்.",
+    "metaphorEN": "Self-discipline is like a muscle in a gym, not a lock on a door. A lock either holds or breaks; a muscle grows stronger every time you use it, even if today's rep feels weak. Judging yourself for one weak day is like blaming your biceps for not lifting the maximum weight in your very first week.",
+    "metaphorTA": "சுய கட்டுப்பாடு என்பது ஒரு கதவின் பூட்டைப் போன்றது அல்ல, ஜிம்மில் உள்ள தசை போன்றது. பூட்டு ஒன்று பிடித்து வைக்கும் அல்லது உடையும்; தசையோ ஒவ்வொரு முறை பயன்படுத்தும் போதும் வலுவாகிறது, இன்றைய முயற்சி பலவீனமாக தோன்றினாலும் கூட. ஒரு பலவீனமான நாளுக்காக உங்களை குற்றம் சாட்டுவது, முதல் வாரத்திலேயே அதிகபட்ச எடையைத் தூக்காததற்காக உங்கள் கைத்தசையை குறை சொல்வது போன்றது.",
+    "worksheetEN": [
+      "Write one belief you currently hold about discipline that may be a myth.",
+      "Name one time you called yourself \"lazy\" — was it really laziness, or a missing system?",
+      "List two small actions you already do consistently without effort (habits). What made them easy?",
+      "Rate your self-discipline honestly today from 1-10, no judgment.",
+      "Write one sentence you will tell yourself the next time you slip."
+    ],
+    "worksheetTA": [
+      "கட்டுப்பாடு பற்றி தற்போது நீங்கள் நம்பும் ஒரு கருத்தை எழுதுங்கள் — அது ஒரு கட்டுக்கதையாக இருக்கலாம்.",
+      "நீங்கள் \"சோம்பேறி\" என்று உங்களை அழைத்த ஒரு தருணத்தைப் பெயரிடுங்கள் — அது உண்மையில் சோம்பேறித்தனமா, அல்லது ஒரு அமைப்பு இல்லாததா?",
+      "முயற்சி இல்லாமல் நீங்கள் ஏற்கனவே தொடர்ந்து செய்யும் இரண்டு சிறிய செயல்களை பட்டியலிடுங்கள் (பழக்கங்கள்). அவற்றை எது எளிதாக்கியது?",
+      "இன்று உங்கள் சுய கட்டுப்பாட்டை 1-10 அளவில் நேர்மையாக மதிப்பிடுங்கள், தீர்ப்பு இல்லாமல்.",
+      "அடுத்த முறை நீங்கள் தவறும்போது உங்களிடம் சொல்லப் போகும் ஒரு வாக்கியத்தை எழுதுங்கள்."
+    ],
+    "planEN": [
+      "Notice and write down every time you criticize yourself for a \"lack of discipline.\"",
+      "Replace one harsh self-comment with a neutral, factual one.",
+      "Pick one tiny daily action (2 minutes) and complete it without judging the outcome.",
+      "Repeat the tiny action; notice how it feels on day 2.",
+      "Reflect in writing: has your view of \"discipline\" shifted this week?"
+    ],
+    "planTA": [
+      "\"கட்டுப்பாடு இல்லை\" என்று நீங்கள் உங்களை விமர்சிக்கும் ஒவ்வொரு தருணத்தையும் கவனித்து எழுதுங்கள்.",
+      "ஒரு கடுமையான சுய-கருத்தை ஒரு நடுநிலையான, உண்மையான கருத்தாக மாற்றுங்கள்.",
+      "ஒரு சிறிய தினசரி செயலை (2 நிமிடங்கள்) தேர்ந்தெடுத்து, முடிவை மதிப்பிடாமல் அதை முடியுங்கள்.",
+      "அந்த சிறிய செயலை மீண்டும் செய்யுங்கள்; இரண்டாம் நாளில் அது எப்படி உணர்கிறது என்பதைக் கவனியுங்கள்.",
+      "எழுத்தில் சிந்தியுங்கள் — இந்த வாரத்தில் \"கட்டுப்பாடு\" பற்றிய உங்கள் பார்வை மாறியதா?"
+    ],
+    "examplesEN": [
+      "A bank employee stopped blaming herself for skipping the gym and instead started with a 5-minute walk daily — six months later she was walking 40 minutes without forcing it.",
+      "A college student stopped calling himself \"undisciplined\" for missing study hours and instead built a 25-minute study block; his grades improved because he showed up consistently, not perfectly."
+    ],
+    "examplesTA": [
+      "ஒரு வங்கி ஊழியர் ஜிம் தவறவிட்டதற்காக தன்னைக் குறை சொல்வதை நிறுத்திவிட்டு, தினமும் 5-நிமிட நடையுடன் தொடங்கினார் — ஆறு மாதங்களுக்குப் பிறகு அவர் கட்டாயமின்றி 40 நிமிடங்கள் நடந்தார்.",
+      "ஒரு கல்லூரி மாணவர் படிப்பு நேரம் தவறியதற்காக தன்னை \"கட்டுப்பாடு இல்லாதவன்\" என்று அழைப்பதை நிறுத்திவிட்டு, 25-நிமிட படிப்பு தொகுதியை உருவாக்கினார்; அவரது மதிப்பெண்கள் மேம்பட்டது, சரியாக செய்ததால் அல்ல, தொடர்ந்து செய்ததால்."
+    ]
+  },
+  "2": {
+    "storyEN": "Priya, a bank manager, used to schedule her toughest client meetings at 4 PM because \"that's when I had free time.\" She kept underperforming and blamed her confidence. Her coach pointed out she was running on empty willpower by then — after a full day of decisions. She moved her hardest conversations to 10 AM, right after her morning coffee, when her mind was freshest. Her close rate improved not because she became more confident, but because she stopped fighting her own biology.",
+    "storyTA": "பிரியா, ஒரு வங்கி மேலாளர், தனது கடினமான கிளையன்ட் சந்திப்புகளை மாலை 4 மணிக்கு திட்டமிடுவார், ஏனெனில் \"அப்போதுதான் எனக்கு நேரம் இருக்கும்\" என்று நினைத்தார். அவர் தொடர்ந்து சரியாக செயல்படவில்லை, அதை தன் நம்பிக்கை குறைவு என்று நினைத்தார். அவரது பயிற்சியாளர் சுட்டிக்காட்டியது என்னவென்றால், முழு நாள் முடிவுகள் எடுத்த பிறகு, அந்த நேரத்தில் அவரது மன உறுதி காலியாகிவிட்டது. அவர் கடினமான உரையாடல்களை காலை 10 மணிக்கு, காலை காபிக்குப் பிறகு, மனம் புதியதாக இருக்கும்போது மாற்றினார். அவரது வெற்றி விகிதம் மேம்பட்டது, அவர் தன்னம்பிக்கை பெற்றதால் அல்ல, தன் உடலியல்புக்கு எதிராக போராடுவதை நிறுத்தியதால்.",
+    "metaphorEN": "Willpower is like the battery on your phone — full in the morning, draining with every decision you make, and almost empty by night. You wouldn't try to make an important call on 2% battery; don't schedule your hardest task when your willpower is just as low.",
+    "metaphorTA": "மன உறுதி என்பது உங்கள் தொலைபேசியின் பேட்டரி போன்றது — காலையில் முழுமையாக இருக்கும், ஒவ்வொரு முடிவெடுக்கும் போதும் குறைந்து, இரவில் கிட்டத்தட்ட காலியாகிவிடும். 2% பேட்டரியில் ஒரு முக்கியமான அழைப்பை செய்ய முயற்சிக்க மாட்டீர்கள்; உங்கள் மன உறுதி அதே அளவு குறைவாக இருக்கும்போது உங்கள் கடினமான பணியை திட்டமிட வேண்டாம்.",
+    "worksheetEN": [
+      "What time of day do you usually feel most focused and clear-headed?",
+      "List three decisions you make every single day that could be automated or removed.",
+      "What is your hardest task this week? Is it currently scheduled for your low-energy hours?",
+      "Name one small environment change that could reduce a daily decision (e.g., laying out clothes at night).",
+      "What drains your willpower fastest — people, tasks, or notifications?"
+    ],
+    "worksheetTA": [
+      "நாளின் எந்த நேரத்தில் நீங்கள் பொதுவாக அதிக கவனத்துடனும் தெளிவுடனும் இருப்பீர்கள்?",
+      "ஒவ்வொரு நாளும் நீங்கள் எடுக்கும், தானியங்கியாக்கப்படலாம் அல்லது நீக்கப்படலாம் என நினைக்கும் மூன்று முடிவுகளை பட்டியலிடுங்கள்.",
+      "இந்த வாரத்தில் உங்கள் கடினமான பணி என்ன? அது தற்போது உங்கள் குறைந்த ஆற்றல் நேரத்தில் திட்டமிடப்பட்டுள்ளதா?",
+      "தினசரி ஒரு முடிவைக் குறைக்கும் ஒரு சிறிய சூழல் மாற்றத்தைப் பெயரிடுங்கள் (எ.கா., இரவே ஆடைகளை தயார் செய்து வைப்பது).",
+      "உங்கள் மன உறுதியை மிக வேகமாக குறைப்பது எது — மனிதர்களா, பணிகளா, அறிவிப்புகளா?"
+    ],
+    "planEN": [
+      "Track your energy levels every 2 hours today; note peaks and dips.",
+      "Move tomorrow's hardest task to your peak-energy window.",
+      "Remove one daily decision by creating a simple rule (e.g., same breakfast each day).",
+      "Notice how much easier your hardest task felt during your peak hours.",
+      "Write your personal \"energy map\" for the week — best hours for hard work, best hours for rest."
+    ],
+    "planTA": [
+      "இன்று ஒவ்வொரு 2 மணி நேரத்திற்கும் உங்கள் ஆற்றல் அளவைக் கண்காணியுங்கள்; உச்சங்களையும் தாழ்வுகளையும் குறியுங்கள்.",
+      "நாளையத்தினத்தின் கடினமான பணியை உங்கள் உச்ச-ஆற்றல் நேரத்திற்கு மாற்றுங்கள்.",
+      "ஒரு எளிய விதியை உருவாக்கி தினசரி ஒரு முடிவை நீக்குங்கள் (எ.கா., ஒவ்வொரு நாளும் அதே காலை உணவு).",
+      "உச்ச நேரங்களில் உங்கள் கடினமான பணி எவ்வளவு எளிதாக உணரப்பட்டது என்பதைக் கவனியுங்கள்.",
+      "வாரத்திற்கான உங்கள் தனிப்பட்ட \"ஆற்றல் வரைபடத்தை\" எழுதுங்கள் — கடினமான வேலைக்கு சிறந்த நேரங்கள், ஓய்விற்கு சிறந்த நேரங்கள்."
+    ],
+    "examplesEN": [
+      "A school principal moved all disciplinary conversations with staff to 9 AM instead of end-of-day; conflicts reduced because she had more patience early.",
+      "A working mother automated her children's lunch menu for the week so she wouldn't have to decide daily, saving her willpower for evening homework support."
+    ],
+    "examplesTA": [
+      "ஒரு பள்ளி முதல்வர் ஊழியர்களுடனான ஒழுங்கு உரையாடல்களை நாளின் இறுதிக்கு பதிலாக காலை 9 மணிக்கு மாற்றினார்; காலையில் அதிக பொறுமை இருந்ததால் மோதல்கள் குறைந்தன.",
+      "ஒரு வேலை செய்யும் தாய் தன் குழந்தைகளின் மதிய உணவு பட்டியலை வாரம் முழுவதும் முன்கூட்டியே தானியங்கியாக்கினார், அதனால் தினமும் முடிவெடுக்க வேண்டியதில்லை, மாலை வீட்டுப்பாடத்திற்கு உதவ மன உறுதியை சேமித்தார்."
+    ]
+  },
+  "3": {
+    "storyEN": "Karthik, a young engineer, thought he had a \"motivation problem\" in general. When he honestly mapped his week, he discovered his discipline only broke down around 9 PM, right after scrolling his phone for \"five minutes\" that turned into an hour. His gap wasn't willpower — it was a very specific evening trigger. Once he named it exactly, he could solve it precisely: charging his phone outside the bedroom after 9 PM.",
+    "storyTA": "கார்த்திக், ஒரு இளம் பொறியாளர், தனக்கு பொதுவாக \"உந்துதல் பிரச்சனை\" இருப்பதாக நினைத்தார். தன் வாரத்தை நேர்மையாக வரைபடமாக்கியபோது, அவரது கட்டுப்பாடு இரவு 9 மணிக்குப் பிறகுதான் உடைவதைக் கண்டறிந்தார் — \"ஐந்து நிமிடங்கள்\" என்று தொலைபேசியை பார்க்கத் தொடங்கியது ஒரு மணி நேரமாக மாறியது. அவரது இடைவெளி மன உறுதி பிரச்சனை அல்ல — அது ஒரு குறிப்பிட்ட மாலை தூண்டுதல். அதை சரியாக பெயரிட்டவுடன், அவரால் அதை துல்லியமாக தீர்க்க முடிந்தது: இரவு 9 மணிக்குப் பிறகு தொலைபேசியை படுக்கையறைக்கு வெளியே சார்ஜ் வைத்தார்.",
+    "metaphorEN": "Discipline gaps are like leaks in a water pipe — you don't fix a leak by pouring more water in one end and hoping less comes out the other. You find the exact crack and seal that spot.",
+    "metaphorTA": "கட்டுப்பாடு இடைவெளிகள் என்பது ஒரு நீர் குழாயில் உள்ள கசிவுகள் போன்றவை — ஒரு முனையில் அதிக தண்ணீரை ஊற்றி மறு முனையில் குறைவாக வெளியேறும் என்று நம்பி நீங்கள் கசிவை சரிசெய்ய முடியாது. சரியான விரிசலைக் கண்டறிந்து அந்த இடத்தை மூடுங்கள்.",
+    "worksheetEN": [
+      "List three areas of your life where discipline slips most often.",
+      "For each, write down what happens right before the slip (the trigger).",
+      "What time of day are you most vulnerable to slipping?",
+      "Is there a pattern — people, places, moods — connected to your biggest gap?",
+      "Which single gap, if closed, would improve your life the most right now?"
+    ],
+    "worksheetTA": [
+      "உங்கள் வாழ்க்கையில் கட்டுப்பாடு அடிக்கடி தவறும் மூன்று பகுதிகளை பட்டியலிடுங்கள்.",
+      "ஒவ்வொன்றிற்கும், தவறுவதற்கு முன் என்ன நடக்கிறது என்பதை எழுதுங்கள் (தூண்டுதல்).",
+      "நாளின் எந்த நேரத்தில் நீங்கள் தவற அதிக வாய்ப்புள்ளவராக இருப்பீர்கள்?",
+      "உங்கள் மிகப்பெரிய இடைவெளியுடன் தொடர்புடைய ஒரு முறை உள்ளதா — மனிதர்கள், இடங்கள், மனநிலைகள்?",
+      "எந்த ஒரு இடைவெளியை மூடினால், இப்போது உங்கள் வாழ்க்கை மிகவும் மேம்படும்?"
+    ],
+    "planEN": [
+      "Track only your biggest discipline gap today — note every trigger moment.",
+      "Write down the exact sequence: trigger → thought → action.",
+      "Design one small barrier or reminder to interrupt that exact trigger.",
+      "Test your barrier in real life and note what happened.",
+      "Adjust your barrier based on what you learned this week."
+    ],
+    "planTA": [
+      "இன்று உங்கள் மிகப்பெரிய கட்டுப்பாடு இடைவெளியை மட்டும் கண்காணியுங்கள் — ஒவ்வொரு தூண்டுதல் தருணத்தையும் குறியுங்கள்.",
+      "சரியான வரிசையை எழுதுங்கள்: தூண்டுதல் → எண்ணம் → செயல்.",
+      "அந்த சரியான தூண்டுதலை குறுக்கிட ஒரு சிறிய தடையை அல்லது நினைவூட்டலை வடிவமைக்கவும்.",
+      "உண்மையான வாழ்க்கையில் உங்கள் தடையை சோதித்து என்ன நடந்தது என்பதைக் குறியுங்கள்.",
+      "இந்த வாரம் நீங்கள் கற்றுக்கொண்டதன் அடிப்படையில் உங்கள் தடையை சரிசெய்யுங்கள்."
+    ],
+    "examplesEN": [
+      "A teacher realized her discipline gap was always right after lunch (low energy), so she moved her most important lesson planning to the morning.",
+      "A shopkeeper noticed he overspent only when scrolling online sales apps at night, so he logged out of the apps after 8 PM."
+    ],
+    "examplesTA": [
+      "ஒரு ஆசிரியை தன் கட்டுப்பாடு இடைவெளி எப்போதும் மதிய உணவுக்குப் பின் (குறைந்த ஆற்றல்) என்று உணர்ந்து, தன் மிக முக்கியமான பாட திட்டமிடலை காலைக்கு மாற்றினார்.",
+      "ஒரு கடைக்காரர் இரவில் ஆன்லைன் விற்பனை ஆப்களை உலாவும் போது மட்டுமே அதிகமாக செலவழிப்பதைக் கண்டறிந்து, இரவு 8 மணிக்குப் பிறகு அந்த ஆப்களிலிருந்து வெளியேறினார்."
+    ]
+  },
+  "4": {
+    "storyEN": "Meena wanted to \"get healthier\" for two years without progress. When she rewrote it as \"walk 30 minutes, five days a week, before breakfast,\" something shifted. The goal was no longer a vague hope — it was a specific instruction she could follow or clearly fail to follow, with nowhere to hide. Within three weeks, walking became automatic.",
+    "storyTA": "மீனா இரண்டு ஆண்டுகளாக முன்னேற்றமின்றி \"ஆரோக்கியமாக இருக்க வேண்டும்\" என்று விரும்பினார். அதை \"காலை உணவுக்கு முன், வாரத்தில் ஐந்து நாட்கள், 30 நிமிடங்கள் நடப்பது\" என்று மீண்டும் எழுதியபோது, ஏதோ மாறியது. இலக்கு இனி ஒரு தெளிவற்ற நம்பிக்கை அல்ல — அது பின்பற்றக்கூடிய அல்லது தெளிவாக தவறக்கூடிய ஒரு குறிப்பிட்ட வழிமுறையாக மாறியது, மறைவதற்கு இடமில்லாமல். மூன்று வாரங்களில், நடப்பது தானாகவே நடந்தது.",
+    "metaphorEN": "A vague goal is like giving a taxi driver the address \"somewhere in the city\" — he can't move confidently in any direction. A SMART goal is a full address with a pin location; now the driver knows exactly where to go.",
+    "metaphorTA": "ஒரு தெளிவற்ற இலக்கு \"நகரத்தில் எங்கோ\" என்ற முகவரியை ஒரு டாக்ஸி ஓட்டுநருக்குக் கொடுப்பது போன்றது — அவரால் எந்த திசையிலும் நம்பிக்கையுடன் நகர முடியாது. ஒரு SMART இலக்கு துல்லியமான பின் இருப்பிடத்துடன் கூடிய முழு முகவரி; இப்போது ஓட்டுநருக்கு எங்கு செல்ல வேண்டும் என்று சரியாகத் தெரியும்.",
+    "worksheetEN": [
+      "Write one goal you currently hold in vague words (e.g., \"be more disciplined\").",
+      "Rewrite it as Specific, Measurable, Achievable, Relevant, Time-bound.",
+      "Is this an outcome goal (result) or a process goal (action)? Which do you control more?",
+      "Break it into this week's single controllable action.",
+      "Who or what will help you notice if you drift from this goal?"
+    ],
+    "worksheetTA": [
+      "நீங்கள் தற்போது தெளிவற்ற வார்த்தைகளில் வைத்திருக்கும் ஒரு இலக்கை எழுதுங்கள் (எ.கா., \"மேலும் கட்டுப்பாடு உடையவனாக இருக்க வேண்டும்\").",
+      "அதை Specific, Measurable, Achievable, Relevant, Time-bound என மீண்டும் எழுதுங்கள்.",
+      "இது ஒரு விளைவு இலக்கா (முடிவு) அல்லது செயல்முறை இலக்கா (செயல்)? எதை நீங்கள் அதிகம் கட்டுப்படுத்த முடியும்?",
+      "இதை இந்த வாரத்திற்கான ஒரு கட்டுப்படுத்தக்கூடிய செயலாக பிரியுங்கள்.",
+      "இந்த இலக்கிலிருந்து நீங்கள் விலகினால், யார் அல்லது எது உங்களுக்கு நினைவூட்டும்?"
+    ],
+    "planEN": [
+      "Choose your one most important vague goal.",
+      "Rewrite it in full SMART format and write it somewhere visible.",
+      "Break it into a single action for this week only.",
+      "Complete that single action, however small.",
+      "Review: did clarity make the action easier to start?"
+    ],
+    "planTA": [
+      "உங்கள் மிக முக்கியமான தெளிவற்ற இலக்கைத் தேர்ந்தெடுங்கள்.",
+      "அதை முழு SMART வடிவத்தில் மீண்டும் எழுதி, தெரியும் இடத்தில் வையுங்கள்.",
+      "இந்த வாரத்திற்கு மட்டும் ஒரு செயலாக அதைப் பிரியுங்கள்.",
+      "அந்த ஒரு செயலை, எவ்வளவு சிறியதாக இருந்தாலும் முடியுங்கள்.",
+      "மதிப்பாய்வு செய்யுங்கள் — தெளிவு செயலைத் தொடங்குவதை எளிதாக்கியதா?"
+    ],
+    "examplesEN": [
+      "A parenting coach turned \"spend more time with my son\" into \"20 minutes of undistracted play, every evening at 7 PM\" — and finally kept the promise.",
+      "A sales executive turned \"improve sales\" into \"make 5 extra client calls every Tuesday and Thursday\" and saw measurable growth in two months."
+    ],
+    "examplesTA": [
+      "ஒரு பெற்றோர் பயிற்சியாளர் \"என் மகனுடன் அதிக நேரம் செலவிட வேண்டும்\" என்பதை \"ஒவ்வொரு மாலை 7 மணிக்கு, 20 நிமிடங்கள் கவனச்சிதறலின்றி விளையாடுவது\" என மாற்றினார் — இறுதியாக அந்த வாக்குறுதியை நிறைவேற்றினார்.",
+      "ஒரு விற்பனை நிர்வாகி \"விற்பனையை மேம்படுத்துவது\" என்பதை \"ஒவ்வொரு செவ்வாய் மற்றும் வியாழக்கிழமையும் 5 கூடுதல் கிளையன்ட் அழைப்புகளை செய்வது\" என மாற்றி, இரண்டு மாதங்களில் அளவிடக்கூடிய வளர்ச்சியைக் கண்டார்."
+    ]
+  },
+  "5": {
+    "storyEN": "Ravi wanted to improve his health, his mood, and his focus at work — three separate goals felt overwhelming. His coach suggested he focus only on sleep. Once he started sleeping by 10:30 PM consistently, his morning energy improved, which made his exercise easier, which improved his mood, which improved his patience with his students. One keystone habit quietly lifted everything else.",
+    "storyTA": "ரவி தன் ஆரோக்கியம், மனநிலை, வேலையில் கவனம் ஆகிய மூன்று தனித்தனி இலக்குகளை மேம்படுத்த விரும்பினார் — இது மிகுதியான அழுத்தமாக உணரப்பட்டது. அவரது பயிற்சியாளர் தூக்கத்தில் மட்டும் கவனம் செலுத்த பரிந்துரைத்தார். இரவு 10:30 மணிக்கு தொடர்ந்து தூங்கத் தொடங்கியவுடன், அவரது காலை ஆற்றல் மேம்பட்டது, இது உடற்பயிற்சியை எளிதாக்கியது, இது அவரது மனநிலையை மேம்படுத்தியது, இது மாணவர்களிடம் அவரது பொறுமையை மேம்படுத்தியது. ஒரு முக்கிய பழக்கம் அமைதியாக மற்ற அனைத்தையும் உயர்த்தியது.",
+    "metaphorEN": "A keystone habit is like the keystone in an old stone archway — one small central stone that holds the entire arch together. Remove it, and everything else struggles to stay in place. Strengthen it, and the whole structure becomes stable.",
+    "metaphorTA": "ஒரு முக்கிய பழக்கம் பழைய கல் வளைவில் உள்ள முக்கிய கல் போன்றது — முழு வளைவையும் இணைத்து வைக்கும் ஒரே சிறிய மைய கல். அதை அகற்றினால், மற்ற அனைத்தும் இடத்தில் நிற்க போராடும். அதை வலுப்படுத்தினால், முழு அமைப்பும் நிலைத்தன்மை பெறும்.",
+    "worksheetEN": [
+      "List 3-4 goals or areas you want to improve.",
+      "Is there one habit that could positively influence most of them (sleep, exercise, morning routine)?",
+      "What is stopping you from starting this habit today?",
+      "What is the smallest possible version of this habit (2 minutes or less)?",
+      "What existing routine could you attach this new habit to?"
+    ],
+    "worksheetTA": [
+      "நீங்கள் மேம்படுத்த விரும்பும் 3-4 இலக்குகள் அல்லது பகுதிகளை பட்டியலிடுங்கள்.",
+      "அவற்றில் பெரும்பாலானவற்றை நேர்மறையாக பாதிக்கக்கூடிய ஒரு பழக்கம் உள்ளதா (தூக்கம், உடற்பயிற்சி, காலை வழக்கம்)?",
+      "இந்த பழக்கத்தை இன்று தொடங்குவதை எது தடுக்கிறது?",
+      "இந்த பழக்கத்தின் மிகச்சிறிய சாத்தியமான வடிவம் என்ன (2 நிமிடங்கள் அல்லது அதற்கும் குறைவு)?",
+      "இந்த புதிய பழக்கத்தை ஏற்கனவே உள்ள எந்த வழக்கத்துடன் இணைக்கலாம்?"
+    ],
+    "planEN": [
+      "Choose your one keystone habit for this month.",
+      "Shrink it to its smallest possible version.",
+      "Attach it to an existing routine (habit stacking).",
+      "Complete the tiny version again; resist the urge to do \"more.\"",
+      "Reflect: has this habit started to influence any other area of your life yet?"
+    ],
+    "planTA": [
+      "இந்த மாதத்திற்கான உங்கள் ஒரு முக்கிய பழக்கத்தைத் தேர்ந்தெடுங்கள்.",
+      "அதை மிகச்சிறிய சாத்தியமான வடிவமாகக் குறைக்கவும்.",
+      "அதை ஏற்கனவே உள்ள ஒரு வழக்கத்துடன் இணைக்கவும் (பழக்க அடுக்கீடு).",
+      "சிறிய வடிவத்தை மீண்டும் முடியுங்கள்; \"அதிகமாக\" செய்ய வேண்டும் என்ற ஆசையை எதிர்க்கவும்.",
+      "சிந்தியுங்கள் — இந்த பழக்கம் ஏற்கனவே மற்ற எந்தப் பகுதியையாவது பாதிக்கத் தொடங்கியதா?"
+    ],
+    "examplesEN": [
+      "A school director focused only on drinking water first thing every morning; it led naturally to better appetite control and more energy through the day.",
+      "A working father started a 10-minute morning stretch; it improved his mood enough that he became more patient with his children before school."
+    ],
+    "examplesTA": [
+      "ஒரு பள்ளி இயக்குநர் ஒவ்வொரு காலையும் முதலில் தண்ணீர் குடிப்பதில் மட்டும் கவனம் செலுத்தினார்; இது இயல்பாகவே சிறந்த பசியை கட்டுப்படுத்தவும் நாள் முழுவதும் அதிக ஆற்றல் பெறவும் வழிவகுத்தது.",
+      "ஒரு வேலை செய்யும் தந்தை 10-நிமிட காலை நீட்சி பயிற்சியைத் தொடங்கினார்; அவரது மனநிலை மேம்பட்டு பள்ளிக்குச் செல்வதற்கு முன் குழந்தைகளிடம் அதிக பொறுமையுடன் இருந்தார்."
+    ]
+  },
+  "6": {
+    "storyEN": "Divya kept avoiding her monthly report, calling it \"laziness.\" When she paused to notice her feelings, she realized she was actually avoiding the fear of doing it wrong in front of her manager. Once she named the fear, she used the 2-minute rule — just opening the file and writing one line. The fear lost its grip the moment she started.",
+    "storyTA": "திவ்யா தன் மாதாந்திர அறிக்கையை தவிர்த்துக் கொண்டே இருந்தார், அதை \"சோம்பேறித்தனம்\" என்று அழைத்தார். அவர் நிறுத்தி தன் உணர்வுகளைக் கவனித்தபோது, தன் மேலாளர் முன் தவறாக செய்யும் பயத்தையே அவர் தவிர்த்து வந்தார் என்பதை உணர்ந்தார். அந்த பயத்தைப் பெயரிட்டவுடன், 2-நிமிட விதியைப் பயன்படுத்தினார் — கோப்பைத் திறந்து ஒரு வரி எழுதியது மட்டுமே. தொடங்கிய தருணமே பயம் தன் பிடியை இழந்தது.",
+    "metaphorEN": "Procrastination is like standing at the edge of cold water, afraid to jump in. The water always feels warmer once you're inside — but you have to accept the first shock of the plunge. The 2-minute rule is simply agreeing to dip just your toe in.",
+    "metaphorTA": "தள்ளிப்போடுவது என்பது குளிர்ந்த நீரின் விளிம்பில் நின்று, குதிக்க பயப்படுவது போன்றது. உள்ளே சென்றவுடன் நீர் எப்போதும் சூடாகவே உணரப்படும் — ஆனால் முதல் அதிர்ச்சியை நீங்கள் ஏற்க வேண்டும். 2-நிமிட விதி என்பது வெறும் விரலை நீரில் நனைக்க ஒப்புக்கொள்வது மட்டுமே.",
+    "worksheetEN": [
+      "Name your most-avoided task right now.",
+      "What emotion comes up when you think about starting it (fear, boredom, overwhelm)?",
+      "What is the smallest 2-minute version of starting this task?",
+      "What reward will you give yourself for finishing, not just starting?",
+      "Who could you tell about this task to add gentle accountability?"
+    ],
+    "worksheetTA": [
+      "இப்போது நீங்கள் அதிகம் தவிர்க்கும் பணியைப் பெயரிடுங்கள்.",
+      "அதைத் தொடங்குவதைப் பற்றி நினைக்கும்போது என்ன உணர்ச்சி எழுகிறது (பயம், சலிப்பு, மிகுதியான அழுத்தம்)?",
+      "இந்த பணியைத் தொடங்குவதற்கான மிகச்சிறிய 2-நிமிட வடிவம் என்ன?",
+      "தொடங்கியதற்கு மட்டுமல்ல, முடித்ததற்கு நீங்கள் உங்களுக்கு என்ன வெகுமதி தருவீர்கள்?",
+      "இந்த பணி பற்றி யாரிடம் சொல்லலாம், மென்மையான பொறுப்புணர்வைச் சேர்க்க?"
+    ],
+    "planEN": [
+      "Name your most avoided task and its hidden emotion.",
+      "Apply the 2-minute rule — start it today, even briefly.",
+      "Break the task into smaller pieces if it still feels heavy.",
+      "Reward yourself for progress, however small.",
+      "Reflect: did naming the emotion make the task easier to face?"
+    ],
+    "planTA": [
+      "உங்கள் அதிகம் தவிர்க்கப்பட்ட பணியையும் அதன் மறைந்த உணர்ச்சியையும் பெயரிடுங்கள்.",
+      "2-நிமிட விதியைப் பயன்படுத்துங்கள் — இன்றே, சிறிதளவாவது தொடங்குங்கள்.",
+      "அது இன்னும் கனமாக உணரப்பட்டால், பணியை சிறிய பகுதிகளாகப் பிரியுங்கள்.",
+      "முன்னேற்றத்திற்கு, எவ்வளவு சிறியதாக இருந்தாலும், உங்களுக்கு வெகுமதி தாருங்கள்.",
+      "சிந்தியுங்கள் — உணர்ச்சியைப் பெயரிட்டது பணியை எதிர்கொள்வதை எளிதாக்கியதா?"
+    ],
+    "examplesEN": [
+      "A student who avoided starting his project for weeks began by writing just the title page — within an hour he was three pages in.",
+      "A shop owner delayed filing taxes out of fear of mistakes; breaking it into \"just gather receipts today\" made the whole task less overwhelming."
+    ],
+    "examplesTA": [
+      "வாரங்களாக தன் திட்டத்தைத் தொடங்க தவிர்த்த ஒரு மாணவன் தலைப்புப் பக்கத்தை எழுதுவதிலிருந்து தொடங்கினான் — ஒரு மணி நேரத்தில் மூன்று பக்கங்கள் எழுதி முடித்தான்.",
+      "தவறு செய்யும் பயத்தால் வரி தாக்கல் செய்வதை தாமதப்படுத்திய ஒரு கடைக்காரர், \"இன்று ரசீதுகளை மட்டும் சேகரிப்பது\" என பிரித்ததால் முழு பணியும் குறைவான அழுத்தமாக உணரப்பட்டது."
+    ]
+  },
+  "7": {
+    "storyEN": "Suresh noticed he checked his phone over 100 times a day, mostly out of habit, not need. He started keeping his phone in another room during his most important work hour. The first day felt uncomfortable — almost like an itch. By the second week, that single hour became his most productive of the day.",
+    "storyTA": "சுரேஷ் தினமும் 100க்கும் மேற்பட்ட முறை தன் தொலைபேசியை பார்ப்பதைக் கவனித்தார், பெரும்பாலும் தேவையால் அல்ல, பழக்கத்தால். அவர் தன் மிக முக்கியமான வேலை நேரத்தில் தொலைபேசியை வேறு அறையில் வைக்கத் தொடங்கினார். முதல் நாள் அசௌகரியமாக இருந்தது — ஏறக்குறைய ஒரு அரிப்பு போல. இரண்டாவது வாரத்தில், அந்த ஒரு மணி நேரம் அவரது நாளின் மிகச் சிறந்த உற்பத்தித்திறன் கொண்ட நேரமாக மாறியது.",
+    "metaphorEN": "Notifications are like someone tapping your shoulder every few minutes while you try to read a book — you may finish the page eventually, but you'll never truly absorb the story. Deep work needs a closed door, not just a quiet room.",
+    "metaphorTA": "அறிவிப்புகள் என்பது நீங்கள் ஒரு புத்தகத்தைப் படிக்க முயற்சிக்கும் போது சிலர் ஒவ்வொரு சில நிமிடங்களுக்கும் உங்கள் தோளைத் தட்டுவது போன்றது — ஒருவேளை நீங்கள் பக்கத்தை முடிக்கலாம், ஆனால் கதையை உண்மையிலேயே உள்வாங்க மாட்டீர்கள். ஆழமான வேலைக்கு அமைதியான அறை மட்டும் போதாது, மூடிய கதவு தேவை.",
+    "worksheetEN": [
+      "Estimate how many times you check your phone in a normal day.",
+      "What usually triggers you to pick it up — boredom, notification, habit?",
+      "Choose one hour of your day to protect as a distraction-free block.",
+      "What specific step will you take to remove your phone from that hour?",
+      "What task deserves this protected, focused hour the most?"
+    ],
+    "worksheetTA": [
+      "ஒரு சாதாரண நாளில் நீங்கள் எத்தனை முறை உங்கள் தொலைபேசியை பார்க்கிறீர்கள் என்று மதிப்பிடுங்கள்.",
+      "அதை எடுக்க பொதுவாக என்ன தூண்டுகிறது — சலிப்பா, அறிவிப்பா, பழக்கமா?",
+      "உங்கள் நாளின் ஒரு மணி நேரத்தை கவனச்சிதறல் இல்லாத தொகுதியாக பாதுகாக்க தேர்ந்தெடுங்கள்.",
+      "அந்த நேரத்தில் உங்கள் தொலைபேசியை அகற்ற நீங்கள் எடுக்கும் குறிப்பிட்ட நடவடிக்கை என்ன?",
+      "இந்த பாதுகாக்கப்பட்ட, கவனமான நேரத்திற்கு எந்த பணி அதிகம் தகுதியானது?"
+    ],
+    "planEN": [
+      "Track your phone pickups for one day without judging yourself.",
+      "Choose one 45-minute focus block and turn off all notifications during it.",
+      "Physically place your phone in another room during that block.",
+      "Repeat the block; notice if the discomfort has reduced.",
+      "Reflect: what did you get done in this block that usually takes much longer?"
+    ],
+    "planTA": [
+      "உங்களை மதிப்பிடாமல் ஒரு நாள் முழுவதும் தொலைபேசி எடுக்கும் முறைகளைக் கண்காணியுங்கள்.",
+      "ஒரு 45-நிமிட கவனத் தொகுதியைத் தேர்ந்தெடுத்து அதன்போது அனைத்து அறிவிப்புகளையும் அணைக்கவும்.",
+      "அந்த தொகுதியின் போது தொலைபேசியை உடல் ரீதியாக வேறு அறையில் வையுங்கள்.",
+      "தொகுதியை மீண்டும் செய்யுங்கள்; அசௌகரியம் குறைந்ததா என்பதைக் கவனியுங்கள்.",
+      "சிந்தியுங்கள் — இந்த தொகுதியில் நீங்கள் என்ன முடித்தீர்கள், அது வழக்கமாக எவ்வளவு நேரம் எடுக்கும்?"
+    ],
+    "examplesEN": [
+      "A teacher turned off all notifications during lesson planning time and finished in half the usual time.",
+      "A parent kept the phone in the kitchen during homework help time with their child, which reduced arguments and distractions for both."
+    ],
+    "examplesTA": [
+      "ஒரு ஆசிரியை பாட திட்டமிடல் நேரத்தில் அனைத்து அறிவிப்புகளையும் அணைத்தார், வழக்கமான நேரத்தில் பாதி நேரத்தில் முடித்தார்.",
+      "ஒரு பெற்றோர் தன் குழந்தையுடன் வீட்டுப்பாட உதவி நேரத்தில் தொலைபேசியை சமையலறையில் வைத்தார், இது இருவருக்கும் சண்டைகளையும் கவனச்சிதறல்களையும் குறைத்தது."
+    ]
+  },
+  "8": {
+    "storyEN": "Anand snapped at a colleague in a meeting and regretted it instantly. His coach taught him a simple trick: the next time he felt anger rising, he would silently name the emotion — \"this is frustration\" — before responding. The pause created by naming it gave him just enough space to choose his words instead of reacting.",
+    "storyTA": "ஆனந்த் ஒரு கூட்டத்தில் தன் சக ஊழியரிடம் கடுமையாக பேசி உடனடியாக வருந்தினார். அவரது பயிற்சியாளர் அவருக்கு ஒரு எளிய தந்திரத்தைக் கற்றுக் கொடுத்தார்: அடுத்த முறை கோபம் எழும்போது, பதிலளிப்பதற்கு முன் அமைதியாக அந்த உணர்ச்சியைப் பெயரிடுவார் — \"இது எரிச்சல்\". அதைப் பெயரிடுவதால் ஏற்படும் இடைவெளி, வினைபுரிவதற்கு பதிலாக வார்த்தைகளைத் தேர்ந்தெடுக்க போதுமான இடத்தை அவருக்குத் தந்தது.",
+    "metaphorEN": "The gap between a trigger and your reaction is like the space between lightning and thunder — brief, but real. In that gap lives your choice. The wider you make that gap, the more control you have over the storm that follows.",
+    "metaphorTA": "தூண்டுதலுக்கும் உங்கள் எதிர்வினைக்கும் இடையேயான இடைவெளி மின்னலுக்கும் இடிக்கும் இடையேயான இடைவெளி போன்றது — சுருக்கமானது, ஆனால் உண்மையானது. அந்த இடைவெளியில்தான் உங்கள் தேர்வு வாழ்கிறது. அந்த இடைவெளியை நீங்கள் விரிவாக்கும் அளவுக்கு, அதைத் தொடர்ந்து வரும் புயலின் மீது உங்களுக்கு அதிக கட்டுப்பாடு இருக்கும்.",
+    "worksheetEN": [
+      "Recall a recent moment you reacted impulsively. What triggered it?",
+      "What emotion was really underneath the reaction (anger, hurt, fear, embarrassment)?",
+      "What would naming that emotion out loud (even silently) have changed?",
+      "What is one delay tactic you could use next time (counting to 10, stepping away)?",
+      "What helps you release stress regularly so triggers affect you less?"
+    ],
+    "worksheetTA": [
+      "சமீபத்தில் நீங்கள் தூண்டுதலுக்கு ஆளாகி வினைபுரிந்த ஒரு தருணத்தை நினைவுகூருங்கள். அதை எது தூண்டியது?",
+      "அந்த வினைக்குக் கீழே உண்மையில் என்ன உணர்ச்சி இருந்தது (கோபம், வலி, பயம், சங்கடம்)?",
+      "அந்த உணர்ச்சியை உரக்க (அமைதியாகவே ஆனாலும்) பெயரிட்டிருந்தால் என்ன மாறியிருக்கும்?",
+      "அடுத்த முறை நீங்கள் பயன்படுத்தக்கூடிய ஒரு தாமத உத்தி என்ன (10 வரை எண்ணுவது, விலகிச் செல்வது)?",
+      "தூண்டுதல்கள் உங்களை குறைவாக பாதிக்க, தொடர்ந்து மன அழுத்தத்தை வெளியிட உங்களுக்கு எது உதவுகிறது?"
+    ],
+    "planEN": [
+      "Practice naming any strong emotion the moment you notice it, without acting on it yet.",
+      "Use the 10-minute rule before any decision made in anger or excitement today.",
+      "Notice one moment where the pause changed your response.",
+      "Add one regular stress-release activity to your day (walk, breathing, prayer).",
+      "Reflect: has your reaction time to triggers changed this week?"
+    ],
+    "planTA": [
+      "ஏதேனும் வலுவான உணர்ச்சியை கவனித்த உடனேயே, செயல்படாமல், அதைப் பெயரிடும் பயிற்சி செய்யுங்கள்.",
+      "இன்று கோபத்திலோ உற்சாகத்திலோ எடுக்கும் எந்த முடிவுக்கும் முன் 10-நிமிட விதியைப் பயன்படுத்துங்கள்.",
+      "இடைவெளி உங்கள் பதிலை மாற்றிய ஒரு தருணத்தைக் கவனியுங்கள்.",
+      "உங்கள் நாளில் ஒரு தொடர்ச்சியான மன அழுத்த வெளியீட்டு செயலைச் சேருங்கள் (நடை, மூச்சுப் பயிற்சி, பிரார்த்தனை).",
+      "சிந்தியுங்கள் — இந்த வாரம் தூண்டுதல்களுக்கு உங்கள் எதிர்வினை நேரம் மாறியதா?"
+    ],
+    "examplesEN": [
+      "A school teacher paused and named her frustration silently before responding to a disruptive student, and handled it calmly instead of shouting.",
+      "A businessman used the 10-minute rule before sending an angry email, and rewrote it entirely once he calmed down — saving an important relationship."
+    ],
+    "examplesTA": [
+      "ஒரு பள்ளி ஆசிரியை ஒரு குழப்பம் செய்யும் மாணவரிடம் பதிலளிப்பதற்கு முன் தன் எரிச்சலை அமைதியாக பெயரிட்டு நிறுத்தி, கத்தாமல் அமைதியாக கையாண்டார்.",
+      "ஒரு தொழிலதிபர் கோபமான மின்னஞ்சலை அனுப்புவதற்கு முன் 10-நிமிட விதியைப் பயன்படுத்தி, அமைதியடைந்த பிறகு அதை முழுவதுமாக மீண்டும் எழுதினார் — ஒரு முக்கிய உறவைக் காப்பாற்றினார்."
+    ]
+  },
+  "9": {
+    "storyEN": "Lakshmi's calendar was full, yet she never had time for what mattered most to her — reading with her daughter. When she looked closely, she realized she had never actually blocked time for it; she only hoped it would happen. She began time-blocking 20 minutes every evening, treating it exactly like a work meeting. It never got skipped again.",
+    "storyTA": "லக்ஷ்மியின் நாட்காட்டி நிரம்பியிருந்தது, ஆனால் அவருக்கு மிக முக்கியமான விஷயத்திற்கு — தன் மகளுடன் படிப்பதற்கு — நேரம் இருந்ததில்லை. நெருக்கமாகப் பார்த்தபோது, அவர் அதற்கு நேரத்தை உண்மையில் ஒருபோதும் தொகுத்து வைக்கவில்லை என்பதை உணர்ந்தார்; அது தானாக நடக்கும் என்று மட்டுமே நம்பினார். மாலை ஒவ்வொரு நாளும் 20 நிமிடங்கள் நேர-தொகுத்து, அதை ஒரு வேலை கூட்டம் போலவே நடத்தத் தொடங்கினார். அது மீண்டும் ஒருபோதும் தவறவில்லை.",
+    "metaphorEN": "An unscheduled priority is like an unlabelled seat on a crowded train — everyone else will happily take it before you get the chance. Time-blocking is simply writing your name on that seat in advance.",
+    "metaphorTA": "திட்டமிடப்படாத ஒரு முன்னுரிமை, நெரிசலான ரயிலில் பெயரிடப்படாத இருக்கை போன்றது — மற்றவர்கள் நீங்கள் வாய்ப்பு பெறுவதற்கு முன் அதை மகிழ்ச்சியுடன் எடுத்துக்கொள்வார்கள். நேர-தொகுத்தல் என்பது வெறுமனே அந்த இருக்கையில் உங்கள் பெயரை முன்கூட்டியே எழுதுவது மட்டுமே.",
+    "worksheetEN": [
+      "Look at your calendar this week — does it reflect what truly matters to you?",
+      "List your top 3 priorities for this week.",
+      "For each priority, is it currently urgent, important, both, or neither (Eisenhower Matrix)?",
+      "What is one thing you need to say \"no\" to, in order to protect a \"yes\"?",
+      "Where can you add 15 minutes of buffer time to prevent small delays from derailing your day?"
+    ],
+    "worksheetTA": [
+      "இந்த வாரத்திற்கான உங்கள் நாட்காட்டியைப் பாருங்கள் — உங்களுக்கு உண்மையில் முக்கியமானதை அது பிரதிபலிக்கிறதா?",
+      "இந்த வாரத்திற்கான உங்கள் முதல் 3 முன்னுரிமைகளை பட்டியலிடுங்கள்.",
+      "ஒவ்வொரு முன்னுரிமைக்கும், அது தற்போது அவசரமானதா, முக்கியமானதா, இரண்டுமா, அல்லது இரண்டுமில்லையா (ஐசன்ஹோவர் மேட்ரிக்ஸ்)?",
+      "ஒரு \"ஆம்\" என்பதைப் பாதுகாக்க, நீங்கள் எதற்கு \"இல்லை\" சொல்ல வேண்டும்?",
+      "சிறிய தாமதங்கள் உங்கள் நாளைப் பாதிக்காமல் தடுக்க, எங்கு 15 நிமிட இடையக நேரத்தைச் சேர்க்கலாம்?"
+    ],
+    "planEN": [
+      "List your top 3 priorities for the week.",
+      "Time-block tomorrow's calendar with these 3 priorities before anything else is added.",
+      "Say no to one non-essential request to protect your priority time.",
+      "Add a buffer block between two back-to-back commitments.",
+      "Review your week: did your calendar reflect your real priorities?"
+    ],
+    "planTA": [
+      "இந்த வாரத்திற்கான உங்கள் முதல் 3 முன்னுரிமைகளை பட்டியலிடுங்கள்.",
+      "வேறு எதுவும் சேர்க்கப்படுவதற்கு முன், நாளையத்தினத்தின் நாட்காட்டியை இந்த 3 முன்னுரிமைகளுடன் நேர-தொகுங்கள்.",
+      "உங்கள் முன்னுரிமை நேரத்தைப் பாதுகாக்க, முக்கியமற்ற ஒரு கோரிக்கைக்கு இல்லை சொல்லுங்கள்.",
+      "தொடர்ச்சியான இரண்டு நிகழ்வுகளுக்கு இடையே ஒரு இடையக தொகுதியைச் சேருங்கள்.",
+      "உங்கள் வாரத்தை மதிப்பாய்வு செய்யுங்கள் — உங்கள் நாட்காட்டி உங்கள் உண்மையான முன்னுரிமைகளைப் பிரதிபலித்ததா?"
+    ],
+    "examplesEN": [
+      "A working professional blocked \"no-meeting mornings\" twice a week and finally completed his long-pending certification course.",
+      "A mother time-blocked \"device-free dinner\" every night, protecting family conversation from work calls and messages."
+    ],
+    "examplesTA": [
+      "ஒரு வேலை செய்யும் நிபுணர் வாரத்தில் இரண்டு முறை \"கூட்டமில்லா காலைகளை\" தொகுத்து, நீண்டகாலமாக நிலுவையில் இருந்த தன் சான்றிதழ் படிப்பை இறுதியாக முடித்தார்.",
+      "ஒரு தாய் ஒவ்வொரு இரவும் \"சாதனங்கள் இல்லாத இரவு உணவை\" நேர-தொகுத்து, வேலை அழைப்புகள் மற்றும் செய்திகளிலிருந்து குடும்ப உரையாடலைப் பாதுகாத்தார்."
+    ]
+  },
+  "10": {
+    "storyEN": "Vijay tried to \"decide fresh every morning\" what to do first, and most mornings ended in scrolling his phone in bed. Once he wrote a simple 3-step morning routine — water, stretch, plan the day — he no longer had to decide anything. The routine decided for him, and his mornings transformed within a week.",
+    "storyTA": "விஜய் ஒவ்வொரு காலையும் \"புதிதாக முடிவெடுக்க\" முயன்றார், முதலில் என்ன செய்வது என்பதில், பெரும்பாலான காலைகள் படுக்கையில் தொலைபேசியை உலாவுவதில் முடிந்தன. அவர் ஒரு எளிய 3-படி காலை வழக்கத்தை எழுதியவுடன் — தண்ணீர், நீட்சி, நாளைத் திட்டமிடுதல் — அவருக்கு எதையும் முடிவெடுக்க வேண்டியதில்லை. வழக்கமே அவருக்காக முடிவெடுத்தது, ஒரு வாரத்தில் அவரது காலைகள் மாறின.",
+    "metaphorEN": "Relying on daily willpower is like reinventing a recipe from scratch every single time you cook — exhausting and inconsistent. A system is a written recipe: once created, you simply follow the steps without reinventing anything.",
+    "metaphorTA": "தினசரி மன உறுதியை நம்பியிருப்பது, ஒவ்வொரு முறையும் சமைக்கும் போது ஒரு செய்முறையை மீண்டும் புதிதாக கண்டுபிடிப்பது போன்றது — சோர்வாகவும் நிலையற்றதாகவும் இருக்கும். ஒரு அமைப்பு என்பது எழுதப்பட்ட செய்முறை: ஒருமுறை உருவாக்கியவுடன், எதையும் புதிதாகக் கண்டுபிடிக்காமல் வெறுமனே படிகளைப் பின்பற்றுவீர்கள்.",
+    "worksheetEN": [
+      "What decisions do you currently make fresh every single morning?",
+      "Design a simple 3-step morning routine that supports your top goal.",
+      "Design a simple 3-step evening routine that helps you wind down and prepare for tomorrow.",
+      "What day of the week will you review and adjust your systems (not daily)?",
+      "What is the smallest first step of your new routine that you can start tomorrow?"
+    ],
+    "worksheetTA": [
+      "இப்போது ஒவ்வொரு காலையும் நீங்கள் புதிதாக எடுக்கும் முடிவுகள் என்ன?",
+      "உங்கள் முதன்மை இலக்கை ஆதரிக்கும் ஒரு எளிய 3-படி காலை வழக்கத்தை வடிவமைக்கவும்.",
+      "நாளை முடித்து நாளைக்கு தயாராகும் ஒரு எளிய 3-படி மாலை வழக்கத்தை வடிவமைக்கவும்.",
+      "வாரத்தின் எந்த நாளில் நீங்கள் உங்கள் அமைப்புகளை மதிப்பாய்வு செய்து சரிசெய்வீர்கள் (தினமும் அல்ல)?",
+      "நாளை நீங்கள் தொடங்கக்கூடிய உங்கள் புதிய வழக்கத்தின் மிகச்சிறிய முதல் படி என்ன?"
+    ],
+    "planEN": [
+      "Write your 3-step morning routine on paper, visible where you'll see it.",
+      "Follow the routine exactly, without exception, however you feel.",
+      "Follow it again; notice what feels automatic versus effortful.",
+      "Add your evening routine to prepare for tomorrow's morning.",
+      "Review both routines at the end of the week and adjust one step if needed."
+    ],
+    "planTA": [
+      "உங்கள் 3-படி காலை வழக்கத்தை காகிதத்தில் எழுதி, நீங்கள் பார்க்கும் இடத்தில் வையுங்கள்.",
+      "எப்படி உணர்ந்தாலும், விதிவிலக்கின்றி வழக்கத்தை சரியாகப் பின்பற்றுங்கள்.",
+      "அதை மீண்டும் பின்பற்றுங்கள்; எது தானாக நடக்கிறது, எது முயற்சி தேவைப்படுகிறது என்பதைக் கவனியுங்கள்.",
+      "நாளைக்கான காலையை தயார்செய்ய உங்கள் மாலை வழக்கத்தைச் சேருங்கள்.",
+      "வார இறுதியில் இரண்டு வழக்கங்களையும் மதிப்பாய்வு செய்து, தேவைப்பட்டால் ஒரு படியை சரிசெய்யுங்கள்."
+    ],
+    "examplesEN": [
+      "A school administrator created a fixed Monday-morning routine for weekly planning, ending the chaos of scattered decisions all week.",
+      "A father built a 3-step bedtime routine for his children (bath, story, lights out) that eliminated nightly negotiation and arguments."
+    ],
+    "examplesTA": [
+      "ஒரு பள்ளி நிர்வாகி வாராந்திர திட்டமிடலுக்கு ஒரு நிலையான திங்கள்-காலை வழக்கத்தை உருவாக்கி, வாரம் முழுவதும் சிதறிய முடிவுகளின் குழப்பத்தை முடிவுக்குக் கொண்டு வந்தார்.",
+      "ஒரு தந்தை தன் குழந்தைகளுக்கு 3-படி படுக்கை நேர வழக்கத்தை உருவாக்கினார் (குளியல், கதை, விளக்கு அணைத்தல்), இது ஒவ்வொரு இரவும் நடக்கும் பேச்சுவார்த்தையையும் சண்டைகளையும் நீக்கியது."
+    ]
+  },
+  "11": {
+    "storyEN": "After missing her exercise routine for a whole week due to travel, Nithya felt like giving up entirely — \"I've already failed, why continue?\" Her coach reminded her of the \"never miss twice\" rule. She didn't need a perfect record, just to not miss two days in a row. She returned the very next day, gently, without punishing herself for the week she'd lost.",
+    "storyTA": "பயணத்தால் ஒரு முழு வாரம் உடற்பயிற்சி வழக்கத்தை தவறவிட்டதால், நித்யா முழுமையாக கைவிட்டு விட நினைத்தார் — \"நான் ஏற்கனவே தோற்றுவிட்டேன், ஏன் தொடர வேண்டும்?\" அவரது பயிற்சியாளர் \"இரண்டு முறை தவறவிடாதே\" விதியை நினைவூட்டினார். அவருக்கு சரியான பதிவு தேவையில்லை, தொடர்ந்து இரண்டு நாட்கள் தவறாமல் இருந்தால் போதும். அவர் இழந்த வாரத்திற்காக தன்னைத் தண்டிக்காமல், மென்மையாக, அடுத்த நாளே திரும்பினார்.",
+    "metaphorEN": "A setback is like a single dropped stitch in a long piece of knitting — it doesn't unravel the whole sweater unless you pull hard at it with self-criticism. Pick the stitch back up calmly, and the pattern continues.",
+    "metaphorTA": "ஒரு பின்னடைவு என்பது நீளமான பின்னலில் விழுந்த ஒரு தையல் போன்றது — சுய-விமர்சனத்துடன் கடுமையாக இழுத்தால் தவிர, முழு ஸ்வெட்டரையும் அது அவிழ்க்காது. அமைதியாக அந்த தையலை மீண்டும் எடுத்துக் கொண்டால், வடிவமைப்பு தொடரும்.",
+    "worksheetEN": [
+      "Recall your most recent setback in a habit or goal.",
+      "How did you speak to yourself right after it happened?",
+      "Was the setback truly a failure, or simply data about what didn't work?",
+      "What is your \"never miss twice\" rule for this specific habit?",
+      "What would you say to a close friend in the same situation — can you say that to yourself?"
+    ],
+    "worksheetTA": [
+      "ஒரு பழக்கத்திலோ இலக்கிலோ உங்கள் மிக சமீபத்திய பின்னடைவை நினைவுகூருங்கள்.",
+      "அது நடந்த உடனேயே நீங்கள் உங்களிடம் எப்படி பேசினீர்கள்?",
+      "அந்த பின்னடைவு உண்மையிலேயே ஒரு தோல்வியா, அல்லது என்ன வேலை செய்யவில்லை என்பதற்கான தரவு மட்டுமா?",
+      "இந்த குறிப்பிட்ட பழக்கத்திற்கான உங்கள் \"இரண்டு முறை தவறவிடாதே\" விதி என்ன?",
+      "அதே சூழ்நிலையில் ஒரு நெருங்கிய நண்பரிடம் நீங்கள் என்ன சொல்வீர்கள் — அதை உங்களிடமும் சொல்ல முடியுமா?"
+    ],
+    "planEN": [
+      "Identify the habit most likely to face a setback soon and write your recovery plan in advance.",
+      "If a setback happens today, apply \"never miss twice\" immediately.",
+      "Replace any self-critical thought about the setback with a neutral, factual one.",
+      "Return to the habit, however small the version.",
+      "Reflect: how did planning for setbacks in advance change how you handled one this week?"
+    ],
+    "planTA": [
+      "விரைவில் பின்னடைவை எதிர்கொள்ளக்கூடிய பழக்கத்தை அடையாளம் கண்டு, முன்கூட்டியே உங்கள் மீட்பு திட்டத்தை எழுதுங்கள்.",
+      "இன்று ஒரு பின்னடைவு நேர்ந்தால், உடனடியாக \"இரண்டு முறை தவறவிடாதே\" விதியைப் பயன்படுத்துங்கள்.",
+      "பின்னடைவு பற்றிய எந்த சுய-விமர்சன எண்ணத்தையும் ஒரு நடுநிலையான, உண்மையான எண்ணமாக மாற்றுங்கள்.",
+      "எவ்வளவு சிறிய வடிவமாக இருந்தாலும் பழக்கத்திற்கு திரும்புங்கள்.",
+      "சிந்தியுங்கள் — முன்கூட்டியே பின்னடைவுகளுக்கு திட்டமிட்டது, இந்த வாரம் ஒன்றை நீங்கள் எப்படி கையாண்டீர்கள் என்பதை மாற்றியதா?"
+    ],
+    "examplesEN": [
+      "A student who missed a week of studying due to illness didn't try to \"catch up all at once\" — he simply resumed his normal daily study block the next day.",
+      "A working mother who skipped her savings plan for one month due to an emergency simply restarted the following month instead of abandoning it entirely."
+    ],
+    "examplesTA": [
+      "உடல்நலக்குறைவால் ஒரு வாரம் படிப்பைத் தவறவிட்ட ஒரு மாணவன், \"எல்லாவற்றையும் ஒரே நேரத்தில் ஈடுகட்ட\" முயலவில்லை — அடுத்த நாளே தன் வழக்கமான தினசரி படிப்பு தொகுதியை மீண்டும் தொடங்கினான்.",
+      "ஒரு அவசரநிலையால் ஒரு மாதம் தன் சேமிப்புத் திட்டத்தை தவறவிட்ட ஒரு வேலை செய்யும் தாய், அதை முழுவதுமாக கைவிடாமல், அடுத்த மாதமே மீண்டும் தொடங்கினார்."
+    ]
+  },
+  "12": {
+    "storyEN": "Mohan kept his fitness goals entirely private for years and quietly gave up each time. When he finally told his brother his weekly target and asked him to check in every Sunday, something changed — he no longer wanted to disappoint someone else, not just himself. A single accountability conversation each week kept him consistent for over a year.",
+    "storyTA": "மோகன் பல ஆண்டுகளாக தன் உடற்பயிற்சி இலக்குகளை முழுவதுமாக ரகசியமாக வைத்திருந்தார், ஒவ்வொரு முறையும் அமைதியாக கைவிட்டார். இறுதியில் அவர் தன் சகோதரனிடம் தன் வாராந்திர இலக்கைச் சொல்லி, ஒவ்வொரு ஞாயிற்றுக்கிழமையும் சரிபார்க்கச் சொன்னார் — ஏதோ மாறியது. அவர் இனி தன்னை மட்டும் அல்ல, மற்றொருவரை ஏமாற்ற விரும்பவில்லை. வாரம் ஒரு முறை ஒரு பொறுப்புணர்வு உரையாடல் அவரை ஒரு ஆண்டுக்கும் மேலாக தொடர்ச்சியாக வைத்திருந்தது.",
+    "metaphorEN": "Discipline without accountability is like rowing a boat alone in fog — you can lose direction without noticing. An accountability partner is a small light on the shore, just enough to help you check you're still heading the right way.",
+    "metaphorTA": "பொறுப்புணர்வு இல்லாத கட்டுப்பாடு, மூடுபனியில் தனியாக படகு தள்ளுவது போன்றது — நீங்கள் அறியாமலேயே திசையை இழக்கலாம். ஒரு பொறுப்புணர்வு கூட்டாளி கரையில் இருக்கும் ஒரு சிறிய விளக்கு போன்றவர் — நீங்கள் இன்னும் சரியான திசையில் செல்கிறீர்களா என்று சரிபார்க்க போதுமான வெளிச்சம்.",
+    "worksheetEN": [
+      "What is the one habit or goal you most want to sustain long-term?",
+      "Who in your life could act as your accountability partner for this?",
+      "How will you track your progress visibly (chart, app, calendar, journal)?",
+      "What is your original \"why\" for this goal? Write it in one sentence.",
+      "How often will you revisit your \"why\" to renew your commitment?"
+    ],
+    "worksheetTA": [
+      "நீண்ட காலமாக நீங்கள் நிலைநிறுத்த மிகவும் விரும்பும் ஒரு பழக்கம் அல்லது இலக்கு எது?",
+      "இதற்கு உங்கள் வாழ்க்கையில் யார் பொறுப்புணர்வு கூட்டாளியாக இருக்க முடியும்?",
+      "உங்கள் முன்னேற்றத்தை எப்படி காணக்கூடிய வகையில் கண்காணிப்பீர்கள் (விளக்கப்படம், ஆப், நாட்காட்டி, குறிப்பேடு)?",
+      "இந்த இலக்குக்கான உங்கள் அசல் \"ஏன்\" என்ன? ஒரு வாக்கியத்தில் எழுதுங்கள்.",
+      "உங்கள் உறுதிமொழியை புதுப்பிக்க எவ்வளவு அடிக்கடி உங்கள் \"ஏன்\" என்பதை மறுபரிசீலனை செய்வீர்கள்?"
+    ],
+    "planEN": [
+      "Choose your accountability partner and message them today.",
+      "Agree on a simple weekly check-in format (a message, a call, a shared sheet).",
+      "Set up a visible progress tracker for your top habit.",
+      "Write your \"why\" somewhere you'll see it daily.",
+      "Have your first accountability check-in and reflect on how it felt."
+    ],
+    "planTA": [
+      "உங்கள் பொறுப்புணர்வு கூட்டாளியைத் தேர்ந்தெடுத்து இன்றே அவரிடம் செய்தி அனுப்புங்கள்.",
+      "ஒரு எளிய வாராந்திர சரிபார்ப்பு முறையை ஒப்புக்கொள்ளுங்கள் (ஒரு செய்தி, ஒரு அழைப்பு, ஒரு பகிரப்பட்ட தாள்).",
+      "உங்கள் முதன்மை பழக்கத்திற்கு காணக்கூடிய முன்னேற்ற கண்காணிப்பாளரை அமைக்கவும்.",
+      "நீங்கள் தினமும் பார்க்கும் இடத்தில் உங்கள் \"ஏன்\" என்பதை எழுதி வையுங்கள்.",
+      "உங்கள் முதல் பொறுப்புணர்வு சரிபார்ப்பை நடத்தி, அது எப்படி உணர்ந்தது என்று சிந்தியுங்கள்."
+    ],
+    "examplesEN": [
+      "A group of teachers formed a small weekly WhatsApp check-in for their personal reading goals, and all of them read more books that year than ever before.",
+      "A father and his teenage son held each other accountable for a shared morning walk, strengthening both their fitness and their relationship."
+    ],
+    "examplesTA": [
+      "ஆசிரியர்கள் குழு ஒன்று தங்கள் தனிப்பட்ட வாசிப்பு இலக்குகளுக்காக ஒரு சிறிய வாராந்திர வாட்ஸ்அப் சரிபார்ப்பை உருவாக்கியது, அந்த ஆண்டு அனைவரும் முன்பை விட அதிக புத்தகங்களைப் படித்தனர்.",
+      "ஒரு தந்தையும் அவரது இளம்பருவ மகனும் பகிரப்பட்ட காலை நடைக்கு ஒருவரையொருவர் பொறுப்புக்குள்ளாக்கினர், இருவரது உடல்நலமும் உறவும் வலுப்பெற்றது."
+    ]
+  }
+};
+
 /* ===================== UI TEXT (EN/TA) ===================== */
 const UI = {
   loginTitle:{en:"Welcome back",ta:"மீண்டும் வருக"},
@@ -469,8 +1024,17 @@ const UI = {
   moduleDone:{en:"✓ Completed",ta:"✓ முடிந்தது"},
   prevModule:{en:"← Previous",ta:"← முந்தையது"},
   nextModule:{en:"Next →",ta:"அடுத்தது →"},
-  logout:{en:"Logout",ta:"வெளியேறு"}
+  logout:{en:"Logout",ta:"வெளியேறு"},
+  deepDiveTitle:{en:"Deep Dive · 5 Pages",ta:"ஆழமான பயிற்சி · 5 பக்கங்கள்"},
+  deepDiveSub:{en:"Story · Metaphor · Worksheet · 5-Day Action Plan · Real-Life Examples",ta:"கதை · உவமை · பயிற்சித்தாள் · 5-நாள் செயல் திட்டம் · நிஜ வாழ்க்கை உதாரணங்கள்"},
+  tabStory:{en:"Story",ta:"கதை"},
+  tabMetaphor:{en:"Metaphor",ta:"உவமை"},
+  tabWorksheet:{en:"Worksheet",ta:"பயிற்சித்தாள்"},
+  tabPlan:{en:"Action Plan",ta:"செயல் திட்டம்"},
+  tabExamples:{en:"Real-Life Examples",ta:"நிஜ வாழ்க்கை உதாரணங்கள்"}
 };
+
+let activeDDTab = "story";
 
 let currentLang = localStorage.getItem('sdm_lang') || 'en';
 let currentUser = null;
@@ -597,10 +1161,46 @@ function renderModule(i){
 
   document.getElementById('prevBtn').disabled = i===0;
   document.getElementById('nextBtn').disabled = i===MODULES.length-1;
+
+  renderDeepDive(i);
 }
+
+/* ===================== RENDER: DEEP DIVE (5 PAGES) ===================== */
+function renderDeepDive(i){
+  const m = MODULES[i];
+  const dd = DEEPDIVE[m.id];
+  document.querySelectorAll('.dd-tab').forEach(btn=>{
+    btn.classList.toggle('active', btn.getAttribute('data-dd')===activeDDTab);
+  });
+  const panel = document.getElementById('ddPanel');
+  if(!dd){ panel.innerHTML = ''; return; }
+
+  if(activeDDTab==='story'){
+    panel.innerHTML = `<p>${currentLang==='en'?dd.storyEN:dd.storyTA}</p>`;
+  } else if(activeDDTab==='metaphor'){
+    panel.innerHTML = `<p>${currentLang==='en'?dd.metaphorEN:dd.metaphorTA}</p>`;
+  } else if(activeDDTab==='worksheet'){
+    const items = currentLang==='en'?dd.worksheetEN:dd.worksheetTA;
+    panel.innerHTML = `<ul class="dd-list">${items.map(it=>`<li>${it}</li>`).join('')}</ul>`;
+  } else if(activeDDTab==='plan'){
+    const items = currentLang==='en'?dd.planEN:dd.planTA;
+    panel.innerHTML = `<ul class="dd-list dd-plan-list">${items.map(it=>`<li>${it}</li>`).join('')}</ul>`;
+  } else if(activeDDTab==='examples'){
+    const items = currentLang==='en'?dd.examplesEN:dd.examplesTA;
+    panel.innerHTML = items.map(it=>`<div class="dd-example-card">${it}</div>`).join('');
+  }
+}
+
+document.getElementById('ddTabs').addEventListener('click', (ev)=>{
+  const btn = ev.target.closest('.dd-tab');
+  if(!btn) return;
+  activeDDTab = btn.getAttribute('data-dd');
+  renderDeepDive(activeModuleIndex);
+});
 
 function showModule(i){
   activeModuleIndex=i;
+  activeDDTab='story';
   dashboardScreen.classList.add('hidden');
   moduleScreen.classList.remove('hidden');
   renderModule(i);
