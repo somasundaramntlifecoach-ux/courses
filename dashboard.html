@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Courses | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b1f3a;
+    --navy-light:#132c4f;
+    --gold:#c9a227;
+    --gold-light:#e6c866;
+    --bg:#f5f6f8;
+    --text:#1c1c1c;
+    --muted:#6b7280;
+    --card-bg:#ffffff;
+    --success:#1e7d43;
+    --danger:#b3261e;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins','Noto Sans Tamil',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+  }
+  [lang-ta]{font-family:'Noto Sans Tamil','Poppins',sans-serif;}
+
+  header{
+    background:linear-gradient(135deg,var(--navy),var(--navy-light));
+    color:#fff;
+    padding:18px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .brand{display:flex;flex-direction:column;}
+  .brand strong{font-size:1.15rem;color:var(--gold-light);}
+  .brand span{font-size:.8rem;color:#cfd6e4;}
+  .header-actions{display:flex;align-items:center;gap:10px;}
+  .lang-toggle, .logout-btn{
+    background:rgba(255,255,255,.08);
+    border:1px solid var(--gold);
+    color:#fff;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:.85rem;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .lang-toggle:hover, .logout-btn:hover{background:var(--gold);color:var(--navy);}
+
+  main{max-width:1100px;margin:0 auto;padding:32px 20px 60px;}
+  .welcome{margin-bottom:24px;}
+  .welcome h1{font-size:1.5rem;color:var(--navy);margin-bottom:4px;}
+  .welcome p{color:var(--muted);font-size:.95rem;}
+
+  #state-loading, #state-empty, #state-error{
+    text-align:center;padding:60px 20px;color:var(--muted);
+  }
+  .spinner{
+    width:36px;height:36px;border:4px solid #dfe3ea;border-top-color:var(--gold);
+    border-radius:50%;margin:0 auto 16px;animation:spin 1s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:20px;
+  }
+  .card{
+    background:var(--card-bg);
+    border-radius:14px;
+    padding:22px;
+    box-shadow:0 2px 10px rgba(11,31,58,.08);
+    border-top:4px solid var(--gold);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:transform .15s, box-shadow .15s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(11,31,58,.14);}
+  .card .track{
+    font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;
+  }
+  .card h3{color:var(--navy);font-size:1.05rem;line-height:1.3;}
+  .card .progress-wrap{
+    background:#eceff3;border-radius:8px;height:8px;overflow:hidden;margin-top:4px;
+  }
+  .card .progress-bar{
+    height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  }
+  .card .progress-label{font-size:.75rem;color:var(--muted);}
+  .card a.enter-btn{
+    margin-top:auto;
+    background:var(--navy);
+    color:#fff;
+    text-align:center;
+    padding:10px 14px;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:.9rem;
+    font-weight:500;
+    transition:.2s;
+  }
+  .card a.enter-btn:hover{background:var(--gold);color:var(--navy);}
+
+  footer{
+    text-align:center;padding:20px;color:var(--muted);font-size:.8rem;
+  }
+  .whatsapp-fab{
+    position:fixed;bottom:22px;right:22px;
+    background:#25D366;color:#fff;border-radius:50%;
+    width:54px;height:54px;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 4px 14px rgba(0,0,0,.25);text-decoration:none;font-size:1.5rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <strong>NT Somasundaram</strong>
+    <span data-en="Life Skills Program" data-ta="வாழ்க்கை திறன் திட்டம்">Life Skills Program</span>
+  </div>
+  <div class="header-actions">
+    <button class="lang-toggle" id="langToggle">தமிழ்</button>
+    <button class="logout-btn" id="logoutBtn">Logout</button>
+  </div>
+</header>
+
+<main>
+  <div class="welcome">
+    <h1><span data-en="My Courses" data-ta="எனது படிப்புகள்">My Courses</span></h1>
+    <p id="welcomeSub" data-en="Welcome back!" data-ta="மீண்டும் வரவேற்கிறோம்!">Welcome back!</p>
+  </div>
+
+  <div id="state-loading">
+    <div class="spinner"></div>
+    <p data-en="Loading your courses..." data-ta="உங்கள் படிப்புகள் ஏற்றப்படுகிறது...">Loading your courses...</p>
+  </div>
+
+  <div id="state-error" style="display:none;">
+    <p data-en="Something went wrong. Please refresh or contact support." data-ta="ஏதோ தவறு நடந்தது. மீண்டும் முயற்சிக்கவும் அல்லது ஆதரவைத் தொடர்பு கொள்ளவும்.">Something went wrong. Please refresh or contact support.</p>
+  </div>
+
+  <div id="state-empty" style="display:none;">
+    <p data-en="You are not enrolled in any course yet. Please contact us to get started." data-ta="நீங்கள் இன்னும் எந்த படிப்பிலும் சேரவில்லை. தொடங்குவதற்கு எங்களை தொடர்பு கொள்ளவும்.">You are not enrolled in any course yet.</p>
+  </div>
+
+  <div class="grid" id="courseGrid"></div>
+</main>
+
+<footer>
+  © <span id="year"></span> NT Somasundaram Life Skills Program — "God is always with u."
+</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/919843702244" target="_blank" title="WhatsApp Support">💬</a>
+
+<!-- Firebase SDKs -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ============================================================
+   1. FIREBASE CONFIG
+   Fill in the remaining values from your Firebase Console
+   (Project settings > General > Your apps > SDK setup).
+   Project: lifeskills-bd221 (asia-south1)
+   ============================================================ */
+const firebaseConfig = {
+  apiKey: "AIzaSyABtQjYCN-os9t_pqo8Siqfjod-RSO9kzA",
+  authDomain: "lifeskills-bd221.firebaseapp.com",
+  projectId: "lifeskills-bd221",
+  storageBucket: "lifeskills-bd221.appspot.com",
+  messagingSenderId: "180809708949",
+  appId: "1:180809708949:web:5ca1542bb7a51ba5cc329c"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+/* ============================================================
+   2. COURSE CATALOGUE
+   courseId keys MUST match exactly what your admin panel
+   writes into each student's enrollments/{uid}.courses array.
+   Update the "url" for each course to its live GitHub Pages link.
+   ============================================================ */
+const CATALOGUE = {
+  "positive-discipline-teachers": {
+    track: { en: "Teachers", ta: "ஆசிரியர்கள்" },
+    title: { en: "Positive Discipline for Teachers", ta: "ஆசிரியர்களுக்கான நேர்மறை ஒழுக்கம்" },
+    url: "https://somasundaramntlifecoach-ux.github.io/positive-discipline-teachers/"
+  },
+  "eq-teachers": {
+    track: { en: "Teachers", ta: "ஆசிரியர்கள்" },
+    title: { en: "Emotional Intelligence for Teachers", ta: "ஆசிரியர்களுக்கான உணர்ச்சி நுண்ணறிவு" },
+    url: "https://somasundaramntlifecoach-ux.github.io/eq-teachers/"
+  },
+  "classroom-behaviour-management": {
+    track: { en: "Teachers", ta: "ஆசிரியர்கள்" },
+    title: { en: "Classroom Behaviour Management", ta: "வகுப்பறை நடத்தை மேலாண்மை" },
+    url: "https://somasundaramntlifecoach-ux.github.io/classroom-behaviour-management/"
+  },
+  "digital-pedagogy": {
+    track: { en: "Teachers", ta: "ஆசிரியர்கள்" },
+    title: { en: "Digital Pedagogy", ta: "டிஜிட்டல் கற்பித்தல் முறை" },
+    url: "https://somasundaramntlifecoach-ux.github.io/digital-pedagogy/"
+  },
+  "life-skills-mastery-educators": {
+    track: { en: "Teachers", ta: "ஆசிரியர்கள்" },
+    title: { en: "Life Skills Mastery for Educators", ta: "கல்வியாளர்களுக்கான வாழ்க்கை திறன் தேர்ச்சி" },
+    url: "https://somasundaramntlifecoach-ux.github.io/life-skills-mastery-educators/"
+  },
+  "anger-management": {
+    track: { en: "Parents", ta: "பெற்றோர்கள்" },
+    title: { en: "Anger Management", ta: "கோப மேலாண்மை" },
+    url: "https://somasundaramntlifecoach-ux.github.io/anger-management/"
+  },
+  "communication-skills-adults": {
+    track: { en: "Working Professionals", ta: "பணி நிபுணர்கள்" },
+    title: { en: "Communication Skills for Adults", ta: "பெரியவர்களுக்கான தொடர்பு திறன்கள்" },
+    url: "https://somasundaramntlifecoach-ux.github.io/communication-skills-adults/"
+  },
+  "digital-parenting": {
+    track: { en: "Parents", ta: "பெற்றோர்கள்" },
+    title: { en: "Digital Parenting", ta: "டிஜிட்டல் பெற்றோர் பராமரிப்பு" },
+    url: "https://somasundaramntlifecoach-ux.github.io/digital-parenting/"
+  },
+  "know-your-ego": {
+    track: { en: "Working Professionals", ta: "பணி நிபுணர்கள்" },
+    title: { en: "Know Your Ego", ta: "உங்கள் ஈகோவை அறியுங்கள்" },
+    url: "https://somasundaramntlifecoach-ux.github.io/know-your-ego/"
+  },
+  "stress-management-parents": {
+    track: { en: "Parents", ta: "பெற்றோர்கள்" },
+    title: { en: "Stress Management for Parents", ta: "பெற்றோருக்கான மன அழுத்த மேலாண்மை" },
+    url: "https://somasundaramntlifecoach-ux.github.io/stress-management-parents/"
+  },
+  "positive-discipline-parenting": {
+    track: { en: "Parents", ta: "பெற்றோர்கள்" },
+    title: { en: "Positive Discipline Parenting", ta: "நேர்மறை ஒழுக்க பெற்றோர் பராமரிப்பு" },
+    url: "https://somasundaramntlifecoach-ux.github.io/positive-discipline-parenting/"
+  },
+  "career-growth-promotion": {
+    track: { en: "Working Professionals", ta: "பணி நிபுணர்கள்" },
+    title: { en: "Career Growth & Promotion Readiness", ta: "தொழில் வளர்ச்சி மற்றும் பதவி உயர்வு தயார்நிலை" },
+    url: "https://somasundaramntlifecoach-ux.github.io/career-growth-promotion/"
+  }
+};
+
+/* Login page to redirect unauthenticated users to */
+const LOGIN_URL = "https://somasundaramntlifecoach-ux.github.io/login.html";
+
+/* ============================================================
+   3. LANGUAGE TOGGLE (matches your existing localStorage pattern)
+   ============================================================ */
+let currentLang = localStorage.getItem('site_lang') || 'en';
+function applyLang(lang){
+  currentLang = lang;
+  localStorage.setItem('site_lang', lang);
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    el.textContent = el.dataset[lang] || el.dataset.en;
+  });
+  document.getElementById('langToggle').textContent = lang === 'en' ? 'தமிழ்' : 'English';
+  renderCourses(window.__enrolledCourses || []);
+}
+document.getElementById('langToggle').addEventListener('click', ()=>{
+  applyLang(currentLang === 'en' ? 'ta' : 'en');
+});
+
+/* ============================================================
+   4. AUTH STATE + FIRESTORE ENROLLMENT LOOKUP
+   ============================================================ */
+auth.onAuthStateChanged(async (user)=>{
+  if(!user){
+    window.location.href = LOGIN_URL;
+    return;
+  }
+  document.getElementById('welcomeSub').textContent =
+    (currentLang === 'en' ? 'Welcome back, ' : 'மீண்டும் வரவேற்கிறோம், ') + (user.displayName || user.email);
+
+  try{
+    const doc = await db.collection('enrollments').doc(user.uid).get();
+    const courseIds = doc.exists ? (doc.data().courses || []) : [];
+    window.__enrolledCourses = courseIds;
+    document.getElementById('state-loading').style.display = 'none';
+
+    if(courseIds.length === 0){
+      document.getElementById('state-empty').style.display = 'block';
+    } else {
+      renderCourses(courseIds);
+    }
+  }catch(err){
+    console.error(err);
+    document.getElementById('state-loading').style.display = 'none';
+    document.getElementById('state-error').style.display = 'block';
+  }
+});
+
+function renderCourses(courseIds){
+  const grid = document.getElementById('courseGrid');
+  grid.innerHTML = '';
+  courseIds.forEach(id=>{
+    const course = CATALOGUE[id];
+    if(!course) return;
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = `
+      <span class="track">${course.track[currentLang]}</span>
+      <h3>${course.title[currentLang]}</h3>
+      <a class="enter-btn" href="${course.url}" target="_blank">
+        ${currentLang === 'en' ? 'Continue Course →' : 'படிப்பைத் தொடரவும் →'}
+      </a>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+document.getElementById('logoutBtn').addEventListener('click', ()=>{
+  auth.signOut().then(()=> window.location.href = LOGIN_URL);
+});
+
+/* Apply saved language on load */
+applyLang(currentLang);
+</script>
+</body>
+</html>
