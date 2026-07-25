@@ -310,7 +310,7 @@ auth.onAuthStateChanged(async (user)=>{
     (currentLang === 'en' ? 'Welcome back, ' : 'மீண்டும் வரவேற்கிறோம், ') + (user.displayName || user.email);
 
   try{
-    const doc = await db.collection('enrollments').doc(user.uid).get();
+    const doc = await db.collection('students').doc(user.uid).get();
     const courseIds = doc.exists ? (doc.data().courses || []) : [];
     window.__enrolledCourses = courseIds;
     document.getElementById('state-loading').style.display = 'none';
