@@ -82,6 +82,12 @@
     <br><a href="https://wa.me/919843702244" target="_blank">+91 98437 02244</a>
   </div>
 
+  <div class="forgot">
+    <a href="https://somasundaramntlifecoach-ux.github.io/dashboard.html">
+      <span data-en>← Back to My Courses Dashboard</span><span data-ta style="display:none">← எனது படிப்புகள் டாஷ்போர்டுக்குத் திரும்பவும்</span>
+    </a>
+  </div>
+
   <div class="footer">God is always with u</div>
 </div>
 
@@ -90,6 +96,10 @@
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
+
+<!-- Single sign-on: skip this form if already logged in via the dashboard -->
+<script>window.COURSE_HOME = "digital-parenting-course.html";</script>
+<script src="auto-redirect.js"></script>
 
 <script>
 function setLang(lang){
