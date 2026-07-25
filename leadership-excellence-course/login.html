@@ -98,8 +98,8 @@
 <script src="firebase-config.js"></script>
 
 <!-- Single sign-on: skip this form if already logged in via the dashboard -->
-<!-- TODO: update COURSE_HOME once this course's own content page is live -->
-<script>window.COURSE_HOME = "https://somasundaramntlifecoach-ux.github.io/dashboard.html";</script>
+<!-- Single sign-on: skip this form if already logged in via the dashboard -->
+<script>window.COURSE_HOME = "dashboard.html";</script>
 <script src="auto-redirect.js"></script>
 
 <script>
@@ -132,7 +132,7 @@ function login(){
 
   auth.signInWithEmailAndPassword(email, password)
     .then(function(){
-      window.location.href = "dashboard.html"; // redirect to the dashboard
+      window.location.href = "dashboard.html"; // redirect to this course's own dashboard
     })
     .catch(function(error){
       errorMsg.textContent = document.body.classList.contains('ta')
