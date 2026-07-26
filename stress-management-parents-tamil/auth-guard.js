@@ -23,8 +23,6 @@ const NOT_ENROLLED_PATH = PATH_PREFIX + "not-enrolled.html";
       const doc = await db.collection("students").doc(user.uid).get();
       const data = doc.exists ? doc.data() : null;
       const enrolledCourses = (data && data.courses) || [];
-      console.log("DEBUG enrolledCourses:", JSON.stringify(enrolledCourses));
-      console.log("DEBUG looking for:", JSON.stringify(COURSE_ID));
 
       if (enrolledCourses.includes(COURSE_ID)) {
         document.documentElement.style.visibility = "visible";
