@@ -1,0 +1,2755 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>பெற்றோருக்கான மனஅழுத்த மேலாண்மை | சுயகற்றல் பாடநெறி (எளிய தமிழ் பதிப்பு)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #EEF2ED;
+  --bg-card: #FFFFFF;
+  --ink: #26383D;
+  --ink-soft: #55666B;
+  --sage: #7E9C86;
+  --sage-deep: #56755E;
+  --sage-tint: #EAF1EB;
+  --rose: #C97B84;
+  --rose-deep: #A85A66;
+  --rose-tint: #FBEEEF;
+  --sand: #F2EDE0;
+  --gold: #C8A250;
+  --lavender: #6C6FA0;
+  --lavender-tint: #EDEEF7;
+  --navy: #16233B;
+  --line: #D8E0D6;
+  --shadow: 0 8px 24px rgba(38, 56, 61, 0.08);
+  --radius: 16px;
+  --font-en: 'Poppins', sans-serif;
+  --font-ta: 'Noto Sans Tamil', sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-ta), var(--font-en);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { max-width: 100%; }
+a { color: inherit; }
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 14px; padding-inline-start: 22px; }
+li { margin-bottom: 6px; }
+strong { color: var(--sage-deep); font-weight: 600; }
+blockquote {
+  margin: 14px 0; padding: 12px 18px;
+  background: var(--sand); border-inline-start: 4px solid var(--rose);
+  border-radius: 10px; font-style: normal;
+}
+table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; background: #fff; border-radius: 10px; overflow: hidden; }
+th, td { border: 1px solid var(--line); padding: 10px 12px; text-align: start; vertical-align: top; }
+th { background: var(--sage-tint); color: var(--sage-deep); font-weight: 600; }
+td { min-height: 20px; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 60;
+  background: rgba(238, 242, 237, 0.94);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; gap: 12px; max-width: 1200px; margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--rose); flex-shrink: 0; }
+.brand-text { font-weight: 600; font-size: 1rem; color: var(--sage-deep); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.menu-toggle {
+  display: none; border: 1.5px solid var(--sage); background: #fff; border-radius: 10px;
+  width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; color: var(--sage-deep); flex-shrink: 0;
+}
+.progress-wrap { flex: 1; max-width: 260px; display: flex; align-items: center; gap: 10px; }
+.progress-track { flex: 1; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--sage), var(--rose)); width: 0%; transition: width .3s ease; }
+.progress-label { font-size: 0.8rem; color: var(--ink-soft); white-space: nowrap; }
+
+/* ---------- Layout ---------- */
+.layout { display: flex; max-width: 1200px; margin: 0 auto; align-items: flex-start; }
+
+.sidebar {
+  width: 280px; flex-shrink: 0; padding: 20px 14px;
+  position: sticky; top: 64px; height: calc(100vh - 64px); overflow-y: auto;
+}
+.sidebar-title { font-size: 0.78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); margin: 6px 10px 10px; }
+.nav-item {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  background: transparent; border: none; text-align: start; cursor: pointer;
+  padding: 10px 10px; border-radius: 12px; margin-bottom: 4px;
+  font-family: inherit; font-size: 0.92rem; color: var(--ink);
+}
+.nav-item:hover { background: var(--bg-card); }
+.nav-item.active { background: var(--sage); color: #fff; }
+.nav-item.active .nav-num { background: rgba(255,255,255,0.25); color: #fff; }
+.nav-num {
+  width: 24px; height: 24px; border-radius: 50%; background: var(--sage-tint); color: var(--sage-deep);
+  display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 600; flex-shrink: 0;
+}
+.nav-title { flex: 1; line-height: 1.3; }
+.nav-check { color: var(--sage); font-weight: 700; font-size: 0.9rem; opacity: 0; flex-shrink: 0; }
+.nav-check.done { opacity: 1; }
+.nav-item.active .nav-check.done { color: #fff; }
+
+.sidebar-overlay { display: none; }
+
+/* ---------- Main content ---------- */
+.main { flex: 1; min-width: 0; padding: 20px; }
+.module { display: none; }
+.module.active { display: block; animation: fadeIn .25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.module-hero {
+  background: var(--bg-card); border-radius: var(--radius); padding: 28px 30px 22px;
+  box-shadow: var(--shadow); margin-bottom: 20px;
+}
+.module-badge {
+  display: inline-block; background: var(--sand); color: var(--rose-deep);
+  font-size: 0.78rem; font-weight: 600; padding: 4px 12px; border-radius: 999px; margin-bottom: 12px;
+}
+.module-title { font-size: 1.7rem; margin: 0 0 8px; color: var(--ink); line-height: 1.4; }
+.module-eng { color: var(--ink-soft); font-family: var(--font-en); font-size: 0.9rem; margin-bottom: 6px; }
+.module-subtitle { color: var(--ink-soft); font-size: 1rem; margin: 0; }
+
+.module-body {
+  background: var(--bg-card); border-radius: var(--radius); padding: 28px 30px;
+  box-shadow: var(--shadow); margin-bottom: 20px;
+}
+.module-body h1 { font-size: 1.3rem; color: var(--sage-deep); border-bottom: 2px solid var(--line); padding-bottom: 10px; margin: 32px 0 16px; }
+.module-body h1:first-child { margin-top: 0; }
+.module-body h2 { font-size: 1.12rem; color: var(--rose-deep); margin: 22px 0 12px; }
+.module-body h3 { font-size: 1rem; color: var(--ink); margin: 18px 0 10px; }
+.module-body h1 strong, .module-body h2 strong, .module-body h3 strong { color: inherit; font-weight: 700; }
+
+/* Special content boxes */
+[class$="-box"] { border-radius: 14px; padding: 18px 20px; margin: 20px 0; }
+.box-label { font-weight: 700; margin-bottom: 10px; font-size: 0.95rem; }
+[class$="-box"] p:last-child, [class$="-box"] ul:last-child, [class$="-box"] ol:last-child { margin-bottom: 0; }
+
+.objectives-box { background: var(--sand); border: 1px dashed var(--gold); }
+.objectives-box .box-label { color: var(--rose-deep); }
+
+.example-box { background: var(--sand); border-inline-start: 4px solid var(--rose); }
+.example-box .box-label { color: var(--rose-deep); }
+
+.tips-box { background: var(--sage-tint); border-inline-start: 4px solid var(--sage); }
+.tips-box .box-label { color: var(--sage-deep); }
+
+.activity-box { background: var(--rose-tint); border-inline-start: 4px solid var(--rose-deep); }
+.activity-box .box-label { color: var(--rose-deep); }
+
+.reflection-box { background: var(--lavender-tint); border-inline-start: 4px solid var(--lavender); }
+.reflection-box .box-label { color: var(--lavender); }
+
+.summary-box { background: #F3F5FA; border-inline-start: 4px solid var(--navy); }
+.summary-box .box-label { color: var(--navy); }
+
+.keypoints-box { background: #FDF8ED; border: 1px solid var(--gold); }
+.keypoints-box .box-label { color: var(--gold); }
+
+.module-footer { text-align: center; margin-bottom: 18px; }
+.btn-mark-done {
+  background: var(--sage); color: #fff; border: none; padding: 12px 26px; border-radius: 999px;
+  font-family: inherit; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: background .2s;
+}
+.btn-mark-done:hover { background: var(--sage-deep); }
+.btn-mark-done.done { background: var(--sage-deep); }
+.btn-mark-done.done::after { content: " ✓"; }
+
+.btn-row { display: flex; gap: 12px; justify-content: center; margin-bottom: 24px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px;
+  text-decoration: none; font-size: 0.88rem; font-weight: 600; border: none; cursor: pointer; font-family: inherit;
+}
+.btn-whatsapp { background: #25D366; color: #fff; }
+.btn-print { background: #fff; color: var(--ink); border: 1.5px solid var(--line); }
+
+.module-pager { display: flex; justify-content: space-between; gap: 12px; margin-bottom: 40px; }
+.pager-btn {
+  flex: 1; max-width: 260px; padding: 14px 20px; border-radius: 12px; border: 1.5px solid var(--sage);
+  background: #fff; color: var(--sage-deep); font-family: inherit; font-size: 0.9rem; font-weight: 600; cursor: pointer;
+}
+.pager-btn:hover { background: var(--sage-tint); }
+.pager-next { text-align: end; margin-inline-start: auto; }
+.pager-btn:disabled { opacity: 0.35; cursor: default; background: #fff; }
+
+.site-footer { text-align: center; padding: 24px; color: var(--ink-soft); font-size: 0.82rem; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 860px) {
+  .menu-toggle { display: block; }
+  .progress-wrap { max-width: none; }
+  .brand-text { display: none; }
+  .layout { position: relative; }
+  .sidebar {
+    position: fixed; top: 0; left: 0; height: 100vh; z-index: 100;
+    background: var(--bg); width: 280px; transform: translateX(-100%);
+    transition: transform .25s ease; box-shadow: 4px 0 24px rgba(0,0,0,0.15); padding-top: 70px;
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sidebar-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.35); z-index: 90;
+  }
+  .sidebar-overlay.open { display: block; }
+  .main { padding: 14px; }
+  .module-hero, .module-body { padding: 20px 18px; }
+  .module-title { font-size: 1.4rem; }
+  .module-pager { flex-direction: column; }
+  .pager-next { margin-inline-start: 0; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .topbar, .sidebar, .sidebar-overlay, .no-print, .module-pager, .module-footer { display: none !important; }
+  .module { display: block !important; }
+  .main { padding: 0; }
+  .module-hero, .module-body { box-shadow: none; border: 1px solid #ddd; }
+  body { background: #fff; }
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <button class="menu-toggle no-print" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+        <div class="brand" style="text-decoration:none;">
+      <span class="dot"></span>
+      <span class="brand-text">பெற்றோருக்கான மனஅழுத்த மேலாண்மை<span id="learnerNameDisplay" style="font-weight:400; margin-left:6px;"></span></span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+      <span class="progress-label" id="progressLabel">0 / 10</span>
+    </div>
+    <a href="#" onclick="logout(); return false;" class="no-print" style="font-size:13px; color:inherit; text-decoration:underline; white-space:nowrap;">வெளியேறு</a>
+  </div>
+</div>
+
+<div class="sidebar-overlay no-print" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+<div class="layout">
+  <nav class="sidebar no-print" id="sidebar">
+    <div class="sidebar-title">தொகுதிகள்</div>
+    <button class="nav-item" data-mod="1" onclick="goToModule(1)">
+  <span class="nav-num">1</span>
+  <span class="nav-title">மனஅழுத்தத்தைப் புரிந்துகொள்வோம்</span>
+  <span class="nav-check" id="check-1">✓</span>
+</button>
+<button class="nav-item" data-mod="2" onclick="goToModule(2)">
+  <span class="nav-num">2</span>
+  <span class="nav-title">மனஅழுத்தத்தின் அறிகுறிகளை அறிதல்</span>
+  <span class="nav-check" id="check-2">✓</span>
+</button>
+<button class="nav-item" data-mod="3" onclick="goToModule(3)">
+  <span class="nav-num">3</span>
+  <span class="nav-title">பெற்றோரின் மனஅழுத்தம் குழந்தைகளை எவ்வாறு பாதிக்கிறது?</span>
+  <span class="nav-check" id="check-3">✓</span>
+</button>
+<button class="nav-item" data-mod="4" onclick="goToModule(4)">
+  <span class="nav-num">4</span>
+  <span class="nav-title">சிந்தனையை மாற்றும் நுட்பங்கள்</span>
+  <span class="nav-check" id="check-4">✓</span>
+</button>
+<button class="nav-item" data-mod="5" onclick="goToModule(5)">
+  <span class="nav-num">5</span>
+  <span class="nav-title">தளர்வு மற்றும் மனவிழிப்புணர்வு பயிற்சிகள்</span>
+  <span class="nav-check" id="check-5">✓</span>
+</button>
+<button class="nav-item" data-mod="6" onclick="goToModule(6)">
+  <span class="nav-num">6</span>
+  <span class="nav-title">நேர மேலாண்மை மற்றும் முன்னுரிமை நிர்ணயம்</span>
+  <span class="nav-check" id="check-6">✓</span>
+</button>
+<button class="nav-item" data-mod="7" onclick="goToModule(7)">
+  <span class="nav-num">7</span>
+  <span class="nav-title">ஆதரவு வலையமைப்பை உருவாக்குதல்</span>
+  <span class="nav-check" id="check-7">✓</span>
+</button>
+<button class="nav-item" data-mod="8" onclick="goToModule(8)">
+  <span class="nav-num">8</span>
+  <span class="nav-title">ஆரோக்கியமான வாழ்க்கைமுறையின் அடித்தளங்கள்</span>
+  <span class="nav-check" id="check-8">✓</span>
+</button>
+<button class="nav-item" data-mod="9" onclick="goToModule(9)">
+  <span class="nav-num">9</span>
+  <span class="nav-title">குடும்ப முரண்பாடுகளைக் குறைக்கும் தொடர்பாடல்</span>
+  <span class="nav-check" id="check-9">✓</span>
+</button>
+<button class="nav-item" data-mod="10" onclick="goToModule(10)">
+  <span class="nav-num">10</span>
+  <span class="nav-title">உங்களுக்கான நீண்டகால மனஅழுத்த மேலாண்மைத் திட்டத்தை உருவாக்குதல்</span>
+  <span class="nav-check" id="check-10">✓</span>
+</button>
+  </nav>
+
+  <main class="main">
+    
+<section class="module" id="module-1" data-mod="1">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 1 / 10</span>
+    <h1 class="module-title">மனஅழுத்தத்தைப் புரிந்துகொள்வோம்</h1>
+    
+    
+  </div>
+  <div class="module-body">
+    <div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>மனஅழுத்தம் (Stress) என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.  </li>
+<li>நல்ல மனஅழுத்தம் (Good Stress) மற்றும் நீண்டகால மனஅழுத்தம் (Chronic Stress) ஆகியவற்றின் வித்தியாசத்தை அறிந்துகொள்வீர்கள்.  </li>
+<li>பெற்றோர்களுக்கு மனஅழுத்தம் ஏற்படுவதற்கான பொதுவான காரணங்களை அடையாளம் காண்பீர்கள்.  </li>
+<li>உங்கள் மனஅழுத்தத்தின் உண்மையான காரணத்தை கண்டறியத் தொடங்குவீர்கள்.</li>
+</ul>
+
+</div><h1><strong>மனஅழுத்தம் என்றால் என்ன?</strong></h1>
+<p><strong>மனஅழுத்தம் (Stress)</strong> என்பது நம் உடலும் மனமும் ஒரு சவால் அல்லது பிரச்சினைக்கு இயல்பாக அளிக்கும் பதிலாகும்.</p>
+<p>நமது மூளை ஒரு சூழ்நிலையை ஆபத்தாகவோ அல்லது சவாலாகவோ உணரும்போது, உடல் உடனடியாக செயல்படத் தயாராகிறது.</p>
+<p>அப்போது <strong>அட்ரினலின் (Adrenaline)</strong> மற்றும் <strong>கார்டிசோல் (Cortisol)</strong> போன்ற ஹார்மோன்கள் சுரக்கின்றன.</p>
+<p>இதன் விளைவாக:</p>
+<ul>
+<li>இதயத் துடிப்பு அதிகரிக்கும்.  </li>
+<li>மூச்சு வேகமாகும்.  </li>
+<li>தசைகள் இறுக்கமாகும்.  </li>
+<li>உடல் முழுவதும் எச்சரிக்கை நிலைக்கு மாறும்.</li>
+</ul>
+<p>இந்த இயல்பான உடல் எதிர்வினையை <strong>"போராடு – தப்பிச் செல் – உறைந்து நில்" (Fight – Flight – Freeze Response)</strong> என்று அழைக்கிறோம்.</p>
+<p>ஒரு பெற்றோராக, இதுபோன்ற சூழ்நிலைகளை நீங்கள் ஒரு நாளில் பலமுறை சந்திக்கலாம்.</p>
+<p>உதாரணமாக:</p>
+<ul>
+<li>குழந்தை திடீரென அடம்பிடிப்பது.  </li>
+<li>பள்ளிக் கட்டணம் செலுத்த வேண்டிய நாள் நெருங்குவது.  </li>
+<li>அலுவலகப் பணி இன்னும் முடியாமல் இருப்பது.  </li>
+<li>வீட்டிலும் வேலையிலும் ஒரே நேரத்தில் பல பொறுப்புகளைச் சமாளிக்க வேண்டிய நிலை.</li>
+</ul>
+<p>இவை அனைத்தும் மனஅழுத்தத்தை உருவாக்கக்கூடிய சூழ்நிலைகளாகும்.</p>
+
+<h1><strong>நல்ல மனஅழுத்தம் மற்றும் நீண்டகால மனஅழுத்தம்</strong></h1>
+<h2><strong>நல்ல மனஅழுத்தம் (Good Stress)</strong></h2>
+<p>எல்லா மனஅழுத்தமும் தீமையானது அல்ல.</p>
+<p>சில நேரங்களில் சிறிய அளவிலான மனஅழுத்தம் நம்மை அதிக கவனத்துடனும் பொறுப்புடனும் செயல்பட உதவுகிறது.</p>
+<p><strong>உதாரணம்:</strong></p>
+<ul>
+<li>குழந்தையின் ஆசிரியரைச் சந்திக்கப் போகும் முன் ஏற்படும் சிறிய பதற்றம்.  </li>
+<li>பள்ளி நிகழ்ச்சியில் பேசுவதற்கு முன் ஏற்படும் பரபரப்பு.</li>
+</ul>
+<p>இத்தகைய மனஅழுத்தம் நம்மை சிறப்பாகத் தயார்படுத்துகிறது.</p>
+
+<h2><strong>நீண்டகால மனஅழுத்தம் (Long-Term Stress)</strong></h2>
+<p>ஆனால் மனஅழுத்தம் பல வாரங்கள் அல்லது பல மாதங்கள் தொடர்ந்து நீடித்தால், அது உடலுக்கும் மனதிற்கும் பாதிப்பை ஏற்படுத்தும்.</p>
+<p>நீண்டகால மனஅழுத்தம் காரணமாக:</p>
+<ul>
+<li>உடல் எப்போதும் சோர்வாக இருக்கும்.  </li>
+<li>கோபம் அதிகரிக்கும்.  </li>
+<li>தூக்கம் பாதிக்கப்படும்.  </li>
+<li>உடல்நலப் பிரச்சினைகள் உருவாகலாம்.  </li>
+<li>குடும்ப உறவுகளில் விரிசல் ஏற்படலாம்.</li>
+</ul>
+<p>இந்தப் பாடநெறியின் நோக்கம் மனஅழுத்தத்தை முழுமையாக அகற்றுவது அல்ல.</p>
+<p>மாறாக, சாதாரண மனஅழுத்தம் எப்போது நீண்டகால மனஅழுத்தமாக மாறுகிறது என்பதை முன்கூட்டியே அறிந்து, அதை ஆரோக்கியமான முறையில் கையாள கற்றுக்கொள்வதே இந்தப் பாடநெறியின் நோக்கமாகும்.</p>
+
+<h1><strong>பெற்றோர்களுக்கு மனஅழுத்தம் ஏற்படுவதற்கான பொதுவான காரணங்கள்</strong></h1>
+<p>ஒவ்வொரு குடும்பமும் வேறுபட்டது.</p>
+<p>அதுபோல ஒவ்வொரு பெற்றோரின் மனஅழுத்தத்திற்கான காரணங்களும் வேறுபடும்.</p>
+<p>இருப்பினும், பொதுவாகக் காணப்படும் காரணங்கள்:</p>
+<ul>
+<li>பொருளாதாரச் சிக்கல்கள்  </li>
+<li>பள்ளிக் கட்டணம் மற்றும் கல்விச் செலவுகள்  </li>
+<li>வேலை மற்றும் குடும்பப் பொறுப்புகளைச் சமநிலைப்படுத்த முடியாமை  </li>
+<li>குழந்தையின் படிப்பு அல்லது நடத்தை குறித்த கவலை  </li>
+<li>தனக்கென நேரம் கிடைக்காதது  </li>
+<li>போதுமான தூக்கம் இல்லாதது  </li>
+<li>சமூக ஊடகங்களில் பிற குடும்பங்களுடன் ஒப்பிடுவது</li>
+</ul>
+<p>மனஅழுத்தத்தை நிர்வகிப்பதற்கான முதல் படி, <strong>"எனக்கு மனஅழுத்தம் தரும் உண்மையான காரணம் என்ன?"</strong> என்பதை நேர்மையாக அடையாளம் காண்பதாகும்.</p>
+<p>தெளிவாக அறியப்பட்ட பிரச்சினைக்கு தீர்வு காண்பது, தெளிவில்லாத கவலைக்கு தீர்வு காண்பதை விட மிகவும் எளிது.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>கவிதா</strong>, இரண்டு குழந்தைகளின் தாய்.</p>
+<p>அலுவலக வேலை முடிந்து வீட்டிற்கு வந்தவுடன், தினமும் குழந்தைகளிடம் எரிச்சலாகப் பேசுவார்.</p>
+<p>ஒரு வாரத்திற்கு தனது மனஅழுத்தத்தை குறிப்பேட்டில் பதிவு செய்தார்.</p>
+<p>அப்போது அவருக்குப் புரிந்தது:</p>
+<p>பிரச்சினை குழந்தைகள் அல்ல.</p>
+<p>வேலை முடிந்து வீட்டிற்கு வர 45 நிமிடங்கள் போக்குவரத்து நெரிசலில் சிக்கிக் கொள்வதும், அதற்குள் பசியுடன் இருப்பதும்தான் அவரது மனஅழுத்தத்தின் உண்மையான காரணம்.</p>
+<p>அதை உணர்ந்த பிறகு, வீட்டிற்கு வரும் வழியில் சிறிய சிற்றுண்டி சாப்பிடத் தொடங்கினார்.</p>
+<p>மேலும், அமைதியான இசையைக் கேட்கும் பழக்கத்தையும் உருவாக்கினார்.</p>
+<p>சில நாட்களிலேயே மாலை நேர மனஅழுத்தம் கணிசமாகக் குறைந்தது.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>உண்மையான காரணத்தை கண்டறிந்தால், சரியான தீர்வையும் கண்டுபிடிக்க முடியும்.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<p>இந்த வாரம் பின்வரும் மூன்று செயல்களைச் செய்து பாருங்கள்.</p>
+<h3><strong>1. மனஅழுத்தப் பதிவு (Stress Diary)</strong></h3>
+<p>ஒரு வாரத்திற்கு தினமும் பதிவு செய்யுங்கள்:</p>
+<table>
+<thead>
+<tr>
+<th>நேரம்</th>
+<th>என்ன நடந்தது?</th>
+<th>என்ன உணர்ந்தேன்?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>காலை</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>மதியம்</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>மாலை</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3><strong>2. உங்களிடம் நீங்களே கேளுங்கள்</strong></h3>
+<blockquote>
+<p>"இந்தப் பிரச்சினை தற்காலிகமானதா? அல்லது ஒரு மாதத்திற்கும் மேலாக நீடிக்கிறதா?"</p>
+</blockquote>
+
+<h3><strong>3. இதை நினைவில் கொள்ளுங்கள்</strong></h3>
+<p><strong>மனஅழுத்தம் இருப்பது, நீங்கள் ஒரு மோசமான பெற்றோர் என்பதற்கான அடையாளம் அல்ல.</strong></p>
+<p>அது, நீங்கள் பொறுப்புகளுடன் வாழும் ஒரு மனிதர் என்பதற்கான இயல்பான அறிகுறி.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>அடுத்த ஏழு நாட்களுக்கு,</p>
+<p>ஒவ்வொரு நாளும் உங்களுக்கு மனஅழுத்தம் ஏற்பட்ட ஒரு நிகழ்வைப் பதிவு செய்யுங்கள்.</p>
+<p>பின்னர் இந்த இரண்டு கேள்விகளுக்கு பதில் எழுதுங்கள்:</p>
+<ol>
+<li>உண்மையான காரணம் என்ன?  </li>
+<li>அதை நான் வேறு எந்த முறையில் சமாளித்திருக்க முடியும்?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>மனஅழுத்தம் என்பது உடலின் இயல்பான எதிர்வினை.  </li>
+<li>எல்லா மனஅழுத்தமும் தீமையானது அல்ல.  </li>
+<li>நீண்டகால மனஅழுத்தம் உடல், மனம் மற்றும் குடும்ப உறவுகளை பாதிக்கக்கூடும்.  </li>
+<li>மனஅழுத்தத்தை நிர்வகிப்பதற்கான முதல் படி அதன் உண்மையான காரணத்தைக் கண்டறிவதாகும்.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✓ மனஅழுத்தம் ஒரு இயல்பான மனித அனுபவம்.</p>
+<p>✓ நல்ல மனஅழுத்தம் நம்மை முன்னேற உதவும்.</p>
+<p>✓ நீண்டகால மனஅழுத்தத்தை கவனிக்காமல் விடக்கூடாது.</p>
+<p>✓ மனஅழுத்தத்தின் காரணத்தைத் தெளிவாக அறிந்தால், தீர்வைக் கண்டுபிடிப்பது எளிதாகும்.</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(1)" id="done-btn-1">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%201%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-1" onclick="prevModule(1)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-1" onclick="nextModule(1)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-2" data-mod="2">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 2 / 10</span>
+    <h1 class="module-title">மனஅழுத்தத்தின் அறிகுறிகளை அறிதல்</h1>
+    
+    <p class="module-subtitle">மனஅழுத்தம் அதிகரிக்கும் முன்பே, உடல், மனம் மற்றும் நடத்தையில் தோன்றும் அறிகுறிகளை அடையாளம் காண்போம்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>மனஅழுத்தத்தின் உடல் அறிகுறிகளை அடையாளம் காண்பீர்கள்.  </li>
+<li>மனநிலை மற்றும் நடத்தையில் ஏற்படும் மாற்றங்களைப் புரிந்துகொள்வீர்கள்.  </li>
+<li>ஆரம்ப நிலையிலேயே மனஅழுத்தத்தை கவனிப்பதன் முக்கியத்துவத்தை அறிந்துகொள்வீர்கள்.  </li>
+<li>மனஅழுத்தம் அதிகரிக்கும் முன்பே அதைக் கட்டுப்படுத்தும் திறனை வளர்த்துக்கொள்வீர்கள்.</li>
+</ul>
+
+</div><h1><strong>ஏன் மனஅழுத்தத்தின் அறிகுறிகளை அறிய வேண்டும்?</strong></h1>
+<p>நமது உடலும் மனமும், "எனக்கு ஓய்வு தேவை" என்று முன்கூட்டியே பல சிக்னல்களை வழங்குகின்றன.</p>
+<p>ஆனால் பெரும்பாலானவர்கள் அந்த அறிகுறிகளைப் புறக்கணிக்கிறார்கள்.</p>
+<blockquote>
+<p>"இது சாதாரண சோர்வுதான்..."</p>
+<p>"இன்னும் கொஞ்ச நாள் பொறுத்துக்கலாம்..."</p>
+<p>"எல்லாருக்கும் இப்படித்தான் இருக்கும்..."</p>
+</blockquote>
+<p>என்று நினைத்து அலட்சியப்படுத்துகிறார்கள்.</p>
+<p>ஆனால் சிறிய அறிகுறிகளை கவனிக்காமல் விட்டால், அவை நாளடைவில் பெரிய உடல் மற்றும் மனநலப் பிரச்சினைகளாக மாறலாம்.</p>
+<p>அதனால்தான் மனஅழுத்தத்தை ஆரம்பத்திலேயே கண்டறிவது மிகவும் முக்கியம்.</p>
+
+<h1><strong>மனஅழுத்தத்தின் உடல் அறிகுறிகள்</strong></h1>
+<p>பல நேரங்களில் மனஅழுத்தம் முதலில் நமது உடலில் வெளிப்படுகிறது.</p>
+<p>கீழே உள்ள அறிகுறிகளில் சில உங்களிடம் இருக்கிறதா என்று சிந்தித்துப் பாருங்கள்.</p>
+<h3><strong>பொதுவான உடல் அறிகுறிகள்</strong></h3>
+<ul>
+<li>கழுத்து மற்றும் தோள்பட்டையில் இறுக்கம்  </li>
+<li>அடிக்கடி தலைவலி  </li>
+<li>சரியாகத் தூங்க முடியாமை  </li>
+<li>அதிகமாக அல்லது மிகவும் குறைவாக சாப்பிடுதல்  </li>
+<li>ஓய்வெடுத்த பிறகும் சோர்வாக இருப்பது  </li>
+<li>காரணமின்றி இதயத் துடிப்பு அதிகரிப்பது  </li>
+<li>வயிற்றில் அசௌகரியம்  </li>
+<li>உடலில் எப்போதும் ஒரு பதற்ற உணர்வு</li>
+</ul>
+<p>இவை அனைத்தும் உங்கள் உடல்,</p>
+<blockquote>
+<p><strong>"எனக்கு ஓய்வும் கவனமும் தேவை."</strong></p>
+</blockquote>
+<p>என்று சொல்லும் எச்சரிக்கை அறிகுறிகளாகும்.</p>
+
+<h1><strong>மனநிலை மற்றும் உணர்ச்சி சார்ந்த அறிகுறிகள்</strong></h1>
+<p>மனஅழுத்தம் உடலை மட்டுமல்ல, நமது உணர்வுகளையும் பாதிக்கிறது.</p>
+<p>உதாரணமாக:</p>
+<ul>
+<li>அடிக்கடி கோபப்படுவது  </li>
+<li>சிறிய விஷயத்திற்கும் கவலைப்படுவது  </li>
+<li>பொறுமை குறைவது  </li>
+<li>எதிலும் ஆர்வம் இல்லாமல் இருப்பது  </li>
+<li>எப்போதும் மனச்சுமையாக உணர்வது  </li>
+<li>எளிதில் அழ வேண்டும் போல தோன்றுவது  </li>
+<li>எந்த வேலையிலும் முழு கவனம் செலுத்த முடியாத நிலை</li>
+</ul>
+<p>இத்தகைய மாற்றங்கள் நீண்ட நாட்கள் தொடர்ந்தால், அவற்றை கவனிக்க வேண்டியது அவசியம்.</p>
+
+<h1><strong>நடத்தையில் ஏற்படும் மாற்றங்கள்</strong></h1>
+<p>மனஅழுத்தம் நமது பழக்கவழக்கங்களையும் மாற்றத் தொடங்கும்.</p>
+<p>கீழே உள்ள நடத்தைகள் மனஅழுத்தத்தின் வெளிப்பாடாக இருக்கலாம்.</p>
+<ul>
+<li>குடும்பத்தினருடன் பேசுவதைத் தவிர்ப்பது  </li>
+<li>நண்பர்களிடம் இருந்து விலகி இருப்பது  </li>
+<li>உணவைத் தவிர்ப்பது  </li>
+<li>தேவையில்லாமல் நீண்ட நேரம் கைபேசியைப் பயன்படுத்துவது  </li>
+<li>குழந்தைகள் அல்லது வாழ்க்கைத்துணையிடம் எரிச்சலாகப் பேசுவது  </li>
+<li>சிறிய தவறுகளுக்குக் கூட அதிகமாகக் கோபப்படுவது</li>
+</ul>
+<p>இவை "நான் மோசமான மனிதர்" என்பதற்கான அறிகுறிகள் அல்ல.</p>
+<p>இவை,</p>
+<blockquote>
+<p><strong>"நான் மனஅழுத்தத்தில் இருக்கிறேன். எனக்கு உதவி தேவை."</strong></p>
+</blockquote>
+<p>என்று உடலும் மனமும் தெரிவிக்கும் அறிகுறிகளாகும்.</p>
+
+<h1><strong>ஏன் ஆரம்பத்திலேயே கவனிக்க வேண்டும்?</strong></h1>
+<p>மனஅழுத்தத்தை ஆரம்பத்திலேயே கவனித்தால்,</p>
+<p>சிறிய மாற்றங்களே போதுமானதாக இருக்கும்.</p>
+<p>உதாரணமாக:</p>
+<ul>
+<li>சிறிது நேரம் நடைப்பயிற்சி  </li>
+<li>ஒரு நல்ல இரவு தூக்கம்  </li>
+<li>நெருங்கிய ஒருவருடன் மனம் விட்டுப் பேசுதல்  </li>
+<li>சில நிமிட மூச்சுப்பயிற்சி</li>
+</ul>
+<p>இவை மனஅழுத்தத்தை குறைக்க உதவும்.</p>
+<p>ஆனால் பல மாதங்கள் அதை கவனிக்காமல் விட்டால்,</p>
+<ul>
+<li>மனச்சோர்வு (Burnout)  </li>
+<li>உடல்நலப் பிரச்சினைகள்  </li>
+<li>குடும்ப உறவுகளில் விரிசல்</li>
+</ul>
+<p>போன்ற பெரிய சிக்கல்கள் உருவாகலாம்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>ராஜேஷ்</strong>, 15 வயது மகனின் தந்தை.</p>
+<p>ஒரு மாதத்திற்கும் மேலாக அவருக்கு அடிக்கடி தலைவலி ஏற்பட்டது.</p>
+<p>சிறிய விஷயங்களுக்குக் கூட கோபப்பட ஆரம்பித்தார்.</p>
+<p>முதலில்,</p>
+<blockquote>
+<p>"வேலை அதிகம்தான்..."</p>
+</blockquote>
+<p>என்று நினைத்தார்.</p>
+<p>பின்னர் தினசரி தனது உடல் மற்றும் மனநிலையை பதிவு செய்யத் தொடங்கினார்.</p>
+<p>அப்போது, அலுவலகத்தில் வரவிருந்த முக்கிய திட்டத்தின் காலக்கெடுவே தனது மனஅழுத்தத்திற்குக் காரணம் என்பதை உணர்ந்தார்.</p>
+<p>அதைப் பற்றி மேலாளரிடம் பேசி ஒரு நாள் விடுப்பு பெற்றார்.</p>
+<p>அந்த சிறிய முடிவே அவரது மனஅழுத்தத்தை பெரிதாக அதிகரிக்காமல் தடுத்தது.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>மனஅழுத்தத்தை முன்கூட்டியே கவனித்தால், சிறிய தீர்வுகளே பெரிய மாற்றத்தை ஏற்படுத்தும்.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1. தினசரி உடல் பரிசோதனை</strong></h3>
+<p>ஒவ்வொரு மாலையும் உங்களிடம் கேளுங்கள்.</p>
+<ul>
+<li>என் தோள்பட்டை இறுக்கமாக இருக்கிறதா?  </li>
+<li>தாடை இறுக்கமாக இருக்கிறதா?  </li>
+<li>வயிற்றில் பதற்றம் இருக்கிறதா?  </li>
+<li>என் உடல் ஓய்வாக இருக்கிறதா?</li>
+</ul>
+
+<h3><strong>2. இரண்டு வார விதி</strong></h3>
+<p>ஒரே உடல் அறிகுறி இரண்டு வாரங்களுக்கும் மேலாக தொடர்ந்து இருந்தால்,</p>
+<p>அதை சாதாரணமாக எடுத்துக்கொள்ள வேண்டாம்.</p>
+<p>அது உங்கள் உடல் கொடுக்கும் எச்சரிக்கையாக இருக்கலாம்.</p>
+
+<h3><strong>3. பகிர்ந்து பேசுங்கள்</strong></h3>
+<p>உங்கள் வாழ்க்கைத்துணை, நண்பர் அல்லது நம்பிக்கைக்குரிய ஒருவரிடம்,</p>
+<blockquote>
+<p>"சமீபமாக நான் அதிக மனஅழுத்தமாக உணர்கிறேன்."</p>
+</blockquote>
+<p>என்று பகிர்ந்து பேசுங்கள்.</p>
+<p>பல நேரங்களில், பிரச்சினையைப் பகிர்வதே தீர்வின் முதல் படியாக இருக்கும்.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>அடுத்த ஏழு நாட்களுக்கு,</p>
+<p>ஒவ்வொரு நாளும் கீழே உள்ள அட்டவணையை நிரப்புங்கள்.</p>
+<table>
+<thead>
+<tr>
+<th>தேதி</th>
+<th>உடல் அறிகுறி</th>
+<th>மனநிலை</th>
+<th>என்ன காரணம்?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>கீழே உள்ள கேள்விகளுக்கு உங்கள் குறிப்பேட்டில் பதில் எழுதுங்கள்.</p>
+<ol>
+<li>எனக்கு மனஅழுத்தம் அதிகரிக்கும்போது முதலில் என்ன மாற்றம் ஏற்படுகிறது?  </li>
+<li>அது உடலிலா? மனதிலா? நடத்தையிலா?  </li>
+<li>அந்த அறிகுறியை நான் இதுவரை கவனித்திருக்கிறேனா?  </li>
+<li>இனிமேல் அதை முன்கூட்டியே கவனிக்க என்ன செய்வேன்?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>மனஅழுத்தம் முதலில் உடல், மனம் மற்றும் நடத்தையில் அறிகுறிகளாக வெளிப்படும்.  </li>
+<li>ஆரம்ப நிலையில் கவனித்தால் மனஅழுத்தத்தை எளிதாகக் கட்டுப்படுத்தலாம்.  </li>
+<li>அறிகுறிகளைப் புறக்கணிப்பது, நீண்டகால உடல் மற்றும் மனநலப் பிரச்சினைகளுக்கு வழிவகுக்கும்.  </li>
+<li>மனஅழுத்தத்தைப் பகிர்ந்து பேசுவதும், உதவி கேட்பதும் ஒரு பலவீனம் அல்ல; அது ஒரு புத்திசாலித்தனமான முடிவு.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ உங்கள் உடல் தரும் எச்சரிக்கை அறிகுறிகளை மதியுங்கள்.</p>
+<p>✅ மனஅழுத்தத்தை ஆரம்பத்திலேயே கவனித்தால், பெரிய பிரச்சினைகளைத் தவிர்க்கலாம்.</p>
+<p>✅ உதவி கேட்பது பலவீனம் அல்ல; அது மனவலிமையின் அடையாளம்.</p>
+<p>✅ தினசரி சுயகவனிப்பு (Self-awareness) மனஅழுத்த மேலாண்மையின் முதல் படியாகும்</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(2)" id="done-btn-2">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%202%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-2" onclick="prevModule(2)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-2" onclick="nextModule(2)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-3" data-mod="3">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 3 / 10</span>
+    <h1 class="module-title">பெற்றோரின் மனஅழுத்தம் குழந்தைகளை எவ்வாறு பாதிக்கிறது?</h1>
+    
+    <p class="module-subtitle">பெற்றோரின் உணர்வுகளும் மனநிலையும், குழந்தைகளின் மனநலம் மற்றும் நடத்தையில் ஏற்படுத்தும் தாக்கத்தைப் புரிந்துகொள்வோம்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>பெற்றோரின் மனஅழுத்தம் குழந்தைகளை எவ்வாறு பாதிக்கிறது என்பதைப் புரிந்துகொள்வீர்கள்.  </li>
+<li>குழந்தைகள் பெற்றோரின் உணர்வுகளை எவ்வாறு கவனிக்கிறார்கள் என்பதை அறிந்துகொள்வீர்கள்.  </li>
+<li>உங்கள் நடத்தை குழந்தைகளுக்கு ஒரு முன்மாதிரியாக இருப்பதை உணர்வீர்கள்.  </li>
+<li>மனஅழுத்தமான சூழ்நிலைகளிலும் குழந்தைகளுக்கு பாதுகாப்பான மற்றும் அமைதியான சூழலை உருவாக்கும் வழிகளை கற்றுக்கொள்வீர்கள்.</li>
+</ul>
+
+</div><h1><strong>குழந்தைகள் நாம் சொல்வதை விட, நாம் வாழ்வதையே அதிகமாகக் கற்றுக்கொள்கிறார்கள்</strong></h1>
+<p>பல பெற்றோர்கள்,</p>
+<blockquote>
+<p><strong>"நான் குழந்தைக்காக எல்லாவற்றையும் செய்கிறேன்."</strong></p>
+</blockquote>
+<p>என்று கூறுவார்கள்.</p>
+<p>ஆனால் குழந்தைகள், நாம் கூறும் அறிவுரைகளை விட, நாம் எப்படி நடந்து கொள்கிறோம் என்பதையே அதிகமாகக் கவனிக்கிறார்கள்.</p>
+<p>நாம் அமைதியாக இருக்கும்போது...</p>
+<p>அவர்களும் பாதுகாப்பாக உணர்கிறார்கள்.</p>
+<p>நாம் பதட்டமாகவும் கோபமாகவும் இருக்கும்போது...</p>
+<p>அந்த உணர்வுகளும் குழந்தைகளிடம் பரவுகின்றன.</p>
+
+<h1><strong>உணர்வுகள் எவ்வாறு பரவுகின்றன?</strong></h1>
+<p>உளவியலில் இதை <strong>"Emotional Contagion" (உணர்வுகளின் பரவல்)</strong> என்று அழைக்கிறார்கள்.</p>
+<p>அதாவது,</p>
+<p>ஒருவரின் உணர்வுகள், அருகில் இருப்பவர்களையும் பாதிக்கும்.</p>
+<p>குறிப்பாக,</p>
+<p>சிறிய குழந்தைகள் பெற்றோரின் முகபாவனை, குரல், உடல்மொழி ஆகியவற்றை மிகவும் கூர்மையாக கவனிப்பார்கள்.</p>
+<p>அதனால்,</p>
+<p>பெற்றோர் எப்போதும் பதற்றமாக இருந்தால்,</p>
+<p>குழந்தையும் காரணம் புரியாமலேயே அமைதியற்றவனாக அல்லது அமைதியற்றவளாக மாறலாம்.</p>
+
+<h1><strong>வீட்டின் சூழல் குழந்தையின் மனநிலையை உருவாக்குகிறது</strong></h1>
+<p>ஒரு வீட்டில்,</p>
+<ul>
+<li>அடிக்கடி சண்டை  </li>
+<li>அதிக கோபம்  </li>
+<li>பதற்றமான பேச்சு  </li>
+<li>அவசரமான சூழல்</li>
+</ul>
+<p>இருந்தால்,</p>
+<p>அந்த வீட்டில் வளரக்கூடிய குழந்தை,</p>
+<p>எப்போதும் எச்சரிக்கையாக வாழக் கற்றுக்கொள்ளலாம்.</p>
+<p>மாறாக,</p>
+<p>அமைதி,</p>
+<p>அன்பு,</p>
+<p>பொறுமை,</p>
+<p>புரிதல்</p>
+<p>இருக்கும் வீட்டில்,</p>
+<p>குழந்தை தன்னம்பிக்கையுடனும் பாதுகாப்பு உணர்வுடனும் வளர வாய்ப்பு அதிகம்.</p>
+
+<h1><strong>குழந்தைகள் நம்மைப் பார்த்தே உணர்ச்சிகளை கற்றுக்கொள்கிறார்கள்</strong></h1>
+<p>குழந்தைகள்,</p>
+<p>கோபத்தை எப்படி சமாளிப்பது?</p>
+<p>ஏமாற்றத்தை எப்படி ஏற்றுக்கொள்வது?</p>
+<p>மனஅழுத்தத்தில் எப்படி அமைதியாக இருப்பது?</p>
+<p>என்பதை புத்தகங்களில் இருந்து அல்ல,</p>
+<p><strong>பெற்றோர்களைப் பார்த்தே கற்றுக்கொள்கிறார்கள்.</strong></p>
+<p>உதாரணமாக,</p>
+<p>ஒரு பெற்றோர் கோபம் வந்தவுடன்,</p>
+<p>ஒரு ஆழ்ந்த மூச்சை எடுத்து அமைதியாகப் பேசினால்,</p>
+<p>குழந்தை,</p>
+<blockquote>
+<p>"கோபம் வந்தாலும் அமைதியாக இருக்கலாம்."</p>
+</blockquote>
+<p>என்பதை கற்றுக்கொள்கிறது.</p>
+<p>ஆனால்,</p>
+<p>ஒவ்வொரு மனஅழுத்தமான சூழலிலும் பெற்றோர் கத்தினால்,</p>
+<p>குழந்தை,</p>
+<blockquote>
+<p>"பிரச்சினைக்கு கோபம்தான் தீர்வு."</p>
+</blockquote>
+<p>என்று கற்றுக்கொள்ளும் வாய்ப்பு உள்ளது.</p>
+
+<h1><strong>நீண்டகால மனஅழுத்தத்தின் தாக்கம்</strong></h1>
+<p>பெற்றோரின் மனஅழுத்தம் நீண்ட நாட்கள் தொடர்ந்தால்,</p>
+<p>குழந்தைகளிடம் பின்வரும் மாற்றங்கள் காணப்படலாம்.</p>
+<h3><strong>உணர்ச்சி சார்ந்த மாற்றங்கள்</strong></h3>
+<ul>
+<li>அதிக கவலை  </li>
+<li>அடிக்கடி பயப்படுதல்  </li>
+<li>எளிதில் அழுதல்  </li>
+<li>பாதுகாப்பற்ற உணர்வு</li>
+</ul>
+<h3><strong>உடல் சார்ந்த மாற்றங்கள்</strong></h3>
+<ul>
+<li>தூக்கமின்மை  </li>
+<li>உணவில் மாற்றம்  </li>
+<li>வயிற்றுவலி அல்லது தலைவலி</li>
+</ul>
+<h3><strong>நடத்தை சார்ந்த மாற்றங்கள்</strong></h3>
+<ul>
+<li>அடிக்கடி கோபப்படுதல்  </li>
+<li>பள்ளியில் கவனம் குறைதல்  </li>
+<li>நகம் கடித்தல்  </li>
+<li>தனியாக இருப்பதை விரும்புதல்</li>
+</ul>
+<p>இதன் பொருள்,</p>
+<p>ஒவ்வொரு குழந்தையும் இப்படித்தான் மாறும் என்பதல்ல.</p>
+<p>ஆனால்,</p>
+<p>பெற்றோரின் மனஅழுத்தம் நீண்ட காலம் தொடர்ந்தால்,</p>
+<p>அதன் தாக்கம் குழந்தைகளிடமும் பிரதிபலிக்கலாம்.</p>
+
+<h1><strong>குற்ற உணர்வு தேவையில்லை</strong></h1>
+<p>இந்தப் பாடத்தைப் படிக்கும்போது,</p>
+<blockquote>
+<p>"நான் நல்ல பெற்றோர் இல்லையோ?"</p>
+</blockquote>
+<p>என்று நினைக்க வேண்டாம்.</p>
+<p>எந்த பெற்றோரும்,</p>
+<p>எப்போதும் அமைதியாக இருக்க முடியாது.</p>
+<p>சில நேரங்களில் மனஅழுத்தம்,</p>
+<p>கோபம்,</p>
+<p>சோர்வு,</p>
+<p>எல்லோருக்கும் ஏற்படும்.</p>
+<p>முக்கியமானது,</p>
+<p>அந்த நிலையை உணர்ந்து,</p>
+<p>அதை ஆரோக்கியமான முறையில் கையாள முயற்சிப்பதே.</p>
+<p><strong>நிறைவான (Perfect) பெற்றோராக இருப்பது இலக்கு அல்ல.</strong></p>
+<p><strong>தொடர்ந்து கற்றுக்கொண்டு வளரக்கூடிய பெற்றோராக இருப்பதே இலக்கு.</strong></p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>மீனா</strong>, எட்டு வயது மகனின் தாய்.</p>
+<p>வேலைப்பளு அதிகமாக இருந்த ஒரு காலத்தில்,</p>
+<p>அவரது மகன் அடிக்கடி நகம் கடிக்கத் தொடங்கினான்.</p>
+<p>மேலும்,</p>
+<blockquote>
+<p>"அம்மா... நீங்கள் என்னிடம் கோபமாக இருக்கிறீர்களா?"</p>
+</blockquote>
+<p>என்று அடிக்கடி கேட்க ஆரம்பித்தான்.</p>
+<p>மீனா,</p>
+<p>தனது மனஅழுத்தத்தை மறைப்பதற்குப் பதிலாக,</p>
+<p>அமைதியாக,</p>
+<blockquote>
+<p>"இன்று அம்மாவுக்கு வேலை அதிகமாக இருந்தது. ஐந்து நிமிடம் ஓய்வெடுக்கிறேன். அதன் பிறகு நாமிருவரும் பேசலாம்."</p>
+</blockquote>
+<p>என்று சொல்லத் தொடங்கினார்.</p>
+<p>சில வாரங்களிலேயே,</p>
+<p>மகனின் கவலை குறைந்தது.</p>
+<p>ஏனெனில்,</p>
+<p>அவன்,</p>
+<p>மனஅழுத்தத்தை மறைக்க வேண்டியதில்லை,</p>
+<p>அதைப் பற்றி அமைதியாகப் பேசலாம் என்பதைக் கற்றுக்கொண்டான்.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>குழந்தைகள் நமது மனஅழுத்தத்தை உணர்வார்கள்.</p>
+<p>அதை மறைப்பதை விட,</p>
+<p>அவர்களுக்கு ஏற்ற எளிய மொழியில் விளக்குவது அவர்களுக்கு பாதுகாப்பு உணர்வை அளிக்கும்.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1. உங்கள் உணர்வுகளை எளிமையாகப் பகிருங்கள்</strong></h3>
+<p>உதாரணமாக,</p>
+<blockquote>
+<p>"இன்று அம்மாவுக்கு கொஞ்சம் சோர்வாக இருக்கிறது."</p>
+<p>"அப்பாவுக்கு இன்று வேலை அதிகமாக இருந்தது."</p>
+</blockquote>
+<p>என்று சொல்லலாம்.</p>
+
+<h3><strong>2. பதிலளிக்கும் முன் ஒரு இடைவெளி எடுத்துக்கொள்ளுங்கள்</strong></h3>
+<p>குழந்தை தவறு செய்தாலும்,</p>
+<p>உடனே கோபப்படாமல்,</p>
+<p>ஒரு ஆழ்ந்த மூச்சை எடுத்துவிட்டு பேசுங்கள்.</p>
+<p>அந்த சில வினாடிகள்,</p>
+<p>முழு உரையாடலின் தரத்தை மாற்றிவிடும்.</p>
+
+<h3><strong>3. தவறு நடந்தால் மன்னிப்பு கேளுங்கள்</strong></h3>
+<p>நீங்கள் கோபமாகப் பேசியிருந்தால்,</p>
+<blockquote>
+<p>"நான் மனஅழுத்தத்தில் இருந்தேன். உன்னிடம் அப்படி பேசக்கூடாது. மன்னித்துவிடு."</p>
+</blockquote>
+<p>என்று கூறுங்கள்.</p>
+<p>இது உங்கள் மதிப்பைக் குறைக்காது.</p>
+<p>மாறாக,</p>
+<p>பொறுப்பை ஏற்றுக்கொள்வது எப்படி என்பதை குழந்தைக்குக் கற்றுக்கொடுக்கும்.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>இந்த வாரம்,</p>
+<p>குழந்தையுடன் நடந்த ஒரு உரையாடலை நினைவில் கொள்ளுங்கள்.</p>
+<p>அப்போது,</p>
+<ul>
+<li>நான் எப்படி பேசினேன்?  </li>
+<li>என் குரல் எப்படி இருந்தது?  </li>
+<li>என் மனநிலை என்ன?  </li>
+<li>என் குழந்தை எப்படி பதிலளித்தது?</li>
+</ul>
+<p>என்று எழுதிப் பாருங்கள்.</p>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>கீழ்க்கண்ட கேள்விகளுக்கு பதில் எழுதுங்கள்.</p>
+<ol>
+<li>என் மனஅழுத்தம் என் குழந்தையின் நடத்தையை எப்போதாவது பாதித்திருக்கிறதா?  </li>
+<li>நான் கோபப்படும் போது என் குழந்தை எப்படி நடந்து கொள்கிறது?  </li>
+<li>இனிமேல் மனஅழுத்தமான சூழலில் நான் எந்த ஒரு புதிய பழக்கத்தைப் பின்பற்றப் போகிறேன்?  </li>
+<li>என் குழந்தைக்கு பாதுகாப்பான உணர்வை அளிக்க இன்று முதல் நான் என்ன மாற்றம் செய்யலாம்?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>குழந்தைகள் பெற்றோரின் உணர்வுகளை மிகவும் நுட்பமாக உணர்கிறார்கள்.  </li>
+<li>பெற்றோரின் நடத்தை குழந்தைகளுக்கு மிகப்பெரிய கற்றல் அனுபவமாகிறது.  </li>
+<li>நீண்டகால மனஅழுத்தம் குழந்தைகளின் உணர்ச்சி, உடல்நலம் மற்றும் நடத்தையில் தாக்கத்தை ஏற்படுத்தலாம்.  </li>
+<li>நிறைவான பெற்றோராக இருப்பதை விட, தவறுகளை உணர்ந்து திருத்திக்கொள்ளும் பெற்றோராக இருப்பதே முக்கியம்.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ குழந்தைகள் உங்கள் வார்த்தைகளை விட உங்கள் நடத்தையிலிருந்து அதிகம் கற்றுக்கொள்கிறார்கள்.</p>
+<p>✅ உங்கள் அமைதி, உங்கள் குழந்தைக்கு பாதுகாப்பு உணர்வை அளிக்கிறது.</p>
+<p>✅ மனஅழுத்தத்தை மறைப்பதை விட, வயதிற்கு ஏற்ற எளிய மொழியில் பகிர்ந்து பேசுங்கள்.</p>
+<p>✅ தவறு செய்தால் மன்னிப்பு கேட்பது, குழந்தைக்கு வாழ்க்கையின் முக்கியமான மதிப்புகளை கற்றுக்கொடுக்கும்.</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(3)" id="done-btn-3">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%203%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-3" onclick="prevModule(3)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-3" onclick="nextModule(3)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-4" data-mod="4">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 4 / 10</span>
+    <h1 class="module-title">சிந்தனையை மாற்றும் நுட்பங்கள்</h1>
+    <p class="module-eng">(Cognitive Reframing Techniques)</p>
+    <p class="module-subtitle">சூழ்நிலையை மாற்ற முடியாவிட்டாலும், அதைப் பற்றிய நமது சிந்தனையை மாற்றுவதன் மூலம் மனஅழுத்தத்தைக் குறைக்கலாம்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>மனஅழுத்தத்தை அதிகரிக்கும் எதிர்மறை சிந்தனை முறைகளை அடையாளம் காண்பீர்கள்.  </li>
+<li><strong>ABC Model</strong> என்ற எளிய உளவியல் முறையைப் பயன்படுத்தக் கற்றுக்கொள்வீர்கள்.  </li>
+<li>சமநிலையான சிந்தனை (Balanced Thinking) என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.  </li>
+<li>தேவையற்ற கவலைகளையும், தன்னைத்தானே குறை கூறும் பழக்கத்தையும் குறைக்கத் தொடங்குவீர்கள்.</li>
+</ul>
+
+</div><h1><strong>மனஅழுத்தம் எப்போதும் நிகழ்வால் மட்டும் வருவதில்லை</strong></h1>
+<p>பல நேரங்களில் நாம் நினைப்பது,</p>
+<blockquote>
+<p><strong>"இந்த நிகழ்வுதான் எனக்கு மனஅழுத்தத்தை ஏற்படுத்தியது."</strong></p>
+</blockquote>
+<p>ஆனால் உண்மையில்,</p>
+<p>நிகழ்வை விட, அந்த நிகழ்வைப் பற்றி நாம் எப்படி சிந்திக்கிறோம் என்பதுதான் மனஅழுத்தத்தை அதிகப்படுத்துகிறது.</p>
+<p><strong>உதாரணம்:</strong></p>
+<p><strong>நிகழ்வு:</strong><br/>
+ குழந்தைக்கு தேர்வில் குறைந்த மதிப்பெண் வந்தது.</p>
+<p><strong>சில பெற்றோரின் சிந்தனை:</strong></p>
+<blockquote>
+<p>"நான் ஒரு நல்ல பெற்றோர் இல்லை."</p>
+<p>"என் குழந்தையின் எதிர்காலம் கெட்டுவிட்டது."</p>
+<p>"இனி அவன் வாழ்க்கையில் முன்னேற முடியாது."</p>
+</blockquote>
+<p>இந்த சிந்தனைகள்தான் மனஅழுத்தத்தை மேலும் அதிகரிக்கின்றன.</p>
+
+<h1><strong>நிகழ்வு மற்றும் சிந்தனை – இரண்டையும் பிரித்துப் பாருங்கள்</strong></h1>
+<p>ஒரு நிகழ்வு என்பது ஒரு உண்மை.</p>
+<p>அதைப் பற்றிய நமது விளக்கம் என்பது ஒரு சிந்தனை.</p>
+<p>இரண்டிற்கும் வித்தியாசம் உள்ளது.</p>
+<table>
+<thead>
+<tr>
+<th>உண்மை</th>
+<th>சிந்தனை</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>குழந்தைக்கு குறைந்த மதிப்பெண் வந்தது.</td>
+<td>நான் ஒரு தோல்வியடைந்த பெற்றோர்.</td>
+</tr>
+<tr>
+<td>குழந்தை வீட்டுப்பாடத்தை மறந்துவிட்டது.</td>
+<td>அவன் ஒருபோதும் பொறுப்பாக இருக்க மாட்டான்.</td>
+</tr>
+<tr>
+<td>இன்று குழந்தை கோபமாக இருந்தது.</td>
+<td>அவன் என்னை மதிக்கவே மாட்டான்.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>உண்மையை மாற்ற முடியாமல் இருக்கலாம்.</strong></p>
+<p>ஆனால்,</p>
+<p>அதைப் பற்றிய நமது சிந்தனையை மாற்ற முடியும்.</p>
+
+<h1><strong>எதிர்மறை சிந்தனை முறைகள்</strong></h1>
+<p>மனஅழுத்தத்தில் இருக்கும் போது,</p>
+<p>நமது மூளை சில பொதுவான தவறான சிந்தனை முறைகளில் சிக்கிக்கொள்ளும்.</p>
+<h3><strong>1. "எப்போதும்..." (Always)</strong></h3>
+<blockquote>
+<p>"என் குழந்தை எப்போதும் கேட்கவே மாட்டான்."</p>
+</blockquote>
+
+<h3><strong>2. "ஒருபோதும்..." (Never)</strong></h3>
+<blockquote>
+<p>"அவள் ஒருபோதும் பொறுப்பாக இருக்க மாட்டாள்."</p>
+</blockquote>
+
+<h3><strong>3. "நான் தோல்வியடைந்தேன்."</strong></h3>
+<blockquote>
+<p>"நான் நல்ல அம்மா இல்லை."</p>
+<p>"நான் நல்ல அப்பா இல்லை."</p>
+</blockquote>
+
+<h3><strong>4. மிகைப்படுத்திப் பார்ப்பது</strong></h3>
+<p>ஒரு சிறிய பிரச்சினையை,</p>
+<p>மிகப் பெரிய பிரச்சினையாக நினைத்துக்கொள்வது.</p>
+<p><strong>உதாரணம்:</strong></p>
+<p>ஒரு தேர்வில் குறைந்த மதிப்பெண்.</p>
+<p>↓</p>
+<p>"என் குழந்தையின் எதிர்காலம் முடிந்துவிட்டது."</p>
+
+<h1><strong>ABC Model</strong></h1>
+<p>மனஅழுத்தத்தைப் புரிந்துகொள்ள மிகவும் எளிமையான ஒரு உளவியல் கருவி இது.</p>
+<h2><strong>A – Activating Event</strong></h2>
+<p><strong>(என்ன நடந்தது?)</strong></p>
+<p>உதாரணம்:</p>
+<p>குழந்தை வீட்டுப்பாடத்தைச் செய்யவில்லை.</p>
+
+<h2><strong>B – Belief</strong></h2>
+<p><strong>(அதைப் பற்றி நான் என்ன நினைத்தேன்?)</strong></p>
+<blockquote>
+<p>"அவன் பொறுப்பற்றவன்."</p>
+<p>"நான் சரியாக வளர்க்கவில்லை."</p>
+</blockquote>
+
+<h2><strong>C – Consequence</strong></h2>
+<p><strong>(அதன் விளைவு என்ன?)</strong></p>
+<ul>
+<li>கோபம்  </li>
+<li>மனஅழுத்தம்  </li>
+<li>கத்திப் பேசுதல்  </li>
+<li>உறவில் விரிசல்</li>
+</ul>
+
+<p>பல பெற்றோர்கள்,</p>
+<p><strong>A → C</strong></p>
+<p>என்று நேரடியாகச் செல்கிறார்கள்.</p>
+<p>ஆனால் உண்மையில்,</p>
+<p><strong>A → B → C</strong></p>
+<p>என்பதே சரியான புரிதல்.</p>
+<p>நிகழ்வுக்கும் (A),</p>
+<p>நமது உணர்வுக்கும் (C),</p>
+<p>நடுவில் இருக்கும் <strong>சிந்தனையே (B)</strong> அனைத்தையும் தீர்மானிக்கிறது.</p>
+
+<h1><strong>சமநிலையான சிந்தனை (Balanced Thinking)</strong></h1>
+<p>சமநிலையான சிந்தனை என்பது,</p>
+<p>எல்லாவற்றையும் நல்லதாகவே பார்க்க வேண்டும் என்பதல்ல.</p>
+<p>மாறாக,</p>
+<p>உண்மையை ஏற்றுக்கொண்டு,</p>
+<p>அதை மிகைப்படுத்தாமல் பார்ப்பதுதான்.</p>
+<p><strong>உதாரணம்</strong></p>
+<p>❌</p>
+<blockquote>
+<p>"நான் ஒரு மோசமான பெற்றோர்."</p>
+</blockquote>
+<p>✅</p>
+<blockquote>
+<p>"இந்த வாரம் சவாலாக இருந்தது. ஒரு நிகழ்வு மட்டும் என்னுடைய பெற்றோர் திறனை முடிவு செய்யாது."</p>
+</blockquote>
+
+<p>❌</p>
+<blockquote>
+<p>"என் குழந்தை படிக்கவே மாட்டான்."</p>
+</blockquote>
+<p>✅</p>
+<blockquote>
+<p>"இந்த வாரம் அவனுக்கு கவனம் குறைவாக இருந்தது. காரணத்தைப் புரிந்துகொண்டு உதவலாம்."</p>
+</blockquote>
+
+<h1><strong>உங்கள் சிந்தனையை மாற்றும் 3 கேள்விகள்</strong></h1>
+<p>மனஅழுத்தம் அதிகரிக்கும் போது,</p>
+<p>உங்களிடம் நீங்களே கேளுங்கள்.</p>
+<h3><strong>1.</strong></h3>
+<p><strong>நான் இப்போது நினைப்பது உண்மையா?</strong></p>
+<p>அல்லது,</p>
+<p>என் பயமா?</p>
+
+<h3><strong>2.</strong></h3>
+<p><strong>இதே சூழ்நிலையில் என் நண்பர் இருந்தால், அவரிடம் நான் என்ன சொல்வேன்?</strong></p>
+<p>நம்மிடம் நாம் மிகவும் கடுமையாக நடந்து கொள்கிறோம்.</p>
+<p>ஆனால்,</p>
+<p>நண்பர்களிடம் கருணையுடன் பேசுகிறோம்.</p>
+<p>அதே கருணையை நமக்கும் கொடுங்கள்.</p>
+
+<h3><strong>3.</strong></h3>
+<p><strong>இந்தச் சூழ்நிலையை வேறு எந்த கோணத்தில் பார்க்கலாம்?</strong></p>
+<p>ஒரு பிரச்சினை,</p>
+<p>ஒரு கற்றல் வாய்ப்பாகவும் இருக்கலாம்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>சுரேஷ்</strong> அவர்களின் மகள்,</p>
+<p>ஒரே வாரத்தில் இரண்டு முறை வீட்டுப்பாடத்தை மறந்துவிட்டாள்.</p>
+<p>முதலில் அவர் நினைத்தது,</p>
+<blockquote>
+<p>"அவள் எதையும் பொறுப்பாக எடுத்துக்கொள்ள மாட்டாள்."</p>
+<p>"நான் அவளுக்கு சரியாகக் கற்றுக்கொடுக்கவில்லை."</p>
+</blockquote>
+<p>பின்னர் அவர் ABC Model-ஐ பயன்படுத்தினார்.</p>
+<h3><strong>A</strong></h3>
+<p>வீட்டுப்பாடம் இரண்டு முறை மறந்தது.</p>
+<h3><strong>B</strong></h3>
+<p>"அவள் பொறுப்பற்றவள்."</p>
+<h3><strong>C</strong></h3>
+<p>கோபமாகப் பேசினார்.</p>
+<p>பிறகு அவர் தனது சிந்தனையை மாற்றினார்.</p>
+<blockquote>
+<p>"இந்த வாரம் இரண்டு முறை மறந்திருக்கிறாள். அவளுக்கு ஒரு நினைவூட்டும் பழக்கம் உருவாக்க உதவலாம்."</p>
+</blockquote>
+<p>அந்த ஒரு மாற்றம்,</p>
+<p>கோபத்தை குறைத்து,</p>
+<p>பயனுள்ள உரையாடலுக்கு வழிவகுத்தது.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>சிந்தனை மாறினால்,</p>
+<p>உணர்வும் மாறும்.</p>
+<p>உணர்வு மாறினால்,</p>
+<p>நமது நடத்தையும் மாறும்.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1.</strong></h3>
+<p>"எப்போதும்"</p>
+<p>"ஒருபோதும்"</p>
+<p>"நான் தோல்வியடைந்தேன்"</p>
+<p>போன்ற வார்த்தைகள் உங்கள் சிந்தனையில் வருகிறதா என்பதை கவனியுங்கள்.</p>
+
+<h3><strong>2.</strong></h3>
+<p>இந்த வாரம் உங்களுக்கு மனஅழுத்தம் தந்த ஒரு நிகழ்வை எடுத்துக்கொண்டு,</p>
+<p>ABC Model-ஐ எழுதிப் பாருங்கள்.</p>
+
+<h3><strong>3.</strong></h3>
+<p>தன்னிடம் பேசும் மொழியை மாற்றுங்கள்.</p>
+<p><strong>கடுமையான விமர்சகராக அல்ல...</strong></p>
+<p><strong>கருணையுள்ள நண்பராக...</strong></p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>கீழே உள்ள அட்டவணையை நிரப்புங்கள்.</p>
+<table>
+<thead>
+<tr>
+<th>நிகழ்வு</th>
+<th>நான் நினைத்தது</th>
+<th>உண்மை என்ன?</th>
+<th>புதிய சமநிலை சிந்தனை</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>கீழ்க்கண்ட கேள்விகளுக்கு பதில் எழுதுங்கள்.</p>
+<ol>
+<li>இந்த வாரம் என்னை அதிகமாக மனஅழுத்தப்படுத்திய சிந்தனை என்ன?  </li>
+<li>அது உண்மையா?  </li>
+<li>அதற்கு ஆதாரம் என்ன?  </li>
+<li>அதற்கு எதிரான ஆதாரம் என்ன?  </li>
+<li>அதை நான் இன்னும் சமநிலையாக எப்படி பார்க்க முடியும்?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>மனஅழுத்தம் பெரும்பாலும் நிகழ்வால் அல்ல; அதைப் பற்றிய நமது சிந்தனையால் அதிகரிக்கிறது.  </li>
+<li>எதிர்மறை சிந்தனை முறைகளை அடையாளம் காண முடியும்.  </li>
+<li><strong>ABC Model</strong> மனஅழுத்தத்தைப் புரிந்துகொள்ள உதவும் ஒரு எளிய கருவி.  </li>
+<li>சமநிலையான சிந்தனை மனஅழுத்தத்தைக் குறைத்து, அமைதியான முடிவுகளை எடுக்க உதவுகிறது.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ நிகழ்வுகளை விட, அவற்றைப் பற்றிய உங்கள் சிந்தனையே உங்கள் உணர்வுகளை அதிகம் பாதிக்கிறது.</p>
+<p>✅ "எப்போதும்", "ஒருபோதும்", "நான் தோல்வியடைந்தேன்" போன்ற வார்த்தைகள் வந்தால், உங்கள் சிந்தனையை மறுபரிசீலனை செய்யுங்கள்.</p>
+<p>✅ ABC Model-ஐப் பயன்படுத்தி உங்கள் சிந்தனையை ஆராயுங்கள்.</p>
+<p>✅ உங்களை நீங்கள் விமர்சிப்பதை விட, ஊக்கப்படுத்தும் மொழியில் உங்களிடம் பேச கற்றுக்கொள்ளுங்கள்.</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(4)" id="done-btn-4">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%204%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-4" onclick="prevModule(4)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-4" onclick="nextModule(4)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-5" data-mod="5">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 5 / 10</span>
+    <h1 class="module-title">தளர்வு மற்றும் மனவிழிப்புணர்வு பயிற்சிகள்</h1>
+    <p class="module-eng">(Relaxation & Mindfulness Practices)</p>
+    <p class="module-subtitle">அன்றாட வாழ்க்கையில் சில நிமிடங்களை ஒதுக்கி, உடலையும் மனதையும் அமைதிப்படுத்தும் எளிய பயிற்சிகளைக் கற்றுக்கொள்வோம்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>மனஅழுத்தத்தைக் குறைக்கும் எளிய மூச்சுப்பயிற்சியைப் பயிற்சி செய்வீர்கள்.  </li>
+<li><strong>Mindfulness (மனவிழிப்புணர்வு)</strong> என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.  </li>
+<li><strong>Progressive Muscle Relaxation</strong> என்ற உடல் தளர்வு முறையைக் கற்றுக்கொள்வீர்கள்.  </li>
+<li>தினசரி வாழ்க்கையில் 2 முதல் 10 நிமிடங்களில் செய்யக்கூடிய மனஅமைதிப் பயிற்சிகளைப் பயன்படுத்தத் தொடங்குவீர்கள்.</li>
+</ul>
+
+</div><h1><strong>ஏன் தளர்வு பயிற்சிகள் அவசியம்?</strong></h1>
+<p>மனஅழுத்தம் ஏற்பட்டால், நமது உடல் எச்சரிக்கை நிலையில் செயல்படத் தொடங்குகிறது.</p>
+<p>அந்த நேரத்தில்,</p>
+<ul>
+<li>இதயத் துடிப்பு அதிகரிக்கும்.  </li>
+<li>மூச்சு வேகமாகும்.  </li>
+<li>தசைகள் இறுக்கமடையும்.  </li>
+<li>மனம் ஒரே விஷயத்தைப் பற்றியே சிந்தித்துக்கொண்டிருக்கும்.</li>
+</ul>
+<p>இந்த நிலையில் தொடர்ந்து இருந்தால், உடலும் மனமும் சோர்வடையும்.</p>
+<p>அதனால், உடலுக்கு ஒரு செய்தியை அனுப்ப வேண்டும்.</p>
+<blockquote>
+<p><strong>"நீ பாதுகாப்பாக இருக்கிறாய்... இப்போது அமைதியாகலாம்."</strong></p>
+</blockquote>
+<p>அதற்காகவே இந்தத் தளர்வுப் பயிற்சிகள் உதவுகின்றன.</p>
+
+<h1><strong>4–7–8 மூச்சுப்பயிற்சி</strong></h1>
+<p>இந்தப் பயிற்சி நரம்பு மண்டலத்தை அமைதிப்படுத்த மிகவும் எளிய மற்றும் பயனுள்ள முறையாகும்.</p>
+<h3><strong>எப்படி செய்வது?</strong></h3>
+<p><strong>படி 1</strong></p>
+<p>வசதியாக அமருங்கள்.</p>
+
+<p><strong>படி 2</strong></p>
+<p>மூக்கின் வழியாக மெதுவாக</p>
+<p><strong>4 விநாடிகள்</strong> மூச்சை உள்ளிழுங்கள்.</p>
+
+<p><strong>படி 3</strong></p>
+<p>அந்த மூச்சை</p>
+<p><strong>7 விநாடிகள்</strong> வைத்திருங்கள்.</p>
+
+<p><strong>படி 4</strong></p>
+<p>வாயின் வழியாக</p>
+<p><strong>8 விநாடிகள்</strong> மெதுவாக வெளியே விடுங்கள்.</p>
+
+<p>இதை</p>
+<p><strong>4 முறை</strong> செய்யுங்கள்.</p>
+<p>மொத்த நேரம் இரண்டு நிமிடங்களுக்கும் குறைவாக இருக்கும்.</p>
+
+<h1><strong>எப்போது செய்யலாம்?</strong></h1>
+<p>இந்தப் பயிற்சியை,</p>
+<ul>
+<li>குழந்தைகளை பள்ளிக்குத் தயார்படுத்தும் முன்  </li>
+<li>பெற்றோர்-ஆசிரியர் சந்திப்புக்கு முன்  </li>
+<li>வேலைக்குச் செல்லும் முன்  </li>
+<li>கோபம் வரும்போது  </li>
+<li>தூங்குவதற்கு முன்</li>
+</ul>
+<p>செய்யலாம்.</p>
+<p>இதற்கு எந்த கருவியும் தேவையில்லை.</p>
+
+<h1><strong>மனவிழிப்புணர்வு (Mindfulness) என்றால் என்ன?</strong></h1>
+<p>பலர்,</p>
+<blockquote>
+<p>"மனதை வெறுமையாக்க வேண்டும்."</p>
+</blockquote>
+<p>என்று நினைக்கிறார்கள்.</p>
+<p>அது Mindfulness அல்ல.</p>
+<p>Mindfulness என்பது,</p>
+<p><strong>"இந்த நொடியை முழு கவனத்துடன், எந்த விமர்சனமும் இல்லாமல் அனுபவிப்பது."</strong></p>
+<p>அதாவது,</p>
+<p>கடந்த காலத்தைப் பற்றியும்,</p>
+<p>எதிர்காலத்தைப் பற்றியும் கவலைப்படாமல்,</p>
+<p>இப்போது என்ன நடக்கிறது என்பதை உணர்வது.</p>
+
+<h1><strong>5 – 4 – 3 – 2 – 1 பயிற்சி</strong></h1>
+<p>மனம் அதிகமாக கவலைப்படும்போது,</p>
+<p>இந்தப் பயிற்சி மிகவும் உதவியாக இருக்கும்.</p>
+<p>அமைதியாக அமர்ந்து,</p>
+<p>கீழே உள்ளவற்றைக் கவனியுங்கள்.</p>
+<h3><strong>5</strong></h3>
+<p>நீங்கள் பார்க்கும் ஐந்து பொருட்களைச் சொல்லுங்கள்.</p>
+
+<h3><strong>4</strong></h3>
+<p>நீங்கள் கேட்கும் நான்கு ஒலிகளை கவனியுங்கள்.</p>
+
+<h3><strong>3</strong></h3>
+<p>உங்கள் உடலில் நீங்கள் உணரும் மூன்று உணர்வுகளைச் சொல்லுங்கள்.</p>
+<p>உதாரணம்:</p>
+<ul>
+<li>தரையில் பாதம் இருப்பது  </li>
+<li>காற்று முகத்தில் படுவது  </li>
+<li>கைகள் ஒன்றோடொன்று தொடுவது</li>
+</ul>
+
+<h3><strong>2</strong></h3>
+<p>நீங்கள் உணரும் இரண்டு வாசனைகளை கவனியுங்கள்.</p>
+
+<h3><strong>1</strong></h3>
+<p>உங்கள் வாயில் இருக்கும் ஒரு சுவையை உணருங்கள்.</p>
+
+<p>இந்தப் பயிற்சி,</p>
+<p>மனதை எதிர்காலக் கவலைகளிலிருந்து தற்போதைய தருணத்திற்குக் கொண்டு வருகிறது.</p>
+<p>அதனால் மனஅழுத்தம் இயல்பாகக் குறையத் தொடங்குகிறது.</p>
+
+<h1><strong>தசை தளர்வு பயிற்சி</strong></h1>
+<h2><strong>(Progressive Muscle Relaxation)</strong></h2>
+<p>மனஅழுத்தம் மனதில் மட்டுமல்ல,</p>
+<p>உடலிலும் சேமிக்கப்படுகிறது.</p>
+<p>அதனால்,</p>
+<p>ஒவ்வொரு தசையையும் இறுக்கி,</p>
+<p>பிறகு தளர்த்தும் பயிற்சி மிகவும் பயனுள்ளதாக இருக்கும்.</p>
+<h3><strong>செய்யும் முறை</strong></h3>
+<p>கால்களில் இருந்து தொடங்குங்கள்.</p>
+<p>ஒவ்வொரு தசையையும்</p>
+<p><strong>5 விநாடிகள்</strong></p>
+<p>இறுக்கமாக வைத்திருங்கள்.</p>
+<p>பிறகு மெதுவாக தளர்த்துங்கள்.</p>
+<p>பிறகு அடுத்த பகுதிக்குச் செல்லுங்கள்.</p>
+<ul>
+<li>பாதங்கள்  </li>
+<li>கால்கள்  </li>
+<li>தொடைகள்  </li>
+<li>வயிறு  </li>
+<li>கைகள்  </li>
+<li>தோள்பட்டை  </li>
+<li>கழுத்து  </li>
+<li>முகம்</li>
+</ul>
+<p>ஒவ்வொரு பகுதியும் தளரும்போது,</p>
+<p>உடலில் இருக்கும் இறுக்கம் குறைவதை உணருங்கள்.</p>
+<p>இந்தப் பயிற்சி,</p>
+<p>குறிப்பாக தூங்குவதற்கு முன் செய்தால் மிகவும் நல்ல பலன் தரும்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>பிரியா</strong>, தனது மகனின் ஆன்லைன் வகுப்பு தொடங்குவதற்கு முன்பெல்லாம் மிகவும் பதற்றமாக இருப்பார்.</p>
+<blockquote>
+<p>"இன்று இணையம் சரியாக வேலை செய்யுமா?"</p>
+<p>"அவன் கவனமாக இருப்பானா?"</p>
+</blockquote>
+<p>என்ற எண்ணங்கள் அவரை மனஅழுத்தத்தில் ஆழ்த்தின.</p>
+<p>ஒருநாள்,</p>
+<p>ஆன்லைன் வகுப்பு தொடங்குவதற்கு முன்,</p>
+<p>4–7–8 மூச்சுப்பயிற்சியை நான்கு முறை செய்யத் தொடங்கினார்.</p>
+<p>ஒரு வாரத்திற்குப் பிறகு,</p>
+<p>அவரது உடலில் இருந்த பதற்றம் குறைந்ததை உணர்ந்தார்.</p>
+<p>ஆன்லைன் வகுப்பின் சவால்கள் மாறவில்லை.</p>
+<p>ஆனால்,</p>
+<p>அவற்றை எதிர்கொள்ளும் அவரது மனநிலை மாறியது.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>சூழ்நிலையை எப்போதும் மாற்ற முடியாது.</p>
+<p>ஆனால்,</p>
+<p>அதை எதிர்கொள்ளும் நமது மனநிலையை மாற்ற முடியும்.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1.</strong></h3>
+<p>மனஅழுத்தம் இல்லாத நேரத்திலேயே</p>
+<p>4–7–8 மூச்சுப்பயிற்சியைப் பழகுங்கள்.</p>
+<p>அப்போது,</p>
+<p>மனஅழுத்தமான சூழலில் அதை எளிதாகப் பயன்படுத்த முடியும்.</p>
+
+<h3><strong>2.</strong></h3>
+<p>ஏற்கனவே நீங்கள் தினமும் செய்யும் ஒரு செயலுடன் Mindfulness-ஐ இணைத்துக்கொள்ளுங்கள்.</p>
+<p>உதாரணமாக,</p>
+<ul>
+<li>தேநீர் கொதிக்கும் வரை காத்திருக்கும் நேரம்.  </li>
+<li>பேருந்துக்காக காத்திருக்கும் நேரம்.  </li>
+<li>குழந்தையை பள்ளியில் இருந்து அழைத்து வர காத்திருக்கும் நேரம்.</li>
+</ul>
+
+<h3><strong>3.</strong></h3>
+<p>தூங்குவதற்கு</p>
+<p>15 நிமிடங்களுக்கு முன்</p>
+<p>தசை தளர்வு பயிற்சியைச் செய்யுங்கள்.</p>
+<p>இது நல்ல தூக்கத்திற்கும் உதவும்.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>அடுத்த ஏழு நாட்களுக்கு,</p>
+<p>கீழே உள்ள மூன்று பயிற்சிகளில்</p>
+<p>ஏதேனும் ஒன்றைத் தேர்வு செய்து தினமும் செய்யுங்கள்.</p>
+<p>☐ 4–7–8 மூச்சுப்பயிற்சி</p>
+<p>☐ 5–4–3–2–1 Mindfulness</p>
+<p>☐ தசை தளர்வு பயிற்சி</p>
+<p>ஒவ்வொரு நாளும்,</p>
+<p>பயிற்சிக்கு முன்பும்,</p>
+<p>பிறகும்,</p>
+<p>உங்கள் மனநிலையை 1 முதல் 10 வரை மதிப்பெண் கொடுத்து பதிவு செய்யுங்கள்.</p>
+<table>
+<thead>
+<tr>
+<th>நாள்</th>
+<th>பயிற்சி</th>
+<th>முன்</th>
+<th>பின்</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>திங்கள்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>செவ்வாய்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>புதன்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>வியாழன்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>வெள்ளி</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>சனி</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ஞாயிறு</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>கீழ்க்கண்ட கேள்விகளுக்கு பதில் எழுதுங்கள்.</p>
+<ol>
+<li>எந்தப் பயிற்சி எனக்கு மிகவும் பிடித்தது?  </li>
+<li>எந்த நேரத்தில் அதைச் செய்வது எனக்கு எளிதாக இருந்தது?  </li>
+<li>பயிற்சிக்குப் பிறகு என் உடலில் என்ன மாற்றத்தை உணர்ந்தேன்?  </li>
+<li>இந்தப் பயிற்சியை இனிமேல் என் அன்றாட வாழ்க்கையில் எப்படிச் சேர்க்கப் போகிறேன்?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>மனஅழுத்தத்தை குறைக்க உடலையும் மனதையும் அமைதிப்படுத்துவது அவசியம்.  </li>
+<li><strong>4–7–8 மூச்சுப்பயிற்சி</strong> நரம்பு மண்டலத்தை அமைதிப்படுத்த உதவுகிறது.  </li>
+<li><strong>Mindfulness</strong> தற்போதைய தருணத்தில் முழுமையாக இருப்பதற்குப் பயிற்சி அளிக்கிறது.  </li>
+<li><strong>Progressive Muscle Relaxation</strong> உடலில் இருக்கும் இறுக்கத்தை குறைத்து மனஅமைதியை உருவாக்குகிறது.  </li>
+<li>இந்தப் பயிற்சிகள் தினமும் சில நிமிடங்கள் செய்தாலே நல்ல பலனை அளிக்கும்.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ மனஅழுத்தத்தை முழுமையாகத் தவிர்க்க முடியாது; ஆனால் அதை ஆரோக்கியமாகக் கையாள கற்றுக்கொள்ள முடியும்.</p>
+<p>✅ தினமும் 5–10 நிமிடங்கள் ஒதுக்கினாலே மனஅமைதியில் குறிப்பிடத்தக்க முன்னேற்றம் காணலாம்.</p>
+<p>✅ மூச்சு, உடல் மற்றும் மனம்—இவை மூன்றும் ஒன்றோடொன்று தொடர்புடையவை.</p>
+<p>✅ சிறிய, தொடர்ந்து செய்யப்படும் பழக்கங்களே நீண்டகால மாற்றத்தை உருவாக்கும்</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(5)" id="done-btn-5">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%205%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-5" onclick="prevModule(5)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-5" onclick="nextModule(5)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-6" data-mod="6">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 6 / 10</span>
+    <h1 class="module-title">நேர மேலாண்மை மற்றும் முன்னுரிமை நிர்ணயம்</h1>
+    <p class="module-eng">(Time Management & Prioritization)</p>
+    <p class="module-subtitle">நேரத்தை புத்திசாலித்தனமாக நிர்வகிப்பதன் மூலம் மனஅழுத்தத்தைக் குறைத்து, குடும்ப வாழ்க்கையில் சமநிலையை உருவாக்குவோம்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>நேரத்தை திறமையாக நிர்வகிப்பதன் முக்கியத்துவத்தைப் புரிந்துகொள்வீர்கள்.  </li>
+<li><strong>Eisenhower Matrix</strong>-ஐ பயன்படுத்தி பணிகளுக்கு முன்னுரிமை அளிக்கக் கற்றுக்கொள்வீர்கள்.  </li>
+<li>தேவையற்ற பொறுப்புகளுக்கு "இல்லை" என்று மரியாதையுடன் கூறும் திறனை வளர்த்துக்கொள்வீர்கள்.  </li>
+<li>குடும்பப் பொறுப்புகளைப் பகிர்ந்து கொள்வதன் மூலம் மனஅழுத்தத்தைக் குறைக்கும் வழிகளை அறிந்துகொள்வீர்கள்.</li>
+</ul>
+
+</div><h1><strong>ஏன் நேர மேலாண்மை அவசியம்?</strong></h1>
+<p>பல பெற்றோர்கள் கூறும் பொதுவான வார்த்தைகள்:</p>
+<blockquote>
+<p><strong>"நேரமே கிடைக்கவில்லை..."</strong></p>
+<p><strong>"ஒரே நாளில் எத்தனை வேலை செய்வது?"</strong></p>
+<p><strong>"எல்லாப் பொறுப்பும் என்னிடம் தான் இருக்கிறது."</strong></p>
+</blockquote>
+<p>உண்மையில்,</p>
+<p>பெரும்பாலான நேரங்களில் பிரச்சினை <strong>நேரம் குறைவாக இருப்பது அல்ல.</strong></p>
+<p><strong>எந்த வேலைக்கு முதலில் முக்கியத்துவம் கொடுக்க வேண்டும் என்பது தெளிவாக இல்லாததே முக்கிய காரணம்.</strong></p>
+<p>நேரத்தை சரியாகத் திட்டமிடும்போது,</p>
+<ul>
+<li>மனஅழுத்தம் குறையும்.  </li>
+<li>அவசரம் குறையும்.  </li>
+<li>குடும்பத்திற்கான நேரம் அதிகரிக்கும்.  </li>
+<li>உடலுக்கும் மனதிற்கும் ஓய்வு கிடைக்கும்.</li>
+</ul>
+
+<h1><strong>முக்கியமான வேலைகளா? அவசரமான வேலைகளா?</strong></h1>
+<p>அனைத்து வேலைகளும் ஒரே முக்கியத்துவம் கொண்டவை அல்ல.</p>
+<p>சில வேலைகள் உடனே செய்யப்பட வேண்டும்.</p>
+<p>சில வேலைகள் திட்டமிட்டு செய்யப்பட வேண்டும்.</p>
+<p>இந்த வேறுபாட்டைப் புரிந்துகொள்ள உதவுவது <strong>Eisenhower Matrix</strong> ஆகும்.</p>
+
+<h1><strong>Eisenhower Matrix</strong></h1>
+<p>உங்கள் வேலைகளை நான்கு பிரிவுகளாகப் பிரியுங்கள்.</p>
+<h2><strong>1. அவசரமும் முக்கியமும்</strong></h2>
+<h3><strong>(Urgent &amp; Important)</strong></h3>
+<p>இவை உடனடியாகச் செய்ய வேண்டிய பணிகள்.</p>
+<p><strong>உதாரணம்:</strong></p>
+<ul>
+<li>குழந்தையை மருத்துவரிடம் அழைத்துச் செல்வது.  </li>
+<li>அவசர மருத்துவச் செலவு.  </li>
+<li>இன்று சமர்ப்பிக்க வேண்டிய பள்ளி விண்ணப்பம்.</li>
+</ul>
+<p>👉 <strong>உடனே செய்யுங்கள்.</strong></p>
+
+<h2><strong>2. முக்கியம், ஆனால் அவசரம் இல்லை</strong></h2>
+<h3><strong>(Important but Not Urgent)</strong></h3>
+<p>இவை எதிர்கால வெற்றிக்கான முக்கியமான பணிகள்.</p>
+<p><strong>உதாரணம்:</strong></p>
+<ul>
+<li>குழந்தையுடன் தினமும் 30 நிமிடம் பேசுவது.  </li>
+<li>குடும்ப நிதித் திட்டம் அமைப்பது.  </li>
+<li>உடற்பயிற்சி.  </li>
+<li>ஆரோக்கிய பரிசோதனை.  </li>
+<li>அடுத்த மாத பள்ளிச் செலவுகளைத் திட்டமிடுதல்.</li>
+</ul>
+<p>👉 <strong>கால அட்டவணையில் இடம் ஒதுக்கி செய்யுங்கள்.</strong></p>
+<p><strong>கவனிக்கவும்:</strong></p>
+<p>இந்தப் பிரிவில் உள்ள வேலைகளைத் தொடர்ந்து தள்ளிப்போட்டால்,</p>
+<p>அவை பின்னர் "அவசர வேலைகளாக" மாறிவிடும்.</p>
+
+<h2><strong>3. அவசரம், ஆனால் முக்கியமல்ல</strong></h2>
+<h3><strong>(Urgent but Not Important)</strong></h3>
+<p>இந்த வேலைகளை,</p>
+<p>முடிந்தால் வேறு ஒருவரிடம் ஒப்படைக்கலாம்.</p>
+<p><strong>உதாரணம்:</strong></p>
+<ul>
+<li>சில வழக்கமான வீட்டு வேலைகள்.  </li>
+<li>பொருட்கள் வாங்கச் செல்வது.  </li>
+<li>மற்றவர்கள் செய்யக்கூடிய சிறிய பொறுப்புகள்.</li>
+</ul>
+<p>👉 <strong>பகிர்ந்து செய்யுங்கள்.</strong></p>
+
+<h2><strong>4. அவசரமும் இல்லை, முக்கியமும் இல்லை</strong></h2>
+<h3><strong>(Neither Urgent nor Important)</strong></h3>
+<p>இவை நமது நேரத்தை வீணடிக்கும் செயல்கள்.</p>
+<p><strong>உதாரணம்:</strong></p>
+<ul>
+<li>தேவையில்லாமல் சமூக ஊடகங்களில் நீண்ட நேரம் செலவிடுவது.  </li>
+<li>நோக்கமில்லாமல் தொலைக்காட்சி பார்ப்பது.  </li>
+<li>பயனற்ற விவாதங்களில் நேரம் செலவிடுவது.</li>
+</ul>
+<p>👉 <strong>இவற்றைக் குறைக்க முயற்சி செய்யுங்கள்.</strong></p>
+
+<h1><strong>"இல்லை" என்று சொல்லும் திறன்</strong></h1>
+<p>பல பெற்றோர்கள்,</p>
+<p>அனைவருக்கும் உதவ வேண்டும் என்ற எண்ணத்தில்,</p>
+<p>தங்களுடைய ஓய்வு நேரத்தையும் இழக்கிறார்கள்.</p>
+<p>ஒவ்வொரு "ஆம்" என்பதும்,</p>
+<p>சில நேரங்களில்,</p>
+<p>உங்கள் உடல்நலத்திற்கோ,</p>
+<p>உங்கள் குடும்ப நேரத்திற்கோ,</p>
+<p>ஒரு "இல்லை" ஆக மாறிவிடலாம்.</p>
+<p>அதனால்,</p>
+<p>தேவையான இடங்களில் மரியாதையுடன் மறுப்பது தவறல்ல.</p>
+<p><strong>உதாரணம்:</strong></p>
+<blockquote>
+<p>"இப்போது அந்தப் பொறுப்பை ஏற்க முடியவில்லை. என்னை நினைத்ததற்கு நன்றி."</p>
+</blockquote>
+<p>இந்த ஒரு வாக்கியம்,</p>
+<p>உங்கள் நேரத்தையும் உறவையும் பாதுகாக்க உதவும்.</p>
+
+<h1><strong>குடும்பப் பொறுப்புகளைப் பகிர்ந்து கொள்ளுங்கள்</strong></h1>
+<p>பல குடும்பங்களில்,</p>
+<p>ஒரே ஒருவர் எல்லாவற்றையும் நினைவில் வைத்திருக்கிறார்.</p>
+<ul>
+<li>பள்ளி கட்டணம்  </li>
+<li>மருத்துவர் சந்திப்பு  </li>
+<li>மளிகைப் பொருட்கள்  </li>
+<li>பிறந்தநாள்  </li>
+<li>வீட்டுப்பாடம்  </li>
+<li>குடும்ப நிகழ்ச்சிகள்</li>
+</ul>
+<p>இவற்றை ஒரே நபர் நிர்வகிக்கும்போது,</p>
+<p>அவருக்கு மனஅழுத்தம் அதிகரிப்பது இயல்பு.</p>
+<p>இதற்குப் பதிலாக,</p>
+<p>குடும்பத்தில் உள்ள அனைவரும் வயதிற்கேற்ற பொறுப்புகளைப் பகிர்ந்து கொள்ளலாம்.</p>
+<p>உதாரணமாக,</p>
+<ul>
+<li>வாழ்க்கைத்துணை – கட்டணங்கள் மற்றும் வங்கி வேலைகள்.  </li>
+<li>பெரிய குழந்தை – பள்ளிப் பை மற்றும் புத்தகங்களைத் தயார்படுத்துதல்.  </li>
+<li>சிறிய குழந்தை – தனது விளையாட்டுப் பொருட்களை ஒழுங்குபடுத்துதல்.</li>
+</ul>
+<p>பொறுப்புகளைப் பகிர்ந்தால்,</p>
+<p>குடும்பத்தில் ஒத்துழைப்பும் அதிகரிக்கும்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>அனிதா</strong>, ஒரு வேலைக்குச் செல்லும் தாய்.</p>
+<p>அவர் தினமும்,</p>
+<ul>
+<li>பள்ளி கட்டணம்  </li>
+<li>மளிகைப் பொருட்கள்  </li>
+<li>குழந்தையின் வகுப்புகள்  </li>
+<li>பிறந்தநாள் நினைவூட்டல்கள்  </li>
+<li>வீட்டு வேலைகள்</li>
+</ul>
+<p>எல்லாவற்றையும் தனியாக நினைவில் வைத்திருந்தார்.</p>
+<p>அதனால்,</p>
+<p>அவர் எப்போதும்,</p>
+<blockquote>
+<p>"எல்லாவற்றையும் நான்தான் செய்ய வேண்டும்."</p>
+</blockquote>
+<p>என்று மனஅழுத்தத்தில் இருந்தார்.</p>
+<p>ஒரு ஞாயிற்றுக்கிழமை,</p>
+<p>அவரும் அவரது கணவரும் சேர்ந்து,</p>
+<p>வீட்டில் தொடர்ந்து செய்ய வேண்டிய அனைத்து வேலைகளையும் ஒரு பட்டியலாக எழுதினார்கள்.</p>
+<p>பிறகு,</p>
+<p>யாரால் எந்த வேலையைச் சிறப்பாகச் செய்ய முடியும் என்பதைப் பார்த்து பொறுப்புகளைப் பகிர்ந்துகொண்டார்கள்.</p>
+<p>ஒரு மாதத்திற்குப் பிறகு,</p>
+<p>அனிதா தனது மனஅழுத்தம் கணிசமாகக் குறைந்ததை உணர்ந்தார்.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>எல்லாவற்றையும் தனியாகச் செய்ய முயற்சிப்பதை விட,</p>
+<p>பொறுப்புகளைப் பகிர்ந்துகொள்வது குடும்ப உறவையும் மனநலத்தையும் மேம்படுத்தும்.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1. ஞாயிற்றுக்கிழமை திட்டமிடுங்கள்</strong></h3>
+<p>ஒவ்வொரு ஞாயிற்றுக்கிழமையும்,</p>
+<p>10 நிமிடங்கள் ஒதுக்கி,</p>
+<p>அடுத்த வார வேலைகளை Eisenhower Matrix-இல் வகைப்படுத்துங்கள்.</p>
+
+<h3><strong>2. இந்த வாரம் ஒரு "இல்லை" சொல்லிப் பாருங்கள்</strong></h3>
+<p>தேவையற்ற ஒரு பொறுப்பை மரியாதையுடன் மறுத்துப் பாருங்கள்.</p>
+<p>உங்கள் மனநிலையில் என்ன மாற்றம் ஏற்பட்டது என்பதை கவனியுங்கள்.</p>
+
+<h3><strong>3. குடும்பப் பொறுப்புப் பட்டியல் தயாரியுங்கள்</strong></h3>
+<p>குடும்பத்தில் உள்ள அனைவரும் செய்யக்கூடிய வேலைகளை எழுதுங்கள்.</p>
+<p>ஒவ்வொருவருக்கும் தெளிவான பொறுப்புகளை ஒதுக்குங்கள்.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>கீழே உள்ள அட்டவணையை நிரப்புங்கள்.</p>
+<table>
+<thead>
+<tr>
+<th>வேலை</th>
+<th>எந்தப் பிரிவு?</th>
+<th>என்ன செய்யப் போகிறேன்?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>அவசரமும் முக்கியமும்</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>முக்கியம், ஆனால் அவசரம் இல்லை</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>அவசரம், ஆனால் முக்கியமல்ல</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>அவசரமும் இல்லை, முக்கியமும் இல்லை</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>இந்தக் கேள்விகளுக்குப் பதில் எழுதுங்கள்.</p>
+<ol>
+<li>என் நேரத்தை அதிகமாக எடுத்துக்கொள்வது எந்த வேலை?  </li>
+<li>அந்த வேலை உண்மையில் முக்கியமானதா?  </li>
+<li>நான் யாரிடமாவது உதவி கேட்க முடியுமா?  </li>
+<li>இந்த வாரம் நான் எந்த ஒரு வேலையை மற்றொருவருடன் பகிர்ந்து கொள்ளப் போகிறேன்?  </li>
+<li>எனது குடும்பத்திற்காக நான் திட்டமிட்டு ஒதுக்கப் போகும் நேரம் எவ்வளவு?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>நேரத்தைச் சரியாக நிர்வகிப்பது மனஅழுத்தத்தைக் குறைக்க உதவுகிறது.  </li>
+<li>Eisenhower Matrix வேலைகளுக்கு முன்னுரிமை அளிக்க உதவும் ஒரு எளிய கருவி.  </li>
+<li>"இல்லை" என்று மரியாதையுடன் கூறுவது நேரத்தைப் பாதுகாக்கும் ஒரு முக்கியத் திறன்.  </li>
+<li>குடும்பப் பொறுப்புகளைப் பகிர்ந்துகொள்வது மனஅழுத்தத்தைக் குறைத்து, குடும்ப ஒற்றுமையை அதிகரிக்கிறது.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ நேரத்தை விட, முன்னுரிமைகளே முக்கியம்.</p>
+<p>✅ முக்கியமான வேலைகளை தள்ளிப்போடாதீர்கள்.</p>
+<p>✅ எல்லாவற்றையும் நீங்களே செய்ய வேண்டிய அவசியமில்லை.</p>
+<p>✅ பொறுப்புகளைப் பகிர்ந்துகொள்வது குடும்பத்தை வலுப்படுத்தும்.</p>
+<p>✅ திட்டமிட்ட வாழ்க்கை, அமைதியான மனநிலைக்கு அடித்தளமாகும்</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(6)" id="done-btn-6">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%206%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-6" onclick="prevModule(6)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-6" onclick="nextModule(6)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-7" data-mod="7">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 7 / 10</span>
+    <h1 class="module-title">ஆதரவு வலையமைப்பை உருவாக்குதல்</h1>
+    <p class="module-eng">(Building a Support Network)</p>
+    <p class="module-subtitle">ஒரு பெற்றோர் எல்லாப் பொறுப்புகளையும் தனியாகச் சுமக்க வேண்டியதில்லை. சரியான நேரத்தில் சரியான ஆதரவைப் பெறுவது மனஅழுத்தத்தைக் குறைத்து, குடும்ப வாழ்க்கையை ஆரோக்கியமாக மாற்றும்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>ஆதரவு வலையமைப்பு (Support Network) என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.  </li>
+<li>தேவையான நேரத்தில் உதவி கேட்பது ஏன் முக்கியம் என்பதை அறிந்துகொள்வீர்கள்.  </li>
+<li>குடும்பம், நண்பர்கள் மற்றும் சமூகத்தின் ஆதரவை எவ்வாறு பயனுள்ளதாகப் பயன்படுத்துவது என்பதை கற்றுக்கொள்வீர்கள்.  </li>
+<li>தனிமையை குறைத்து, ஆரோக்கியமான உறவுகளை உருவாக்கும் வழிகளை அறிந்துகொள்வீர்கள்.</li>
+</ul>
+
+</div><h1><strong>ஏன் ஆதரவு வலையமைப்பு அவசியம்?</strong></h1>
+<p>பெற்றோராக இருப்பது ஒரு மகிழ்ச்சியான பொறுப்பு.</p>
+<p>ஆனால்,</p>
+<p>அதே நேரத்தில் அது பல சவால்களையும் கொண்டுள்ளது.</p>
+<p>பல பெற்றோர்கள்,</p>
+<blockquote>
+<p><strong>"எல்லாவற்றையும் நானே சமாளிக்க வேண்டும்."</strong></p>
+</blockquote>
+<p>என்று நினைக்கிறார்கள்.</p>
+<p>இந்த எண்ணம், மனஅழுத்தத்தை மேலும் அதிகரிக்கிறது.</p>
+<p>உண்மையில்,</p>
+<p>ஒரு குடும்பத்தை வளர்ப்பது ஒரே நபரின் பொறுப்பு அல்ல.</p>
+<p>அது குடும்பம், உறவினர்கள், நண்பர்கள் மற்றும் சமூகத்தின் ஒத்துழைப்புடன் நடைபெறும் ஒரு பயணம்.</p>
+
+<h1><strong>உங்கள் ஆதரவு வட்டம் யார்?</strong></h1>
+<p>உங்களுக்கு உதவக்கூடியவர்கள் யார் என்பதை முதலில் சிந்தியுங்கள்.</p>
+<p>உங்கள் ஆதரவு வலையமைப்பில் இருக்கக்கூடியவர்கள்:</p>
+<ul>
+<li>வாழ்க்கைத்துணை  </li>
+<li>பெற்றோர்  </li>
+<li>சகோதரர்கள் அல்லது சகோதரிகள்  </li>
+<li>நெருங்கிய நண்பர்கள்  </li>
+<li>அக்கம் பக்கத்தினர்  </li>
+<li>குழந்தையின் பள்ளி பெற்றோர்  </li>
+<li>ஆசிரியர்கள்  </li>
+<li>சமூக அமைப்புகள்  </li>
+<li>நம்பகமான குடும்ப நண்பர்கள்</li>
+</ul>
+<p>இவர்கள் அனைவரும்,</p>
+<p>தேவைப்படும் நேரத்தில் உங்களுக்கு உதவக்கூடியவர்கள்.</p>
+
+<h1><strong>உதவி கேட்பது பலவீனம் அல்ல</strong></h1>
+<p>சில பெற்றோர்கள்,</p>
+<blockquote>
+<p><strong>"உதவி கேட்டால் என்னைப் பற்றி தவறாக நினைப்பார்களோ?"</strong></p>
+</blockquote>
+<p>என்று பயப்படுகிறார்கள்.</p>
+<p>ஆனால்,</p>
+<p>உதவி கேட்பது,</p>
+<p>பலவீனத்தின் அடையாளம் அல்ல.</p>
+<p>அது,</p>
+<p><strong>தன்னுடைய வரம்புகளை உணர்ந்து, சரியான முடிவெடுக்கும் திறமையின் அடையாளம்.</strong></p>
+<p>உதவி கேட்பது,</p>
+<p>உங்கள் குழந்தைக்கும் ஒரு முக்கியமான வாழ்க்கைப் பாடத்தை கற்றுக்கொடுக்கிறது.</p>
+<blockquote>
+<p><strong>"தேவைப்படும் போது உதவி கேட்பது இயல்பானது."</strong></p>
+</blockquote>
+
+<h1><strong>எப்படி உதவி கேட்பது?</strong></h1>
+<p>பல நேரங்களில்,</p>
+<blockquote>
+<p><strong>"எனக்கு உதவி வேண்டும்."</strong></p>
+</blockquote>
+<p>என்று பொதுவாகச் சொல்வதை விட,</p>
+<p>குறிப்பிட்ட உதவியைக் கேட்பது மிகவும் பயனுள்ளதாக இருக்கும்.</p>
+<h3><strong>உதாரணங்கள்</strong></h3>
+<p>❌</p>
+<blockquote>
+<p>"எனக்கு கொஞ்சம் உதவி செய்ய முடியுமா?"</p>
+</blockquote>
+<p>✅</p>
+<blockquote>
+<p>"செவ்வாய்க்கிழமை மாலை என் மகளை டியூஷனில் இருந்து அழைத்து வர முடியுமா?"</p>
+</blockquote>
+
+<p>❌</p>
+<blockquote>
+<p>"எனக்கு வேலை அதிகமாக இருக்கிறது."</p>
+</blockquote>
+<p>✅</p>
+<blockquote>
+<p>"இந்த வாரம் மளிகைப் பொருட்களை நீங்கள் வாங்கிவர முடியுமா?"</p>
+</blockquote>
+<p>குறிப்பிட்ட கோரிக்கை வைத்தால்,</p>
+<p>மற்றவர்களும் உதவுவது எளிதாக இருக்கும்.</p>
+
+<h1><strong>குடும்ப ஆதரவின் முக்கியத்துவம்</strong></h1>
+<p>குடும்பத்தில் உள்ள அனைவரும்,</p>
+<p>ஒருவருக்கொருவர் ஆதரவாக இருக்க வேண்டும்.</p>
+<p>வாழ்க்கைத்துணையுடன்,</p>
+<p>பொறுப்புகளைப் பற்றி திறந்த மனதுடன் பேசுங்கள்.</p>
+<p>உதாரணமாக,</p>
+<ul>
+<li>குழந்தையின் படிப்பை யார் கவனிப்பது?  </li>
+<li>மருத்துவர் சந்திப்பிற்கு யார் அழைத்துச் செல்வது?  </li>
+<li>வீட்டு வேலைகளை எப்படிப் பகிர்ந்து கொள்வது?</li>
+</ul>
+<p>என்பதை முன்கூட்டியே திட்டமிடுங்கள்.</p>
+<p>இதனால்,</p>
+<p>தேவையற்ற மனஅழுத்தம் குறையும்.</p>
+
+<h1><strong>நண்பர்கள் மற்றும் சமூகத்தின் ஆதரவு</strong></h1>
+<p>நல்ல நண்பர்கள்,</p>
+<p>நாம் பேசும்போது தீர்வு சொல்ல வேண்டிய அவசியமில்லை.</p>
+<p>பல நேரங்களில்,</p>
+<p>நாம் சொல்வதை பொறுமையாகக் கேட்பதே போதுமான ஆதரவாக இருக்கும்.</p>
+<p>அதேபோல்,</p>
+<p>பள்ளி பெற்றோர் குழுக்கள்,</p>
+<p>உள்ளூர் பெற்றோர் வட்டங்கள்,</p>
+<p>அல்லது நம்பகமான WhatsApp குழுக்கள் போன்றவை,</p>
+<p>பயனுள்ள தகவல்களையும் அனுபவப் பகிர்வுகளையும் வழங்கக்கூடும்.</p>
+<p>மற்ற பெற்றோர்களும் இதே போன்ற சவால்களை எதிர்கொள்கிறார்கள் என்பதை அறிந்தாலே,</p>
+<p>நாம் தனியாக இல்லை என்ற நம்பிக்கை உருவாகும்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>தீபா</strong>, தனது மகனின் பொதுத்தேர்வு காலத்தில் அனைத்து பொறுப்புகளையும் தனியாகச் சமாளிக்க முயன்றார்.</p>
+<p>காலை பள்ளி,</p>
+<p>மாலை டியூஷன்,</p>
+<p>வீட்டுப்பாடம்,</p>
+<p>வேலை...</p>
+<p>எல்லாவற்றையும் ஒருவராகச் செய்து மிகவும் சோர்வடைந்தார்.</p>
+<p>பல மாதங்கள் கழித்துதான்,</p>
+<p>தனது சகோதரியிடம்,</p>
+<blockquote>
+<p>"வாரத்தில் இரண்டு நாட்கள் டியூஷனில் இருந்து அவனை அழைத்து வர முடியுமா?"</p>
+</blockquote>
+<p>என்று கேட்டார்.</p>
+<p>அவரது சகோதரி உடனே சம்மதித்தார்.</p>
+<p>பிறகு தீபா உணர்ந்தார்.</p>
+<blockquote>
+<p><strong>"நான் முன்பே கேட்டிருந்தால், இவ்வளவு மனஅழுத்தம் ஏற்பட்டிருக்காது."</strong></p>
+</blockquote>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>பல நேரங்களில்,</p>
+<p>நமக்கு உதவ யாரும் இல்லை என்பதல்ல பிரச்சினை.</p>
+<p><strong>நாம் உதவி கேட்கத் தயங்குவதுதான் பிரச்சினை.</strong></p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1. உங்கள் ஆதரவு பட்டியலை உருவாக்குங்கள்</strong></h3>
+<p>உங்களுக்கு உதவக்கூடிய மூன்று பேரின் பெயர்களை எழுதுங்கள்.</p>
+<ul>
+<li>
+
+</li>
+<li>
+
+</li>
+<li>
+
+</li>
+</ul>
+
+<h3><strong>2. குறிப்பிட்ட உதவியைக் கேளுங்கள்</strong></h3>
+<p>இந்த மாதத்தில்,</p>
+<p>அவர்களிடம் கேட்கக்கூடிய ஒரு உதவியை எழுதுங்கள்.</p>
+
+<h3><strong>3. நீங்களும் ஆதரவாக இருங்கள்</strong></h3>
+<p>மற்ற பெற்றோருக்கும் தேவையான நேரத்தில் உதவி செய்யுங்கள்.</p>
+<p>ஒரு நல்ல ஆதரவு வலையமைப்பு,</p>
+<p>கொடுத்தலும் பெற்றலும் சேர்ந்ததே.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>கீழே உள்ள அட்டவணையை நிரப்புங்கள்.</p>
+<table>
+<thead>
+<tr>
+<th>உதவக்கூடிய நபர்</th>
+<th>அவர் செய்யக்கூடிய உதவி</th>
+<th>நான் எப்போது கேட்பேன்?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>இந்தக் கேள்விகளுக்குப் பதில் எழுதுங்கள்.</p>
+<ol>
+<li>நான் ஏன் உதவி கேட்கத் தயங்குகிறேன்?  </li>
+<li>உதவி கேட்டால் என்ன மாற்றம் ஏற்படும்?  </li>
+<li>என்னுடைய மிகப்பெரிய ஆதரவாக இருப்பவர் யார்?  </li>
+<li>இந்த வாரம் நான் யாரிடம் ஒரு குறிப்பிட்ட உதவியைக் கேட்கப் போகிறேன்?  </li>
+<li>இந்த மாதம் நான் மற்றொரு பெற்றோருக்கு என்ன உதவி செய்ய முடியும்?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>ஒரு பெற்றோர் எல்லாப் பொறுப்புகளையும் தனியாகச் சுமக்க வேண்டியதில்லை.  </li>
+<li>உதவி கேட்பது பலவீனம் அல்ல; அது ஒரு ஆரோக்கியமான வாழ்க்கைத் திறன்.  </li>
+<li>குடும்பம், நண்பர்கள் மற்றும் சமூகத்தின் ஆதரவு மனஅழுத்தத்தைக் குறைக்க உதவுகிறது.  </li>
+<li>தெளிவாகவும் குறிப்பிட்டும் உதவி கேட்பது நல்ல ஒத்துழைப்பை உருவாக்குகிறது.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ உதவி கேட்பது உங்கள் பலவீனம் அல்ல; உங்கள் புத்திசாலித்தனமான முடிவு.</p>
+<p>✅ உங்கள் ஆதரவு வலையமைப்பை முன்கூட்டியே உருவாக்குங்கள்.</p>
+<p>✅ தேவையான உதவியை தெளிவாகக் கேளுங்கள்.</p>
+<p>✅ நீங்கள் ஆதரவைப் பெறுவதுபோல், மற்றவர்களுக்கும் ஆதரவாக இருங்கள்.</p>
+<p>✅ நல்ல உறவுகள் மனஅழுத்தத்தை குறைத்து, மனநலத்தை மேம்படுத்தும்.</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(7)" id="done-btn-7">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%207%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-7" onclick="prevModule(7)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-7" onclick="nextModule(7)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-8" data-mod="8">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 8 / 10</span>
+    <h1 class="module-title">ஆரோக்கியமான வாழ்க்கைமுறையின் அடித்தளங்கள்</h1>
+    <p class="module-eng">(Healthy Lifestyle Foundations)</p>
+    <p class="module-subtitle">உடலும் மனமும் ஒன்றோடொன்று இணைந்தவை. ஆரோக்கியமான வாழ்க்கைமுறையைப் பின்பற்றுவதன் மூலம் மனஅழுத்தத்தைக் குறைத்து, மனநலத்தை மேம்படுத்தலாம்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>தூக்கம், உணவு மற்றும் உடல் இயக்கம் மனஅழுத்தத்தை எவ்வாறு பாதிக்கின்றன என்பதைப் புரிந்துகொள்வீர்கள்.  </li>
+<li>சிறிய வாழ்க்கைமுறை மாற்றங்கள் பெரிய மனநல முன்னேற்றத்தை ஏற்படுத்தும் என்பதை அறிந்துகொள்வீர்கள்.  </li>
+<li>உங்கள் அன்றாட வாழ்க்கையில் ஆரோக்கியமான பழக்கங்களை உருவாக்கத் தொடங்குவீர்கள்.  </li>
+<li>நீண்டகால மனஅழுத்தத்தைக் குறைக்கும் நடைமுறை வழிகளைப் பின்பற்றுவீர்கள்.</li>
+</ul>
+
+</div><h1><strong>உடல் ஆரோக்கியமும் மன ஆரோக்கியமும் ஒன்றோடொன்று தொடர்புடையவை</strong></h1>
+<p>பலர்,</p>
+<blockquote>
+<p><strong>"மனஅழுத்தம் மனதில் மட்டும்தான் இருக்கிறது."</strong></p>
+</blockquote>
+<p>என்று நினைக்கிறார்கள்.</p>
+<p>ஆனால் உண்மையில்,</p>
+<p>உடலின் ஆரோக்கியமும் மனநிலையும் ஒன்றுக்கொன்று நெருக்கமாக இணைந்துள்ளன.</p>
+<p>நாம் சரியாகத் தூங்கவில்லை என்றால்,</p>
+<p>அடுத்த நாள் சிறிய விஷயங்களுக்குக் கூட எரிச்சல் ஏற்படலாம்.</p>
+<p>சரியான நேரத்தில் உணவு சாப்பிடவில்லை என்றால்,</p>
+<p>உடல் சோர்வடைவதோடு, மனமும் அமைதியிழக்கலாம்.</p>
+<p>அதனால்,</p>
+<p>மனஅழுத்த மேலாண்மையில் வாழ்க்கைமுறை மிகவும் முக்கியமான பங்கு வகிக்கிறது.</p>
+
+<h1><strong>நல்ல தூக்கத்தின் அவசியம்</strong></h1>
+<p>தூக்கம் என்பது ஓய்வு மட்டுமல்ல.</p>
+<p>அது உடலையும் மூளையையும் புத்துணர்ச்சியடையச் செய்யும் இயற்கையான செயல்முறையாகும்.</p>
+<p>ஆனால் மனஅழுத்தம் அதிகமாக இருக்கும் போது,</p>
+<p>முதலில் பாதிக்கப்படுவது தூக்கம்தான்.</p>
+<p>சரியாகத் தூங்காமல் இருந்தால்,</p>
+<ul>
+<li>பொறுமை குறையும்.  </li>
+<li>கவனம் சிதறும்.  </li>
+<li>கோபம் அதிகரிக்கும்.  </li>
+<li>மனஅழுத்தம் மேலும் அதிகரிக்கும்.</li>
+</ul>
+<p>இவ்வாறு ஒரு தீய சுழற்சி (Cycle) உருவாகிறது.</p>
+
+<h1><strong>நல்ல தூக்கத்திற்கான பழக்கங்கள்</strong></h1>
+<p>தினமும் ஒரே நேரத்தில் உறங்கவும், ஒரே நேரத்தில் எழவும் முயற்சி செய்யுங்கள்.</p>
+<p>தூங்குவதற்கு ஒரு மணி நேரத்திற்கு முன்,</p>
+<ul>
+<li>கைபேசி  </li>
+<li>தொலைக்காட்சி  </li>
+<li>மடிக்கணினி</li>
+</ul>
+<p>போன்ற திரை (Screen) பயன்பாட்டைக் குறைக்கவும்.</p>
+<p>படுக்கையறையை அமைதியாகவும், இருட்டாகவும், குளிர்ச்சியாகவும் வைத்திருக்கவும்.</p>
+<p>இந்தச் சிறிய மாற்றங்கள் கூட நல்ல தூக்கத்திற்கு உதவும்.</p>
+
+<h1><strong>உணவும் மனஅழுத்தமும்</strong></h1>
+<p>மனஅழுத்தமாக இருக்கும் போது,</p>
+<p>பலர் உணவைத் தவிர்க்கிறார்கள்.</p>
+<p>சிலர் அதிகமாகச் சாப்பிடுகிறார்கள்.</p>
+<p>சிலர்,</p>
+<p>தேநீர், காபி அல்லது இனிப்புகளை அதிகமாக எடுத்துக்கொள்கிறார்கள்.</p>
+<p>இவை தற்காலிக நிம்மதியைத் தரலாம்.</p>
+<p>ஆனால்,</p>
+<p>நீண்ட காலத்தில் உடலையும் மனதையும் மேலும் சோர்வடையச் செய்யக்கூடும்.</p>
+
+<h1><strong>ஆரோக்கியமான உணவுப் பழக்கங்கள்</strong></h1>
+<p>கடுமையான உணவுக் கட்டுப்பாடு தேவையில்லை.</p>
+<p>ஆனால்,</p>
+<p>சில எளிய பழக்கங்கள் போதுமானவை.</p>
+<ul>
+<li>உணவை நேரத்துக்கு சாப்பிடுங்கள்.  </li>
+<li>காலை உணவை தவிர்க்காதீர்கள்.  </li>
+<li>தினமும் போதுமான அளவு தண்ணீர் குடியுங்கள்.  </li>
+<li>காய்கறிகள், பழங்கள் மற்றும் சத்தான உணவுகளை அதிகப்படுத்துங்கள்.  </li>
+<li>அதிக சர்க்கரை மற்றும் கஃபீன் உள்ள பானங்களை அளவோடு பயன்படுத்துங்கள்.</li>
+</ul>
+<p>உடலுக்குச் சரியான சக்தி கிடைத்தால்,</p>
+<p>மனமும் அமைதியாக இருக்கும்.</p>
+
+<h1><strong>உடல் இயக்கத்தின் முக்கியத்துவம்</strong></h1>
+<p>பல பெற்றோர்கள் கூறுவது:</p>
+<blockquote>
+<p><strong>"உடற்பயிற்சி செய்ய நேரமில்லை."</strong></p>
+</blockquote>
+<p>ஆனால்,</p>
+<p>ஒரு மணி நேரம் உடற்பயிற்சி செய்ய வேண்டிய அவசியமில்லை.</p>
+<p>தினமும் <strong>10 நிமிடங்கள் வேகமாக நடப்பது</strong> கூட மனஅழுத்தத்தைக் குறைக்க உதவும்.</p>
+<p>உடல் இயக்கம்,</p>
+<p>மனஅழுத்தத்தை குறைக்கும் இயற்கை வேதிப்பொருட்களை (Stress-relieving Chemicals) உடலில் சுரக்கச் செய்கிறது.</p>
+
+<h1><strong>எப்போது நடக்கலாம்?</strong></h1>
+<ul>
+<li>குழந்தையை பள்ளிக்கு அழைத்துச் செல்லும் போது.  </li>
+<li>பேருந்துக்காக காத்திருக்கும் நேரத்தில்.  </li>
+<li>அலுவலக இடைவேளையில்.  </li>
+<li>மாலை குடும்பத்துடன் நடைப்பயிற்சி செய்யும் போது.</li>
+</ul>
+<p>சிறிய அளவிலான உடல் இயக்கமும் தொடர்ந்து செய்தால் நல்ல பலன் தரும்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>கணேஷ்</strong>, ஒரு தனியார் நிறுவனத்தில் பணிபுரிந்தார்.</p>
+<p>நீண்ட நேரம் வேலை செய்ததால்,</p>
+<p>உடற்பயிற்சிக்கு நேரமில்லை என்று நினைத்தார்.</p>
+<p>பின்னர்,</p>
+<p>அலுவலகத்திற்கு அருகில் வாகனத்தை நிறுத்தாமல்,</p>
+<p>சுமார் 10 நிமிட நடைதூரத்தில் வாகனத்தை நிறுத்தத் தொடங்கினார்.</p>
+<p>காலை மற்றும் மாலை,</p>
+<p>அந்த தூரத்தை நடந்து சென்றார்.</p>
+<p>மூன்று வாரங்களுக்குப் பிறகு,</p>
+<p>அவர் இரவில் நன்றாகத் தூங்கத் தொடங்கினார்.</p>
+<p>மாலை வீட்டிற்கு வந்தபோது,</p>
+<p>முன்பைப் போல எளிதில் கோபப்படாமல் இருப்பதையும் கவனித்தார்.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>பெரிய மாற்றங்கள் தேவையில்லை.</p>
+<p>தொடர்ச்சியாகச் செய்யப்படும் சிறிய நல்ல பழக்கங்களே நீண்டகால மாற்றத்தை உருவாக்குகின்றன.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1. தூக்க நேரத்தை நிர்ணயியுங்கள்</strong></h3>
+<p>இந்த வாரம்,</p>
+<p>தினமும் ஒரே நேரத்தில் உறங்க முயற்சி செய்யுங்கள்.</p>
+
+<h3><strong>2. தண்ணீர் மற்றும் உணவை மறக்காதீர்கள்</strong></h3>
+<p>மிகவும் பிஸியான நாளிலும்,</p>
+<p>குறைந்தபட்சம்,</p>
+<ul>
+<li>ஒரு கூடுதல் டம்ளர் தண்ணீர்  </li>
+<li>ஒரு சத்தான உணவு</li>
+</ul>
+<p>எடுத்துக்கொள்ளுங்கள்.</p>
+
+<h3><strong>3. 10 நிமிட நடைப்பயிற்சி</strong></h3>
+<p>ஒவ்வொரு நாளும்,</p>
+<p>குறைந்தது 10 நிமிடங்கள் நடக்க ஒரு நேரத்தைத் தேர்ந்தெடுங்கள்.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>இந்த வாரம்,</p>
+<p>கீழே உள்ள மூன்றில் ஒன்றைத் தேர்வு செய்து தொடர்ந்து செய்யுங்கள்.</p>
+<p>☐ தினமும் ஒரே நேரத்தில் உறங்குவது</p>
+<p>☐ தினமும் 10 நிமிட நடைப்பயிற்சி</p>
+<p>☐ தினமும் போதுமான தண்ணீர் குடிப்பது</p>
+<p>ஒவ்வொரு நாளும் உங்கள் அனுபவத்தை பதிவு செய்யுங்கள்.</p>
+<table>
+<thead>
+<tr>
+<th>நாள்</th>
+<th>நான் தேர்வு செய்த பழக்கம்</th>
+<th>இன்று செய்தேனா?</th>
+<th>எப்படி உணர்ந்தேன்?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>திங்கள்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>செவ்வாய்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>புதன்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>வியாழன்</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>வெள்ளி</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>சனி</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ஞாயிறு</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>கீழ்க்கண்ட கேள்விகளுக்குப் பதில் எழுதுங்கள்.</p>
+<ol>
+<li>என் மனஅழுத்தத்தை அதிகப்படுத்தும் வாழ்க்கைமுறை பழக்கம் எது?  </li>
+<li>என் தூக்கப் பழக்கத்தில் நான் என்ன மாற்றம் செய்ய வேண்டும்?  </li>
+<li>என் உணவுப் பழக்கத்தில் நான் மேம்படுத்த வேண்டிய ஒரு விஷயம் என்ன?  </li>
+<li>தினமும் 10 நிமிட நடைப்பயிற்சியை எப்போது செய்ய முடியும்?  </li>
+<li>இந்த வாரம் நான் தொடங்கப் போகும் ஒரு புதிய ஆரோக்கியமான பழக்கம் என்ன?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>நல்ல தூக்கம் மனஅழுத்தத்தைக் குறைக்கும் முக்கியமான அடித்தளம்.  </li>
+<li>சீரான உணவுப் பழக்கம் உடலுக்கும் மனதிற்கும் ஆற்றலை அளிக்கிறது.  </li>
+<li>தினசரி சிறிய அளவிலான உடல் இயக்கமும் மனஅழுத்தத்தைக் குறைக்க உதவுகிறது.  </li>
+<li>பெரிய மாற்றங்களை விட, தொடர்ந்து செய்யப்படும் சிறிய நல்ல பழக்கங்களே நீண்டகால பலனை அளிக்கின்றன.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ மனநலமும் உடல்நலமும் ஒன்றோடொன்று தொடர்புடையவை.</p>
+<p>✅ தினமும் போதுமான தூக்கம் உங்கள் மனநிலையை மேம்படுத்தும்.</p>
+<p>✅ சரியான நேரத்தில் சத்தான உணவை உட்கொள்வது மனஅழுத்தத்தைக் குறைக்க உதவும்.</p>
+<p>✅ தினமும் 10 நிமிட நடைப்பயிற்சி கூட நல்ல மாற்றத்தை ஏற்படுத்தும்.</p>
+<p>✅ ஆரோக்கியமான வாழ்க்கைமுறை என்பது ஒரு பெரிய இலக்கு அல்ல; சிறிய நல்ல பழக்கங்களின் தொடர்ச்சியே.</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(8)" id="done-btn-8">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%208%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-8" onclick="prevModule(8)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-8" onclick="nextModule(8)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-9" data-mod="9">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 9 / 10</span>
+    <h1 class="module-title">குடும்ப முரண்பாடுகளைக் குறைக்கும் தொடர்பாடல்</h1>
+    <p class="module-eng">(Communication to Reduce Family Conflict)</p>
+    <p class="module-subtitle">மனஅழுத்தமான சூழ்நிலைகளிலும் அமைதியாகவும் மரியாதையுடனும் பேசும் திறன், குடும்ப உறவுகளை வலுப்படுத்தி முரண்பாடுகளைக் குறைக்க உதவுகிறது.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>மனஅழுத்தம் தொடர்பாடலை எவ்வாறு பாதிக்கிறது என்பதைப் புரிந்துகொள்வீர்கள்.  </li>
+<li><strong>Active Listening (செயலூக்கமான கேட்கும் திறன்)</strong> என்றால் என்ன என்பதை அறிந்துகொள்வீர்கள்.  </li>
+<li>குற்றம் சாட்டாமல் உணர்வுகளை வெளிப்படுத்தும் <strong>"I Statements"</strong> முறையைப் பயன்படுத்தக் கற்றுக்கொள்வீர்கள்.  </li>
+<li>குடும்பத்தில் அமைதியான உரையாடலை உருவாக்கும் நடைமுறை வழிகளைப் பின்பற்றுவீர்கள்.</li>
+</ul>
+
+</div><h1><strong>தொடர்பாடல் ஏன் முக்கியம்?</strong></h1>
+<p>ஒரு குடும்பத்தில் ஏற்படும் பெரும்பாலான முரண்பாடுகள்,</p>
+<p>கருத்து வேறுபாட்டால் மட்டும் உருவாகுவதில்லை.</p>
+<p>பல நேரங்களில்,</p>
+<p><strong>நாம் பேசும் விதமும், கேட்கும் விதமுமே பிரச்சினையை பெரிதாக்குகிறது.</strong></p>
+<p>மனஅழுத்தம் அதிகமாக இருக்கும் போது,</p>
+<ul>
+<li>பொறுமை குறைகிறது.  </li>
+<li>குரல் உயர்கிறது.  </li>
+<li>மற்றவர்களின் கருத்தைக் கேட்காமல் பதில் சொல்கிறோம்.  </li>
+<li>சிறிய பிரச்சினைகளும் பெரிய சண்டைகளாக மாறுகின்றன.</li>
+</ul>
+<p>நல்ல தொடர்பாடல்,</p>
+<p>பிரச்சினைகளைத் தவிர்க்க அல்ல,</p>
+<p>அவற்றை ஆரோக்கியமாகத் தீர்க்க உதவுகிறது.</p>
+
+<h1><strong>முதலில் கேளுங்கள், பிறகு பேசுங்கள்</strong></h1>
+<p>பல நேரங்களில்,</p>
+<p>நாம் கேட்பது புரிந்துகொள்ள அல்ல.</p>
+<p><strong>பதில் சொல்லுவதற்காகவே கேட்கிறோம்.</strong></p>
+<p>ஆனால்,</p>
+<p>செயலூக்கமான கேட்கும் திறன் (Active Listening) என்பது,</p>
+<p>மற்றவர் சொல்வதை முழுமையாக கவனித்து,</p>
+<p>அவர்களின் உணர்வுகளையும் புரிந்துகொள்ள முயற்சிப்பதாகும்.</p>
+
+<h1><strong>செயலூக்கமான கேட்கும் திறன் (Active Listening)</strong></h1>
+<p>நல்ல கேட்பவராக இருக்க,</p>
+<p>இந்த நான்கு விஷயங்களை நினைவில் கொள்ளுங்கள்.</p>
+<h3><strong>1. முழு கவனத்துடன் கேளுங்கள்</strong></h3>
+<p>கைபேசியைப் பார்த்துக்கொண்டே பேச வேண்டாம்.</p>
+<p>கண்களைப் பார்த்து கவனமாகக் கேளுங்கள்.</p>
+
+<h3><strong>2. இடையில் குறுக்கிடாதீர்கள்</strong></h3>
+<p>மற்றவர் பேசி முடிக்கும் வரை பொறுமையாக இருங்கள்.</p>
+
+<h3><strong>3. புரிந்துகொள்ள முயற்சி செய்யுங்கள்</strong></h3>
+<p>உடனே தீர்வு சொல்ல வேண்டிய அவசியமில்லை.</p>
+<p>சில நேரங்களில்,</p>
+<blockquote>
+<p><strong>"உனக்கு இப்படித் தோன்றுகிறதா?"</strong></p>
+</blockquote>
+<p>என்று கேட்பதே போதுமானது.</p>
+
+<h3><strong>4. உணர்வுகளை அங்கீகரியுங்கள்</strong></h3>
+<p>உதாரணமாக,</p>
+<blockquote>
+<p>"நீ ஏமாற்றமாக உணர்கிறாய் என்பதை என்னால் புரிந்துகொள்ள முடிகிறது."</p>
+</blockquote>
+<p>இந்த ஒரு வாக்கியம்,</p>
+<p>மற்றவருக்கு பாதுகாப்பான உணர்வை அளிக்கிறது.</p>
+
+<h1><strong>"நீ..." என்று தொடங்காதீர்கள்</strong></h1>
+<p>முரண்பாடு ஏற்படும் போது,</p>
+<p>பலர் இவ்வாறு பேசுகிறார்கள்.</p>
+<blockquote>
+<p>"நீ எப்போதும் கேட்க மாட்டாய்."</p>
+<p>"நீ தான் எல்லாப் பிரச்சினைக்கும் காரணம்."</p>
+</blockquote>
+<p>இத்தகைய வார்த்தைகள்,</p>
+<p>மற்றவரை தற்காப்பு மனநிலைக்கு தள்ளிவிடும்.</p>
+
+<h1><strong>"நான்..." என்று தொடங்குங்கள்</strong></h1>
+<h2><strong>(I Statements)</strong></h2>
+<p>குற்றம் சாட்டாமல்,</p>
+<p>உங்கள் உணர்வைப் பகிருங்கள்.</p>
+<h3><strong>உதாரணம்</strong></h3>
+<p>❌</p>
+<blockquote>
+<p>"நீ குழந்தையை ஒருபோதும் கவனிப்பதில்லை."</p>
+</blockquote>
+<p>✅</p>
+<blockquote>
+<p>"குழந்தையின் எல்லாப் பொறுப்புகளையும் நான் மட்டும் கவனிக்கும்போது எனக்கு சோர்வாக உணரப்படுகிறது. நாம் இதைப் பகிர்ந்து கொள்ளலாமா?"</p>
+</blockquote>
+
+<p>❌</p>
+<blockquote>
+<p>"நீ எப்போதும் தாமதமாக வருகிறாய்."</p>
+</blockquote>
+<p>✅</p>
+<blockquote>
+<p>"நீ தாமதமாக வரும்போது நான் கவலைப்படுகிறேன். வர முடியாவிட்டால் முன்கூட்டியே தெரியப்படுத்தினால் எனக்கு உதவியாக இருக்கும்."</p>
+</blockquote>
+
+<h1><strong>கோபமாக இருக்கும்போது உடனே பேச வேண்டாம்</strong></h1>
+<p>மிகுந்த கோபத்தில் இருக்கும் போது,</p>
+<p>நமது மூளை அமைதியாக சிந்திக்க முடியாது.</p>
+<p>அந்த நேரத்தில் பேசினால்,</p>
+<p>பின்னர் வருந்த வேண்டிய வார்த்தைகள் வெளிவரலாம்.</p>
+<p>அதனால்,</p>
+<p>சிறிது நேரம் இடைவெளி எடுத்துக்கொள்ளுங்கள்.</p>
+<ul>
+<li>ஆழமாக மூச்சை இழுத்து விடுங்கள்.  </li>
+<li>சிறிது தண்ணீர் குடியுங்கள்.  </li>
+<li>சில நிமிடங்கள் அமைதியாக இருங்கள்.</li>
+</ul>
+<p>பிறகு,</p>
+<p>அமைதியான மனநிலையில் உரையாடலைத் தொடருங்கள்.</p>
+
+<h1><strong>குழந்தைகளுடன் பேசும்போது</strong></h1>
+<p>குழந்தைகளும்,</p>
+<p>மரியாதையுடன் நடத்தப்பட விரும்புகிறார்கள்.</p>
+<p>அவர்களிடம் பேசும்போது,</p>
+<ul>
+<li>கத்துவதைத் தவிர்க்கவும்.  </li>
+<li>ஒப்பிடுவதைத் தவிர்க்கவும்.  </li>
+<li>கேலி செய்வதைத் தவிர்க்கவும்.  </li>
+<li>அவர்கள் பேசும்போது முழுமையாகக் கேளுங்கள்.</li>
+</ul>
+<p>நாம் குழந்தைகளிடம் பேசும் விதமே,</p>
+<p>அவர்கள் எதிர்காலத்தில் மற்றவர்களிடம் பேசும் விதமாக மாறும்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>ரமேஷ்</strong> மற்றும் அவரது 14 வயது மகன் அடிக்கடி வாக்குவாதம் செய்துகொண்டிருந்தனர்.</p>
+<p>ஒருநாள்,</p>
+<p>வீட்டுப்பாடம் குறித்து மீண்டும் கருத்து வேறுபாடு ஏற்பட்டது.</p>
+<p>வழக்கம்போல்,</p>
+<blockquote>
+<p>"நீ எப்போதும் பொறுப்பாக இருக்க மாட்டாய்."</p>
+</blockquote>
+<p>என்று கூறுவதற்குப் பதிலாக,</p>
+<p>அவர் இவ்வாறு பேசினார்.</p>
+<blockquote>
+<p>"உன் வீட்டுப்பாடம் முடியாமல் இருக்கும்போது எனக்கு கவலை ஏற்படுகிறது. அதை முடிக்க நான் எப்படி உதவலாம்?"</p>
+</blockquote>
+<p>மகனும் அமைதியாகப் பேசத் தொடங்கினான்.</p>
+<p>இருவரும் சேர்ந்து ஒரு படிப்பு அட்டவணையை உருவாக்கினர்.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>வார்த்தைகள் மாறும்போது,</p>
+<p>உறவுகளும் மாறத் தொடங்குகின்றன.</p>
+
+</div><div class="tips-box"><div class="box-label">✅ நடைமுறை குறிப்புகள்</div>
+<h3><strong>1.</strong></h3>
+<p>இந்த வாரம்,</p>
+<p>ஒரு உரையாடலில்,</p>
+<p>"I Statement" முறையைப் பயன்படுத்திப் பாருங்கள்.</p>
+
+<h3><strong>2.</strong></h3>
+<p>ஒருவர் பேசும்போது,</p>
+<p>குறைந்தபட்சம் இரண்டு நிமிடங்கள் குறுக்கிடாமல் கேட்க முயற்சி செய்யுங்கள்.</p>
+
+<h3><strong>3.</strong></h3>
+<p>கோபம் அதிகமாக இருந்தால்,</p>
+<p>உடனே பதில் சொல்லாமல்,</p>
+<p>ஐந்து ஆழமான மூச்சுகளை எடுத்து பிறகு பேசுங்கள்.</p>
+
+</div><div class="activity-box"><div class="box-label">📝 இந்த வார செயல்பாடு</div>
+<p>கீழே உள்ள அட்டவணையை நிரப்புங்கள்.</p>
+<table>
+<thead>
+<tr>
+<th>சூழ்நிலை</th>
+<th>நான் வழக்கமாகச் சொல்வது</th>
+<th>இனி நான் சொல்லப் போவது</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div><div class="reflection-box"><div class="box-label">🤔 சிந்தனைப் பயிற்சி</div>
+<p>இந்தக் கேள்விகளுக்குப் பதில் எழுதுங்கள்.</p>
+<ol>
+<li>நான் கோபமாக இருக்கும்போது பொதுவாக எப்படி பேசுகிறேன்?  </li>
+<li>நான் அதிகமாக பயன்படுத்தும் எதிர்மறை வார்த்தைகள் என்ன?  </li>
+<li>"I Statement" முறையை எந்த ஒரு சூழலில் பயன்படுத்த முடியும்?  </li>
+<li>என் குடும்பத்தில் யாரை நான் இன்னும் பொறுமையாகக் கேட்க வேண்டும்?  </li>
+<li>இந்த வாரம் நான் மாற்றப் போகும் ஒரு தொடர்பாடல் பழக்கம் என்ன?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">📋 தொகுப்புரை</div>
+<p>இந்தத் தொகுதியில் நீங்கள் அறிந்தவை:</p>
+<ul>
+<li>நல்ல தொடர்பாடல் குடும்ப முரண்பாடுகளைக் குறைக்க உதவுகிறது.  </li>
+<li>செயலூக்கமான கேட்கும் திறன் உறவுகளை வலுப்படுத்துகிறது.  </li>
+<li>"I Statements" குற்றம் சாட்டாமல் உணர்வுகளை வெளிப்படுத்த உதவுகிறது.  </li>
+<li>கோபமாக இருக்கும் போது சிறிது இடைவெளி எடுத்துப் பேசுவது நல்ல முடிவுகளை உருவாக்குகிறது.</li>
+</ul>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ பேசுவதைப் போலவே, கவனமாகக் கேட்பதும் ஒரு முக்கிய வாழ்க்கைத்திறன்.</p>
+<p>✅ "நீ..." என்று குற்றம் சாட்டுவதை விட, "நான்..." என்று உங்கள் உணர்வைப் பகிருங்கள்.</p>
+<p>✅ கோபத்தில் பேசுவதற்குப் பதிலாக, அமைதியான நேரத்தில் உரையாடுங்கள்.</p>
+<p>✅ குழந்தைகளிடம் நீங்கள் பேசும் விதமே, அவர்கள் கற்றுக்கொள்ளும் தொடர்பாடல் முறையாக மாறும்.</p>
+<p>✅ மரியாதையான வார்த்தைகள், ஆரோக்கியமான குடும்ப உறவுகளுக்கான அடித்தளமாகும்.</p></div>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(9)" id="done-btn-9">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%209%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-9" onclick="prevModule(9)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-9" onclick="nextModule(9)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+
+<section class="module" id="module-10" data-mod="10">
+  <div class="module-hero">
+    <span class="module-badge">தொகுதி 10 / 10</span>
+    <h1 class="module-title">உங்களுக்கான நீண்டகால மனஅழுத்த மேலாண்மைத் திட்டத்தை உருவாக்குதல்</h1>
+    <p class="module-eng">(Creating Your Long-Term Stress Management Plan)</p>
+    <p class="module-subtitle">மனஅழுத்த மேலாண்மை என்பது ஒருநாள் செய்யும் செயல் அல்ல; அது தொடர்ந்து கடைப்பிடிக்க வேண்டிய வாழ்க்கைமுறை. இந்த இறுதித் தொகுதியில், நீங்கள் கற்றுக்கொண்ட அனைத்து திறன்களையும் ஒன்றிணைத்து உங்களுக்கான தனிப்பட்ட செயல்திட்டத்தை உருவாக்குவீர்கள்.</p>
+  </div>
+  <div class="module-body">
+    
+<div class="objectives-box"><div class="box-label">🎯 இந்தத் தொகுதியின் நோக்கம்</div>
+<p>இந்தத் தொகுதியைப் படித்து முடிக்கும் போது, நீங்கள்:</p>
+<ul>
+<li>இந்தப் பாடநெறியில் கற்றுக்கொண்ட முக்கியக் கருத்துகளை மீளாய்வு செய்வீர்கள்.  </li>
+<li>உங்களுக்கு மனஅழுத்தத்தை ஏற்படுத்தும் முக்கிய காரணிகளை அடையாளம் காண்பீர்கள்.  </li>
+<li>தினசரி, வாராந்திர மற்றும் மாதாந்திர மனஅழுத்த மேலாண்மைத் திட்டத்தை உருவாக்குவீர்கள்.  </li>
+<li>எதிர்காலத்தில் மனஅழுத்தத்தை ஆரோக்கியமான முறையில் கையாளும் நம்பிக்கையை வளர்த்துக்கொள்வீர்கள்.</li>
+</ul>
+
+</div><h1><strong>மனஅழுத்த மேலாண்மை என்பது ஒரு பயணம்</strong></h1>
+<p>பலர் நினைப்பது,</p>
+<blockquote>
+<p><strong>"ஒருமுறை இந்தப் பயிற்சிகளைச் செய்தால் மனஅழுத்தம் முற்றிலும் மறைந்துவிடும்."</strong></p>
+</blockquote>
+<p>ஆனால்,</p>
+<p>வாழ்க்கையில் சவால்கள் தொடர்ந்து வந்துகொண்டே இருக்கும்.</p>
+<p>மாறுவது,</p>
+<p><strong>சவால்கள் அல்ல...</strong></p>
+<p><strong>அவற்றை எதிர்கொள்ளும் நமது திறன்தான்.</strong></p>
+<p>இந்தப் பாடநெறியின் நோக்கம்,</p>
+<p>மனஅழுத்தத்தை முற்றிலும் அகற்றுவது அல்ல.</p>
+<p>மாறாக,</p>
+<p>அதை ஆரோக்கியமான முறையில் கையாளும் திறனை வளர்ப்பதே.</p>
+
+<h1><strong>இந்தப் பாடநெறியில் நீங்கள் கற்றுக்கொண்டவை</strong></h1>
+<h2><strong>தொகுதி 1</strong></h2>
+<p>மனஅழுத்தம் என்றால் என்ன?</p>
+
+<h2><strong>தொகுதி 2</strong></h2>
+<p>மனஅழுத்தத்தின் உடல் மற்றும் மன அறிகுறிகளை அடையாளம் காணுதல்.</p>
+
+<h2><strong>தொகுதி 3</strong></h2>
+<p>பெற்றோரின் மனஅழுத்தம் குழந்தைகளை எவ்வாறு பாதிக்கிறது?</p>
+
+<h2><strong>தொகுதி 4</strong></h2>
+<p>எதிர்மறை சிந்தனையை மாற்றும் Cognitive Reframing முறைகள்.</p>
+
+<h2><strong>தொகுதி 5</strong></h2>
+<p>மூச்சுப்பயிற்சி, Mindfulness மற்றும் உடல் தளர்வு பயிற்சிகள்.</p>
+
+<h2><strong>தொகுதி 6</strong></h2>
+<p>நேர மேலாண்மை மற்றும் முன்னுரிமை நிர்ணயம்.</p>
+
+<h2><strong>தொகுதி 7</strong></h2>
+<p>ஆதரவு வலையமைப்பை உருவாக்குதல்.</p>
+
+<h2><strong>தொகுதி 8</strong></h2>
+<p>ஆரோக்கியமான வாழ்க்கைமுறை பழக்கங்கள்.</p>
+
+<h2><strong>தொகுதி 9</strong></h2>
+<p>குடும்பத்தில் அமைதியான தொடர்பாடல் திறன்கள்.</p>
+
+<p>இந்த ஒன்பது தொகுதிகளும்,</p>
+<p>ஒரு ஆரோக்கியமான மனநிலைக்கான வலுவான அடித்தளமாக அமைகின்றன.</p>
+
+<h1><strong>உங்கள் மனஅழுத்தத்தை அறிந்து கொள்ளுங்கள்</strong></h1>
+<p>கீழே உள்ள கேள்விகளுக்குப் பதில் எழுதுங்கள்.</p>
+<h3><strong>என்னை அதிகமாக மனஅழுத்தப்படுத்துவது என்ன?</strong></h3>
+<p>☐ குழந்தைகளின் படிப்பு</p>
+<p>☐ வேலை</p>
+<p>☐ பணம்</p>
+<p>☐ உடல்நலம்</p>
+<p>☐ குடும்ப உறவுகள்</p>
+<p>☐ நேரமின்மை</p>
+<p>☐ மற்றவை:</p>
+
+
+<h1><strong>என்னுடைய எச்சரிக்கை அறிகுறிகள்</strong></h1>
+<p>மனஅழுத்தம் அதிகரிக்கும் போது,</p>
+<p>என்னிடம் பொதுவாக என்ன நடக்கிறது?</p>
+<p>☐ சீக்கிரம் கோபம் வருகிறது.</p>
+<p>☐ தூக்கம் குறைகிறது.</p>
+<p>☐ தலைவலி வருகிறது.</p>
+<p>☐ அதிகமாக கவலைப்படுகிறேன்.</p>
+<p>☐ அமைதியாக இருக்க முடியவில்லை.</p>
+<p>☐ மற்றவை:</p>
+
+
+<h1><strong>எனக்கு உதவும் மனஅழுத்தக் குறைப்பு முறைகள்</strong></h1>
+<p>இந்தப் பாடநெறியில் கற்றுக்கொண்டவற்றில்,</p>
+<p>எனக்கு மிகவும் பயனுள்ளதாக இருந்தவை எவை?</p>
+<p>☐ 4–7–8 மூச்சுப்பயிற்சி</p>
+<p>☐ Mindfulness</p>
+<p>☐ ABC Model</p>
+<p>☐ நேர மேலாண்மை</p>
+<p>☐ குடும்ப ஆதரவு</p>
+<p>☐ நடைப்பயிற்சி</p>
+<p>☐ நல்ல தூக்கம்</p>
+<p>☐ I Statements</p>
+<p>☐ மற்றவை:</p>
+
+
+<h1><strong>எனது தினசரி மனஅழுத்த மேலாண்மைத் திட்டம்</strong></h1>
+<p>ஒவ்வொரு நாளும் நான் செய்யப் போகும் செயல்கள்:</p>
+<p>☐ காலை 5 நிமிட மூச்சுப்பயிற்சி</p>
+<p>☐ 10 நிமிட நடைப்பயிற்சி</p>
+<p>☐ போதுமான தண்ணீர் குடித்தல்</p>
+<p>☐ குழந்தையுடன் 20 நிமிட தரமான நேரம்</p>
+<p>☐ இரவு 10 மணிக்குள் உறங்குதல்</p>
+<p>☐ கைபேசி பயன்பாட்டைக் குறைத்தல்</p>
+
+<h1><strong>வாராந்திர திட்டம்</strong></h1>
+<p>ஒவ்வொரு வாரமும்,</p>
+<p>நான் செய்யப் போகும் செயல்கள்:</p>
+<ul>
+<li>குடும்பத்துடன் ஒரு மணி நேரம் செலவிடுதல்.  </li>
+<li>அடுத்த வார வேலைகளைத் திட்டமிடுதல்.  </li>
+<li>நண்பர் அல்லது உறவினருடன் பேசுதல்.  </li>
+<li>ஒரு மணி நேரம் எனக்காக ஒதுக்குதல்.  </li>
+<li>உடல் மற்றும் மனநிலையை சுயமாக மதிப்பீடு செய்தல்.</li>
+</ul>
+
+<h1><strong>மாதாந்திர திட்டம்</strong></h1>
+<p>ஒவ்வொரு மாதமும்,</p>
+<ul>
+<li>என் மனஅழுத்த நிலையை மதிப்பிடுவேன்.  </li>
+<li>தேவையற்ற பொறுப்புகளை மறுபரிசீலனை செய்வேன்.  </li>
+<li>புதிய ஆரோக்கியமான ஒரு பழக்கத்தைச் சேர்ப்பேன்.  </li>
+<li>என் முன்னேற்றத்தைப் பதிவு செய்வேன்.</li>
+</ul>
+
+<h1><strong>சவால்கள் மீண்டும் வந்தால் என்ன செய்வேன்?</strong></h1>
+<p>மனஅழுத்தம் மீண்டும் அதிகரிக்கலாம்.</p>
+<p>அது தோல்வி அல்ல.</p>
+<p>அது,</p>
+<p>இந்தப் பயிற்சிகளை மீண்டும் பயன்படுத்த வேண்டிய நேரம் என்பதற்கான ஒரு அறிகுறி.</p>
+<p>அந்த நேரத்தில்,</p>
+<p>நினைவில் கொள்ளுங்கள்.</p>
+<p>✔ ஆழமாக மூச்சை இழுத்து விடுங்கள்.</p>
+<p>✔ உங்கள் சிந்தனையைச் சரிபாருங்கள்.</p>
+<p>✔ குடும்பத்தினருடன் பேசுங்கள்.</p>
+<p>✔ உதவி கேட்க தயங்காதீர்கள்.</p>
+<p>✔ உங்களிடம் கருணையுடன் நடந்து கொள்ளுங்கள்.</p>
+
+<div class="example-box"><div class="box-label">💬 உண்மை வாழ்க்கை உதாரணம்</div>
+<p><strong>லட்சுமி</strong>, இந்தப் பாடநெறியை முடித்த பிறகு,</p>
+<p>தினமும் 10 நிமிட நடைப்பயிற்சி,</p>
+<p>5 நிமிட மூச்சுப்பயிற்சி,</p>
+<p>மற்றும் வாரத்திற்கு ஒரு முறை குடும்பத் திட்டமிடல் கூட்டம் ஆகியவற்றைத் தொடங்கினார்.</p>
+<p>மூன்று மாதங்களுக்குப் பிறகு,</p>
+<p>வாழ்க்கையில் இருந்த சவால்கள் மாறவில்லை.</p>
+<p>ஆனால்,</p>
+<p>அவற்றை எதிர்கொள்ளும் அவரது நம்பிக்கை,</p>
+<p>அமைதி,</p>
+<p>மற்றும் பொறுமை குறிப்பிடத்தக்க அளவில் அதிகரித்திருந்தது.</p>
+<p><strong>கற்றுக்கொள்ள வேண்டிய பாடம்:</strong></p>
+<p>மனஅழுத்தம் இல்லாத வாழ்க்கை வெற்றியல்ல.</p>
+<p><strong>மனஅழுத்தத்தை ஆரோக்கியமாகக் கையாளும் வாழ்க்கையே வெற்றியாகும்.</strong></p>
+
+</div><h1><strong>இறுதி செயல்பாடு</strong></h1><h2><strong>எனது உறுதிமொழி</strong></h2>
+<p>கீழே உள்ள இடத்தில் உங்கள் உறுதிமொழியை எழுதுங்கள்.</p>
+<blockquote>
+<p><strong>"எனது மனநலத்தையும், என் குடும்பத்தின் நலனையும் பாதுகாக்க, தினமும் சிறிய நல்ல பழக்கங்களை தொடர்ந்து கடைப்பிடிப்பேன்."</strong></p>
+</blockquote>
+<p><strong>கையொப்பம்:</strong> ______________________</p>
+<p><strong>தேதி:</strong> ______________________</p>
+
+<div class="reflection-box"><div class="box-label">🤔 இறுதிச் சிந்தனை</div>
+<p>இந்தக் கேள்விகளுக்குப் பதில் எழுதுங்கள்.</p>
+<ol>
+<li>இந்தப் பாடநெறியில் நான் கற்றுக்கொண்ட மிக முக்கியமான பாடம் என்ன?  </li>
+<li>என் வாழ்க்கையில் நான் உடனடியாக மாற்றப் போகும் ஒரு பழக்கம் என்ன?  </li>
+<li>ஒரு மாதத்திற்குப் பிறகு என்ன மாற்றத்தை நான் எதிர்பார்க்கிறேன்?  </li>
+<li>என் குடும்பத்திற்காக நான் செய்ய விரும்பும் ஒரு நல்ல மாற்றம் என்ன?  </li>
+<li>இந்தப் பயணத்தில் என்னை ஊக்கப்படுத்தப் போகும் ஒரு வாக்கியம் என்ன?</li>
+</ol>
+
+</div><div class="summary-box"><div class="box-label">🎉 பாடநெறி நிறைவுரை</div>
+<p><strong>வாழ்த்துகள்!</strong></p>
+<p><strong>"பெற்றோருக்கான மனஅழுத்த மேலாண்மை – சுயகற்றல் பாடநெறி"</strong>யை நீங்கள் வெற்றிகரமாக நிறைவு செய்துள்ளீர்கள்.</p>
+<p>நினைவில் கொள்ளுங்கள்:</p>
+<ul>
+<li>மனஅழுத்தம் வாழ்க்கையின் ஒரு இயல்பான பகுதி.  </li>
+<li>அதை மறுப்பதோ அல்லது தவிர்ப்பதோ தீர்வல்ல.  </li>
+<li>அதை புரிந்துகொண்டு, ஆரோக்கியமான முறையில் கையாளக் கற்றுக்கொள்வதே உண்மையான வாழ்க்கைத்திறன்.</li>
+</ul>
+<p>உங்களின் மன அமைதியே,</p>
+<p>உங்கள் குடும்பத்தின் அமைதிக்கும்,</p>
+<p>உங்கள் குழந்தைகளின் ஆரோக்கியமான வளர்ச்சிக்கும் அடித்தளமாக அமையும்.</p>
+
+</div><div class="keypoints-box"><div class="box-label">⭐ முக்கிய குறிப்புகள்</div>
+<p>✅ மனஅழுத்தத்தை நிர்வகிப்பது ஒரு தொடர்ச்சியான பயிற்சி.</p>
+<p>✅ சிறிய நல்ல பழக்கங்கள், பெரிய வாழ்க்கை மாற்றங்களை உருவாக்கும்.</p>
+<p>✅ உதவி தேவைப்படும் போது தயங்காமல் கேளுங்கள்.</p>
+<p>✅ உங்களைக் கவனித்துக்கொள்வது சுயநலம் அல்ல; அது உங்கள் குடும்பத்திற்கான பொறுப்பின் ஒரு பகுதியாகும்.</p>
+<p>✅ அமைதியான பெற்றோர், தன்னம்பிக்கையுள்ள குழந்தைகளை உருவாக்குகிறார்கள்.</p>
+
+</div><h2><strong>🎉 பாடநெறி வெற்றிகரமாக நிறைவடைந்தது!</strong></h2>
+<p><strong>அடுத்த படி:</strong><br/>
+ இந்தப் பாடநெறிக்குப் பிறகு, உங்கள் மனஅழுத்த மேலாண்மைத் திறன்களை தொடர்ந்து மேம்படுத்த, நீங்கள் உருவாக்கிய தனிப்பட்ட செயல்திட்டத்தை தினசரி நடைமுறையில் செயல்படுத்துங்கள்</p>
+  </div>
+  <div class="module-footer">
+    <button class="btn-mark-done" onclick="markDone(10)" id="done-btn-10">இந்தத் தொகுதியை முடித்தேன் ✓</button>
+  </div>
+  <div class="btn-row no-print">
+    <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi,%20I%20have%20a%20question%20about%20Module%2010%20of%20the%20Stress%20Management%20course." target="_blank" rel="noopener">
+      <span>WhatsApp-ல் கேள்வி கேளுங்கள்</span>
+    </a>
+    <button class="btn btn-print" onclick="window.print()"><span>அச்சிடுக / சேமிக்க</span></button>
+  </div>
+  <div class="module-pager no-print">
+    <button class="pager-btn" id="prev-btn-10" onclick="prevModule(10)">← முந்தைய தொகுதி</button>
+    <button class="pager-btn pager-next" id="next-btn-10" onclick="nextModule(10)">அடுத்த தொகுதி →</button>
+  </div>
+</section>
+  </main>
+</div>
+
+<div class="site-footer">N T Somasundaram · Life Skills Program · "God is always with u"</div>
+
+<script>
+const TOTAL_MODULES = 10;
+const STORAGE_KEY = 'tamil_stress_course_progress_v1';
+const CURRENT_KEY = 'tamil_stress_course_current_v1';
+
+function loadProgress() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : {};
+  } catch (e) { return {}; }
+}
+function saveProgress(p) {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); } catch (e) {}
+}
+function loadCurrent() {
+  try {
+    const raw = localStorage.getItem(CURRENT_KEY);
+    return raw ? parseInt(raw, 10) : 1;
+  } catch (e) { return 1; }
+}
+function saveCurrent(n) {
+  try { localStorage.setItem(CURRENT_KEY, String(n)); } catch (e) {}
+}
+
+let progress = loadProgress();
+
+function updateProgressBar() {
+  const done = Object.values(progress).filter(Boolean).length;
+  const pct = Math.round((done / TOTAL_MODULES) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = done + ' / ' + TOTAL_MODULES;
+  for (let i = 1; i <= TOTAL_MODULES; i++) {
+    const chk = document.getElementById('check-' + i);
+    if (chk) chk.classList.toggle('done', !!progress[i]);
+    const btn = document.getElementById('done-btn-' + i);
+    if (btn) {
+      btn.classList.toggle('done', !!progress[i]);
+      btn.textContent = progress[i] ? 'இந்தத் தொகுதி முடிந்தது' : 'இந்தத் தொகுதியை முடித்தேன் ✓';
+    }
+  }
+}
+
+function markDone(n) {
+  progress[n] = !progress[n];
+  saveProgress(progress);
+  updateProgressBar();
+}
+
+function goToModule(n) {
+  if (n < 1 || n > TOTAL_MODULES) return;
+  document.querySelectorAll('.module').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  const sec = document.getElementById('module-' + n);
+  const nav = document.querySelector('.nav-item[data-mod="' + n + '"]');
+  if (sec) sec.classList.add('active');
+  if (nav) nav.classList.add('active');
+  saveCurrent(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  closeSidebarMobile();
+}
+
+function prevModule(n) { if (n > 1) goToModule(n - 1); }
+function nextModule(n) { if (n < TOTAL_MODULES) goToModule(n + 1); }
+
+function toggleSidebar() {
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebarOverlay').classList.toggle('open');
+}
+function closeSidebarMobile() {
+  if (window.innerWidth <= 860) {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  }
+}
+
+// Disable prev/next buttons at boundaries
+function setupPagerStates() {
+  for (let i = 1; i <= TOTAL_MODULES; i++) {
+    const prevBtn = document.getElementById('prev-btn-' + i);
+    const nextBtn = document.getElementById('next-btn-' + i);
+    if (prevBtn) prevBtn.disabled = (i === 1);
+    if (nextBtn) nextBtn.disabled = (i === TOTAL_MODULES);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateProgressBar();
+  setupPagerStates();
+  goToModule(loadCurrent());
+});
+</script>
+
+</body>
+</html>
