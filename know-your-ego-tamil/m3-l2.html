@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Two Extremes: Inflated Ego and Low Self-Worth | Know Your Ego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand"><span class="dot"></span><span class="txt">NT Somasundaram Life Skills Program</span></div>
+    <div class="sb-course-title">Know Your Ego</div>
+    <div class="sb-overall">
+      <div class="lbl">Course Progress</div>
+      <div class="sb-progress-track"><div class="sb-progress-fill" id="sbProgressFill"></div></div>
+      <div class="sb-progress-pct" id="sbProgressPct">0% complete</div>
+    </div>
+    <ul class="sb-modlist" id="sbNav"></ul>
+    <div class="sb-footer">N T Somasundaram<br>+91 98437 02244<br><span style="color:var(--gold)">God is always with u</span></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="crumb">Know Your Ego / Module 3 / Lesson 2</div>
+      <div class="top-actions">
+        <div class="mini-progress" id="miniProgress">0% complete</div>
+        <a href="index.html" class="btn btn-outline" style="padding:7px 14px;font-size:12.5px;">Course Home</a>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="page-card">
+        <span class="eyebrow">Module 3 &middot; Lesson 2 of 2</span>
+        <h2 class="lesson-heading">The Two Extremes: Inflated Ego and Low Self-Worth</h2>
+        <p class="subtitle">Healthy Ego vs. Inflated Ego vs. Low Self-Worth</p>
+
+        <div class="block">
+          <div class="block-label">&#128214; Detailed Explanation</div>
+          <p>An inflated ego thinks too highly of itself, resists feedback, and always needs praise — but underneath, it is often fragile and afraid of being “found out.” Low self-worth, the opposite extreme, always seeks approval, apologises too much, and struggles to say no. Surprisingly, both come from the same root: an unstable inner sense of value that depends on outside proof — either by controlling others or by shrinking yourself to avoid rejection.</p>
+        </div>
+        <div class="block metaphor">
+          <div class="block-label">&#127795; Metaphor</div>
+          <p>Picture a balloon (inflated ego) and a flat, deflated ball (low self-worth). Both are unstable — a small pin of criticism pops the balloon, and the flat ball can't bounce back after a knock. A healthy ego is like a properly filled football: firm, flexible, and able to take real hits without losing its shape.</p>
+        </div>
+        <div class="block example">
+          <div class="block-label">&#128100; Real-Life Example</div>
+          <p>Two colleagues, Vijay and Anita, both received the same critical performance review. Vijay (inflated ego) called the reviewer “incompetent” and refused to change. Anita (low self-worth) decided she was “a total failure” and thought about quitting. Neither response was correct — both missed the useful, workable feedback in the review.</p>
+        </div>
+        <div class="block">
+          <div class="block-label">&#128161; Practical Tips</div>
+          <ul><li>If you rarely apologise or accept feedback, watch for signs of an inflated ego.</li><li>If you apologise for things that are not your fault, watch for signs of low self-worth.</li><li>For either extreme, repeat this line: “This is one piece of information about one action, not a judgment on my whole worth.”</li></ul>
+        </div>
+        <div class="block guidance">
+          <div class="block-label">&#129517; Coach's Guidance</div>
+          <p>Aim for the “football zone” by practicing in both directions: if you tend to be over-confident, ask others for feedback and thank them without arguing. If you tend to feel small, say one of your achievements out loud each day without playing it down.</p>
+        </div>
+      </div>
+
+      <div class="worksheet-box">
+        <span class="eyebrow">Live Worksheet</span>
+        <h3 style="margin:8px 0 6px;font-size:16.5px;">Reflection Exercise</h3>
+        <p class="subtitle" style="margin-bottom:14px;">Which extreme do you notice more in yourself — inflated ego or low self-worth? Describe one small step you could take this week to move toward the 'football zone'.</p>
+        <textarea id="wsText" placeholder="Write your reflection here. It saves automatically as you type..."></textarea>
+        <div class="ws-footer">
+          <span class="wc" id="wsCount">0 words</span>
+          <span class="saved-tag" id="wsSaved">&#10003; Saved</span>
+        </div>
+      </div>
+
+      <div class="quiz-box">
+        <span class="eyebrow">Live Knowledge Check</span>
+        <h3 style="margin:8px 0 14px;font-size:16.5px;">Quick Quiz &mdash; 2 Questions</h3>
+        <div id="quizbox-m3l2"></div>
+        <div style="margin-top:14px;">
+          <button class="btn btn-primary" id="quizbox-m3l2-submit" disabled>Submit Answers</button>
+        </div>
+        <div class="quiz-score-banner" id="quizbox-m3l2-banner"></div>
+      </div>
+
+      <div class="page-card" style="padding:20px 24px;">
+        <div class="lesson-nav">
+          <a href="m3-l1.html" class="btn btn-outline">&larr; Previous Lesson</a>
+          <button class="btn btn-primary" id="markCompleteBtn" onclick="markLessonComplete('m3l2', this)">Mark Lesson Complete</button>
+          <a href="module-3-review.html" class="btn btn-gold">Go to Module Assessment &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      N T Somasundaram  |  +91 98437 02244  |  somasundaramnt.lifecoach@gmail.com<br>
+      <div class="motto">God is always with u</div>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script>buildSidebar("lesson", "m3l2");</script>
+<script>
+initWorksheet('m3l2');
+initQuiz('quizbox-m3l2', [{"q": "According to the lesson, what do an inflated ego and low self-worth have in common?", "options": ["Nothing, they are opposites in every way", "Both come from an unstable inner sense of value that depends on outside proof", "Both are signs of high intelligence", "Both only appear at work"], "correct": 1, "explain": "Both extremes stem from the same root: value that depends on external proof rather than an internal, stable sense of self."}, {"q": "In the football metaphor, what does a \u201cwell-inflated football\u201d represent?", "options": ["An inflated ego", "Low self-worth", "A healthy, balanced ego that can take hits without losing shape", "A person who never faces criticism"], "correct": 2, "explain": "The football represents a healthy ego: firm, flexible, and resilient."}], {key:'m3l2', kind:'lesson', moduleId:3, lessonId:'m3l2'});
+if(isLessonComplete('m3l2')){
+  const b = document.getElementById('markCompleteBtn');
+  if(b){ b.textContent = '\u2713 Lesson Complete'; b.classList.add('btn-done'); b.classList.remove('btn-primary'); b.disabled = true; }
+}
+</script>
+</body>
+</html>

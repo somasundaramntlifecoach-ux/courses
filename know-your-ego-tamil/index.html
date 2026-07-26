@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Home | Know Your Ego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand"><span class="dot"></span><span class="txt">NT Somasundaram Life Skills Program</span></div>
+    <div class="sb-course-title">Know Your Ego</div>
+    <div class="sb-overall">
+      <div class="lbl">Course Progress</div>
+      <div class="sb-progress-track"><div class="sb-progress-fill" id="sbProgressFill"></div></div>
+      <div class="sb-progress-pct" id="sbProgressPct">0% complete</div>
+    </div>
+    <ul class="sb-modlist" id="sbNav"></ul>
+    <div class="sb-footer">N T Somasundaram<br>+91 98437 02244<br><span style="color:var(--gold)">God is always with u</span></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="crumb">Know Your Ego / Course Home</div>
+      <div class="top-actions">
+        <div class="mini-progress" id="miniProgress">0% complete</div>
+        <a href="index.html" class="btn btn-outline" style="padding:7px 14px;font-size:12.5px;">Course Home</a>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="hero-band">
+        <h1>Know Your Ego</h1>
+        <p>A 10-module professional course on understanding, recognizing, and balancing the ego &mdash; with real-life examples, metaphors, live worksheets, and live knowledge checks in every lesson.</p>
+        <div class="hero-stats">
+          <div class="hero-stat"><div class="num">10</div><div class="lbl">Modules</div></div>
+          <div class="hero-stat"><div class="num">14</div><div class="lbl">Lessons</div></div>
+          <div class="hero-stat"><div class="num">24</div><div class="lbl">Live Assessments</div></div>
+          <div class="hero-stat"><div class="num">1</div><div class="lbl">Certificate</div></div>
+        </div>
+        <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a id="resumeBtn" href="module-1.html" class="btn btn-gold">Continue Learning &rarr;</a>
+          <a href="certificate.html" class="btn btn-outline" style="background:transparent;color:#fff;border-color:rgba(255,255,255,.4);">View Certificate</a>
+        </div>
+      </div>
+
+      <div class="page-card">
+        <span class="eyebrow">Course Modules</span>
+        <h1 style="margin-bottom:4px;">All 10 Modules</h1>
+        <p class="subtitle">Each module includes detailed lessons, a live reflection worksheet, a live knowledge check, and a final module assessment.</p>
+      </div>
+
+      <div class="module-grid" id="homeGrid"></div>
+
+      <div class="cta-band" style="margin-top:26px;">
+        <h3>Go Deeper &mdash; Join the Live Program</h3>
+        <p>Get personal guidance from N T Somasundaram in a live bilingual Zoom session, plus your personalised Ego Assessment Report.</p>
+        <a class="wa-btn" href="https://wa.me/919843702244?text=Hi%2C%20I%20have%20a%20question%20about%20the%20Know%20Your%20Ego%20course" target="_blank">&#128172; WhatsApp Us</a>
+      </div>
+
+    </div>
+    <div class="footer">
+      N T Somasundaram  |  +91 98437 02244  |  somasundaramnt.lifecoach@gmail.com<br>
+      <div class="motto">God is always with u</div>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script>buildSidebar("home", null);</script>
+<script>
+renderHomeGrid('homeGrid');
+initHomeResume();
+</script>
+</body>
+</html>

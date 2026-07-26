@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winning the Argument, Losing the Relationship | Know Your Ego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand"><span class="dot"></span><span class="txt">NT Somasundaram Life Skills Program</span></div>
+    <div class="sb-course-title">Know Your Ego</div>
+    <div class="sb-overall">
+      <div class="lbl">Course Progress</div>
+      <div class="sb-progress-track"><div class="sb-progress-fill" id="sbProgressFill"></div></div>
+      <div class="sb-progress-pct" id="sbProgressPct">0% complete</div>
+    </div>
+    <ul class="sb-modlist" id="sbNav"></ul>
+    <div class="sb-footer">N T Somasundaram<br>+91 98437 02244<br><span style="color:var(--gold)">God is always with u</span></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="crumb">Know Your Ego / Module 4 / Lesson 1</div>
+      <div class="top-actions">
+        <div class="mini-progress" id="miniProgress">0% complete</div>
+        <a href="index.html" class="btn btn-outline" style="padding:7px 14px;font-size:12.5px;">Course Home</a>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="page-card">
+        <span class="eyebrow">Module 4 &middot; Lesson 1 of 1</span>
+        <h2 class="lesson-heading">Winning the Argument, Losing the Relationship</h2>
+        <p class="subtitle">Ego in Relationships</p>
+
+        <div class="block">
+          <div class="block-label">&#128214; Detailed Explanation</div>
+          <p>In close relationships, ego often shows up as the need to be “right,” even when being right costs the relationship. Couples can repeat the same argument for years — not because the topic (whose turn to wash dishes, how to raise the kids) truly cannot be solved, but because both partners' egos are defending their ground, not solving the problem. The moment the goal quietly shifts from “let's solve this together” to “I need to win this,” the relationship suffers.</p>
+        </div>
+        <div class="block metaphor">
+          <div class="block-label">&#127795; Metaphor</div>
+          <p>Arguing to win in a relationship is like two people pulling opposite ends of a rope near a cliff edge. Even the “winner” ends up closer to falling, because the tug-of-war itself damages the ground both people stand on.</p>
+        </div>
+        <div class="block example">
+          <div class="block-label">&#128100; Real-Life Example</div>
+          <p>Kavitha and her husband argued weekly about household budgeting. Each time, both tried to prove the other was “bad with money.” When Kavitha finally asked, “Do we want to be right, or do we want a working budget?”, the tone of the talk changed within minutes, and they built a shared spreadsheet together.</p>
+        </div>
+        <div class="block">
+          <div class="block-label">&#128161; Practical Tips</div>
+          <ul><li>In any relationship conflict, quietly ask yourself: “Am I trying to solve this, or trying to win this?”</li><li>Replace “You always...” or “You never...” with words about one specific incident.</li><li>Agree in advance with your partner or family member on a shared “timeout” signal to pause a talk before ego takes over.</li></ul>
+        </div>
+        <div class="block guidance">
+          <div class="block-label">&#129517; Coach's Guidance</div>
+          <p>At the end of a disagreement, whether you “won” or not, ask your partner one honest question: “How did that conversation feel for you?” This one habit, done regularly, trains both people to value the relationship over winning.</p>
+        </div>
+      </div>
+
+      <div class="worksheet-box">
+        <span class="eyebrow">Live Worksheet</span>
+        <h3 style="margin:8px 0 6px;font-size:16.5px;">Reflection Exercise</h3>
+        <p class="subtitle" style="margin-bottom:14px;">Think of a recurring argument in one of your relationships. Is it really about the topic, or has it become about winning? What could you ask instead, next time?</p>
+        <textarea id="wsText" placeholder="Write your reflection here. It saves automatically as you type..."></textarea>
+        <div class="ws-footer">
+          <span class="wc" id="wsCount">0 words</span>
+          <span class="saved-tag" id="wsSaved">&#10003; Saved</span>
+        </div>
+      </div>
+
+      <div class="quiz-box">
+        <span class="eyebrow">Live Knowledge Check</span>
+        <h3 style="margin:8px 0 14px;font-size:16.5px;">Quick Quiz &mdash; 2 Questions</h3>
+        <div id="quizbox-m4l1"></div>
+        <div style="margin-top:14px;">
+          <button class="btn btn-primary" id="quizbox-m4l1-submit" disabled>Submit Answers</button>
+        </div>
+        <div class="quiz-score-banner" id="quizbox-m4l1-banner"></div>
+      </div>
+
+      <div class="page-card" style="padding:20px 24px;">
+        <div class="lesson-nav">
+          <a href="module-4.html" class="btn btn-outline">&larr; Back to Module</a>
+          <button class="btn btn-primary" id="markCompleteBtn" onclick="markLessonComplete('m4l1', this)">Mark Lesson Complete</button>
+          <a href="module-4-review.html" class="btn btn-gold">Go to Module Assessment &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      N T Somasundaram  |  +91 98437 02244  |  somasundaramnt.lifecoach@gmail.com<br>
+      <div class="motto">God is always with u</div>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script>buildSidebar("lesson", "m4l1");</script>
+<script>
+initWorksheet('m4l1');
+initQuiz('quizbox-m4l1', [{"q": "What happens in the \u201ctug-of-war\u201d metaphor when one partner \u201cwins\u201d the argument?", "options": ["They gain more respect", "Even the winner ends up closer to damaging the relationship", "The relationship automatically improves", "Nothing changes"], "correct": 1, "explain": "The tug-of-war itself damages the ground both people stand on \u2014 even the 'winner' loses something."}, {"q": "What question can help shift a couple's focus from winning to solving?", "options": ["\u201cWho started this argument?\u201d", "\u201cDo we want to be right, or do we want a working solution?\u201d", "\u201cWhose fault is this?\u201d", "\u201cCan we just stop talking about this?\u201d"], "correct": 1, "explain": "This question redirects both partners toward a shared goal instead of a personal win."}], {key:'m4l1', kind:'lesson', moduleId:4, lessonId:'m4l1'});
+if(isLessonComplete('m4l1')){
+  const b = document.getElementById('markCompleteBtn');
+  if(b){ b.textContent = '\u2713 Lesson Complete'; b.classList.add('btn-done'); b.classList.remove('btn-primary'); b.disabled = true; }
+}
+</script>
+</body>
+</html>

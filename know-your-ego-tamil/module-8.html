@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 8 | Know Your Ego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand"><span class="dot"></span><span class="txt">NT Somasundaram Life Skills Program</span></div>
+    <div class="sb-course-title">Know Your Ego</div>
+    <div class="sb-overall">
+      <div class="lbl">Course Progress</div>
+      <div class="sb-progress-track"><div class="sb-progress-fill" id="sbProgressFill"></div></div>
+      <div class="sb-progress-pct" id="sbProgressPct">0% complete</div>
+    </div>
+    <ul class="sb-modlist" id="sbNav"></ul>
+    <div class="sb-footer">N T Somasundaram<br>+91 98437 02244<br><span style="color:var(--gold)">God is always with u</span></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="crumb">Know Your Ego / Module 8</div>
+      <div class="top-actions">
+        <div class="mini-progress" id="miniProgress">0% complete</div>
+        <a href="index.html" class="btn btn-outline" style="padding:7px 14px;font-size:12.5px;">Course Home</a>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="page-card">
+        <span class="eyebrow">Module 8 of 10</span>
+        <h1>Ego and Emotional Intelligence</h1>
+        <p class="subtitle">Ego and emotional intelligence (EQ) sit at opposite ends of the same scale — as awareness and self-control grow, ego-driven reactions naturally shrink.</p>
+      </div>
+
+      <div class="page-card">
+        <span class="eyebrow">Lessons in this module</span>
+        <div id="modLessons" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:14px;"></div>
+      </div>
+
+      <div class="page-card" style="text-align:center;">
+        <span class="eyebrow">Final Step</span>
+        <h2 style="font-size:19px;margin:6px 0 8px;">Module 8 Review &amp; Live Assessment</h2>
+        <p class="subtitle" style="max-width:520px;margin:0 auto 16px;">Once you've completed the lessons above, test your understanding with a short live assessment covering this whole module.</p>
+        <a href="module-8-review.html" class="btn btn-primary">Go to Module Review &amp; Assessment</a>
+      </div>
+
+    </div>
+    <div class="footer">
+      N T Somasundaram  |  +91 98437 02244  |  somasundaramnt.lifecoach@gmail.com<br>
+      <div class="motto">God is always with u</div>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script>buildSidebar("module", 8);</script>
+<script>renderModuleLessonList('modLessons', 8);</script>
+</body>
+</html>

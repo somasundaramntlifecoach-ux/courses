@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 7 Review | Know Your Ego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand"><span class="dot"></span><span class="txt">NT Somasundaram Life Skills Program</span></div>
+    <div class="sb-course-title">Know Your Ego</div>
+    <div class="sb-overall">
+      <div class="lbl">Course Progress</div>
+      <div class="sb-progress-track"><div class="sb-progress-fill" id="sbProgressFill"></div></div>
+      <div class="sb-progress-pct" id="sbProgressPct">0% complete</div>
+    </div>
+    <ul class="sb-modlist" id="sbNav"></ul>
+    <div class="sb-footer">N T Somasundaram<br>+91 98437 02244<br><span style="color:var(--gold)">God is always with u</span></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="crumb">Know Your Ego / Module 7 / Review &amp; Assessment</div>
+      <div class="top-actions">
+        <div class="mini-progress" id="miniProgress">0% complete</div>
+        <a href="index.html" class="btn btn-outline" style="padding:7px 14px;font-size:12.5px;">Course Home</a>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="page-card">
+        <span class="eyebrow">Module 7 Review</span>
+        <h1>Recognizing Your Ego Triggers &mdash; Review</h1>
+        <p class="subtitle">A quick recap of what this module covered, before you take the live assessment.</p>
+        <div class="review-summary" style="margin-top:16px;"><div class="card"><h4>Common Ego Trigger Categories</h4><p>Ego triggers usually fall into a few common types: being corrected in public, being compared to someone else, having your ability questioned, being interrupted, being left out of a decision, or getting advice you didn't ask for.</p></div></div>
+      </div>
+
+      <div class="quiz-box">
+        <span class="eyebrow">Live Module Assessment</span>
+        <h3 style="margin:8px 0 14px;font-size:16.5px;">Module 7 Assessment &mdash; 3 Questions</h3>
+        <p class="subtitle" style="margin-bottom:14px;">Score 70% or higher to pass this module. You can retake it anytime.</p>
+        <div id="quizbox-review7"></div>
+        <div style="margin-top:14px;">
+          <button class="btn btn-primary" id="quizbox-review7-submit" disabled>Submit Assessment</button>
+        </div>
+        <div class="quiz-score-banner" id="quizbox-review7-banner"></div>
+      </div>
+
+      <div class="page-card" style="padding:20px 24px;">
+        <div class="lesson-nav">
+          <a href="module-7.html" class="btn btn-outline">&larr; Back to Module 7</a>
+          <a href="module-8.html" class="btn btn-gold">Continue to Module 8 &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      N T Somasundaram  |  +91 98437 02244  |  somasundaramnt.lifecoach@gmail.com<br>
+      <div class="motto">God is always with u</div>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script>buildSidebar("review", 7);</script>
+<script>
+initQuiz('quizbox-review7', [{"q": "Common ego triggers include all of these EXCEPT:", "options": ["Being corrected in public", "Being compared to someone else", "Getting unsolicited advice", "Receiving a compliment in private"], "correct": 3, "explain": "A private compliment is not listed as a trigger category \u2014 the others are."}, {"q": "What is the purpose of a \u201cTrigger Map\u201d?", "options": ["To avoid all triggering situations forever", "To pair each trigger with a planned, calm response", "To blame others for your reactions", "To track other people's mistakes"], "correct": 1, "explain": "A Trigger Map pairs each known trigger with a pre-planned, calm response."}, {"q": "Naming your top trigger to someone you trust\u2026", "options": ["increases its power over you", "reduces its grip on you", "has no effect", "is not recommended"], "correct": 1, "explain": "Saying a trigger out loud to a trusted person is said to reduce its grip on you."}], {key:'7', kind:'review', moduleId:7});
+</script>
+</body>
+</html>

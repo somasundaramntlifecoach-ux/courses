@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Adult Ego State: Reason and Balance | Know Your Ego</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-brand"><span class="dot"></span><span class="txt">NT Somasundaram Life Skills Program</span></div>
+    <div class="sb-course-title">Know Your Ego</div>
+    <div class="sb-overall">
+      <div class="lbl">Course Progress</div>
+      <div class="sb-progress-track"><div class="sb-progress-fill" id="sbProgressFill"></div></div>
+      <div class="sb-progress-pct" id="sbProgressPct">0% complete</div>
+    </div>
+    <ul class="sb-modlist" id="sbNav"></ul>
+    <div class="sb-footer">N T Somasundaram<br>+91 98437 02244<br><span style="color:var(--gold)">God is always with u</span></div>
+  </aside>
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+      <div class="crumb">Know Your Ego / Module 2 / Lesson 2</div>
+      <div class="top-actions">
+        <div class="mini-progress" id="miniProgress">0% complete</div>
+        <a href="index.html" class="btn btn-outline" style="padding:7px 14px;font-size:12.5px;">Course Home</a>
+      </div>
+    </div>
+    <div class="content">
+
+      <div class="page-card">
+        <span class="eyebrow">Module 2 &middot; Lesson 2 of 2</span>
+        <h2 class="lesson-heading">The Adult Ego State: Reason and Balance</h2>
+        <p class="subtitle">The Three Ego States: Parent, Adult, Child</p>
+
+        <div class="block">
+          <div class="block-label">&#128214; Detailed Explanation</div>
+          <p>The Adult ego state is the calm, present-minded part of us. It looks at facts fairly, without the emotional baggage of the Parent or Child. It asks, “What are the facts here, and what is the best response?” instead of reacting from old habits. The goal of ego-awareness is not to remove the Parent or Child states, but to strengthen the Adult so it can choose, on purpose, when each state is useful.</p>
+        </div>
+        <div class="block metaphor">
+          <div class="block-label">&#127795; Metaphor</div>
+          <p>If Parent and Child are like two passengers shouting directions from the back seat, the Adult is the one holding the steering wheel — calm, watching the road, and deciding which advice to follow.</p>
+        </div>
+        <div class="block example">
+          <div class="block-label">&#128100; Real-Life Example</div>
+          <p>During a tense budget meeting, Priya felt the urge to snap back at a colleague's criticism (Child) and also the urge to lecture him about “how things are properly done” (Parent). Instead, she paused and asked her Adult mind: “What does the data actually show?” This shifted the whole meeting from a power struggle into a useful discussion.</p>
+        </div>
+        <div class="block">
+          <div class="block-label">&#128161; Practical Tips</div>
+          <ul><li>Before reacting, silently ask: “What would the calm, adult part of me say right now?”</li><li>Use plain, fact-based language. Say “The report shows a 10% drop,” not “You messed this up.”</li><li>Pause for 3 seconds before replying in any tense conversation. This gives your Adult mind room to step in.</li></ul>
+        </div>
+        <div class="block guidance">
+          <div class="block-label">&#129517; Coach's Guidance</div>
+          <p>Build your Adult state like a muscle. Each day, pick one small disagreement (with a shopkeeper, family member, or colleague) and consciously respond only with facts and calm questions — no judging, no defending. Over a few weeks, this becomes your natural way of responding.</p>
+        </div>
+      </div>
+
+      <div class="worksheet-box">
+        <span class="eyebrow">Live Worksheet</span>
+        <h3 style="margin:8px 0 6px;font-size:16.5px;">Reflection Exercise</h3>
+        <p class="subtitle" style="margin-bottom:14px;">Describe a recent disagreement. Rewrite how the Adult ego state in you would have responded, using only facts and calm questions.</p>
+        <textarea id="wsText" placeholder="Write your reflection here. It saves automatically as you type..."></textarea>
+        <div class="ws-footer">
+          <span class="wc" id="wsCount">0 words</span>
+          <span class="saved-tag" id="wsSaved">&#10003; Saved</span>
+        </div>
+      </div>
+
+      <div class="quiz-box">
+        <span class="eyebrow">Live Knowledge Check</span>
+        <h3 style="margin:8px 0 14px;font-size:16.5px;">Quick Quiz &mdash; 2 Questions</h3>
+        <div id="quizbox-m2l2"></div>
+        <div style="margin-top:14px;">
+          <button class="btn btn-primary" id="quizbox-m2l2-submit" disabled>Submit Answers</button>
+        </div>
+        <div class="quiz-score-banner" id="quizbox-m2l2-banner"></div>
+      </div>
+
+      <div class="page-card" style="padding:20px 24px;">
+        <div class="lesson-nav">
+          <a href="m2-l1.html" class="btn btn-outline">&larr; Previous Lesson</a>
+          <button class="btn btn-primary" id="markCompleteBtn" onclick="markLessonComplete('m2l2', this)">Mark Lesson Complete</button>
+          <a href="module-2-review.html" class="btn btn-gold">Go to Module Assessment &rarr;</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer">
+      N T Somasundaram  |  +91 98437 02244  |  somasundaramnt.lifecoach@gmail.com<br>
+      <div class="motto">God is always with u</div>
+    </div>
+  </div>
+</div>
+<script src="assets/app.js"></script>
+<script>buildSidebar("lesson", "m2l2");</script>
+<script>
+initWorksheet('m2l2');
+initQuiz('quizbox-m2l2', [{"q": "In the steering wheel metaphor, who is driving the car?", "options": ["The Parent ego state", "The Child ego state", "The Adult ego state", "The critic"], "correct": 2, "explain": "The Adult ego state holds the steering wheel \u2014 calm, focused, and deciding what to do."}, {"q": "What question does the Adult ego state typically ask?", "options": ["\u201cWho is to blame?\u201d", "\u201cWhat are the facts here, and what is the best response?\u201d", "\u201cHow do I win this?\u201d", "\u201cWhat would my parents say?\u201d"], "correct": 1, "explain": "The Adult state processes facts objectively and looks for the best response, not for a way to win or blame."}], {key:'m2l2', kind:'lesson', moduleId:2, lessonId:'m2l2'});
+if(isLessonComplete('m2l2')){
+  const b = document.getElementById('markCompleteBtn');
+  if(b){ b.textContent = '\u2713 Lesson Complete'; b.classList.add('btn-done'); b.classList.remove('btn-primary'); b.disabled = true; }
+}
+</script>
+</body>
+</html>
