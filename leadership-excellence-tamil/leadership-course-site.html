@@ -112,12 +112,6 @@ button { font-family: inherit; }
 .hero-cta { display: inline-block; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 15px; background: var(--gold); color: var(--navy-deep); padding: 15px 28px; border-radius: 8px; transition: background .15s ease, transform .15s ease; border: none; cursor: pointer; }
 .hero-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
 
-.purchase-card { background: linear-gradient(135deg, var(--navy-deep), var(--navy)); border-radius: 14px; padding: 40px 36px; margin-bottom: 46px; text-align: center; }
-.purchase-card .hero-eyebrow { color: var(--gold-light); }
-.purchase-card .section-heading { color: #fff; margin-bottom: 12px; }
-.purchase-card .hero-sub { color: #b9c4dc; margin-left: auto; margin-right: auto; text-align: center; }
-.purchase-card form { margin-top: 18px; display: flex; justify-content: center; }
-
 .section-heading { font-family: 'Poppins', 'Noto Sans Tamil', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); margin: 0 0 22px; }
 .module-grid { display: flex; flex-direction: column; gap: 12px; }
 .module-card { display: flex; align-items: center; gap: 18px; padding: 18px 20px; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); transition: border-color .15s ease, transform .15s ease, box-shadow .15s ease; cursor: pointer; }
@@ -180,8 +174,6 @@ button { font-family: inherit; }
   var navEl = document.getElementById('sidebarNav');
   var contentEl = document.getElementById('contentInner');
   var brandHome = document.getElementById('brandHome');
-
-  var PAYMENT_BUTTON_ID = 'pl_TGkcMFMxYrx87B';
 
   function closeSidebar(){ sidebar.classList.remove('open'); overlay.classList.remove('show'); }
   function openSidebar(){ sidebar.classList.add('open'); overlay.classList.add('show'); }
@@ -299,23 +291,11 @@ button { font-family: inherit; }
         '<p class="hero-sub">Leadership Excellence Program — அடித்தளத்திலிருந்து செயல் திட்டம் வரை, ஒரு முழுமையான தலைமைத்துவப் பயணம்.</p>' +
         '<button class="hero-cta" data-goto="m0">பயிற்சியைத் தொடங்குங்கள் →</button>' +
       '</section>' +
-      '<section class="purchase-card">' +
-        '<span class="hero-eyebrow">முழு பாடநெறியைப் பெறுங்கள்</span>' +
-        '<h2 class="section-heading">14 தொகுதிகள் · ' + totalLessons + ' பாடங்கள் · வாழ்நாள் அணுகல்</h2>' +
-        '<p class="hero-sub">பணம் செலுத்திய பிறகு, WhatsApp வழியாக உங்கள் அணுகல் விவரங்கள் அனுப்பப்படும்.</p>' +
-        '<form id="razorpayForm"></form>' +
-      '</section>' +
       '<section class="module-grid-section">' +
         '<h2 class="section-heading">தொகுதிகள்</h2>' +
         '<div class="module-grid">' + cards + '</div>' +
       '</section>' +
       '<footer class="site-footer"><p>N T Somasundaram &middot; Certified Master Trainer &amp; Career Consultant</p><p class="footer-motto">God is always with u.</p></footer>';
-
-    var s = document.createElement('script');
-    s.src = 'https://checkout.razorpay.com/v1/payment-button.js';
-    s.async = true;
-    s.setAttribute('data-payment_button_id', PAYMENT_BUTTON_ID);
-    document.getElementById('razorpayForm').appendChild(s);
 
     attachNavBtns();
   }
