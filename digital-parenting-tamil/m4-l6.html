@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 · Module 4 Premium Workbook, Quiz & Family Digital Citizen Action Plan (பயிற்சி புத்தகம், வினாடி வினா மற்றும் குடும்ப செயல் திட்டம்) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module4.html">Module 4</a> &raquo; Module 4 Premium Workbook, Quiz &amp; Family Digital Citizen Action Plan (பயிற்சி புத்தகம், வினாடி வினா மற்றும் குடும்ப செயல் திட்டம்)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 4 &middot; Lesson 6</div>
+<h1 class="lesson-title">Module 4 Premium Workbook, Quiz &amp; Family Digital Citizen Action Plan (பயிற்சி புத்தகம், வினாடி வினா மற்றும் குடும்ப செயல் திட்டம்)</h1>
+<hr>
+<blockquote><strong>இந்த Workbook, Module 4-ல் கற்ற Digital Citizenship, Digital Ethics, Digital Footprint, Media Literacy, Critical Thinking மற்றும் Positive Family Digital Culture ஆகிய கருத்துகளை குடும்பத்தில் நடைமுறைப்படுத்த உதவும் வகையில் வடிவமைக்கப்பட்டுள்ளது. இது மூல ஆங்கிலக் கோர்ஸின் கருத்துக்களை அடிப்படையாகக் கொண்டு, தமிழ் குடும்பங்களுக்கான Premium LMS Workbook ஆக விரிவுபடுத்தப்பட்டுள்ளது.</strong></blockquote>
+<hr>
+<h2>🎉 வாழ்த்துக்கள்!</h2>
+<p>நீங்கள் <strong>Module 4 – Building Responsible Digital Citizens</strong> பாடத்திட்டத்தை வெற்றிகரமாக முடித்துள்ளீர்கள்.</p>
+<p>இந்த Workbook-ன் நோக்கம்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நீங்கள் கற்றவற்றை மதிப்பீடு செய்வது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உங்கள் குடும்பத்தின் Digital Citizenship நிலையை அறிதல்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>அடுத்த 30 நாட்களுக்கான Family Digital Culture Action Plan உருவாக்குதல்.</span></div>
+<hr>
+<h2>Worksheet 1</h2>
+<h2>Digital Citizen Self-Assessment</h2>
+<p>ஒவ்வொரு கேள்விக்கும் பதிலளியுங்கள்.</p>
+<div class="table-wrap"><table>
+<tr><th>கேள்வி</th><th>ஆம்</th><th>சில நேரம்</th><th>இல்லை</th></tr>
+<tr><td>Online-ல் அனைவரையும் மரியாதையுடன் நடத்துகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_414008"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_414008"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_414008"></td></tr>
+<tr><td>தகவலை பகிர்வதற்கு முன் சரிபார்க்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_711193"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_711193"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_711193"></td></tr>
+<tr><td>Copyright-ஐ மதிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_443919"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_443919"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_443919"></td></tr>
+<tr><td>AI-யை பொறுப்புடன் பயன்படுத்துகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_510604"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_510604"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_510604"></td></tr>
+<tr><td>Fake News-ஐ அடையாளம் காண முயற்சிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_617757"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_617757"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_617757"></td></tr>
+<tr><td>Post செய்வதற்கு முன் யோசிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_680186"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_680186"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_680186"></td></tr>
+<tr><td>குடும்ப Digital Rules-ஐ பின்பற்றுகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_690192"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_690192"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_690192"></td></tr>
+<tr><td>மற்றவர்களின் Privacy-ஐ மதிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_494752"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_494752"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_494752"></td></tr>
+<tr><td>Online-ல் யாரையும் அவமதிக்க மாட்டேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_690611"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_690611"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_690611"></td></tr>
+<tr><td>Technology-க்கும் Family Time-க்கும் சமநிலை வைத்திருக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_252247"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_252247"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_252247"></td></tr>
+</table></div>
+<hr>
+<h2>மதிப்பீடு</h2>
+<p><strong>ஆம் = 3</strong></p>
+<p><strong>சில நேரம் = 2</strong></p>
+<p><strong>இல்லை = 1</strong></p>
+<h3>26–30</h3>
+<p>🌟 Outstanding Digital Citizen</p>
+<h3>20–25</h3>
+<p>👍 Responsible Digital User</p>
+<h3>10–19</h3>
+<p>📌 மேலும் நல்ல Digital Habits உருவாக்க வேண்டும்.</p>
+<hr>
+<h2>Worksheet 2</h2>
+<h2>Family Digital Values</h2>
+<p>எங்கள் குடும்பத்தின் முக்கிய Digital Values</p>
+<p>❤️ ___________________</p>
+<p>🤝 ___________________</p>
+<p>🛡 ___________________</p>
+<p>📚 ___________________</p>
+<p>🌱 ___________________</p>
+<p>😊 ___________________</p>
+<hr>
+<h2>Worksheet 3</h2>
+<h2>Digital Footprint Audit</h2>
+<p>கடந்த ஒரு மாதத்தில்...</p>
+<div class="table-wrap"><table>
+<tr><th>கேள்வி</th><th>ஆம்</th><th>இல்லை</th></tr>
+<tr><td>தேவையற்ற Post-களை நீக்கியுள்ளேனா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_334420"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_334420"></td></tr>
+<tr><td>Privacy Settings சரிபார்த்தேனா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_370433"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_370433"></td></tr>
+<tr><td>Profile Photo பொருத்தமாக உள்ளதா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_183935"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_183935"></td></tr>
+<tr><td>Bio நல்ல செய்தியை வெளிப்படுத்துகிறதா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_822835"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_822835"></td></tr>
+<tr><td>Positive Content அதிகமாக உள்ளதா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_699452"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_699452"></td></tr>
+</table></div>
+<hr>
+<h2>Worksheet 4</h2>
+<h2>Media Literacy Challenge</h2>
+<p>இந்த வாரம்...</p>
+<p>நான் சரிபார்த்த Online செய்திகள்.</p>
+<div class="table-wrap"><table>
+<tr><th>செய்தி</th><th>உண்மை</th><th>போலி</th><th>எப்படி கண்டுபிடித்தேன்?</th></tr>
+<tr><td>______</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td>__________</td></tr>
+<tr><td>______</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td>__________</td></tr>
+<tr><td>______</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td>__________</td></tr>
+<tr><td>______</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td>__________</td></tr>
+<tr><td>______</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_15450"></td><td>__________</td></tr>
+</table></div>
+<hr>
+<h2>Worksheet 5</h2>
+<h2>Critical Thinking Practice</h2>
+<p>ஒரு Video அல்லது செய்தியைத் தேர்வு செய்யுங்கள்.</p>
+<p>பிறகு...</p>
+<p>இந்த கேள்விகளுக்கு பதிலளியுங்கள்.</p>
+<h3>WHO?</h3>
+<hr>
+<hr>
+<h3>WHAT?</h3>
+<hr>
+<hr>
+<h3>WHEN?</h3>
+<hr>
+<hr>
+<h3>WHERE?</h3>
+<hr>
+<hr>
+<h3>WHY?</h3>
+<hr>
+<hr>
+<h3>HOW?</h3>
+<hr>
+<hr>
+<h2>Worksheet 6</h2>
+<h2>Positive Digital Portfolio Planner</h2>
+<p>இந்த ஆண்டில்...</p>
+<p>Online-ல் நான் பகிர விரும்பும் நல்ல விஷயங்கள்.</p>
+<label class="checkline"><input type="checkbox" data-key="chk_850744"><span>Project</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_737777"><span>Drawing</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_493256"><span>Speech</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_962372"><span>Music</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_270720"><span>Science Experiment</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_509460"><span>Book Review</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_786380"><span>Community Service</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_79966"><span>Achievement</span></label>
+<p>மற்றவை:</p>
+<hr>
+<hr>
+<h2>Worksheet 7</h2>
+<h2>எங்கள் குடும்ப Digital Culture Blueprint</h2>
+<h2>எங்கள் குடும்ப Vision</h2>
+<hr>
+<hr>
+<hr>
+<h2>எங்கள் குடும்பத்தின் 10 Digital Rules</h2>
+<p>1. ---</p>
+<p>2. ---</p>
+<p>3. ---</p>
+<p>4. ---</p>
+<p>5. ---</p>
+<p>6. ---</p>
+<p>7. ---</p>
+<p>8. ---</p>
+<p>9. ---</p>
+<p>10. ---</p>
+<hr>
+<h2>Module 4 Quiz</h2>
+<h2>பகுதி A – Multiple Choice</h2>
+<h3>1. Digital Citizen என்பவர்...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_84101"><span>Mobile பயன்படுத்துபவர்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_725179"><span>பொறுப்புடன் Digital உலகில் செயல்படுபவர்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_427970"><span>Computer வைத்திருப்பவர்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_154770"><span>Social Media பயன்படுத்துபவர்</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: பொறுப்புடன் Digital உலகில் செயல்படுபவர்</span></div>
+<hr>
+<h3>2. Digital Footprint என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_894964"><span>Computer Virus</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_782446"><span>இணையத்தில் நாம் விட்டுச் செல்லும் தடயங்கள்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_952401"><span>Password</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_753934"><span>App</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: இணையத்தில் நாம் விட்டுச் செல்லும் தடயங்கள்</span></div>
+<hr>
+<h3>3. Fake News வந்தால்...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_64585"><span>உடனே Forward செய்ய வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_262832"><span>முதலில் Fact Check செய்ய வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_320518"><span>Delete செய்ய வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_582643"><span>Ignore செய்ய வேண்டும்</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: முதலில் Fact Check செய்ய வேண்டும்</span></div>
+<hr>
+<h3>4. Critical Thinking என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_402705"><span>வேகமாக பதில் சொல்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_419091"><span>கேள்வி கேட்டு ஆதாரங்களை ஆராய்ந்து முடிவெடுப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_775777"><span>Internet பயன்படுத்துவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_733039"><span>AI பயன்படுத்துவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: கேள்வி கேட்டு ஆதாரங்களை ஆராய்ந்து முடிவெடுப்பது</span></div>
+<hr>
+<h3>5. Positive Family Digital Culture-ன் அடிப்படை...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_66506"><span>அதிக Wi-Fi Speed</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_577863"><span>புதிய Mobile</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_879714"><span>உரையாடல், நம்பிக்கை மற்றும் சமநிலை</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_786197"><span>அதிக Screen Time</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: உரையாடல், நம்பிக்கை மற்றும் சமநிலை</span></div>
+<hr>
+<h3>6. Copyright-ஐ மதிப்பது என்றால்...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_268979"><span>மற்றவரின் படைப்புகளை அனுமதியின்றி பயன்படுத்துவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_296276"><span>மற்றவரின் அறிவுசார் உரிமையை மதிப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_299667"><span>இணையத்தில் உள்ள அனைத்தையும் Copy செய்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_389607"><span>AI உருவாக்கியதை மட்டும் பயன்படுத்துவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: மற்றவரின் அறிவுசார் உரிமையை மதிப்பது</span></div>
+<hr>
+<h3>7. THINK Model-ல் "K" என்பதன் பொருள்...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_730117"><span>Knowledge</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_798184"><span>Kind</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_932119"><span>Keep</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_154252"><span>Key</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: <strong>Kind</strong></span></div>
+<hr>
+<h3>8. நல்ல Online Reputation உருவாக...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_236485"><span>மரியாதையான பதிவுகள் பகிர வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_256255"><span>கோபமான கருத்துகளை எழுத வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_389455"><span>Fake Profile உருவாக்க வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_100406"><span>அதிக Followers வாங்க வேண்டும்</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: மரியாதையான பதிவுகள் பகிர வேண்டும்</span></div>
+<hr>
+<h3>9. ஒரு நல்ல Digital Citizen...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_945851"><span>Cyberbullying செய்வார்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_925877"><span>Fake News பகிர்வார்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_994875"><span>Privacy-ஐ மதிப்பார்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_61725"><span>Password-ஐ நண்பர்களுடன் பகிர்வார்</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: Privacy-ஐ மதிப்பார்</span></div>
+<hr>
+<h3>10. குடும்ப Digital Culture உருவாக...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_890256"><span>பெற்றோர் மட்டும் Rules பின்பற்றினால் போதும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_239361"><span>குழந்தைகள் மட்டும் Rules பின்பற்ற வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_755117"><span>குடும்பத்தில் அனைவரும் முன்மாதிரியாக இருக்க வேண்டும்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_857545"><span>Rules தேவையில்லை</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: குடும்பத்தில் அனைவரும் முன்மாதிரியாக இருக்க வேண்டும்</span></div>
+<hr>
+<h2>30-Day Digital Citizen Challenge</h2>
+<h2>வாரம் 1</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் THINK Model பயன்படுத்துங்கள்.</span></div>
+<hr>
+<h2>வாரம் 2</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Fake News Fact Check செய்யுங்கள்.</span></div>
+<hr>
+<h2>வாரம் 3</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>ஒரு Positive Digital Content உருவாக்குங்கள்.</span></div>
+<hr>
+<h2>வாரம் 4</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்ப Digital Culture Review நடத்துங்கள்.</span></div>
+<hr>
+<h2>Family Digital Citizen Pledge</h2>
+<h2>எங்கள் குடும்ப உறுதிமொழி</h2>
+<p>நாங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இணையத்தை பொறுப்புடன் பயன்படுத்துவோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மற்றவர்களை மரியாதையுடன் நடத்துவோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உண்மையான தகவல்களை மட்டுமே பகிர்வோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Copyright மற்றும் Privacy-ஐ மதிப்போம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI-யை பொறுப்புடன் பயன்படுத்துவோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்ப உறவுகளை Technology-ஐ விட மேலாக மதிப்போம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நல்ல Digital Citizens ஆக வாழ்வோம்.</span></div>
+<hr>
+<h2>கையெழுத்து</h2>
+<p>👨 அப்பா : __________________</p>
+<p>👩 அம்மா : __________________</p>
+<p>👦 குழந்தை : _________________</p>
+<p>📅 தேதி : ___________________</p>
+<hr>
+<h2>Module 4 Reflection</h2>
+<p>இந்த Module-ல் நான் கற்ற மிக முக்கியமான மூன்று விஷயங்கள்:</p>
+<div class="step-row"><span class="step-badge">1</span><div class="step-text"><input type="text" data-key="stepfill_1_438" placeholder="இங்கே எழுதுங்கள்..."></div></div>
+<div class="step-row"><span class="step-badge">2</span><div class="step-text"><input type="text" data-key="stepfill_2_442" placeholder="இங்கே எழுதுங்கள்..."></div></div>
+<div class="step-row"><span class="step-badge">3</span><div class="step-text"><input type="text" data-key="stepfill_3_446" placeholder="இங்கே எழுதுங்கள்..."></div></div>
+<hr>
+<p>இந்த மாதம் நான் மாற்றப்போகும் ஒரு Digital பழக்கம்:</p>
+<hr>
+<hr>
+<p>என் குடும்பத்துடன் நான் தொடங்கப்போகும் ஒரு புதிய Digital Tradition:</p>
+<hr>
+<hr>
+<h2>🌟 Module 4 முடிவில் பெற்ற மாற்றங்கள்</h2>
+<p>இந்த Module-ஐ முடித்த பெற்றோர்கள்:</p>
+<ul class="lesson-list"><li>குழந்தைகளை <strong>பாதுகாப்பாக இணையத்தை பயன்படுத்துபவர்களாக மட்டுமல்ல, பொறுப்புள்ள டிஜிட்டல் குடிமக்களாகவும்</strong> உருவாக்க முடியும்.</li><li>குடும்பத்தில் <strong>நம்பிக்கை, மரியாதை மற்றும் டிஜிட்டல் ஒழுக்கம்</strong> கொண்ட கலாச்சாரத்தை உருவாக்க முடியும்.</li><li>AI மற்றும் எதிர்கால தொழில்நுட்ப மாற்றங்களை <strong>பொறுப்புடனும் விமர்சன சிந்தனையுடனும்</strong> அணுக வழிகாட்ட முடியும்</li></ul>
+<h2>Module 5 – Raising Future-Ready Children</h2>
+<h2>மாட்யூல் 5 – எதிர்கால உலகிற்கு தயாரான குழந்தைகளை உருவாக்குவது</h2>
+<hr>
+<h2>🎯 Module Overview</h2>
+<p>இன்றைய உலகம்...</p>
+<p>மிக வேகமாக மாறிக்கொண்டிருக்கிறது.</p>
+<p>பல வேலைகள்...</p>
+<p>AI மூலம் செய்யப்படுகின்றன.</p>
+<p>புதிய தொழில்நுட்பங்கள்...</p>
+<p>ஒவ்வொரு ஆண்டும் உருவாகின்றன.</p>
+<p>இத்தகைய உலகில்...</p>
+<p>குழந்தைகளுக்கு...</p>
+<p><strong>அதிக மதிப்பெண்கள் மட்டும் போதாது.</strong></p>
+<p>அவர்களுக்கு...</p>
+<p>🌟 சிந்திக்கும் திறன்</p>
+<p>🌟 புதியதை உருவாக்கும் திறன்</p>
+<p>🌟 மனிதர்களுடன் இணைந்து செயல்படும் திறன்</p>
+<p>🌟 மாற்றங்களை ஏற்றுக்கொள்ளும் மனப்பான்மை</p>
+<p>🌟 வாழ்க்கை முழுவதும் கற்றுக்கொள்ளும் ஆர்வம்</p>
+<p>இவை அனைத்தும் தேவை.</p>
+<hr>
+<h2>இந்த Module-ல் கற்றுக்கொள்ளப் போவது</h2>
+<h2>Lesson 1</h2>
+<h3>Future Skills – நாளைய உலகிற்கு தேவையான திறன்கள்</h3>
+<hr>
+<h2>Lesson 2</h2>
+<h3>Growth Mindset &amp; Lifelong Learning</h3>
+<hr>
+<h2>Lesson 3</h2>
+<h3>Creativity, Innovation &amp; Problem Solving</h3>
+<hr>
+<h2>Lesson 4</h2>
+<h3>Communication &amp; Collaboration Skills</h3>
+<hr>
+<h2>Lesson 5</h2>
+<h3>Emotional Intelligence &amp; Resilience</h3>
+<hr>
+<h2>Lesson 6</h2>
+<h3>Goal Setting &amp; Self-Leadership</h3>
+<hr>
+<h2>Lesson 7</h2>
+<h3>Premium Workbook, Quiz &amp; 30-Day Future Skills Challenge</h3>
+<hr>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m4l6', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m4-l5.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m5-l1.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m4l6')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m4l6&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

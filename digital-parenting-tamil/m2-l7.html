@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 · Module 2 Premium Workbook & Family Reflection (பயிற்சி புத்தகம் மற்றும் குடும்ப பிரதிபலிப்பு) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module2.html">Module 2</a> &raquo; Module 2 Premium Workbook &amp; Family Reflection (பயிற்சி புத்தகம் மற்றும் குடும்ப பிரதிபலிப்பு)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 2 &middot; Lesson 7</div>
+<h1 class="lesson-title">Module 2 Premium Workbook &amp; Family Reflection (பயிற்சி புத்தகம் மற்றும் குடும்ப பிரதிபலிப்பு)</h1>
+<hr>
+<blockquote><strong>இந்த Workbook, Module 2-ல் கற்றுக்கொண்ட Screen Time Management மற்றும் Healthy Digital Habits தொடர்பான கருத்துகளை நடைமுறையில் செயல்படுத்த உதவும் வகையில், மூல ஆங்கிலக் கோர்ஸின் உள்ளடக்கத்தை அடிப்படையாகக் கொண்டு விரிவாக்கப்பட்டுள்ளது.</strong></blockquote>
+<hr>
+<h2>Welcome</h2>
+<p><strong>வாழ்த்துக்கள்! 🎉</strong></p>
+<p>நீங்கள் Module 2-ஐ வெற்றிகரமாக முடித்துள்ளீர்கள்.</p>
+<p>இந்த Workbook-ன் நோக்கம்...</p>
+<p>📌 நீங்கள் கற்றதை மதிப்பீடு செய்வது.</p>
+<p>📌 உங்கள் குடும்பத்தின் தற்போதைய Digital Habits-ஐ அறிந்து கொள்வது.</p>
+<p>📌 அடுத்த 30 நாட்களுக்கான Action Plan உருவாக்குவது.</p>
+<hr>
+<h2>Worksheet 1</h2>
+<h2>பெற்றோர் சுயமதிப்பீடு</h2>
+<p>ஒவ்வொரு கேள்விக்கும் சரியான பதிலை தேர்வு செய்யுங்கள்.</p>
+<div class="table-wrap"><table>
+<tr><th>கேள்வி</th><th>ஆம்</th><th>சில நேரம்</th><th>இல்லை</th></tr>
+<tr><td>நான் குழந்தையுடன் தினமும் 20 நிமிடம் பேசுகிறேனா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_700292"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_700292"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_700292"></td></tr>
+<tr><td>சாப்பிடும் போது Mobile பயன்படுத்துவதில்லை</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_746725"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_746725"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_746725"></td></tr>
+<tr><td>வீட்டில் Digital Rules உள்ளன</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_314848"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_314848"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_314848"></td></tr>
+<tr><td>நானே நல்ல முன்மாதிரியாக இருக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_345491"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_345491"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_345491"></td></tr>
+<tr><td>Screen Time பற்றி சண்டை குறைந்துள்ளது</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_787025"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_787025"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_787025"></td></tr>
+<tr><td>Screen-க்கு மாற்று செயல்பாடுகளை உருவாக்கியுள்ளேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_620310"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_620310"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_620310"></td></tr>
+<tr><td>வாரம் ஒரு Family Activity செய்கிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_179969"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_179969"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_179969"></td></tr>
+<tr><td>குழந்தையின் முயற்சியை பாராட்டுகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_503"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_503"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_503"></td></tr>
+</table></div>
+<hr>
+<h2>மதிப்பெண்</h2>
+<p><strong>ஆம் = 3</strong></p>
+<p><strong>சில நேரம் = 2</strong></p>
+<p><strong>இல்லை = 1</strong></p>
+<h3>20–24</h3>
+<p>🌟 சிறந்த டிஜிட்டல் பெற்றோர்</p>
+<hr>
+<h3>15–19</h3>
+<p>👍 நல்ல முன்னேற்றம்</p>
+<hr>
+<h3>8–14</h3>
+<p>📌 இன்னும் திட்டமிட்டு செயல்பட வேண்டும்</p>
+<hr>
+<h2>Worksheet 2</h2>
+<h2>குழந்தையின் Screen Habit Assessment</h2>
+<p>கடந்த 30 நாட்களை நினைத்து மதிப்பிடுங்கள்.</p>
+<div class="table-wrap"><table>
+<tr><th>பழக்கம்</th><th>அடிக்கடி</th><th>சில நேரம்</th><th>இல்லை</th></tr>
+<tr><td>Mobile எடுத்தால் கோபப்படுகிறார்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_433526"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_433526"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_433526"></td></tr>
+<tr><td>நேரம் மறந்து பயன்படுத்துகிறார்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_780153"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_780153"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_780153"></td></tr>
+<tr><td>Homework தாமதமாகிறது</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_496186"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_496186"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_496186"></td></tr>
+<tr><td>Outdoor Play குறைந்துள்ளது</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_614073"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_614073"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_614073"></td></tr>
+<tr><td>Reading பழக்கம் குறைந்துள்ளது</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_302282"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_302282"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_302282"></td></tr>
+<tr><td>குடும்ப உரையாடல் குறைந்துள்ளது</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_163597"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_163597"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_163597"></td></tr>
+</table></div>
+<hr>
+<h2>Worksheet 3</h2>
+<h2>Family Digital Balance Score</h2>
+<p>ஒவ்வொரு பகுதிக்கும் 10-ல் மதிப்பெண் கொடுங்கள்.</p>
+<div class="table-wrap"><table>
+<tr><th>பகுதி</th><th>Score</th></tr>
+<tr><td>Sleep</td><td>____</td></tr>
+<tr><td>Study</td><td>____</td></tr>
+<tr><td>Reading</td><td>____</td></tr>
+<tr><td>Outdoor Play</td><td>____</td></tr>
+<tr><td>Family Time</td><td>____</td></tr>
+<tr><td>Hobby</td><td>____</td></tr>
+<tr><td>Physical Activity</td><td>____</td></tr>
+<tr><td>Screen Balance</td><td>____</td></tr>
+</table></div>
+<p><strong>மொத்த மதிப்பெண் : ______ / 80</strong></p>
+<hr>
+<h2>Worksheet 4</h2>
+<h2>எங்கள் குடும்ப Digital Rules</h2>
+<p>எங்கள் வீட்டில்...</p>
+<h3>Rule 1</h3>
+<hr>
+<hr>
+<h3>Rule 2</h3>
+<hr>
+<hr>
+<h3>Rule 3</h3>
+<hr>
+<hr>
+<h3>Rule 4</h3>
+<hr>
+<hr>
+<h3>Rule 5</h3>
+<hr>
+<hr>
+<h2>Worksheet 5</h2>
+<h2>Screen-Free Activity Planner</h2>
+<p>இந்த மாதம் செய்யப் போகும் Offline Activities</p>
+<div class="table-wrap"><table>
+<tr><th>Activity</th><th>தேதி</th><th>முடிந்தது</th></tr>
+<tr><td>Family Walk</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_337861"></td></tr>
+<tr><td>Gardening</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_979104"></td></tr>
+<tr><td>Story Night</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_747744"></td></tr>
+<tr><td>Cooking Together</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_116859"></td></tr>
+<tr><td>Indoor Game</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_44197"></td></tr>
+<tr><td>Temple / Nature Visit</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_761271"></td></tr>
+<tr><td>Reading Hour</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_271526"></td></tr>
+<tr><td>Sports</td><td></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_92069"></td></tr>
+</table></div>
+<hr>
+<h2>Worksheet 6</h2>
+<h2>30-Day Progress Tracker</h2>
+<div class="table-wrap"><table>
+<tr><th>Day</th><th>Screen Rules Followed</th><th>Family Time</th><th>Reading</th><th>Outdoor Play</th></tr>
+<tr><td>1</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_408815"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_408815"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_408815"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_408815"></td></tr>
+<tr><td>2</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_242197"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_242197"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_242197"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_242197"></td></tr>
+<tr><td>3</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_733568"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_733568"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_733568"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_733568"></td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>30</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_513120"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_513120"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_513120"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_513120"></td></tr>
+</table></div>
+<hr>
+<h2>Worksheet 7</h2>
+<h2>Family Reflection</h2>
+<p>இந்த மாதத்தில்...</p>
+<h3>நாங்கள் கற்ற மிக முக்கியமான விஷயம்</h3>
+<hr>
+<hr>
+<h3>எங்களுக்கு மிகவும் பிடித்த Family Activity</h3>
+<hr>
+<hr>
+<h3>இன்னும் மாற்ற வேண்டிய பழக்கம்</h3>
+<hr>
+<hr>
+<h3>அடுத்த மாத இலக்கு</h3>
+<hr>
+<hr>
+<h2>Module 2 Quiz</h2>
+<h2>பகுதி A</h2>
+<h3>1. Screen Addiction-ன் முக்கிய அறிகுறி எது?</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_386299"><span>அதிக Mobile வைத்திருப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_629730"><span>நடத்தை மற்றும் உணர்ச்சி மாற்றம்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_629803"><span>புதிய Phone வாங்குவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_116817"><span>Online Class பார்ப்பது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span><strong>பதில்:</strong> நடத்தை மற்றும் உணர்ச்சி மாற்றம்</span></div>
+<hr>
+<h3>2. Dining Table-ல் Mobile பயன்படுத்தலாமா?</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_735034"><span>ஆம்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_343549"><span>இல்லை</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span><strong>பதில்:</strong> இல்லை</span></div>
+<hr>
+<h3>3. குழந்தைகளுக்கு நல்ல Reward எது?</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_696580"><span>Mobile வாங்கித் தருவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_796388"><span>குடும்பத்துடன் நேரம் செலவிடுவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_495165"><span>நாள் முழுவதும் Game விளையாட அனுமதிப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_732528"><span>Homework செய்யாமல் விடுவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span><strong>பதில்:</strong> குடும்பத்துடன் நேரம் செலவிடுவது</span></div>
+<hr>
+<h3>4. Digital Detox என்றால்...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_86165"><span>Mobile உடைப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_592990"><span>Internet நிறுத்துவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_816552"><span>தொழில்நுட்பத்தை சமநிலையுடன் பயன்படுத்துவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_541800"><span>TV பார்க்காதது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span><strong>பதில்:</strong> தொழில்நுட்பத்தை சமநிலையுடன் பயன்படுத்துவது</span></div>
+<hr>
+<h3>5. சிறந்த Digital Rule எது?</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_748842"><span>"அதிகம் Mobile பார்க்காதே."</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_788794"><span>"Homework முடிந்த பிறகு 30 நிமிடம் Entertainment Screen."</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span><strong>பதில்:</strong> Homework முடிந்த பிறகு 30 நிமிடம் Entertainment Screen.</span></div>
+<hr>
+<h2>Module 2 Final Challenge</h2>
+<h2>21-Day Digital Balance Challenge</h2>
+<p>அடுத்த 21 நாட்களுக்கு...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Dining Table-ல் Screen இல்லை.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Bedroom-ல் Screen இல்லை.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் 20 நிமிடம் குடும்ப உரையாடல்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் 20 நிமிடம் வாசிப்பு.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் 30 நிமிடம் Outdoor Activity.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வாரத்திற்கு ஒரு No Screen Evening.</span></div>
+<hr>
+<h2>Family Digital Commitment</h2>
+<h2>எங்கள் குடும்ப உறுதிமொழி</h2>
+<p>நாங்கள்...</p>
+<ul class="lesson-list"><li>தொழில்நுட்பத்தை பொறுப்புடன் பயன்படுத்துவோம்.</li><li>குடும்ப உறவுகளுக்கு முன்னுரிமை கொடுப்போம்.</li><li>உணவு நேரங்களில் Screen பயன்படுத்தமாட்டோம்.</li><li>தினமும் குறைந்தது 20 நிமிடங்கள் ஒன்றாக பேசுவோம்.</li><li>குழந்தைகளின் வளர்ச்சிக்கு ஆரோக்கியமான Digital சூழலை உருவாக்குவோம்.</li></ul>
+<hr>
+<h2>குடும்ப கையெழுத்து</h2>
+<p>👨 அப்பா : _______________________</p>
+<p>👩 அம்மா : _______________________</p>
+<p>👧 குழந்தை : _____________________</p>
+<p>📅 தேதி : ________________________</p>
+<hr>
+<h2>அடுத்த Module</h2>
+<h2>Module 3 – Safe &amp; Smart Digital Parenting (பாதுகாப்பான மற்றும் புத்திசாலியான டிஜிட்டல் பெற்றோராக மாறுவது)</h2>
+<p>இந்த Module-ல் கற்றுக்கொள்ளப் போவது:</p>
+<ul class="lesson-list"><li>இணைய பாதுகாப்பு (Online Safety)</li><li>Cyberbullying-ஐ கண்டறிவது</li><li>Privacy &amp; Personal Information பாதுகாப்பு</li><li>Safe Social Media பயன்பாடு</li><li>Online Gaming பாதுகாப்பு</li><li>Stranger Danger &amp; Grooming Awareness</li><li>பெற்றோர்களுக்கான Digital Monitoring Tools</li><li>குழந்தைகளுடன் நம்பிக்கையை காக்கும் டிஜிட்டல் வழிகாட்டுதல்</li></ul>
+<p>இந்த Module, பெற்றோர்கள் தங்கள் குழந்தைகளை <strong>டிஜிட்டல் உலகில் பாதுகாப்பாகவும், பொறுப்புடனும் வளர்க்க</strong> தேவையான நடைமுறை திறன்களை வழங்கும்.</p>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m2l7', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m2-l6.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m3-l1.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m2l7')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m2l7&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

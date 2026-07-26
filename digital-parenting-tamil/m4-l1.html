@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 · Digital Ethics & Online Respect (டிஜிட்டல் ஒழுக்கமும் இணைய மரியாதையும்) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module4.html">Module 4</a> &raquo; Digital Ethics &amp; Online Respect (டிஜிட்டல் ஒழுக்கமும் இணைய மரியாதையும்)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 4 &middot; Lesson 1</div>
+<h1 class="lesson-title">Digital Ethics &amp; Online Respect (டிஜிட்டல் ஒழுக்கமும் இணைய மரியாதையும்)</h1>
+<hr>
+<p><strong>இந்தப் பாடம், Module 4-இல் உள்ள Digital Citizenship கருத்தின் தொடர்ச்சியாக உருவாக்கப்பட்டுள்ளது. டிஜிட்டல் உலகிலும் மனிதநேயம், நேர்மை, மரியாதை மற்றும் பொறுப்புணர்வுடன் செயல்படுவதற்கான வாழ்க்கைத் திறன்களை பெற்றோர்களும் குழந்தைகளும் வளர்த்துக்கொள்ள உதவுவதே இதன் நோக்கமாகும்.</strong></p>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Digital Ethics என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Online-ல் மற்றவர்களை மரியாதையுடன் நடத்த கற்றுக்கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Copyright, Plagiarism மற்றும் Intellectual Property பற்றிய அடிப்படை விழிப்புணர்வைப் பெறுவீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகளுக்கு Online Integrity மற்றும் Responsibility-ஐ கற்றுக்கொடுக்கும் முறைகளை அறிந்துகொள்வீர்கள்.</span></div>
+<hr>
+<h2>ஒரு உண்மை சம்பவம்</h2>
+<p>ஒரு மாணவன்...</p>
+<p>School Project செய்ய வேண்டியிருந்தது.</p>
+<p>அவன்...</p>
+<p>Internet-ல் கிடைத்த Project-ஐ...</p>
+<p>முழுவதுமாக Copy செய்து...</p>
+<p>தன்னுடைய பெயரில் Submit செய்தான்.</p>
+<p>ஆசிரியர் கேட்டார்.</p>
+<p><strong>"இந்த Project-ஐ நீயே செய்தாயா?"</strong></p>
+<p>அவன்...</p>
+<p>தலையை குனிந்தான்.</p>
+<p>அன்று...</p>
+<p>அவன்...</p>
+<p>Project-ல் தோற்கவில்லை...</p>
+<p><strong>நேர்மையில் தோற்றான்.</strong></p>
+<hr>
+<h2>Trainer Reflection</h2>
+<p><strong>"தொழில்நுட்பம் தவறு செய்ய வாய்ப்பைக் கொடுக்கலாம்...<br>ஆனால்...<br>மதிப்புகள்தான் சரியான முடிவை எடுக்க உதவுகின்றன."</strong></p>
+<hr>
+<h2>Digital Ethics என்றால் என்ன?</h2>
+<p>Digital Ethics என்பது...</p>
+<p><strong>இணையத்தை பயன்படுத்தும்போது...</strong></p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நேர்மையாக இருப்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மற்றவர்களை மதிப்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பொறுப்புடன் நடப்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உண்மையை கடைப்பிடிப்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பிறருக்கு தீங்கு விளைவிக்காதது</span></div>
+<hr>
+<h2>Digital Ethics-ன் 7 அடிப்படை மதிப்புகள்</h2>
+<h3>1. நேர்மை (Honesty)</h3>
+<p>Online-ல் பொய் சொல்லாதே.</p>
+<hr>
+<h3>2. மரியாதை (Respect)</h3>
+<p>எல்லோரையும் மதித்து பேசு.</p>
+<hr>
+<h3>3. பொறுப்புணர்வு (Responsibility)</h3>
+<p>உன் செயல்களுக்கு நீயே பொறுப்பு.</p>
+<hr>
+<h3>4. கருணை (Empathy)</h3>
+<p>திரையின் மறுபக்கமும் ஒரு மனிதர்தான்.</p>
+<hr>
+<h3>5. நியாயம் (Fairness)</h3>
+<p>மற்றவர்களின் உழைப்பை திருடாதே.</p>
+<hr>
+<h3>6. பாதுகாப்பு (Safety)</h3>
+<p>உன்னையும் மற்றவர்களையும் பாதுகாத்துக்கொள்.</p>
+<hr>
+<h3>7. நம்பகத்தன்மை (Trustworthiness)</h3>
+<p>மற்றவர்கள் நம்பும் நபராக இரு.</p>
+<hr>
+<h2>Golden Rule</h2>
+<p><strong>"நேரில் எப்படி நடந்து கொள்வாயோ...<br>இணையத்திலும் அதேபோல் நடந்து கொள்."</strong></p>
+<hr>
+<h2>Online Respect</h2>
+<p>Online-ல்...</p>
+<p>நாம் பார்க்க முடியாததால்...</p>
+<p>சிலர்...</p>
+<p>கடுமையாக பேசிவிடுகிறார்கள்.</p>
+<p>ஆனால்...</p>
+<p>ஒரு வார்த்தையும்...</p>
+<p>ஒரு மனதை காயப்படுத்தலாம்.</p>
+<hr>
+<h2>பேசுவதற்கு முன்...</h2>
+<p>இந்த 4 கேள்விகளை கேளுங்கள்.</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இது உண்மையா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இது மரியாதையானதா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இது தேவையானதா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இதை என்னிடம் யாராவது சொன்னால் எனக்கு பிடிக்குமா?</span></div>
+<hr>
+<h2>Trainer Story</h2>
+<p>ஒரு மாணவி...</p>
+<p>Class WhatsApp Group-ல்...</p>
+<p>ஒரு நண்பரை கிண்டல் செய்து Meme அனுப்பினாள்.</p>
+<p>அனைவரும் சிரித்தார்கள்.</p>
+<p>ஆனால்...</p>
+<p>அந்த மாணவன்...</p>
+<p>அடுத்த நாள் பள்ளிக்கு வரவில்லை.</p>
+<p>ஏன்?</p>
+<p>அவன் மிகவும் மனவேதனையடைந்திருந்தான்.</p>
+<p>அந்த நாளில்...</p>
+<p>முழு வகுப்பும்...</p>
+<p><strong>"வேடிக்கை" மற்றும் "அவமானம்" இரண்டுக்கும் உள்ள வித்தியாசத்தை புரிந்துகொண்டது.</strong></p>
+<hr>
+<h2>Copyright என்றால் என்ன?</h2>
+<p>ஒருவர்...</p>
+<p>உருவாக்கிய...</p>
+<p>📚 புத்தகம்</p>
+<p>📷 படம்</p>
+<p>🎵 பாடல்</p>
+<p>🎥 Video</p>
+<p>🎨 ஓவியம்</p>
+<p>📝 கட்டுரை</p>
+<p>இவை அனைத்திற்கும்...</p>
+<p>அவருக்கே உரிமை உள்ளது.</p>
+<p>அதை...</p>
+<p>அனுமதியில்லாமல் பயன்படுத்துவது...</p>
+<p>தவறான செயல்.</p>
+<hr>
+<h2>Plagiarism என்றால் என்ன?</h2>
+<p>மற்றவரின்...</p>
+<p>Ideas...</p>
+<p>Writing...</p>
+<p>Project...</p>
+<p>Research...</p>
+<p>இவற்றை...</p>
+<p><strong>தன்னுடையது போல காட்டுவது</strong></p>
+<p><strong>Plagiarism</strong> என்று அழைக்கப்படுகிறது.</p>
+<hr>
+<h2>குழந்தைகளுக்கு சொல்ல வேண்டியது</h2>
+<p>AI...</p>
+<p>Google...</p>
+<p>Internet...</p>
+<p>உதவி செய்யலாம்.</p>
+<p>ஆனால்...</p>
+<p><strong>சொந்த சிந்தனையை மாற்றக்கூடாது.</strong></p>
+<hr>
+<h2>நல்ல பழக்கம்</h2>
+<p>Project எழுதும்போது...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Reference குறிப்பிடுங்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உங்கள் சொந்த கருத்தையும் சேருங்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Copy செய்யாமல் புரிந்துகொண்டு எழுதுங்கள்.</span></div>
+<hr>
+<h2>Digital Integrity</h2>
+<p>Integrity என்றால்...</p>
+<p><strong>யாரும் பார்க்காத போதும்...</strong></p>
+<p>சரியானதை செய்வது.</p>
+<hr>
+<h2>உதாரணம்</h2>
+<p>Teacher Online Test கொடுத்தார்.</p>
+<p>Google-ல் Answer தேட வாய்ப்பு இருந்தது.</p>
+<p>ஆனால்...</p>
+<p>தேடாமல்...</p>
+<p>தனக்குத் தெரிந்ததை எழுதும் மாணவர்தான்...</p>
+<p>Digital Integrity கொண்டவர்.</p>
+<hr>
+<h2>Family Activity</h2>
+<h2>"Respect Challenge"</h2>
+<p>இன்று...</p>
+<p>குடும்பத்தில் உள்ள ஒவ்வொருவரும்...</p>
+<p>ஒருவரைப் பற்றி...</p>
+<p>ஒரு நல்ல விஷயத்தை...</p>
+<p>WhatsApp அல்லது Message மூலம் அனுப்புங்கள்.</p>
+<p>உதாரணம்:</p>
+<p>"உன்னுடைய உதவும் மனப்பான்மை எனக்கு மிகவும் பிடிக்கும்."</p>
+<hr>
+<h2>Role Play Activity</h2>
+<h2>நிலைமை 1</h2>
+<p>ஒரு நண்பர்...</p>
+<p>மற்றொரு நண்பரை Group-ல் கேலி செய்கிறார்.</p>
+<p>நீ என்ன செய்வாய்?</p>
+<hr>
+<hr>
+<h2>நிலைமை 2</h2>
+<p>உன் நண்பன்...</p>
+<p>Homework-ஐ முழுவதும் Copy செய்யச் சொல்கிறான்.</p>
+<p>நீ என்ன பதில் சொல்வாய்?</p>
+<hr>
+<hr>
+<h2>நிலைமை 3</h2>
+<p>ஒரு Video-வை Share செய்யச் சொல்கிறார்கள்.</p>
+<p>அது உண்மையா என்று தெரியவில்லை.</p>
+<p>நீ என்ன செய்வாய்?</p>
+<hr>
+<hr>
+<h2>Parent Coaching Tips</h2>
+<p>குழந்தைகளிடம்...</p>
+<p>இந்த 5 கேள்விகளை அடிக்கடி கேளுங்கள்.</p>
+<ul class="lesson-list"><li>இன்று Online-ல் யாருக்காவது உதவினாயா?</li><li>யாரையும் வருத்தப்படுத்தினாயா?</li><li>யாராவது உன்னை வருத்தினார்களா?</li><li>இன்று புதிதாக என்ன கற்றுக்கொண்டாய்?</li><li>இன்று நீ பெருமைப்படும் Digital செயல் என்ன?</li></ul>
+<hr>
+<h2>Reflection</h2>
+<label class="checkline"><input type="checkbox" data-key="chk_183845"><span>நான் Online-ல் எப்போதும் மரியாதையுடன் பேசுகிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_851299"><span>மற்றவர்களின் Content-ஐ அனுமதியில்லாமல் பயன்படுத்துகிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_267683"><span>Copy செய்வதற்குப் பதிலாக கற்றுக்கொள்ள முயற்சிக்கிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_688557"><span>என் குழந்தைக்கு Digital Ethics-ஐ நான் முன்மாதிரியாக கற்றுக்கொடுக்கிறேனா?</span></label>
+<hr>
+<h2>Family Digital Ethics Charter</h2>
+<p>எங்கள் குடும்பம்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Online-ல் மரியாதையாக பேசும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உண்மையான தகவல்களை மட்டுமே பகிரும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மற்றவர்களின் உழைப்பை மதிக்கும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Copy செய்வதைத் தவிர்க்கும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தவறு செய்தால் ஒப்புக்கொண்டு திருத்திக்கொள்ளும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>அனைவரையும் சமமாக மதிக்கும்.</span></div>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Digital Ethics என்பது தொழில்நுட்பத்தை சரியான மதிப்புகளுடன் பயன்படுத்துவது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Online Respect என்பது நல்ல டிஜிட்டல் குடிமகனின் அடையாளம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Copyright மற்றும் Plagiarism பற்றிய விழிப்புணர்வு மாணவர்களுக்கு மிகவும் அவசியம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பெற்றோர்களும் ஆசிரியர்களும் தங்கள் நடத்தையின் மூலம் குழந்தைகளுக்கு சிறந்த முன்மாதிரியாக இருக்க வேண்டும்.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>Digital Kindness Diary – 7 நாட்கள்</h2>
+<p>அடுத்த 7 நாட்களுக்கு...</p>
+<p>ஒவ்வொரு நாளும்...</p>
+<p>ஒரு நல்ல Digital செயலை பதிவு செய்யுங்கள்.</p>
+<div class="table-wrap"><table>
+<tr><th>நாள்</th><th>நான் செய்த நல்ல Digital செயல்</th></tr>
+<tr><td>Day 1</td><td>__________________________</td></tr>
+<tr><td>Day 2</td><td>__________________________</td></tr>
+<tr><td>Day 3</td><td>__________________________</td></tr>
+<tr><td>Day 4</td><td>__________________________</td></tr>
+<tr><td>Day 5</td><td>__________________________</td></tr>
+<tr><td>Day 6</td><td>__________________________</td></tr>
+<tr><td>Day 7</td><td>__________________________</td></tr>
+</table></div>
+<p>வார முடிவில்...</p>
+<p><strong>எந்த நல்ல பழக்கம் உருவானது?</strong></p>
+<p>என்று குடும்பமாக விவாதியுங்கள்.</p>
+<hr>
+<h2>Trainer's Golden Quote</h2>
+<p><strong>"தொழில்நுட்பம் உங்கள் திறமையை வெளிப்படுத்தும்...<br>ஆனால் உங்கள் மதிப்புகள்தான் உங்கள் உண்மையான அடையாளத்தை உருவாக்கும்.<br>நல்ல டிஜிட்டல் குடிமகன் என்பது திறமையானவராக மட்டுமல்ல...<br>நேர்மையானவராகவும் இருப்பவர்தான்."</strong></p>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m4l1', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m3-l7.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m4-l2.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m4l1')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m4l1&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

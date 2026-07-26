@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 · Cyberbullying: இணையத் தொல்லைகளை அடையாளம் கண்டு குழந்தைகளை பாதுகாப்பது (Understanding and Preventing Cyberbullying) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module3.html">Module 3</a> &raquo; Cyberbullying: இணையத் தொல்லைகளை அடையாளம் கண்டு குழந்தைகளை பாதுகாப்பது (Understanding and Preventing Cyberbullying)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 3 &middot; Lesson 2</div>
+<h1 class="lesson-title">Cyberbullying: இணையத் தொல்லைகளை அடையாளம் கண்டு குழந்தைகளை பாதுகாப்பது (Understanding and Preventing Cyberbullying)</h1>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Cyberbullying என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>சாதாரண கிண்டலுக்கும் Cyberbullying-க்கும் உள்ள வித்தியாசத்தை அறிந்து கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகளில் தோன்றும் ஆரம்ப எச்சரிக்கை அறிகுறிகளை அடையாளம் காண்பீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பெற்றோர்கள் உடனடியாக செய்ய வேண்டிய பாதுகாப்பு நடவடிக்கைகளை கற்றுக்கொள்வீர்கள்.</span></div>
+<hr>
+<h2>ஒரு உண்மை சம்பவம்</h2>
+<p>14 வயது மாணவன்...</p>
+<p>பள்ளி WhatsApp Group-ல் இருந்தான்.</p>
+<p>ஒரு நாள்...</p>
+<p>அவனுடைய புகைப்படத்தை Edit செய்து...</p>
+<p>சில மாணவர்கள் Group-ல் பகிர்ந்தனர்.</p>
+<p>அனைவரும் சிரித்தனர்.</p>
+<p>அவன் மட்டும்...</p>
+<p>அமைதியாகிவிட்டான்.</p>
+<p>சில நாட்களில்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பள்ளிக்கு செல்ல விருப்பமில்லை.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நண்பர்களிடம் பேசவில்லை.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Mobile பார்த்தாலே கவலையாக இருந்தது.</span></div>
+<p>பெற்றோர் முதலில் நினைத்தார்கள்...</p>
+<blockquote>"இவன் சோம்பேறியாகிட்டான்."</blockquote>
+<p>ஆனால்...</p>
+<p>உண்மையில்...</p>
+<p>அவன் <strong>Cyberbullying</strong>-க்கு ஆளாகியிருந்தான்.</p>
+<hr>
+<h2>Cyberbullying என்றால் என்ன?</h2>
+<p>இணையம் அல்லது Digital சாதனங்கள் மூலம்...</p>
+<p>ஒருவரை...</p>
+<ul class="lesson-list"><li>அவமானப்படுத்துவது</li><li>மிரட்டுவது</li><li>கேலி செய்வது</li><li>பொய்யான தகவல் பரப்புவது</li><li>அனுமதியின்றி புகைப்படம் அல்லது வீடியோ பகிர்வது</li><li>தொடர்ந்து தொந்தரவு செய்வது</li></ul>
+<p>இவை அனைத்தும்...</p>
+<p><strong>Cyberbullying</strong> ஆகும்.</p>
+<hr>
+<h2>சாதாரண கிண்டல் vs Cyberbullying</h2>
+<div class="table-wrap"><table>
+<tr><th>சாதாரண கிண்டல்</th><th>Cyberbullying</th></tr>
+<tr><td>ஒரு முறை நடக்கலாம்</td><td>மீண்டும் மீண்டும் நடக்கும்</td></tr>
+<tr><td>இருவரும் சிரிக்கலாம்</td><td>ஒருவருக்கு மனவேதனை ஏற்படும்</td></tr>
+<tr><td>எளிதில் முடிவடையும்</td><td>நீண்ட நாட்கள் தொடரலாம்</td></tr>
+<tr><td>நேருக்கு நேர்</td><td>Online-ல் பலருக்கும் பரவும்</td></tr>
+</table></div>
+<hr>
+<h2>Cyberbullying நடைபெறும் இடங்கள்</h2>
+<p>📱 WhatsApp</p>
+<p>📸 Instagram</p>
+<p>🎮 Online Games</p>
+<p>🎥 YouTube Comments</p>
+<p>💬 Chat Apps</p>
+<p>🎵 Social Media Platforms</p>
+<p>📧 Email</p>
+<hr>
+<h2>Cyberbullying-ன் வகைகள்</h2>
+<h2>1. அவமானப்படுத்தும் Message</h2>
+<p>"நீ ஒன்றுக்கும் பயன்பட மாட்டாய்."</p>
+<hr>
+<h2>2. Fake Profile உருவாக்குதல்</h2>
+<p>குழந்தையின் பெயரில் போலி கணக்கு உருவாக்குதல்.</p>
+<hr>
+<h2>3. Photo அல்லது Video-வை Edit செய்து பகிர்தல்</h2>
+<p>அனுமதி இல்லாமல் Meme உருவாக்குதல்.</p>
+<hr>
+<h2>4. Group-ல் திட்டமிட்டு ஒதுக்குதல்</h2>
+<p>அனைவரையும் Group-ல் சேர்த்து...</p>
+<p>ஒரு குழந்தையை மட்டும் வெளியே வைப்பது.</p>
+<hr>
+<h2>5. Online Threat</h2>
+<blockquote>"இந்த விஷயத்தை யாரிடமும் சொன்னா..."</blockquote>
+<p>என்று மிரட்டுதல்.</p>
+<hr>
+<h2>குழந்தையில் தோன்றும் எச்சரிக்கை அறிகுறிகள்</h2>
+<p>கவனிக்க வேண்டிய மாற்றங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>திடீரென Mobile பயன்படுத்த பயப்படுதல்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Social Media Account-ஐ மூடிவிடுதல்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பள்ளிக்கு செல்ல விருப்பமின்மை.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>அதிக கவலை அல்லது அழுகை.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தனிமையில் இருப்பது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>படிப்பில் கவனம் குறைதல்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தன்னம்பிக்கை குறைதல்.</span></div>
+<hr>
+<h2>Trainer Insight</h2>
+<blockquote><strong>"Cyberbullying-ன் காயங்கள்...<br>உடலில் தெரியாது.<br>ஆனால்...<br>மனதில் ஆழமாக பதியும்."</strong></blockquote>
+<hr>
+<h2>பெற்றோர் செய்யக்கூடாத தவறுகள்</h2>
+<p>❌ "இது சாதாரண விஷயம்."</p>
+<p>❌ "Ignore பண்ணு."</p>
+<p>❌ "நீயும் திருப்பி திட்டு."</p>
+<p>❌ "Phone எடுத்துட்றேன்."</p>
+<p>இந்த அணுகுமுறைகள்...</p>
+<p>குழந்தையை மேலும் தனிமைப்படுத்தலாம்.</p>
+<hr>
+<h2>பெற்றோர் செய்ய வேண்டிய 10 செயல்கள்</h2>
+<h3>✅ 1. அமைதியாக கேளுங்கள்.</h3>
+<hr>
+<h3>✅ 2. குழந்தையை குறை சொல்லாதீர்கள்.</h3>
+<hr>
+<h3>✅ 3. நடந்ததை முழுமையாகப் புரிந்து கொள்ளுங்கள்.</h3>
+<hr>
+<h3>✅ 4. Message, Screenshot போன்ற ஆதாரங்களை பாதுகாப்பாக சேமியுங்கள்.</h3>
+<hr>
+<h3>✅ 5. தொல்லை தரும் நபரை Block செய்யுங்கள்.</h3>
+<hr>
+<h3>✅ 6. தேவையெனில் அந்த Platform-ல் Report செய்யுங்கள்.</h3>
+<hr>
+<h3>✅ 7. பள்ளியில் நடந்திருந்தால் ஆசிரியர் அல்லது பள்ளி நிர்வாகத்துடன் பேசுங்கள்.</h3>
+<hr>
+<h3>✅ 8. குழந்தைக்கு நீங்கள் அவருடன் இருப்பதை உறுதியளியுங்கள்.</h3>
+<hr>
+<h3>✅ 9. தொடர்ந்து குழந்தையின் மனநிலையை கவனியுங்கள்.</h3>
+<hr>
+<h3>✅ 10. தேவையானால் மனநல நிபுணரின் உதவியை நாடுங்கள்.</h3>
+<hr>
+<h2>குடும்ப Cyber Safety Rules</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Online-ல் யாரையும் அவமானப்படுத்தக் கூடாது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மற்றவர்களின் Photo அல்லது Video-வை அனுமதியின்றி பகிரக்கூடாது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>ஏதேனும் சங்கடமான Message வந்தால் உடனே பெற்றோரிடம் சொல்ல வேண்டும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Password-ஐ நண்பர்களுடன் பகிரக்கூடாது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Online-ல் நடந்த பிரச்சினைகளை மறைக்கக் கூடாது.</span></div>
+<hr>
+<h2>Role Play Activity</h2>
+<h2>"நான் உன்னுடன் இருக்கிறேன்"</h2>
+<p><strong>பெற்றோர்:</strong></p>
+<blockquote>"யாராவது Online-ல் உன்னை வருத்தினால்...</blockquote>
+<p>நீ என்னிடம் சொல்லலாமா?"</p>
+<p><strong>குழந்தை:</strong></p>
+<blockquote>"நான் பயப்படுறேன்..."</blockquote>
+<p><strong>பெற்றோர்:</strong></p>
+<blockquote>"நீ தவறு செய்யவில்லை.</blockquote>
+<p>நாம் இதை ஒன்றாகச் சமாளிப்போம்."</p>
+<p>இந்த மாதிரியான உரையாடல்கள்...</p>
+<p>குழந்தைக்கு பாதுகாப்பு உணர்வை ஏற்படுத்தும்.</p>
+<hr>
+<h2>Reflection</h2>
+<p>உங்கள் குடும்பத்தைப் பற்றி சிந்தியுங்கள்.</p>
+<label class="checkline"><input type="checkbox" data-key="chk_33790"><span>Cyberbullying பற்றி என் குழந்தையுடன் பேசியிருக்கிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_3056"><span>Online-ல் யாராவது தொந்தரவு செய்தால் என்ன செய்ய வேண்டும் என்று அவனுக்குத் தெரியுமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_784682"><span>என்னிடம் பயமின்றி பகிரும் நம்பிக்கை அவனுக்கு இருக்கிறதா?</span></label>
+<hr>
+<h2>Trainer Story</h2>
+<p>ஒரு பள்ளியில்...</p>
+<p>ஆசிரியர் ஒரு கேள்வி கேட்டார்.</p>
+<blockquote><strong>"உங்களுக்கு Online-ல் யாராவது காயப்படுத்தியிருக்கிறார்களா?"</strong></blockquote>
+<p>வகுப்பில்...</p>
+<p>மூன்று குழந்தைகள் மட்டும் கையை உயர்த்தினர்.</p>
+<p>பிறகு...</p>
+<p>அநாமதேய (Anonymous) காகிதத்தில் எழுதச் சொன்னார்.</p>
+<p>அதில்...</p>
+<p>18 மாணவர்கள்...</p>
+<p>தாங்கள் Cyberbullying-க்கு ஆளானதாக எழுதினர்.</p>
+<p><strong>பாடம்:</strong></p>
+<p>பல குழந்தைகள்...</p>
+<p>பயத்தால்...</p>
+<p>அல்லது வெட்கத்தால்...</p>
+<p>பேசுவதில்லை.</p>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Cyberbullying என்பது Online-ல் மீண்டும் மீண்டும் செய்யப்படும் மன உளைச்சல் ஏற்படுத்தும் நடத்தை.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகளின் உணர்ச்சி மற்றும் நடத்தை மாற்றங்கள் முக்கிய எச்சரிக்கை அறிகுறிகள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பெற்றோரின் முதல் பொறுப்பு, குறை கூறாமல் கேட்டு ஆதரவு வழங்குவதாகும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பம், பள்ளி, மற்றும் குழந்தை இணைந்து செயல்பட்டால் Cyberbullying-ஐ திறம்பட சமாளிக்க முடியும்.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>Cyber Safety Family Discussion</h2>
+<p>இன்று குடும்பமாக 20 நிமிடங்கள் பேசுங்கள்.</p>
+<p>இந்தக் கேள்விகளை விவாதியுங்கள்:</p>
+<ul class="lesson-list"><li>Online-ல் யாராவது மோசமாக நடந்துகொண்டால் என்ன செய்வோம்?</li><li>யாரிடம் முதலில் சொல்வோம்?</li><li>நமது குடும்பத்தின் Cyber Safety Rule என்ன?</li></ul>
+<p>இந்த மூன்று பதில்களையும் எழுதி...</p>
+<p>உங்கள் <strong>Family Digital Safety File</strong>-ல் சேமியுங்கள்.</p>
+<hr>
+<h2>Trainer's Golden Quote</h2>
+<blockquote><strong>"குழந்தைகள் இணையத்தில் பாதுகாப்பாக இருப்பதற்கான மிகப்பெரிய பாதுகாப்பு மென்பொருள்...<br>பெற்றோருடன் இருக்கும் நம்பிக்கையான உறவுதான்."</strong></blockquote>
+<hr>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m3l2', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m3-l1.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m3-l3.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m3l2')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m3l2&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

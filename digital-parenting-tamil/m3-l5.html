@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 · AI, Deepfake & எதிர்கால டிஜிட்டல் ஆபத்துகள் (Artificial Intelligence, Deepfake & Future Digital Risks) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module3.html">Module 3</a> &raquo; AI, Deepfake &amp; எதிர்கால டிஜிட்டல் ஆபத்துகள் (Artificial Intelligence, Deepfake &amp; Future Digital Risks)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 3 &middot; Lesson 5</div>
+<h1 class="lesson-title">AI, Deepfake &amp; எதிர்கால டிஜிட்டல் ஆபத்துகள் (Artificial Intelligence, Deepfake &amp; Future Digital Risks)</h1>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI (Artificial Intelligence) என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Deepfake என்றால் என்ன என்பதை அறிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI மூலம் உருவாக்கப்பட்ட போலி தகவல்களை சந்தேகித்து சரிபார்க்கும் பழக்கத்தை உருவாக்குவீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகளுக்கு AI-ஐ பொறுப்புடன் பயன்படுத்த கற்றுக்கொடுப்பீர்கள்.</span></div>
+<hr>
+<h2>ஒரு உண்மை சம்பவம்</h2>
+<p>ஒரு குடும்பத்திற்கு...</p>
+<p>அம்மாவின் WhatsApp-ல்...</p>
+<p>ஒரு Voice Message வந்தது.</p>
+<p>அதில்...</p>
+<p>அவருடைய மகன் அழுது கொண்டு பேசுவது போல இருந்தது.</p>
+<blockquote><strong>"அம்மா...<br>எனக்கு உடனே பணம் அனுப்புங்க..."</strong></blockquote>
+<p>அம்மா மிகவும் பதற்றமடைந்தார்.</p>
+<p>ஆனால்...</p>
+<p>பின்னர் தெரிந்தது...</p>
+<p>அது...</p>
+<p><strong>AI மூலம் உருவாக்கப்பட்ட போலி குரல் (AI Voice Clone).</strong></p>
+<hr>
+<h2>Trainer Reflection</h2>
+<p>இன்று...</p>
+<p>நாம் பார்க்கும்...</p>
+<p>📷 Photo</p>
+<p>🎥 Video</p>
+<p>🎤 Voice</p>
+<p>எல்லாமே...</p>
+<p>உண்மையாக இருக்க வேண்டிய அவசியமில்லை.</p>
+<hr>
+<h2>AI என்றால் என்ன?</h2>
+<p>AI (Artificial Intelligence)...</p>
+<p>மனிதர்களைப் போல...</p>
+<p>சிந்திக்க...</p>
+<p>கற்றுக்கொள்ள...</p>
+<p>பதிலளிக்க...</p>
+<p>உருவாக்க...</p>
+<p>உதவும் கணினி தொழில்நுட்பம்.</p>
+<hr>
+<h2>AI-ன் நல்ல பயன்பாடுகள்</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>படிப்பிற்கு உதவி</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மொழிபெயர்ப்பு</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Coding</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Creative Writing</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Presentation</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Homework Guidance</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Language Learning</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Career Exploration</span></div>
+<hr>
+<h2>Trainer Insight</h2>
+<blockquote><strong>"AI ஒரு ஆசிரியராக இருக்கலாம்...<br>ஆனால்...<br>அது பெற்றோருக்கு மாற்றாக இருக்க முடியாது."</strong></blockquote>
+<hr>
+<h2>Deepfake என்றால் என்ன?</h2>
+<p>AI-யைப் பயன்படுத்தி...</p>
+<p>ஒருவரின்...</p>
+<p>📷 முகம்</p>
+<p>🎤 குரல்</p>
+<p>🎥 Video</p>
+<p>இவற்றை...</p>
+<p>போலியாக உருவாக்குவது...</p>
+<p><strong>Deepfake</strong> என்று அழைக்கப்படுகிறது.</p>
+<hr>
+<h2>Deepfake உதாரணங்கள்</h2>
+<p>❌ இல்லாத Video உருவாக்குதல்.</p>
+<p>❌ போலி Voice Call.</p>
+<p>❌ Photo மாற்றுதல்.</p>
+<p>❌ Celebrity போல பேச வைப்பது.</p>
+<hr>
+<h2>ஏன் இது ஆபத்து?</h2>
+<p>ஏனெனில்...</p>
+<p>குழந்தைகள்...</p>
+<p>அதை உண்மை என்று நம்பலாம்.</p>
+<hr>
+<h2>Golden Rule</h2>
+<blockquote><strong>"பார்த்ததெல்லாம் உண்மை இல்லை...<br>கேட்டதெல்லாம் நம்பகமானது இல்லை...<br>முதலில் சரிபாருங்கள்."</strong></blockquote>
+<hr>
+<h2>AI பயன்படுத்தும் குழந்தைகளுக்கு சொல்ல வேண்டிய 7 விதிகள்</h2>
+<h3>Rule 1</h3>
+<p>AI சொல்வதை...</p>
+<p>அப்படியே Copy செய்யாதே.</p>
+<hr>
+<h3>Rule 2</h3>
+<p>Homework-ஐ...</p>
+<p>AI செய்யக்கூடாது.</p>
+<p>AI...</p>
+<p>உதவ வேண்டும்.</p>
+<hr>
+<h3>Rule 3</h3>
+<p>Personal Information...</p>
+<p>AI Chat-ல் எழுதாதே.</p>
+<hr>
+<h3>Rule 4</h3>
+<p>Password...</p>
+<p>OTP...</p>
+<p>Bank Details...</p>
+<p>எதையும் AI-யில் பகிராதே.</p>
+<hr>
+<h3>Rule 5</h3>
+<p>AI உருவாக்கிய தகவலை...</p>
+<p>Teacher அல்லது நம்பகமான ஆதாரங்களுடன் சரிபார்த்து பயன்படுத்து.</p>
+<hr>
+<h3>Rule 6</h3>
+<p>AI மூலம்...</p>
+<p>மற்றவர்களை காயப்படுத்தும் Content உருவாக்காதே.</p>
+<hr>
+<h3>Rule 7</h3>
+<p>AI-யை...</p>
+<p>கற்றலுக்கும்...</p>
+<p>படைப்பாற்றலுக்கும் பயன்படுத்து.</p>
+<hr>
+<h2>AI மற்றும் மனித அறிவு</h2>
+<p>AI...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வேகமாக பதில் சொல்லும்.</span></div>
+<p>ஆனால்...</p>
+<p>மனிதன்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நல்ல முடிவு எடுப்பான்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உணர்வுகளைப் புரிந்துகொள்வான்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மதிப்புகளை காப்பான்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பொறுப்புடன் செயல்படுவான்.</span></div>
+<hr>
+<h2>Trainer Story</h2>
+<p>ஒரு ஆசிரியர்...</p>
+<p>இரண்டு மாணவர்களிடம் கேட்டார்.</p>
+<blockquote><strong>"இந்த Essay யாருடையது?"</strong></blockquote>
+<p>முதல் மாணவன்...</p>
+<p>AI எழுதினதை Copy செய்தான்.</p>
+<p>இரண்டாவது மாணவன்...</p>
+<p>AI-யிடம் Ideas கேட்டான்.</p>
+<p>பிறகு...</p>
+<p>தன்னுடைய சொந்த அனுபவத்துடன் எழுதினான்.</p>
+<p>ஆசிரியர்...</p>
+<p>இரண்டாவது மாணவனின் Essay-ஐ பாராட்டினார்.</p>
+<p>ஏன்?</p>
+<p>ஏனெனில்...</p>
+<p><strong>AI-ஐ பயன்படுத்தினான்...<br>ஆனால்...<br>அதற்கு அடிமையாகவில்லை.</strong></p>
+<hr>
+<h2>Family AI Rules</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI-ஐ Learning Assistant-ஆக பயன்படுத்துவோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Personal தகவல்களை பகிரமாட்டோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI உருவாக்கிய தகவலை சரிபார்ப்போம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI மூலம் யாரையும் ஏமாற்றமாட்டோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI பயன்படுத்தியதை மறைக்கமாட்டோம்.</span></div>
+<hr>
+<h2>Activity</h2>
+<h2>"Real or AI?"</h2>
+<p>பெற்றோர்...</p>
+<p>5 படங்கள் அல்லது செய்திகள் காட்டுங்கள்.</p>
+<p>குழந்தையிடம் கேளுங்கள்.</p>
+<blockquote>"இது உண்மையா?</blockquote>
+<p>அல்லது...</p>
+<p>AI உருவாக்கியதா?"</p>
+<p>பிறகு...</p>
+<p>ஏன் அப்படிச் சொல்கிறாய் என்று விளக்கச் சொல்லுங்கள்.</p>
+<p>இந்த Activity...</p>
+<p>Critical Thinking-ஐ வளர்க்கும்.</p>
+<hr>
+<h2>THINK – CHECK – VERIFY Model</h2>
+<p>எந்த Photo...</p>
+<p>Video...</p>
+<p>Voice...</p>
+<p>Message வந்தாலும்...</p>
+<h3>THINK</h3>
+<p>உடனே நம்பாதே.</p>
+<hr>
+<h3>CHECK</h3>
+<p>வேறு ஆதாரம் இருக்கிறதா?</p>
+<hr>
+<h3>VERIFY</h3>
+<p>பெற்றோர் அல்லது ஆசிரியரிடம் கேள்.</p>
+<hr>
+<h2>Reflection</h2>
+<p>கீழே உள்ள கேள்விகளுக்கு பதில் எழுதுங்கள்.</p>
+<label class="checkline"><input type="checkbox" data-key="chk_859572"><span>என் குழந்தைக்கு AI பற்றி தெரிகிறதா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_659540"><span>Deepfake என்றால் என்ன என்று விளக்கியிருக்கிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_308991"><span>AI-யை Homework Copy செய்ய பயன்படுத்துகிறானா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_53509"><span>AI-யை Learning Tool ஆக பயன்படுத்த கற்றுக்கொடுத்திருக்கிறேனா?</span></label>
+<hr>
+<h2>Future Skills</h2>
+<p>எதிர்காலத்தில்...</p>
+<p>குழந்தைகளுக்கு மிகவும் தேவையான திறன்கள்:</p>
+<p>🌟 Critical Thinking</p>
+<p>🌟 Creativity</p>
+<p>🌟 Communication</p>
+<p>🌟 Emotional Intelligence</p>
+<p>🌟 Ethics</p>
+<p>🌟 Digital Responsibility</p>
+<p>🌟 Problem Solving</p>
+<p>🌟 Lifelong Learning</p>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI என்பது சக்திவாய்ந்த கற்றல் கருவி.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Deepfake போன்ற தொழில்நுட்பங்களை அடையாளம் காணும் விழிப்புணர்வு அவசியம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>AI-யை பொறுப்புடன் பயன்படுத்த வேண்டும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மனித மதிப்புகள், சிந்தனை, மற்றும் நேர்மையை AI மாற்ற முடியாது.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>Family AI Agreement</h2>
+<p>குடும்பமாக அமர்ந்து...</p>
+<p>இந்த 5 உறுதிமொழிகளை எழுதுங்கள்.</p>
+<ul class="lesson-list"><li>✅ AI-யை கற்றலுக்காக பயன்படுத்துவோம்.</li><li>✅ Personal Information பகிரமாட்டோம்.</li><li>✅ AI உருவாக்கிய தகவலை சரிபார்ப்போம்.</li><li>✅ AI மூலம் யாரையும் ஏமாற்றமாட்டோம்.</li><li>✅ எங்கள் சொந்த சிந்தனையையும் படைப்பாற்றலையும் வளர்த்துக்கொள்வோம்.</li></ul>
+<p>இந்த உறுதிமொழியை...</p>
+<p>குடும்பத்தின் Digital Rules அருகில் ஒட்டுங்கள்.</p>
+<hr>
+<h2>Trainer's Golden Quote</h2>
+<blockquote><strong>"எதிர்காலத்தில் வெற்றி பெறுவது...<br>AI-யை அதிகமாக பயன்படுத்துபவர்கள் அல்ல...<br>AI-யை புத்திசாலித்தனமாகவும், பொறுப்புடனும் பயன்படுத்தத் தெரிந்தவர்கள்தான்."</strong></blockquote>
+<hr>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m3l5', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m3-l4.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m3-l6.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m3l5')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m3l5&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

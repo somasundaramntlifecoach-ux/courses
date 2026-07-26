@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 1 · அளவை விட தரம் முக்கியம் (Quality Over Quantity of Screen Time) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module1.html">Module 1</a> &raquo; அளவை விட தரம் முக்கியம் (Quality Over Quantity of Screen Time)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 1 &middot; Lesson 4</div>
+<h1 class="lesson-title">அளவை விட தரம் முக்கியம் (Quality Over Quantity of Screen Time)</h1>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Screen Time என்பது நேரத்தை மட்டும் குறிக்காது என்பதைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நல்ல Screen Time மற்றும் தீங்கு விளைவிக்கும் Screen Time ஆகியவற்றின் வித்தியாசத்தை அறிந்து கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைக்கு பொருத்தமான டிஜிட்டல் உள்ளடக்கத்தைத் தேர்வு செய்ய கற்றுக்கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பமாக Screen பயன்படுத்தும் நல்ல பழக்கங்களை உருவாக்குவீர்கள்.</span></div>
+<hr>
+<h2>ஒரு பெற்றோரின் கேள்வி</h2>
+<p>ஒரு கருத்தரங்கில் ஒரு தந்தை கேட்டார்.</p>
+<blockquote><strong>"சார்...</strong><br><strong>ஒரு நாளைக்கு எவ்வளவு நேரம் Mobile பார்க்கலாம்?"</strong></blockquote>
+<p>அனைவரும் இதே கேள்வியை எதிர்பார்த்துக் கொண்டிருந்தார்கள்.</p>
+<p>நான் உடனே பதில் சொல்லவில்லை.</p>
+<p>மாறாக ஒரு கேள்வி கேட்டேன்.</p>
+<blockquote><strong>"உங்கள் குழந்தை அந்த நேரத்தில் என்ன பார்த்தான்?"</strong></blockquote>
+<p>அவர் சற்றே யோசித்தார்.</p>
+<p>இதுவே இந்தப் பாடத்தின் முக்கியமான கருத்து.</p>
+<p><strong>நேரம் மட்டும் முக்கியமல்ல...</strong></p>
+<p><strong>அந்த நேரத்தில் என்ன நடந்தது என்பதுதான் முக்கியம்.</strong></p>
+<hr>
+<h2>ஒரு சிறிய உதாரணம்</h2>
+<p>இரண்டு குழந்தைகள்.</p>
+<h3>குழந்தை – A</h3>
+<p>1 மணி நேரம்...</p>
+<p>YouTube-ல்</p>
+<ul class="lesson-list"><li>அறிவியல்</li><li>விண்வெளி</li><li>விலங்குகள்</li><li>கணிதம்</li></ul>
+<p>பற்றிய கல்வி வீடியோக்களைப் பார்க்கிறான்.</p>
+<p>பிறகு...</p>
+<p>அதைப் பற்றி அம்மாவிடம் கேள்விகள் கேட்கிறான்.</p>
+<hr>
+<h3>குழந்தை – B</h3>
+<p>1 மணி நேரம்...</p>
+<p>தொடர்ச்சியாக</p>
+<ul class="lesson-list"><li>Random Reels</li><li>சண்டை வீடியோக்கள்</li><li>வன்முறை Game Videos</li><li>அர்த்தமில்லாத Shorts</li></ul>
+<p>பார்க்கிறான்.</p>
+<p>இருவரும்...</p>
+<p><strong>ஒரே ஒரு மணி நேரம்</strong> Screen பார்த்தார்கள்.</p>
+<p>ஆனால்...</p>
+<p>அந்த Screen Time-ன் <strong>தரம் (Quality)</strong> ஒன்றா?</p>
+<p>இல்லை.</p>
+<hr>
+<h2>Screen Time-ன் மூன்று முக்கிய கேள்விகள்</h2>
+<p>நேரத்தை மட்டும் எண்ணாதீர்கள்.</p>
+<p>இந்த மூன்று கேள்விகளைக் கேளுங்கள்.</p>
+<hr>
+<h2>1. என்ன பார்த்தான்?</h2>
+<p>இந்த Content...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வயதிற்கு ஏற்றதா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பாதுகாப்பானதா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நல்ல பழக்கங்களை கற்றுக்கொடுக்கிறதா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>சிந்திக்க வைக்கிறதா?</span></div>
+<hr>
+<h2>2. எப்படி பார்த்தான்?</h2>
+<p>தனியாக பார்த்தானா?</p>
+<p>அல்லது...</p>
+<p>அம்மா அல்லது அப்பாவுடன் சேர்ந்து பார்த்தானா?</p>
+<p><strong>Co-Viewing</strong> (பெற்றோருடன் சேர்ந்து பார்ப்பது) குழந்தைக்கு நல்ல புரிதலை உருவாக்க உதவுகிறது.</p>
+<hr>
+<h2>3. பார்த்த பிறகு என்ன செய்தான்?</h2>
+<p>அவன்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>புதியதாக ஏதாவது கற்றுக்கொண்டானா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>அதைப் பற்றி பேசினானா?</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நடைமுறையில் முயற்சி செய்தானா?</span></div>
+<p>அல்லது...</p>
+<p>அடுத்த Video-க்கு மட்டும் போய்விட்டானா?</p>
+<hr>
+<h2>Trainer Insight</h2>
+<p><strong>திரை ஒரு ஆசிரியராகவும் இருக்கலாம்...</strong></p>
+<p><strong>திரை ஒரு பழக்க அடிமைத்தனமாகவும் மாறலாம்...</strong></p>
+<p>அதை முடிவு செய்வது...</p>
+<p>நாம் தேர்வு செய்யும் Content.</p>
+<hr>
+<h2>ஒரு தமிழ் குடும்பக் கதை</h2>
+<p>கோவையில் வசிக்கும் சுரேஷ் குடும்பம்.</p>
+<p>அவர்களின் 7 வயது மகள் தினமும் YouTube பார்த்தாள்.</p>
+<p>முதலில்...</p>
+<p>அம்மா அதைத் தடுக்க முயன்றார்.</p>
+<p>பிறகு...</p>
+<p>ஒரு புதிய முடிவு எடுத்தார்.</p>
+<p>ஒவ்வொரு சனிக்கிழமையும்...</p>
+<p>குடும்பமாக ஒரு Educational Video பார்த்தார்கள்.</p>
+<p>அதற்குப் பிறகு...</p>
+<p>"இன்று என்ன கற்றுக்கொண்டோம்?"</p>
+<p>என்று பேச ஆரம்பித்தார்கள்.</p>
+<p>சில மாதங்களில்...</p>
+<p>அந்தக் குழந்தை...</p>
+<p>YouTube-ஐ வெறும் பொழுதுபோக்காக மட்டும் அல்ல...</p>
+<p>கற்றலுக்கான கருவியாகவும் பயன்படுத்த ஆரம்பித்தாள்.</p>
+<hr>
+<h2>Digital Diet</h2>
+<p>உடலுக்கு உணவு எப்படி முக்கியமோ...</p>
+<p>மூளைக்கும் தகவல் அதே அளவுக்கு முக்கியம்.</p>
+<p>நீங்கள் தினமும்...</p>
+<p>Fast Food மட்டும் சாப்பிட்டால்...</p>
+<p>உடல் பாதிக்கப்படும்.</p>
+<p>அதேபோல...</p>
+<p>மூளைக்கும்...</p>
+<p>தரமற்ற தகவல்கள் மட்டும் கிடைத்தால்...</p>
+<p>சிந்தனை மாற ஆரம்பிக்கும்.</p>
+<p>எனவே...</p>
+<p><strong>Content என்பது மூளைக்கான உணவு.</strong></p>
+<hr>
+<h2>Content Traffic Signal</h2>
+<h3>🟢 Green Content (அதிகம் ஊக்குவிக்கலாம்)</h3>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கல்வி</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>அறிவியல்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கலை</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>புத்தக வாசிப்பு</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மொழி கற்றல்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Coding</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>DIY Activities</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இசை</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கைவினை</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகளுக்கான ஆவணப்படங்கள்</span></div>
+<hr>
+<h3>🟡 Yellow Content (வரம்புடன்)</h3>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Cartoon</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Entertainment</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Comedy</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Sports Highlights</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Family Movies</span></div>
+<hr>
+<h3>🔴 Red Content (மிகவும் கவனமாக)</h3>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Violence</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Abuse</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Adult Content</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Gambling</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Fake Challenges</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Cyber Bullying</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Excessive Reels</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Endless Scrolling</span></div>
+<hr>
+<h2>பெற்றோர் செய்ய வேண்டிய 10 செயல்கள்</h2>
+<div class="step-row"><span class="step-badge">1</span><div class="step-text">குழந்தை பார்க்கும் Apps-ஐ முதலில் நீங்கள் பார்த்து அறிந்து கொள்ளுங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">2</span><div class="step-text">YouTube History-ஐ வாரம் ஒருமுறை பாருங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">3</span><div class="step-text">Auto Play-ஐ முடிந்தால் நிறுத்துங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">4</span><div class="step-text">வயதிற்கு ஏற்ற Content மட்டும் Subscribe செய்யுங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">5</span><div class="step-text">குழந்தையுடன் சேர்ந்து பார்க்கும் நேரம் உருவாக்குங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">6</span><div class="step-text">Video முடிந்ததும்... "இதிலிருந்து என்ன கற்றுக்கொண்டாய்?" என்று கேளுங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">7</span><div class="step-text">Screen முடிந்த பிறகு... ஒரு Offline Activity செய்யுங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">8</span><div class="step-text">Bedroom-ல் தனியாக Screen பார்க்க விடாதீர்கள்.</div></div>
+<div class="step-row"><span class="step-badge">9</span><div class="step-text">குடும்பமாக Screen Rules உருவாக்குங்கள்.</div></div>
+<div class="step-row"><span class="step-badge">10</span><div class="step-text">நீங்களும் அதையே பின்பற்றுங்கள்.</div></div>
+<h2>Family Activity</h2>
+<h2>"Movie Discussion Night"</h2>
+<p>வாரம் ஒரு நாள்...</p>
+<p>ஒரு நல்ல கல்வி அல்லது குடும்ப திரைப்படத்தைப் பாருங்கள்.</p>
+<p>பிறகு...</p>
+<p>ஒவ்வொருவரும் இந்த மூன்று கேள்விகளுக்கு பதில் சொல்லுங்கள்.</p>
+<p><strong>1. உனக்கு மிகவும் பிடித்த காட்சி எது?</strong></p>
+<p><strong>2. அந்தக் கதாபாத்திரத்திடமிருந்து என்ன கற்றுக்கொண்டாய்?</strong></p>
+<p><strong>3. அந்தப் பாடத்தை நம் வாழ்க்கையில் எப்படி பயன்படுத்தலாம்?</strong></p>
+<p>இதனால்...</p>
+<p>Screen Time...</p>
+<p><strong>Family Learning Time</strong> ஆக மாறும்.</p>
+<hr>
+<h2>Self Assessment</h2>
+<p>கீழே உள்ளவற்றில் எத்தனை உங்கள் வீட்டில் நடக்கிறது?</p>
+<label class="checkline"><input type="checkbox" data-key="chk_97102"><span>Screen பார்க்கும்போது யாரும் பேசுவதில்லை.</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_131459"><span>அனைவரும் தனித்தனி Screen பயன்படுத்துகிறார்கள்.</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_905610"><span>Screen பார்த்த பிறகு Content பற்றி பேசுவதில்லை.</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_709844"><span>குழந்தை என்ன பார்க்கிறான் என்பது தெரியாது.</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_331440"><span>Family Screen Rules இல்லை.</span></label>
+<p>இந்தக் கேள்விகளில் 3 அல்லது அதற்கு மேல் "ஆம்" என்றால்...</p>
+<p>இந்த Module-ல் கற்றவற்றை வீட்டில் செயல்படுத்த நல்ல நேரம் இதுவே.</p>
+<hr>
+<h2>Golden Rule</h2>
+<blockquote><strong>"Screen Time-ஐ மணிக்கணக்கில் மட்டும் அளக்காதீர்கள்...<br>அது குழந்தையின் மனதிலும், சிந்தனையிலும் என்ன விதைக்கிறது என்பதையும் கவனியுங்கள்."</strong></blockquote>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Screen Time-ன் தரம், நேரத்தை விட முக்கியமானது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"என்ன பார்த்தான்?", "யாருடன் பார்த்தான்?", "பார்த்த பிறகு என்ன செய்தான்?" என்ற மூன்று கேள்விகள் ஒவ்வொரு பெற்றோரும் கேட்க வேண்டும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நல்ல Content குழந்தையின் ஆர்வம், சிந்தனை, படைப்பாற்றல் ஆகியவற்றை வளர்க்க முடியும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்ப உரையாடல் மற்றும் Co-Viewing மூலம் Screen Time-ஐ Learning Time-ஆக மாற்றலாம்.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>"Digital Content Audit"</h2>
+<p>அடுத்த 7 நாட்களுக்கு:</p>
+<p>1. உங்கள் குழந்தை பார்த்த அனைத்து Apps-களையும் எழுதுங்கள்.</p>
+<p>2. ஒவ்வொரு App-க்கும்:</p>
+<ul class="lesson-list"><li>🟢 Green</li><li>🟡 Yellow</li><li>🔴 Red</li></ul>
+<p>என்று வகைப்படுத்துங்கள்.</p>
+<p>3. வார இறுதியில் குடும்பமாக அமர்ந்து எந்த Content-ஐ அதிகரிக்க வேண்டும், எதை குறைக்க வேண்டும் என்று முடிவு செய்யுங்கள்.</p>
+<p>4. "இந்த வாரம் என்ன கற்றோம்?" என்ற 15 நிமிட குடும்ப உரையாடலை நடத்துங்கள்.</p>
+<hr>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m1l4', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m1-l3.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m1-l5.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m1l4')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m1l4&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

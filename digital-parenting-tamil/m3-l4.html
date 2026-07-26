@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 · Social Media & Online Gaming-ஐ பாதுகாப்பாக பயன்படுத்துவது (Safe Social Media & Responsible Online Gaming) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module3.html">Module 3</a> &raquo; Social Media &amp; Online Gaming-ஐ பாதுகாப்பாக பயன்படுத்துவது (Safe Social Media &amp; Responsible Online Gaming)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 3 &middot; Lesson 4</div>
+<h1 class="lesson-title">Social Media &amp; Online Gaming-ஐ பாதுகாப்பாக பயன்படுத்துவது (Safe Social Media &amp; Responsible Online Gaming)</h1>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Social Media-வை பாதுகாப்பாக பயன்படுத்தும் விதிகளை அறிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Fake Profiles மற்றும் Online Strangers-ஐ அடையாளம் காண்பீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Online Gaming-ல் உள்ள பொதுவான ஆபத்துகளைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பத்திற்கான Social Media &amp; Gaming Rules உருவாக்க கற்றுக்கொள்வீர்கள்.</span></div>
+<hr>
+<h2>அறிமுகம்</h2>
+<p>இன்று...</p>
+<p>பல குழந்தைகளின் வாழ்க்கையில்...</p>
+<p>📱 Instagram</p>
+<p>📹 YouTube</p>
+<p>🎮 Free Fire</p>
+<p>🎮 BGMI</p>
+<p>🎮 Roblox</p>
+<p>🎮 Minecraft</p>
+<p>💬 WhatsApp</p>
+<p>இவை அனைத்தும்...</p>
+<p>பொழுதுபோக்கு மட்டுமல்ல...</p>
+<p>அவர்களின் சமூக உலகமாகவும் மாறிவிட்டன.</p>
+<p>எனவே...</p>
+<p><strong>தடை செய்வதை விட...</strong></p>
+<p><strong>சரியாக பயன்படுத்த கற்றுக்கொடுப்பதே பெற்றோரின் முக்கிய பணி.</strong></p>
+<hr>
+<h2>ஒரு உண்மை சம்பவம்</h2>
+<p>13 வயது மாணவன்...</p>
+<p>Online Game விளையாடிக் கொண்டிருந்தான்.</p>
+<p>ஒருவர் Friend Request அனுப்பினார்.</p>
+<p>சில நாட்களில்...</p>
+<p>அவர்...</p>
+<blockquote>"நான் உனக்கு Free Game Coins தருகிறேன்."</blockquote>
+<p>என்று கூறி...</p>
+<p>ஒரு Link அனுப்பினார்.</p>
+<p>அந்த Link-ஐ Click செய்த பிறகு...</p>
+<p>அவனுடைய Game Account-ம்...</p>
+<p>Email-மும்...</p>
+<p>Hack செய்யப்பட்டது.</p>
+<hr>
+<h2>Trainer Insight</h2>
+<blockquote><strong>"இணையத்தில் எல்லோரும் நண்பர்கள் அல்ல...<br>சிலர் நண்பர்களைப் போல நடிப்பார்கள்."</strong></blockquote>
+<hr>
+<h2>Social Media-வின் நல்ல பயன்கள்</h2>
+<p>சரியாக பயன்படுத்தினால்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>புதிய திறன்கள் கற்கலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கல்வி சார்ந்த Videos பார்க்கலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உலக நிகழ்வுகளை அறியலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நண்பர்களுடன் தொடர்பில் இருக்கலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>படைப்பாற்றலை வெளிப்படுத்தலாம்.</span></div>
+<hr>
+<h2>Social Media-வின் ஆபத்துகள்</h2>
+<p>⚠ Fake Accounts</p>
+<p>⚠ Cyberbullying</p>
+<p>⚠ Privacy பிரச்சினைகள்</p>
+<p>⚠ அதிக Screen Time</p>
+<p>⚠ தவறான தகவல்கள்</p>
+<p>⚠ Online Strangers</p>
+<p>⚠ போலியான போட்டிகள் மற்றும் பரிசுகள்</p>
+<hr>
+<h2>Fake Profile-ஐ எப்படி அடையாளம் காணலாம்?</h2>
+<p>கவனிக்க வேண்டிய அறிகுறிகள்:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Profile Photo தெளிவாக இல்லாதது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மிகவும் குறைந்த நண்பர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>புதிய Account.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உடனே Personal Information கேட்பது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"இந்த Link-ஐ Click செய்" என்று கூறுவது.</span></div>
+<hr>
+<h2>Golden Rule</h2>
+<blockquote><strong>"Online-ல் புதிய நண்பர் கிடைத்தாலும்...<br>அவர் உண்மையில் யார் என்பது உறுதியாகத் தெரியாது."</strong></blockquote>
+<hr>
+<h2>Online Gaming-ன் நல்ல அம்சங்கள்</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Problem Solving</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Team Work</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Strategic Thinking</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Quick Decision Making</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Creativity</span></div>
+<hr>
+<h2>Online Gaming-ல் இருக்கும் ஆபத்துகள்</h2>
+<h3>1. Gaming Addiction</h3>
+<p>மணி கணக்கில் விளையாடுதல்.</p>
+<hr>
+<h3>2. In-App Purchase</h3>
+<p>Game-ல் பொருட்கள் வாங்க பணம் செலவழித்தல்.</p>
+<hr>
+<h3>3. Stranger Chat</h3>
+<p>தெரியாத நபர்களுடன் உரையாடல்.</p>
+<hr>
+<h3>4. Personal Information Sharing</h3>
+<p>Game Chat-ல் தனிப்பட்ட தகவல்களை பகிர்தல்.</p>
+<hr>
+<h3>5. Toxic Language</h3>
+<p>மோசமான வார்த்தைகள் மற்றும் மிரட்டல்கள்.</p>
+<hr>
+<h2>Trainer Activity</h2>
+<h2>"Pause Before Purchase"</h2>
+<p>குழந்தைக்கு சொல்லுங்கள்.</p>
+<p>Game-ல் ஏதாவது வாங்க வேண்டும் என்றால்...</p>
+<p>முதலில்...</p>
+<p>24 மணி நேரம் காத்திருக்க வேண்டும்.</p>
+<p>பிறகு...</p>
+<p>பெற்றோருடன் பேச வேண்டும்.</p>
+<p>இதனால்...</p>
+<p>அவசர முடிவுகள் குறையும்.</p>
+<hr>
+<h2>Family Social Media Rules</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பெற்றோரின் அனுமதியுடன் Account உருவாக்க வேண்டும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தெரியாத Friend Request ஏற்கக்கூடாது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Personal Information பகிரக்கூடாது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மரியாதையுடன் Comment செய்ய வேண்டும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இரவு தூங்குவதற்கு முன் Social Media பயன்படுத்தக்கூடாது.</span></div>
+<hr>
+<h2>Family Gaming Rules</h2>
+<p>🎮 Homework முதலில்.</p>
+<p>🎮 Time Limit கட்டாயம்.</p>
+<p>🎮 Bedroom-ல் Gaming இல்லை.</p>
+<p>🎮 புதிய Game Download செய்வதற்கு முன் பெற்றோரிடம் கேட்க வேண்டும்.</p>
+<p>🎮 Game Chat-ல் Personal Details பகிரக்கூடாது.</p>
+<p>🎮 வாரத்திற்கு குறைந்தது ஒரு நாள் Gaming Break.</p>
+<hr>
+<h2>Trainer Story</h2>
+<p>ஒரு குடும்பத்தில்...</p>
+<p>அப்பாவும்...</p>
+<p>மகனும்...</p>
+<p>ஒவ்வொரு சனிக்கிழமையும்...</p>
+<p>30 நிமிடம்...</p>
+<p>ஒன்றாக Game விளையாடினார்கள்.</p>
+<p>அதற்குப் பிறகு...</p>
+<p>15 நிமிடம்...</p>
+<p>அந்த Game பற்றி பேசினார்கள்.</p>
+<p>அப்பா கேட்டார்.</p>
+<blockquote>"இந்த Game உனக்கு என்ன கற்றுக் கொடுத்தது?"</blockquote>
+<p>அந்த உரையாடலால்...</p>
+<p>Game...</p>
+<p>ஒரு சண்டைக்கான காரணமாக இல்லாமல்...</p>
+<p>ஒரு கற்றல் வாய்ப்பாக மாறியது.</p>
+<hr>
+<h2>"THINK" Before Posting</h2>
+<p>Social Media-ல் Photo, Video அல்லது Comment போடுவதற்கு முன்...</p>
+<p>இந்த 5 கேள்விகளை கேளுங்கள்.</p>
+<h3>T – True</h3>
+<p>இது உண்மையா?</p>
+<hr>
+<h3>H – Helpful</h3>
+<p>இது பயனுள்ளதா?</p>
+<hr>
+<h3>I – Inspiring</h3>
+<p>இது நல்ல தாக்கத்தை ஏற்படுத்துமா?</p>
+<hr>
+<h3>N – Necessary</h3>
+<p>இதை பகிர வேண்டியது அவசியமா?</p>
+<hr>
+<h3>K – Kind</h3>
+<p>இது யாரையும் காயப்படுத்துமா?</p>
+<hr>
+<h2>Reflection Activity</h2>
+<p>கீழே உள்ள கேள்விகளுக்கு பதில் எழுதுங்கள்.</p>
+<label class="checkline"><input type="checkbox" data-key="chk_680938"><span>என் குழந்தை எந்த Social Media Apps பயன்படுத்துகிறான்?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_241210"><span>அவன் Online Friends யார் என்று எனக்குத் தெரியுமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_407231"><span>Game Chat பற்றி அவனுடன் பேசியிருக்கிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_76786"><span>In-App Purchase பற்றிய விதிகளை உருவாக்கியிருக்கிறேனா?</span></label>
+<hr>
+<h2>Family Activity</h2>
+<h2>"Tech Talk Tuesday"</h2>
+<p>வாரத்திற்கு ஒரு நாள்...</p>
+<p>20 நிமிடங்கள்...</p>
+<p>குடும்பமாக...</p>
+<p>இந்தக் கேள்விகளை விவாதியுங்கள்.</p>
+<ul class="lesson-list"><li>இந்த வாரம் எந்த App புதியதாக பயன்படுத்தினாய்?</li><li>எந்த Video உனக்கு மிகவும் பிடித்தது?</li><li>Online-ல் யாராவது புதிய நண்பர் கிடைத்தாரா?</li><li>ஏதேனும் சந்தேகமான Message வந்ததா?</li></ul>
+<p><strong>கேட்பது முக்கியம்...</strong></p>
+<p><strong>விசாரணை செய்வது அல்ல.</strong></p>
+<hr>
+<h2>Social Media Safety Checklist</h2>
+<div class="table-wrap"><table>
+<tr><th>கேள்வி</th><th>ஆம்</th><th>இல்லை</th></tr>
+<tr><td>Privacy Settings சரியாக உள்ளதா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_556075"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_556075"></td></tr>
+<tr><td>தெரியாத Friend Requests ஏற்கவில்லையா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_541368"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_541368"></td></tr>
+<tr><td>Password பாதுகாப்பாக உள்ளதா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_768442"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_768442"></td></tr>
+<tr><td>பெற்றோருடன் Digital உரையாடல் நடக்கிறதா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_323163"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_323163"></td></tr>
+<tr><td>Screen Time வரம்பு பின்பற்றப்படுகிறதா?</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_579125"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_579125"></td></tr>
+</table></div>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Social Media மற்றும் Online Games நல்ல கற்றல் கருவிகளாக இருக்கலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பாதுகாப்பு விதிகள் இல்லையெனில் ஆபத்துகளும் அதிகரிக்கும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Fake Profiles, Stranger Chats, மற்றும் In-App Purchases குறித்து குழந்தைகளுக்கு முன்கூட்டியே விழிப்புணர்வு கொடுக்க வேண்டும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நம்பிக்கையுடன் நடைபெறும் குடும்ப உரையாடல்களே சிறந்த Digital Safety Tool.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>Family Digital Safety Agreement</h2>
+<p>குடும்பமாக அமர்ந்து...</p>
+<p>இந்த 5 விதிகளை எழுதுங்கள்.</p>
+<ul class="lesson-list"><li>✅ தெரியாத Friend Request ஏற்கமாட்டோம்.</li><li>✅ Password-ஐ யாருடனும் பகிரமாட்டோம்.</li><li>✅ Game Purchase செய்வதற்கு முன் பெற்றோரிடம் கேட்போம்.</li><li>✅ Online-ல் யாராவது சங்கடப்படுத்தினால் உடனே பகிர்வோம்.</li><li>✅ தினமும் Screen Balance-ஐ கடைப்பிடிப்போம்.</li></ul>
+<p>இந்த ஒப்பந்தத்தில்...</p>
+<p>👨 அப்பா</p>
+<p>👩 அம்மா</p>
+<p>👦 குழந்தை</p>
+<p>மூவரும் கையெழுத்திடுங்கள்.</p>
+<hr>
+<h2>Trainer's Golden Quote</h2>
+<blockquote><strong>"குழந்தைகளை Social Media-வில் இருந்து விலக்குவது தீர்வு அல்ல...<br>Social Media-வை புத்திசாலித்தனமாக பயன்படுத்த கற்றுக்கொடுப்பதே உண்மையான Digital Parenting."</strong></blockquote>
+<hr>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m3l4', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m3-l3.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m3-l5.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m3l4')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m3l4&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

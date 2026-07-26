@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5 · Premium Workbook, Quiz & 30-Day Future Skills Challenge (பயிற்சி புத்தகம் மற்றும் 30 நாள் சவால்) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module5.html">Module 5</a> &raquo; Premium Workbook, Quiz &amp; 30-Day Future Skills Challenge (பயிற்சி புத்தகம் மற்றும் 30 நாள் சவால்)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 5 &middot; Lesson 7</div>
+<h1 class="lesson-title">Premium Workbook, Quiz &amp; 30-Day Future Skills Challenge (பயிற்சி புத்தகம் மற்றும் 30 நாள் சவால்)</h1>
+<hr>
+<blockquote><strong>இந்த Workbook, Module 5-ல் கற்ற Future Skills, Growth Mindset, Creativity, Communication, Emotional Intelligence மற்றும் Self-Leadership ஆகிய கருத்துகளை குடும்பத்தில் நடைமுறைப்படுத்த உதவும் வகையில் வடிவமைக்கப்பட்டுள்ளது. இது மூல ஆங்கிலக் கோர்ஸின் கருத்துக்களை அடிப்படையாகக் கொண்டு, தமிழ் குடும்பங்களுக்கான Premium LMS Workbook ஆக விரிவுபடுத்தப்பட்டுள்ளது.</strong></blockquote>
+<hr>
+<h2>🎉 வாழ்த்துக்கள்!</h2>
+<p>நீங்கள் <strong>Module 5 – Raising Future-Ready Children</strong> பாடத்திட்டத்தை வெற்றிகரமாக முடித்துள்ளீர்கள்.</p>
+<p>இந்த Workbook-ன் நோக்கம்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கற்ற திறன்களை வாழ்க்கையில் பயன்படுத்துதல்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தையின் Future Skills வளர்ச்சியை மதிப்பிடுதல்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பமாக 30 நாள் வளர்ச்சி திட்டத்தை உருவாக்குதல்</span></div>
+<hr>
+<h2>Worksheet 1</h2>
+<h2>Future Skills Self-Assessment</h2>
+<div class="table-wrap"><table>
+<tr><th>கேள்வி</th><th>ஆம்</th><th>சில நேரம்</th><th>இல்லை</th></tr>
+<tr><td>நான் புதிய விஷயங்களை கற்றுக்கொள்ள விரும்புகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_597763"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_597763"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_597763"></td></tr>
+<tr><td>தோல்விக்குப் பிறகும் மீண்டும் முயற்சிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_225670"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_225670"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_225670"></td></tr>
+<tr><td>புதிய யோசனைகளை பகிர தயங்க மாட்டேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_260634"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_260634"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_260634"></td></tr>
+<tr><td>குழுவாக வேலை செய்ய விரும்புகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_544701"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_544701"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_544701"></td></tr>
+<tr><td>என் உணர்வுகளை சரியாக வெளிப்படுத்துகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_687160"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_687160"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_687160"></td></tr>
+<tr><td>தினசரி இலக்குகளை அமைக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_714764"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_714764"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_714764"></td></tr>
+<tr><td>என் நேரத்தை திட்டமிடுகிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_283872"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_283872"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_283872"></td></tr>
+<tr><td>மற்றவர்களின் கருத்தை மதிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_317887"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_317887"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_317887"></td></tr>
+<tr><td>பிரச்சினைகளுக்கு பல தீர்வுகளை யோசிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_141580"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_141580"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_141580"></td></tr>
+<tr><td>தொடர்ந்து என்னை மேம்படுத்த முயற்சிக்கிறேன்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_567525"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_567525"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_567525"></td></tr>
+</table></div>
+<hr>
+<h2>மதிப்பீடு</h2>
+<p><strong>ஆம் = 3</strong></p>
+<p><strong>சில நேரம் = 2</strong></p>
+<p><strong>இல்லை = 1</strong></p>
+<h3>26–30</h3>
+<p>🌟 Future-Ready Leader</p>
+<h3>20–25</h3>
+<p>👍 நல்ல முன்னேற்றம்</p>
+<h3>10–19</h3>
+<p>📘 தினசரி Future Skills பயிற்சி தேவை</p>
+<hr>
+<h2>Worksheet 2</h2>
+<h2>Growth Mindset Reflection</h2>
+<p>நான் முன்பு...</p>
+<blockquote>"என்னால் முடியாது."</blockquote>
+<p>என்று நினைத்த ஒரு விஷயம்.</p>
+<hr>
+<p>இப்போது...</p>
+<hr>
+<p>அதை எப்படி கற்றுக்கொண்டேன்?</p>
+<hr>
+<hr>
+<h2>Worksheet 3</h2>
+<h2>Creativity Planner</h2>
+<p>இந்த மாதம் நான் உருவாக்க விரும்பும் புதிய Project</p>
+<label class="checkline"><input type="checkbox" data-key="chk_438407"><span>Science Model</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_184155"><span>Story Writing</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_180249"><span>Drawing</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_266913"><span>Coding</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_953866"><span>Public Speaking</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_877455"><span>Gardening</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_492993"><span>Robotics</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_839954"><span>Craft</span></label>
+<p>Project பெயர்:</p>
+<hr>
+<hr>
+<h2>Worksheet 4</h2>
+<h2>Problem Solving Worksheet</h2>
+<h3>பிரச்சினை</h3>
+<hr>
+<hr>
+<h3>காரணம்</h3>
+<hr>
+<hr>
+<h3>3 தீர்வுகள்</h3>
+<p>1.</p>
+<hr>
+<p>2.</p>
+<hr>
+<p>3.</p>
+<hr>
+<hr>
+<h3>நான் தேர்ந்தெடுத்த தீர்வு</h3>
+<hr>
+<hr>
+<h2>Worksheet 5</h2>
+<h2>Communication Practice</h2>
+<p>இந்த வாரம்...</p>
+<p>நான் அதிகமாகக் கேட்க முயற்சித்தவர்கள்.</p>
+<label class="checkline"><input type="checkbox" data-key="chk_549947"><span>அம்மா</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_472606"><span>அப்பா</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_257059"><span>ஆசிரியர்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_743725"><span>நண்பர்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_996402"><span>சகோதரர் / சகோதரி</span></label>
+<hr>
+<p>நான் கற்ற புதிய விஷயம்:</p>
+<hr>
+<hr>
+<h2>Worksheet 6</h2>
+<h2>Emotion Journal</h2>
+<p>இன்று...</p>
+<p>என் முக்கிய உணர்வு:</p>
+<p>😊 😢 😠 😨 😍 😌 😞</p>
+<p>ஏன்?</p>
+<hr>
+<p>நான் அதை எப்படி கையாண்டேன்?</p>
+<hr>
+<hr>
+<h2>Worksheet 7</h2>
+<h2>SMART Goal Planner</h2>
+<h2>என் முக்கிய இலக்கு</h2>
+<hr>
+<hr>
+<h3>S – Specific</h3>
+<hr>
+<hr>
+<h3>M – Measurable</h3>
+<hr>
+<hr>
+<h3>A – Achievable</h3>
+<hr>
+<hr>
+<h3>R – Relevant</h3>
+<hr>
+<hr>
+<h3>T – Time Bound</h3>
+<hr>
+<hr>
+<h2>Worksheet 8</h2>
+<h2>Future Career Skills Map</h2>
+<p>எனக்கு மிகவும் பிடித்த துறைகள்</p>
+<label class="checkline"><input type="checkbox" data-key="chk_902770"><span>Science</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_267903"><span>Technology</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_449054"><span>Arts</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_716690"><span>Business</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_695416"><span>Sports</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_696398"><span>Medicine</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_614065"><span>Teaching</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_376779"><span>Agriculture</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_386976"><span>Entrepreneurship</span></label>
+<hr>
+<p>அந்த துறைக்கு தேவையான 5 திறன்கள்</p>
+<p>1.</p>
+<hr>
+<p>2.</p>
+<hr>
+<p>3.</p>
+<hr>
+<p>4.</p>
+<hr>
+<p>5.</p>
+<hr>
+<hr>
+<h2>Worksheet 9</h2>
+<h2>Family Future Skills Action Plan</h2>
+<p>எங்கள் குடும்பத்தின்...</p>
+<h3>மாத இலக்கு</h3>
+<hr>
+<hr>
+<h3>வாராந்திர செயல்பாடுகள்</h3>
+<p>Week 1</p>
+<hr>
+<p>Week 2</p>
+<hr>
+<p>Week 3</p>
+<hr>
+<p>Week 4</p>
+<hr>
+<hr>
+<h2>Premium Quiz</h2>
+<h2>பகுதி A – Multiple Choice</h2>
+<h3>1. Growth Mindset என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_259812"><span>திறமை மட்டுமே முக்கியம்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_699965"><span>தொடர்ந்து கற்றுக்கொண்டு முன்னேறலாம் என்ற நம்பிக்கை</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_653459"><span>தோல்வியை தவிர்ப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_8056"><span>அதிக மதிப்பெண் பெறுவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: தொடர்ந்து கற்றுக்கொண்டு முன்னேறலாம் என்ற நம்பிக்கை</span></div>
+<hr>
+<h3>2. Creativity என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_467367"><span>Copy செய்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_286706"><span>புதிய யோசனைகளை உருவாக்குவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_896215"><span>மனப்பாடம் செய்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_190163"><span>தேர்வு எழுதுவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: புதிய யோசனைகளை உருவாக்குவது</span></div>
+<hr>
+<h3>3. Collaboration என்றால்...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_891930"><span>தனியாக வேலை செய்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_93652"><span>இணைந்து செயல்படுவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_303359"><span>போட்டியிடுவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_850617"><span>கட்டளை இடுவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: இணைந்து செயல்படுவது</span></div>
+<hr>
+<h3>4. Emotional Intelligence என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_309942"><span>அதிக IQ</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_260121"><span>உணர்வுகளைப் புரிந்து கையாளும் திறன்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_739909"><span>கணித திறன்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_184863"><span>நினைவாற்றல்</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: உணர்வுகளைப் புரிந்து கையாளும் திறன்</span></div>
+<hr>
+<h3>5. SMART Goal-ல் "M" என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_207897"><span>More</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_312088"><span>Measurable</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_688295"><span>Mind</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_583003"><span>Method</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: <strong>Measurable</strong></span></div>
+<hr>
+<h3>6. Self-Leadership என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_732867"><span>மற்றவர்களை கட்டுப்படுத்துவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_260618"><span>தன்னைத்தானே வழிநடத்துவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_721855"><span>தலைவராக தேர்வு செய்யப்படுவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_519087"><span>கட்டளையிடுவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: தன்னைத்தானே வழிநடத்துவது</span></div>
+<hr>
+<h3>7. Problem Solving-ன் முதல் படி...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_84304"><span>தீர்வை தேர்வு செய்தல்</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_374943"><span>பிரச்சினையை புரிந்துகொள்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_996041"><span>மற்றவரை குறை கூறுவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_638138"><span>முயற்சியை கைவிடுவது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: பிரச்சினையை புரிந்துகொள்வது</span></div>
+<hr>
+<h3>8. Resilience என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_403448"><span>தோல்வியை தவிர்ப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_977306"><span>தோல்விக்குப் பிறகும் மீண்டும் எழுவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_427992"><span>போட்டியை வெல்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_443566"><span>அமைதியாக இருப்பது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: தோல்விக்குப் பிறகும் மீண்டும் எழுவது</span></div>
+<hr>
+<h3>9. Active Listening என்பது...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_677703"><span>பேசிக்கொண்டே இருப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_147332"><span>முழு கவனத்துடன் கேட்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_452983"><span>ஆலோசனை கூறுவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_967326"><span>கேள்வி கேட்பது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: முழு கவனத்துடன் கேட்பது</span></div>
+<hr>
+<h3>10. Future Skills வளர்க்க சிறந்த வழி...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_256270"><span>மதிப்பெண்களை மட்டும் கவனிப்பது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_759992"><span>தினசரி புதிய திறன்களைப் பயிற்சி செய்வது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_712239"><span>Mobile மட்டும் பயன்படுத்துவது</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_380029"><span>போட்டிகளில் மட்டும் கலந்துகொள்வது</span></label>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பதில்: தினசரி புதிய திறன்களைப் பயிற்சி செய்வது</span></div>
+<hr>
+<h2>30-Day Future Skills Challenge</h2>
+<h2>வாரம் 1 – Growth Mindset</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் ஒரு புதிய விஷயம் கற்றுக்கொள்ளுங்கள்.</span></div>
+<hr>
+<h2>வாரம் 2 – Creativity</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் ஒரு Creative Activity செய்யுங்கள்.</span></div>
+<hr>
+<h2>வாரம் 3 – Communication</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் 15 நிமிடம் குடும்ப உரையாடல் நடத்துங்கள்.</span></div>
+<hr>
+<h2>வாரம் 4 – Self-Leadership</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் ஒரு SMART Goal அமைத்து நிறைவேற்றுங்கள்.</span></div>
+<hr>
+<h2>Family Future Skills Pledge</h2>
+<p>நாங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் புதியதை கற்றுக்கொள்வோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தோல்வியை கற்றலாக ஏற்றுக்கொள்வோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>ஒருவருக்கொருவர் மரியாதையுடன் நடந்து கொள்வோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>புதிய யோசனைகளை ஊக்குவிப்போம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பமாக சேர்ந்து பிரச்சினைகளுக்கு தீர்வு காண்போம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Technology-யை புத்திசாலித்தனமாக பயன்படுத்துவோம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>எதிர்கால உலகிற்கு தயாராக இருப்போம்.</span></div>
+<hr>
+<h2>கையெழுத்து</h2>
+<p>👨 அப்பா : ___________________</p>
+<p>👩 அம்மா : ___________________</p>
+<p>👦 குழந்தை : ___________________</p>
+<p>📅 தேதி : ___________________</p>
+<hr>
+<h2>Module 5 Reflection</h2>
+<p>இந்த Module-ல் நான் கற்ற மிக முக்கியமான மூன்று Future Skills:</p>
+<p>1.</p>
+<hr>
+<p>2.</p>
+<hr>
+<p>3.</p>
+<hr>
+<hr>
+<p>இந்த மாதம் நான் வளர்க்கப் போகும் புதிய பழக்கம்:</p>
+<hr>
+<hr>
+<p>என் குழந்தைக்கு நான் கற்றுக்கொடுக்கப் போகும் மிக முக்கியமான வாழ்க்கைத் திறன்:</p>
+<hr>
+<hr>
+<h2>🌟 Module 5 முடிவில் பெற்ற மாற்றங்கள்</h2>
+<p>இந்த Module-ஐ முடித்த பெற்றோர்கள்:</p>
+<ul class="lesson-list"><li>குழந்தைகளின் <strong>மதிப்பெண்களை மட்டுமல்ல, வாழ்க்கைத் திறன்களையும்</strong> வளர்க்கும் பெற்றோர்களாக மாறுவார்கள்.</li><li>AI காலத்தில் தேவையான <strong>மனிதத் திறன்களை</strong> குழந்தைகளுக்கு வளர்க்கும் வழிகாட்டிகளாக இருப்பார்கள்.</li><li>வீட்டையே <strong>Future Skills Learning Environment</strong> ஆக மாற்ற முடியும்</li></ul>
+<h2>Module 6 – Parenting for Success</h2>
+<h2>மாட்யூல் 6 – தன்னம்பிக்கை, பொறுப்புணர்வு மற்றும் மகிழ்ச்சியான குழந்தைகளை வளர்ப்பது</h2>
+<hr>
+<h2>🎯 Module Overview</h2>
+<p>ஒரு குழந்தைக்கு...</p>
+<p>சிறந்த பள்ளி...</p>
+<p>சிறந்த ஆசிரியர்...</p>
+<p>சிறந்த Technology...</p>
+<p>இவை அனைத்தும் முக்கியம்.</p>
+<p>ஆனால்...</p>
+<p><strong>அனைத்திற்கும் மேலாக...</strong></p>
+<p>ஒரு குழந்தையின் வாழ்க்கையை மாற்றக்கூடியவர்...</p>
+<p><strong>பெற்றோர்தான்.</strong></p>
+<p>குழந்தைகள்...</p>
+<p>பெற்றோர் சொல்வதைக் கேட்டு மட்டும் வளர்வதில்லை.</p>
+<p>அவர்கள்...</p>
+<p><strong>பெற்றோர் வாழ்வதைப் பார்த்தே அதிகமாகக் கற்றுக்கொள்கிறார்கள்.</strong></p>
+<hr>
+<h2>இந்த Module-ல் கற்றுக்கொள்ளப் போவது</h2>
+<h2>Lesson 1</h2>
+<h3>The Parent as a Leader</h3>
+<p><em>(பெற்றோர் ஒரு தலைவராக இருப்பது)</em></p>
+<hr>
+<h2>Lesson 2</h2>
+<h3>Building Strong Parent–Child Relationships</h3>
+<p><em>(வலுவான பெற்றோர்–குழந்தை உறவை உருவாக்குவது)</em></p>
+<hr>
+<h2>Lesson 3</h2>
+<h3>Positive Discipline &amp; Healthy Boundaries</h3>
+<p><em>(நேர்மறை ஒழுக்கம் மற்றும் ஆரோக்கியமான எல்லைகள்)</em></p>
+<hr>
+<h2>Lesson 4</h2>
+<h3>Raising Responsible &amp; Independent Children</h3>
+<p><em>(பொறுப்புணர்வும் சுயநிறைவும் கொண்ட குழந்தைகளை உருவாக்குவது)</em></p>
+<hr>
+<h2>Lesson 5</h2>
+<h3>Building Confidence, Character &amp; Happiness</h3>
+<p><em>(தன்னம்பிக்கை, நற்குணம் மற்றும் மகிழ்ச்சியை வளர்ப்பது)</em></p>
+<hr>
+<h2>Lesson 6</h2>
+<h3>Family Success Blueprint</h3>
+<p><em>(வெற்றிகரமான குடும்ப வாழ்க்கைக்கான முழுமையான திட்டம்)</em></p>
+<hr>
+<h2>Lesson 7</h2>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m5l7', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m5-l6.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m6-l1.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m5l7')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m5l7&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

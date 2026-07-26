@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 · திரை இல்லாமல் குழந்தைகளை மகிழ்ச்சியாக வைத்திருப்பது எப்படி? (Keeping Children Engaged Without Screens) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module2.html">Module 2</a> &raquo; திரை இல்லாமல் குழந்தைகளை மகிழ்ச்சியாக வைத்திருப்பது எப்படி? (Keeping Children Engaged Without Screens)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 2 &middot; Lesson 4</div>
+<h1 class="lesson-title">திரை இல்லாமல் குழந்தைகளை மகிழ்ச்சியாக வைத்திருப்பது எப்படி? (Keeping Children Engaged Without Screens)</h1>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Screen-க்கு மாற்றாக குழந்தைகளை ஈடுபடுத்தும் வழிகளை அறிந்து கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"எனக்கு போரடிக்குது..." என்று சொல்லும் குழந்தைகளின் மனநிலையைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வயதிற்கு ஏற்ற 50+ Offline Activities-ஐ அறிந்து கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வீட்டிலேயே "Digital-Free Fun System" உருவாக்க கற்றுக்கொள்வீர்கள்.</span></div>
+<hr>
+<h2>ஒரு பெற்றோரின் பொதுவான புகார்</h2>
+<blockquote><strong>"சார்... Mobile எடுத்தா அவன் என்ன பண்ணுவான்?"</strong></blockquote>
+<p>இந்தக் கேள்வியை ஆயிரக்கணக்கான பெற்றோர்கள் கேட்கிறார்கள்.</p>
+<p>நான் எப்போதும் ஒரு கேள்வி கேட்பேன்.</p>
+<blockquote><strong>"Mobile-க்கு மாற்றாக நீங்கள் என்ன கொடுத்தீர்கள்?"</strong></blockquote>
+<p>அவர்கள் அமைதியாகிவிடுவார்கள்.</p>
+<p>அதுதான் உண்மையான கேள்வி.</p>
+<hr>
+<h2>குழந்தைகள் ஏன் Screen-ஐ தேடுகிறார்கள்?</h2>
+<p>பல பெற்றோர்கள் நினைப்பது...</p>
+<blockquote>"என் குழந்தைக்கு Mobile ரொம்ப பிடிக்கும்."</blockquote>
+<p>ஆனால்...</p>
+<p>உண்மையில்...</p>
+<p>குழந்தைக்கு Mobile பிடிக்கவில்லை.</p>
+<p><strong>Mobile தரும் அனுபவம்தான் பிடிக்கிறது.</strong></p>
+<p>அதில்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நிறங்கள்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>சத்தங்கள்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வெற்றி</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பாராட்டு</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>புதுமை</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>சவால்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நண்பர்கள்</span></div>
+<p>இவை அனைத்தும் இருக்கின்றன.</p>
+<p>அதே அனுபவத்தை...</p>
+<p>வாழ்க்கையிலும் உருவாக்க வேண்டும்.</p>
+<hr>
+<h2>Trainer Insight</h2>
+<blockquote><strong>குழந்தைகள் Screen-ஐ விரும்புவதற்கான மிகப்பெரிய காரணம்...<br>அவர்கள் வாழ்க்கையில் சுவாரஸ்யமான மாற்று செயல்பாடுகள் இல்லாதது.</strong></blockquote>
+<hr>
+<h2>"போரடிக்குது..." என்றால் என்ன?</h2>
+<p>ஒரு குழந்தை சொல்கிறான்.</p>
+<blockquote>"எனக்கு போரடிக்குது."</blockquote>
+<p>பெற்றோர் உடனே...</p>
+<p>Mobile கொடுத்துவிடுகிறார்கள்.</p>
+<p>ஆனால்...</p>
+<p>"போரடிக்குது" என்பது ஒரு பிரச்சினை அல்ல.</p>
+<p>அது...</p>
+<p><strong>படைப்பாற்றல் ஆரம்பிக்கும் இடம்.</strong></p>
+<p>சில நேரங்களில் குழந்தைகள் சற்று சலிப்பை அனுபவிப்பதும் இயல்பானது. அந்த நேரத்தில் அவர்கள் புதிய விளையாட்டுகள், கற்பனை அல்லது படைப்பாற்றல் செயல்பாடுகளைத் தேடத் தொடங்கலாம்.</p>
+<hr>
+<h2>ஒரு குடும்பக் கதை</h2>
+<p>8 வயது அனன்யா.</p>
+<p>விடுமுறை.</p>
+<p>முழு நாளும்...</p>
+<blockquote>"Amma... Bore..."</blockquote>
+<p>என்று சொல்லிக்கொண்டே இருந்தாள்.</p>
+<p>அம்மா Mobile கொடுக்கவில்லை.</p>
+<p>அதற்குப் பதிலாக...</p>
+<p>ஒரு பெட்டி கொடுத்தார்.</p>
+<p>அதில்...</p>
+<p>🎨 நிறப்பென்சில்கள்</p>
+<p>📚 Story Books</p>
+<p>🧩 Puzzle</p>
+<p>✂️ Craft Paper</p>
+<p>🎲 Dice</p>
+<p>அடுத்த 30 நிமிடங்களில்...</p>
+<p>அவள் தானாகவே விளையாட ஆரம்பித்தாள்.</p>
+<p>மூன்று மாதங்களில்...</p>
+<p>Screen Time பாதியாகக் குறைந்தது.</p>
+<hr>
+<h2>Digital-Free Fun Box</h2>
+<p>ஒவ்வொரு வீட்டிலும்...</p>
+<p>ஒரு <strong>Fun Box</strong> இருக்க வேண்டும்.</p>
+<p>அதில்...</p>
+<hr>
+<h2>Creative Corner</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Drawing Book</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Sketch Pens</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Colour Papers</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Clay Modelling</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Origami Papers</span></div>
+<hr>
+<h2>Thinking Corner</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Puzzle</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Rubik's Cube</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Sudoku</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Chess</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Memory Cards</span></div>
+<hr>
+<h2>Reading Corner</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Story Books</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Comics</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>அறிவியல் புத்தகங்கள்</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகள் இதழ்கள்</span></div>
+<hr>
+<h2>Activity Corner</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Rope</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Ball</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Badminton</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Skipping</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Frisbee</span></div>
+<hr>
+<h2>Family Corner</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Carrom</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Ludo</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>UNO</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Monopoly</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Snake &amp; Ladder</span></div>
+<hr>
+<h2>வயதிற்கு ஏற்ற Offline Activities</h2>
+<h2>3–5 வயது</h2>
+<p>🟢 Colouring</p>
+<p>🟢 Clay</p>
+<p>🟢 Building Blocks</p>
+<p>🟢 Action Songs</p>
+<p>🟢 Water Play (பாதுகாப்புடன்)</p>
+<hr>
+<h2>6–9 வயது</h2>
+<p>🟢 LEGO</p>
+<p>🟢 Story Reading</p>
+<p>🟢 Gardening</p>
+<p>🟢 Treasure Hunt</p>
+<p>🟢 Science Experiments</p>
+<p>🟢 Drawing Competition</p>
+<p>🟢 Indoor Games</p>
+<hr>
+<h2>10–13 வயது</h2>
+<p>🟢 Cycling</p>
+<p>🟢 Photography</p>
+<p>🟢 Robotics</p>
+<p>🟢 Coding Projects</p>
+<p>🟢 Cricket</p>
+<p>🟢 Chess</p>
+<p>🟢 Debate</p>
+<p>🟢 Journaling</p>
+<hr>
+<h2>14–18 வயது</h2>
+<p>🟢 Fitness</p>
+<p>🟢 Podcast Listening (Educational)</p>
+<p>🟢 Volunteering</p>
+<p>🟢 Music</p>
+<p>🟢 Public Speaking</p>
+<p>🟢 Entrepreneurship Projects</p>
+<p>🟢 Cooking</p>
+<p>🟢 Social Service</p>
+<hr>
+<h2>Screen-க்கு மாற்றாக குடும்ப செயல்பாடுகள்</h2>
+<h3>Family Challenge Jar</h3>
+<p>ஒரு ஜாடியில்...</p>
+<p>50 சிறிய Activity எழுதுங்கள்.</p>
+<p>உதாரணம்...</p>
+<p>🎯 20 Push-ups Together</p>
+<p>🎯 ஒரு பாடல் பாடுங்கள்</p>
+<p>🎯 ஒரு கதை சொல்லுங்கள்</p>
+<p>🎯 10 நிமிடம் யோகா</p>
+<p>🎯 ஒரு செடியை நடுங்கள்</p>
+<p>🎯 இன்று ஒருவர் மற்றவரைப் பாராட்டுங்கள்</p>
+<p>ஒவ்வொரு மாலையும்...</p>
+<p>ஒரு சீட்டை எடுத்துச் செய்யுங்கள்.</p>
+<hr>
+<h2>Trainer Activity</h2>
+<h2>"No Screen Sunday"</h2>
+<p>மாதத்திற்கு ஒரு ஞாயிற்றுக்கிழமை...</p>
+<p>Screen இல்லாத நாள்.</p>
+<p>அன்று...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பமாக சமைக்கலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கோயிலுக்குச் செல்லலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உறவினர்களைச் சந்திக்கலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பூங்காவிற்கு செல்லலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இயற்கை நடைப்பயணம் செல்லலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>புகைப்படங்கள் எடுக்கலாம்.</span></div>
+<p>நினைவுகள் உருவாக்குங்கள்.</p>
+<hr>
+<h2>ஒரு அழகான உவமை</h2>
+<p>ஒரு தோட்டத்தை நினைத்துப் பாருங்கள்.</p>
+<p>அதில்...</p>
+<p>ஒரே ஒரு செடி மட்டும் இருந்தால்...</p>
+<p>அது அழகாக இருக்குமா?</p>
+<p>இல்லை.</p>
+<p>பல்வேறு செடிகள் இருந்தால்...</p>
+<p>அது அழகாக இருக்கும்.</p>
+<p>அதேபோல்...</p>
+<p>குழந்தையின் வாழ்க்கையிலும்...</p>
+<p>📚 வாசிப்பு</p>
+<p>⚽ விளையாட்டு</p>
+<p>🎨 கலை</p>
+<p>🎵 இசை</p>
+<p>👨‍👩‍👧 குடும்பம்</p>
+<p>🙏 ஆன்மீகம்</p>
+<p>🌳 இயற்கை</p>
+<p>இவை எல்லாம் இருக்க வேண்டும்.</p>
+<p>Screen...</p>
+<p>அதில் ஒரு செடி மட்டும்.</p>
+<p>முழு தோட்டம் அல்ல.</p>
+<hr>
+<h2>Family Activity</h2>
+<h2>"30-Day Offline Adventure"</h2>
+<p>அடுத்த 30 நாட்களுக்கு...</p>
+<p>தினமும் ஒரு புதிய Activity.</p>
+<p>உதாரணம்:</p>
+<div class="table-wrap"><table>
+<tr><th>நாள்</th><th>செயல்</th></tr>
+<tr><td>Day 1</td><td>Drawing</td></tr>
+<tr><td>Day 2</td><td>Story Telling</td></tr>
+<tr><td>Day 3</td><td>Gardening</td></tr>
+<tr><td>Day 4</td><td>Chess</td></tr>
+<tr><td>Day 5</td><td>Cricket</td></tr>
+<tr><td>Day 6</td><td>Cooking</td></tr>
+<tr><td>Day 7</td><td>Family Walk</td></tr>
+</table></div>
+<p>அடுத்த வாரம்...</p>
+<p>மீண்டும் புதிய Activities.</p>
+<hr>
+<h2>Reflection</h2>
+<p>இந்தக் கேள்விகளுக்கு பதில் எழுதுங்கள்.</p>
+<h3>என் குழந்தைக்கு...</h3>
+<label class="checkline"><input type="checkbox" data-key="chk_23674"><span>Outdoor Play பிடிக்குமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_24755"><span>Drawing பிடிக்குமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_583860"><span>Books பிடிக்குமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_634422"><span>Cooking பிடிக்குமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_811869"><span>Gardening பிடிக்குமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_457101"><span>Music பிடிக்குமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_401426"><span>Puzzle பிடிக்குமா?</span></label>
+<p>நாம் குழந்தையின் விருப்பங்களை அறிந்தால்...</p>
+<p>Screen-க்கு நல்ல மாற்றுகளை எளிதாக வழங்க முடியும்.</p>
+<hr>
+<h2>Trainer's Golden Quote</h2>
+<blockquote><strong>"குழந்தையின் கையில் இருந்து Mobile-ஐ எடுத்தால்...<br>அவன் கையில் ஒரு கனவைக் கொடுங்கள்.<br>ஒரு திறமையைக் கொடுங்கள்.<br>ஒரு அனுபவத்தைக் கொடுங்கள்.<br>இல்லையெனில்...<br>அவன் மீண்டும் Mobile-ஐத் தேடுவான்."</strong></blockquote>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Screen Time குறைய வேண்டுமெனில், வாழ்க்கையில் அர்த்தமுள்ள மாற்று செயல்பாடுகள் அதிகரிக்க வேண்டும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"போரடிக்குது" என்பது படைப்பாற்றலுக்கான வாய்ப்பாக மாறலாம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வயதிற்கு ஏற்ற Offline Activities குழந்தையின் முழுமையான வளர்ச்சிக்கு உதவுகின்றன.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பமாக சேர்ந்து செயல்படும் அனுபவங்கள், Screen-ஐ விட நீண்டகால நினைவுகளை உருவாக்குகின்றன.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>Family Fun Box Challenge</h2>
+<p>இந்த வாரத்திற்குள்...</p>
+<p>ஒரு <strong>Digital-Free Fun Box</strong> தயாரியுங்கள்.</p>
+<p>அதில் குறைந்தது:</p>
+<ul class="lesson-list"><li>2 Story Books</li><li>2 Board Games</li><li>5 Art Materials</li><li>5 Outdoor Play Items அல்லது Activities பட்டியல்</li><li>20 Family Challenge Slips</li></ul>
+<p>அடுத்த முறை உங்கள் குழந்தை...</p>
+<blockquote><strong>"Mobile கொடுங்க..."</strong></blockquote>
+<p>என்று சொன்னால்...</p>
+<p>அந்த Fun Box-ஐ திறந்து...</p>
+<blockquote><strong>"இன்று எந்த Adventure செய்யலாம்?"</strong></blockquote>
+<p>என்று கேளுங்கள்.</p>
+<hr>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m2l4', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m2-l3.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m2-l5.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m2l4')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m2l4&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

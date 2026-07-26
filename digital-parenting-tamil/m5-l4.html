@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5 · Communication & Collaboration Skills (தகவல் தொடர்பு மற்றும் இணைந்து செயல்படும் திறன்கள்) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module5.html">Module 5</a> &raquo; Communication &amp; Collaboration Skills (தகவல் தொடர்பு மற்றும் இணைந்து செயல்படும் திறன்கள்)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 5 &middot; Lesson 4</div>
+<h1 class="lesson-title">Communication &amp; Collaboration Skills (தகவல் தொடர்பு மற்றும் இணைந்து செயல்படும் திறன்கள்)</h1>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Communication மற்றும் Collaboration என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Active Listening (கவனமாகக் கேட்பது) என்ற திறனை கற்றுக்கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகளின் பேசும், கேட்கும் மற்றும் குழுவாகச் செயல்படும் திறன்களை வளர்க்க முடியும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கருத்து வேறுபாடுகளை மரியாதையுடன் கையாளும் முறைகளை அறிந்துகொள்வீர்கள்.</span></div>
+<hr>
+<h2>ஒரு உண்மை சம்பவம்</h2>
+<p>ஒரு பள்ளியில்...</p>
+<p>நான்கு மாணவர்களுக்கு...</p>
+<p>ஒரே Project கொடுக்கப்பட்டது.</p>
+<p>முதல் குழுவில்...</p>
+<p>ஒவ்வொருவரும்...</p>
+<p>தனித்தனியாக வேலை செய்தார்கள்.</p>
+<p>அவர்கள் Project-ஐ முடித்தார்கள்.</p>
+<p>ஆனால்...</p>
+<p>அது ஒரு குழுவின் வேலை போல தெரியவில்லை.</p>
+<p>இரண்டாவது குழுவில்...</p>
+<p>முதலில் அனைவரும்...</p>
+<p>ஒருவரின் கருத்தை ஒருவர் கேட்டார்கள்.</p>
+<p>வேலைகளைப் பகிர்ந்து கொண்டார்கள்.</p>
+<p>ஒருவருக்கொருவர் உதவினார்கள்.</p>
+<p>இறுதியில்...</p>
+<p>அவர்கள் Project மட்டுமல்ல...</p>
+<p><strong>ஒரு நல்ல குழுவையும் உருவாக்கினார்கள்.</strong></p>
+<hr>
+<h2>Trainer Reflection</h2>
+<blockquote><strong>"எதிர்காலத்தில்...<br>தனியாக எல்லாவற்றையும் தெரிந்திருப்பது முக்கியமல்ல...<br>மற்றவர்களுடன் இணைந்து பெரிய சாதனைகளை உருவாக்கும் திறன்தான் முக்கியம்."</strong></blockquote>
+<hr>
+<h2>Communication என்றால் என்ன?</h2>
+<p>Communication என்பது...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தெளிவாக பேசுவது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கவனமாகக் கேட்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>சரியாகப் புரிந்துகொள்வது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>மரியாதையுடன் பதிலளிப்பது</span></div>
+<hr>
+<h2>Collaboration என்றால் என்ன?</h2>
+<p>ஒரு பொதுவான இலக்கை அடைய...</p>
+<p>பலரும்...</p>
+<p>ஒன்றாக...</p>
+<p>இணைந்து...</p>
+<p>செயல்படுவதே...</p>
+<p><strong>Collaboration.</strong></p>
+<hr>
+<h2>Golden Rule</h2>
+<blockquote><strong>"நல்ல பேச்சாளராக இருப்பதை விட...<br>நல்ல கேட்பவராக இருப்பது மிகப் பெரிய திறன்."</strong></blockquote>
+<hr>
+<h2>Communication-ன் 4 தூண்கள்</h2>
+<h2>1. பேசுதல் (Speak Clearly)</h2>
+<p>மெதுவாக...</p>
+<p>தெளிவாக...</p>
+<p>மரியாதையுடன் பேசுங்கள்.</p>
+<hr>
+<h2>2. கேட்பது (Listen Carefully)</h2>
+<p>பதிலளிக்க கேட்காதீர்கள்...</p>
+<p>புரிந்துகொள்ள கேளுங்கள்.</p>
+<hr>
+<h2>3. புரிந்துகொள்வது (Understand)</h2>
+<p>மற்றவரின் உணர்வுகளையும்...</p>
+<p>கருத்துகளையும் புரிந்துகொள்ள முயலுங்கள்.</p>
+<hr>
+<h2>4. பதிலளித்தல் (Respond Respectfully)</h2>
+<p>கோபமாக அல்ல...</p>
+<p>மரியாதையாக பதில் சொல்லுங்கள்.</p>
+<hr>
+<h2>Active Listening என்றால் என்ன?</h2>
+<p>யாராவது பேசும்போது...</p>
+<p>📱 Mobile பார்க்காமல்...</p>
+<p>👀 கண்களைப் பார்த்து...</p>
+<p>🧠 கவனமாகக் கேட்டு...</p>
+<p>💬 அவர்கள் பேசி முடித்த பிறகு பதிலளிப்பதே...</p>
+<p><strong>Active Listening.</strong></p>
+<hr>
+<h2>Active Listening Checklist</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>இடையில் குறுக்கிடாதீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>முழுமையாக கேளுங்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>சந்தேகம் இருந்தால் கேளுங்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"நான் சரியாகப் புரிந்துகொண்டேனா?" என்று உறுதிப்படுத்துங்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பேசுபவரின் உணர்வை மதியுங்கள்.</span></div>
+<hr>
+<h2>Trainer Story</h2>
+<p>ஒரு சிறுமி...</p>
+<p>பள்ளியில் நடந்த ஒரு சம்பவத்தை...</p>
+<p>அம்மாவிடம் சொல்ல வந்தாள்.</p>
+<p>அம்மா...</p>
+<p>Mobile பார்த்துக்கொண்டே...</p>
+<blockquote>"சொல்லு... கேட்கிறேன்..."</blockquote>
+<p>என்றார்.</p>
+<p>சிறுமி...</p>
+<p>சில நிமிடங்களில் பேசுவதை நிறுத்திவிட்டாள்.</p>
+<p>அடுத்த நாள்...</p>
+<p>அம்மா...</p>
+<p>Mobile-ஐ விட்டு வைத்து...</p>
+<p>கண்களைப் பார்த்து கேட்டார்.</p>
+<p>அன்று...</p>
+<p>சிறுமி...</p>
+<p>20 நிமிடங்கள் மனம் திறந்து பேசினாள்.</p>
+<p><strong>குழந்தைகளுக்கு எப்போதும் ஆலோசனை தேவையில்லை...</strong></p>
+<p><strong>முதலில் முழுமையாகக் கேட்கும் ஒருவர் தேவை.</strong></p>
+<hr>
+<h2>Effective Communication Formula</h2>
+<h2>Listen</h2>
+<p>↓</p>
+<h2>Think</h2>
+<p>↓</p>
+<h2>Speak</h2>
+<p>↓</p>
+<h2>Confirm</h2>
+<hr>
+<h2>Teamwork-ன் 5 முக்கிய விதிகள்</h2>
+<h2>1. அனைவரையும் மதியுங்கள்.</h2>
+<hr>
+<h2>2. வேலைகளைப் பகிர்ந்து செய்யுங்கள்.</h2>
+<hr>
+<h2>3. ஒருவருக்கொருவர் உதவுங்கள்.</h2>
+<hr>
+<h2>4. வெற்றியை பகிர்ந்து கொண்டாடுங்கள்.</h2>
+<hr>
+<h2>5. தோல்வியிலிருந்து குழுவாக கற்றுக்கொள்ளுங்கள்.</h2>
+<hr>
+<h2>கருத்து வேறுபாடுகளை எப்படி கையாளலாம்?</h2>
+<p>கருத்து வேறுபாடு வந்தால்...</p>
+<p>❌ "நீ தவறு."</p>
+<p>என்று சொல்லாதீர்கள்.</p>
+<p>அதற்குப் பதிலாக...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"உன் கருத்தை நான் புரிந்துகொள்கிறேன்."</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"வேறு ஒரு கோணத்தில் பார்க்கலாமா?"</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>"நாம் சேர்ந்து ஒரு நல்ல தீர்வு கண்டுபிடிப்போம்."</span></div>
+<hr>
+<h2>AI காலத்தில் ஏன் மனித தொடர்புத்திறன் முக்கியம்?</h2>
+<p>AI...</p>
+<p>மின்னஞ்சல் எழுத முடியும்.</p>
+<p>Presentation உருவாக்க முடியும்.</p>
+<p>தகவல்களை பகிர முடியும்.</p>
+<p>ஆனால்...</p>
+<p>❤️ நம்பிக்கையை உருவாக்க...</p>
+<p>🤝 உறவுகளை வளர்க்க...</p>
+<p>😊 மனித உணர்வுகளைப் புரிந்துகொள்ள...</p>
+<p>மனிதர்களே தேவை.</p>
+<hr>
+<h2>Family Activity</h2>
+<h2>"Listening Circle"</h2>
+<p>ஒவ்வொரு குடும்ப உறுப்பினருக்கும்...</p>
+<p>3 நிமிடங்கள்.</p>
+<p>அவர் பேசும்போது...</p>
+<p>யாரும் இடையில் பேசக்கூடாது.</p>
+<p>பேசி முடித்த பிறகு...</p>
+<p>மற்றவர்கள்...</p>
+<blockquote><strong>"நீ சொன்னதை நான் இப்படிப் புரிந்துகொண்டேன்..."</strong></blockquote>
+<p>என்று கூற வேண்டும்.</p>
+<p>இந்தப் பயிற்சி...</p>
+<p>குடும்ப உறவுகளை மிகவும் வலுப்படுத்தும்.</p>
+<hr>
+<h2>Family Collaboration Challenge</h2>
+<p>ஒரு Family Project தேர்வு செய்யுங்கள்.</p>
+<p>உதாரணம்:</p>
+<p>🌱 வீட்டுத் தோட்டம்</p>
+<p>📚 புத்தக அலமாரி அமைத்தல்</p>
+<p>🎉 குடும்ப விழா திட்டமிடல்</p>
+<p>🍳 சேர்ந்து சமையல்</p>
+<p>ஒவ்வொருவருக்கும்...</p>
+<p>ஒரு பொறுப்பு கொடுங்கள்.</p>
+<p>வேலை முடிந்த பிறகு...</p>
+<p>"நாம் என்ன கற்றுக்கொண்டோம்?"</p>
+<p>என்று விவாதியுங்கள்.</p>
+<hr>
+<h2>Parent Coaching Tips</h2>
+<p>குழந்தை பேசும்போது...</p>
+<p>உடனே...</p>
+<p>தீர்வு சொல்ல வேண்டாம்.</p>
+<p>முதலில்...</p>
+<p>இந்த மூன்று வாக்கியங்களைப் பயன்படுத்துங்கள்.</p>
+<blockquote><strong>"நான் உன்னை கவனமாகக் கேட்கிறேன்."</strong><br><strong>"அது உனக்கு எப்படி இருந்தது?"</strong><br><strong>"நீ என்ன செய்யலாம் என்று நினைக்கிறாய்?"</strong></blockquote>
+<p>இந்த மூன்று கேள்விகள்...</p>
+<p>குழந்தையின்...</p>
+<p>தன்னம்பிக்கையையும்...</p>
+<p>சிந்திக்கும் திறனையும்...</p>
+<p>ஒரே நேரத்தில் வளர்க்கும்.</p>
+<hr>
+<h2>Reflection</h2>
+<label class="checkline"><input type="checkbox" data-key="chk_654231"><span>நான் என் குழந்தையை முழுமையாகக் கேட்கிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_80629"><span>வீட்டில் அனைவருக்கும் பேச வாய்ப்பு கிடைக்கிறதா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_218595"><span>கருத்து வேறுபாடுகளை அமைதியாக கையாளுகிறோமா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_46775"><span>குடும்பமாக சேர்ந்து வேலை செய்யும் பழக்கம் இருக்கிறதா?</span></label>
+<hr>
+<h2>Communication &amp; Collaboration Checklist</h2>
+<div class="table-wrap"><table>
+<tr><th>பழக்கம்</th><th>ஆம்</th><th>இல்லை</th></tr>
+<tr><td>தினமும் குறைந்தது 15 நிமிடம் குடும்ப உரையாடல்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_642215"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_642215"></td></tr>
+<tr><td>ஒருவர் பேசும்போது மற்றவர்கள் கவனமாகக் கேட்கிறார்கள்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_818069"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_818069"></td></tr>
+<tr><td>குடும்ப Project-களை சேர்ந்து செய்கிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_983138"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_983138"></td></tr>
+<tr><td>கருத்து வேறுபாடுகளை மரியாதையுடன் பேசுகிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_840071"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_840071"></td></tr>
+<tr><td>அனைவரின் கருத்துக்கும் மதிப்பு தருகிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_460171"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_460171"></td></tr>
+</table></div>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Communication என்பது பேசுவதும் கேட்பதும் புரிந்துகொள்வதும் ஆகும்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Active Listening நல்ல உறவுகளின் அடித்தளம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Collaboration என்பது எதிர்கால வேலைகளில் மிக முக்கியமான திறன்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்பத்தில் தினசரி உரையாடல் மற்றும் கூட்டு செயல்பாடுகள் இந்த திறன்களை இயல்பாக வளர்க்கும்.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>7-Day Communication Challenge</h2>
+<p>அடுத்த 7 நாட்களுக்கு...</p>
+<p>ஒவ்வொரு நாளும்...</p>
+<p>ஒரு குடும்ப உறுப்பினருடன்...</p>
+<p>10 நிமிடங்கள்...</p>
+<p>முழுமையான கவனத்துடன் பேசுங்கள்.</p>
+<p>பிறகு...</p>
+<p>இந்த அட்டவணையை நிரப்புங்கள்.</p>
+<div class="table-wrap"><table>
+<tr><th>நாள்</th><th>யாருடன் பேசினேன்?</th><th>நான் கற்ற ஒரு புதிய விஷயம்</th><th>நான் முழுமையாகக் கேட்டேனா?</th></tr>
+<tr><td>Day 1</td><td>__________</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_825844"></td></tr>
+<tr><td>Day 2</td><td>__________</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_843104"></td></tr>
+<tr><td>Day 3</td><td>__________</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_192268"></td></tr>
+<tr><td>Day 4</td><td>__________</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_181359"></td></tr>
+<tr><td>Day 5</td><td>__________</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_418201"></td></tr>
+<tr><td>Day 6</td><td>__________</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_666778"></td></tr>
+<tr><td>Day 7</td><td>__________</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_25333"></td></tr>
+</table></div>
+<hr>
+<h2>Trainer's Golden Quote</h2>
+<blockquote><strong>"குழந்தைகளுக்கு பேச கற்றுக்கொடுப்பது முக்கியம்...<br>ஆனால்...<br>மற்றவர்களை மனதாரக் கேட்க கற்றுக்கொடுப்பது அதைவிட முக்கியம்.<br>ஏனெனில்...<br>நல்ல தொடர்புத்திறன் வாழ்க்கையில் வாய்ப்புகளை உருவாக்கும்...<br>நல்ல கேட்கும் திறன் வாழ்க்கை முழுவதும் உறவுகளை உருவாக்கும்."</strong></blockquote>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m5l4', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m5-l3.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m5-l5.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m5l4')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m5l4&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>

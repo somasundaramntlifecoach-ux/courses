@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5 · Goal Setting & Self-Leadership (இலக்கு நிர்ணயம் மற்றும் சுய தலைமைத்துவம்) | Digital Parenting Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1f3a; --navy2:#132c52; --gold:#d4af37; --gold2:#b8912b;
+  --cream:#faf7f0; --ink:#1c2431; --muted:#5b6472; --green:#2e7d55; --red:#b3392c;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+header.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.25)}
+header.topbar .brand{font-weight:700;font-size:1.05rem}
+header.topbar .brand small{display:block;font-weight:400;font-size:.72rem;opacity:.8}
+.gold{color:var(--gold)}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 90px}
+.crumbs{font-size:.85rem;color:var(--muted);margin-bottom:14px}
+.crumbs a{color:var(--navy2);text-decoration:none}
+.card{background:#fff;border-radius:16px;padding:26px 28px;box-shadow:0 6px 24px rgba(11,31,58,.08);margin-bottom:20px}
+h1{color:var(--navy);font-size:1.6rem;margin-top:0}
+h2{color:var(--navy2);border-left:4px solid var(--gold);padding-left:12px;margin-top:34px}
+h3{color:var(--navy2);margin-top:24px}
+h4{color:var(--navy2)}
+p{margin:10px 0}
+hr{border:none;border-top:1px dashed #d9d2c2;margin:18px 0}
+blockquote{background:#fbf3df;border-left:4px solid var(--gold);margin:16px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#4a3d1f}
+ul.lesson-list{padding-left:22px}
+ul.lesson-list li{margin:6px 0}
+.table-wrap{overflow-x:auto;margin:16px 0}
+table{border-collapse:collapse;width:100%}
+table th,table td{border:1px solid #e3ddca;padding:8px 12px;text-align:left}
+table th{background:var(--navy);color:#fff}
+.checkline{display:flex;gap:10px;align-items:flex-start;background:#f4f1e8;padding:10px 14px;border-radius:10px;margin:8px 0;cursor:pointer}
+.step-row{display:flex;gap:14px;align-items:flex-start;background:#f4f1e8;padding:12px 16px;border-radius:10px;margin:10px 0}
+.step-badge{flex:none;background:var(--navy);color:#fff;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700}
+.step-text{padding-top:2px}
+.step-opts{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.checkline.mini{padding:6px 10px;margin:0;background:#fff;border:1px solid #e4e9f0}
+.obj-item{display:flex;gap:10px;align-items:flex-start;padding:6px 2px;margin:4px 0}
+.obj-tick{color:var(--green);flex:none}
+.checkline input{margin-top:4px}
+.mcq-card{background:#f7f9fc;border:1px solid #dde6f2;border-radius:12px;padding:16px 18px;margin:16px 0}
+.mcq-opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.mcq-opt{display:flex;gap:10px;padding:8px 12px;border-radius:8px;background:#fff;border:1px solid #e4e9f0;cursor:pointer}
+.mcq-opt:hover{border-color:var(--gold)}
+.mcq-opt.correct{background:#e6f4ea;border-color:var(--green)}
+.mcq-opt.wrong{background:#fbe9e7;border-color:var(--red)}
+.mcq-feedback{margin-top:8px;font-size:.9rem;font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;padding:12px 20px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.92rem;border:none;cursor:pointer}
+.btn.gold{background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--navy)}
+.btn.outline{background:#fff;color:var(--navy);border:1.5px solid var(--navy)}
+.btn.whatsapp{background:#25D366;color:#fff}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.progress-wrap{background:#e7e2d2;border-radius:20px;height:10px;overflow:hidden;margin:14px 0 6px}
+.progress-bar{background:linear-gradient(90deg,var(--gold),var(--gold2));height:100%;width:0%;transition:.4s}
+.module-grid{display:grid;grid-template-columns:1fr;gap:14px}
+.lesson-row{display:flex;justify-content:space-between;align-items:center;gap:14px;background:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 3px 10px rgba(11,31,58,.06);text-decoration:none;color:var(--ink)}
+.lesson-row.done{border-left:4px solid var(--green)}
+.lesson-row .num{background:var(--navy);color:#fff;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;margin-right:12px;flex:none}
+.lesson-row .meta{display:flex;align-items:center;flex:1;min-width:0}
+.lesson-row-title{flex:1;line-height:1.4}
+.tick{color:var(--green);font-weight:700;flex:none}
+.module-card{display:flex !important;justify-content:flex-start !important;align-items:center;gap:16px}
+.module-card .badge{flex:none}
+.module-card > span:last-child{flex:1;min-width:0}
+.lesson-kicker{font-size:.78rem;font-weight:700;letter-spacing:1px;color:var(--gold2);text-transform:uppercase}
+.lesson-title{color:var(--navy);margin:4px 0 16px;font-size:1.35rem;line-height:1.4}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:50px 24px;text-align:center}
+.hero h1{color:#fff;font-size:2rem}
+.hero p{color:#dfe6f0;max-width:640px;margin:12px auto}
+.price-badge{display:inline-block;background:var(--gold);color:var(--navy);font-weight:700;padding:8px 20px;border-radius:30px;margin-top:14px}
+.module-card{display:flex;gap:16px;align-items:flex-start}
+.module-card .badge{background:var(--gold);color:var(--navy);font-weight:700;border-radius:10px;padding:6px 12px;font-size:.8rem;white-space:nowrap}
+footer.site{background:var(--navy);color:#cfd7e5;text-align:center;padding:26px;font-size:.85rem}
+footer.site a{color:var(--gold)}
+.floating-wa{position:fixed;bottom:22px;right:22px;background:#25D366;color:#fff;border-radius:50px;padding:14px 20px;text-decoration:none;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:60}
+.score-box{background:var(--navy);color:#fff;border-radius:14px;padding:20px;text-align:center;margin:20px 0}
+.score-box .num{font-size:2.4rem;font-weight:700;color:var(--gold)}
+textarea, input[type=text]{width:100%;border:1px solid #ddd;border-radius:8px;padding:10px;font-family:inherit;margin-top:6px}
+.slider-row{display:flex;align-items:center;gap:12px;margin:10px 0}
+.slider-row input[type=range]{flex:1}
+.saved-tag{font-size:.75rem;color:var(--green);margin-left:8px}
+</style>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body class="ta">
+<header class="topbar">
+  <div class="brand">டிஜிட்டல் பெற்றோர் வழிகாட்டி <small>Digital Parenting Mastery &middot; N T Somasundaram</small></div>
+  <span id="learnerNameDisplay" style="font-size:.75rem;opacity:.85;margin-right:12px;"></span><a href="#" onclick="logout(); return false;" class="btn outline" style="padding:8px 16px;font-size:.8rem;margin-right:8px;">🚪 வெளியேறு</a><a href="index.html" class="btn outline" style="padding:8px 16px;font-size:.8rem">🏠 Home</a>
+</header>
+<div class="wrap">
+  <div class="crumbs"><a href="index.html">முகப்பு</a> &raquo; <a href="module5.html">Module 5</a> &raquo; Goal Setting &amp; Self-Leadership (இலக்கு நிர்ணயம் மற்றும் சுய தலைமைத்துவம்)</div>
+  
+<div class="card">
+<div class="lesson-kicker">Module 5 &middot; Lesson 6</div>
+<h1 class="lesson-title">Goal Setting &amp; Self-Leadership (இலக்கு நிர்ணயம் மற்றும் சுய தலைமைத்துவம்)</h1>
+<hr>
+<h2>Learning Objectives</h2>
+<p>இந்தப் பாடத்தின் முடிவில் நீங்கள்...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Goal Setting (இலக்கு நிர்ணயம்) என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>SMART Goal முறையை பயன்படுத்தக் கற்றுக்கொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Self-Leadership மற்றும் Self-Discipline இடையேயான தொடர்பை அறிந்துகொள்வீர்கள்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குழந்தைகளுக்கு திட்டமிடும் மற்றும் பொறுப்பேற்கும் பழக்கத்தை உருவாக்க கற்றுக்கொள்வீர்கள்.</span></div>
+<hr>
+<h2>ஒரு உண்மை சம்பவம்</h2>
+<p>இரண்டு மாணவர்கள்...</p>
+<p>ஒரே வகுப்பில் படித்தனர்.</p>
+<p>முதல் மாணவன்...</p>
+<p>ஒவ்வொரு நாளும்...</p>
+<p>எது தோன்றுகிறதோ அதைச் செய்தான்.</p>
+<p>இரண்டாவது மாணவி...</p>
+<p>ஒவ்வொரு ஞாயிற்றுக்கிழமையும்...</p>
+<p>அடுத்த வாரத்திற்கான திட்டத்தை எழுதுவாள்.</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>படிப்பு</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>விளையாட்டு</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வாசிப்பு</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>ஓய்வு</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>குடும்ப நேரம்</span></div>
+<p>ஒரு வருடம் கழித்து...</p>
+<p>இருவரும் திறமையானவர்களாக இருந்தார்கள்.</p>
+<p>ஆனால்...</p>
+<p>திட்டமிட்டு செயல்பட்ட மாணவி...</p>
+<p>அதிக அமைதியாகவும்...</p>
+<p>தன்னம்பிக்கையுடனும்...</p>
+<p>இலக்குகளை அடைந்திருந்தாள்.</p>
+<hr>
+<h2>Trainer Reflection</h2>
+<blockquote><strong>"கனவு காண்பவர்கள் பலர்...<br>ஆனால்...<br>அந்தக் கனவுக்கு தினமும் ஒரு சிறிய படி எடுத்து வைப்பவர்கள்தான் வெற்றி பெறுகிறார்கள்."</strong></blockquote>
+<hr>
+<h2>Goal என்றால் என்ன?</h2>
+<p>Goal என்பது...</p>
+<p><strong>நாம் எதிர்காலத்தில் அடைய விரும்பும் ஒரு தெளிவான இலக்கு.</strong></p>
+<p>உதாரணம்:</p>
+<ul class="lesson-list"><li>இந்த ஆண்டு 20 புத்தகங்கள் படிக்க வேண்டும்.</li><li>தினமும் 30 நிமிடம் உடற்பயிற்சி செய்ய வேண்டும்.</li><li>ஆங்கிலத்தில் தன்னம்பிக்கையுடன் பேச வேண்டும்.</li></ul>
+<hr>
+<h2>Dream vs Goal</h2>
+<div class="table-wrap"><table>
+<tr><th>Dream (கனவு)</th><th>Goal (இலக்கு)</th></tr>
+<tr><td>"நான் மருத்துவராக வேண்டும்."</td><td>"தினமும் 2 மணி நேரம் அறிவியல் பாடம் படிப்பேன்."</td></tr>
+<tr><td>ஆசை</td><td>செயல் திட்டம்</td></tr>
+<tr><td>எதிர்கால கற்பனை</td><td>செயல்படுத்தக்கூடிய திட்டம்</td></tr>
+</table></div>
+<hr>
+<h2>SMART Goal Model</h2>
+<h2>S – Specific (தெளிவானது)</h2>
+<p>"நன்றாகப் படிக்க வேண்டும்."</p>
+<p>❌ இல்லை</p>
+<p>"தினமும் மாலை 6–7 மணி வரை கணிதம் படிப்பேன்."</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>ஆம்</span></div>
+<hr>
+<h2>M – Measurable (அளவிடக்கூடியது)</h2>
+<p>எவ்வளவு?</p>
+<p>எத்தனை?</p>
+<p>எப்போது?</p>
+<hr>
+<h2>A – Achievable (அடையக்கூடியது)</h2>
+<p>குழந்தையின் வயது மற்றும் திறனுக்கு ஏற்ற இலக்காக இருக்க வேண்டும்.</p>
+<hr>
+<h2>R – Relevant (பொருத்தமானது)</h2>
+<p>அந்த இலக்கு...</p>
+<p>குழந்தையின் வளர்ச்சிக்கு உதவ வேண்டியது அவசியம்.</p>
+<hr>
+<h2>T – Time Bound (கால வரம்பு)</h2>
+<p>இலக்கிற்கு...</p>
+<p>ஒரு முடிவு தேதி இருக்க வேண்டும்.</p>
+<hr>
+<h2>Golden Rule</h2>
+<blockquote><strong>"பெரிய வெற்றிகள்...<br>தினமும் செய்யப்படும் சிறிய பழக்கங்களிலிருந்தே உருவாகின்றன."</strong></blockquote>
+<hr>
+<h2>Self-Leadership என்றால் என்ன?</h2>
+<p>யாராவது சொல்லுவதற்காக காத்திருக்காமல்...</p>
+<p>நாமே...</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>சரியான முடிவெடுப்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நமது நேரத்தை நிர்வகிப்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நமது செயல்களுக்கு பொறுப்பேற்பது</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தொடர்ந்து முன்னேறுவது</span></div>
+<p>இதுவே...</p>
+<p><strong>Self-Leadership.</strong></p>
+<hr>
+<h2>Self-Leader-ன் 7 பழக்கங்கள்</h2>
+<div class="obj-item"><span class="obj-tick">✅</span><span>நேரத்தை மதிப்பார்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>வாக்குறுதியை காப்பாற்றுவார்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தவறுக்கு பொறுப்பேற்பார்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>பிறரை குறை சொல்ல மாட்டார்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினமும் புதியதை கற்றுக்கொள்வார்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>உடல் மற்றும் மன ஆரோக்கியத்தை கவனிப்பார்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தொடர்ந்து முன்னேற முயற்சிப்பார்.</span></div>
+<hr>
+<h2>Trainer Story</h2>
+<p>ஒரு சிறுமி...</p>
+<p>ஒவ்வொரு நாளும்...</p>
+<p>அம்மா சொல்லிய பிறகுதான்...</p>
+<p>வீட்டுப்பாடம் செய்வாள்.</p>
+<p>ஒரு நாள்...</p>
+<p>அம்மா ஒரு புதிய Calendar கொடுத்தார்.</p>
+<p>அதில்...</p>
+<p>அவளே...</p>
+<p>தன் வேலைகளை எழுத ஆரம்பித்தாள்.</p>
+<p>சில வாரங்களுக்குப் பிறகு...</p>
+<p>அம்மாவின் நினைவூட்டல் தேவையில்லை.</p>
+<p>அவள்...</p>
+<p>தன்னைத்தானே வழிநடத்த கற்றுக்கொண்டாள்.</p>
+<hr>
+<h2>Self-Discipline உருவாக்கும் 5 படிகள்</h2>
+<h2>1. சிறிய இலக்கு அமைக்கவும்.</h2>
+<hr>
+<h2>2. தினசரி பழக்கமாக மாற்றவும்.</h2>
+<hr>
+<h2>3. முடிந்ததை குறியிடவும்.</h2>
+<hr>
+<h2>4. தவறிய நாள் வந்தாலும் மீண்டும் தொடங்கவும்.</h2>
+<hr>
+<h2>5. சிறிய வெற்றிகளையும் கொண்டாடவும்.</h2>
+<hr>
+<h2>Daily Success Routine</h2>
+<p>ஒவ்வொரு நாளும்...</p>
+<p>🌅 காலை</p>
+<p>இன்றைய முக்கிய 3 வேலைகளை எழுதுங்கள்.</p>
+<hr>
+<p>🌞 மதியம்</p>
+<p>எவ்வளவு முடிந்தது என்று பாருங்கள்.</p>
+<hr>
+<p>🌙 இரவு</p>
+<p>இன்று நான் என்ன கற்றுக்கொண்டேன்?</p>
+<p>நாளை என்ன மேம்படுத்தலாம்?</p>
+<p>என்று எழுதுங்கள்.</p>
+<hr>
+<h2>Family Activity</h2>
+<h2>"Family Goal Board"</h2>
+<p>வீட்டில்...</p>
+<p>ஒரு Goal Board அமைக்கவும்.</p>
+<p>ஒவ்வொரு குடும்ப உறுப்பினரும்...</p>
+<p>ஒரு மாத இலக்கை எழுத வேண்டும்.</p>
+<p>உதாரணம்:</p>
+<p>👨 அப்பா – தினமும் நடைப்பயிற்சி</p>
+<p>👩 அம்மா – மாதம் 2 புத்தகங்கள்</p>
+<p>👦 குழந்தை – தினமும் 20 நிமிடம் வாசிப்பு</p>
+<p>👧 குழந்தை – தினமும் 15 புதிய ஆங்கில வார்த்தைகள்</p>
+<p>ஒவ்வொரு ஞாயிற்றுக்கிழமையும்...</p>
+<p>முன்னேற்றத்தைப் பற்றி பேசுங்கள்.</p>
+<hr>
+<h2>Weekly Planning Habit</h2>
+<p>ஞாயிற்றுக்கிழமை மாலை...</p>
+<p>15 நிமிடங்கள்...</p>
+<p>குடும்ப Planning Meeting நடத்துங்கள்.</p>
+<p>இந்த 4 கேள்விகளைப் பேசுங்கள்.</p>
+<p>1. இந்த வாரத்தில் என்ன நல்லது நடந்தது?</p>
+<p>2. என்ன சவால் இருந்தது?</p>
+<p>3. அடுத்த வார இலக்கு என்ன?</p>
+<p>4. ஒருவருக்கொருவர் எப்படி உதவலாம்?</p>
+<hr>
+<h2>AI காலத்தில் Self-Leadership ஏன் முக்கியம்?</h2>
+<p>AI...</p>
+<p>பல வேலைகளைச் செய்ய முடியும்.</p>
+<p>ஆனால்...</p>
+<p>AI...</p>
+<p>உங்களுக்குப் பதிலாக...</p>
+<p>உங்கள் வாழ்க்கை இலக்குகளைத் தேர்ந்தெடுக்க முடியாது.</p>
+<p>AI...</p>
+<p>உங்கள் மதிப்புகளை உருவாக்க முடியாது.</p>
+<p>AI...</p>
+<p>உங்கள் குணநலன்களை வளர்க்க முடியாது.</p>
+<p>அதை...</p>
+<p>நீங்கள்தான் செய்ய வேண்டும்.</p>
+<hr>
+<h2>Parent Coaching Tips</h2>
+<p>குழந்தையிடம்...</p>
+<blockquote><strong>"இதை செய்!"</strong></blockquote>
+<p>என்று மட்டும் சொல்லாமல்...</p>
+<p>இந்தக் கேள்விகளை கேளுங்கள்.</p>
+<ul class="lesson-list"><li>இன்று உன் முக்கிய இலக்கு என்ன?</li><li>அதை அடைய முதல் படி என்ன?</li><li>உனக்கு என்ன உதவி வேண்டும்?</li><li>இன்று நீ உன்னைப் பற்றி பெருமைப்படும் ஒரு விஷயம் என்ன?</li></ul>
+<p>இந்தக் கேள்விகள்...</p>
+<p>குழந்தையின்...</p>
+<p>Self-Leadership திறனை வளர்க்கும்.</p>
+<hr>
+<h2>Reflection</h2>
+<label class="checkline"><input type="checkbox" data-key="chk_452528"><span>என் குழந்தை தனியாக வேலைகளை திட்டமிடுகிறானா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_558784"><span>நான் எல்லாவற்றையும் நினைவூட்டுகிறேனா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_575889"><span>குடும்பத்தில் Goal Review நடைபெறுகிறதா?</span></label>
+<label class="checkline"><input type="checkbox" data-key="chk_769867"><span>முயற்சியை விட முடிவை மட்டும் பாராட்டுகிறேனா?</span></label>
+<hr>
+<h2>Self-Leadership Checklist</h2>
+<div class="table-wrap"><table>
+<tr><th>பழக்கம்</th><th>ஆம்</th><th>இல்லை</th></tr>
+<tr><td>தினசரி To-Do List எழுதுகிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_431361"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_431361"></td></tr>
+<tr><td>மாதாந்திர இலக்கு அமைக்கிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_18723"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_18723"></td></tr>
+<tr><td>வாராந்திர முன்னேற்றத்தை மதிப்பிடுகிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_150360"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_150360"></td></tr>
+<tr><td>சிறிய வெற்றிகளை கொண்டாடுகிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_966441"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_966441"></td></tr>
+<tr><td>தவறுகளிலிருந்து கற்றுக்கொள்கிறோம்</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_636328"></td><td style="text-align:center"><input type="checkbox" data-key="tblchk_636328"></td></tr>
+</table></div>
+<hr>
+<h2>Lesson Summary</h2>
+<p>இன்று நாம் கற்றது:</p>
+<div class="obj-item"><span class="obj-tick">✅</span><span>கனவுகளை இலக்குகளாக மாற்ற Goal Setting அவசியம்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>SMART Goal Model குழந்தைகளுக்கு தெளிவான திட்டமிடலை கற்றுக்கொடுக்கிறது.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>Self-Leadership என்பது தன்னைத்தானே வழிநடத்தும் வாழ்க்கைத் திறன்.</span></div>
+<div class="obj-item"><span class="obj-tick">✅</span><span>தினசரி சிறிய பழக்கங்களே நீண்டகால வெற்றிக்கு அடித்தளம்.</span></div>
+<hr>
+<h2>Home Assignment</h2>
+<h2>30-Day Goal Tracker</h2>
+<p>அடுத்த 30 நாட்களுக்கு...</p>
+<p>ஒரு முக்கிய இலக்கைத் தேர்ந்தெடுங்கள்.</p>
+<div class="table-wrap"><table>
+<tr><th>நாள்</th><th>இன்றைய சிறிய செயல்</th><th>முடிந்ததா?</th><th>இன்று நான் கற்றது</th></tr>
+<tr><td>Day 1</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_542330"></td><td>__________</td></tr>
+<tr><td>Day 2</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_122255"></td><td>__________</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Day 30</td><td>__________</td><td style="text-align:center"><input type="checkbox" data-key="tblchk_652918"></td><td>__________</td></tr>
+</table></div>
+<p><strong>30 நாட்களின் முடிவில்:</strong></p>
+<ul class="lesson-list"><li>நான் அடைந்த முன்னேற்றம்: ___________________</li><li>அடுத்த மாத இலக்கு: ___________________</li></ul>
+<hr>
+<h2>Trainer's Golden Quote</h2>
+<blockquote><strong>"குழந்தைகளுக்கு வெற்றி பெறும் வழியை மட்டும் காட்டாதீர்கள்...<br>தங்களைத் தாங்களே வழிநடத்தும் திறனையும் வளர்த்திடுங்கள்.<br>ஏனெனில்...<br>உண்மையான தலைவர்கள்...<br>முதலில் தங்களுடைய வாழ்க்கைக்கே தலைவர்களாக இருப்பார்கள்."</strong></blockquote>
+<div style="text-align:center;margin-top:26px">
+  <button class="btn gold" id="doneBtn" onclick="markDoneUI('m5l6', this)">✅ இந்தப் பாடம் முடிந்தது (Mark Complete)</button>
+</div>
+<div class="nav-buttons">
+  <a href="m5-l5.html" class="btn outline">⬅ முந்தைய பாடம்</a>
+  <a href="m5-l7.html" class="btn outline">அடுத்த பாடம் ➡</a>
+</div>
+</div>
+<script>
+if(isLessonDone('m5l6')){
+  document.addEventListener('DOMContentLoaded',()=>{
+    const b=document.getElementById('doneBtn'); b.textContent='✅ Completed'; b.disabled=true;
+  });
+}
+</script>
+
+</div>
+<a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank" class="floating-wa">💬 WhatsApp</a>
+<footer class="site">
+  &copy; N T Somasundaram &middot; Certified Master Trainer &amp; Parenting Coach &middot;
+  <a href="https://wa.me/919843702244?text=Vanakkam%20Sir,%20I%20completed%20the%20Digital%20Parenting%20Mastery%20course%20and%20want%20to%20know%20more%20about%20your%20Parenting%20Program" target="_blank">+91 98437 02244</a> &middot;
+  <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+</footer>
+<img src="REPLACE_WITH_YOUR_GOOGLE_APPS_SCRIPT_URL?page=m5l6&course=digital-parenting" width="1" height="1" style="display:none" onerror="this.style.display='none'">
+<script src="assets/progress.js"></script>
+
+</body>
+</html>
