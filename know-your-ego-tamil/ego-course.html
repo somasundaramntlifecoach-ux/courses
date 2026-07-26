@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ஈகோவை அறிந்துகொள் | NT Somasundaram Life Skills Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1f44;
+    --navy-light:#123064;
+    --navy-dark:#061530;
+    --gold:#d4af37;
+    --gold-light:#f3d878;
+    --cream:#faf7f0;
+    --ink:#1c2530;
+    --muted:#5a6472;
+    --good:#1e7a4d;
+    --bad:#b93b3b;
+    --card-radius:16px;
+    --shadow:0 10px 30px rgba(10,31,68,0.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Sans Tamil','Poppins',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  .en{font-family:'Poppins',sans-serif;}
+
+  /* HEADER */
+  header{
+    background:linear-gradient(135deg,var(--navy) 0%, var(--navy-dark) 100%);
+    color:#fff;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";
+    position:absolute;
+    top:-60px;right:-60px;
+    width:260px;height:260px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(212,175,55,0.25), transparent 70%);
+  }
+  .header-inner{
+    max-width:1100px;margin:0 auto;
+    padding:56px 24px 64px;
+    position:relative;z-index:2;
+  }
+  .eyebrow{
+    display:inline-block;
+    font-family:'Poppins',sans-serif;
+    font-size:12px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--gold-light);
+    border:1px solid rgba(212,175,55,0.5);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:20px;
+  }
+  header h1{
+    font-size:clamp(28px,4.5vw,44px);
+    font-weight:800;
+    margin-bottom:12px;
+    line-height:1.3;
+  }
+  header p.sub{
+    font-size:18px;
+    color:#dbe3f2;
+    max-width:640px;
+    margin-bottom:28px;
+  }
+  .header-meta{
+    display:flex;flex-wrap:wrap;gap:14px;
+  }
+  .meta-pill{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    padding:10px 18px;
+    border-radius:12px;
+    font-size:14px;
+    display:flex;align-items:center;gap:8px;
+  }
+  .meta-pill b{color:var(--gold-light);}
+
+  /* NAV */
+  nav.module-nav{
+    background:#fff;
+    border-bottom:1px solid #e7e2d6;
+    position:sticky;top:0;z-index:50;
+    box-shadow:0 2px 10px rgba(10,31,68,0.06);
+  }
+  .nav-scroll{
+    max-width:1100px;margin:0 auto;
+    display:flex;gap:6px;
+    overflow-x:auto;
+    padding:12px 24px;
+    scrollbar-width:thin;
+  }
+  .nav-scroll::-webkit-scrollbar{height:4px;}
+  .nav-scroll::-webkit-scrollbar-thumb{background:#d8d2c2;border-radius:4px;}
+  .nav-btn{
+    white-space:nowrap;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--navy);
+    background:#f1eee4;
+    border:none;
+    padding:9px 16px;
+    border-radius:999px;
+    cursor:pointer;
+    transition:.2s;
+  }
+  .nav-btn:hover, .nav-btn.active{
+    background:var(--navy);color:#fff;
+  }
+
+  main{max-width:900px;margin:0 auto;padding:40px 24px 80px;}
+
+  /* PROGRESS */
+  .progress-wrap{
+    background:#fff;border:1px solid #ece7da;border-radius:var(--card-radius);
+    padding:20px 24px;margin-bottom:36px;box-shadow:var(--shadow);
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  }
+  .progress-track{
+    flex:1;min-width:180px;height:10px;background:#eee7d4;border-radius:999px;overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;width:0%;background:linear-gradient(90deg,var(--gold),var(--navy));
+    border-radius:999px;transition:width .4s ease;
+  }
+  #progress-label{font-size:14px;font-weight:600;color:var(--navy);white-space:nowrap;}
+
+  /* MODULE CARD */
+  .module{
+    background:#fff;border-radius:var(--card-radius);
+    box-shadow:var(--shadow);
+    margin-bottom:28px;
+    scroll-margin-top:80px;
+    overflow:hidden;
+    border:1px solid #f0ebdd;
+  }
+  .module-head{
+    padding:26px 28px;
+    display:flex;gap:18px;align-items:flex-start;
+    background:linear-gradient(180deg,#fff, #fbf9f2);
+  }
+  .module-num{
+    flex-shrink:0;
+    width:52px;height:52px;border-radius:14px;
+    background:var(--navy);color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Poppins',sans-serif;font-weight:800;font-size:20px;
+  }
+  .module-head h2{
+    font-size:22px;color:var(--navy);font-weight:700;margin-bottom:4px;
+  }
+  .module-head .module-en{
+    font-family:'Poppins',sans-serif;font-size:13px;color:var(--muted);font-weight:500;
+  }
+  .module-objectives{
+    padding:0 28px 20px;
+  }
+  .module-objectives ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .module-objectives li{
+    font-size:14.5px;color:var(--ink);
+    padding-left:26px;position:relative;
+  }
+  .module-objectives li::before{
+    content:"✓";position:absolute;left:0;top:0;
+    color:var(--good);font-weight:800;
+  }
+
+  /* LESSON ACCORDION */
+  .lesson{border-top:1px solid #f0ebdd;}
+  .lesson-toggle{
+    width:100%;text-align:left;background:none;border:none;cursor:pointer;
+    padding:18px 28px;display:flex;justify-content:space-between;align-items:center;gap:12px;
+    font-size:16px;font-weight:600;color:var(--navy);
+  }
+  .lesson-toggle:hover{background:#fbf8f0;}
+  .lesson-toggle .chev{transition:transform .25s;color:var(--gold);font-size:14px;}
+  .lesson-toggle.open .chev{transform:rotate(90deg);}
+  .lesson-body{
+    max-height:0;overflow:hidden;transition:max-height .35s ease;
+    padding:0 28px;
+  }
+  .lesson-body.open{padding:0 28px 24px;}
+  .lesson-body h4{
+    color:var(--navy);font-size:15.5px;margin:18px 0 8px;font-weight:700;
+  }
+  .lesson-body h4:first-child{margin-top:4px;}
+  .lesson-body p{font-size:15px;color:var(--ink);margin-bottom:10px;}
+  .lesson-body .quote{
+    border-left:3px solid var(--gold);
+    background:#fbf6e8;
+    padding:12px 16px;border-radius:0 10px 10px 0;
+    font-style:italic;color:var(--navy);margin:12px 0;
+  }
+  .story-box{
+    background:var(--navy);color:#fff;border-radius:12px;padding:18px 20px;margin:14px 0;
+  }
+  .story-box .label{
+    font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--gold-light);margin-bottom:8px;display:block;
+  }
+  .analogy-box{
+    background:#f1f6f2;border:1px dashed var(--good);border-radius:12px;
+    padding:16px 18px;margin:14px 0;
+  }
+  .analogy-box .label{
+    font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--good);margin-bottom:8px;display:block;font-weight:700;
+  }
+  .compare-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+  .compare-table th{
+    background:var(--navy);color:#fff;padding:10px 14px;text-align:left;font-weight:600;
+  }
+  .compare-table td{padding:10px 14px;border-bottom:1px solid #eee;}
+  .compare-table tr:nth-child(even){background:#faf8f2;}
+  ul.plain{list-style:none;margin:10px 0;}
+  ul.plain li{padding-left:22px;position:relative;margin-bottom:6px;font-size:15px;}
+  ul.plain li::before{content:"•";position:absolute;left:4px;color:var(--gold);font-weight:900;}
+  ul.cross li::before{content:"✕";color:var(--bad);left:0;}
+  ul.tick li::before{content:"✓";color:var(--good);left:0;}
+
+  .reflect-box{
+    background:#fdf3f3;border:1px solid #f3d9d9;border-radius:12px;padding:16px 18px;margin:14px 0;
+  }
+  .reflect-box .label{
+    font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+    color:var(--bad);font-weight:700;margin-bottom:8px;display:block;
+  }
+  .reflect-box textarea{
+    width:100%;border:1px solid #e6c9c9;border-radius:8px;padding:10px;
+    font-family:'Noto Sans Tamil',sans-serif;font-size:14px;resize:vertical;min-height:60px;
+    margin-top:6px;
+  }
+
+  .assess-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+  .assess-table th{background:var(--navy);color:#fff;padding:10px;text-align:left;}
+  .assess-table td{padding:8px 10px;border-bottom:1px solid #eee;}
+  .assess-table input[type=range]{width:100%;accent-color:var(--gold);}
+  .assess-score{font-weight:700;color:var(--navy);width:28px;display:inline-block;text-align:center;}
+
+  .complete-check{
+    display:flex;align-items:center;gap:10px;margin-top:18px;
+    background:#f6f9f6;border:1px solid #dfeee0;border-radius:10px;padding:12px 16px;
+    font-size:14px;font-weight:600;color:var(--good);cursor:pointer;
+  }
+  .complete-check input{width:18px;height:18px;accent-color:var(--good);}
+
+  .final-letter{
+    background:#fffaf0;border:1px solid var(--gold);border-radius:12px;padding:20px;margin:14px 0;
+  }
+  .final-letter textarea{
+    width:100%;min-height:140px;border:1px solid #ecdcae;border-radius:8px;padding:12px;
+    font-family:'Noto Sans Tamil',sans-serif;font-size:14.5px;margin-top:10px;
+  }
+
+  /* CTA / FOOTER */
+  .cta-section{
+    background:linear-gradient(135deg,var(--navy),var(--navy-dark));
+    color:#fff;border-radius:var(--card-radius);
+    padding:36px 28px;text-align:center;margin-top:40px;
+  }
+  .cta-section h3{font-size:22px;margin-bottom:10px;}
+  .cta-section p{color:#d9e1ef;margin-bottom:22px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .wa-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:#25D366;color:#fff;font-weight:700;
+    padding:14px 28px;border-radius:999px;text-decoration:none;font-size:15px;
+    box-shadow:0 8px 20px rgba(37,211,102,0.35);
+    transition:.2s;
+  }
+  .wa-btn:hover{transform:translateY(-2px);}
+  footer{
+    text-align:center;padding:30px 24px 50px;color:var(--muted);font-size:13px;
+  }
+  footer .motto{
+    color:var(--navy);font-weight:700;margin-bottom:6px;font-size:14px;
+  }
+
+  @media(max-width:600px){
+    .header-inner{padding:40px 18px 48px;}
+    .module-head{padding:20px 18px;flex-direction:column;}
+    .module-objectives{padding:0 18px 16px;}
+    .lesson-toggle{padding:16px 18px;font-size:15px;}
+    .lesson-body{padding:0 18px;}
+    .lesson-body.open{padding:0 18px 20px;}
+  }
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="eyebrow en">NT SOMASUNDARAM LIFE SKILLS PROGRAM</span>
+    <h1>ஈகோவை அறிந்துகொள்<br>Know Your Ego</h1>
+    <p class="sub">உங்கள் ஈகோவை புரிந்துகொண்டு, சமநிலையான, அமைதியான, மேம்பட்ட உறவுகளுடன் கூடிய வாழ்க்கையை வடிவமைக்கும் தன்னிரக்க ஆன்லைன் பயிற்சி.</p>
+    <div class="header-meta">
+      <span class="meta-pill">📘 <b>10</b> Modules — Complete Course</span>
+      <span class="meta-pill">🗣️ தமிழ் — Self-Paced</span>
+      <span class="meta-pill">👤 Trainer: N T Somasundaram</span>
+      <span class="meta-pill" id="learnerNameDisplay"></span>
+      <a href="#" onclick="logout(); return false;" class="meta-pill" style="text-decoration:none;">🚪 வெளியேறு</a>
+    </div>
+  </div>
+</header>
+
+<nav class="module-nav">
+  <div class="nav-scroll" id="navScroll">
+    <button class="nav-btn" data-target="m1">M1</button>
+    <button class="nav-btn" data-target="m2">M2</button>
+    <button class="nav-btn" data-target="m3">M3</button>
+    <button class="nav-btn" data-target="m4">M4</button>
+    <button class="nav-btn" data-target="m5">M5</button>
+    <button class="nav-btn" data-target="m6">M6</button>
+    <button class="nav-btn" data-target="m7">M7</button>
+    <button class="nav-btn" data-target="m8">M8</button>
+    <button class="nav-btn" data-target="m9">M9</button>
+    <button class="nav-btn" data-target="m10">M10</button>
+  </div>
+</nav>
+
+<main>
+
+  <div class="progress-wrap">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <span id="progress-label">0% Modules முடிந்தது</span>
+  </div>
+
+  <!-- MODULE 1 -->
+  <section class="module" id="m1">
+    <div class="module-head">
+      <div class="module-num">1</div>
+      <div>
+        <h2>ஈகோ என்றால் என்ன?</h2>
+        <div class="module-en en">Module 1 · What is Ego?</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>ஈகோ (Ego) என்றால் என்ன என்பதை தெளிவாகப் புரிந்துகொள்வீர்கள்</li>
+        <li>ஆரோக்கியமான ஈகோ மற்றும் ஆரோக்கியமற்ற ஈகோவின் வித்தியாசத்தை அறிந்துகொள்வீர்கள்</li>
+        <li>ஏன் மனிதர்களுக்கு ஈகோ உருவானது என்பதை புரிந்துகொள்வீர்கள்</li>
+        <li>உங்கள் ஈகோ செயல்படும் தருணங்களை அடையாளம் காணத் தொடங்குவீர்கள்</li>
+        <li>எதிர்வினைகளை அமைதியாகக் கையாளும் முதல் பயிற்சியைத் தொடங்குவீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 — ஈகோ என்றால் என்ன? <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>"அவருக்கு ரொம்ப ஈகோ." "எனக்கு ஈகோ கிடையாது." — இப்படிப்பட்ட வார்த்தைகளை நாம் அடிக்கடி கேட்கிறோம். ஆனால் உண்மையில் ஈகோ என்றால் என்ன?</p>
+        <p>பலர் நினைப்பது போல ஈகோ ஒரு கெட்ட குணமல்ல. அது ஒவ்வொரு மனிதருடைய மனதிலும் இயற்கையாக இருக்கும் ஒரு மன அமைப்பு — "நான் யார்?" என்ற கேள்விக்கு பதில் சொல்லும் பகுதி.</p>
+
+        <h4>ஈகோ எப்படி உருவாகிறது?</h4>
+        <p>ஒரு குழந்தை பிறக்கும்போது "நான் யார்?" என்ற எண்ணமே இருக்காது. "நீ நல்ல பையன்", "நீ தான் First Rank" என்று மற்றவர்கள் சொல்ல ஆரம்பிக்கும் போது, குழந்தை ஒரு சுய அடையாளத்தை உருவாக்குகிறது. அந்த அடையாளத்தை பாதுகாக்கும் மன அமைப்புதான் Ego.</p>
+
+        <div class="analogy-box">
+          <span class="label en">Simple Analogy</span>
+          உங்கள் மொபைலில் Lock Screen இருப்பதைப் போல, மனதிற்கும் ஒரு பாதுகாப்பு அமைப்பு இருக்கிறது — அதுதான் Ego. அது நம்மைப் பாதுகாக்க வேண்டும், ஆனால் சில நேரங்களில் அதுவே நம்மை சிக்கலில் மாட்ட வைக்கிறது.
+        </div>
+
+        <h4>நல்ல ஈகோ vs கெட்ட ஈகோ</h4>
+        <table class="compare-table">
+          <tr><th>ஆரோக்கியமான ஈகோ</th><th>ஆரோக்கியமற்ற ஈகோ</th></tr>
+          <tr><td>தன்னம்பிக்கையுடன் இருப்பார்</td><td>யாருடைய கருத்தையும் ஏற்க மாட்டார்</td></tr>
+          <tr><td>பிறரின் கருத்தைக் கேட்பார்</td><td>சிறிய விமர்சனத்திற்கே கோபப்படுவார்</td></tr>
+          <tr><td>தேவையான இடத்தில் மன்னிப்பு கேட்பார்</td><td>தன்னுடைய தவறை மறைப்பார்</td></tr>
+          <tr><td>தொடர்ந்து கற்றுக்கொள்வார்</td><td>எப்போதும் பாராட்டு எதிர்பார்ப்பார்</td></tr>
+        </table>
+
+        <div class="story-box">
+          <span class="label">வாழ்க்கை சம்பவம்</span>
+          ரவிக்கு ஒரு வங்கியில் மேலாளர் வேலை. ஒருநாள் Junior Staff மரியாதையாக "Sir, Formula சரிதான் இருக்கிறது" என்று சொன்னதற்கே ரவிக்கு கோபம் வந்தது. வீட்டிற்கு வந்த பிறகுதான் புரிந்தது — அவர் உண்மையைப் பாதுகாக்கவில்லை, "நான் தவறு செய்யாத Manager" என்ற தன் Image-ஐப் பாதுகாத்துக் கொண்டிருந்தார். இதுவே ஈகோ செயல்படும் தருணம்.
+        </div>
+
+        <div class="analogy-box">
+          <span class="label en">Security Guard Analogy</span>
+          வீட்டில் Security Guard அனைவரையும் சந்தேகப்பட்டால், நண்பர்களையும் உள்ளே விடமாட்டார் — இறுதியில் நீங்கள் தனியாகிவிடுவீர்கள். ஈகோவும் அதேபோல, அளவுக்கு அதிகமாக பாதுகாக்க முயற்சித்தால் உறவுகளையும் வாய்ப்புகளையும் தள்ளிவிடும்.
+        </div>
+
+        <div class="reflect-box">
+          <span class="label">சுய சிந்தனை</span>
+          <p style="margin-bottom:4px;">1. யாராவது என்னை திருத்தும்போது எனக்கு எப்படி உணரப்படுகிறது?</p>
+          <textarea placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்..."></textarea>
+          <p style="margin:10px 0 4px;">2. நான் எப்போது அதிகமாக கோபப்படுகிறேன்?</p>
+          <textarea placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்..."></textarea>
+          <p style="margin:10px 0 4px;">3. "நான் தவறு செய்தேன்" என்று கடைசியாக எப்போது சொன்னேன்?</p>
+          <textarea placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்..."></textarea>
+        </div>
+
+        <h4>நடைமுறைப் பயிற்சி — அடுத்த 7 நாட்கள்</h4>
+        <p>ஒவ்வொரு முறையும் கோபம் வந்தால், இந்த நான்கை எழுதுங்கள்:</p>
+        <ul class="plain">
+          <li>என்ன நடந்தது?</li>
+          <li>என்ன உணர்ந்தேன்?</li>
+          <li>என் உடலில் என்ன மாற்றம் ஏற்பட்டது?</li>
+          <li>நான் எப்படி பதிலளித்தேன்?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2 — மனிதர்களுக்கு ஏன் ஈகோ இருக்கிறது? <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>"ஈகோ இல்லாமல் வாழ முடியாதா?" — முடியாது. ஏனெனில் ஈகோ இயற்கை நமக்குக் கொடுத்த பாதுகாப்பு அமைப்பு. ஆயிரக்கணக்கான ஆண்டுகளுக்கு முன்பு, குழுவிலிருந்து வெளியேற்றப்பட்டால் உணவும் பாதுகாப்பும் கிடைக்காது — உயிர் வாழ்வதே சிரமம். அதனால் "மற்றவர்கள் என்ன நினைக்கிறார்கள்?" என்பது உயிர் வாழ்வதற்கே முக்கியமான விஷயமாக இருந்தது.</p>
+        <p>அந்த பாதுகாப்பு அமைப்புதான் இன்றும் நம் மனதில் இருக்கிறது. ஆனால் இன்று WhatsApp Message, Facebook Comment, Office Feedback போன்ற சிறிய விமர்சனங்களைக் கூட நமது மூளை பெரிய ஆபத்தாக எடுத்துக்கொள்கிறது. உண்மையில் ஆபத்து இல்லை — ஆனால் ஈகோ Alarm அடிக்கிறது.</p>
+
+        <div class="analogy-box">
+          <span class="label en">Smoke Alarm Analogy</span>
+          பழைய விறகு அடுப்பு வீட்டிற்குப் பொருத்தப்பட்ட Smoke Alarm-ஐ நவீன வீட்டில் வைத்தால், சிறிய புகைக்கும் பெரிய சத்தம் போடும். Alarm பழுதாகவில்லை — காலத்திற்கு ஏற்றபடி மாற்றப்படவில்லை. நமது ஈகோவும் அப்படித்தான்.
+        </div>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m1"> Module 1 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 2 -->
+  <section class="module" id="m2">
+    <div class="module-head">
+      <div class="module-num">2</div>
+      <div>
+        <h2>Parent, Adult, Child Ego States</h2>
+        <div class="module-en en">Module 2 · உங்கள் மனதில் பேசும் மூன்று குரல்கள்</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>Parent Ego State என்றால் என்ன என்பதை புரிந்துகொள்வீர்கள்</li>
+        <li>Adult Ego State எப்படி முடிவுகளை எடுக்கிறது என்பதை அறிந்துகொள்வீர்கள்</li>
+        <li>Child Ego State எப்போது வெளிப்படுகிறது என்பதை கண்டறிவீர்கள்</li>
+        <li>நீங்கள் எந்த Ego State-ல் அதிக நேரம் செயல்படுகிறீர்கள் என்பதை அறிந்துகொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">அறிமுகம் &amp; Lesson 1 — Parent Ego State <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>ஒரே மனிதர் ஒரு நேரத்தில் அமைதியாக பேசுகிறார், மற்றொரு நேரத்தில் குழந்தை போல கோபப்படுகிறார். ஏன் இப்படி மாறுகிறது? Transactional Analysis கோட்பாட்டை உருவாக்கிய Eric Berne-ன் கருத்துப்படி, ஒவ்வொரு மனிதருக்குள்ளும் மூன்று மனநிலைகள் (Ego States) இருக்கின்றன — Parent, Adult, Child. இவை மூன்றும் தவறல்ல; எந்த சூழ்நிலையில் எது செயல்படுகிறது என்பதுதான் வாழ்க்கையை தீர்மானிக்கிறது.</p>
+
+        <h4>Parent Ego State என்றால் என்ன?</h4>
+        <p>நம் அம்மா, அப்பா, ஆசிரியர், பாட்டி, தாத்தா போன்றோரிடமிருந்து கற்றுக்கொண்ட எண்ணங்களும், விதிமுறைகளும் மனதில் பதிவு செய்யப்பட்டிருக்கும் பகுதி. யோசிக்காமல் அதே வார்த்தைகளை மீண்டும் பேச ஆரம்பிக்கிறோம்.</p>
+        <table class="compare-table">
+          <tr><th>Critical Parent</th><th>Nurturing Parent</th></tr>
+          <tr><td>"இது சரியில்லை", "உனக்கு தெரியாதா?", "நீ இப்படித்தான்"</td><td>"பரவாயில்லை", "மீண்டும் முயற்சி பண்ணலாம்", "உன்னால் முடியும்"</td></tr>
+          <tr><td>அதிகமாக விமர்சிப்பார், தண்டிப்பார், கட்டளையிடுவார்</td><td>அன்பாக பேசுவார், ஊக்கப்படுத்துவார், பாதுகாப்பு கொடுப்பார்</td></tr>
+        </table>
+        <div class="story-box"><span class="label">வாழ்க்கை உதாரணம்</span>சுரேஷின் அப்பா எப்போதும் "ஆம்பளை அழக்கூடாது" என்று சொல்வார். இன்று சுரேஷின் மகன் அழும்போது அவரும் அதே வார்த்தையை சொல்கிறார் — யோசித்து பேசவில்லை, சிறு வயதில் பதிவான Parent Ego பேசுகிறது.</p></div>
+        <div class="quote">"நீங்கள் கோபப்படும்போது உங்கள் குரல் உங்கள் அம்மா அல்லது அப்பாவைப் போல இருக்கிறதா? அப்படி இருந்தால், இப்போது பேசுவது நீங்கள் இல்லை — உங்கள் Parent Ego." — Trainer</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2 — Adult Ego State <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>Adult Ego நமது வாழ்க்கையின் CEO. இதில் கோபம் இல்லை, பயம் இல்லை, பிடிவாதம் இல்லை — உண்மை என்ன, சிறந்த தீர்வு என்ன என்று யோசிக்கும் பகுதி.</p>
+        <ul class="plain"><li><b>Child Ego:</b> "அவருக்கு பதில் சொல்லணும்."</li><li><b>Parent Ego:</b> "அவருக்கு பாடம் கற்பிக்கணும்."</li><li><b>Adult Ego:</b> "அவர் சொன்னதில் உண்மை ஏதாவது இருக்கிறதா?"</li></ul>
+        <div class="story-box"><span class="label">உதாரணம் — Priya</span>Meeting-ல் ஒருவர் "இந்த Report சரியாக இல்லை" என்றார். Priya உடனே கோபப்படாமல் "Data என்ன சொல்கிறது?" என்று கேட்டார். அந்த ஒரு கேள்வியால் சண்டை Discussion ஆக மாறியது.</div>
+        <table class="compare-table">
+          <tr><th>Ego மொழி</th><th>Adult மொழி</th></tr>
+          <tr><td>"நீ தவறு."</td><td>"இந்த தகவலை இன்னொரு முறை பார்க்கலாமா?"</td></tr>
+          <tr><td>"உன்னால்தான்."</td><td>"இந்த பிரச்சினைக்கு என்ன தீர்வு?"</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 3 — Child Ego State &amp; Self Assessment <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>Child Ego நம் சிறுவயது உணர்வுகள் — சந்தோஷம், பயம், அழுகை, பொறாமை, விளையாட்டு மனப்பான்மை, ஆர்வம். இது கெட்டதல்ல; சிரிப்பு, படைப்பாற்றல், கனவுகள் எல்லாம் இதிலிருந்தே வருகின்றன. ஆனால் அதே Child Ego கோபப்பட்டால், பெரியவராக இருந்தாலும் குழந்தையைப் போல நடந்து கொள்வோம். "என்னை யாரும் மதிக்கவில்லை", "எல்லாரும் என்னை வெறுக்கிறாங்க" — இவை Child Ego-வின் குரல்கள்.</p>
+
+        <h4>மூன்று Ego State-களின் ஒப்பீடு</h4>
+        <table class="compare-table">
+          <tr><th>Parent</th><th>Adult</th><th>Child</th></tr>
+          <tr><td>கட்டளை</td><td>உண்மை</td><td>உணர்வு</td></tr>
+          <tr><td>தீர்ப்பு</td><td>பகுப்பாய்வு</td><td>எதிர்வினை</td></tr>
+          <tr><td>விமர்சனம்</td><td>கேள்வி</td><td>கோபம் அல்லது பயம்</td></tr>
+        </table>
+
+        <div class="reflect-box">
+          <span class="label">Self Assessment</span>
+          <p style="margin-bottom:4px;">Parent: நான் அடிக்கடி "வேண்டும்" என்று பேசுகிறேனா? மற்றவர்களை அதிகமாக விமர்சிக்கிறேனா?</p>
+          <p style="margin:10px 0 4px;">Adult: முடிவு எடுக்கும் முன் தகவல்களை சரிபார்க்கிறேனா? கோபமான நேரத்திலும் அமைதியாக பேச முடியுமா?</p>
+          <p style="margin:10px 0 4px;">Child: யாராவது திருத்தினால் உடனே வருத்தப்படுகிறேனா? என்னை யாரும் புரிந்து கொள்ளவில்லை என்று தோன்றுகிறதா?</p>
+          <textarea placeholder="உங்கள் பிரதிபலிப்பை இங்கே எழுதுங்கள்..."></textarea>
+        </div>
+
+        <p>நமது இலக்கு Parent அல்லது Child-ஐ நீக்குவது அல்ல — தேவையான நேரத்தில் Adult Ego State-ஐ பயன்படுத்த கற்றுக்கொள்வதே உண்மையான உணர்ச்சி முதிர்ச்சி.</p>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m2"> Module 2 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 3 -->
+  <section class="module" id="m3">
+    <div class="module-head">
+      <div class="module-num">3</div>
+      <div>
+        <h2>ஆரோக்கியமான ஈகோ, அதிகப்படியான ஈகோ மற்றும் தாழ்வு மனப்பான்மை</h2>
+        <div class="module-en en">Module 3 · Healthy Ego vs Inflated Ego vs Low Self-Worth</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>ஆரோக்கியமான ஈகோ என்றால் என்ன என்பதை புரிந்துகொள்வீர்கள்</li>
+        <li>அதிகப்படியான ஈகோ (Inflated Ego) எப்படி வாழ்க்கையை பாதிக்கிறது என்பதை அறிந்துகொள்வீர்கள்</li>
+        <li>தாழ்வு மனப்பான்மை (Low Self-Worth) மற்றும் ஈகோவின் தொடர்பை புரிந்துகொள்வீர்கள்</li>
+        <li>தன்னம்பிக்கைக்கும் தாழ்மைக்கும் இடையே சமநிலையை உருவாக்க கற்றுக்கொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 — ஆரோக்கியமான ஈகோ <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>ஆரோக்கியமான ஈகோ என்றால் எப்போதும் தன்னம்பிக்கையுடன் பேசுவது மட்டுமல்ல. உண்மையான ஆரோக்கியமான ஈகோ: தவறு செய்தால் ஒப்புக்கொள்ளும், வெற்றி கிடைத்தால் மகிழும், தோல்வி வந்தாலும் உடைந்து போகாது, பாராட்டினாலும் தலைக்கனம் வராது, விமர்சித்தாலும் மனம் உடையாது.</p>
+        <div class="analogy-box"><span class="label en">Banyan Tree Analogy</span>காற்று அடிக்கிறது, மழை பெய்கிறது, சில கிளைகள் அசைகின்றன — ஆனால் வேர் ஆழமாக இருப்பதால் மரம் விழுவதில்லை. ஆரோக்கியமான ஈகோவும் அப்படித்தான்; மற்றவர்கள் என்ன சொன்னாலும் நமது சுயமதிப்பு அசையாது.</div>
+        <div class="story-box"><span class="label">உதாரணம் — அர்ஜுன்</span>Business Proposal-ஐ Investors நிராகரித்தனர். அர்ஜுன் "என் வாழ்க்கை முடிந்துவிட்டது" என்று நினைக்காமல் "என்ன மாற்றினால் இது சிறப்பாகும்?" என்று Feedback கேட்டு, திருத்தி மீண்டும் சமர்ப்பித்தார்.</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2 — அதிகப்படியான ஈகோ (Inflated Ego) <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <div class="analogy-box"><span class="label en">Balloon Analogy</span>ஒரு பலூனில் அளவுக்கு அதிகமாக காற்றை நிரப்பினால் சிறிய ஊசி பட்டாலே வெடித்துவிடும். அதேபோல, அளவுக்கு அதிகமான ஈகோ கொண்டவர்கள் வெளியில் வலிமையாகத் தோன்றினாலும் உள்ளுக்குள் மிகவும் பயப்படுபவர்களாக இருக்கலாம்.</div>
+        <ul class="plain"><li>நான் தான் எப்போதும் சரி</li><li>யாருடைய ஆலோசனையும் தேவையில்லை</li><li>Feedback பிடிக்காது, தவறு ஒப்புக்கொள்ள மாட்டார்கள்</li><li>மற்றவர்கள் வெற்றி பெற்றால் பொறாமை, எப்போதும் பாராட்டு வேண்டும்</li></ul>
+        <div class="story-box"><span class="label">Office Example</span>Junior Employee ஒரு நல்ல Idea சொன்னதற்கு Manager "அது நான் ஏற்கனவே யோசிச்சது" என்று Credit முழுவதையும் எடுத்துக்கொள்கிறார். இதுதான் Inflated Ego.</div>
+        <div class="quote">"உண்மையாக தன்னம்பிக்கை உள்ளவர்களுக்கு தங்களை நிரூபிக்க வேண்டிய அவசியமே இருக்காது. பயம் உள்ளவர்கள்தான் எப்போதும் 'நான் தான் பெரியவன்' என்று சொல்லிக் கொண்டே இருப்பார்கள்." — Trainer</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 3 — தாழ்வு மனப்பான்மை (Low Self-Worth) <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>"தாழ்வு மனப்பான்மை இருந்தால் ஈகோ இல்லை" என்பது தவறு. உளவியல் பார்வையில், அதிகப்படியான ஈகோவும் தாழ்வு மனப்பான்மையும் ஒரே நாணயத்தின் இரண்டு பக்கங்கள் — இரண்டிலும் சுயமதிப்பு வெளிப்புற அங்கீகாரத்தைப் பொறுத்தே இருக்கும். இப்படிப்பட்டவர்கள் எப்போதும் "Sorry", "என்னால்தான்", "நான் சரியில்லை" என்று பேசுவார்கள்; பிறரின் Approval இல்லாமல் முடிவு எடுக்க முடியாது, "NO" சொல்ல முடியாது.</p>
+        <div class="story-box"><span class="label">அனிதா &amp; விஜய்</span>இருவருக்கும் ஒரே Performance Feedback வந்தது. விஜய் "என்னை மதிக்க தெரியாது" என்று கோபப்பட்டார்; அனிதா "நான் ஒன்றுக்கும் உதவாதவள்" என்று அழ ஆரம்பித்தார். இருவருமே Feedback-ல் இருந்த நல்ல கருத்தை பயன்படுத்தவில்லை — இதுதான் சமநிலை இல்லாத ஈகோ.</div>
+        <div class="analogy-box"><span class="label en">Football Analogy</span>சரியான அளவு காற்று இருக்கும் கால்பந்து அடிபட்டாலும் மீண்டும் தனது வடிவத்திற்குத் திரும்பும் — அதுதான் Healthy Ego.</div>
+
+        <div class="reflect-box">
+          <span class="label">Self Reflection</span>
+          <p>Feedback கேட்டால் கோபப்படுகிறேனா? பாராட்டவில்லை என்றால் மனம் உடைகிறதா? எல்லோருக்கும் பிடிக்க வேண்டும் என்று நினைக்கிறேனா? மற்றவர்களின் வெற்றியை மனதார பாராட்ட முடியுமா?</p>
+          <textarea placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்..."></textarea>
+        </div>
+
+        <div class="quote">"தன்னம்பிக்கை என்பது 'நான் எல்லாம் தெரிந்தவன்' என்று நினைப்பது அல்ல. 'எனக்கு தெரியாததை நான் கற்றுக்கொள்வேன்' என்று நம்புவதுதான் உண்மையான தன்னம்பிக்கை." — Trainer</div>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m3"> Module 3 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 4 -->
+  <section class="module" id="m4">
+    <div class="module-head">
+      <div class="module-num">4</div>
+      <div>
+        <h2>உறவுகளில் ஈகோ</h2>
+        <div class="module-en en">Module 4 · Ego in Relationships</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>உறவுகளில் ஈகோ எப்படி செயல்படுகிறது என்பதை புரிந்துகொள்வீர்கள்</li>
+        <li>"நான் சரி" என்ற மனநிலை உறவுகளை எவ்வாறு பாதிக்கிறது என்பதை அறிந்துகொள்வீர்கள்</li>
+        <li>கணவன்–மனைவி, பெற்றோர்–பிள்ளை, நண்பர்கள் உறவுகளில் ஈகோவின் தாக்கத்தைப் புரிந்துகொள்வீர்கள்</li>
+        <li>கருத்து வேறுபாடுகளை உறவை பாதிக்காமல் சமாளிக்க கற்றுக்கொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 — சண்டையின் உண்மையான காரணம் <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>பல தம்பதிகள் 10-20 வருடமாக அதே விஷயத்திற்காக சண்டை போடுகிறார்கள். பிரச்சினை பாத்திரம் கழுவுவதோ, பணமோ, குழந்தைகளோ அல்ல — உண்மையான பிரச்சினை "நான் தோற்கக்கூடாது" என்ற ஈகோ.</p>
+        <div class="story-box"><span class="label">ரமேஷ் &amp; லட்சுமி</span>மின்சார கட்டணம் செலுத்த மறந்துவிட்டனர். "நீயே கட்டணத்தை செலுத்தணும்" vs "நீயே நினைவுபடுத்தணும்" — 15 நிமிடத்தில் செலுத்தக்கூடிய கட்டணம் 2 மணி நேர சண்டையாக மாறியது. இருவரும் பிரச்சினையை தீர்க்கவில்லை, தங்களை நிரூபிக்க முயன்றார்கள்.</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2 — "நான் ஜெயிக்க வேண்டும்" <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>ஒரு உறவில் ஒருவர் ஜெயித்தால் மற்றொருவர் தோற்கிறார். உறவில் "நாம்" என்ற எண்ணம் இருக்க வேண்டும்; "நான்" என்ற எண்ணம் அதிகமானால் உறவு மெதுவாக பலவீனமாகும்.</p>
+        <div class="analogy-box"><span class="label en">Tug of War Analogy</span>கயிற்றின் இரு முனைகளையும் இருவர் பலமாக இழுக்கிறார்கள். யார் ஜெயித்தாலும் கயிறு அறுந்துவிட்டால் இருவரும் கீழே விழுவார்கள். சண்டையில் ஜெயிக்கலாம், ஆனால் உறவை இழக்கலாம்.</div>
+        <div class="quote">"வீட்டில் யார் சரி என்பதை விட எது சரி என்பதை கேட்க ஆரம்பித்தால், சண்டைகள் பாதியாக குறைந்து விடும்." — Trainer</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 3, 4 &amp; 5 — கணவன்-மனைவி · பெற்றோர்-பிள்ளைகள் · நண்பர்கள் <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <h4>கணவன் மனைவி உறவில் ஈகோ</h4>
+        <p>"முதலில் அவள்தான் பேசணும்" vs "முதலில் அவர்தான் மன்னிப்பு கேட்கணும்" — இருவரும் காத்திருக்கும்போது நாட்கள், வாரங்கள், மாதங்கள் கடந்து விடுகின்றன. மன்னிப்பு கேட்பவர் தோற்றவர் அல்ல; அவர் உறவை காப்பாற்ற விரும்பும் புத்திசாலி.</p>
+
+        <h4>பெற்றோர் மற்றும் பிள்ளைகள்</h4>
+        <p>"நான் உன் அப்பா, நான் சொல்வதைக் கேள்" என்பது Parent Ego. இன்றைய குழந்தைகள் "ஏன்?" என்று கேட்கிறார்கள் — விளக்காமல் அதிகாரம் காட்டினால் குழந்தை விலக ஆரம்பிக்கும். "நீ எப்போதுமே இப்படித்தான்" என்ற ஒரு வாக்கியம் "நான் நல்லவன் இல்லை" என்ற நம்பிக்கையை உருவாக்கலாம் — நடத்தை தவறு, குழந்தை அல்ல.</p>
+
+        <h4>நண்பர்கள்</h4>
+        <p>ஒருவர் அழைக்கவில்லை என்றால் உடனே "அவருக்கு இப்போ நான் தேவையில்லை" என்று முடிவு செய்துவிடுகிறோம். உண்மையில் அவருக்கு வேலை இருந்திருக்கலாம் — ஈகோ கதையை உருவாக்கிவிடுகிறது.</p>
+
+        <h4>Communication Formula</h4>
+        <p>பேசப் போகும் வார்த்தை: ✔ உண்மையா? ✔ தேவையா? ✔ அன்பானதா? இம்மூன்றில் ஒன்று இல்லை என்றால் அமைதியாக இருப்பது நல்லது.</p>
+
+        <div class="quote">"நான் இந்த பிரச்சினையை தீர்க்க விரும்புகிறேனா, அல்லது இந்த மனிதரை தோற்கடிக்க விரும்புகிறேனா?" — Relationship Golden Rule</div>
+
+        <div class="reflect-box">
+          <span class="label">Self Reflection</span>
+          <p>நான் எளிதாக மன்னிப்பு கேட்க முடியுமா? சண்டையில் கடைசி வார்த்தை என்னுடையதாக இருக்க வேண்டுமா? உறவை விட என் கருத்தையே முக்கியமாக நினைக்கிறேனா?</p>
+          <textarea placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m4"> Module 4 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 5 -->
+  <section class="module" id="m5">
+    <div class="module-head">
+      <div class="module-num">5</div>
+      <div>
+        <h2>பணியிடத்தில் ஈகோ</h2>
+        <div class="module-en en">Module 5 · Ego at the Workplace</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>பணியிடத்தில் ஈகோ எப்படி செயல்படுகிறது என்பதை புரிந்துகொள்வீர்கள்</li>
+        <li>ஒரு குழுவை (Team) ஈகோ எவ்வாறு பாதிக்கிறது என்பதை அறிந்துகொள்வீர்கள்</li>
+        <li>நல்ல தலைவர் (Leader) மற்றும் ஈகோ அதிகமுள்ள தலைவர் ஆகியோரின் வித்தியாசத்தை புரிந்துகொள்வீர்கள்</li>
+        <li>Credit கொடுப்பது, Feedback ஏற்றுக்கொள்வது, Team Trust உருவாக்குவது கற்றுக்கொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 — Credit யாருக்கு? <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>ஒரு Team கடினமாக உழைத்து Project வெற்றிகரமாக முடிக்கிறது. Meeting-ல் Manager "நான் இந்த Project-ஐ வெற்றிகரமாக முடித்தேன்" என்கிறார். Team அமைதியாக இருக்கிறது, ஆனால் மனதில் "எங்கள் உழைப்புக்கு மதிப்பு கிடைக்கவில்லை" என்று உணருகிறார்கள் — Motivation குறைய ஆரம்பிக்கிறது. நல்ல தலைவர் வெற்றியை Team-க்கு கொடுப்பார், தோல்வியை தான் ஏற்றுக்கொள்வார்; ஈகோ அதிகமுள்ள தலைவர் நேர்மாறாக செய்வார்.</p>
+        <div class="story-box"><span class="label">Software Company உதாரணம்</span>Junior Developer Application-யின் 80% வேலை செய்தார். Manager Senior Management-க்கு Presentation கொடுத்தபோது Junior-ன் பெயரையே சொல்லவில்லை. அடுத்த Project-ல் அந்த Junior புதிய Ideas எதையும் பகிரவில்லை.</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2, 3 &amp; 4 — Feedback · Team vs Competition · நல்ல தலைவர் யார்? <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>"இந்த Report-ல் இரண்டு தவறுகள் இருக்கின்றன" என்று சொன்னால் Healthy Ego "சரி, எங்கே தவறு?" என்று கேட்கும்; Inflated Ego "என்னை சந்தேகப்படுகிறீர்களா? எத்தனை வருட Experience தெரியுமா?" என்று Report-ஐ அல்ல, தன் Image-ஐ பாதுகாக்கும்.</p>
+        <div class="story-box"><span class="label">ரவி &amp; அருண் — Sales Team</span>ரவி புதிய Sales Technique கண்டுபிடித்தும் "எல்லாருக்கும் தெரிந்தால் நான் Special ஆக இருக்க மாட்டேன்" என்று Team-க்கு சொல்லவில்லை. மூன்று மாதங்கள் கழித்து முழு Team-ன் Performance-ம் நிறுவனமும் இழந்தது.</div>
+        <table class="compare-table">
+          <tr><th>ஈகோ மொழி</th><th>Leadership மொழி</th></tr>
+          <tr><td>"நான் இந்த Project-ஐ வெற்றி பெற வைத்தேன்."</td><td>"எங்கள் Team மிகச் சிறப்பாக வேலை செய்தது."</td></tr>
+          <tr><td>"அவன் தவறு செய்தான்."</td><td>"இந்த Process-ஐ இன்னும் மேம்படுத்தலாம்."</td></tr>
+        </table>
+        <div class="quote">"Leadership என்பது முன்னால் நிற்பது அல்ல, மற்றவர்களை முன்னால் நிறுத்துவது." — Trainer</div>
+        <div class="quote">"மக்கள் நீங்கள் எவ்வளவு புத்திசாலி என்பதை நினைவில் வைத்துக்கொள்ள மாட்டார்கள். ஆனால் நீங்கள் அவர்களை எவ்வளவு மதித்தீர்கள் என்பதை வாழ்நாள் முழுவதும் நினைவில் வைத்திருப்பார்கள்."</div>
+
+        <div class="reflect-box">
+          <span class="label">Self Reflection</span>
+          <p>நான் Team Success-க்கு Credit கொடுக்கிறேனா? Junior Employee-யின் Idea-ஐ ஏற்றுக்கொள்ள முடியுமா? நான் அதிகமாக "நான்" என்று பேசுகிறேனா, அல்லது "நாம்" என்று பேசுகிறேனா?</p>
+          <textarea placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m5"> Module 5 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 6 -->
+  <section class="module" id="m6">
+    <div class="module-head">
+      <div class="module-num">6</div>
+      <div>
+        <h2>தொடர்பாடலும் ஈகோவும்</h2>
+        <div class="module-en en">Module 6 · Ego and Communication Patterns</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>தொடர்பாடலில் (Communication) ஈகோ எப்படி செயல்படுகிறது என்பதை புரிந்துகொள்வீர்கள்</li>
+        <li>"கேட்பது" மற்றும் "புரிந்துகொள்வது" ஆகியவற்றின் வித்தியாசத்தை அறிந்துகொள்வீர்கள்</li>
+        <li>Ego Listening மற்றும் Active Listening இடையேயான வேறுபாட்டைப் புரிந்துகொள்வீர்கள்</li>
+        <li>சண்டையை உரையாடலாக மாற்றும் நடைமுறை தொடர்பாடல் திறன்களை கற்றுக்கொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 — இரண்டு விதமான கேட்பது <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>நம்மில் பலர் கேட்பதற்காகக் கேட்பதில்லை — பதில் சொல்லுவதற்காகக் கேட்கிறோம். அங்கேயே ஈகோ தொடர்பாடலைக் கட்டுப்படுத்த ஆரம்பிக்கிறது.</p>
+        <table class="compare-table">
+          <tr><th>Ego Listening</th><th>Active Listening</th></tr>
+          <tr><td>பதிலை மனதில் தயார் செய்வார்கள்</td><td>முழுமையாகக் கேட்பார்கள்</td></tr>
+          <tr><td>இடைமறித்து பேச காத்திருப்பார்கள்</td><td>இடைமறிக்க மாட்டார்கள்</td></tr>
+          <tr><td>தங்கள் கருத்தை நிரூபிக்க முயற்சிப்பார்கள்</td><td>விளக்கம் கேட்டு பிறகு பதில் சொல்வார்கள்</td></tr>
+        </table>
+        <div class="analogy-box"><span class="label en">Radio Frequency Analogy</span>ஒரே Radio Frequency-ல் இரண்டு Station-கள் ஒரே நேரத்தில் ஒலிபரப்பினால் சத்தம் மட்டுமே கேட்கும். இருவரும் ஒரே நேரத்தில் தங்கள் கருத்தை மட்டும் சொல்ல முயற்சித்தால், உரையாடல் இல்லை — சண்டைதான் இருக்கும்.</div>
+        <div class="story-box"><span class="label">சிந்து &amp; அருண்</span>அருண் பேசிக்கொண்டிருக்கும்போதே சிந்து பதிலை மனதில் தயார் செய்துக் கொண்டிருந்தார். பிறகு தன்னைத்தானே நிறுத்தி "நான் சரியாகப் புரிந்துகொண்டேனா?" என்று கேட்டு, அருண் சொன்னதை தன் வார்த்தைகளில் மீண்டும் கூறினார். அருண் முதன்முறையாக "என்னை ஒருவர் உண்மையாகக் கேட்டார்" என்று உணர்ந்தார்.</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2, 3 &amp; 4 — இடைமறிப்பு · தற்காப்பு மொழி · புரிந்துகொள்வதற்கான 5 படிகள் <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>யாராவது பேசிக்கொண்டிருக்கும்போது உடனே "இல்ல... நான் சொல்றேன்" என்று பேச ஆரம்பிப்பது அறிவின் அடையாளம் அல்ல — பல நேரங்களில் அது ஈகோவின் அடையாளம்.</p>
+        <div class="story-box"><span class="label">தற்காப்பு மொழி</span>"இந்த வேலையில் ஒரு சிறிய மாற்றம் தேவை" என்றால், Healthy Response: "சரி, என்ன மாற்றலாம்?" Ego Response: "எப்போதும் என்னைத்தான் சொல்கிறீர்கள், நான் மட்டும் தானா வேலை செய்கிறேன்?" — இதில் பிரச்சினைக்கு பதில் இல்லை, தற்காப்பு மட்டுமே.</div>
+
+        <h4>புரிந்துகொள்வதற்கான 5 படிகள்</h4>
+        <ul class="plain">
+          <li>முழுமையாகக் கேளுங்கள், இடைமறிக்காதீர்கள்</li>
+          <li>கண் தொடர்பை வைத்திருங்கள், மொபைலைப் பார்க்காதீர்கள்</li>
+          <li>அவர் சொன்னதை உங்கள் வார்த்தைகளில் சொல்லுங்கள் — "நீங்கள் சொல்ல வருவது..."</li>
+          <li>ஒரு கேள்வி கேளுங்கள் — "அப்படிச் சொல்ல காரணம் என்ன?"</li>
+          <li>பிறகு உங்கள் கருத்தை அமைதியாக சொல்லுங்கள்</li>
+        </ul>
+
+        <div class="analogy-box"><span class="label en">Trainer Formula — LISTEN</span>
+          <b>L</b>ook with attention (கவனமாகப் பாருங்கள்) · <b>I</b>nterrupt செய்யாதீர்கள் · <b>S</b>ummarize (சுருக்கமாகச் சொல்லுங்கள்) · <b>T</b>hink before speaking · <b>E</b>mpathize (உணர்வைப் புரிந்துகொள்ளுங்கள்) · <b>N</b>ever Judge Immediately
+        </div>
+
+        <div class="quote">"மக்கள் உங்கள் பதிலை நினைவில் வைத்துக்கொள்ள மாட்டார்கள். ஆனால் அவர்களை நீங்கள் எப்படி உணர வைத்தீர்கள் என்பதை ஒருபோதும் மறக்க மாட்டார்கள்." — Trainer</div>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m6"> Module 6 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 7 -->
+  <section class="module" id="m7">
+    <div class="module-head">
+      <div class="module-num">7</div>
+      <div>
+        <h2>உங்கள் Ego Trigger-களை கண்டறிதல்</h2>
+        <div class="module-en en">Module 7 · Recognising Your Ego Triggers</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>"Ego Trigger" என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்</li>
+        <li>உங்களுடைய Top 3 Ego Trigger-களை கண்டறிவீர்கள்</li>
+        <li>Trigger வந்தவுடன் உங்கள் மனமும் உடலும் எப்படி செயல்படுகிறது என்பதை அறிந்துகொள்வீர்கள்</li>
+        <li>Trigger-க்கு பதிலாக விழிப்புணர்வுடன் பதிலளிக்கும் திறனை வளர்த்துக் கொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 — Ego Trigger என்றால் என்ன? <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>ஏன் சில மனிதர்களிடம் மட்டும் நாம் உடனே கோபப்படுகிறோம்? ஏன் சில வார்த்தைகள் மட்டும் நம்மை மிகவும் காயப்படுத்துகின்றன? காரணம் — Ego Trigger. ஒரு Trigger என்பது நம்முடைய பழைய அனுபவங்கள், நம்பிக்கைகள், பயங்கள், மனக்காயங்களைத் தொடும் ஒரு நிகழ்வு; அந்த நொடியில் நாம் யோசிக்காமல் எதிர்வினை கொடுக்க ஆரம்பித்து விடுகிறோம்.</p>
+        <div class="analogy-box"><span class="label en">Old Wound Analogy</span>முழங்காலில் காயம் இருக்கும்போது யாராவது தவறுதலாக அதே இடத்தில் தொட்டால் உடனே வலி ஏற்படும். மனதிலும் சில "காயங்கள்" இருக்கும் — யாராவது அந்த இடத்தைத் தொடும்போது உடனே Ego செயல்பட ஆரம்பிக்கும்.</div>
+
+        <h4>பொதுவான Ego Trigger-கள்</h4>
+        <ul class="plain">
+          <li>அனைவரின் முன்னாலும் திருத்தப்படுவது</li>
+          <li>மற்றவர்களுடன் ஒப்பிடப்படுவது ("உன் அண்ணன் மாதிரி இருக்க முடியாதா?")</li>
+          <li>திறமை கேள்விக்குள்ளாக்கப்படுவது ("உனக்கு இது தெரியாதா?")</li>
+          <li>பேசும்போது இடைமறிக்கப்படுவது</li>
+          <li>முடிவெடுக்கும்போது சேர்க்கப்படாதது</li>
+          <li>கேட்காத ஆலோசனை கொடுக்கப்படுவது</li>
+        </ul>
+        <div class="story-box"><span class="label">கார்த்திக்</span>இரண்டு வாரங்கள் Journal எழுதிய பின், அவருடைய அண்ணனுடன் ஒப்பிடப்படும்போது தனக்கு உடனே கோபம் வருவதைக் கண்டுபிடித்தார். அடுத்த முறை உடனே பதில் சொல்லாமல் ஆழமாக மூச்சு விட்டார் — அந்த மாற்றம் குடும்ப உறவையே மாற்ற ஆரம்பித்தது.</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2 &amp; 3 — உடல் எதிர்வினை &amp; Trigger Map <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>Trigger வந்தால் உடல் முதலில் எதிர்வினை கொடுக்கிறது — இதயத் துடிப்பு அதிகரிக்கும், முகம் சூடாகும், தோள்கள் இறுகும், குரல் மாறும், வேகமாக பேச ஆரம்பிப்போம். இது "உங்கள் Ego செயல்பட ஆரம்பித்துவிட்டது" என்ற உடலின் எச்சரிக்கை.</p>
+
+        <h4>Trigger Map உருவாக்குவது</h4>
+        <p>ஒரு காகிதத்தில் இரண்டு Column போடுங்கள் — Trigger, நான் என்ன செய்யப் போகிறேன்.</p>
+        <table class="compare-table">
+          <tr><th>என்னுடைய Trigger</th><th>நான் என்ன செய்யப் போகிறேன்?</th></tr>
+          <tr><td>யாராவது விமர்சித்தால்</td><td>3 ஆழ்ந்த மூச்சு விடுவேன்</td></tr>
+          <tr><td>ஒப்பிட்டுப் பேசினால்</td><td>உடனே பதில் சொல்ல மாட்டேன்</td></tr>
+          <tr><td>இடைமறித்தால்</td><td>அவர் முடித்த பிறகு பேசுவேன்</td></tr>
+        </table>
+
+        <div class="analogy-box"><span class="label en">Trainer Formula — TRIGGER</span>
+          <b>T</b>hink (உடனே பதில் சொல்லாதீர்கள்) · <b>R</b>ecognize (இது என் Trigger) · <b>I</b>nhale (மூன்று ஆழ்ந்த மூச்சு) · <b>G</b>ive Time (10 விநாடிகள்) · <b>G</b>et Facts (உண்மை என்ன?) · <b>E</b>mpathize (அவருடைய நிலையை யோசியுங்கள்) · <b>R</b>espond (இப்போது பதில் சொல்லுங்கள்)
+        </div>
+
+        <div class="reflect-box">
+          <span class="label">Self Assessment — உங்களுக்கு அதிகமாக Trigger ஆகுவது எது?</span>
+          <p>விமர்சனம் · ஒப்பிடுவது · புறக்கணிப்பது · இடைமறிப்பது · பாராட்டாதது · தவறு சொல்வது · ஆலோசனை · அதிகாரமாக பேசுவது — இவற்றில் முதல் மூன்றை குறித்துக் கொள்ளுங்கள், அவைதான் உங்கள் Top Ego Trigger-கள்.</p>
+          <textarea placeholder="உங்கள் Top 3 Trigger-களை இங்கே எழுதுங்கள்..."></textarea>
+        </div>
+
+        <div class="quote">"Trigger-ஐ தவிர்ப்பது வளர்ச்சி அல்ல. Trigger வந்தாலும் அமைதியாக இருப்பதுதான் உண்மையான மன முதிர்ச்சி." — Trainer</div>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m7"> Module 7 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 8 -->
+  <section class="module" id="m8">
+    <div class="module-head">
+      <div class="module-num">8</div>
+      <div>
+        <h2>ஈகோ மற்றும் உணர்ச்சி நுண்ணறிவு (EQ)</h2>
+        <div class="module-en en">Module 8 · Ego and Emotional Intelligence</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>Emotional Intelligence (EQ) என்றால் என்ன என்பதைப் புரிந்துகொள்வீர்கள்</li>
+        <li>EQ-ன் 4 முக்கிய தூண்களை அறிந்துகொள்வீர்கள்</li>
+        <li>EQ மற்றும் Ego-விற்கு இடையிலான தொடர்பைப் புரிந்துகொள்வீர்கள்</li>
+        <li>உணர்ச்சிகளை கட்டுப்படுத்தி உறவுகளை மேம்படுத்தும் நடைமுறைப் பயிற்சிகளைக் கற்றுக்கொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">அறிமுகம் &amp; EQ-ன் 4 தூண்கள் <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>ஏன் சிலர் அழுத்தமான சூழ்நிலையிலும் அமைதியாக இருக்கிறார்கள், ஆனால் சிலர் சிறிய விஷயத்திற்கே கோபப்படுகிறார்கள்? வித்தியாசம் அறிவுத்திறனில் (IQ) இல்லை — உணர்ச்சி நுண்ணறிவில் (Emotional Intelligence). EQ வளர வளர, Ego-வின் தாக்கம் குறையும்.</p>
+        <div class="quote">"புத்திசாலியாக இருப்பது வாழ்க்கையில் வெற்றிக்கு உதவும். ஆனால் உணர்ச்சிகளை நிர்வகிக்கத் தெரிந்திருப்பது வாழ்க்கையை மகிழ்ச்சியாக மாற்றும்." — Trainer</div>
+
+        <h4>1. Self-Awareness (சுய விழிப்புணர்வு)</h4>
+        <p>என் உணர்வுகளை நான் கவனிக்கிறேனா? எப்போது Ego பேசுகிறது என்பதை உணர்வதே Self-Awareness. இது இல்லாமல் மாற்றமும் தொடங்காது.</p>
+        <div class="story-box"><span class="label">உதாரணம்</span>Meeting-ல் ஒருவர் உங்களை விமர்சிக்கும்போது கோபம் வருகிறது. ஆனால் "இப்போது எனக்கு கோபம் வருகிறது" என்று உங்களுக்குள் கவனித்தால், நீங்கள் கோபத்தின் அடிமையாக இல்லாமல் அதைக் கவனிக்கும் மனிதராக மாறுகிறீர்கள்.</div>
+        <div class="quote">"Feel it... Don't become it." — உணர்ச்சியை உணருங்கள், அதுவாக மாறாதீர்கள்.</div>
+
+        <h4>2. Self-Management (சுய கட்டுப்பாடு)</h4>
+        <p>கோபம் வருவது தவறு அல்ல; கோபத்தில் தவறான முடிவு எடுப்பதுதான் பிரச்சினை.</p>
+        <div class="analogy-box"><span class="label en">Trainer Formula — PAUSE</span>
+          <b>P</b>ause நிறுத்துங்கள் · <b>A</b>cknowledge உணர்ச்சியை ஏற்றுக்கொள்ளுங்கள் · <b>U</b>nderstand ஏன் வந்தது? · <b>S</b>low Down வேகத்தை குறையுங்கள் · <b>E</b>xecute Wisely பிறகு முடிவு எடுங்கள்.
+        </div>
+
+        <h4>3. Social Awareness (பிறரின் உணர்வுகளைப் புரிந்துகொள்வது)</h4>
+        <p>ஒருவர் கோபமாக பேசினால் அவர் கெட்டவர் என்று அர்த்தமில்லை — ஒருவேளை அவருக்கும் ஒரு பிரச்சினை இருக்கலாம். மற்றவர்களின் பார்வையிலிருந்து சூழ்நிலையைப் பார்ப்பதே Social Awareness.</p>
+
+        <h4>4. Relationship Management (உறவுகளைச் சிறப்பாக நிர்வகிப்பது)</h4>
+        <p>சரியான வார்த்தைகள், சரியான நேரம், மன்னிப்பது, மன்னிப்பு கேட்பது, நம்பிக்கை உருவாக்குவது — இதுவே Relationship Management.</p>
+
+        <table class="compare-table">
+          <tr><th>Ego</th><th>Emotional Intelligence</th></tr>
+          <tr><td>உடனே எதிர்வினை</td><td>யோசித்து பதிலளிக்கும்</td></tr>
+          <tr><td>ஜெயிக்க விரும்பும்</td><td>புரிந்துகொள்ள விரும்பும்</td></tr>
+          <tr><td>குறை கூறும்</td><td>தீர்வு தேடும்</td></tr>
+          <tr><td>தற்காப்பு</td><td>பொறுப்பு</td></tr>
+          <tr><td>"நான்"</td><td>"நாம்"</td></tr>
+        </table>
+
+        <div class="reflect-box">
+          <span class="label">Activity — 1 முதல் 5 வரை மதிப்பெண் கொடுங்கள்</span>
+          <table class="assess-table">
+            <tr><td style="width:60%">Self-Awareness</td><td><input type="range" min="1" max="5" value="3" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">3</span></td></tr>
+            <tr><td>Self-Management</td><td><input type="range" min="1" max="5" value="3" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">3</span></td></tr>
+            <tr><td>Social Awareness</td><td><input type="range" min="1" max="5" value="3" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">3</span></td></tr>
+            <tr><td>Relationship Management</td><td><input type="range" min="1" max="5" value="3" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">3</span></td></tr>
+          </table>
+          <p style="font-size:13.5px;color:var(--muted);">மதிப்பெண் குறைவாக இருக்கும் பகுதியே நீங்கள் வளர வேண்டிய இடம்.</p>
+        </div>
+
+        <h4>30-நாள் EQ Journal Assignment</h4>
+        <p>ஒவ்வொரு நாளும் இரண்டு வரிகள் எழுதுங்கள்: (1) இன்று நான் உணர்ச்சியை நன்றாக கையாண்ட ஒரு தருணம். (2) இன்று என் Ego என்னைக் கட்டுப்படுத்திய ஒரு தருணம்.</p>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m8"> Module 8 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 9 -->
+  <section class="module" id="m9">
+    <div class="module-head">
+      <div class="module-num">9</div>
+      <div>
+        <h2>உங்கள் ஈகோவை நிர்வகிக்கும் நடைமுறை உத்திகள்</h2>
+        <div class="module-en en">Module 9 · Practical Techniques to Manage Your Ego</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>ஈகோ அதிகரிக்கும் தருணத்தில் என்ன செய்ய வேண்டும் என்பதை அறிந்துகொள்வீர்கள்</li>
+        <li>STOP Technique-ஐ வாழ்க்கையில் பயன்படுத்த கற்றுக்கொள்வீர்கள்</li>
+        <li>24-Hour Rule-ன் சக்தியைப் புரிந்துகொள்வீர்கள்</li>
+        <li>தன்னம்பிக்கையை இழக்காமல் தாழ்மையை வளர்ப்பது எப்படி என்பதை கற்றுக்கொள்வீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 — STOP Technique <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>கோபத்திலும் அவசரத்திலும் எடுத்த முடிவுகள்தான் பின்னர் நம்மை வருத்தப்பட வைக்கின்றன. அதற்கான எளிய நான்கு-படி முறை — STOP Technique.</p>
+        <ul class="plain">
+          <li><b>S – Stop:</b> முதலில் நிறுத்துங்கள். உடனே பேசாதீர்கள், Message அனுப்பாதீர்கள், முடிவு எடுக்காதீர்கள். நிறுத்துவது பலவீனம் அல்ல, புத்திசாலித்தனம்.</li>
+          <li><b>T – Take a Breath:</b> மூன்று ஆழ்ந்த மூச்சுகள். இது மூளைக்கு "ஆபத்து இல்லை" என்ற தகவலை அனுப்புகிறது.</li>
+          <li><b>O – Observe:</b> என் இதயம் வேகமாக துடிக்கிறதா? என் Ego பேசுகிறதா? உண்மையான பிரச்சினை என்ன?</li>
+          <li><b>P – Proceed:</b> உணர்ச்சியின் அடிப்படையில் அல்ல, மதிப்புகளின் (Values) அடிப்படையில் அமைதியாக சரியான முடிவை எடுங்கள்.</li>
+        </ul>
+        <div class="story-box"><span class="label">வாழ்க்கை உதாரணம் — நித்யா</span>கடுமையான Client Email-க்கு கோபத்தில் ஒரு Reply எழுதிவிட்டு, அதை Send செய்யாமல் Draft-ஆக Save செய்தார். மறுநாள் படித்து, வார்த்தைகளை மாற்றி, தீர்வுகளையும் சேர்த்தார். Client "நீங்கள் மிகவும் Professional-ஆக Handle செய்தீர்கள்" என்று பாராட்டினார்.</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 2 — 24-Hour Rule <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>கோபத்திலோ, வருத்தத்திலோ, அதிக மகிழ்ச்சியிலோ எந்த பெரிய முடிவையும் உடனே எடுக்காதீர்கள் — 24 மணி நேரம் காத்திருங்கள். இது கோபமான Email/WhatsApp Message அனுப்பும்போது, ராஜினாமா செய்ய நினைக்கும்போது, உறவை முடிக்கும் முடிவெடுக்கும்போது பயன்படுத்தலாம்.</p>
+        <div class="quote">"ஒரு நிமிட கோபம் பல வருட உறவுகளை அழிக்கலாம். ஆனால் 24 மணி நேர பொறுமை அதே உறவை காப்பாற்றலாம்."</div>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 3 — தாழ்மை (Humility) என்றால் என்ன? <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>உண்மையான தாழ்மை என்பது தன்னைத் தாழ்த்திக் கொள்வது அல்ல — தன்னுடைய பலங்களையும் குறைகளையும் நேர்மையாக ஏற்றுக்கொள்வது. தாழ்வு மனப்பான்மை சொல்வது "என்னால் முடியாது"; தாழ்மை சொல்வது "எனக்குத் தெரியாததை நான் கற்றுக்கொள்வேன்."</p>
+        <div class="story-box"><span class="label">Senior Consultant உதாரணம்</span>தவறான Report Client-க்கு அனுப்பியபோது, அதை மறைக்காமல் "இந்த Report-ல் தவறு ஏற்பட்டுள்ளது, திருத்திய Version இணைத்துள்ளேன்" என்று Email அனுப்பினார். Client கோபப்படவில்லை — நம்பிக்கை அதிகரித்தது.</div>
+
+        <div class="analogy-box"><span class="label en">Trainer Formula — HUMBLE</span>
+          <b>H</b>onest உண்மையாக இருங்கள் · <b>U</b>nderstand கற்றுக்கொள்ள தயாராக இருங்கள் · <b>M</b>istakes தவறுகளை ஒப்புக்கொள்ளுங்கள் · <b>B</b>alance தன்னம்பிக்கையும் தாழ்மையும் சமநிலையில் · <b>L</b>isten அதிகமாகக் கேளுங்கள் · <b>E</b>ncourage மற்றவர்களை ஊக்கப்படுத்துங்கள்.
+        </div>
+
+        <h4>7-நாள் Ego Challenge</h4>
+        <ul class="plain">
+          <li>Day 1 — ஒரு தவறை ஒப்புக்கொள்ளுங்கள்</li>
+          <li>Day 2 — ஒருவரிடம் ஆலோசனை கேளுங்கள்</li>
+          <li>Day 3 — ஒருவருக்கு முழு Credit கொடுங்கள்</li>
+          <li>Day 4 — ஒருவரை மனதார பாராட்டுங்கள்</li>
+          <li>Day 5 — கோபமான Message-ஐ 24 மணி நேரம் Draft-ஆக வைத்திருங்கள்</li>
+          <li>Day 6 — ஒரு விமர்சனத்தை அமைதியாக ஏற்றுக்கொள்ளுங்கள்</li>
+          <li>Day 7 — Ego குறைந்த ஒரு தருணத்தை எழுதுங்கள்</li>
+        </ul>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m9"> Module 9 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <!-- MODULE 10 -->
+  <section class="module" id="m10">
+    <div class="module-head">
+      <div class="module-num">10</div>
+      <div>
+        <h2>சமநிலையான ஈகோவுடன் வாழ்வது</h2>
+        <div class="module-en en">Module 10 (Final) · Building an Ego-Balanced Life</div>
+      </div>
+    </div>
+    <div class="module-objectives">
+      <ul>
+        <li>Ego Balance Routine உருவாக்கக் கற்றுக்கொள்வீர்கள்</li>
+        <li>தினசரி 2 நிமிட Self Reflection பழக்கத்தை உருவாக்குவீர்கள்</li>
+        <li>மாதந்தோறும் உங்கள் Ego வளர்ச்சியை மதிப்பீடு செய்ய கற்றுக்கொள்வீர்கள்</li>
+        <li>10 Module-களையும் நடைமுறைப்படுத்தும் Action Plan உருவாக்குவீர்கள்</li>
+      </ul>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 1 &amp; 2 — Ego ஒரு நாள் மாறாது · தினசரி Reflection <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>பல வருடங்களாக உருவான பழக்கங்கள் ஒரே நாளில் மாறாது. ஆனால் சிறிய நல்ல பழக்கங்கள் பெரிய வாழ்க்கை மாற்றத்தை உருவாக்கும்.</p>
+        <div class="analogy-box"><span class="label en">Garden Analogy</span>ஒரு நாள் மட்டும் தண்ணீர் ஊற்றினால் செடிகள் வளராது — ஒவ்வொரு நாளும் சிறிதளவு கவனம் தேவை. Ego Balance-ம் அப்படித்தான், தினமும் பராமரிக்க வேண்டிய வாழ்க்கை முறை.</div>
+        <h4>ஒவ்வொரு இரவும் — 2 நிமிட Reflection</h4>
+        <ul class="plain">
+          <li>இன்று என்னுடைய Ego எப்போது வெளிப்பட்டது?</li>
+          <li>நான் எப்படி எதிர்வினை கொடுத்தேன்?</li>
+          <li>இன்னும் சிறப்பாக என்ன செய்திருக்கலாம்?</li>
+          <li>நாளை நான் என்ன மாற்றப் போகிறேன்?</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 3 &amp; 4 — மாதாந்திர Review · Ego Balance Routine <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <p>ஒவ்வொரு மாத இறுதியிலும் 30 நிமிடம் எடுத்து உங்களையே Interview செய்யுங்கள் — நான் அதிகமாக கோபப்பட்டேனா? Feedback ஏற்றுக்கொண்டேனா? எத்தனை முறை மன்னிப்பு கேட்டேன்?</p>
+        <h4>தினசரி Routine</h4>
+        <p>🌞 <b>காலை:</b> "இன்று நான் ஜெயிக்க அல்ல, புரிந்துகொள்ளப் போகிறேன்." "இன்று நான் அதிகமாகக் கேட்பேன், குறைவாகப் பேசுவேன்." "இன்று நான் யாரையாவது ஊக்கப்படுத்துவேன்."</p>
+        <p>🏢 <b>மதியம்:</b> ஒரு நிமிடம் நிறுத்தி கேளுங்கள் — "இன்று என் Ego பேசுகிறதா, அல்லது என் Values பேசுகிறதா?"</p>
+        <p>🌙 <b>இரவு:</b> 2 நிமிட Reflection, Journal, நன்றியுணர்வுடன் தூங்குங்கள்.</p>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">Lesson 5 — 90-நாள் Ego Challenge &amp; வாழ்க்கை மாற்றும் 10 பழக்கங்கள் <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <ul class="plain">
+          <li>வாரம் 1 — மற்றவர்களை இடைமறிக்காமல் கேளுங்கள்</li>
+          <li>வாரம் 2 — Feedback கேளுங்கள்</li>
+          <li>வாரம் 3 — மன்னிப்பு கேட்க தயங்காதீர்கள்</li>
+          <li>வாரம் 4 — தினமும் ஒருவரை பாராட்டுங்கள்</li>
+          <li>வாரம் 5 — STOP Technique பயன்படுத்துங்கள்</li>
+          <li>வாரம் 6 — Trigger Journal எழுதுங்கள்</li>
+          <li>வாரம் 7 — "நான்" என்பதை விட "நாம்" பயன்படுத்துங்கள்</li>
+          <li>வாரம் 8 — உங்களை விமர்சித்தவருக்கு நன்றி சொல்லுங்கள்</li>
+          <li>வாரம் 9 — ஒரு தவறை உடனே ஒப்புக்கொள்ளுங்கள்</li>
+          <li>வாரம் 10–13 — இந்த பழக்கங்களை ஒன்றாகப் பயிற்சி செய்யுங்கள்</li>
+        </ul>
+        <h4>தினமும் தொடர வேண்டிய 10 பழக்கங்கள்</h4>
+        <ul class="tick" style="list-style:none;">
+          <li>2 நிமிடம் Reflection</li>
+          <li>STOP Technique</li>
+          <li>மூன்று ஆழ்ந்த மூச்சு</li>
+          <li>ஒருவரைப் பாராட்டுங்கள்</li>
+          <li>ஒருவரை முழுமையாகக் கேளுங்கள்</li>
+          <li>உங்கள் Trigger-ஐ கவனியுங்கள்</li>
+          <li>"நன்றி" சொல்லுங்கள்</li>
+          <li>"எனக்குத் தெரியவில்லை" என்று சொல்ல தயங்காதீர்கள்</li>
+          <li>தவறு செய்தால் ஒப்புக்கொள்ளுங்கள்</li>
+          <li>உறவை வாதத்தை விட முக்கியமாகக் கருதுங்கள்</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="lesson">
+      <button class="lesson-toggle">இறுதி Activity &amp; Self Assessment <span class="chev">▶</span></button>
+      <div class="lesson-body">
+        <div class="final-letter">
+          <span class="label en" style="font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);font-weight:700;">6 மாதங்கள் கழித்து இருக்கும் எனக்கு...</span>
+          <p style="margin-top:8px;">உங்கள் எதிர்கால உங்களுக்கே ஒரு கடிதம் எழுதுங்கள் — நீங்கள் எப்படி மாற விரும்புகிறீர்கள் என்பதை இதில் விவரிக்கலாம்.</p>
+          <textarea placeholder="அன்புள்ள நான், இந்த Course முடிந்த பிறகு நான்..."></textarea>
+        </div>
+
+        <h4>Final Self Assessment (1–10)</h4>
+        <table class="assess-table">
+          <tr><td style="width:60%">நான் என்னை அறிந்திருக்கிறேன்</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>கோபத்தை நிர்வகிக்கிறேன்</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>Feedback ஏற்றுக்கொள்கிறேன்</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>பிறரைப் புரிந்துகொள்கிறேன்</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>மன்னிப்பு கேட்க முடியும்</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>Team-க்கு Credit கொடுக்கிறேன்</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>நல்ல Listener</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>Ego Trigger-களை அறிந்திருக்கிறேன்</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>Emotional Intelligence</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+          <tr><td>Ego Balance</td><td><input type="range" min="1" max="10" value="5" oninput="this.nextElementSibling.textContent=this.value"><span class="assess-score">5</span></td></tr>
+        </table>
+
+        <div class="quote">"தவறு செய்த மனிதர் தோல்வியடைந்தவர் அல்ல. தவறிலிருந்து கற்றுக்கொள்ள மறுக்கும் மனிதர்தான் உண்மையான தோல்வியாளர்." — Trainer</div>
+
+        <div class="story-box">
+          <span class="label">Trainer's Final Message</span>
+          இந்த Course-ன் நோக்கம் உங்கள் Ego-வை அழிப்பது அல்ல — அதை உங்கள் நண்பனாக மாற்றுவதுதான். ஈகோ இல்லாத மனிதன் யாரும் இல்லை, ஆனால் ஈகோவால் கட்டுப்படுத்தப்படாத மனிதனாக நீங்கள் மாறலாம். ஒவ்வொரு நாளும் 1% மாற்றம் போதும்.
+          <div class="quote" style="background:rgba(255,255,255,0.08);border-left-color:var(--gold-light);color:#fff;margin-top:12px;">"மற்றவர்களை வெல்வது ஒரு சாதனை. உங்களை நீங்களே வெல்வது ஒரு மகத்தான சாதனை."</div>
+        </div>
+      </div>
+    </div>
+
+    <label class="complete-check" style="margin:0 28px 26px;">
+      <input type="checkbox" class="module-complete" data-module="m10"> Module 10 முடிந்தது என குறிக்கவும்
+    </label>
+  </section>
+
+  <div class="cta-section">
+    <h3>உங்கள் ஈகோவை வழிநடத்த ஆரம்பிக்க தயாரா?</h3>
+    <p>கேள்விகள் இருந்தால், அல்லது இந்த பயிற்சியை உங்கள் பள்ளி / நிறுவனத்திற்கு வழங்க விரும்பினால் நேரடியாக தொடர்பு கொள்ளுங்கள்.</p>
+    <a class="wa-btn" href="https://wa.me/919843702244?text=Vanakkam%2C%20Ego%20Awareness%20Course%20pathi%20therinthukolla%20virumbugiren" target="_blank" rel="noopener">
+      💬 WhatsApp-ல் தொடர்பு கொள்ளுங்கள்
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="motto">"God is always with u."</div>
+  <div>© <span id="year"></span> N T Somasundaram — Life Skills Program &amp; Career Consultant</div>
+  <div class="en" style="margin-top:4px;">Tiruvannamalai, Tamil Nadu · somasundaramnt.lifecoach@gmail.com · +91 98437 02244</div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Accordion
+document.querySelectorAll('.lesson-toggle').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var body = this.nextElementSibling;
+    var isOpen = body.classList.contains('open');
+    this.classList.toggle('open', !isOpen);
+    body.classList.toggle('open', !isOpen);
+    body.style.maxHeight = isOpen ? '0px' : body.scrollHeight + 'px';
+  });
+});
+
+// Nav scroll + active state
+document.querySelectorAll('.nav-btn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var target = document.getElementById(this.dataset.target);
+    if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+
+// Progress tracking (in-memory only, resets on reload)
+var totalModules = document.querySelectorAll('.module-complete').length;
+function updateProgress(){
+  var done = document.querySelectorAll('.module-complete:checked').length;
+  var pct = Math.round((done/totalModules)*100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = pct + '% Modules முடிந்தது (' + done + '/' + totalModules + ')';
+}
+document.querySelectorAll('.module-complete').forEach(function(cb){
+  cb.addEventListener('change', updateProgress);
+});
+updateProgress();
+
+// Re-measure open lesson heights on window resize (fonts loading etc.)
+window.addEventListener('load', function(){
+  document.querySelectorAll('.lesson-body.open').forEach(function(b){
+    b.style.maxHeight = b.scrollHeight + 'px';
+  });
+});
+</script>
+
+</body>
+</html>
