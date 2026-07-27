@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>வகுப்பறை நடத்தை மேலாண்மை தேர்ச்சி | Classroom Behaviour Management Mastery</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  .landing-hero{background:radial-gradient(120% 160% at 100% -10%, #1a3a6b 0%, var(--navy) 55%, #081428 100%);color:#fff;padding:64px 0 56px;text-align:center}
+  .landing-hero .eyebrow{color:var(--gold-light)}
+  .landing-hero h1{color:#fff;font-size:2.3rem;max-width:820px;margin:14px auto 14px}
+  .landing-hero p.lead{color:#cfd9ec;max-width:680px;margin:0 auto 26px;font-size:1.05rem}
+  .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .stats-strip{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-top:36px;color:#e7ecf6}
+  .stats-strip .stat b{display:block;font-family:'Poppins',sans-serif;font-size:1.6rem;color:var(--gold-light)}
+  .stats-strip .stat span{font-size:.8rem;color:#aebbd8}
+  .grid-modules{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .mod-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);display:block}
+  .mod-card .mnum{font-family:'Poppins',sans-serif;font-weight:800;color:var(--gold);font-size:.78rem;letter-spacing:.06em}
+  .mod-card h4{margin:6px 0 0;font-size:1rem;color:var(--navy)}
+  .who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+  .who-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:20px;text-align:center;box-shadow:var(--shadow)}
+  .who-card .emoji{font-size:1.8rem}
+  .pricing-card{background:linear-gradient(135deg,#101f38,#132b52);color:#fff;border-radius:18px;padding:36px;text-align:center;max-width:520px;margin:0 auto}
+  .pricing-card .price{font-family:'Poppins',sans-serif;font-size:2.6rem;font-weight:800;color:var(--gold-light)}
+  .pricing-card .price small{font-size:1rem;color:#c8d3e8;font-weight:500}
+  .pricing-list{text-align:left;max-width:340px;margin:20px auto;list-style:none;padding:0}
+  .pricing-list li{padding:7px 0;color:#dbe4f5;font-size:.92rem}
+  .pricing-list li::before{content:"✓ ";color:var(--gold-light);font-weight:800}
+  .faq-item{border-bottom:1px solid var(--border);padding:16px 0}
+  .faq-item h4{margin:0 0 6px;color:var(--navy);font-size:.98rem}
+  .faq-item p{margin:0;color:var(--ink-soft);font-size:.9rem}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+</head>
+<body data-module="landing">
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-badge">NT</div>
+      <div class="brand-text">Classroom Behaviour Management Mastery<small>N T Somasundaram Life Skills Program</small></div>
+    </a>
+    <div class="top-actions">
+      <a class="icon-btn" href="#curriculum">பாடநெறி</a>
+      <a class="icon-btn gold" href="#pricing">இப்போதே சேருங்கள்</a>
+    </div>
+  </div>
+</div>
+
+<section class="landing-hero">
+  <div class="wrap">
+    <div class="eyebrow">10-Module Certified Course · ஆசிரியர்களுக்கானது</div>
+    <h1>வகுப்பறை நடத்தை மேலாண்மை தேர்ச்சி</h1>
+    <p class="lead">Classroom Behaviour Management Mastery — ஒழுக்கப் பிரச்சினைகளை புரிந்துகொள்வது முதல், நீண்டகால நேர்மறை மாற்றத்தை உருவாக்குவது வரை, ஒவ்வொரு ஆசிரியருக்கும் தேவையான முழுமையான, நடைமுறை அணுகுமுறை.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="#pricing">💳 இப்போதே பதிவு செய்யுங்கள்</a>
+      <a class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,.5)" data-wa="enroll" href="#" target="_blank">💬 WhatsApp-ல் கேளுங்கள்</a>
+    </div>
+    <div class="stats-strip">
+      <div class="stat"><b>10</b><span>Modules</span></div>
+      <div class="stat"><b>10</b><span>Activities</span></div>
+      <div class="stat"><b>10</b><span>Worksheets</span></div>
+      <div class="stat"><b>50</b><span>Review Questions</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <div class="section-icon">🎓</div>
+    <div><h2>இந்த Course உங்களுக்கானது, ஏனெனில்...</h2></div>
+  </div>
+  <div class="who-grid">
+    <div class="who-card"><div class="emoji">🧑‍🏫</div><h4>பள்ளி ஆசிரியர்கள்</h4><p style="color:var(--ink-soft);font-size:.88rem">வகுப்பறை ஒழுக்கத்தை அமைதியாக, தொழில்முறையாக கையாள விரும்புபவர்கள்</p></div>
+    <div class="who-card"><div class="emoji">🏫</div><h4>School Coordinators / HMs</h4><p style="color:var(--ink-soft);font-size:.88rem">தங்கள் ஆசிரியர் குழுவிற்கு ஒரே தரமான ஒழுக்க அணுகுமுறையை கொடுக்க விரும்புபவர்கள்</p></div>
+    <div class="who-card"><div class="emoji">🌱</div><h4>புதிய ஆசிரியர்கள்</h4><p style="color:var(--ink-soft);font-size:.88rem">வகுப்பறை நிர்வாகத்தில் நம்பிக்கையுடன் தொடங்க விரும்புபவர்கள்</p></div>
+  </div>
+</section>
+
+<section class="section wrap" id="curriculum">
+  <div class="section-head">
+    <div class="section-icon">📚</div>
+    <div><h2>10-Module பாடநெறி</h2><p>ஒவ்வொரு Module-லும்: பாடம் + செயல்பாடு + பணித்தாள் + Review Quiz</p></div>
+  </div>
+  <div class="grid-modules">
+    <a class="mod-card" href="module1.html"><div class="mnum">MODULE 1</div><h4>மாணவர்களின் நடத்தையைப் புரிந்துகொள்வோம்</h4></a>
+    <a class="mod-card" href="module2.html"><div class="mnum">MODULE 2</div><h4>ஆசிரியரின் மனநிலை — Responding vs Reacting</h4></a>
+    <a class="mod-card" href="module3.html"><div class="mnum">MODULE 3</div><h4>வகுப்பறை பண்பாடு — Preventive Structures</h4></a>
+    <a class="mod-card" href="module4.html"><div class="mnum">MODULE 4</div><h4>ஆரம்ப எச்சரிக்கை அறிகுறிகளை கண்டறிதல்</h4></a>
+    <a class="mod-card" href="module5.html"><div class="mnum">MODULE 5</div><h4>De-escalation Techniques in the Moment</h4></a>
+    <a class="mod-card" href="module6.html"><div class="mnum">MODULE 6</div><h4>Handling Defiance & Power Struggles</h4></a>
+    <a class="mod-card" href="module7.html"><div class="mnum">MODULE 7</div><h4>Group Dynamics & Peer Conflict</h4></a>
+    <a class="mod-card" href="module8.html"><div class="mnum">MODULE 8</div><h4>Restorative Conversations After an Incident</h4></a>
+    <a class="mod-card" href="module9.html"><div class="mnum">MODULE 9</div><h4>Working with Parents, Counselors & Leadership</h4></a>
+    <a class="mod-card" href="module10.html"><div class="mnum">MODULE 10</div><h4>Building Long-Term Behavioural Change</h4></a>
+  </div>
+</section>
+
+<section class="section wrap" id="pricing">
+  <div class="section-head">
+    <div class="section-icon">💳</div>
+    <div><h2>இப்போது சேருங்கள்</h2></div>
+  </div>
+  <div class="pricing-card">
+    <div class="eyebrow" style="color:var(--gold-light)">FULL COURSE ACCESS</div>
+    <div class="price">₹ 299<small> / course</small></div>
+    <ul class="pricing-list">
+      <li>10 Modules — Lifetime Access</li>
+      <li>10 Activities + 10 Printable Worksheets</li>
+      <li>50 Review Questions with Instant Scoring</li>
+      <li>Bilingual Tamil content, mobile friendly</li>
+      <li>WhatsApp support from N T Somasundaram</li>
+    </ul>
+    <div data-razorpay-slot style="margin-top:18px"></div>
+    <p style="font-size:.8rem;color:#aebbd8;margin-top:16px">Payment மூலமாக ஏதேனும் சிக்கல் இருந்தால், <a data-wa="enroll" href="#" target="_blank" style="color:var(--gold-light)">WhatsApp-ல் தொடர்பு கொள்ளுங்கள்</a></p>
+  </div>
+</section>
+
+<section class="section wrap">
+  <div class="section-head">
+    <div class="section-icon">❓</div>
+    <div><h2>அடிக்கடி கேட்கப்படும் கேள்விகள்</h2></div>
+  </div>
+  <div class="card">
+    <div class="faq-item"><h4>இந்த Course-க்கு access எப்படி கிடைக்கும்?</h4><p>Payment முடிந்தவுடன், WhatsApp வழியாக நேரடியாக course link அனுப்பப்படும்.</p></div>
+    <div class="faq-item"><h4>Worksheet-களை பிரிண்ட் செய்யலாமா?</h4><p>ஆம். ஒவ்வொரு Module-லும் "Print Worksheet" பொத்தானை பயன்படுத்தி நேரடியாக பிரிண்ட் செய்யலாம்.</p></div>
+    <div class="faq-item"><h4>Review Quiz-இல் தேர்ச்சி பெறாவிட்டால் என்ன செய்வது?</h4><p>பாடத்தை மீண்டும் படித்து, எத்தனை முறை வேண்டுமானாலும் Quiz-ஐ மீண்டும் முயற்சி செய்யலாம்.</p></div>
+    <div class="faq-item"><h4>எவ்வளவு காலத்திற்கு access கிடைக்கும்?</h4><p>Lifetime access — உங்கள் சொந்த வேகத்தில் படிக்கலாம்.</p></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap-wide">
+    <div>© N T Somasundaram Life Skills Program — SKV International School, Tiruvannamalai</div>
+    <div><a data-wa="enroll" href="#" target="_blank">WhatsApp: +91 98437 02244</a> &nbsp;|&nbsp; <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+  </div>
+</footer>
+
+<a class="wa-float" data-wa="float" href="#" target="_blank">💬</a>
+
+<script src="assets/config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
