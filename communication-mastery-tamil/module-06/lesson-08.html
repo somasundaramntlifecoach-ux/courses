@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 6 · Lesson 8: Emotional Vocabulary | Premium Communication Mastery Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0b1d3a; --navy2:#122a52; --gold:#c9a227; --gold-light:#e8cf7a;
+  --bg:#f6f7fb; --card:#ffffff; --text:#1b2333; --muted:#5a6478;
+  --good:#1c7c4d; --bad:#b3261e; --radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+.ta{font-family:'Noto Sans Tamil','Poppins',sans-serif}
+h1,h2,h3,h4{font-family:'Poppins','Noto Sans Tamil',sans-serif;color:var(--navy);line-height:1.35}
+a{color:inherit;text-decoration:none}
+.topbar{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;box-shadow:0 2px 10px rgba(0,0,0,.15)}
+.topbar .brand{font-weight:600;font-size:15px}
+.topbar .brand small{display:block;font-weight:400;font-size:11px;color:var(--gold-light)}
+.topbar nav a{color:#fff;font-size:13px;margin-left:14px;opacity:.9}
+.container{max-width:880px;margin:0 auto;padding:28px 18px 80px}
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;border-radius:var(--radius);padding:34px 26px;margin-bottom:26px}
+.hero h1{color:#fff;font-size:26px;margin:0 0 6px}
+.hero .tag{color:var(--gold-light);font-size:13px;letter-spacing:.03em;text-transform:uppercase;margin-bottom:10px}
+.hero .sub{color:#d8dcea;font-size:14px}
+.badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.badge{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);padding:6px 12px;border-radius:20px;font-size:12px}
+.card{background:var(--card);border-radius:var(--radius);padding:24px;margin-bottom:20px;box-shadow:0 1px 4px rgba(20,30,60,.06);border:1px solid #eceff5}
+.card h2{font-size:19px;border-left:4px solid var(--gold);padding-left:12px;margin-top:0}
+.card h3{font-size:16px;color:var(--navy2)}
+.content-list{padding-left:20px;margin:10px 0}
+.content-list li{margin:6px 0}
+.content-list li.good{color:var(--good)}
+.content-list li.bad{color:var(--bad)}
+blockquote{border-left:3px solid var(--gold);background:#fbf7ea;margin:14px 0;padding:12px 16px;border-radius:6px;font-style:italic;color:#40391a}
+.content-table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+.content-table th,.content-table td{border:1px solid #e2e5ee;padding:8px 10px;text-align:left}
+.content-table th{background:var(--navy);color:#fff}
+.emphasis-line{font-weight:600;color:var(--navy2)}
+.arrow-step{text-align:center;font-size:20px;color:var(--gold);margin:2px 0}
+.progress-wrap{background:#e6e9f2;border-radius:20px;height:10px;overflow:hidden;margin:10px 0 4px}
+.progress-fill{background:linear-gradient(90deg,var(--gold),var(--gold-light));height:100%;width:0%;transition:width .4s}
+.lesson-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.lesson-link{display:flex;align-items:center;justify-content:space-between;background:var(--card);border:1px solid #eceff5;border-radius:10px;padding:14px 16px;transition:.15s}
+.lesson-link:hover{border-color:var(--gold);transform:translateX(3px)}
+.lesson-link .num{background:var(--navy);color:#fff;font-size:12px;padding:4px 10px;border-radius:20px;margin-right:12px}
+.lesson-link .status{font-size:12px;color:var(--muted)}
+.lesson-link.done .status{color:var(--good);font-weight:600}
+.nav-buttons{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn{display:inline-block;padding:12px 22px;border-radius:30px;font-size:14px;font-weight:600;cursor:pointer;border:none;text-align:center}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-primary:hover{background:var(--gold-light)}
+.btn-outline{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
+.btn-ghost{background:#eef0f7;color:var(--navy)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-block{display:block;width:100%}
+.pill-nav{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+.pill{background:#eef0f7;padding:8px 14px;border-radius:20px;font-size:13px}
+.pill.current{background:var(--navy);color:#fff}
+.q-block{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed #e2e5ee}
+.q-block:last-child{border-bottom:none}
+.q-title{font-weight:600;margin-bottom:10px}
+.opt{display:block;background:#f4f5f9;border:1.5px solid #e2e5ee;border-radius:10px;padding:10px 14px;margin:6px 0;cursor:pointer}
+.opt:hover{border-color:var(--gold)}
+.opt.selected{border-color:var(--navy);background:#eef0f7;font-weight:600}
+.opt.correct{border-color:var(--good);background:#e9f7ef}
+.opt.wrong{border-color:var(--bad);background:#fdecea}
+input.rating{width:70px;padding:8px;border-radius:8px;border:1.5px solid #e2e5ee;text-align:center;font-size:15px}
+.rating-row{display:flex;gap:8px;margin-top:8px}
+.rate-btn{width:42px;height:42px;border-radius:50%;background:#f4f5f9;border:1.5px solid #e2e5ee;display:flex;align-items:center;justify-content:center;font-weight:600;cursor:pointer}
+.rate-btn:hover{border-color:var(--gold)}
+.rate-btn.selected{background:var(--navy);color:#fff;border-color:var(--navy)}
+textarea.reflect{width:100%;min-height:90px;border-radius:10px;border:1.5px solid #e2e5ee;padding:12px;font-family:inherit;font-size:14px;resize:vertical}
+.result-box{margin-top:20px;padding:18px;border-radius:12px;background:#f4f5f9;font-weight:600;text-align:center}
+.footer-note{text-align:center;color:var(--muted);font-size:12px;margin-top:30px}
+.certificate-banner{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy);border-radius:var(--radius);padding:20px;text-align:center;font-weight:600;margin:20px 0}
+.locked{opacity:.55;pointer-events:none}
+.price-card{background:var(--card);border:2px solid var(--gold);border-radius:var(--radius);padding:22px;text-align:center}
+.price-card .price{font-size:32px;color:var(--navy);font-weight:700}
+.price-card .old-price{text-decoration:line-through;color:var(--muted);font-size:15px}
+@media(max-width:600px){.hero h1{font-size:21px}.container{padding:18px 12px 70px}}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="../firebase-config.js"></script>
+<script src="../auth-guard.js"></script>
+</head>
+<body>
+<div class="topbar">
+  <div class="brand">Premium Communication Mastery Course<small>N T Somasundaram Life Skills Training Program</small><small id="learnerNameDisplay"></small></div>
+  <nav>
+    <a href="../index.html">Course Home</a>
+    <a href="#" onclick="logout(); return false;">Logout</a>
+    <a href="https://wa.me/919843702244" target="_blank">WhatsApp</a>
+  </nav>
+</div><div class="container"><div class="pill-nav"><span class="pill">Module 6</span><span class="pill current">Lesson 8 of 10</span></div><div class="card"><h2 class="ta">Emotional Vocabulary</h2><p>கோபம் என்று மட்டும் சொல்லாதீர்கள்.</p>
+<p>உணர்ச்சிகளை துல்லியமாகச் சொல்ல கற்றுக்கொள்ளுங்கள்.</p>
+<p>உதாரணம்:</p>
+<ul class="content-list"><li>ஏமாற்றம்</li><li>விரக்தி</li><li>குழப்பம்</li><li>சங்கடம்</li><li>பதட்டம்</li><li>நிம்மதி</li><li>நம்பிக்கை</li><li>பெருமை</li><li>உற்சாகம்</li><li>நன்றியுணர்வு</li></ul>
+<p class="emphasis-line">நாம் உணர்ச்சிகளுக்கு சரியான பெயர் சூட்டும்போது, அவற்றை நிர்வகிப்பது எளிதாகிறது.</p></div><div class="nav-buttons">
+      <a class="btn btn-outline" href="lesson-07.html">← Previous</a>
+      <a class="btn btn-primary" href="lesson-09.html" onclick="markDone()">Next Lesson →</a>
+    </div><script>
+    function markDone(){
+      try{
+        var key='progress_communication_mastery';
+        var d=JSON.parse(localStorage.getItem(key)||'{}');
+        d['m6_l8']=true;
+        localStorage.setItem(key, JSON.stringify(d));
+      }catch(e){}
+    }
+    </script><script>
+(function(){
+  try {
+    var img = new Image();
+    var endpoint = "PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE";
+    var payload = "course=communication-mastery&item=m6-lesson8&t=" + Date.now();
+    if(endpoint.indexOf('PASTE_YOUR')===-1){ img.src = endpoint + "?" + payload; }
+  } catch(e) {}
+})();
+</script><div class="footer-note">© N T Somasundaram Life Skills Training Program<br>"God is always with u." · <a href="https://wa.me/919843702244" target="_blank">Contact on WhatsApp</a></div>
+</body></html>
