@@ -82,6 +82,13 @@
   }
   .headline .accent{color:var(--gold-light);}
 
+  .dashboard-btn{
+    margin-top:16px;display:inline-flex;align-items:center;gap:8px;
+    background:var(--gold);color:var(--navy);font-weight:700;font-size:12.5px;
+    padding:10px 16px;border-radius:20px;position:relative;z-index:1;
+    box-shadow:0 4px 14px rgba(201,162,39,0.35);
+  }
+
   /* ---------- Search + filter ---------- */
   .search-wrap{padding:16px 16px 4px;}
   .search-box{
@@ -265,6 +272,10 @@
     </div>
     <div class="headline" id="txt-headline">Courses &amp; assessments for <span class="accent">students, teachers &amp; parents</span></div>
     <div class="motto" id="txt-motto">"God is always with u"</div>
+    <a class="dashboard-btn" id="dashboardBtn" href="https://somasundaramntlifecoach-ux.github.io/courses/dashboard.html" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      <span id="txt-dashboard-btn">My Dashboard — My Enrolled Courses</span>
+    </a>
   </div>
 
   <!-- ================= SEARCH ================= -->
@@ -651,6 +662,7 @@ const STR = {
     brand: "N T Somasundaram", brandSub: "Life Skills Program",
     headline_html: 'Courses &amp; assessments for <span class="accent">students, teachers, parents &amp; professionals</span>',
     motto: '"God is always with u"',
+    dashboardBtn: "My Dashboard — My Enrolled Courses",
     search: "Search courses or assessments",
     chips: { all:"All", student:"Students", teacher:"Teachers", parent:"Parents", professional:"Professionals" },
     tabs: { courses:"Courses", assessments:"Assessments", training:"Training", about:"About" },
@@ -666,6 +678,7 @@ const STR = {
     brand: "என்.டி. சோமசுந்தரம்", brandSub: "வாழ்க்கை திறன் திட்டம்",
     headline_html: 'மாணவர்கள், ஆசிரியர்கள், பெற்றோர் &amp; தொழில் வல்லுநர்களுக்கான <span class="accent">பாடங்கள் &amp; மதிப்பீடுகள்</span>',
     motto: '"கடவுள் எப்போதும் உங்களுடன் இருக்கிறார்"',
+    dashboardBtn: "எனது டாஷ்போர்டு — எனது படிப்புகள்",
     search: "பாடங்கள் அல்லது மதிப்பீடுகளைத் தேடுங்கள்",
     chips: { all:"அனைத்தும்", student:"மாணவர்கள்", teacher:"ஆசிரியர்கள்", parent:"பெற்றோர்", professional:"தொழில் வல்லுநர்கள்" },
     tabs: { courses:"பாடங்கள்", assessments:"மதிப்பீடுகள்", training:"பயிற்சி", about:"பற்றி" },
@@ -698,6 +711,7 @@ function applyStaticText(){
   document.getElementById('txt-brand-sub').textContent = s.brandSub;
   document.getElementById('txt-headline').innerHTML = s.headline_html;
   document.getElementById('txt-motto').textContent = s.motto;
+  document.getElementById('txt-dashboard-btn').textContent = s.dashboardBtn;
   document.getElementById('searchInput').placeholder = s.search;
   document.getElementById('chip-all').textContent = s.chips.all;
   document.getElementById('chip-student').textContent = s.chips.student;
