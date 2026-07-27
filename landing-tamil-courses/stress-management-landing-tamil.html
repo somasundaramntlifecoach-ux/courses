@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>பெற்றோருக்கான மனஅழுத்த மேலாண்மை | சேர்க்கை தற்போது திறந்துள்ளது</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #EEF2ED; --bg-card: #FFFFFF; --ink: #26383D; --ink-soft: #55666B;
+  --sage: #7E9C86; --sage-deep: #56755E; --rose: #C97B84; --rose-deep: #A85A66;
+  --sand: #F2EDE0; --gold: #C8A250; --navy: #16233B;
+  --line: #D8E0D6; --shadow: 0 8px 24px rgba(38,56,61,0.08); --radius: 18px;
+  --font-en: 'Poppins', sans-serif; --font-ta: 'Noto Sans Tamil', sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin:0; font-family: var(--font-ta), var(--font-en); background: var(--bg); color: var(--ink); line-height:1.8; }
+a { color:inherit; }
+img, svg { max-width: 100%; }
+
+.topbar { position: sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
+  padding:14px 24px; background: rgba(238,242,237,0.92); backdrop-filter: blur(6px); border-bottom:1px solid var(--line); }
+.brand { font-weight:600; font-size:1.02rem; color: var(--sage-deep); text-decoration:none; display:flex; align-items:center; gap:8px; }
+.brand .dot { width:9px; height:9px; border-radius:50%; background: var(--rose); flex-shrink:0; }
+.top-cta { display:flex; gap:10px; }
+.top-cta a { font-size:.82rem; font-weight:600; padding:8px 16px; border-radius:999px; text-decoration:none; }
+.top-cta .whatsapp { background:#25D366; color:#fff; }
+.top-cta .course-link { border:1.5px solid var(--sage); color: var(--sage-deep); }
+@media (max-width:600px){ .top-cta .course-link { display:none; } }
+
+.hero { max-width: 880px; margin:0 auto; padding: 54px 24px 26px; text-align:center; }
+.eyebrow { font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color: var(--rose-deep); font-weight:700; margin-bottom:14px; }
+.en-heading { font-family: var(--font-en); font-size:1.05rem; font-weight:600; color: var(--sage-deep); letter-spacing:.02em; margin-bottom:10px; }
+h1 { font-size: clamp(1.9rem, 4.4vw, 2.7rem); font-weight:700; margin:0 0 16px; line-height:1.35; }
+.tagline { font-size:1.08rem; color: var(--ink-soft); max-width:640px; margin:0 auto 26px; }
+.breathe-wrap { display:flex; justify-content:center; margin: 8px 0 26px; }
+.breathe-circle { width:76px; height:76px; border-radius:50%;
+  background: radial-gradient(circle at 35% 30%, #A9C4AF, var(--sage) 70%, var(--sage-deep));
+  animation: breathe 6s ease-in-out infinite; }
+@keyframes breathe { 0%,100%{transform:scale(.85);} 50%{transform:scale(1.15);} }
+@media (prefers-reduced-motion: reduce) { .breathe-circle { animation:none; } }
+
+.container { max-width: 880px; margin:0 auto; padding: 0 24px 60px; }
+.card { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 32px; margin-bottom: 26px; }
+h2 { font-size:1.4rem; color: var(--sage-deep); margin:0 0 16px; }
+h3 { font-size:1.05rem; margin: 16px 0 8px; color: var(--ink); }
+p { color: var(--ink-soft); margin:0 0 14px; }
+ul { color: var(--ink-soft); padding-left: 22px; margin:0 0 14px; }
+li { margin-bottom:8px; }
+
+.pain-grid, .include-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap:16px; margin-top:8px; }
+.pain-item, .include-item { background: var(--sand); border-radius:14px; padding:18px 20px; }
+.pain-item strong, .include-item strong { display:block; color: var(--ink); margin-bottom:6px; }
+
+.module-list { list-style:none; padding:0; margin:0; display:grid; gap:10px; }
+.module-list li {
+  display:flex; align-items:flex-start; gap:12px; background: var(--sand);
+  border-radius:12px; padding:12px 16px; margin:0;
+}
+.module-list .num {
+  flex-shrink:0; width:30px; height:30px; border-radius:50%; background: var(--sage);
+  color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:.85rem;
+}
+.module-list .mtext { color: var(--ink); font-size: .95rem; }
+
+.trainer-row { display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap; }
+.trainer-badge { flex:none; width:64px; height:64px; border-radius:50%; background: var(--sage); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:1.3rem; }
+
+.testimonial { background: linear-gradient(135deg,#F6EFE3,#ECE3D3); border-radius:14px; padding:20px 24px; margin-bottom:14px; font-style: italic; color: var(--ink); }
+.testimonial .who { font-style:normal; font-weight:600; color: var(--sage-deep); margin-top:8px; font-size:.88rem; }
+
+.batch-box { display:flex; gap:20px; flex-wrap:wrap; }
+.batch-item { flex:1; min-width:190px; background: var(--sand); border-radius:14px; padding:20px; text-align:center; }
+.batch-item .label { font-size:.78rem; text-transform:uppercase; letter-spacing:.05em; color: var(--ink-soft); }
+.batch-item .val { font-size:1.25rem; font-weight:700; color: var(--sage-deep); margin-top:4px; }
+.note-tbc { font-size:.82rem; color: var(--rose-deep); margin-top:10px; }
+.razorpay-pay-box {
+  margin-top:22px; padding:22px; text-align:center; background: var(--sage-tint) 0%;
+  background: linear-gradient(135deg, var(--sage-tint), var(--sand)); border-radius:14px;
+  border: 1px dashed var(--sage);
+}
+.razorpay-pay-box .label { font-size:.85rem; color: var(--ink-soft); margin-bottom:4px; }
+.razorpay-pay-box .val { font-size:1.5rem; font-weight:700; color: var(--sage-deep); margin-bottom:14px; }
+.razorpay-pay-box form { display:flex; justify-content:center; }
+
+.btn { display:inline-flex; align-items:center; gap:8px; padding:13px 26px; border-radius:999px; font-weight:600; font-size:.94rem; text-decoration:none; cursor:pointer; border:none; font-family:inherit; }
+.btn-primary { background: var(--sage-deep); color:#fff; }
+.btn-whatsapp { background:#25D366; color:#fff; }
+.btn-outline { border:1.5px solid var(--gold); color: var(--gold); background:#fff; }
+.btn-row { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin: 24px 0 4px; }
+
+/* Parenting Program cross-sell card */
+.program-card { background: linear-gradient(135deg, var(--navy), #223257); color:#fff; border-radius: var(--radius); padding: 34px; margin-bottom: 26px; }
+.program-card h2 { color:#fff; }
+.program-card p { color:#D7DEEA; }
+.program-card .program-eyebrow { font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color: var(--gold); font-weight:700; margin-bottom:10px; }
+.program-fee { font-size:1.05rem; color:#fff; margin: -6px 0 14px; }
+.program-fee strong { color: var(--gold); font-size:1.2rem; }
+.program-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:14px; margin: 18px 0 22px; }
+.program-item { background: rgba(255,255,255,0.08); border-radius:12px; padding:16px 18px; border:1px solid rgba(255,255,255,0.12); }
+.program-item strong { display:block; color:#fff; margin-bottom:6px; font-size:.95rem; }
+.program-item span { color:#C7CFDD; font-size:.87rem; }
+.program-card .btn-row { justify-content:flex-start; }
+.program-card .btn-outline { border-color:#fff; color:#fff; }
+.program-card .btn-whatsapp { background:#25D366; }
+
+form.enquiry { display:grid; gap:14px; }
+form.enquiry label { font-size:.85rem; font-weight:600; color: var(--ink); display:block; margin-bottom:6px; }
+form.enquiry input, form.enquiry select, form.enquiry textarea {
+  width:100%; padding:11px 14px; border-radius:10px; border:1.5px solid var(--line);
+  font-family: var(--font-ta); font-size:.95rem; background:#fcfdfc;
+}
+form.enquiry button { justify-self:start; }
+.form-status { font-size:.88rem; margin-top:8px; }
+.form-status.success { color: var(--sage-deep); }
+.form-status.error { color: var(--rose-deep); }
+
+/* Post-payment details form */
+.details-card .note { color: var(--ink-soft); font-size:.9rem; margin-top:-8px; }
+.form-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:10px; }
+.form-field { display:flex; flex-direction:column; gap:6px; }
+.form-field.full { grid-column:1 / -1; }
+.form-field label { font-size:.9rem; font-weight:600; color: var(--navy); }
+.form-field input, .form-field textarea {
+  padding:12px 14px; border:1.5px solid var(--line); border-radius:10px;
+  font-family: var(--font-en); font-size:.96rem; color: var(--ink); background:#fff;
+}
+.form-field input:focus, .form-field textarea:focus{ outline:none; border-color: var(--gold); }
+.form-field textarea{ resize:vertical; min-height:70px; }
+.form-submit-row{ margin-top:8px; text-align:center; }
+.btn-submit{ background: var(--navy); color:#fff; border:none; border-radius:999px; padding:14px 30px; font-weight:700; font-size:1rem; cursor:pointer; font-family:inherit; }
+.btn-submit:disabled{ opacity:.6; cursor:not-allowed; }
+@media (max-width:600px){ .form-grid{ grid-template-columns:1fr; } }
+
+footer { text-align:center; padding:34px 20px 50px; color: var(--ink-soft); font-size:.85rem; }
+footer .motto { color: var(--rose-deep); font-weight:600; margin-top:6px; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="#" class="brand"><span class="dot"></span>
+    <span>பெற்றோருக்கான மனஅழுத்த மேலாண்மை</span>
+  </a>
+  <div class="top-cta">
+    <a class="course-link" href="stress-management-parents-tamil-course.html">பாடநெறியைத் தொடங்குங்கள்</a>
+    <a class="course-link enroll-link" href="#enroll">சேருங்கள்</a>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="eyebrow">சேர்க்கை தற்போது திறந்துள்ளது</div>
+  <div class="en-heading">Stress Management for Parents</div>
+  <h1>அமைதியான பெற்றோர், நம்பிக்கையுள்ள குடும்பங்கள்</h1>
+  <div class="breathe-wrap"><div class="breathe-circle"></div></div>
+  <p class="tagline">உங்கள் மனஅழுத்தத்தை நிர்வகிக்கவும், உங்கள் அமைதியைப் பாதுகாக்கவும், உங்கள் குழந்தைகளுக்கு நிலையான, அமைதியான வீட்டை உருவாக்கவும் உதவும் எளிய தமிழில் அமைந்த சுயகற்றல் பாடநெறி — 10 தொகுதிகள், உண்மை வாழ்க்கை உதாரணங்கள், நடைமுறை பயிற்சிகளுடன்.</p>
+  <div class="btn-row">
+    <a class="btn btn-primary" href="#enroll">
+      <span>இப்போது சேருங்கள்</span>
+    </a>
+    <a class="btn btn-outline" href="stress-management-parents-tamil-course.html">
+      <span>பாடநெறியைப் பாருங்கள்</span>
+    </a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Why this matters -->
+  <div class="card">
+    <h2>பெற்றோருக்கு இந்த பாடநெறி ஏன் தேவை</h2>
+    <div class="pain-grid">
+      <div class="pain-item">
+        <strong>தொடர்ச்சியான சோர்வு</strong>
+        <span>வேலை, வீடு, குழந்தைகளின் தேவைகளை சமநிலைப்படுத்துவதில் மூச்சு விட நேரமே இல்லை.</span>
+      </div>
+      <div class="pain-item">
+        <strong>கோபப்பட்ட பின் குற்ற உணர்வு</strong>
+        <span>குழந்தைகளிடம் எரிச்சலாகப் பேசிவிட்டு, பின் மணிக்கணக்கில் குற்ற உணர்வுடன் இருப்பது.</span>
+      </div>
+      <div class="pain-item">
+        <strong>வீட்டில் மோதல்கள்</strong>
+        <span>மனஅழுத்தம் வாழ்க்கைத்துணை அல்லது குழந்தைகளுடன் வாக்குவாதங்களாக மாறுவது.</span>
+      </div>
+      <div class="pain-item">
+        <strong>தனக்கென நேரமே இல்லை</strong>
+        <span>ஒவ்வொரு நிமிடமும் வேறொருவரின் தேவைக்காக செலவிடப்படுவது.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- What's included -->
+  <div class="card">
+    <h2>இந்தப் பாடநெறியில் என்ன அடங்கும்</h2>
+    <div class="include-grid">
+      <div class="include-item">
+        <strong>10 தமிழ் தொகுதிகள்</strong>
+        <span>சுயகற்றல் வேகத்தில், ஒவ்வொன்றிலும் உண்மை வாழ்க்கை உதாரணங்களுடனும் நடைமுறை குறிப்புகளுடனும்.</span>
+      </div>
+      <div class="include-item">
+        <strong>வாராந்திர செயல்பாடுகள்</strong>
+        <span>ஒவ்வொரு தொகுதியும் நிரப்பக்கூடிய அட்டவணைகள், சிந்தனைப் பயிற்சிகளுடன் முடிகிறது.</span>
+      </div>
+      <div class="include-item">
+        <strong>முன்னேற்றத்தைக் கண்காணிக்கும் பாடநெறி</strong>
+        <span>ஒவ்வொரு தொகுதியையும் "முடித்தேன்" எனக் குறிக்கலாம்; முன்னேற்ற பட்டி தானாக புதுப்பிக்கும்.</span>
+      </div>
+      <div class="include-item">
+        <strong>வாட்ஸ்அப் ஆதரவு</strong>
+        <span>பாடநெறி முழுவதும் உங்கள் கேள்விகளைக் கேட்க நேரடி அணுகல்.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Module overview -->
+  <div class="card">
+    <h2>10 தொகுதிகள் — ஒரு பார்வை</h2>
+    <ul class="module-list">
+      <li><span class="num">1</span><span class="mtext">மனஅழுத்தத்தைப் புரிந்துகொள்வோம்</span></li>
+      <li><span class="num">2</span><span class="mtext">மனஅழுத்தத்தின் அறிகுறிகளை அறிதல்</span></li>
+      <li><span class="num">3</span><span class="mtext">பெற்றோரின் மனஅழுத்தம் குழந்தைகளை எவ்வாறு பாதிக்கிறது?</span></li>
+      <li><span class="num">4</span><span class="mtext">சிந்தனையை மாற்றும் நுட்பங்கள் (Cognitive Reframing)</span></li>
+      <li><span class="num">5</span><span class="mtext">தளர்வு மற்றும் மனவிழிப்புணர்வு பயிற்சிகள்</span></li>
+      <li><span class="num">6</span><span class="mtext">நேர மேலாண்மை மற்றும் முன்னுரிமை நிர்ணயம்</span></li>
+      <li><span class="num">7</span><span class="mtext">ஆதரவு வலையமைப்பை உருவாக்குதல்</span></li>
+      <li><span class="num">8</span><span class="mtext">ஆரோக்கியமான வாழ்க்கைமுறையின் அடித்தளங்கள்</span></li>
+      <li><span class="num">9</span><span class="mtext">குடும்ப முரண்பாடுகளைக் குறைக்கும் தொடர்பாடல்</span></li>
+      <li><span class="num">10</span><span class="mtext">உங்களுக்கான நீண்டகால மனஅழுத்த மேலாண்மைத் திட்டம்</span></li>
+    </ul>
+  </div>
+
+  <!-- About trainer -->
+  <div class="card">
+    <h2>உங்கள் பயிற்சியாளர் பற்றி</h2>
+    <div class="trainer-row">
+      <div class="trainer-badge">NT</div>
+      <div>
+        <p><strong>என். டி. சோமசுந்தரம்</strong> ஒரு சான்றளிக்கப்பட்ட மாஸ்டர் பயிற்சியாளர், தொழில் ஆலோசகர், வாழ்க்கை திறன் கல்வியாளர் மற்றும் பெற்றோர் பயிற்சியாளர். SKV International School இன் இயக்குநர் & பொருளாளராகவும் இருக்கிறார். NT Somasundaram Life Skills Program மூலம், அவர் நூற்றுக்கணக்கான பெற்றோர்கள், ஆசிரியர்கள் மற்றும் மாணவர்களுடன் உணர்ச்சி நல்வாழ்விற்கான நடைமுறை அணுகுமுறைகளில் பணியாற்றியுள்ளார் — ஆங்கிலம் மற்றும் தமிழ் இரண்டிலும்.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="card">
+    <h2>பெற்றோர்கள் என்ன சொல்கிறார்கள்</h2>
+    <div class="testimonial">
+      <p style="margin-bottom:0">"சுவாசப் பயிற்சி ஒன்று மட்டுமே இந்தப் பாடநெறியில் சேர்ந்ததற்கு மதிப்புமிக்கதாக இருந்தது — இப்போது ஒவ்வொரு மாலையும் பயன்படுத்துகிறேன்."</p>
+    </div>
+    <div class="testimonial">
+      <p style="margin-bottom:0">"என் சொந்த மனஅழுத்தம் என் மகனின் நடத்தையை ஏன் பாதிக்கிறது என்பதை இறுதியாகப் புரிந்துகொண்டேன். எங்கள் மாலை நேரங்கள் முற்றிலும் மாறின."</p>
+    </div>
+  </div>
+
+  <!-- Enroll & Pay -->
+  <div class="card" id="enroll">
+    <h2>இப்போது சேருங்கள்</h2>
+    <div class="razorpay-pay-box">
+      <div class="label">பாடநெறி கட்டணம்</div>
+      <div class="val">Rs.499/-</div>
+      <form>
+        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_TEmk4cAsoqcV2V" async> </script>
+      </form>
+      <p class="note-tbc">பணம் செலுத்திய உடனேயே பாடநெறிக்கான அணுகல் கிடைக்கும்.</p>
+    </div>
+  </div>
+
+  <!-- POST-PAYMENT DETAILS FORM -->
+  <div class="card details-card" id="details-form-card">
+    <h2>📝 பணம் செலுத்திய பிறகு உங்கள் விவரங்களை பகிரவும்</h2>
+    <p class="note">Please share your details — Name, Email Id, Course Name, Mobile No, Any other Request. கடவுச்சொல் (Password) WhatsApp வழியாக தனிப்பட்ட முறையில் அனுப்பப்படும்.</p>
+    <form id="detailsForm" class="form-grid" onsubmit="return submitDetailsForm(event)">
+      <div class="form-field">
+        <label for="df-name">Name *</label>
+        <input type="text" id="df-name" name="name" required>
+      </div>
+      <div class="form-field">
+        <label for="df-email">Email Id *</label>
+        <input type="email" id="df-email" name="email" required>
+      </div>
+      <div class="form-field">
+        <label for="df-course">Course Name *</label>
+        <input type="text" id="df-course" name="course" value="பெற்றோருக்கான மனஅழுத்த மேலாண்மை (Stress Management for Parents)" readonly required>
+      </div>
+      <div class="form-field">
+        <label for="df-mobile">Mobile No *</label>
+        <input type="tel" id="df-mobile" name="mobile" pattern="[0-9+ ]{10,15}" required>
+      </div>
+      <div class="form-field full">
+        <label for="df-request">Any other Request</label>
+        <textarea id="df-request" name="request"></textarea>
+      </div>
+      <div class="form-field full form-submit-row">
+        <button type="submit" class="btn btn-submit" id="df-submit-btn">விவரங்களை சமர்ப்பிக்கவும் / Submit</button>
+        <div id="df-status" class="form-status"></div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Parenting Program cross-sell -->
+  <div class="program-card">
+    <div class="program-eyebrow">அடுத்த படி</div>
+    <h2>முழுமையான பெற்றோர் திட்டத்தில் சேருங்கள்</h2>
+    <p>இந்த மனஅழுத்த மேலாண்மைப் பாடநெறி, ஒரு பெரிய பயணத்தின் ஒரு பகுதி மட்டுமே. என். டி. சோமசுந்தரத்தின் <strong>முழுமையான பெற்றோர் திட்டம் (Parenting Program)</strong>, இந்த மனஅழுத்த மேலாண்மைத் திறன்களை, குழந்தை வளர்ப்பு, ஒழுக்கம், தொடர்பாடல் மற்றும் உணர்ச்சி நல்வாழ்வு தொடர்பான முழுமையான அணுகுமுறையுடன் இணைத்து வழங்குகிறது.</p>
+    <div class="program-grid">
+      <div class="program-item">
+        <strong>நேர்மறை ஒழுக்க பயிற்சி</strong>
+        <span>தண்டனையின்றி, மரியாதையுடன் குழந்தையை வழிநடத்தும் முறைகள்.</span>
+      </div>
+      <div class="program-item">
+        <strong>குடும்பத் தொடர்பாடல்</strong>
+        <span>குழந்தைகள் மற்றும் வாழ்க்கைத்துணையுடன் அமைதியான, மரியாதையான உரையாடல்.</span>
+      </div>
+      <div class="program-item">
+        <strong>உணர்ச்சி நல்வாழ்வு</strong>
+        <span>பெற்றோர் மற்றும் குழந்தை இருவரின் மனநலத்தையும் ஆதரிக்கும் அணுகுமுறைகள்.</span>
+      </div>
+      <div class="program-item">
+        <strong>நேரடி Zoom வகுப்புகள்</strong>
+        <span>தமிழ் மற்றும் ஆங்கிலத்தில், கேள்வி–பதில் அமர்வுகளுடன் கூடிய குழு பயிற்சி.</span>
+      </div>
+    </div>
+    <p class="program-fee">திட்டக் கட்டணம்: <strong>Rs.499/-</strong></p>
+    <p>இந்தப் பாடநெறியை முடித்தவுடன், முழுமையான பெற்றோர் திட்டத்தில் சேர்வதற்கான சிறப்பு வாய்ப்பையும் நீங்கள் பெறுவீர்கள்.</p>
+    <div class="btn-row">
+      <a class="btn btn-whatsapp" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20full%20Parenting%20Program." target="_blank" rel="noopener">
+        <span>பெற்றோர் திட்டத்தைப் பற்றி வாட்ஸ்அப்பில் கேளுங்கள்</span>
+      </a>
+    </div>
+  </div>
+
+
+</div>
+
+<footer>
+  <div>என். டி. சோமசுந்தரம் &middot; வாழ்க்கை திறன் திட்டம்</div>
+  <div class="motto">God is always with u</div>
+</footer>
+
+
+<script>
+// ===== Post-payment details form → shared Google Sheet (image-pixel GET, no CORS) =====
+// SAME URL used across all course landing pages — logs into one sheet, Course Name column tells them apart.
+var GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxqiT3X7xEc5rWZMTempde-4jLZ2IjNOp8Ar1QWH6V8yWRa0QWMGqIhehsM6-LEgUWxCw/exec";
+
+function submitDetailsForm(e){
+  e.preventDefault();
+  var btn = document.getElementById('df-submit-btn');
+  var status = document.getElementById('df-status');
+
+  var data = {
+    name: document.getElementById('df-name').value.trim(),
+    email: document.getElementById('df-email').value.trim(),
+    course: document.getElementById('df-course').value.trim(),
+    mobile: document.getElementById('df-mobile').value.trim(),
+    request: document.getElementById('df-request').value.trim(),
+    page: window.location.href,
+    timestamp: new Date().toISOString()
+  };
+
+  if(!data.name || !data.email || !data.course || !data.mobile){
+    status.textContent = "தயவுசெய்து அனைத்து அவசிய விவரங்களையும் நிரப்பவும் / Please fill all required fields.";
+    status.className = "form-status error";
+    return false;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "சமர்ப்பிக்கிறது... / Submitting...";
+
+  var params = Object.keys(data).map(function(k){
+    return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+  }).join("&");
+
+  var img = new Image();
+  img.onload = img.onerror = function(){
+    status.textContent = "✅ நன்றி! உங்கள் விவரங்கள் பெறப்பட்டன. கடவுச்சொல் WhatsApp வழியாக அனுப்பப்படும். / Thank you! Details received — password will be sent via WhatsApp.";
+    status.className = "form-status success";
+    btn.textContent = "சமர்ப்பிக்கப்பட்டது ✓";
+    document.getElementById('detailsForm').reset();
+    document.getElementById('df-course').value = "பெற்றோருக்கான மனஅழுத்த மேலாண்மை (Stress Management for Parents)";
+  };
+  img.src = GAS_WEB_APP_URL + "?" + params;
+
+  return false;
+}
+</script>
+
+</body>
+</html>
