@@ -1,20 +1,17 @@
 // ============================================================
 // firebase-config.js
 // Shared Firebase initialization for the
-// "Emotional Intelligence for Teachers" course.
-//
-// >>> REPLACE the values below with YOUR real Firebase project keys <<<
-// Firebase Console → Project settings → General → Your apps → SDK setup
-// (Project: lifeskills-bd221, or whichever project you host this course under)
+// "Emotional Intelligence for Teachers" course (Tamil).
+// Firebase project: lifeskills-bd221
 // ============================================================
 
 const firebaseConfig = {
-  apiKey: "REPLACE_WITH_YOUR_API_KEY",
+  apiKey: "AIzaSyABtQjYCN-os9t_pqo8Siqfjod-RSO9kzA",
   authDomain: "lifeskills-bd221.firebaseapp.com",
   projectId: "lifeskills-bd221",
-  storageBucket: "lifeskills-bd221.appspot.com",
-  messagingSenderId: "REPLACE_WITH_YOUR_SENDER_ID",
-  appId: "REPLACE_WITH_YOUR_APP_ID"
+  storageBucket: "lifeskills-bd221.firebasestorage.app",
+  messagingSenderId: "180809708949",
+  appId: "1:180809708949:web:5ca1542bb7a51ba5cc329c"
 };
 
 firebase.initializeApp(firebaseConfig);
