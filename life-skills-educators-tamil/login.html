@@ -232,7 +232,12 @@ footer a:hover{color:var(--gold-light);}
 </head>
 <body>
 <div class="auth-wrap">
-  <div class="auth-card">
+  <div class="auth-card" id="checking-session-card" style="text-align:center;">
+    <div style="font-size:1.8rem;margin-bottom:10px;">⏳</div>
+    <div style="color:var(--muted);font-size:.9rem;">Session-ஐ சரிபார்க்கிறோம்... (Checking your session...)</div>
+  </div>
+
+  <div class="auth-card" id="login-form-card" style="display:none;">
     <h1>உள்நுழையவும்</h1>
     <div class="sub">Life Skills Mastery for Educators · Paid Professional Course</div>
 
@@ -260,6 +265,8 @@ footer a:hover{color:var(--gold-light);}
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
+<script src="auto-redirect.js"></script>
+
 <script>
   const errorBox = document.getElementById('error-box');
   const loginBtn = document.getElementById('login-btn');
@@ -288,6 +295,14 @@ footer a:hover{color:var(--gold-light);}
         showError('Login தவறு: ' + err.message);
       });
   });
+
+  // Called by auto-redirect.js once Firebase confirms there's no signed-in
+  // user — only then do we reveal the login form (avoids a flash of the
+  // form for people who are already signed in elsewhere on the site).
+  window.showLoginForm = function () {
+    document.getElementById('checking-session-card').style.display = 'none';
+    document.getElementById('login-form-card').style.display = 'block';
+  };
 </script>
 </body>
 </html>
