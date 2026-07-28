@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Enrolled | Emotional Intelligence for Teachers</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="auth-wrap">
+  <div class="auth-card" style="max-width:440px;">
+    <span class="badge-dot"></span>
+    <h1>You're signed in, but not enrolled yet</h1>
+    <p class="sub">
+      இந்த course-க்கு உங்கள் account access இன்னும் activate ஆகவில்லை.<br>
+      Signed in as <strong id="current-email">—</strong>
+    </p>
+
+    <p style="font-size:14px;color:#334;margin-bottom:22px;">
+      Course access செய்ய, கீழே WhatsApp செய்யுங்கள் — உங்கள் email confirm செய்தவுடன் access activate செய்யப்படும்.
+    </p>
+
+    <a href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20access%20to%20the%20Emotional%20Intelligence%20for%20Teachers%20course."
+       target="_blank" class="btn btn-gold" style="width:100%;justify-content:center;margin-bottom:12px;">
+      💬 WhatsApp for Access
+    </a>
+    <button class="auth-link" id="sign-out-btn">Sign out</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script>
+  auth.onAuthStateChanged(function(user){
+    if(!user){
+      window.location.href = "login.html";
+      return;
+    }
+    document.getElementById("current-email").textContent = user.email || "";
+  });
+  document.getElementById("sign-out-btn").addEventListener("click", function(){
+    auth.signOut().then(function(){ window.location.href = "login.html"; });
+  });
+</script>
+</body>
+</html>
