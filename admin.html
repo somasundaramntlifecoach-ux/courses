@@ -1,243 +1,378 @@
 <!DOCTYPE html>
-<html lang="ta" class="auth-loading">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin | N T Somasundaram Life Skills Program</title>
-<link rel="stylesheet" href="assets/style.css">
+<title>Admin — Student Enrollment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{ --navy:#0f2044; --gold:#c8a250; --bg:#f6f4ef; --green:#1ea952; --red:#b3261e; }
+  *{box-sizing:border-box;}
+  body{ margin:0; background:var(--bg); font-family:'Poppins',sans-serif; padding:24px; color:#1a1a1a; }
+  .wrap{ max-width:760px; margin:0 auto; }
+  h1{ color:var(--navy); font-size:22px; margin-bottom:4px; }
+  .sub{ color:#777; font-size:13px; margin-bottom:24px; }
+  .card{ background:#fff; border-radius:14px; padding:24px; margin-bottom:20px; box-shadow:0 4px 20px rgba(15,32,68,0.08); }
+  .card h2{ font-size:16px; color:var(--navy); margin:0 0 14px; }
+  input[type=email], input[type=password], input[type=text]{
+    width:100%; padding:11px 13px; margin-bottom:12px; border-radius:8px; border:1px solid #ddd; font-size:14px; font-family:inherit;
+  }
+  button{
+    background:var(--navy); color:#fff; border:none; padding:11px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer;
+  }
+  button:hover{ background:#183465; }
+  button.secondary{ background:#fff; color:var(--navy); border:1px solid var(--navy); }
+  .courses-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px 16px; margin-bottom:16px; }
+  @media (max-width:520px){ .courses-grid{ grid-template-columns:1fr; } }
+  .course-item{ display:flex; align-items:center; gap:8px; font-size:13.5px; }
+  .course-item input{ width:auto; margin:0; }
+  .msg{ font-size:13.5px; margin-top:10px; padding:10px 12px; border-radius:8px; display:none; }
+  .msg.ok{ background:#e6f6ec; color:var(--green); display:block; }
+  .msg.err{ background:#fbeaea; color:var(--red); display:block; }
+  table{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  th, td{ text-align:left; padding:9px 6px; border-bottom:1px solid #eee; vertical-align:top; }
+  th{ color:#888; font-weight:600; font-size:12px; text-transform:uppercase; }
+  .tag{ display:inline-block; background:#eef1f7; color:var(--navy); padding:2px 8px; border-radius:10px; font-size:11.5px; margin:2px 3px 2px 0; }
+  .locked{ display:none; }
+  #loginCard.locked{ display:block; }
+  #mainArea.locked{ display:none; }
+  #loginCard:not(.locked){ }
+  #mainArea:not(.locked){ display:block; }
+  #mainArea.locked{ display:none; }
+  small.hint{ color:#999; font-size:12px; }
+</style>
 </head>
 <body>
+<div class="wrap">
+  <h1>Student Enrollment Admin</h1>
+  <div class="sub">Not linked from your public site — bookmark this page for your own use.</div>
 
-<div id="auth-loading-screen" class="auth-loading-screen">
-  <div class="loader-spinner"></div>
-  <p>Checking admin access...</p>
-</div>
-
-<div class="page-content">
-  <div class="topbar">
-    <a class="brand" href="dashboard.html"><span class="badge-dot"></span> Admin Panel</a>
-    <div class="nav-links">
-      <a href="dashboard.html">My Courses</a>
-      <span class="user-email" id="user-email-slot"></span>
-      <button class="btn btn-outline btn-sm" id="sign-out-btn" style="display:none;">Sign Out</button>
-    </div>
+  <div class="card" style="background:#fff8ea; border:1px solid #f0dca0;">
+    <h2 style="margin-bottom:8px;">📌 If a student's password reset isn't working</h2>
+    <p style="font-size:13.5px; color:#555; margin:0; line-height:1.6;">
+      Don't chase the email link — use <strong>"Recreate Account"</strong> below instead: (1) delete their login in Firebase console → Authentication → Users, (2) come back here and look up their email to restore their enrollments with a fresh password. Takes under a minute, works every time.
+    </p>
   </div>
 
-  <div class="hero">
-    <div class="wrap-wide">
-      <div class="eyebrow">Admin Only</div>
-      <h1>Student Course Access</h1>
-      <p class="sub">Grant, update, or revoke course enrollment for any student UID.</p>
-    </div>
+  <!-- LOGIN -->
+  <div class="card" id="loginCard">
+    <h2>Admin Login</h2>
+    <input type="email" id="adminEmail" placeholder="Your email">
+    <input type="password" id="adminPassword" placeholder="Your password">
+    <button onclick="adminLogin()">Log In</button>
+    <div class="msg" id="loginMsg"></div>
   </div>
 
-  <div class="section">
-    <div class="wrap-wide">
+  <!-- MAIN AREA (hidden until logged in) -->
+  <div id="mainArea" style="display:none;">
 
-      <div class="card">
-        <h2 id="form-title">Grant / Update Access</h2>
-        <p style="color:var(--muted);font-size:13.5px;margin-top:-6px;">
-          UID is found in Firebase Console → Authentication → Users. Paste it below,
-          tick the courses to enable, then Save. This creates the student's Firestore
-          record if it doesn't exist yet.
-        </p>
-        <div class="auth-error" id="form-error"></div>
-        <div class="auth-msg" id="form-msg"></div>
-
-        <div class="auth-field">
-          <label>Student UID</label>
-          <input type="text" id="f-uid" class="auth-input" placeholder="e.g. 8h3kD9...">
-        </div>
-        <div class="auth-field">
-          <label>Student Email (for your reference)</label>
-          <input type="email" id="f-email" class="auth-input" placeholder="student@example.com">
-        </div>
-        <div class="auth-field">
-          <label>Name (optional)</label>
-          <input type="text" id="f-name" class="auth-input" placeholder="Student name">
-        </div>
-        <div class="auth-field">
-          <label>Course Access</label>
-          <div id="course-checkboxes"></div>
-        </div>
-        <div class="btn-row">
-          <button class="btn btn-gold" id="save-btn">Save Access</button>
-          <button class="btn btn-outline" id="clear-form-btn" type="button">Clear Form</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>All Students</h2>
-        <div class="admin-toolbar">
-          <input type="text" id="search-box" class="admin-search" placeholder="Search by email, name, or UID...">
-          <span class="admin-badge" id="student-count">0 students</span>
-        </div>
-        <div style="overflow-x:auto;">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Email</th>
-                <th>Name</th>
-                <th>UID</th>
-                <th>Courses</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="students-tbody">
-              <tr><td colspan="5">Loading...</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
+    <div class="card">
+      <h2>Add New Student</h2>
+      <input type="text" id="newName" placeholder="Student name">
+      <input type="email" id="newEmail" placeholder="Student email">
+      <input type="text" id="newPassword" placeholder="Temporary password (min 6 characters)">
+      <div class="courses-grid" id="coursesGridNew"></div>
+      <button onclick="createStudent()">Create Student + Enroll</button>
+      <div class="msg" id="createMsg"></div>
     </div>
+
+    <div class="card">
+      <h2>Recreate Account (stuck password reset)</h2>
+      <p style="font-size:13px; color:#777; margin-top:-6px; margin-bottom:14px;">
+        Use this when a student can't get their password reset email to work. <strong>Step 1:</strong> in Firebase console → Authentication → Users, find their account and delete it. <strong>Step 2:</strong> come back here, enter their email, and this will pull up their existing enrollments so you can recreate their login with a fresh password in one click.
+      </p>
+      <input type="email" id="recoverEmail" placeholder="Student's email">
+      <button class="secondary" onclick="lookupForRecovery()">Look Up Enrollments</button>
+      <div id="recoverDetails" style="display:none; margin-top:14px;">
+        <input type="text" id="recoverName" placeholder="Student name">
+        <input type="text" id="recoverPassword" placeholder="New password (min 6 characters)">
+        <div class="courses-grid" id="coursesGridRecover"></div>
+        <button onclick="recreateStudent()">Recreate Account + Restore Enrollments</button>
+      </div>
+      <div class="msg" id="recoverMsg"></div>
+    </div>
+
+    <div class="card">
+      <h2>Existing Students</h2>
+      <div id="studentsTableWrap"><small class="hint">Loading...</small></div>
+    </div>
+
   </div>
 </div>
 
+<!-- Firebase SDKs -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script src="firebase-config.js"></script>
+
 <script>
-  // Same course registry as dashboard.html — keep these two lists in sync
-  // whenever you add a new course.
-  const COURSES = [
-    { id: "emotional-intelligence-teachers", label: "Emotional Intelligence for Teachers" },
-    { id: "stress-management-parents-tamil", label: "Stress Management for Parents" }
-    // { id: "anger-management", label: "Anger Management Mastery" },
-  ];
+// ============================================================
+// EDIT THIS LIST as you add new courses. id must exactly match
+// the COURSE_ID used in that course's auth-guard.js
+// ============================================================
+const COURSES = [
+  { id: "positive-discipline-teachers", name: "Positive Discipline for Teachers" },
+  { id: "positive-discipline-parents", name: "Positive Discipline Parenting" },
+  { id: "career-growth", name: "Career Growth & Promotion Readiness" },
+  { id: "life-skills-educators", name: "Life Skills Mastery for Educators" },
+  { id: "life-skills-educators-tamil", name: "Life Skills Mastery for Educators (Tamil)" },
+  { id: "eq-teachers", name: "Emotional Intelligence for Teachers" },
+  { id: "digital-pedagogy", name: "Digital Pedagogy & Blended Learning" },
+  { id: "classroom-behaviour", name: "Classroom Behaviour Management" },
+  { id: "digital-parenting", name: "Digital Parenting & Screen Time Mastery" },
+  { id: "know-your-ego", name: "Know Your Ego" },
+  { id: "anger-management", name: "Anger Management Mastery" },
+  { id: "communication-adults", name: "Communication Skills for Adults" },
+  { id: "stress-management-parents", name: "Stress Management for Parents" },
+  { id: "stress-management-parents-tamil", name: "Stress Management for Parents (Tamil)" },
+  { id: "know-your-ego-tamil", name: "Know Your Ego (Tamil)" },
+  { id: "communication-mastery-tamil", name: "Communication Mastery (Tamil)" },
+  { id: "digital-parenting-tamil", name: "Digital Parenting (Tamil)" },
+  { id: "leadership-excellence-tamil", name: "Leadership Excellence (Tamil)" },
+  { id: "anger-management-tamil", name: "Anger Management Mastery (Tamil)" },
+  { id: "classroom-behaviour-tamil", name: "Classroom Behaviour Management (Tamil)" },
+  { id: "critical-thinking-students", name: "Critical Thinking & Problem Solving" },
+  { id: "social-skills-students", name: "Social Skills & Peer Relationships" },
+  { id: "life-skills-students", name: "Life Skills Mastery for Students" },
+  { id: "self-discipline-mastery", name: "Self-Discipline Mastery" },
+  { id: "leadership-excellence-professionals", name: "Leadership Excellence for Working Professionals" }
+];
 
-  let allStudents = [];
+// ============================================================
+// IMPORTANT: only this UID is allowed to write to Firestore
+// (must match the Firestore rule you published). If you log in
+// with a different account, writes will be rejected.
+// ============================================================
 
-  function renderCheckboxes(selectedIds){
-    selectedIds = selectedIds || [];
-    const box = document.getElementById("course-checkboxes");
-    box.innerHTML = COURSES.map(c => `
-      <label class="enroll-toggle" style="margin-bottom:8px;">
-        <input type="checkbox" value="${c.id}" ${selectedIds.includes(c.id) ? "checked" : ""}>
-        <span>${c.label}</span>
-      </label>`).join("");
+function renderCourseCheckboxes(containerId, prefix){
+  const el = document.getElementById(containerId);
+  el.innerHTML = COURSES.map(c =>
+    `<label class="course-item"><input type="checkbox" value="${c.id}" data-prefix="${prefix}"> ${c.name}</label>`
+  ).join('');
+}
+renderCourseCheckboxes('coursesGridNew', 'new');
+renderCourseCheckboxes('coursesGridRecover', 'recover');
+
+let recoverOldDocId = null; // the old Firestore doc (by old UID) to delete after recreation
+
+function lookupForRecovery(){
+  const email = document.getElementById('recoverEmail').value.trim();
+  if(!email){
+    showMsg('recoverMsg', 'Enter the student\'s email first.', false);
+    return;
   }
-
-  function getCheckedCourses(){
-    return Array.from(document.querySelectorAll("#course-checkboxes input:checked")).map(el => el.value);
-  }
-
-  function showFormError(msg){
-    const el = document.getElementById("form-error");
-    el.textContent = msg; el.classList.add("show");
-    document.getElementById("form-msg").classList.remove("show");
-  }
-  function showFormMsg(msg){
-    const el = document.getElementById("form-msg");
-    el.textContent = msg; el.classList.add("show");
-    document.getElementById("form-error").classList.remove("show");
-  }
-
-  function courseLabel(id){
-    const c = COURSES.find(c => c.id === id);
-    return c ? c.label : id;
-  }
-
-  function renderTable(list){
-    const tbody = document.getElementById("students-tbody");
-    document.getElementById("student-count").textContent = list.length + " student" + (list.length===1?"":"s");
-    if(list.length === 0){
-      tbody.innerHTML = "<tr><td colspan='5'>No students found.</td></tr>";
-      return;
-    }
-    tbody.innerHTML = list.map(s => `
-      <tr>
-        <td>${s.email || "—"}</td>
-        <td>${s.name || "—"}</td>
-        <td style="font-family:monospace;font-size:12px;">${s.uid}</td>
-        <td>${(s.courses||[]).map(id => `<span class="admin-badge">${courseLabel(id)}</span>`).join(" ") || "—"}</td>
-        <td><button class="btn btn-outline btn-sm" onclick="editStudent('${s.uid}')">Edit</button></td>
-      </tr>`).join("");
-  }
-
-  function editStudent(uid){
-    const s = allStudents.find(s => s.uid === uid);
-    if(!s) return;
-    document.getElementById("f-uid").value = s.uid;
-    document.getElementById("f-email").value = s.email || "";
-    document.getElementById("f-name").value = s.name || "";
-    renderCheckboxes(s.courses || []);
-    document.getElementById("form-title").scrollIntoView({behavior:"smooth", block:"center"});
-  }
-
-  function loadStudents(){
-    db.collection("students").get().then(function(snap){
-      allStudents = snap.docs.map(d => Object.assign({ uid: d.id }, d.data()));
-      renderTable(allStudents);
-    }).catch(function(err){
-      console.error(err);
-      document.getElementById("students-tbody").innerHTML =
-        "<tr><td colspan='5' style='color:var(--red);'>Could not load students: " + err.message + "</td></tr>";
+  db.collection('students').where('email', '==', email).get()
+    .then(function(snap){
+      if(snap.empty){
+        showMsg('recoverMsg', 'No existing enrollment record found for that email. Use "Add New Student" instead.', false);
+        document.getElementById('recoverDetails').style.display = 'none';
+        return;
+      }
+      const doc = snap.docs[0];
+      const d = doc.data();
+      recoverOldDocId = doc.id;
+      document.getElementById('recoverName').value = d.name || '';
+      document.querySelectorAll('#coursesGridRecover input').forEach(cb => {
+        cb.checked = (d.courses || []).includes(cb.value);
+      });
+      document.getElementById('recoverDetails').style.display = 'block';
+      showMsg('recoverMsg', `Found existing record for ${d.name || email}. Make sure you've already deleted their old login in Firebase console, then set a new password below.`, true);
+    })
+    .catch(function(err){
+      showMsg('recoverMsg', 'Error: ' + err.message, false);
     });
+}
+
+function recreateStudent(){
+  const email = document.getElementById('recoverEmail').value.trim();
+  const name = document.getElementById('recoverName').value.trim();
+  const password = document.getElementById('recoverPassword').value;
+  const checked = Array.from(document.querySelectorAll('#coursesGridRecover input:checked')).map(c => c.value);
+
+  if(!email || !name || !password){
+    showMsg('recoverMsg', 'Please fill in name and new password.', false);
+    return;
+  }
+  if(password.length < 6){
+    showMsg('recoverMsg', 'Password must be at least 6 characters.', false);
+    return;
   }
 
-  document.getElementById("search-box").addEventListener("input", function(){
-    const q = this.value.trim().toLowerCase();
-    if(!q){ renderTable(allStudents); return; }
-    renderTable(allStudents.filter(s =>
-      (s.email||"").toLowerCase().includes(q) ||
-      (s.name||"").toLowerCase().includes(q) ||
-      (s.uid||"").toLowerCase().includes(q)
-    ));
-  });
-
-  document.getElementById("clear-form-btn").addEventListener("click", function(){
-    document.getElementById("f-uid").value = "";
-    document.getElementById("f-email").value = "";
-    document.getElementById("f-name").value = "";
-    renderCheckboxes([]);
-    document.getElementById("form-error").classList.remove("show");
-    document.getElementById("form-msg").classList.remove("show");
-  });
-
-  document.getElementById("save-btn").addEventListener("click", function(){
-    const uid = document.getElementById("f-uid").value.trim();
-    const email = document.getElementById("f-email").value.trim();
-    const name = document.getElementById("f-name").value.trim();
-    const courses = getCheckedCourses();
-    if(!uid){
-      showFormError("Student UID is required. Find it in Firebase Console → Authentication.");
-      return;
-    }
-    db.collection("students").doc(uid).set({
-      email: email || null,
-      name: name || null,
-      courses: courses
-    }, { merge: true }).then(function(){
-      showFormMsg("Saved access for " + (email || uid) + ".");
+  const secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary_" + Date.now());
+  secondaryApp.auth().createUserWithEmailAndPassword(email, password)
+    .then(function(cred){
+      const newUid = cred.user.uid;
+      return db.collection('students').doc(newUid).set({
+        name: name, email: email, courses: checked
+      }).then(function(){
+        return secondaryApp.auth().signOut();
+      });
+    })
+    .then(function(){
+      secondaryApp.delete();
+      // Clean up the old orphaned Firestore doc (old UID no longer has a matching auth account)
+      if(recoverOldDocId){
+        return db.collection('students').doc(recoverOldDocId).delete();
+      }
+    })
+    .then(function(){
+      showMsg('recoverMsg', `Account recreated for ${name}. Give them the new password: "${password}" — they can change it themselves later.`, true);
+      document.getElementById('recoverEmail').value = '';
+      document.getElementById('recoverName').value = '';
+      document.getElementById('recoverPassword').value = '';
+      document.getElementById('recoverDetails').style.display = 'none';
+      recoverOldDocId = null;
       loadStudents();
-    }).catch(function(err){
-      showFormError(err.message || "Could not save.");
+    })
+    .catch(function(err){
+      secondaryApp.delete();
+      showMsg('recoverMsg', 'Error: ' + err.message, false);
     });
+}
+
+function showMsg(id, text, ok){
+  const el = document.getElementById(id);
+  el.textContent = text;
+  el.className = 'msg ' + (ok ? 'ok' : 'err');
+}
+
+function adminLogin(){
+  const email = document.getElementById('adminEmail').value.trim();
+  const password = document.getElementById('adminPassword').value;
+  auth.signInWithEmailAndPassword(email, password)
+    .then(function(cred){
+      document.getElementById('loginCard').style.display = 'none';
+      document.getElementById('mainArea').style.display = 'block';
+      loadStudents();
+    })
+    .catch(function(err){
+      showMsg('loginMsg', 'Login failed: ' + err.message, false);
+    });
+}
+
+function createStudent(){
+  const name = document.getElementById('newName').value.trim();
+  const email = document.getElementById('newEmail').value.trim();
+  const password = document.getElementById('newPassword').value;
+  const checked = Array.from(document.querySelectorAll('#coursesGridNew input:checked')).map(c => c.value);
+
+  if(!name || !email || !password){
+    showMsg('createMsg', 'Please fill in name, email, and password.', false);
+    return;
+  }
+  if(password.length < 6){
+    showMsg('createMsg', 'Password must be at least 6 characters.', false);
+    return;
+  }
+  if(checked.length === 0){
+    showMsg('createMsg', 'Select at least one course.', false);
+    return;
+  }
+
+  // Use a SECOND Firebase app instance to create the account, so it
+  // doesn't sign you (the admin) out in this tab.
+  const secondaryApp = firebase.initializeApp(firebaseConfig, "Secondary_" + Date.now());
+  secondaryApp.auth().createUserWithEmailAndPassword(email, password)
+    .then(function(cred){
+      const uid = cred.user.uid;
+      return db.collection('students').doc(uid).set({
+        name: name,
+        email: email,
+        courses: checked
+      }).then(function(){
+        return secondaryApp.auth().signOut();
+      });
+    })
+    .then(function(){
+      secondaryApp.delete();
+      showMsg('createMsg', `Student "${name}" created and enrolled in ${checked.length} course(s).`, true);
+      document.getElementById('newName').value = '';
+      document.getElementById('newEmail').value = '';
+      document.getElementById('newPassword').value = '';
+      document.querySelectorAll('#coursesGridNew input:checked').forEach(c => c.checked = false);
+      loadStudents();
+    })
+    .catch(function(err){
+      secondaryApp.delete();
+      showMsg('createMsg', 'Error: ' + err.message, false);
+    });
+}
+
+function loadStudents(){
+  const wrap = document.getElementById('studentsTableWrap');
+  db.collection('students').get().then(function(snap){
+    if(snap.empty){
+      wrap.innerHTML = '<small class="hint">No students yet.</small>';
+      return;
+    }
+    let rows = '';
+    snap.forEach(function(doc){
+      const d = doc.data();
+      const courses = d.courses || [];
+      const safeId = doc.id;
+      rows += `<tr>
+        <td>${d.name || ''}</td>
+        <td>${d.email || ''}</td>
+        <td id="tags-${safeId}">${courses.map(c => `<span class="tag">${c}</span>`).join('')}</td>
+        <td><button class="secondary" onclick="toggleEditRow('${safeId}')">Edit courses</button></td>
+      </tr>
+      <tr id="edit-row-${safeId}" style="display:none;">
+        <td colspan="4" style="background:#fafafa;">
+          <div class="courses-grid" id="edit-grid-${safeId}" style="margin:10px 0;"></div>
+          <button onclick="saveStudentCourses('${safeId}')">Save</button>
+          <button class="secondary" onclick="toggleEditRow('${safeId}')">Cancel</button>
+        </td>
+      </tr>`;
+    });
+    wrap.innerHTML = `<table>
+      <tr><th>Name</th><th>Email</th><th>Courses</th><th></th></tr>
+      ${rows}
+    </table>`;
+
+    // Render checkboxes for each student's edit row, pre-checked to their current enrollment
+    snap.forEach(function(doc){
+      const d = doc.data();
+      const courses = d.courses || [];
+      const gridId = `edit-grid-${doc.id}`;
+      const el = document.getElementById(gridId);
+      if(el){
+        el.innerHTML = COURSES.map(c =>
+          `<label class="course-item"><input type="checkbox" value="${c.id}" ${courses.includes(c.id) ? 'checked' : ''}> ${c.name}</label>`
+        ).join('');
+      }
+    });
+  }).catch(function(err){
+    wrap.innerHTML = '<small class="hint">Could not load students: ' + err.message + '</small>';
   });
+}
 
-  renderCheckboxes([]);
+function toggleEditRow(uid){
+  const row = document.getElementById('edit-row-' + uid);
+  if(row) row.style.display = (row.style.display === 'none') ? 'table-row' : 'none';
+}
 
-  // ---------------- Admin gate ----------------
-  auth.onAuthStateChanged(function(user){
-    if(!user){
-      window.location.href = "login.html?redirect=" + encodeURIComponent("admin.html");
-      return;
-    }
-    if(!ADMIN_UIDS.includes(user.uid)){
-      window.location.href = "dashboard.html";
-      return;
-    }
-    document.documentElement.classList.remove("auth-loading");
-    document.getElementById("user-email-slot").textContent = user.email || "";
-    const signOutBtn = document.getElementById("sign-out-btn");
-    signOutBtn.style.display = "inline-flex";
-    signOutBtn.addEventListener("click", function(){
-      auth.signOut().then(function(){ window.location.href = "login.html"; });
+function saveStudentCourses(uid){
+  const checked = Array.from(document.querySelectorAll(`#edit-grid-${uid} input:checked`)).map(c => c.value);
+  db.collection('students').doc(uid).set({ courses: checked }, { merge: true })
+    .then(function(){
+      document.getElementById(`tags-${uid}`).innerHTML = checked.map(c => `<span class="tag">${c}</span>`).join('');
+      toggleEditRow(uid);
+    })
+    .catch(function(err){
+      alert('Error: ' + err.message);
     });
+}
+
+// Auto-login check: if already signed in (session persisted), skip login screen
+auth.onAuthStateChanged(function(user){
+  if(user){
+    document.getElementById('loginCard').style.display = 'none';
+    document.getElementById('mainArea').style.display = 'block';
     loadStudents();
-  });
+  }
+});
 </script>
 </body>
 </html>
