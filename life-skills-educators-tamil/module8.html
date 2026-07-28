@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 8 — Time Management & Goal Setting for Teachers | Life Skills Mastery for Educators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F44;
+  --navy-deep:#071530;
+  --navy-soft:#12315E;
+  --gold:#C9A227;
+  --gold-light:#E8C766;
+  --cream:#F8F5EE;
+  --ink:#1B2430;
+  --muted:#5B6472;
+  --line:#E4E1D6;
+  --white:#FFFFFF;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(10,31,68,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Noto Sans Tamil','Poppins',sans-serif;
+  line-height:1.75;
+  font-size:16.5px;
+}
+h1,h2,h3,h4{
+  font-family:'Poppins','Noto Sans Tamil',sans-serif;
+  color:var(--navy);
+  line-height:1.35;
+  margin:0 0 .6em;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* header */
+.site-header{
+  background:var(--navy);
+  color:var(--white);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;color:var(--white);}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.nav-links{display:flex;gap:26px;align-items:center;}
+.nav-links a{font-size:14.5px;color:#E8E6DE;font-family:'Poppins',sans-serif;font-weight:500;}
+.nav-links a:hover{color:var(--gold-light);}
+.btn{
+  display:inline-block;padding:12px 26px;border-radius:999px;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14.5px;
+  cursor:pointer;border:none;text-align:center;
+}
+.btn-gold{background:var(--gold);color:var(--navy-deep);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);}
+.btn-navy{background:var(--navy);color:var(--white);}
+.btn-navy:hover{background:var(--navy-soft);}
+.btn-block{display:block;width:100%;}
+
+/* hero */
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:var(--white);padding:76px 0 90px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:400px;height:400px;
+  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.18),transparent 70%);
+}
+.badge{
+  display:inline-block;background:rgba(201,162,39,.15);border:1px solid var(--gold);
+  color:var(--gold-light);font-size:12.5px;font-family:'Poppins',sans-serif;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:22px;
+}
+.hero h1{color:var(--white);font-size:2.5rem;max-width:820px;}
+.hero .sub{color:#D8DEE9;font-size:1.15rem;max-width:680px;margin-bottom:30px;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* sections */
+section{padding:64px 0;}
+.section-title{text-align:center;margin-bottom:12px;font-size:2rem;}
+.section-sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 44px;font-size:1.02rem;}
+.tag{color:var(--gold);font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-align:center;display:block;margin-bottom:10px;}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr;}.grid-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+
+/* about */
+.about-photo{
+  width:100%;aspect-ratio:4/3;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--navy-soft),var(--navy));
+  display:flex;align-items:center;justify-content:center;color:var(--gold-light);
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:3rem;box-shadow:var(--shadow);
+}
+
+/* curriculum accordion */
+.curriculum{max-width:820px;margin:0 auto;}
+.module-item{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);
+}
+.module-head{
+  display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+}
+.module-num{
+  min-width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold-light);
+  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;
+}
+.module-head .titles{flex:1;}
+.module-head .titles .ta{font-weight:600;font-size:1.02rem;color:var(--navy);}
+.module-head .titles .en{font-size:.85rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.module-head .chevron{color:var(--gold);font-size:1.3rem;transition:transform .2s;}
+.module-item.open .chevron{transform:rotate(180deg);}
+.module-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 24px;}
+.module-item.open .module-body{padding:0 24px 22px;}
+.module-body p{color:var(--muted);font-size:.95rem;margin:0;}
+
+/* pricing */
+.price-card{
+  max-width:460px;margin:0 auto;background:var(--navy);color:var(--white);
+  border-radius:20px;padding:44px 36px;text-align:center;box-shadow:var(--shadow);
+  border:1px solid rgba(201,162,39,.4);
+}
+.price-card .price{font-family:'Poppins',sans-serif;font-size:3rem;font-weight:700;color:var(--gold-light);margin:14px 0 4px;}
+.price-card .price small{font-size:1rem;color:#C7CCD8;font-weight:400;}
+.price-list{text-align:left;list-style:none;padding:0;margin:26px 0;}
+.price-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.95rem;color:#E4E7EE;}
+.price-list li::before{content:"✓ ";color:var(--gold);font-weight:700;}
+.razorpay-wrap{margin-top:20px;}
+
+footer{background:var(--navy-deep);color:#B9C0CE;padding:44px 0 28px;font-size:.9rem;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+footer a{color:#D8DEE9;}
+footer a:hover{color:var(--gold-light);}
+.footer-motto{color:var(--gold-light);font-family:'Poppins',sans-serif;font-style:italic;margin-top:8px;}
+
+.whatsapp-fab{
+  position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:1.6rem;z-index:60;
+}
+
+/* auth / gated pages */
+.auth-wrap{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-deep));padding:24px;
+}
+.auth-card{
+  background:var(--white);border-radius:18px;padding:40px 34px;max-width:420px;width:100%;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.auth-card h1{font-size:1.4rem;text-align:center;}
+.auth-card .sub{color:var(--muted);text-align:center;font-size:.9rem;margin-bottom:26px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;margin-bottom:6px;color:var(--navy);}
+.field input{
+  width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:.95rem;font-family:inherit;
+}
+.field input:focus{outline:none;border-color:var(--gold);}
+.error-msg{color:#B3261E;font-size:.85rem;margin:10px 0;display:none;}
+.auth-footer{text-align:center;font-size:.85rem;color:var(--muted);margin-top:18px;}
+
+/* course home */
+.course-home-header{
+  background:var(--navy);color:#fff;padding:34px 0;
+}
+.course-home-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.progress-wrap{background:rgba(255,255,255,.12);border-radius:999px;height:8px;width:220px;overflow:hidden;}
+.progress-bar{height:100%;background:var(--gold);width:0%;transition:width .3s;}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:760px){.module-grid{grid-template-columns:1fr;}}
+.mod-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+  display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);
+}
+.mod-card .num{
+  min-width:38px;height:38px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);
+  color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;
+}
+.mod-card.done .num{background:var(--gold);color:var(--navy-deep);}
+.mod-card .ta{font-weight:600;color:var(--navy);}
+.mod-card .en{font-size:.82rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.mod-card .go{margin-top:10px;display:inline-block;font-size:.85rem;font-weight:600;color:var(--gold);font-family:'Poppins',sans-serif;}
+
+/* module content page */
+.module-header{background:var(--navy);color:#fff;padding:30px 0;}
+.module-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.module-header .crumb{font-size:.85rem;color:var(--gold-light);font-family:'Poppins',sans-serif;}
+.module-header h1{color:#fff;font-size:1.5rem;margin-top:6px;}
+.module-header .en-sub{color:#C7CCD8;font-size:.9rem;font-family:'Poppins',sans-serif;}
+
+.lesson-content{max-width:760px;margin:0 auto;padding:44px 24px 20px;}
+.lesson{margin-bottom:38px;}
+.lesson h2{font-size:1.3rem;border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:16px;}
+.lesson h3{font-size:1.08rem;color:var(--navy-soft);margin-top:22px;}
+.lesson h4{font-size:.98rem;color:var(--gold);text-transform:none;margin-top:16px;}
+.lesson p{margin:0 0 12px;color:#2B3340;}
+.lesson p.lead{font-weight:600;color:var(--navy);}
+
+.module-nav{
+  max-width:760px;margin:0 auto;padding:10px 24px 60px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.complete-bar{
+  max-width:760px;margin:0 auto;padding:0 24px 30px;text-align:center;
+}
+.complete-check{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;}
+.complete-check input{width:20px;height:20px;accent-color:var(--gold);}
+
+@media print{
+  .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<div class="module-header">
+  <div class="container">
+    <div>
+      <div class="crumb"><a href="course-home.html" style="color:var(--gold-light);">← My Course</a> · Module 8 of 10</div>
+      <h1>நேர மேலாண்மை & இலக்கு நிர்ணயம்</h1>
+      <div class="en-sub">Time Management & Goal Setting for Teachers</div>
+    </div>
+    <div>
+      <button class="btn btn-outline" onclick="window.print()">🖨️ Print / PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-content">
+<h3>இந்த Module-ல் நாம் என்ன கற்றுக்கொள்ளப் போகிறோம்?</h3>
+<p class="lead">வணக்கம் ஆசிரியர்களே!</p>
+<p>ஒரு ஆசிரியரின் To-Do List முழுமையாக முடிந்த நாள் உங்களுக்கு நினைவிருக்கிறதா?</p>
+<p>Lesson Plan…</p>
+<p>Notebook Correction…</p>
+<p>Test Paper…</p>
+<p>Parent Message…</p>
+<p>Student Follow-up…</p>
+<p>Record Work…</p>
+<p>Meeting…</p>
+<p>School Event…</p>
+<p>அதோடு நம்முடைய personal responsibilities.</p>
+<p>ஒரு வேலையை முடித்தால் இன்னொரு வேலை தயாராக இருக்கும்.</p>
+<p>அதனால் Time Management என்றால்:</p>
+<p>“எல்லா வேலைகளையும் ஒரே நாளில் முடிப்பது” அல்ல.</p>
+<p>நம்மிடம் இருக்கும் நேரத்தில்:</p>
+<p>“எது உண்மையில் முக்கியம்?”</p>
+<p>“எது உடனடியாக செய்யப்பட வேண்டும்?”</p>
+<p>“எதை திட்டமிட்டு செய்ய வேண்டும்?”</p>
+<p>“எதை மற்றவரிடம் ஒப்படைக்கலாம்?”</p>
+<p>“எதை செய்யவே தேவையில்லை?”</p>
+<p>என்று தெளிவாக முடிவு செய்வது.</p>
+<p>இந்த Module-ல் அதற்கான ஒரு practical framework-ஐ பார்க்கப் போகிறோம்.</p>
+<section class="lesson"><h2>Eisenhower Matrix</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Lesson 1: Busy-ஆ இருப்பதும் Productive-ஆ இருப்பதும் ஒன்றல்ல</h2><div class="lesson-body">
+<p class="lead">காலை முதல் இரவு வரை தொடர்ந்து வேலை செய்திருக்கலாம்.</p>
+<p>ஆனால் நாள் முடிவில்:</p>
+<p>“நான் முக்கியமான வேலை எதையும் செய்யலையே…”</p>
+<p>என்று தோன்றியிருக்கிறதா?</p>
+<p>ஏன்?</p>
+<p>Urgent-ஆக வந்த எல்லா விஷயங்களுக்கும் response கொடுத்திருக்கலாம்.</p>
+<p>ஆனால் முக்கியமான long-term வேலைகள் postpone ஆகியிருக்கலாம்.</p>
+<p>உதாரணமாக:</p>
+<p>ஒரு parent message வந்தது.</p>
+<p>உடனே reply.</p>
+<p>ஒரு form வந்தது.</p>
+<p>உடனே fill.</p>
+<p>WhatsApp notification.</p>
+<p>Check.</p>
+<p>ஒரு colleague ஒரு small request.</p>
+<p>உடனே handle.</p>
+<p>நாள் முழுவதும் busy.</p>
+<p>ஆனால் அடுத்த வார lesson planning?</p>
+<p>Pending.</p>
+<p>Struggling student-உடன் பேச வேண்டியது?</p>
+<p>Pending.</p>
+<p>Self-development?</p>
+<p>Pending.</p>
+<p>Recovery?</p>
+<p>Pending.</p>
+<p>இதுதான்:</p>
+<h3>Urgent ≠ Always Important</h3>
+<p class="lead">என்பதை புரிந்துகொள்ள வேண்டிய இடம்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 2: Eisenhower Matrix</h2><div class="lesson-body">
+<p class="lead">நம்முடைய வேலைகளை இரண்டு கேள்விகளின் அடிப்படையில் பிரிக்கலாம்.</p>
+<h4>இது Important-ஆ?</h4>
+<h4>இது Urgent-ஆ?</h4>
+<p class="lead">இதிலிருந்து நான்கு Quadrants கிடைக்கின்றன.</p>
+</div></section>
+<section class="lesson"><h2>Q1 – Urgent &amp; Important → DO</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Q2 – Important, Not Urgent → PLAN</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Q3 – Urgent, Not Important → DELEGATE</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Q4 – Neither Urgent nor Important → DROP</h2><div class="lesson-body">
+<p class="lead">ஒவ்வொன்றாகப் பார்ப்போம்.</p>
+</div></section>
+<section class="lesson"><h2>QUADRANT 1</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Urgent + Important</h2><div class="lesson-body">
+<h4>DO – இப்போது செய்யுங்கள்</h4>
+<p class="lead">இவை முக்கியமானவை.</p>
+<p>மேலும் உடனடி attention தேவைப்படும்.</p>
+<h4>Teacher Examples</h4>
+<p class="lead">நாளைக்கு grading deadline.</p>
+<p>இன்று submit செய்ய வேண்டிய report.</p>
+<p>ஒரு student visible distress-ல் இருக்கிறார்.</p>
+<p>உடனடியாக handle செய்ய வேண்டிய classroom issue.</p>
+<p>இவற்றை:</p>
+<p>DO</p>
+<p>செய்ய வேண்டும்.</p>
+<h4>ஆனால் ஒரு Problem</h4>
+<p class="lead">ஒரு ஆசிரியரின் பெரும்பாலான நேரமும் Q1-ல் சென்றால்?</p>
+<p>ஒவ்வொரு நாளும்:</p>
+<p>Emergency.</p>
+<p>Deadline.</p>
+<p>Last-minute work.</p>
+<p>Firefighting.</p>
+<p>என்று feel ஆகலாம்.</p>
+<p>Q1 வேலைகளை முழுமையாக avoid செய்ய முடியாது.</p>
+<p>ஆனால் ஒரு முக்கியமான கேள்வி:</p>
+<h3>“இந்த வேலை urgent ஆக மாறுவதற்கு முன்பு நான் ஏதாவது செய்திருக்க முடியுமா?”</h3>
+<h4>Example</h4>
+<p class="lead">Lesson plan நாளைக்கு வேண்டும்.</p>
+<p>இன்று இரவு அவசரமாக செய்கிறோம்.</p>
+<p>Q1.</p>
+<p>அடுத்த வார lesson plan-ஐ இந்த வாரமே ஒரு fixed slot-ல் ஆரம்பித்தால்?</p>
+<p>அது Q2.</p>
+<p>அதாவது:</p>
+<p>Q2 planning → Q1 pressure-ஐ குறைக்க உதவும்.</p>
+</div></section>
+<section class="lesson"><h2>QUADRANT 2</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Important + Not Urgent</h2><div class="lesson-body">
+<h4>PLAN – திட்டமிட்டு செய்யுங்கள்</h4>
+<p class="lead">இந்த Quadrant தான் மிகவும் முக்கியமானது.</p>
+<p>ஏனென்றால் இந்த வேலைகள் முக்கியம்.</p>
+<p>ஆனால்:</p>
+<p>“இப்போதே செய்!”</p>
+<p>என்று pressure கொடுக்காது.</p>
+<p>அதனால் எளிதாக postpone ஆகிவிடும்.</p>
+<h4>Teacher Examples</h4>
+<p class="lead">அடுத்த வார lesson planning.</p>
+<p>Struggling student-உடன் relationship build செய்வது.</p>
+<p>Teaching skills improve செய்வது.</p>
+<p>Future activity planning.</p>
+<p>Recovery habit.</p>
+<p>Long-term classroom improvement.</p>
+<p>இவை இன்று செய்யப்படவில்லை என்றால் உடனே பெரிய பிரச்சினை தெரியாமல் இருக்கலாம்.</p>
+<p>ஆனால் தொடர்ந்து postpone செய்தால் பின்னர் Q1 emergency-ஆக மாறலாம்.</p>
+<h4>நினைவில் வைத்துக்கொள்ளுங்கள்</h4>
+<h3>Q1 நம்மை அழைக்கிறது.</h3>
+<h3>Q2-ஐ நாம் schedule செய்ய வேண்டும்.</h3>
+<h4>Practical Tool</h4>
+<p class="lead">ஒவ்வொரு வாரமும் ஒரு fixed Q2 time block வைத்துக்கொள்ளுங்கள்.</p>
+<p>உதாரணமாக:</p>
+<p>Wednesday – 4:00 PM to 4:45 PM</p>
+<p>Lesson planning / classroom improvement மட்டும்.</p>
+<p>அந்த நேரத்தை ஒரு class period போல protect செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>QUADRANT 3</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Urgent + Not Important</h2><div class="lesson-body">
+<h4>DELEGATE – எல்லாவற்றையும் நீங்களே செய்ய வேண்டுமா?</h4>
+<p class="lead">சில வேலைகள் urgent போல இருக்கும்.</p>
+<p>ஆனால் அந்த வேலைக்கு உங்கள் specific judgement அல்லது skill தேவையில்லாமல் இருக்கலாம்.</p>
+<p>Source course கொடுக்கும் எளிய கேள்வி:</p>
+<h3>“Does this genuinely need me, or just someone?”</h3>
+<p class="lead">தமிழில்:</p>
+<h3>“இந்த வேலையை நான்தான் செய்ய வேண்டுமா? அல்லது யாராவது செய்யலாமா?”</h3>
+<h4>Example</h4>
+<p class="lead">ஒரு routine task.</p>
+<p>ஒரு form-related follow-up.</p>
+<p>உங்களுடைய specific teaching judgement தேவையில்லாத administrative activity.</p>
+<p>உங்கள் சூழலில் மற்றொருவரிடம் சட்டபூர்வமாகவும் school procedure-க்கு ஏற்பவும் delegate செய்யக்கூடிய வேலை என்றால் delegate செய்யலாம்.</p>
+<h4>Important</h4>
+<p class="lead">Delegation என்றால்:</p>
+<p>“என் வேலையை மற்றவர் மீது தள்ளுவது” அல்ல.</p>
+<p>சரியான வேலையை சரியான நபரிடம் கொடுத்து, உங்கள் நேரத்தை உங்கள் judgement தேவைப்படும் முக்கிய வேலைகளுக்கு பாதுகாப்பது.</p>
+</div></section>
+<section class="lesson"><h2>QUADRANT 4</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Not Urgent + Not Important</h2><div class="lesson-body">
+<h4>DROP – தேவையில்லாததை குறையுங்கள்</h4>
+<p class="lead">இவை:</p>
+<p>Urgent இல்லை.</p>
+<p>Important-ம் இல்லை.</p>
+<p>ஆனால் நேரத்தை quietly எடுத்துக்கொள்ளலாம்.</p>
+<h4>Source Example</h4>
+<p class="lead">Response தேவையில்லாத messages-ஐ தொடர்ந்து scroll செய்வது.</p>
+<p>Already finished ஆன ஒரு விஷயத்தை மீண்டும் மீண்டும் check செய்வது.</p>
+<p>“2 minutes தான்.”</p>
+<p>என்று தொடங்கலாம்.</p>
+<p>ஆனால் ஒரு நாளில் பல 2 minutes சேர்ந்தால்?</p>
+<p>முக்கியமான நேரம் quietly disappear ஆகலாம்.</p>
+<h4>Practical Challenge</h4>
+<p class="lead">அடுத்த இரண்டு நாட்களுக்கு Q4 activities-க்கு roughly எவ்வளவு நேரம் செல்கிறது என்று observe செய்யுங்கள்.</p>
+<p>Judge செய்ய வேண்டாம்.</p>
+<p>முதலில் awareness மட்டும்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 3: உங்கள் வாரம் எந்த Quadrant-ல் செல்கிறது?</h2><div class="lesson-body">
+<p class="lead">ஒரு typical working week-ஐ நினைத்துப் பாருங்கள்.</p>
+<h4>Q1 – Urgent &amp; Important</h4>
+<p class="lead">______ %</p>
+<h4>Q2 – Important, Not Urgent</h4>
+<p class="lead">______ %</p>
+<h4>Q3 – Urgent, Not Important</h4>
+<p class="lead">______ %</p>
+<h4>Q4 – Neither</h4>
+<p class="lead">______ %</p>
+<p>இப்போது கேள்வி:</p>
+<h3>“எந்த Quadrant தேவைக்கு அதிகமாக இருக்கிறது?”</h3>
+<h3>“எந்த Quadrant தேவைக்கு குறைவாக இருக்கிறது?”</h3>
+<p class="lead">பல ஆசிரியர்களுக்கு முக்கியமான challenge:</p>
+<p>Q2-க்கு போதுமான நேரம் பாதுகாக்கப்படாமல் இருப்பது.</p>
+</div></section>
+<section class="lesson"><h2>Activity – My Eisenhower Matrix</h2><div class="lesson-body">
+<p class="lead">இந்த வாரம் செய்ய வேண்டிய வேலைகளை எழுதுங்கள்.</p>
+<h3>Q1 – DO</h3>
+<h4>Urgent + Important</h4>
+<h3>Q2 – PLAN</h3>
+<h4>Important + Not Urgent</h4>
+<h3>Q3 – DELEGATE</h3>
+<h4>Urgent + Not Important</h4>
+<h3>Q4 – DROP</h3>
+<h4>Neither</h4>
+</div></section>
+<section class="lesson"><h2>Lesson 4: Goal Setting – “Improve ஆகணும்” என்பது Goal அல்ல</h2><div class="lesson-body">
+<p class="lead">நாம் பல goals வைக்கிறோம்.</p>
+<p>“இந்த வருடம் better teacher ஆகணும்.”</p>
+<p>“Classroom management improve பண்ணணும்.”</p>
+<p>“Stress குறைக்கணும்.”</p>
+<p>“Students-க்கு இன்னும் attention கொடுக்கணும்.”</p>
+<p>இவை நல்ல intentions.</p>
+<p>ஆனால் என்ன செய்ய வேண்டும் என்பது தெளிவாக இல்லை.</p>
+<p>Source course goal setting-க்கு மூன்று practical ideas கொடுக்கிறது:</p>
+<h4>1. Specific ஆக மாற்றுங்கள்.</h4>
+<h4>2. Track செய்யக்கூடிய ஒரு number சேருங்கள்.</h4>
+<h4>3. Review Date வையுங்கள்.</h4>
+</div></section>
+<section class="lesson"><h2>Step 1: Goal-ஐ Specific ஆக்குங்கள்</h2><div class="lesson-body">
+<h4>Vague Goal</h4>
+<p class="lead">“Classroom Management improve பண்ண வேண்டும்.”</p>
+<p>எதைச் செய்தால் improve ஆனது என்று தெரியும்?</p>
+<p>தெளிவில்லை.</p>
+<h4>Specific Goal</h4>
+<p class="lead">“இந்த மாதம் ஒவ்வொரு lesson-லும் தேவையான ஒரு difficult moment-ல் Pause → Name → Ask → Respond technique-ஐ பயன்படுத்திப் practice செய்வேன்.”</p>
+<p>இப்போது action தெரிகிறது.</p>
+</div></section>
+<section class="lesson"><h2>Step 2: Track செய்யுங்கள்</h2><div class="lesson-body">
+<p class="lead">Goal இருக்கிறது.</p>
+<p>ஆனால் அதை track செய்யவில்லை என்றால்:</p>
+<p>“நான் improve ஆகிறேனா?”</p>
+<p>என்று தெரியாது.</p>
+<p>Tracking complicated ஆக இருக்க வேண்டியதில்லை.</p>
+<p>ஒரு simple:</p>
+<p>✓</p>
+<p>அல்லது</p>
+<p>Yes / No</p>
+<p>அல்லது</p>
+<p>Weekly count.</p>
+<h4>Example</h4>
+<p class="lead">இந்த வாரம் Pause → Name → Ask → Respond பயன்படுத்திய classes:</p>
+<p>Monday: ✓ ✓</p>
+<p>Tuesday: ✓</p>
+<p>Wednesday: ✓ ✓ ✓</p>
+<p>இப்போது practice visible.</p>
+</div></section>
+<section class="lesson"><h2>Step 3: Review Date வையுங்கள்</h2><div class="lesson-body">
+<p class="lead">பலர் goal-க்கு End Date வைப்பார்கள்.</p>
+<p>ஆனால் source course முக்கியமாக Review Date வைக்கச் சொல்கிறது.</p>
+<p>ஏன்?</p>
+<p>ஒரு மாத goal வைத்திருக்கிறீர்கள்.</p>
+<p>இரண்டு வாரம் கழித்து review செய்யுங்கள்.</p>
+<h4>கேள்விகள்</h4>
+<p class="lead">Goal realistic-ஆ இருக்கிறதா?</p>
+<p>Practice நடக்கிறதா?</p>
+<p>என்ன obstacle வருகிறது?</p>
+<p>Goal-ஐ adjust செய்ய வேண்டுமா?</p>
+<p>End வரை காத்திருக்காமல் நடுவில் course correction செய்ய முடியும்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 5: Habit Anchoring</h2><div class="lesson-body">
+<p class="lead">ஒரு புதிய habit-ஐ தனியாக உருவாக்குவது கடினமாக இருக்கலாம்.</p>
+<p>அதனால் source course ஒரு useful approach கொடுக்கிறது:</p>
+<p>புதிய habit-ஐ ஏற்கனவே செய்யும் habit-உடன் இணைக்குங்கள்.</p>
+<h4>Example</h4>
+<p class="lead">New Goal:</p>
+<p>“Daily ஒரு student-ஐ check-in செய்ய வேண்டும்.”</p>
+<p>அதை நினைவில் வைத்துக்கொள்ள வேண்டுமா?</p>
+<p>அதற்குப் பதிலாக:</p>
+<h3>“Attendance எடுத்த உடனே, இன்று check-in செய்ய வேண்டிய ஒரு student-ன் பெயரை note செய்வேன்.”</h3>
+<p class="lead">Attendance ஏற்கனவே இருக்கும் habit.</p>
+<p>அதன் பின்னால் புதிய habit-ஐ attach செய்கிறோம்.</p>
+<h4>Formula</h4>
+<h3>AFTER Existing Habit, I WILL [New Action]</h3>
+<h4>Example</h4>
+<p class="lead">“First period attendance முடிந்த பிறகு, இன்று positive feedback கொடுக்க வேண்டிய ஒரு student-ஐ note செய்வேன்.”</p>
+</div></section>
+<section class="lesson"><h2>Activity – Turn a Vague Goal into Action</h2><div class="lesson-body">
+<h4>My Vague Goal</h4>
+<h4>Specific Action</h4>
+<p class="lead">நான் என்ன செய்யப் போகிறேன்?</p>
+<h4>Track</h4>
+<p class="lead">எப்படி measure செய்வேன்?</p>
+<h4>Existing Habit</h4>
+<p class="lead">இதை எந்த பழக்கத்துடன் இணைப்பேன்?</p>
+<h4>Review Date</h4>
+</div></section>
+<section class="lesson"><h2>Lesson 6: Time Management + Goal Setting</h2><div class="lesson-body">
+<p class="lead">Time Management தனியாகவும் Goal Setting தனியாகவும் வேலை செய்யக்கூடாது.</p>
+<p>இரண்டையும் connect செய்ய வேண்டும்.</p>
+<p>உங்களுக்கு ஒரு goal இருக்கிறது.</p>
+<p>“Students-உடன் relationship improve செய்ய வேண்டும்.”</p>
+<p>Specific goal:</p>
+<p>“வாரத்திற்கு மூன்று மாணவர்களுடன் இரண்டு நிமிட non-academic check-in செய்வேன்.”</p>
+<p>நல்ல goal.</p>
+<p>ஆனால் calendar-ல் time இல்லை.</p>
+<p>என்ன நடக்கும்?</p>
+<p>Urgent வேலை வரும்.</p>
+<p>Goal postpone.</p>
+<p>மறுநாள் இன்னொரு urgent வேலை.</p>
+<p>Goal மீண்டும் postpone.</p>
+<p>அதனால்:</p>
+<h3>Goal + Protected Q2 Time = Action</h3>
+<p class="lead">Goal மட்டும் போதாது.</p>
+<p>அதைச் செய்ய Q2 time protect செய்ய வேண்டும்.</p>
+</div></section>
+<section class="lesson"><h2>Practical Example</h2><div class="lesson-body">
+<h4>Goal</h4>
+<p class="lead">“Next week’s lessons-ஐ advance-ஆ plan செய்ய வேண்டும்.”</p>
+<h4>Existing Problem</h4>
+<p class="lead">Friday evening-ல் last minute planning.</p>
+<h4>New Q2 Block</h4>
+<p class="lead">Wednesday 4:00 PM – 4:45 PM</p>
+<p>Next week planning.</p>
+<h4>Track</h4>
+<p class="lead">4 Wednesdays-ல் எத்தனை weeks follow செய்தேன்?</p>
+<h4>Review</h4>
+<p class="lead">2 weeks கழித்து:</p>
+<p>Friday pressure குறைந்ததா?</p>
+<p>Lesson preparation improve ஆனதா?</p>
+<p>தேவைப்பட்டால் time block adjust செய்யலாம்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 7: “No” என்பதும் Time Management Skill</h2><div class="lesson-body">
+<p class="lead">Source module delegation மற்றும் unnecessary work-ஐ drop செய்வதை வலியுறுத்துகிறது.</p>
+<p>அதனால் ஒரு practical reminder:</p>
+<p>நம்முடைய நேரம் limited.</p>
+<p>ஒவ்வொரு புதிய commitment-க்கும்:</p>
+<p>“Yes”</p>
+<p>என்று சொன்னால்,</p>
+<p>ஏற்கனவே இருக்கும் வேறு ஒரு task-ன் நேரத்தை அது எடுத்துக்கொள்ளும்.</p>
+<p>ஒரு புதிய task வந்தால்:</p>
+<h4>இது Q1-ஆ?</h4>
+<h4>Q2-ஆ?</h4>
+<h4>Q3-ஆ?</h4>
+<h4>Q4-ஆ?</h4>
+<p class="lead">என்று முதலில் பாருங்கள்.</p>
+<p>Q4 என்றால்:</p>
+<p>Drop.</p>
+<p>Q3 என்றால்:</p>
+<p>Appropriate என்றால் Delegate.</p>
+<p>Q2 என்றால்:</p>
+<p>Schedule.</p>
+<p>Q1 என்றால்:</p>
+<p>Do.</p>
+</div></section>
+<section class="lesson"><h2>My Weekly Q2 Protection Plan</h2><div class="lesson-body">
+<h4>இந்த வாரம் நான் பாதுகாக்க வேண்டிய முக்கிய Q2 வேலை:</h4>
+<h4>எந்த நாள்?</h4>
+<h4>எந்த நேரம்?</h4>
+<h4>எவ்வளவு நேரம்?</h4>
+<h4>என்ன obstacle வரலாம்?</h4>
+<h4>அந்த நேரத்தை நான் எப்படி protect செய்வேன்?</h4>
+</div></section>
+<section class="lesson"><h2>7-Day Time Management Challenge</h2><div class="lesson-body">
+<h4>Day 1 – Observe</h4>
+<p class="lead">உங்கள் tasks-ஐ Q1, Q2, Q3, Q4 என்று classify செய்யுங்கள்.</p>
+<h4>Day 2 – Q4 Check</h4>
+<p class="lead">தேவையில்லாமல் நேரம் எடுத்த ஒரு activity-ஐ identify செய்யுங்கள்.</p>
+<h4>Day 3 – Q3 Check</h4>
+<p class="lead">“இதற்கு உண்மையில் நான்தான் தேவையா?” என்று ஒரு task-க்கு கேளுங்கள்.</p>
+<h4>Day 4 – Q2 Block</h4>
+<p class="lead">ஒரு Important, Not Urgent task-க்கு fixed time schedule செய்யுங்கள்.</p>
+<h4>Day 5 – Goal</h4>
+<p class="lead">ஒரு vague goal-ஐ specific action-ஆக மாற்றுங்கள்.</p>
+<h4>Day 6 – Track</h4>
+<p class="lead">அந்த action-க்கு simple tracking method அமைக்குங்கள்.</p>
+<h4>Day 7 – Anchor</h4>
+<p class="lead">புதிய habit-ஐ ஒரு existing habit-உடன் இணைக்குங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
+<h4>என் நேரத்தின் பெரும்பகுதி செல்லும் Quadrant:</h4>
+<h4>நான் அதிகரிக்க வேண்டிய Q2 activity:</h4>
+<h4>நான் reduce செய்ய வேண்டிய Q4 activity:</h4>
+<h4>Delegate செய்யக்கூடிய ஒரு Q3 task:</h4>
+<h4>இந்த மாதம் என்னுடைய முக்கிய Goal:</h4>
+<h4>அதை நான் Track செய்யும் முறை:</h4>
+<h4>என் Review Date:</h4>
+</div></section>
+<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
+<h4>Question 1</h4>
+<p class="lead">Urgent + Important task எந்த Quadrant?</p>
+<p>A. Q1
+B. Q2
+C. Q3
+D. Q4</p>
+<p>Correct Answer: A</p>
+<h4>Question 2</h4>
+<p class="lead">Important + Not Urgent task-க்கு என்ன செய்ய வேண்டும்?</p>
+<p>A. Drop
+B. Ignore
+C. Plan / Schedule
+D. உடனே Delegate</p>
+<p>Correct Answer: C</p>
+<h4>Question 3</h4>
+<p class="lead">“Does this genuinely need me, or just someone?” என்ற கேள்வி எந்த Quadrant-க்கு முக்கியம்?</p>
+<p>A. Q1
+B. Q2
+C. Q3
+D. Q4</p>
+<p>Correct Answer: C</p>
+<h4>Question 4</h4>
+<p class="lead">Q4 என்பது?</p>
+<p>A. Urgent + Important
+B. Important + Not Urgent
+C. Urgent + Not Important
+D. Neither Urgent nor Important</p>
+<p>Correct Answer: D</p>
+<h4>Question 5</h4>
+<p class="lead">Goal-ஐ effective ஆக்க source course வலியுறுத்தும் approach எது?</p>
+<p>A. Vague-ஆ வைத்திருப்பது
+B. Specific + Trackable + Review Date
+C. மனதில் மட்டும் வைத்திருப்பது
+D. End Date மட்டும் வைப்பது</p>
+<p>Correct Answer: B</p>
+<h4>Question 6</h4>
+<p class="lead">Habit Anchoring என்றால்?</p>
+<p>A. பழைய habits அனைத்தையும் நிறுத்துவது
+B. புதிய habit-ஐ ஏற்கனவே இருக்கும் habit-உடன் இணைப்பது
+C. Goal-ஐ மாற்றுவது
+D. தினமும் புதிய goal உருவாக்குவது</p>
+<p>Correct Answer: B</p>
+</div></section>
+<section class="lesson"><h2>Module 8 – முக்கிய Takeaways</h2><div class="lesson-body">
+<h3>1. எல்லா Urgent விஷயங்களும் equally Important அல்ல</h3>
+<p class="lead">Tasks-ஐ:</p>
+<p>Q1 – DO</p>
+<p>Q2 – PLAN</p>
+<p>Q3 – DELEGATE</p>
+<p>Q4 – DROP</p>
+<p>என்று பிரித்துப் பாருங்கள்.</p>
+<h3>2. Long-Term Improvement Q2-ல் உருவாகிறது</h3>
+<p class="lead">Lesson planning.</p>
+<p>Relationship building.</p>
+<p>Professional development.</p>
+<p>Prevention.</p>
+<p>Recovery.</p>
+<p>இவை “இப்போதே செய்” என்று pressure கொடுக்காது.</p>
+<p>அதனால் அவற்றுக்கான நேரத்தை நாம் protect செய்ய வேண்டும்.</p>
+<h3>3. Vague Goals action ஆக மாறாது</h3>
+<p class="lead">Specific</p>
+<p>Trackable</p>
+<p>Reviewable</p>
+<p>ஆக மாற்றுங்கள்.</p>
+<h3>4. புதிய Habit-ஐ Existing Habit-உடன் இணைக்குங்கள்</h3>
+<h4>AFTER Existing Habit → [New Action]</h4>
+<p class="lead">புதிய behaviour-ஐ நினைவில் வைத்துக்கொள்ள இது ஒரு practical structure.</p>
+<h3>5. Goal-க்கு Calendar Time தேவை</h3>
+<h4>Goal + Protected Q2 Time = Consistent Action</h4>
+<p class="lead">Goal-ஐ எழுதுவது முதல் step.</p>
+<p>அதற்கான நேரத்தைப் பாதுகாப்பதுதான் அதை நடைமுறைக்கு கொண்டு வரும் அடுத்த step.</p>
+</div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
+<p class="lead">“எல்லா வேலைகளையும் ஒரே நேரத்தில் முடிக்க முயற்சி செய்வதைவிட, உண்மையில் முக்கியமானவற்றை அடையாளம் கண்டு முன்னுரிமை கொடுப்பேன். உடனடி வேலைகள் என் முழு நேரத்தையும் எடுத்துக்கொள்ள விடாமல், என் வளர்ச்சிக்கும் மாணவர்களின் நீண்டகால முன்னேற்றத்திற்கும் தேவையான Q2 நேரத்தை திட்டமிட்டு பாதுகாப்பேன்.”</p>
+</div></section>
+<section class="lesson"><h2>Module 8 Complete ✓</h2><div class="lesson-body">
+<h3>அடுத்த Module</h3>
+</div></section>
+<section class="lesson"><h2>Resilience &amp; Coping with Change</h2><div class="lesson-body">
+<h4>சவால்களிலிருந்து மீண்டு வருதல் &amp; மாற்றங்களை கையாளுதல்</h4>
+<p class="lead">School life எப்போதும் நம்முடைய plan படியே நடக்காது.</p>
+<p>New Curriculum.</p>
+<p>New Policy.</p>
+<p>New Leadership.</p>
+<p>Different Working Styles.</p>
+<p>Failed Lesson.</p>
+<p>Unexpected Change.</p>
+<p>இவற்றை எதிர்கொள்ள உதவும் நான்கு Resilience Pillars:</p>
+<h4>Cognitive Reframing</h4>
+<h4>Social Connection</h4>
+<h4>Sense of Purpose</h4>
+<h4>Adaptive Flexibility</h4>
+<p class="lead">மேலும் நம்மால் தேர்வு செய்யப்படாத மாற்றத்தை:</p>
+<p>Initial Reaction → Fixed vs Flexible → One Thing to Control → Review</p>
+<p>என்ற practical approach மூலம் எப்படி கையாளலாம் என்பதை Module 9-ல் பார்க்கலாம்.</p>
+</div></section>
+</div>
+
+<div class="complete-bar">
+  <label class="complete-check">
+    <input type="checkbox" id="complete-checkbox">
+    <span id="complete-label">இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)</span>
+  </label>
+</div>
+
+<div class="module-nav">
+  <a class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);" href="module7.html">← Module 7</a><a class="btn btn-navy" href="module9.html">அடுத்த Module 9 →</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div>
+      <div style="font-family:'Poppins',sans-serif;font-weight:600;color:#fff;">N T Somasundaram</div>
+      <div>Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</div>
+      <div class="footer-motto">God is always with u.</div>
+    </div>
+    <div>
+      <div>📞 <a href="tel:+919843702244">+91 98437 02244</a></div>
+      <div>✉️ <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+      <div>▶️ <a href="https://www.youtube.com/@Godisalwayswithu" target="_blank" rel="noopener">@Godisalwayswithu</a></div>
+    </div>
+  </div>
+</footer>
+<a class="whatsapp-fab" href="https://wa.me/919843702244?text=Life%20Skills%20Mastery%20for%20Educators%20course%20-%20I%20have%20a%20question" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+<script>
+var STORAGE_KEY = 'life-skills-educators-tamil-module-8-complete';
+var checkbox = document.getElementById('complete-checkbox');
+var label = document.getElementById('complete-label');
+
+function refreshLabel() {
+  label.textContent = checkbox.checked
+    ? '✓ இந்த Module முடிந்தது'
+    : 'இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)';
+}
+
+document.addEventListener('auth-ready', function () {
+  checkbox.checked = localStorage.getItem(STORAGE_KEY) === 'true';
+  refreshLabel();
+});
+
+checkbox.addEventListener('change', function () {
+  localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
+  refreshLabel();
+});
+</script>
+</body>
+</html>

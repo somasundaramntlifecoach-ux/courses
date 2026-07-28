@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 5 — Decision-Making & Problem-Solving for Teachers | Life Skills Mastery for Educators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F44;
+  --navy-deep:#071530;
+  --navy-soft:#12315E;
+  --gold:#C9A227;
+  --gold-light:#E8C766;
+  --cream:#F8F5EE;
+  --ink:#1B2430;
+  --muted:#5B6472;
+  --line:#E4E1D6;
+  --white:#FFFFFF;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(10,31,68,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Noto Sans Tamil','Poppins',sans-serif;
+  line-height:1.75;
+  font-size:16.5px;
+}
+h1,h2,h3,h4{
+  font-family:'Poppins','Noto Sans Tamil',sans-serif;
+  color:var(--navy);
+  line-height:1.35;
+  margin:0 0 .6em;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* header */
+.site-header{
+  background:var(--navy);
+  color:var(--white);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;color:var(--white);}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.nav-links{display:flex;gap:26px;align-items:center;}
+.nav-links a{font-size:14.5px;color:#E8E6DE;font-family:'Poppins',sans-serif;font-weight:500;}
+.nav-links a:hover{color:var(--gold-light);}
+.btn{
+  display:inline-block;padding:12px 26px;border-radius:999px;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14.5px;
+  cursor:pointer;border:none;text-align:center;
+}
+.btn-gold{background:var(--gold);color:var(--navy-deep);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);}
+.btn-navy{background:var(--navy);color:var(--white);}
+.btn-navy:hover{background:var(--navy-soft);}
+.btn-block{display:block;width:100%;}
+
+/* hero */
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:var(--white);padding:76px 0 90px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:400px;height:400px;
+  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.18),transparent 70%);
+}
+.badge{
+  display:inline-block;background:rgba(201,162,39,.15);border:1px solid var(--gold);
+  color:var(--gold-light);font-size:12.5px;font-family:'Poppins',sans-serif;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:22px;
+}
+.hero h1{color:var(--white);font-size:2.5rem;max-width:820px;}
+.hero .sub{color:#D8DEE9;font-size:1.15rem;max-width:680px;margin-bottom:30px;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* sections */
+section{padding:64px 0;}
+.section-title{text-align:center;margin-bottom:12px;font-size:2rem;}
+.section-sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 44px;font-size:1.02rem;}
+.tag{color:var(--gold);font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-align:center;display:block;margin-bottom:10px;}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr;}.grid-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+
+/* about */
+.about-photo{
+  width:100%;aspect-ratio:4/3;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--navy-soft),var(--navy));
+  display:flex;align-items:center;justify-content:center;color:var(--gold-light);
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:3rem;box-shadow:var(--shadow);
+}
+
+/* curriculum accordion */
+.curriculum{max-width:820px;margin:0 auto;}
+.module-item{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);
+}
+.module-head{
+  display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+}
+.module-num{
+  min-width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold-light);
+  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;
+}
+.module-head .titles{flex:1;}
+.module-head .titles .ta{font-weight:600;font-size:1.02rem;color:var(--navy);}
+.module-head .titles .en{font-size:.85rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.module-head .chevron{color:var(--gold);font-size:1.3rem;transition:transform .2s;}
+.module-item.open .chevron{transform:rotate(180deg);}
+.module-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 24px;}
+.module-item.open .module-body{padding:0 24px 22px;}
+.module-body p{color:var(--muted);font-size:.95rem;margin:0;}
+
+/* pricing */
+.price-card{
+  max-width:460px;margin:0 auto;background:var(--navy);color:var(--white);
+  border-radius:20px;padding:44px 36px;text-align:center;box-shadow:var(--shadow);
+  border:1px solid rgba(201,162,39,.4);
+}
+.price-card .price{font-family:'Poppins',sans-serif;font-size:3rem;font-weight:700;color:var(--gold-light);margin:14px 0 4px;}
+.price-card .price small{font-size:1rem;color:#C7CCD8;font-weight:400;}
+.price-list{text-align:left;list-style:none;padding:0;margin:26px 0;}
+.price-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.95rem;color:#E4E7EE;}
+.price-list li::before{content:"✓ ";color:var(--gold);font-weight:700;}
+.razorpay-wrap{margin-top:20px;}
+
+footer{background:var(--navy-deep);color:#B9C0CE;padding:44px 0 28px;font-size:.9rem;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+footer a{color:#D8DEE9;}
+footer a:hover{color:var(--gold-light);}
+.footer-motto{color:var(--gold-light);font-family:'Poppins',sans-serif;font-style:italic;margin-top:8px;}
+
+.whatsapp-fab{
+  position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:1.6rem;z-index:60;
+}
+
+/* auth / gated pages */
+.auth-wrap{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-deep));padding:24px;
+}
+.auth-card{
+  background:var(--white);border-radius:18px;padding:40px 34px;max-width:420px;width:100%;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.auth-card h1{font-size:1.4rem;text-align:center;}
+.auth-card .sub{color:var(--muted);text-align:center;font-size:.9rem;margin-bottom:26px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;margin-bottom:6px;color:var(--navy);}
+.field input{
+  width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:.95rem;font-family:inherit;
+}
+.field input:focus{outline:none;border-color:var(--gold);}
+.error-msg{color:#B3261E;font-size:.85rem;margin:10px 0;display:none;}
+.auth-footer{text-align:center;font-size:.85rem;color:var(--muted);margin-top:18px;}
+
+/* course home */
+.course-home-header{
+  background:var(--navy);color:#fff;padding:34px 0;
+}
+.course-home-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.progress-wrap{background:rgba(255,255,255,.12);border-radius:999px;height:8px;width:220px;overflow:hidden;}
+.progress-bar{height:100%;background:var(--gold);width:0%;transition:width .3s;}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:760px){.module-grid{grid-template-columns:1fr;}}
+.mod-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+  display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);
+}
+.mod-card .num{
+  min-width:38px;height:38px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);
+  color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;
+}
+.mod-card.done .num{background:var(--gold);color:var(--navy-deep);}
+.mod-card .ta{font-weight:600;color:var(--navy);}
+.mod-card .en{font-size:.82rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.mod-card .go{margin-top:10px;display:inline-block;font-size:.85rem;font-weight:600;color:var(--gold);font-family:'Poppins',sans-serif;}
+
+/* module content page */
+.module-header{background:var(--navy);color:#fff;padding:30px 0;}
+.module-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.module-header .crumb{font-size:.85rem;color:var(--gold-light);font-family:'Poppins',sans-serif;}
+.module-header h1{color:#fff;font-size:1.5rem;margin-top:6px;}
+.module-header .en-sub{color:#C7CCD8;font-size:.9rem;font-family:'Poppins',sans-serif;}
+
+.lesson-content{max-width:760px;margin:0 auto;padding:44px 24px 20px;}
+.lesson{margin-bottom:38px;}
+.lesson h2{font-size:1.3rem;border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:16px;}
+.lesson h3{font-size:1.08rem;color:var(--navy-soft);margin-top:22px;}
+.lesson h4{font-size:.98rem;color:var(--gold);text-transform:none;margin-top:16px;}
+.lesson p{margin:0 0 12px;color:#2B3340;}
+.lesson p.lead{font-weight:600;color:var(--navy);}
+
+.module-nav{
+  max-width:760px;margin:0 auto;padding:10px 24px 60px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.complete-bar{
+  max-width:760px;margin:0 auto;padding:0 24px 30px;text-align:center;
+}
+.complete-check{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;}
+.complete-check input{width:20px;height:20px;accent-color:var(--gold);}
+
+@media print{
+  .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<div class="module-header">
+  <div class="container">
+    <div>
+      <div class="crumb"><a href="course-home.html" style="color:var(--gold-light);">← My Course</a> · Module 5 of 10</div>
+      <h1>முடிவெடுத்தல் & பிரச்சினைகளைத் தீர்த்தல்</h1>
+      <div class="en-sub">Decision-Making & Problem-Solving for Teachers</div>
+    </div>
+    <div>
+      <button class="btn btn-outline" onclick="window.print()">🖨️ Print / PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-content">
+<h3>இந்த Module-ல் நாம் என்ன கற்றுக்கொள்ளப் போகிறோம்?</h3>
+<p class="lead">வணக்கம் ஆசிரியர்களே!</p>
+<p>ஒரு ஆசிரியர் ஒரு நாளில் எத்தனை முடிவுகள் எடுக்கிறார் என்று யோசித்துப் பார்த்திருக்கிறீர்களா?</p>
+<p>“இந்த மாணவரை இப்போதே correct செய்யலாமா?”</p>
+<p>“Class முடிந்த பிறகு தனியாகப் பேசலாமா?”</p>
+<p>“இந்த lesson-ஐ continue செய்யலாமா?”</p>
+<p>“வேறு method try பண்ணலாமா?”</p>
+<p>“Parent-ஐ contact செய்ய வேண்டுமா?”</p>
+<p>“இந்த behaviour-க்கு consequence கொடுக்க வேண்டுமா?”</p>
+<p>“இந்த மாணவருக்கு இன்னொரு chance கொடுக்கலாமா?”</p>
+<p>இப்படி ஒரு நாளில் பல சிறிய மற்றும் பெரிய முடிவுகளை ஆசிரியர்கள் எடுக்கிறார்கள்.</p>
+<p>இதில் சவால் என்ன?</p>
+<p>நமக்கு நேரம் அதிகமாக இருக்கும் போது மட்டும் முடிவு எடுக்க வேண்டியதில்லை.</p>
+<p>Stress-ல் இருக்கும்போதும்…</p>
+<p>கோபமாக இருக்கும்போதும்…</p>
+<p>Classroom pressure-ல் இருக்கும்போதும்…</p>
+<p>உடனடியாக முடிவு எடுக்க வேண்டியிருக்கும்.</p>
+<p>அந்த நேரத்தில்தான் நம்முடைய Decision-Making Pattern வெளிப்படும்.</p>
+<section class="lesson"><h2>Lesson 1: முடிவு எடுக்கும் நான்கு Patterns</h2><div class="lesson-body">
+<p class="lead">அழுத்தமான சூழலில் நாம் பொதுவாக நான்கு விதங்களில் முடிவு எடுக்கலாம்.</p>
+<h3>1. Impulsive</h3>
+<h4>யோசிப்பதற்கு முன்பே முடிவு செய்துவிடுவது</h4>
+<p class="lead">Emotion அதிகமாக இருக்கும் அந்த நொடியில் மனதில் முதலில் தோன்றிய option-ஐ உடனடியாக தேர்வு செய்வது.</p>
+<h4>Classroom Example</h4>
+<p class="lead">ஒரு மாணவர் teacher-ஐ எதிர்த்துப் பேசுகிறார்.</p>
+<p>Teacher உடனே:</p>
+<p>“ஒரு வாரம் என் class-க்கு வராதே!”</p>
+<p>என்று punishment announce செய்கிறார்.</p>
+<p>சில நிமிடங்களுக்குப் பிறகு:</p>
+<p>“கொஞ்சம் அதிகமாக சொல்லிட்டோமோ?”</p>
+<p>என்று தோன்றலாம்.</p>
+<p>இதுதான் Impulsive Decision-Making.</p>
+<h4>என்ன பிரச்சினை?</h4>
+<p class="lead">அந்த நேரத்தில் issue முடிந்துவிட்டது போலத் தோன்றலாம்.</p>
+<p>ஆனால் decision:</p>
+<p>Proportionate-ஆ இருக்கிறதா?</p>
+<p>Enforce செய்ய முடியுமா?</p>
+<p>இதே behaviour-க்கு மற்ற மாணவர்களிடம் இதே consequence கொடுத்தோமா?</p>
+<p>என்று யோசிக்காமல் போகலாம்.</p>
+<h4>Small Practice</h4>
+<p class="lead">ஒரு consequence announce செய்வதற்கு முன்பு:</p>
+<h3>3-Second Rule</h3>
+<p class="lead">ஒன்று… இரண்டு… மூன்று…</p>
+<p>மூன்று seconds மட்டும் pause செய்யுங்கள்.</p>
+<p>சிறிய gap.</p>
+<p>பெரிய மாற்றத்தை உருவாக்கலாம்.</p>
+</div></section>
+<section class="lesson"><h2>2. Avoidant Decision-Making</h2><div class="lesson-body">
+<h4>முடிவைத் தள்ளிப்போடுவது</h4>
+<p class="lead">சிலர் உடனே முடிவு செய்கிறார்கள்.</p>
+<p>சிலர் முடிவே எடுக்காமல் தள்ளிப்போடுகிறார்கள்.</p>
+<p>“பார்க்கலாம்…”</p>
+<p>“அடுத்த வாரம் பேசலாம்…”</p>
+<p>“தானாக சரியாகிவிடும்…”</p>
+<p>என்று ஒரு issue-ஐ தொடர்ந்து postpone செய்வது Avoidant Pattern.</p>
+<h4>Classroom Example</h4>
+<p class="lead">இரண்டு மாணவர்களுக்குள் தொடர்ந்து conflict வருகிறது.</p>
+<p>ஒவ்வொரு முறையும்:</p>
+<p>“இருவரும் வேறு வேறு இடத்தில் உட்காருங்கள்.”</p>
+<p>என்று மட்டும் teacher handle செய்கிறார்.</p>
+<p>ஆனால் root issue பற்றி பேசுவதில்லை.</p>
+<p>“Term முடிந்தால் சரியாகிவிடும்.”</p>
+<p>என்று நினைக்கிறார்.</p>
+<p>ஆனால் unresolved problem மீண்டும் வரலாம்.</p>
+<h4>Practical Tool – Decision Deadline</h4>
+<p class="lead">Avoid செய்து கொண்டிருக்கும் ஒரு issue-க்கு deadline வையுங்கள்.</p>
+<p>“இந்த Friday-க்குள் இதைப் பற்றி நான் பேசுவேன்.”</p>
+<p>என்று எழுதிவையுங்கள்.</p>
+<p>Avoidance-க்கு expiry date கொடுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>3. Over-Analytical Decision-Making</h2><div class="lesson-body">
+<h4>யோசித்துக்கொண்டே இருந்து முடிவு எடுக்காமல் இருப்பது</h4>
+<p class="lead">நல்ல முடிவு எடுக்க information தேவை.</p>
+<p>ஆனால்:</p>
+<p>இன்னொரு strategy…</p>
+<p>இன்னொரு article…</p>
+<p>இன்னொரு opinion…</p>
+<p>இன்னொரு method…</p>
+<p>என்று தொடர்ந்து information மட்டும் collect செய்து decision எடுக்காமல் இருந்தால் அது Over-Analysis.</p>
+<h4>Example</h4>
+<p class="lead">ஒரு class-ல் மாணவர்களின் engagement குறைவாக இருக்கிறது.</p>
+<p>Teacher:</p>
+<p>Five teaching strategies படிக்கிறார்.</p>
+<p>பல videos பார்க்கிறார்.</p>
+<p>பல ideas note செய்கிறார்.</p>
+<p>ஆனால் ஒரு strategy-யையும் class-ல் try செய்யவில்லை.</p>
+<p>“Best method எது?”</p>
+<p>என்று தொடர்ந்து தேடுகிறார்.</p>
+<p>இதற்குள் மாணவர்களின் learning time போய்க்கொண்டிருக்கிறது.</p>
+<h4>Practical Tool – Information Deadline</h4>
+<p class="lead">“Wednesday வரை information collect செய்வேன். Thursday ஒரு method select செய்து try செய்வேன்.”</p>
+<p>என்று deadline வையுங்கள்.</p>
+<p>Perfect answer கிடைக்கும் வரை காத்திருப்பதைவிட, workable option ஒன்றை முயற்சி செய்து அதன் result-ஐப் பார்ப்பது பல சூழல்களில் பயனுள்ளதாக இருக்கும்.</p>
+</div></section>
+<section class="lesson"><h2>4. Deliberate Decision-Making</h2><div class="lesson-body">
+<h4>முக்கியமான காரணிகளை யோசித்து முடிவு செய்வது</h4>
+<p class="lead">Deliberate decision என்றால் எல்லாவற்றையும் பல மணி நேரம் analyse செய்வது அல்ல.</p>
+<p>Situation-க்கு முக்கியமான factors-ஐ கவனித்து, ஒரு reasonable நேரத்தில் decision எடுத்து, தேவையானால் பின்னர் adjust செய்வது.</p>
+<h4>Classroom Example</h4>
+<p class="lead">ஒரு மாணவர் class-ல் inappropriate-ஆ பேசுகிறார்.</p>
+<p>Teacher மூன்று விஷயங்களை விரைவாகக் கவனிக்கிறார்:</p>
+<p>Fairness</p>
+<p>இதே behaviour-க்கு மற்ற மாணவர்களை எப்படி handle செய்தேன்?</p>
+<p>Student History</p>
+<p>இந்த behaviour தொடர்ந்து நடக்கிறதா அல்லது இது முதல் முறையா?</p>
+<p>Class Need</p>
+<p>இப்போது class-ன் learning environment-ஐ பாதுகாக்க என்ன செய்ய வேண்டும்?</p>
+<p>அதை வைத்து teacher ஒரு response தேர்வு செய்கிறார்.</p>
+<p>இதுதான் Deliberate Decision-Making.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 2: உங்கள் Default Decision Style என்ன?</h2><div class="lesson-body">
+<p class="lead">ஒரு முக்கியமான விஷயம்:</p>
+<p>ஒரே ஆசிரியர் எல்லா situations-லுமே ஒரே pattern-ஐ பயன்படுத்த வேண்டியதில்லை.</p>
+<p>Behaviour issue வந்தால் Impulsive ஆக இருக்கலாம்.</p>
+<p>Parent conversation-ஐ Avoid செய்யலாம்.</p>
+<p>Teaching strategy-ல் Over-Analyse செய்யலாம்.</p>
+<p>Administrative decision-ல் Deliberate ஆக இருக்கலாம்.</p>
+<p>அதனால் கேள்வி:</p>
+<p>“நான் எந்த type?”</p>
+<p>என்பதைவிட:</p>
+<p>“எந்த situation என்னை எந்த pattern-க்கு கொண்டு செல்கிறது?”</p>
+<p>என்பதுதான் முக்கியம்.</p>
+</div></section>
+<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
+<h4>Student behaviour issue வந்தால் நான்:</h4>
+<p class="lead">□ Impulsive
+□ Avoidant
+□ Over-Analytical
+□ Deliberate</p>
+<h4>Parent complaint வந்தால் நான்:</h4>
+<p class="lead">□ Impulsive
+□ Avoidant
+□ Over-Analytical
+□ Deliberate</p>
+<h4>புதிய teaching method தேர்வு செய்யும்போது:</h4>
+<p class="lead">□ Impulsive
+□ Avoidant
+□ Over-Analytical
+□ Deliberate</p>
+<h4>என் அதிகமான default pattern:</h4>
+<h4>அதை trigger செய்யும் situation:</h4>
+</div></section>
+<section class="lesson"><h2>Lesson 3: Decision vs Problem</h2><div class="lesson-body">
+<p class="lead">Decision-Making மற்றும் Problem-Solving இரண்டும் ஒன்றல்ல.</p>
+<h4>Decision</h4>
+<p class="lead">பல options-ல் ஒன்றைத் தேர்வு செய்வது.</p>
+<p>உதாரணம்:</p>
+<p>“இந்த மாணவரிடம் இப்போது பேசலாமா அல்லது class முடிந்த பிறகு பேசலாமா?”</p>
+<h4>Problem</h4>
+<p class="lead">தொடர்ந்து நடக்கும் ஒரு difficulty-ஐ systematic-ஆ handle செய்வது.</p>
+<p>உதாரணம்:</p>
+<p>“இந்த மாணவர் தொடர்ந்து late-ஆ வருகிறார். இதை எப்படி improve செய்வது?”</p>
+<p>Decision என்பது ஒரு choice.</p>
+<p>Problem-Solving என்பது ஒரு process.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 4: Practical Problem-Solving Framework</h2><div class="lesson-body">
+<p class="lead">ஒரே problem மீண்டும் மீண்டும் வரும்போது, ஒவ்வொரு முறையும் புதிதாக struggle செய்ய வேண்டியதில்லை.</p>
+<p>இந்த நான்கு steps-ஐ பயன்படுத்தலாம்:</p>
+</div></section>
+<section class="lesson"><h2>DEFINE → GENERATE → TRIAL → REVIEW</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>STEP 1 – DEFINE</h2><div class="lesson-body">
+<h3>உண்மையான Problem என்ன?</h3>
+<p class="lead">Problem-Solving-ல் முதல் step:</p>
+<p>Problem-ஐ தெளிவாக define செய்வது.</p>
+<h4>Vague Problem</h4>
+<p class="lead">“இந்த class ரொம்ப மோசம்.”</p>
+<p>இதைக் கொண்டு என்ன action எடுக்க முடியும்?</p>
+<p>தெளிவாக இல்லை.</p>
+<h4>Better Definition</h4>
+<p class="lead">“Lesson ஆரம்பித்து 15 minutes கழித்து ஆறு மாணவர்கள் activity-ல் participate செய்வதை நிறுத்துகிறார்கள்.”</p>
+<p>இப்போது problem specific.</p>
+<p>நாம் observe செய்யலாம்.</p>
+<p>Measure செய்யலாம்.</p>
+<p>Solution try செய்யலாம்.</p>
+<h4>இன்னொரு Example</h4>
+<p class="lead">Vague:</p>
+<p>“Kavin irresponsible.”</p>
+<p>Specific:</p>
+<p>“Kavin கடந்த இரண்டு வாரங்களில் நான்கு homework assignments submit செய்யவில்லை.”</p>
+<p>Person-ஐ problem ஆக்காதீர்கள்.</p>
+<p>Behaviour அல்லது situation-ஐ define செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>STEP 2 – GENERATE</h2><div class="lesson-body">
+<h3>குறைந்தது மூன்று Options உருவாக்குங்கள்</h3>
+<p class="lead">Problem வந்ததும் மனதில் முதலில் தோன்றும் solution-ஐ மட்டும் பயன்படுத்த வேண்டாம்.</p>
+<p>குறைந்தது:</p>
+<h3>3 OPTIONS</h3>
+<p class="lead">உருவாக்குங்கள்.</p>
+<h4>Example Problem</h4>
+<p class="lead">“Six students lose participation after 15 minutes.”</p>
+<h4>Option 1</h4>
+<p class="lead">15 minutes கழித்து 3-minute pair activity.</p>
+<h4>Option 2</h4>
+<p class="lead">Visual example பயன்படுத்துதல்.</p>
+<h4>Option 3</h4>
+<p class="lead">Students-க்கு small group task கொடுத்தல்.</p>
+<p>முதல் idea தான் best idea என்று அவசியமில்லை.</p>
+<p>Multiple options உருவாக்குவது creative problem-solving-க்கு உதவும்.</p>
+</div></section>
+<section class="lesson"><h2>STEP 3 – TRIAL</h2><div class="lesson-body">
+<h3>ஒரு Option தேர்வு செய்து ஒரு காலத்திற்கு முயற்சி செய்யுங்கள்</h3>
+<p class="lead">ஒரு புதிய strategy-ஐ ஒரு நாள் try செய்துவிட்டு:</p>
+<p>“இது வேலை செய்யவில்லை.”</p>
+<p>என்று முடிவு செய்துவிடாதீர்கள்.</p>
+<p>Students-க்கும் புதிய approach-க்கு adjust ஆக நேரம் தேவைப்படலாம்.</p>
+<p>அதனால் ஒரு trial period fix செய்யுங்கள்.</p>
+<p>உதாரணம்:</p>
+<p>“அடுத்த 7 school days இந்த strategy-ஐ consistently பயன்படுத்துவேன்.”</p>
+<p>அல்லது:</p>
+<p>“இரண்டு வாரங்கள் முயற்சி செய்து result பார்ப்பேன்.”</p>
+<p>ஒரு genuine trial period கொடுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>STEP 4 – REVIEW</h2><div class="lesson-body">
+<h3>நேர்மையாக Result-ஐ பாருங்கள்</h3>
+<p class="lead">Trial முடிந்த பிறகு:</p>
+<p>Did it help?</p>
+<p>Partly help?</p>
+<p>Not help?</p>
+<p>என்று பாருங்கள்.</p>
+<h4>Helped</h4>
+<p class="lead">Continue.</p>
+<h4>Partly Helped</h4>
+<p class="lead">Modify.</p>
+<h4>Didn’t Help</h4>
+<p class="lead">Option 2 அல்லது Option 3 try செய்யுங்கள்.</p>
+<p>Problem-Solving என்றால்:</p>
+<p>“என் idea வேலை செய்ய வேண்டும்.”</p>
+<p>என்பதல்ல.</p>
+<p>“Problem improve ஆக வேண்டும்.”</p>
+<p>என்பதுதான் நோக்கம்.</p>
+</div></section>
+<section class="lesson"><h2>Classroom Case Study</h2><div class="lesson-body">
+<h3>Situation</h3>
+<p class="lead">Class 8 மாணவர்களில் சிலர் homework தொடர்ந்து submit செய்யவில்லை.</p>
+<h4>பழைய Approach</h4>
+<p class="lead">“Homework கொண்டு வராதவர்கள் எல்லாரும் stand up.”</p>
+<p>Punishment.</p>
+<p>Next day சிலர் கொண்டு வருகிறார்கள்.</p>
+<p>அடுத்த வாரம் problem மீண்டும் வருகிறது.</p>
+<p>இப்போது framework பயன்படுத்தலாம்.</p>
+<h3>STEP 1 – DEFINE</h3>
+<p class="lead">“Class 8-ல் 35 மாணவர்களில் 7 பேர் கடந்த இரண்டு வாரங்களில் மூன்று அல்லது அதற்கு மேற்பட்ட homework assignments submit செய்யவில்லை.”</p>
+<h3>STEP 2 – GENERATE</h3>
+<h4>Option 1</h4>
+<p class="lead">Homework diary check.</p>
+<h4>Option 2</h4>
+<p class="lead">Homework instruction class முடிவில் board-ல் clear-ஆ எழுதுதல்.</p>
+<h4>Option 3</h4>
+<p class="lead">Repeated missing homework உள்ள மாணவர்களிடம் individually reason check செய்தல்.</p>
+<h3>STEP 3 – TRIAL</h3>
+<p class="lead">அடுத்த இரண்டு வாரங்கள்:</p>
+<p>Clear board instruction + diary check.</p>
+<h3>STEP 4 – REVIEW</h3>
+<p class="lead">7 students → 3 students.</p>
+<p>Problem முழுமையாக solve ஆகவில்லை.</p>
+<p>ஆனால் improvement உள்ளது.</p>
+<p>அடுத்ததாக remaining 3 students-க்கு individual reason check.</p>
+<p>இதுதான் systematic Problem-Solving.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 5: Root Cause-ஐ கவனியுங்கள்</h2><div class="lesson-body">
+<p class="lead">ஒரே behaviour-க்கு பல காரணங்கள் இருக்கலாம்.</p>
+<h4>Problem</h4>
+<p class="lead">Student regularly late.</p>
+<p>Possible reasons:</p>
+<p>Transport issue.</p>
+<p>Home routine.</p>
+<p>Sleep pattern.</p>
+<p>School avoidance.</p>
+<p>Morning responsibility.</p>
+<p>அதனால்:</p>
+<p>“Late வந்திருக்கிறாய் → Punishment.”</p>
+<p>என்பது immediate response ஆக இருக்கலாம்.</p>
+<p>ஆனால் recurring problem solve ஆக வேண்டுமென்றால்:</p>
+<p>“Why is this happening repeatedly?”</p>
+<p>என்று பார்க்க வேண்டும்.</p>
+</div></section>
+<section class="lesson"><h2>Four Questions Tool</h2><div class="lesson-body">
+<p class="lead">Recurring problem வந்தால் இந்த நான்கு கேள்விகளைப் பயன்படுத்துங்கள்:</p>
+<h4>1. உண்மையில் என்ன நடக்கிறது?</h4>
+<h4>2. இதுவரை நான் என்ன முயற்சி செய்தேன்?</h4>
+<h4>3. இன்னும் என்ன முயற்சி செய்யவில்லை?</h4>
+<h4>4. அடுத்த சிறிய Step என்ன?</h4>
+</div></section>
+<section class="lesson"><h2>Lesson 6: Fairness &amp; Consistency</h2><div class="lesson-body">
+<p class="lead">Classroom decisions-ல் students கவனிக்கும் ஒரு முக்கியமான விஷயம்:</p>
+<p>Consistency.</p>
+<p>“அவருக்கு மட்டும் ஏன்?”</p>
+<p>“நேற்று இதே விஷயத்திற்கு வேறு punishment கொடுத்தீர்கள்.”</p>
+<p>என்ற கேள்விகள் வரலாம்.</p>
+<p>அதனால் அடிக்கடி வரும் classroom decisions-க்கு முன்பே 2–3 முக்கிய factors-ஐ தீர்மானித்து வைத்துக்கொள்ளலாம்.</p>
+<p>உதாரணமாக:</p>
+<p>Behaviour consequence முடிவு செய்யும்போது:</p>
+<p>1. Behaviour எவ்வளவு serious?</p>
+<p>2. இது first time-ஆ அல்லது repeated behaviour-ஆ?</p>
+<p>3. Learning அல்லது மற்றவர்களின் safety/dignity-ஐ இது எப்படி பாதித்தது?</p>
+<p>இந்த factors-ஐ தொடர்ந்து பயன்படுத்துவது decision consistency-க்கு உதவும்.</p>
+</div></section>
+<section class="lesson"><h2>Activity – My Classroom Problem</h2><div class="lesson-body">
+<p class="lead">நீங்கள் தற்போது எதிர்கொள்ளும் ஒரு recurring classroom problem-ஐ தேர்வு செய்யுங்கள்.</p>
+<h3>Problem</h3>
+<h3>அதை Specific-ஆ Define செய்யுங்கள்</h3>
+<h3>Option 1</h3>
+<h3>Option 2</h3>
+<h3>Option 3</h3>
+<h3>நான் தேர்வு செய்யும் Option</h3>
+<h3>Trial Period</h3>
+<h3>Review Date</h3>
+<h3>Success எப்படி தெரியும்?</h3>
+</div></section>
+<section class="lesson"><h2>Decision Filter</h2><div class="lesson-body">
+<p class="lead">ஒரு முக்கியமான classroom decision எடுப்பதற்கு முன்பு:</p>
+<p>PAUSE</p>
+<p>பிறகு இந்த மூன்று கேள்விகள்:</p>
+<h4>1. இது Fair-ஆ இருக்கிறதா?</h4>
+<h4>2. இது Consistent-ஆ இருக்கிறதா?</h4>
+<h4>3. இதன் short-term மற்றும் long-term consequence என்ன?</h4>
+<p class="lead">பிறகு:</p>
+<p>DECIDE → ACT → REVIEW</p>
+</div></section>
+<section class="lesson"><h2>7-Day Decision Challenge</h2><div class="lesson-body">
+<p class="lead">அடுத்த 7 நாட்களில்:</p>
+<p>Day 1: உங்கள் default decision pattern-ஐ observe செய்யுங்கள்.</p>
+<p>Day 2: ஒரு consequence announce செய்வதற்கு முன்பு 3-second pause.</p>
+<p>Day 3: நீங்கள் avoid செய்து கொண்டிருக்கும் ஒரு decision-க்கு deadline வையுங்கள்.</p>
+<p>Day 4: Overthinking செய்யும் ஒரு decision-க்கு information deadline வையுங்கள்.</p>
+<p>Day 5: ஒரு recurring problem-ஐ specific sentence-ஆ define செய்யுங்கள்.</p>
+<p>Day 6: அதற்கு மூன்று possible solutions எழுதுங்கள்.</p>
+<p>Day 7: ஒரு solution தேர்வு செய்து trial period fix செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
+<h4>நான் அதிகமாக பயன்படுத்தும் Decision Pattern:</h4>
+<h4>நான் Avoid செய்து கொண்டிருக்கும் ஒரு Decision:</h4>
+<h4>நான் Over-Analyse செய்து கொண்டிருக்கும் ஒரு Decision:</h4>
+<h4>நான் systematic-ஆ solve செய்ய வேண்டிய ஒரு recurring Problem:</h4>
+<h4>இந்த வாரம் நான் எடுக்கும் First Step:</h4>
+</div></section>
+<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
+<h4>Question 1</h4>
+<p class="lead">Emotion-ன் அடிப்படையில் உடனடியாக முடிவு செய்வது?</p>
+<p>A. Avoidant
+B. Deliberate
+C. Impulsive
+D. Analytical</p>
+<p>Correct Answer: C</p>
+<h4>Question 2</h4>
+<p class="lead">ஒரு decision-ஐ தொடர்ந்து postpone செய்வது?</p>
+<p>A. Avoidant
+B. Creative
+C. Deliberate
+D. Assertive</p>
+<p>Correct Answer: A</p>
+<h4>Question 3</h4>
+<p class="lead">தொடர்ந்து information collect செய்து decision எடுக்காமல் இருப்பது?</p>
+<p>A. Impulsive
+B. Over-Analytical
+C. Avoidant
+D. Empathy</p>
+<p>Correct Answer: B</p>
+<h4>Question 4</h4>
+<p class="lead">Problem-Solving Framework-ன் சரியான sequence எது?</p>
+<p>A. Punish → Wait → Repeat → Review
+B. Define → Generate → Trial → Review
+C. Decide → Blame → Correct → Finish
+D. Observe → Punish → Report → Repeat</p>
+<p>Correct Answer: B</p>
+<h4>Question 5</h4>
+<p class="lead">“Class ரொம்ப disengaged” என்பதற்குப் பதிலாக “15 minutes கழித்து ஆறு மாணவர்கள் participation நிறுத்துகிறார்கள்” என்று சொல்வதன் நோக்கம்?</p>
+<p>A. Student-ஐ label செய்வது
+B. Problem-ஐ specific-ஆ define செய்வது
+C. Punishment decide செய்வது
+D. Problem-ஐ avoid செய்வது</p>
+<p>Correct Answer: B</p>
+<h4>Question 6</h4>
+<p class="lead">ஒரு strategy-ஐ ஒரு lesson மட்டும் try செய்து உடனே reject செய்வதற்குப் பதிலாக என்ன செய்ய வேண்டும்?</p>
+<p>A. தினமும் strategy மாற்ற வேண்டும்
+B. ஒரு genuine trial period கொடுத்து review செய்ய வேண்டும்
+C. Problem-ஐ ignore செய்ய வேண்டும்
+D. மற்றவரிடம் decision கொடுக்க வேண்டும்</p>
+<p>Correct Answer: B</p>
+</div></section>
+<section class="lesson"><h2>Module 5 – முக்கிய Takeaways</h2><div class="lesson-body">
+<h3>1. Pressure-ல் நான்கு Decision Patterns வெளிப்படலாம்</h3>
+<p class="lead">Impulsive</p>
+<p>Avoidant</p>
+<p>Over-Analytical</p>
+<p>Deliberate</p>
+<p>நம்முடைய நோக்கம் எல்லா முடிவுகளையும் மெதுவாக எடுப்பது அல்ல.</p>
+<p>Default reaction-ஆக அல்லாமல், முடிந்தவரை deliberate-ஆக தேர்வு செய்வது.</p>
+<h3>2. Decision-Making மற்றும் Problem-Solving வேறுபட்டவை</h3>
+<p class="lead">Decision என்பது ஒரு choice.</p>
+<p>Problem-Solving என்பது recurring difficulty-ஐ handle செய்யும் process.</p>
+<h3>3. Recurring Problem-க்கு நான்கு Steps</h3>
+<h4>DEFINE → GENERATE → TRIAL → REVIEW</h4>
+<p class="lead">Problem-ஐ தெளிவாக define செய்யுங்கள்.</p>
+<p>குறைந்தது மூன்று options உருவாக்குங்கள்.</p>
+<p>ஒன்றை ஒரு குறிப்பிட்ட காலத்திற்கு முயற்சி செய்யுங்கள்.</p>
+<p>Result-ஐ நேர்மையாக review செய்து adjust செய்யுங்கள்.</p>
+<h3>4. முதல் முயற்சி வேலை செய்யவில்லை என்றால் அது failure அல்ல</h3>
+<p class="lead">அது information.</p>
+<p>Continue → Modify → Try Another Option.</p>
+</div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
+<p class="lead">“அழுத்தமான நேரத்தில் உடனடி உணர்ச்சியின் அடிப்படையில் மட்டும் முடிவு செய்யாமல், ஒரு சிறிய இடைவெளி எடுத்துப் பார்க்கப் பழகுவேன். மீண்டும் மீண்டும் வரும் பிரச்சினைகளுக்கு உடனடி தீர்வு மட்டும் தேடாமல், காரணத்தைப் புரிந்துகொண்டு ஒரு திட்டமிட்ட தீர்வை முயற்சி செய்வேன்.”</p>
+</div></section>
+<section class="lesson"><h2>Module 5 Complete ✓</h2><div class="lesson-body">
+<h3>அடுத்த Module</h3>
+</div></section>
+<section class="lesson"><h2>Empathy &amp; Relationships</h2><div class="lesson-body">
+<h4>மாணவர்களைப் புரிந்துகொள்வதும் நல்ல உறவை உருவாக்குவதும்</h4>
+<p class="lead">Empathy என்றால் மாணவருக்காக வருத்தப்படுவது மட்டுமா?</p>
+<p>Cognitive Empathy, Emotional Empathy, Compassionate Empathy — இந்த மூன்றுக்கும் என்ன வித்தியாசம்?</p>
+<p>மாணவர்களுடன் நல்ல rapport உருவாக்க தினமும் செய்யக்கூடிய சிறிய செயல்கள் என்ன?</p>
+<p>Module 6-ல் பார்க்கலாம்.</p>
+</div></section>
+</div>
+
+<div class="complete-bar">
+  <label class="complete-check">
+    <input type="checkbox" id="complete-checkbox">
+    <span id="complete-label">இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)</span>
+  </label>
+</div>
+
+<div class="module-nav">
+  <a class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);" href="module4.html">← Module 4</a><a class="btn btn-navy" href="module6.html">அடுத்த Module 6 →</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div>
+      <div style="font-family:'Poppins',sans-serif;font-weight:600;color:#fff;">N T Somasundaram</div>
+      <div>Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</div>
+      <div class="footer-motto">God is always with u.</div>
+    </div>
+    <div>
+      <div>📞 <a href="tel:+919843702244">+91 98437 02244</a></div>
+      <div>✉️ <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+      <div>▶️ <a href="https://www.youtube.com/@Godisalwayswithu" target="_blank" rel="noopener">@Godisalwayswithu</a></div>
+    </div>
+  </div>
+</footer>
+<a class="whatsapp-fab" href="https://wa.me/919843702244?text=Life%20Skills%20Mastery%20for%20Educators%20course%20-%20I%20have%20a%20question" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+<script>
+var STORAGE_KEY = 'life-skills-educators-tamil-module-5-complete';
+var checkbox = document.getElementById('complete-checkbox');
+var label = document.getElementById('complete-label');
+
+function refreshLabel() {
+  label.textContent = checkbox.checked
+    ? '✓ இந்த Module முடிந்தது'
+    : 'இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)';
+}
+
+document.addEventListener('auth-ready', function () {
+  checkbox.checked = localStorage.getItem(STORAGE_KEY) === 'true';
+  refreshLabel();
+});
+
+checkbox.addEventListener('change', function () {
+  localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
+  refreshLabel();
+});
+</script>
+</body>
+</html>

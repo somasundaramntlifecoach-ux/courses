@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 — Self-Awareness & Emotional Intelligence – EQ | Life Skills Mastery for Educators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F44;
+  --navy-deep:#071530;
+  --navy-soft:#12315E;
+  --gold:#C9A227;
+  --gold-light:#E8C766;
+  --cream:#F8F5EE;
+  --ink:#1B2430;
+  --muted:#5B6472;
+  --line:#E4E1D6;
+  --white:#FFFFFF;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(10,31,68,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Noto Sans Tamil','Poppins',sans-serif;
+  line-height:1.75;
+  font-size:16.5px;
+}
+h1,h2,h3,h4{
+  font-family:'Poppins','Noto Sans Tamil',sans-serif;
+  color:var(--navy);
+  line-height:1.35;
+  margin:0 0 .6em;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* header */
+.site-header{
+  background:var(--navy);
+  color:var(--white);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;color:var(--white);}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.nav-links{display:flex;gap:26px;align-items:center;}
+.nav-links a{font-size:14.5px;color:#E8E6DE;font-family:'Poppins',sans-serif;font-weight:500;}
+.nav-links a:hover{color:var(--gold-light);}
+.btn{
+  display:inline-block;padding:12px 26px;border-radius:999px;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14.5px;
+  cursor:pointer;border:none;text-align:center;
+}
+.btn-gold{background:var(--gold);color:var(--navy-deep);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);}
+.btn-navy{background:var(--navy);color:var(--white);}
+.btn-navy:hover{background:var(--navy-soft);}
+.btn-block{display:block;width:100%;}
+
+/* hero */
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:var(--white);padding:76px 0 90px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:400px;height:400px;
+  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.18),transparent 70%);
+}
+.badge{
+  display:inline-block;background:rgba(201,162,39,.15);border:1px solid var(--gold);
+  color:var(--gold-light);font-size:12.5px;font-family:'Poppins',sans-serif;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:22px;
+}
+.hero h1{color:var(--white);font-size:2.5rem;max-width:820px;}
+.hero .sub{color:#D8DEE9;font-size:1.15rem;max-width:680px;margin-bottom:30px;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* sections */
+section{padding:64px 0;}
+.section-title{text-align:center;margin-bottom:12px;font-size:2rem;}
+.section-sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 44px;font-size:1.02rem;}
+.tag{color:var(--gold);font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-align:center;display:block;margin-bottom:10px;}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr;}.grid-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+
+/* about */
+.about-photo{
+  width:100%;aspect-ratio:4/3;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--navy-soft),var(--navy));
+  display:flex;align-items:center;justify-content:center;color:var(--gold-light);
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:3rem;box-shadow:var(--shadow);
+}
+
+/* curriculum accordion */
+.curriculum{max-width:820px;margin:0 auto;}
+.module-item{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);
+}
+.module-head{
+  display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+}
+.module-num{
+  min-width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold-light);
+  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;
+}
+.module-head .titles{flex:1;}
+.module-head .titles .ta{font-weight:600;font-size:1.02rem;color:var(--navy);}
+.module-head .titles .en{font-size:.85rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.module-head .chevron{color:var(--gold);font-size:1.3rem;transition:transform .2s;}
+.module-item.open .chevron{transform:rotate(180deg);}
+.module-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 24px;}
+.module-item.open .module-body{padding:0 24px 22px;}
+.module-body p{color:var(--muted);font-size:.95rem;margin:0;}
+
+/* pricing */
+.price-card{
+  max-width:460px;margin:0 auto;background:var(--navy);color:var(--white);
+  border-radius:20px;padding:44px 36px;text-align:center;box-shadow:var(--shadow);
+  border:1px solid rgba(201,162,39,.4);
+}
+.price-card .price{font-family:'Poppins',sans-serif;font-size:3rem;font-weight:700;color:var(--gold-light);margin:14px 0 4px;}
+.price-card .price small{font-size:1rem;color:#C7CCD8;font-weight:400;}
+.price-list{text-align:left;list-style:none;padding:0;margin:26px 0;}
+.price-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.95rem;color:#E4E7EE;}
+.price-list li::before{content:"✓ ";color:var(--gold);font-weight:700;}
+.razorpay-wrap{margin-top:20px;}
+
+footer{background:var(--navy-deep);color:#B9C0CE;padding:44px 0 28px;font-size:.9rem;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+footer a{color:#D8DEE9;}
+footer a:hover{color:var(--gold-light);}
+.footer-motto{color:var(--gold-light);font-family:'Poppins',sans-serif;font-style:italic;margin-top:8px;}
+
+.whatsapp-fab{
+  position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:1.6rem;z-index:60;
+}
+
+/* auth / gated pages */
+.auth-wrap{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-deep));padding:24px;
+}
+.auth-card{
+  background:var(--white);border-radius:18px;padding:40px 34px;max-width:420px;width:100%;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.auth-card h1{font-size:1.4rem;text-align:center;}
+.auth-card .sub{color:var(--muted);text-align:center;font-size:.9rem;margin-bottom:26px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;margin-bottom:6px;color:var(--navy);}
+.field input{
+  width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:.95rem;font-family:inherit;
+}
+.field input:focus{outline:none;border-color:var(--gold);}
+.error-msg{color:#B3261E;font-size:.85rem;margin:10px 0;display:none;}
+.auth-footer{text-align:center;font-size:.85rem;color:var(--muted);margin-top:18px;}
+
+/* course home */
+.course-home-header{
+  background:var(--navy);color:#fff;padding:34px 0;
+}
+.course-home-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.progress-wrap{background:rgba(255,255,255,.12);border-radius:999px;height:8px;width:220px;overflow:hidden;}
+.progress-bar{height:100%;background:var(--gold);width:0%;transition:width .3s;}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:760px){.module-grid{grid-template-columns:1fr;}}
+.mod-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+  display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);
+}
+.mod-card .num{
+  min-width:38px;height:38px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);
+  color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;
+}
+.mod-card.done .num{background:var(--gold);color:var(--navy-deep);}
+.mod-card .ta{font-weight:600;color:var(--navy);}
+.mod-card .en{font-size:.82rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.mod-card .go{margin-top:10px;display:inline-block;font-size:.85rem;font-weight:600;color:var(--gold);font-family:'Poppins',sans-serif;}
+
+/* module content page */
+.module-header{background:var(--navy);color:#fff;padding:30px 0;}
+.module-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.module-header .crumb{font-size:.85rem;color:var(--gold-light);font-family:'Poppins',sans-serif;}
+.module-header h1{color:#fff;font-size:1.5rem;margin-top:6px;}
+.module-header .en-sub{color:#C7CCD8;font-size:.9rem;font-family:'Poppins',sans-serif;}
+
+.lesson-content{max-width:760px;margin:0 auto;padding:44px 24px 20px;}
+.lesson{margin-bottom:38px;}
+.lesson h2{font-size:1.3rem;border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:16px;}
+.lesson h3{font-size:1.08rem;color:var(--navy-soft);margin-top:22px;}
+.lesson h4{font-size:.98rem;color:var(--gold);text-transform:none;margin-top:16px;}
+.lesson p{margin:0 0 12px;color:#2B3340;}
+.lesson p.lead{font-weight:600;color:var(--navy);}
+
+.module-nav{
+  max-width:760px;margin:0 auto;padding:10px 24px 60px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.complete-bar{
+  max-width:760px;margin:0 auto;padding:0 24px 30px;text-align:center;
+}
+.complete-check{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;}
+.complete-check input{width:20px;height:20px;accent-color:var(--gold);}
+
+@media print{
+  .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<div class="module-header">
+  <div class="container">
+    <div>
+      <div class="crumb"><a href="course-home.html" style="color:var(--gold-light);">← My Course</a> · Module 2 of 10</div>
+      <h1>சுய விழிப்புணர்வு & உணர்ச்சி நுண்ணறிவு</h1>
+      <div class="en-sub">Self-Awareness & Emotional Intelligence – EQ</div>
+    </div>
+    <div>
+      <button class="btn btn-outline" onclick="window.print()">🖨️ Print / PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-content">
+<h3>இந்த Module-ல் நாம் என்ன கற்றுக்கொள்ளப் போகிறோம்?</h3>
+<p class="lead">வணக்கம் ஆசிரியர்களே!</p>
+<p>Module 1-ல் Life Skills என்றால் என்ன? ஆசிரியர்களுக்கு அது ஏன் முக்கியம்? என்பதைப் பார்த்தோம்.</p>
+<p>இப்போது ஒரு முக்கியமான கேள்வி:</p>
+<p>“என் உணர்ச்சிகளை நான் கையாளுகிறேனா? அல்லது என் உணர்ச்சிகள் என்னைக் கையாளுகிறதா?”</p>
+<p>ஒரு ஆசிரியரின் அறிவு மட்டும் வகுப்பறையை வழிநடத்துவதில்லை.</p>
+<p>அவருடைய குரல்…</p>
+<p>முகபாவனை…</p>
+<p>பொறுமை…</p>
+<p>கோபத்தை கையாளும் விதம்…</p>
+<p>மாணவர்களைப் புரிந்துகொள்ளும் திறன்…</p>
+<p>இவை அனைத்தும் வகுப்பறையின் சூழலை மாற்றுகின்றன.</p>
+<p>இதற்கான அடிப்படைதான் Emotional Intelligence – EQ.</p>
+<section class="lesson"><h2>Lesson 1: Emotional Intelligence என்றால் என்ன?</h2><div class="lesson-body">
+<p class="lead">Emotional Intelligence என்றால் எப்போதும் சிரித்துக்கொண்டே இருப்பது அல்ல.</p>
+<p>கோபமே வராமல் இருப்பதும் அல்ல.</p>
+<p>எல்லாவற்றையும் பொறுத்துக்கொள்வதும் அல்ல.</p>
+<p>நமக்குள் என்ன உணர்வு வருகிறது என்பதை உணர்ந்து, அந்த உணர்வு நம்முடைய நடத்தையைத் தீர்மானிப்பதற்கு முன்பு சரியான response-ஐ தேர்வு செய்யும் திறன்.</p>
+<p>உதாரணமாக:</p>
+<p>ஒரு மாணவர் நீங்கள் பாடம் நடத்தும்போது தொடர்ந்து பேசிக்கொண்டிருக்கிறார்.</p>
+<p>உங்களுக்கு irritation வருகிறது.</p>
+<h4>Reaction:</h4>
+<p class="lead">“உனக்கு எத்தனை தடவை சொல்றது? வெளியே போ!”</p>
+<h4>Response:</h4>
+<p class="lead">ஒரு நிமிடம் அமைதியாக இருந்து,</p>
+<p>“நான் lesson நடத்தும்போது தொடர்ந்து பேசுவது மற்ற மாணவர்களின் learning-ஐ பாதிக்கிறது. Class முடிந்ததும் உன்னிடம் பேச வேண்டும்.”</p>
+<p>இரண்டிலும் ஆசிரியருக்கு irritation இருக்கலாம்.</p>
+<p>வேறுபாடு என்ன?</p>
+<p>முதல் situation-ல் emotion response-ஐ தேர்வு செய்கிறது.</p>
+<p>இரண்டாவது situation-ல் ஆசிரியர் response-ஐ தேர்வு செய்கிறார்.</p>
+<p>அதுதான் Emotional Intelligence.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 2: EQ-ன் 5 முக்கிய பகுதிகள்</h2><div class="lesson-body">
+<p class="lead">Emotional Intelligence-ஐ ஐந்து முக்கியமான திறன்களாகப் புரிந்துகொள்ளலாம்.</p>
+<h3>1. Self-Awareness – சுய விழிப்புணர்வு</h3>
+<p class="lead">நம்முடைய emotion உருவாகும்போதே அதை கவனிக்கும் திறன்.</p>
+<p>பல நேரங்களில் நாம்,</p>
+<p>“நான் ஏன் அப்படி பேசினேன்?”</p>
+<p>என்று சம்பவம் முடிந்த பிறகு யோசிக்கிறோம்.</p>
+<p>Self-Awareness வளரும்போது,</p>
+<p>“எனக்கு இப்போ frustration அதிகமாகுது.”</p>
+<p>என்பதை அந்த நேரத்திலேயே கவனிக்க ஆரம்பிப்போம்.</p>
+<h4>Classroom Example</h4>
+<p class="lead">நீங்கள் test papers திருத்துகிறீர்கள்.</p>
+<p>பல மாணவர்கள் குறைந்த மதிப்பெண் எடுத்திருக்கிறார்கள்.</p>
+<p>உங்களுக்குள்:</p>
+<p>“இவ்வளவு சொல்லிக் கொடுத்தும் இப்படி எழுதியிருக்காங்களே!”</p>
+<p>என்ற frustration வருகிறது.</p>
+<p>அந்த நேரத்தில் ஒரு மாணவர் வந்து:</p>
+<p>“Ma’am/Sir, இந்த answer எப்படி எழுதணும்?”</p>
+<p>என்று கேட்கிறார்.</p>
+<p>Self-Awareness இல்லையென்றால் முதல் மாணவர்களின் marks காரணமாக வந்த frustration இந்த மாணவரிடம் வெளிப்படலாம்.</p>
+<p>Self-Awareness இருந்தால்:</p>
+<p>“நான் இப்போ frustrated-ஆ இருக்கிறேன். இந்தக் குழந்தை அதற்குக் காரணம் இல்லை.”</p>
+<p>என்று நம்மை நாமே கவனிக்க முடியும்.</p>
+<h4>Practice</h4>
+<p class="lead">பள்ளி நேரத்தில் மூன்று முறை உங்களையே கேளுங்கள்:</p>
+<p>“இப்போ நான் என்ன emotion feel பண்ணிக்கிட்டு இருக்கேன்?”</p>
+<p>ஒரே ஒரு வார்த்தையில் பெயரிடுங்கள்.</p>
+<p>Happy.</p>
+<p>Calm.</p>
+<p>Tired.</p>
+<p>Frustrated.</p>
+<p>Worried.</p>
+<p>Angry.</p>
+<p>Excited.</p>
+</div></section>
+<section class="lesson"><h2>2. Self-Regulation – சுய கட்டுப்பாடு</h2><div class="lesson-body">
+<p class="lead">Emotion-ஐ உணர்வது Self-Awareness.</p>
+<p>அந்த emotion வந்த பிறகு எப்படி நடக்க வேண்டும் என்பதைத் தேர்வு செய்வது Self-Regulation.</p>
+<p>Self-Regulation என்றால் emotion-ஐ அடக்குவது அல்ல.</p>
+<p>Emotion இருக்கட்டும்; steering wheel மட்டும் அதன் கையில் போகக்கூடாது.</p>
+<h4>Classroom Example</h4>
+<p class="lead">இரண்டு மாணவர்கள் வகுப்பில் சத்தமாக வாக்குவாதம் செய்கிறார்கள்.</p>
+<p>Class முழுவதும் அவர்களைப் பார்க்கிறது.</p>
+<p>ஆசிரியரும் கத்தினால்?</p>
+<p>Room-ல் இருக்கும் emotional intensity இன்னும் அதிகரிக்கும்.</p>
+<p>Self-Regulation உள்ள ஆசிரியர் முதலில் ஒரு மூச்சை எடுத்துவிட்டு, தனது குரலைக் குறைத்து பேசுகிறார்.</p>
+<p>“இருவரும் ஒரு நிமிடம் அமைதியாக இருங்கள். இதைப் பேசித் தீர்ப்போம்.”</p>
+<p>Room-ன் volume அதிகரிக்கும்போது ஆசிரியரின் volume குறைவது பல சூழ்நிலைகளில் de-escalation-க்கு உதவும்.</p>
+</div></section>
+<section class="lesson"><h2>3. Motivation – உள்ளார்ந்த உந்துதல்</h2><div class="lesson-body">
+<p class="lead">ஒரு ஆசிரியராக ஒவ்வொரு நாளும் ஒரே மாதிரி இருக்காது.</p>
+<p>சில நாட்கள்:</p>
+<p>மாணவர்கள் ஆர்வமாக இருப்பார்கள்.</p>
+<p>Lesson அருமையாகப் போகும்.</p>
+<p>Appreciation கிடைக்கும்.</p>
+<p>ஆனால் சில நாட்கள்:</p>
+<p>Class cooperate செய்யாது.</p>
+<p>Lesson plan வேலை செய்யாது.</p>
+<p>Parents complaint வரும்.</p>
+<p>Workload அதிகமாக இருக்கும்.</p>
+<p>அந்த நாட்களிலும்,</p>
+<p>“நான் ஏன் ஆசிரியராக இருக்கிறேன்?”</p>
+<p>என்ற purpose நம்மை தொடர்ந்து செயல்பட வைப்பதுதான் Motivation.</p>
+<h4>Reflection</h4>
+<p class="lead">நீங்கள் முதலில் teaching profession-ஐ ஏன் தேர்வு செய்தீர்கள்?</p>
+<p>ஒரே ஒரு sentence எழுதுங்கள்:</p>
+<p>“நான் ஆசிரியராக இருப்பதற்கான முக்கிய காரணம் ____________________.”</p>
+<p>கடினமான நாட்களில் இந்த sentence-ஐ மீண்டும் படியுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>4. Empathy – மாணவரின் பார்வையில் புரிந்துகொள்ளுதல்</h2><div class="lesson-body">
+<p class="lead">மாணவர் என்ன செய்கிறார் என்பதை மட்டும் பார்க்காமல்,</p>
+<p>“இந்த நடத்தைக்குப் பின்னால் என்ன இருக்கலாம்?”</p>
+<p>என்று யோசிப்பது Empathy.</p>
+<h4>Example</h4>
+<p class="lead">ஒரு மாணவர் activity செய்ய மறுக்கிறார்.</p>
+<p>“எனக்கு வேண்டாம்.”</p>
+<p>என்று சொல்கிறார்.</p>
+<p>நாம் உடனே:</p>
+<p>“Lazy.”</p>
+<p>“Attitude problem.”</p>
+<p>“Interest இல்லை.”</p>
+<p>என்று label செய்யலாம்.</p>
+<p>ஆனால் இன்னொரு possibility:</p>
+<p>அந்த மாணவருக்கு தோல்வி பயம் இருக்கலாம்.</p>
+<p>“நான் செய்தால் தவறாகிவிடுமோ?”</p>
+<p>“எல்லோரும் என்னைப் பார்த்து சிரிப்பார்களோ?”</p>
+<p>என்று நினைத்திருக்கலாம்.</p>
+<p>Empathy உள்ள ஆசிரியர்:</p>
+<p>“முழு activity-யும் வேண்டாம். First step மட்டும் நாம் சேர்ந்து try பண்ணலாமா?”</p>
+<p>என்று approach செய்யலாம்.</p>
+</div></section>
+<section class="lesson"><h2>5. Social Skill – உறவுகளை திறம்பட கையாளுதல்</h2><div class="lesson-body">
+<p class="lead">Self-Awareness, Self-Regulation, Motivation, Empathy ஆகியவற்றை மற்றவர்களுடன் நல்ல உறவை உருவாக்க பயன்படுத்துவதுதான் Social Skill.</p>
+<p>ஒரு ஆசிரியர் ஒரு மாணவரை மட்டும் handle செய்வதில்லை.</p>
+<p>ஒரே நேரத்தில் 30 அல்லது 40 மாணவர்களின் energy-யையும் கவனிக்க வேண்டியிருக்கும்.</p>
+<h4>Example</h4>
+<p class="lead">ஒரு நீண்ட exam முடிந்த பிறகு class-க்கு செல்கிறீர்கள்.</p>
+<p>மாணவர்கள் tired.</p>
+<p>Restless.</p>
+<p>Concentration குறைவாக இருக்கிறது.</p>
+<p>“என் lesson plan இதுதான்; எப்படியாவது முடிக்கணும்.”</p>
+<p>என்று தொடர்வதற்குப் பதிலாக,</p>
+<p>Class-ன் mood-ஐ observe செய்து pace-ஐ மாற்றுவது Social Skill.</p>
+<h4>சிறிய Practice</h4>
+<p class="lead">ஒவ்வொரு class ஆரம்பிக்கும் முன்பும் 5 seconds மட்டும் மாணவர்களைப் பாருங்கள்.</p>
+<p>“இந்த room-ன் energy இப்போ எப்படி இருக்கிறது?”</p>
+<p>என்று கவனியுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 3: PAUSE – NAME – ASK – RESPOND</h2><div class="lesson-body">
+<p class="lead">Theory தெரிந்திருப்பது மட்டும் போதாது.</p>
+<p>ஒரு மாணவர் காலை 11 மணிக்கு எல்லோருக்கும் முன்னால் நம்மை எதிர்த்துப் பேசும்போது என்ன செய்வது?</p>
+<p>அதற்காக ஒரு simple 4-step method:</p>
+<h3>PAUSE → NAME → ASK → RESPOND</h3>
+<h4>Step 1 – PAUSE</h4>
+<p class="lead">உடனே பதில் சொல்லாதீர்கள்.</p>
+<p>முடிந்தால் ஒரு slow breath எடுத்துவிட்டு, வெளியே விடும் மூச்சை கொஞ்சம் நீளமாக விடுங்கள்.</p>
+<p>ஒரு சில seconds இடைவெளி உருவாக்குங்கள்.</p>
+<p>Emotion → Pause → Response</p>
+<p>இந்தச் சிறிய gap மிகவும் முக்கியம்.</p>
+<h4>Step 2 – NAME</h4>
+<p class="lead">உங்களுக்குள் இருக்கும் emotion-க்கு பெயர் கொடுங்கள்.</p>
+<p>“இது கோபம்.”</p>
+<p>“எனக்கு embarrassment ஆகுது.”</p>
+<p>“நான் frustrated-ஆ இருக்கேன்.”</p>
+<p>மனதிற்குள் சொன்னாலே போதும்.</p>
+<h4>Step 3 – ASK</h4>
+<p class="lead">Response கொடுப்பதற்கு முன்பு உங்களையே ஒரு கேள்வி கேளுங்கள்:</p>
+<p>“இந்த மாணவருக்கு இப்போ Correction தேவையா? Connection தேவையா?”</p>
+<p>சில நேரங்களில் correction தேவைப்படும்.</p>
+<p>சில நேரங்களில் குழந்தையின் situation-ஐ முதலில் புரிந்துகொள்ள வேண்டியிருக்கும்.</p>
+<h4>Step 4 – RESPOND</h4>
+<p class="lead">இப்போது பதில் சொல்லுங்கள்.</p>
+<p>ஆனால் உங்கள் வழக்கமான வேகம் மற்றும் volume-ஐ விட மெதுவாக.</p>
+<p>குரலை உயர்த்துவதற்குப் பதிலாக குறைக்க முயற்சி செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>Classroom Scenario</h2><div class="lesson-body">
+<p class="lead">ஒரு மாணவர் class-ல்:</p>
+<p>“இந்த subject-ஏ எனக்குப் பிடிக்காது!”</p>
+<p>என்று எல்லோருக்கும் முன்னால் சொல்கிறார்.</p>
+<p>உங்களுக்கு கோபம் வருகிறது.</p>
+<h4>பழைய Reaction</h4>
+<p class="lead">“பிடிக்கலைன்னா வெளியே போ!”</p>
+<h4>EQ Response</h4>
+<p class="lead">PAUSE</p>
+<p>ஒரு breath.</p>
+<p>NAME</p>
+<p>“எனக்கு irritation வருது.”</p>
+<p>ASK</p>
+<p>“Correction? Connection?”</p>
+<p>RESPOND</p>
+<p>“உனக்கு இந்த subject பிடிக்கவில்லை என்று சொல்ற. ஏன் அப்படித் தோணுது என்று class முடிந்ததும் இரண்டு நிமிடம் பேசலாம். இப்போ lesson-ஐ continue பண்ணலாம்.”</p>
+<p>இங்கு மாணவரின் behaviour-ஐ accept செய்யவில்லை.</p>
+<p>ஆனால் emotion-க்கு emotion கொடுக்காமல் situation-ஐ handle செய்கிறோம்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 4: நான் React செய்துவிட்டால்?</h2><div class="lesson-body">
+<p class="lead">ஒரு முக்கியமான விஷயம்.</p>
+<p>இந்த technique கற்றுக்கொண்ட பிறகு இனிமேல் நீங்கள் ஒருபோதும் கோபப்படமாட்டீர்கள் என்று அர்த்தம் இல்லை.</p>
+<p>சில நேரங்களில் நாம் react செய்துவிடுவோம்.</p>
+<p>குரலை உயர்த்திவிடலாம்.</p>
+<p>தேவையில்லாமல் கடுமையாகப் பேசிவிடலாம்.</p>
+<p>அப்போது,</p>
+<p>“நான் teacher. நான் ஏன் sorry சொல்ல வேண்டும்?”</p>
+<p>என்று நினைக்க வேண்டாம்.</p>
+<p>தேவைப்பட்டால் repair செய்யலாம்.</p>
+<h4>Example</h4>
+<p class="lead">“நேற்று நான் உன்னிடம் கொஞ்சம் கடுமையாகப் பேசிட்டேன். அந்த விதத்தில் பேச வேண்டியதில்லை. நாம் fresh-ஆ start பண்ணலாம்.”</p>
+<p>இது teacher authority-ஐ குறைப்பதில்லை.</p>
+<p>மாறாக மாணவர் நேரடியாக இரண்டு Life Skills-ஐ பார்க்கிறார்:</p>
+<p>Self-Regulation</p>
+<p>மற்றும்</p>
+<p>Accountability.</p>
+</div></section>
+<section class="lesson"><h2>Activity – My Emotional Trigger Map</h2><div class="lesson-body">
+<p class="lead">உங்களை அதிகமாக trigger செய்யும் classroom situations என்ன?</p>
+<h4>Trigger 1</h4>
+<p class="lead">எனக்கு வரும் emotion:
+________________________</p>
+<p>என் வழக்கமான reaction:
+________________________</p>
+<p>இனி நான் தேர்வு செய்ய விரும்பும் response:
+________________________</p>
+<h4>Trigger 2</h4>
+<p class="lead">Emotion:
+________________________</p>
+<p>Usual Reaction:
+________________________</p>
+<p>Better Response:
+________________________</p>
+<h4>Trigger 3</h4>
+<p class="lead">Emotion:
+________________________</p>
+<p>Usual Reaction:
+________________________</p>
+<p>Better Response:
+________________________</p>
+</div></section>
+<section class="lesson"><h2>7-Day EQ Challenge</h2><div class="lesson-body">
+<p class="lead">அடுத்த 7 நாட்களுக்கு ஒரு simple practice.</p>
+<p>ஒரு difficult classroom moment வந்தால்:</p>
+<p>PAUSE</p>
+<p>NAME</p>
+<p>ASK</p>
+<p>RESPOND</p>
+<p>இந்த நான்கு steps-ஐ முயற்சி செய்யுங்கள்.</p>
+<p>ஒவ்வொரு நாள் முடிவிலும்:</p>
+<p>இன்று எந்த situation-ல் நான் pause செய்தேன்?</p>
+<p class="lead">என்ன emotion?</p>
+<p class="lead">நான் எப்படி respond செய்தேன்?</p>
+<p class="lead">மீண்டும் நடந்தால் என்ன மாற்றுவேன்?</p>
+</div></section>
+<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
+<p class="lead">EQ-ன் ஐந்து பகுதிகளில்:</p>
+<p>Self-Awareness</p>
+<p>Self-Regulation</p>
+<p>Motivation</p>
+<p>Empathy</p>
+<p>Social Skill</p>
+<h4>எனக்கு இயல்பாக வரும் திறன்:</h4>
+<h4>நான் அதிகமாக மேம்படுத்த வேண்டிய திறன்:</h4>
+<h4>எந்த student/class-ல் இதை practice செய்யப் போகிறேன்?</h4>
+</div></section>
+<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
+<h4>Question 1</h4>
+<p class="lead">Emotional Intelligence என்றால் என்ன?</p>
+<p>A. Emotion வராமல் இருப்பது
+B. எப்போதும் calm-ஆ இருப்பது
+C. Emotion-ஐ உணர்ந்து சரியான response-ஐ தேர்வு செய்வது
+D. Emotion-ஐ மறைப்பது</p>
+<p>Correct Answer: C</p>
+<h4>Question 2</h4>
+<p class="lead">Emotion உருவாகும்போதே அதை கவனிப்பது?</p>
+<p>A. Motivation
+B. Self-Awareness
+C. Social Skill
+D. Problem-Solving</p>
+<p>Correct Answer: B</p>
+<h4>Question 3</h4>
+<p class="lead">Self-Regulation என்றால்?</p>
+<p>A. கோபமே வராமல் இருப்பது
+B. Emotion-ஐ மறைப்பது
+C. Emotion வந்தாலும் response-ஐ நாம் தேர்வு செய்வது
+D. மற்றவர்களை மாற்றுவது</p>
+<p>Correct Answer: C</p>
+<h4>Question 4</h4>
+<p class="lead">PAUSE – NAME – ASK – RESPOND முறையில் ASK என்பது?</p>
+<p>A. மாணவரிடம் உடனே காரணம் கேட்பது
+B. Principal-ஐ கேட்பது
+C. “Correction தேவையா? Connection தேவையா?” என்று நம்மையே கேட்பது
+D. மற்ற ஆசிரியரிடம் கேட்பது</p>
+<p>Correct Answer: C</p>
+<h4>Question 5</h4>
+<p class="lead">ஒரு மாணவரின் behaviour-க்கு பின்னால் இருக்கும் emotion அல்லது காரணத்தைப் புரிந்துகொள்ள முயற்சிப்பது?</p>
+<p>A. Motivation
+B. Empathy
+C. Time Management
+D. Decision-Making</p>
+<p>Correct Answer: B</p>
+</div></section>
+<section class="lesson"><h2>Module 2 – முக்கிய Takeaways</h2><div class="lesson-body">
+<p class="lead">1. EQ-க்கு ஐந்து முக்கிய பகுதிகள் உள்ளன.</p>
+<p>Self-Awareness, Self-Regulation, Motivation, Empathy மற்றும் Social Skill.</p>
+<p>2. Self-Awareness தான் முதல் படி.</p>
+<p>நாம் கவனிக்காத emotion-ஐ regulate செய்ய முடியாது.</p>
+<p>3. PAUSE → NAME → ASK → RESPOND</p>
+<p>ஒரு difficult classroom moment-ல் உடனடி reaction-ஐ தவிர்த்து, thoughtful response கொடுக்க இந்த நான்கு steps உதவும்.</p>
+<p>4. தவறாக react செய்துவிட்டால் repair செய்யலாம்.</p>
+<p>ஒரு நேர்மையான correction மற்றும் fresh start கூட மாணவர்களுக்கு accountability-ஐ model செய்யும்.</p>
+</div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
+<p class="lead">“என் உணர்ச்சிகளை மறைக்காமல் அவற்றை உணர்ந்து, என் உணர்ச்சிகள் என்னுடைய நடத்தையைத் தீர்மானிப்பதற்கு முன்பு என் response-ஐ நான் தேர்வு செய்யப் பழகுவேன்.”</p>
+<h4>Module 2 Complete ✓</h4>
+<h3>அடுத்த Module</h3>
+<h4>மனஅழுத்தம் &amp; கோப மேலாண்மை</h4>
+<p class="lead">Stress &amp; Anger Management</p>
+<p>ஆசிரியர்களுக்கு stress எங்கிருந்து வருகிறது?</p>
+<p>Burnout எப்படி மெதுவாக உருவாகிறது?</p>
+<p>கோபம் வெடிப்பதற்கு முன்பே உடல் கொடுக்கும் warning signs என்ன?</p>
+<p>Classroom-ல் உடனடியாக பயன்படுத்தக்கூடிய reset techniques என்ன?</p>
+<p>அடுத்த Module-ல் பார்க்கலாம்.</p>
+</div></section>
+</div>
+
+<div class="complete-bar">
+  <label class="complete-check">
+    <input type="checkbox" id="complete-checkbox">
+    <span id="complete-label">இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)</span>
+  </label>
+</div>
+
+<div class="module-nav">
+  <a class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);" href="module1.html">← Module 1</a><a class="btn btn-navy" href="module3.html">அடுத்த Module 3 →</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div>
+      <div style="font-family:'Poppins',sans-serif;font-weight:600;color:#fff;">N T Somasundaram</div>
+      <div>Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</div>
+      <div class="footer-motto">God is always with u.</div>
+    </div>
+    <div>
+      <div>📞 <a href="tel:+919843702244">+91 98437 02244</a></div>
+      <div>✉️ <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+      <div>▶️ <a href="https://www.youtube.com/@Godisalwayswithu" target="_blank" rel="noopener">@Godisalwayswithu</a></div>
+    </div>
+  </div>
+</footer>
+<a class="whatsapp-fab" href="https://wa.me/919843702244?text=Life%20Skills%20Mastery%20for%20Educators%20course%20-%20I%20have%20a%20question" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+<script>
+var STORAGE_KEY = 'life-skills-educators-tamil-module-2-complete';
+var checkbox = document.getElementById('complete-checkbox');
+var label = document.getElementById('complete-label');
+
+function refreshLabel() {
+  label.textContent = checkbox.checked
+    ? '✓ இந்த Module முடிந்தது'
+    : 'இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)';
+}
+
+document.addEventListener('auth-ready', function () {
+  checkbox.checked = localStorage.getItem(STORAGE_KEY) === 'true';
+  refreshLabel();
+});
+
+checkbox.addEventListener('change', function () {
+  localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
+  refreshLabel();
+});
+</script>
+</body>
+</html>

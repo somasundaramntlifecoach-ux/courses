@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 4 — Communication Skills for Teachers | Life Skills Mastery for Educators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F44;
+  --navy-deep:#071530;
+  --navy-soft:#12315E;
+  --gold:#C9A227;
+  --gold-light:#E8C766;
+  --cream:#F8F5EE;
+  --ink:#1B2430;
+  --muted:#5B6472;
+  --line:#E4E1D6;
+  --white:#FFFFFF;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(10,31,68,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Noto Sans Tamil','Poppins',sans-serif;
+  line-height:1.75;
+  font-size:16.5px;
+}
+h1,h2,h3,h4{
+  font-family:'Poppins','Noto Sans Tamil',sans-serif;
+  color:var(--navy);
+  line-height:1.35;
+  margin:0 0 .6em;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* header */
+.site-header{
+  background:var(--navy);
+  color:var(--white);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;color:var(--white);}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.nav-links{display:flex;gap:26px;align-items:center;}
+.nav-links a{font-size:14.5px;color:#E8E6DE;font-family:'Poppins',sans-serif;font-weight:500;}
+.nav-links a:hover{color:var(--gold-light);}
+.btn{
+  display:inline-block;padding:12px 26px;border-radius:999px;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14.5px;
+  cursor:pointer;border:none;text-align:center;
+}
+.btn-gold{background:var(--gold);color:var(--navy-deep);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);}
+.btn-navy{background:var(--navy);color:var(--white);}
+.btn-navy:hover{background:var(--navy-soft);}
+.btn-block{display:block;width:100%;}
+
+/* hero */
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:var(--white);padding:76px 0 90px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:400px;height:400px;
+  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.18),transparent 70%);
+}
+.badge{
+  display:inline-block;background:rgba(201,162,39,.15);border:1px solid var(--gold);
+  color:var(--gold-light);font-size:12.5px;font-family:'Poppins',sans-serif;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:22px;
+}
+.hero h1{color:var(--white);font-size:2.5rem;max-width:820px;}
+.hero .sub{color:#D8DEE9;font-size:1.15rem;max-width:680px;margin-bottom:30px;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* sections */
+section{padding:64px 0;}
+.section-title{text-align:center;margin-bottom:12px;font-size:2rem;}
+.section-sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 44px;font-size:1.02rem;}
+.tag{color:var(--gold);font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-align:center;display:block;margin-bottom:10px;}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr;}.grid-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+
+/* about */
+.about-photo{
+  width:100%;aspect-ratio:4/3;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--navy-soft),var(--navy));
+  display:flex;align-items:center;justify-content:center;color:var(--gold-light);
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:3rem;box-shadow:var(--shadow);
+}
+
+/* curriculum accordion */
+.curriculum{max-width:820px;margin:0 auto;}
+.module-item{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);
+}
+.module-head{
+  display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+}
+.module-num{
+  min-width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold-light);
+  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;
+}
+.module-head .titles{flex:1;}
+.module-head .titles .ta{font-weight:600;font-size:1.02rem;color:var(--navy);}
+.module-head .titles .en{font-size:.85rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.module-head .chevron{color:var(--gold);font-size:1.3rem;transition:transform .2s;}
+.module-item.open .chevron{transform:rotate(180deg);}
+.module-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 24px;}
+.module-item.open .module-body{padding:0 24px 22px;}
+.module-body p{color:var(--muted);font-size:.95rem;margin:0;}
+
+/* pricing */
+.price-card{
+  max-width:460px;margin:0 auto;background:var(--navy);color:var(--white);
+  border-radius:20px;padding:44px 36px;text-align:center;box-shadow:var(--shadow);
+  border:1px solid rgba(201,162,39,.4);
+}
+.price-card .price{font-family:'Poppins',sans-serif;font-size:3rem;font-weight:700;color:var(--gold-light);margin:14px 0 4px;}
+.price-card .price small{font-size:1rem;color:#C7CCD8;font-weight:400;}
+.price-list{text-align:left;list-style:none;padding:0;margin:26px 0;}
+.price-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.95rem;color:#E4E7EE;}
+.price-list li::before{content:"✓ ";color:var(--gold);font-weight:700;}
+.razorpay-wrap{margin-top:20px;}
+
+footer{background:var(--navy-deep);color:#B9C0CE;padding:44px 0 28px;font-size:.9rem;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+footer a{color:#D8DEE9;}
+footer a:hover{color:var(--gold-light);}
+.footer-motto{color:var(--gold-light);font-family:'Poppins',sans-serif;font-style:italic;margin-top:8px;}
+
+.whatsapp-fab{
+  position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:1.6rem;z-index:60;
+}
+
+/* auth / gated pages */
+.auth-wrap{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-deep));padding:24px;
+}
+.auth-card{
+  background:var(--white);border-radius:18px;padding:40px 34px;max-width:420px;width:100%;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.auth-card h1{font-size:1.4rem;text-align:center;}
+.auth-card .sub{color:var(--muted);text-align:center;font-size:.9rem;margin-bottom:26px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;margin-bottom:6px;color:var(--navy);}
+.field input{
+  width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:.95rem;font-family:inherit;
+}
+.field input:focus{outline:none;border-color:var(--gold);}
+.error-msg{color:#B3261E;font-size:.85rem;margin:10px 0;display:none;}
+.auth-footer{text-align:center;font-size:.85rem;color:var(--muted);margin-top:18px;}
+
+/* course home */
+.course-home-header{
+  background:var(--navy);color:#fff;padding:34px 0;
+}
+.course-home-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.progress-wrap{background:rgba(255,255,255,.12);border-radius:999px;height:8px;width:220px;overflow:hidden;}
+.progress-bar{height:100%;background:var(--gold);width:0%;transition:width .3s;}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:760px){.module-grid{grid-template-columns:1fr;}}
+.mod-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+  display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);
+}
+.mod-card .num{
+  min-width:38px;height:38px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);
+  color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;
+}
+.mod-card.done .num{background:var(--gold);color:var(--navy-deep);}
+.mod-card .ta{font-weight:600;color:var(--navy);}
+.mod-card .en{font-size:.82rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.mod-card .go{margin-top:10px;display:inline-block;font-size:.85rem;font-weight:600;color:var(--gold);font-family:'Poppins',sans-serif;}
+
+/* module content page */
+.module-header{background:var(--navy);color:#fff;padding:30px 0;}
+.module-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.module-header .crumb{font-size:.85rem;color:var(--gold-light);font-family:'Poppins',sans-serif;}
+.module-header h1{color:#fff;font-size:1.5rem;margin-top:6px;}
+.module-header .en-sub{color:#C7CCD8;font-size:.9rem;font-family:'Poppins',sans-serif;}
+
+.lesson-content{max-width:760px;margin:0 auto;padding:44px 24px 20px;}
+.lesson{margin-bottom:38px;}
+.lesson h2{font-size:1.3rem;border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:16px;}
+.lesson h3{font-size:1.08rem;color:var(--navy-soft);margin-top:22px;}
+.lesson h4{font-size:.98rem;color:var(--gold);text-transform:none;margin-top:16px;}
+.lesson p{margin:0 0 12px;color:#2B3340;}
+.lesson p.lead{font-weight:600;color:var(--navy);}
+
+.module-nav{
+  max-width:760px;margin:0 auto;padding:10px 24px 60px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.complete-bar{
+  max-width:760px;margin:0 auto;padding:0 24px 30px;text-align:center;
+}
+.complete-check{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;}
+.complete-check input{width:20px;height:20px;accent-color:var(--gold);}
+
+@media print{
+  .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<div class="module-header">
+  <div class="container">
+    <div>
+      <div class="crumb"><a href="course-home.html" style="color:var(--gold-light);">← My Course</a> · Module 4 of 10</div>
+      <h1>பயனுள்ள தகவல் தொடர்புத் திறன்கள்</h1>
+      <div class="en-sub">Communication Skills for Teachers</div>
+    </div>
+    <div>
+      <button class="btn btn-outline" onclick="window.print()">🖨️ Print / PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-content">
+<h3>இந்த Module-ல் நாம் என்ன கற்றுக்கொள்ளப் போகிறோம்?</h3>
+<p class="lead">வணக்கம் ஆசிரியர்களே!</p>
+<p>முந்தைய Modules-ல் நம்முடைய Self-Awareness, Emotional Intelligence, Stress மற்றும் Anger Management பற்றி பார்த்தோம்.</p>
+<p>இப்போது அந்த inner skills-ஐ வெளியில் எப்படி பயன்படுத்துகிறோம் என்பதைப் பார்க்கப் போகிறோம்.</p>
+<p>அதுதான் Communication – தகவல் தொடர்பு.</p>
+<p>ஒரு ஆசிரியராக நாம் தினமும் பேசுகிறோம்.</p>
+<p>மாணவர்களிடம்…</p>
+<p>பெற்றோரிடம்…</p>
+<p>சக ஆசிரியர்களிடம்…</p>
+<p>School management-இடம்…</p>
+<p>ஆனால்,</p>
+<p>“நான் சொன்னேன்” என்பதும், “நான் சொன்னது சரியாகப் புரிந்தது” என்பதும் ஒன்றல்ல.</p>
+<p>Communication என்பது பேசுவது மட்டும் அல்ல.</p>
+<p>நாம் எப்படி பேசுகிறோம்?</p>
+<p>எந்த tone-ல் பேசுகிறோம்?</p>
+<p>மற்றவர் பேசும்போது எப்படி கேட்கிறோம்?</p>
+<p>Difficult situation-ல் நம்முடைய தேவையை எப்படி தெளிவாகச் சொல்கிறோம்?</p>
+<p>இவை அனைத்தும் Communication Skill-ன் பகுதிகள்.</p>
+<section class="lesson"><h2>Lesson 1: நம்முடைய Communication Style என்ன?</h2><div class="lesson-body">
+<p class="lead">ஒரே விஷயத்தை நான்கு விதமாகப் பேசலாம்.</p>
+<p>Communication-ல் நான்கு முக்கிய styles-ஐப் பார்க்கலாம்:</p>
+<p>Passive</p>
+<p>Aggressive</p>
+<p>Passive-Aggressive</p>
+<p>Assertive</p>
+<p>இதில் நீங்கள் எந்த style-ஐ அதிகமாகப் பயன்படுத்துகிறீர்கள் என்பது normal situation-ல் தெரியாமல் இருக்கலாம்.</p>
+<p>ஆனால் stress, anger அல்லது conflict வரும் நேரத்தில் நம்முடைய default style தெளிவாகத் தெரியும்.</p>
+</div></section>
+<section class="lesson"><h2>1. Passive Communication</h2><div class="lesson-body">
+<h3>சொல்ல வேண்டியதை சொல்லாமல் இருப்பது</h3>
+<p class="lead">Passive Communication-ல் மற்றவர்களுக்கு பிரச்சினை வரக்கூடாது என்பதற்காக நம்முடைய need அல்லது boundary-ஐ தெளிவாகச் சொல்லாமல் இருப்போம்.</p>
+<h4>Classroom Example</h4>
+<p class="lead">ஒரு மாணவர் தொடர்ந்து homework late-ஆ submit செய்கிறார்.</p>
+<p>ஆசிரியர் ஒவ்வொரு முறையும்:</p>
+<p>“சரி… பரவாயில்லை. அடுத்த தடவை பார்த்துக்கலாம்.”</p>
+<p>என்று சொல்கிறார்.</p>
+<p>ஆனால் உள்ளுக்குள்:</p>
+<p>“இவன் எப்போதும் இப்படித்தான்.”</p>
+<p>என்று frustration அதிகரிக்கிறது.</p>
+<p>வெளியில் “பரவாயில்லை.”</p>
+<p>உள்ளே resentment.</p>
+<p>இதுதான் Passive Communication-ன் ஒரு வடிவம்.</p>
+<h4>என்ன பிரச்சினை?</h4>
+<p class="lead">மாணவருக்கு ஆசிரியரின் உண்மையான boundary புரியாது.</p>
+<p>“Late-ஆ கொடுத்தாலும் பரவாயில்லை போல.”</p>
+<p>என்று நினைக்கலாம்.</p>
+<p>ஆசிரியரின் frustration தொடர்ந்து சேரும்.</p>
+<h4>Better Practice</h4>
+<p class="lead">Boundary cross ஆன முதல் சில நேரங்களிலேயே calm-ஆவும் clear-ஆவும் சொல்லுங்கள்.</p>
+<p>“Assignment Friday-க்குள் submit செய்ய வேண்டும். Delay ஆனால் என்ன பிரச்சினை இருக்கிறது என்று என்னிடம் சொல்ல வேண்டும்.”</p>
+</div></section>
+<section class="lesson"><h2>2. Aggressive Communication</h2><div class="lesson-body">
+<h3>என் தேவைக்காக மற்றவரின் மரியாதையை பாதிப்பது</h3>
+<p class="lead">Aggressive Communication-ல் நம்முடைய need அல்லது frustration வெளிப்படும்.</p>
+<p>ஆனால் அது மற்றவரின் dignity-ஐ பாதிக்கும் விதத்தில் இருக்கலாம்.</p>
+<h4>Classroom Example</h4>
+<p class="lead">“எத்தனை தடவை உனக்குச் சொல்றது?”</p>
+<p>“நான் சொல்றது உனக்குப் புரியாதா?”</p>
+<p>“நீ எப்போதுமே இப்படித்தான்!”</p>
+<p>“Class-ல எல்லாருக்கும் problem நீ தான்!”</p>
+<p>இங்கு issue பற்றி பேசுவதற்கு பதிலாக, student-ன் character-ஐ attack செய்யும் அபாயம் இருக்கிறது.</p>
+<h4>என்ன நடக்கலாம்?</h4>
+<p class="lead">மாணவர் அந்த நேரத்தில் அமைதியாகிவிடலாம்.</p>
+<p>ஆனால் அவர் கற்றுக்கொள்வது:</p>
+<p>“Conflict வந்தால் volume அதிகரிக்க வேண்டும்.”</p>
+<p>என்பதாகவும் இருக்கலாம்.</p>
+<h4>ஒரு Practice</h4>
+<p class="lead">உங்களுடைய frustration அதிகரிக்கும்போது:</p>
+<p>Voice ↑</p>
+<p>செய்வதற்கு பதிலாக:</p>
+<p>Voice ↓</p>
+<p>செய்ய முயற்சி செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>3. Passive-Aggressive Communication</h2><div class="lesson-body">
+<h3>நேரடியாகச் சொல்லாமல் மறைமுகமாகக் காட்டுவது</h3>
+<p class="lead">Passive-Aggressive Communication-ல் நம்முடைய frustration-ஐ தெளிவாகச் சொல்லமாட்டோம்.</p>
+<p>அதற்குப் பதிலாக:</p>
+<p>Sarcasm,</p>
+<p>Silence,</p>
+<p>Pointed comments,</p>
+<p>Indirect criticism</p>
+<p>போன்ற வழிகளில் வெளிப்படுத்தலாம்.</p>
+<h4>Example</h4>
+<p class="lead">ஒரு மாணவர் மீண்டும் homework submit செய்யவில்லை.</p>
+<p>ஆசிரியர்:</p>
+<p>“ஆமாம்… நீ எப்போ homework submit பண்ணியிருக்க? உனக்கு time கிடைக்கும்போது கொடு!”</p>
+<p>என்று sarcastic-ஆ சொல்கிறார்.</p>
+<p>இதில் ஆசிரியருக்கு frustration இருக்கிறது என்பது மாணவருக்குத் தெரியும்.</p>
+<p>ஆனால் உண்மையான expectation என்ன என்பது தெளிவாகத் தெரியாமல் போகலாம்.</p>
+<h4>Better Alternative</h4>
+<p class="lead">Sarcasm-க்கு கீழே இருக்கும் உண்மையான sentence-ஐ நேரடியாகச் சொல்லுங்கள்:</p>
+<p>“இந்த மாதத்தில் இது மூன்றாவது missed homework. என்ன காரணம் என்று தெரிந்துகொள்ள வேண்டும். இதை எப்படி complete செய்யலாம் என்று பேசலாம்.”</p>
+</div></section>
+<section class="lesson"><h2>4. Assertive Communication</h2><div class="lesson-body">
+<h3>தெளிவும் மரியாதையும் ஒன்றாக</h3>
+<p class="lead">Assertive Communication என்றால்:</p>
+<p>எனது தேவையையும் மதிக்கிறேன்.</p>
+<p>உங்களுடைய dignity-யையும் மதிக்கிறேன்.</p>
+<p>நம்முடைய need, concern அல்லது boundary-ஐ தெளிவாகச் சொல்கிறோம்.</p>
+<p>ஆனால் attack செய்யவில்லை.</p>
+<h4>Example</h4>
+<p class="lead">ஒரு மாணவர் இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.</p>
+<p>Assertive Response:</p>
+<p>“இந்த மாதத்தில் மூன்று assignments submit ஆகவில்லை. Friday-க்குள் current assignment வேண்டும். Complete செய்வதில் என்ன difficulty இருக்கிறது?”</p>
+<p>இதில்:</p>
+<p>Fact இருக்கிறது.</p>
+<p>Expectation இருக்கிறது.</p>
+<p>Student-ஐ attack செய்யவில்லை.</p>
+<p>Conversation-க்கு space இருக்கிறது.</p>
+<p>இதுதான் Assertive Communication.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 2: ஒரே Situation – நான்கு Styles</h2><div class="lesson-body">
+<h4>Situation</h4>
+<p class="lead">ஒரு மாணவர் மூன்றாவது முறையாக homework submit செய்யவில்லை.</p>
+<h4>Passive</h4>
+<p class="lead">“சரி… நாளைக்கு கொண்டு வா.”</p>
+<h4>Aggressive</h4>
+<p class="lead">“உனக்கு responsibility-யே கிடையாதா? எத்தனை தடவை சொல்லணும்?”</p>
+<h4>Passive-Aggressive</h4>
+<p class="lead">“நீ homework கொண்டு வந்தால்தான் அது பெரிய miracle!”</p>
+<h4>Assertive</h4>
+<p class="lead">“இந்த வாரம் மூன்றாவது முறையாக homework submit ஆகவில்லை. நாளைக்கு வேண்டும். Complete செய்ய என்ன தடையாக இருக்கிறது?”</p>
+<h4>Reflection</h4>
+<p class="lead">இந்த நான்கு responses-ல் எது student-ன் dignity-யையும் teacher-ன் boundary-யையும் ஒரே நேரத்தில் பாதுகாக்கிறது?</p>
+<p>Assertive Communication.</p>
+</div></section>
+<section class="lesson"><h2>Activity – My Communication Style</h2><div class="lesson-body">
+<p class="lead">நீங்கள் stress-ல் இருக்கும்போது அதிகமாக எந்த style-க்கு செல்கிறீர்கள்?</p>
+<p>□ Passive</p>
+<p>□ Aggressive</p>
+<p>□ Passive-Aggressive</p>
+<p>□ Assertive</p>
+<h4>நான் tired அல்லது stressed-ஆ இருக்கும்போது பொதுவாக:</h4>
+<h4>நான் அடிக்கடி பயன்படுத்தும் sentence:</h4>
+<h4>அதை Assertive sentence-ஆ மாற்றினால்:</h4>
+</div></section>
+<section class="lesson"><h2>Lesson 3: Active Listening</h2><div class="lesson-body">
+<h3>பதில் சொல்ல கேட்கிறோமா? புரிந்துகொள்ள கேட்கிறோமா?</h3>
+<p class="lead">Communication என்பது பேசுவது மட்டும் அல்ல.</p>
+<p>Listening-ம் Communication.</p>
+<p>பல நேரங்களில் மற்றவர் பேசும்போது நாம் அவரைக் கேட்டுக்கொண்டிருக்கிறோம்.</p>
+<p>ஆனால் மனதிற்குள்:</p>
+<p>“இதற்கு என்ன பதில் சொல்லலாம்?”</p>
+<p>“அது அப்படி இல்லை!”</p>
+<p>“நான் explain பண்ணணும்.”</p>
+<p>என்று நம்முடைய response-ஐ தயார் செய்து கொண்டிருக்கலாம்.</p>
+<p>இது முழுமையான Active Listening அல்ல.</p>
+<p>Active Listening என்றால் முதலில் புரிந்துகொள்ளக் கேட்பது.</p>
+</div></section>
+<section class="lesson"><h2>Active Listening – 4 Practices</h2><div class="lesson-body">
+<h3>Step 1: அவர்கள் பேசும்போது உங்கள் பதிலை தயார் செய்வதை நிறுத்துங்கள்</h3>
+<p class="lead">மாணவர் அல்லது parent பேசும்போது:</p>
+<p>“இதற்கு நான் என்ன சொல்ல வேண்டும்?”</p>
+<p>என்று உடனே மனதில் answer உருவாக்க வேண்டாம்.</p>
+<p>முதலில் முழுமையாகக் கேளுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>Step 2: Reflect Back</h2><div class="lesson-body">
+<h3>நீங்கள் புரிந்துகொண்டதை திரும்பச் சொல்லுங்கள்</h3>
+<p class="lead">உதாரணமாக ஒரு parent சொல்கிறார்:</p>
+<p>“என் மகன் வீட்டுக்கு வந்ததும் school பற்றி பேசவே மாட்டேங்கிறான். இப்போ marks-ம் குறைந்துவிட்டது.”</p>
+<p>உடனே solution சொல்லாமல்:</p>
+<p>“அவர் வீட்டில் school விஷயங்களைப் பகிர்வது குறைந்திருக்கிறது; அதோடு marks-ம் குறைந்ததால் உங்களுக்கு concern-ஆ இருக்கிறது என்று புரிகிறது.”</p>
+<p>என்று சொல்லலாம்.</p>
+<p>இதனால்:</p>
+<p>“நான் சொன்னதை teacher புரிந்துகொண்டார்.”</p>
+<p>என்ற உணர்வு உருவாகும்.</p>
+</div></section>
+<section class="lesson"><h2>Step 3: Feeling-ஐ கவனியுங்கள்</h2><div class="lesson-body">
+<p class="lead">Facts மட்டும் அல்ல.</p>
+<p>அதற்குப் பின்னால் இருக்கும் feeling-ஐயும் கவனியுங்கள்.</p>
+<p>Parent:</p>
+<p>“எத்தனை தடவை சொல்லியும் அவன் படிக்கவே மாட்டேங்கிறான்!”</p>
+<p>Fact:</p>
+<p>Child not studying.</p>
+<p>Possible feeling:</p>
+<p>Frustration.</p>
+<p>Worry.</p>
+<p>Concern.</p>
+<p>Teacher response:</p>
+<p>“நீங்கள் தொடர்ந்து முயற்சி செய்தும் மாற்றம் தெரியாததால் உங்களுக்கு frustration-ஆ இருக்கலாம்.”</p>
+<p>இது agreement அல்ல.</p>
+<p>Acknowledgement.</p>
+</div></section>
+<section class="lesson"><h2>Step 4: Solution கொடுப்பதற்கு முன்பு ஒரு Open Question</h2><div class="lesson-body">
+<p class="lead">உடனே advice கொடுப்பதற்கு முன்பு:</p>
+<p>“இப்போது உங்களுக்கு அதிகமாக concern தருவது என்ன?”</p>
+<p>அல்லது:</p>
+<p>“எந்த மாற்றம் முதலில் வந்தால் உதவியாக இருக்கும் என்று நினைக்கிறீர்கள்?”</p>
+<p>என்று கேட்கலாம்.</p>
+<p>சில நேரங்களில் நாம் நினைத்த problem-க்கும் அவர்கள் உண்மையில் சொல்ல வந்த problem-க்கும் வித்தியாசம் இருக்கலாம்.</p>
+</div></section>
+<section class="lesson"><h2>Listening Practice</h2><div class="lesson-body">
+<p class="lead">அடுத்த முறை ஒரு student அல்லது parent ஒரு problem share செய்தால்:</p>
+<h4>1. Listen</h4>
+<p class="lead">முழுமையாகக் கேளுங்கள்.</p>
+<h4>2. Reflect</h4>
+<p class="lead">“நான் புரிந்துகொண்டது…”</p>
+<h4>3. Name the Feeling</h4>
+<p class="lead">“இது உங்களுக்கு frustrating-ஆ இருக்கலாம்.”</p>
+<h4>4. Ask</h4>
+<p class="lead">“இப்போது என்ன உதவி மிகவும் பயனுள்ளதாக இருக்கும்?”</p>
+</div></section>
+<section class="lesson"><h2>Lesson 4: Difficult Conversations</h2><div class="lesson-body">
+<p class="lead">ஒவ்வொரு ஆசிரியருக்கும் avoid செய்ய விரும்பும் சில conversations இருக்கும்.</p>
+<p>Low-performing student’s parent.</p>
+<p>Repeated behaviour issue.</p>
+<p>Defensive teenager.</p>
+<p>Upset parent.</p>
+<p>Colleague conflict.</p>
+<p>Difficult conversation-ன் anxiety-க்கு ஒரு முக்கிய காரணம்:</p>
+<p>“எப்படி ஆரம்பிப்பது?”</p>
+<p>என்று தெரியாமல் இருப்பது.</p>
+<p>அதற்காக ஒரு simple four-part structure.</p>
+</div></section>
+<section class="lesson"><h2>FACT → CONCERN → PERSPECTIVE → NEXT STEP</h2><div class="lesson-body">
+</div></section>
+<section class="lesson"><h2>Step 1: FACT</h2><div class="lesson-body">
+<h3>Judgement அல்ல; நடந்ததைச் சொல்லுங்கள்</h3>
+<p class="lead">Wrong:</p>
+<p>“Meera ரொம்ப careless-ஆ இருக்கிறாள்.”</p>
+<p>Better:</p>
+<p>“Meera இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.”</p>
+<p>“Careless” என்பது judgement.</p>
+<p>“Three assignments missed” என்பது fact.</p>
+</div></section>
+<section class="lesson"><h2>Step 2: CONCERN</h2><div class="lesson-body">
+<h3>உங்கள் உண்மையான கவலையைச் சொல்லுங்கள்</h3>
+<p class="lead">“இது தொடர்ந்தால் exam preparation-ல் அவளுடைய confidence பாதிக்கப்படுமோ என்று எனக்கு concern.”</p>
+<p>இங்கு student-ஐ blame செய்யவில்லை.</p>
+<p>Concern-ஐ தெளிவாகச் சொல்கிறோம்.</p>
+</div></section>
+<section class="lesson"><h2>Step 3: THEIR PERSPECTIVE</h2><div class="lesson-body">
+<h3>அவர்களின் பார்வையை கேளுங்கள்</h3>
+<p class="lead">“வீட்டில் நீங்கள் ஏதாவது change notice செய்திருக்கிறீர்களா?”</p>
+<p>அல்லது:</p>
+<p>“இதற்குக் காரணம் என்னவாக இருக்கலாம் என்று நீங்கள் நினைக்கிறீர்கள்?”</p>
+<p>Teacher-க்கு தெரியாத தகவல் parent-க்கு இருக்கலாம்.</p>
+</div></section>
+<section class="lesson"><h2>Step 4: SHARED NEXT STEP</h2><div class="lesson-body">
+<h3>ஒன்றாக ஒரு சிறிய action முடிவு செய்யுங்கள்</h3>
+<p class="lead">“அடுத்த இரண்டு வாரங்களுக்கு daily homework completion-ஐ school-லும் home-லும் check பண்ணலாம். இரண்டு வாரம் கழித்து progress எப்படி இருக்கிறது என்று review பண்ணலாம்.”</p>
+<p>இதனால் conversation:</p>
+<p>Who is wrong?</p>
+<p>என்பதிலிருந்து,</p>
+<p>What can we do next?</p>
+<p>என்ற திசைக்கு நகர்கிறது.</p>
+</div></section>
+<section class="lesson"><h2>Complete Parent Conversation Example</h2><div class="lesson-body">
+<p class="lead">Teacher:</p>
+<p>“Meera இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.</p>
+<p>இது தொடர்ந்து நடந்தால் exam preparation-ல் அவளுடைய confidence பாதிக்கப்படுமோ என்று எனக்கு concern.</p>
+<p>வீட்டில் நீங்கள் ஏதாவது change notice செய்திருக்கிறீர்களா?”</p>
+<p>Parent:</p>
+<p>“அவள் வீட்டுக்கு வந்ததும் mobile-ல அதிக நேரம் இருக்கிறாள். படிக்கச் சொன்னால் கோபப்படுகிறாள்.”</p>
+<p>Teacher:</p>
+<p>“Mobile use மற்றும் study routine இரண்டும் challenge-ஆ இருக்கிறது என்று புரிகிறது.</p>
+<p>அடுத்த இரண்டு வாரங்களுக்கு ஒரு simple homework routine try பண்ணலாம். School-ல் நானும் completion check செய்கிறேன். வீட்டில் நீங்கள் routine follow ஆகிறதா என்று மட்டும் பார்க்கலாம்.</p>
+<p>இரண்டு வாரம் கழித்து progress review பண்ணலாம்.”</p>
+</div></section>
+<section class="lesson"><h2>Lesson 5: Behaviour-ஐ பேசுங்கள்; Person-ஐ அல்ல</h2><div class="lesson-body">
+<p class="lead">இந்த வேறுபாடு மிகவும் முக்கியம்.</p>
+<h4>Person Attack</h4>
+<p class="lead">“நீ irresponsible.”</p>
+<h4>Behaviour</h4>
+<p class="lead">“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p>
+<h4>Person Attack</h4>
+<p class="lead">“நீ rude.”</p>
+<h4>Behaviour</h4>
+<p class="lead">“நான் பேசிக்கொண்டிருக்கும்போது மூன்று முறை interrupt செய்தாய்.”</p>
+<h4>Person Attack</h4>
+<p class="lead">“உனக்கு கவனமே இல்லை.”</p>
+<h4>Behaviour</h4>
+<p class="lead">“Instruction கொடுத்த பிறகு task இன்னும் start ஆகவில்லை.”</p>
+<p>Person-ஐ label செய்தால் defence அதிகரிக்கலாம்.</p>
+<p>Behaviour-ஐ describe செய்தால் change செய்ய வேண்டியது என்ன என்பது தெளிவாகும்.</p>
+</div></section>
+<section class="lesson"><h2>Activity – Rewrite the Sentence</h2><div class="lesson-body">
+<h4>Sentence 1</h4>
+<p class="lead">“நீ எப்போதுமே careless.”</p>
+<p>Assertive version:</p>
+<h4>Sentence 2</h4>
+<p class="lead">“எத்தனை தடவை சொன்னாலும் உனக்கு புரியாது.”</p>
+<p>Assertive version:</p>
+<h4>Sentence 3</h4>
+<p class="lead">“உன்னால்தான் class disturb ஆகுது.”</p>
+<p>Assertive version:</p>
+<h4>Sentence 4</h4>
+<p class="lead">“உனக்கு homework மேல அக்கறையே இல்லை.”</p>
+<p>Assertive version:</p>
+</div></section>
+<section class="lesson"><h2>Lesson 6: Difficult Conversation-க்கு முன்பே முதல் Sentence தயார் செய்யுங்கள்</h2><div class="lesson-body">
+<p class="lead">ஒரு difficult conversation வரப்போகிறது என்று தெரிந்தால் முழு conversation-ஐ மனதில் rehearse செய்ய வேண்டியதில்லை.</p>
+<p>முதல் sentence மட்டும் தயார் செய்யுங்கள்.</p>
+<h4>Example</h4>
+<p class="lead">Parent meeting இருக்கிறது.</p>
+<p>Opening sentence:</p>
+<p>“கடந்த மூன்று வாரங்களில் Kavin-ன் class participation குறைந்திருப்பதை நான் கவனித்திருக்கிறேன். அதைப் பற்றி உங்களுடன் பேச வேண்டும்.”</p>
+<p>இது:</p>
+<p>Attack அல்ல.</p>
+<p>Blame அல்ல.</p>
+<p>Fact-based opening.</p>
+<p>Conversation தொடங்கிவிட்டது.</p>
+<p>அடுத்ததை கேட்டு respond செய்யலாம்.</p>
+</div></section>
+<section class="lesson"><h2>Practical Worksheet</h2><div class="lesson-body">
+<h3>My Difficult Conversation Plan</h3>
+<p class="lead">நான் postpone செய்து கொண்டிருக்கும் conversation:</p>
+<h4>யாருடன் பேச வேண்டும்?</h4>
+<h4>FACT</h4>
+<p class="lead">Judgement இல்லாமல் என்ன நடந்தது?</p>
+<h4>CONCERN</h4>
+<p class="lead">என்னுடைய genuine concern என்ன?</p>
+<h4>PERSPECTIVE</h4>
+<p class="lead">அவர்களின் பார்வையை அறிய என்ன கேள்வி கேட்பேன்?</p>
+<h4>NEXT STEP</h4>
+<p class="lead">நாம் சேர்ந்து எடுக்கக்கூடிய ஒரு small next step என்ன?</p>
+<h4>என் Opening Sentence</h4>
+</div></section>
+<section class="lesson"><h2>7-Day Communication Challenge</h2><div class="lesson-body">
+<p class="lead">அடுத்த 7 நாட்களுக்கு தினமும் ஒரு communication habit மட்டும் practice செய்யுங்கள்.</p>
+<p>Day 1: உங்கள் default communication style-ஐ கவனியுங்கள்.</p>
+<p>Day 2: ஒரு sarcastic sentence-ஐ direct sentence-ஆ மாற்றுங்கள்.</p>
+<p>Day 3: Frustration அதிகரிக்கும்போது voice-ஐ lower செய்யுங்கள்.</p>
+<p>Day 4: ஒரு student பேசும்போது interrupt செய்யாமல் முழுமையாகக் கேளுங்கள்.</p>
+<p>Day 5: “நான் புரிந்துகொண்டது…” என்று Reflect Back செய்யுங்கள்.</p>
+<p>Day 6: ஒரு student behaviour-ஐ label இல்லாமல் fact-ஆ describe செய்யுங்கள்.</p>
+<p>Day 7: ஒரு difficult conversation-க்கு FACT → CONCERN → PERSPECTIVE → NEXT STEP structure பயன்படுத்துங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
+<h4>நான் அதிகமாக பயன்படுத்தும் Communication Style:</h4>
+<h4>நான் மாற்ற வேண்டிய ஒரு communication habit:</h4>
+<h4>நான் அதிகமாக பயன்படுத்த வேண்டிய Assertive Sentence:</h4>
+<h4>நான் better listener ஆக வேண்டிய ஒரு situation:</h4>
+</div></section>
+<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
+<h4>Question 1</h4>
+<p class="lead">தன்னுடைய need-ஐ சொல்லாமல் தொடர்ந்து avoid செய்வது எந்த style?</p>
+<p>A. Assertive
+B. Passive
+C. Aggressive
+D. Active Listening</p>
+<p>Correct Answer: B</p>
+<h4>Question 2</h4>
+<p class="lead">Sarcasm மூலம் frustration-ஐ indirect-ஆ வெளிப்படுத்துவது?</p>
+<p>A. Assertive
+B. Passive
+C. Passive-Aggressive
+D. Empathy</p>
+<p>Correct Answer: C</p>
+<h4>Question 3</h4>
+<p class="lead">Assertive Communication-ன் முக்கிய அம்சம்?</p>
+<p>A. எப்போதும் agree செய்வது
+B. மற்றவரை control செய்வது
+C. நம்முடைய need-ஐ தெளிவாகச் சொல்லி, மற்றவரின் dignity-யையும் மதிப்பது
+D. Conflict-ஐ avoid செய்வது</p>
+<p>Correct Answer: C</p>
+<h4>Question 4</h4>
+<p class="lead">Active Listening-ல் எது முக்கியம்?</p>
+<p>A. மற்றவர் பேசும்போதே நம்முடைய reply-ஐ தயார் செய்வது
+B. அவர்கள் பேசுவதை நிறுத்துவது
+C. புரிந்துகொண்டதை reflect back செய்வது
+D. உடனே advice கொடுப்பது</p>
+<p>Correct Answer: C</p>
+<h4>Question 5</h4>
+<p class="lead">Difficult Conversation Structure எது?</p>
+<p>A. Blame → Punishment → Warning → End
+B. Fact → Concern → Perspective → Next Step
+C. Question → Argument → Advice → Punishment
+D. Feeling → Complaint → Warning → Result</p>
+<p>Correct Answer: B</p>
+</div></section>
+<section class="lesson"><h2>Module 4 – முக்கிய Takeaways</h2><div class="lesson-body">
+<h3>1. Communication-ல் நான்கு styles உள்ளன</h3>
+<p class="lead">Passive – Aggressive – Passive-Aggressive – Assertive</p>
+<p>Assertive Communication தான் நம்முடைய need-ஐயும் மற்றவரின் dignity-யையும் ஒரே நேரத்தில் மதிக்கிறது.</p>
+<h3>2. Active Listening என்பது அமைதியாக இருப்பது மட்டும் அல்ல</h3>
+<p class="lead">மற்றவர் பேசுவதை முழுமையாகக் கேட்டு, நாம் புரிந்துகொண்டதை reflect back செய்து, அதன் emotional layer-ஐ கவனிப்பது முக்கியம்.</p>
+<h3>3. Difficult Conversation-க்கு ஒரு structure பயன்படுத்தலாம்</h3>
+<h4>FACT → CONCERN → PERSPECTIVE → NEXT STEP</h4>
+<p class="lead">நடந்ததைச் சொல்லுங்கள்.</p>
+<p>உங்கள் concern-ஐ பகிருங்கள்.</p>
+<p>அவர்களின் பார்வையை கேளுங்கள்.</p>
+<p>ஒரு shared next step முடிவு செய்யுங்கள்.</p>
+<h3>4. Person-ஐ attack செய்யாமல் Behaviour-ஐ address செய்யுங்கள்</h3>
+<p class="lead">“You are careless”</p>
+<p>என்பதற்குப் பதிலாக:</p>
+<p>“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p>
+<p>Behaviour specific-ஆ இருந்தால் change செய்ய வேண்டியது என்ன என்பது தெளிவாக இருக்கும்.</p>
+</div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
+<p class="lead">“நான் சொல்ல வேண்டியதைத் தெளிவாகவும் மரியாதையாகவும் சொல்வேன். மற்றவர்கள் பேசும்போது பதில் சொல்லுவதற்காக மட்டும் அல்ல, அவர்களைப் புரிந்துகொள்வதற்காகக் கேட்பேன்.”</p>
+</div></section>
+<section class="lesson"><h2>Module 4 Complete ✓</h2><div class="lesson-body">
+<h3>அடுத்த Module</h3>
+</div></section>
+<section class="lesson"><h2>முடிவெடுத்தல் &amp; பிரச்சினை தீர்க்கும் திறன்</h2><div class="lesson-body">
+<h4>Decision-Making &amp; Problem-Solving</h4>
+<p class="lead">Classroom-ல் உடனடியாக முடிவு எடுக்கும்போது நாம் Impulsive, Avoidant, Over-Analytical அல்லது Deliberate — இதில் எந்த pattern-ஐ பயன்படுத்துகிறோம்?</p>
+<p>ஒரே பிரச்சினை மீண்டும் மீண்டும் வந்தால் அதை systematic-ஆ எப்படி solve செய்வது?</p>
+<p>Define → Generate Options → Trial → Review</p>
+<p>என்ற practical framework-ஐ Module 5-ல் பார்க்கலாம்.</p>
+</div></section>
+</div>
+
+<div class="complete-bar">
+  <label class="complete-check">
+    <input type="checkbox" id="complete-checkbox">
+    <span id="complete-label">இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)</span>
+  </label>
+</div>
+
+<div class="module-nav">
+  <a class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);" href="module3.html">← Module 3</a><a class="btn btn-navy" href="module5.html">அடுத்த Module 5 →</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div>
+      <div style="font-family:'Poppins',sans-serif;font-weight:600;color:#fff;">N T Somasundaram</div>
+      <div>Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</div>
+      <div class="footer-motto">God is always with u.</div>
+    </div>
+    <div>
+      <div>📞 <a href="tel:+919843702244">+91 98437 02244</a></div>
+      <div>✉️ <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+      <div>▶️ <a href="https://www.youtube.com/@Godisalwayswithu" target="_blank" rel="noopener">@Godisalwayswithu</a></div>
+    </div>
+  </div>
+</footer>
+<a class="whatsapp-fab" href="https://wa.me/919843702244?text=Life%20Skills%20Mastery%20for%20Educators%20course%20-%20I%20have%20a%20question" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+<script>
+var STORAGE_KEY = 'life-skills-educators-tamil-module-4-complete';
+var checkbox = document.getElementById('complete-checkbox');
+var label = document.getElementById('complete-label');
+
+function refreshLabel() {
+  label.textContent = checkbox.checked
+    ? '✓ இந்த Module முடிந்தது'
+    : 'இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)';
+}
+
+document.addEventListener('auth-ready', function () {
+  checkbox.checked = localStorage.getItem(STORAGE_KEY) === 'true';
+  refreshLabel();
+});
+
+checkbox.addEventListener('change', function () {
+  localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
+  refreshLabel();
+});
+</script>
+</body>
+</html>

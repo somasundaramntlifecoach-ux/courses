@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 3 — Stress & Anger Management for Teachers | Life Skills Mastery for Educators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0A1F44;
+  --navy-deep:#071530;
+  --navy-soft:#12315E;
+  --gold:#C9A227;
+  --gold-light:#E8C766;
+  --cream:#F8F5EE;
+  --ink:#1B2430;
+  --muted:#5B6472;
+  --line:#E4E1D6;
+  --white:#FFFFFF;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(10,31,68,0.10);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Noto Sans Tamil','Poppins',sans-serif;
+  line-height:1.75;
+  font-size:16.5px;
+}
+h1,h2,h3,h4{
+  font-family:'Poppins','Noto Sans Tamil',sans-serif;
+  color:var(--navy);
+  line-height:1.35;
+  margin:0 0 .6em;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.container{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+/* header */
+.site-header{
+  background:var(--navy);
+  color:var(--white);
+  position:sticky;top:0;z-index:50;
+  box-shadow:0 2px 14px rgba(0,0,0,.15);
+}
+.site-header .container{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;font-size:16px;color:var(--white);}
+.brand .dot{width:10px;height:10px;border-radius:50%;background:var(--gold);}
+.nav-links{display:flex;gap:26px;align-items:center;}
+.nav-links a{font-size:14.5px;color:#E8E6DE;font-family:'Poppins',sans-serif;font-weight:500;}
+.nav-links a:hover{color:var(--gold-light);}
+.btn{
+  display:inline-block;padding:12px 26px;border-radius:999px;
+  font-family:'Poppins',sans-serif;font-weight:600;font-size:14.5px;
+  cursor:pointer;border:none;text-align:center;
+}
+.btn-gold{background:var(--gold);color:var(--navy-deep);}
+.btn-gold:hover{background:var(--gold-light);}
+.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.5);}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);}
+.btn-navy{background:var(--navy);color:var(--white);}
+.btn-navy:hover{background:var(--navy-soft);}
+.btn-block{display:block;width:100%;}
+
+/* hero */
+.hero{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:var(--white);padding:76px 0 90px;position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-120px;top:-120px;width:400px;height:400px;
+  border-radius:50%;background:radial-gradient(circle,rgba(201,162,39,.18),transparent 70%);
+}
+.badge{
+  display:inline-block;background:rgba(201,162,39,.15);border:1px solid var(--gold);
+  color:var(--gold-light);font-size:12.5px;font-family:'Poppins',sans-serif;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:6px 16px;border-radius:999px;margin-bottom:22px;
+}
+.hero h1{color:var(--white);font-size:2.5rem;max-width:820px;}
+.hero .sub{color:#D8DEE9;font-size:1.15rem;max-width:680px;margin-bottom:30px;}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
+
+/* sections */
+section{padding:64px 0;}
+.section-title{text-align:center;margin-bottom:12px;font-size:2rem;}
+.section-sub{text-align:center;color:var(--muted);max-width:640px;margin:0 auto 44px;font-size:1.02rem;}
+.tag{color:var(--gold);font-family:'Poppins',sans-serif;font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-align:center;display:block;margin-bottom:10px;}
+
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.grid-2{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+@media(max-width:860px){.grid-3{grid-template-columns:1fr;}.grid-2{grid-template-columns:1fr;}}
+
+.card{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:28px;box-shadow:var(--shadow);
+}
+
+/* about */
+.about-photo{
+  width:100%;aspect-ratio:4/3;border-radius:var(--radius);
+  background:linear-gradient(135deg,var(--navy-soft),var(--navy));
+  display:flex;align-items:center;justify-content:center;color:var(--gold-light);
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:3rem;box-shadow:var(--shadow);
+}
+
+/* curriculum accordion */
+.curriculum{max-width:820px;margin:0 auto;}
+.module-item{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  margin-bottom:14px;overflow:hidden;box-shadow:var(--shadow);
+}
+.module-head{
+  display:flex;align-items:center;gap:16px;padding:20px 24px;cursor:pointer;
+}
+.module-num{
+  min-width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--gold-light);
+  display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-weight:700;
+}
+.module-head .titles{flex:1;}
+.module-head .titles .ta{font-weight:600;font-size:1.02rem;color:var(--navy);}
+.module-head .titles .en{font-size:.85rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.module-head .chevron{color:var(--gold);font-size:1.3rem;transition:transform .2s;}
+.module-item.open .chevron{transform:rotate(180deg);}
+.module-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 24px;}
+.module-item.open .module-body{padding:0 24px 22px;}
+.module-body p{color:var(--muted);font-size:.95rem;margin:0;}
+
+/* pricing */
+.price-card{
+  max-width:460px;margin:0 auto;background:var(--navy);color:var(--white);
+  border-radius:20px;padding:44px 36px;text-align:center;box-shadow:var(--shadow);
+  border:1px solid rgba(201,162,39,.4);
+}
+.price-card .price{font-family:'Poppins',sans-serif;font-size:3rem;font-weight:700;color:var(--gold-light);margin:14px 0 4px;}
+.price-card .price small{font-size:1rem;color:#C7CCD8;font-weight:400;}
+.price-list{text-align:left;list-style:none;padding:0;margin:26px 0;}
+.price-list li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:.95rem;color:#E4E7EE;}
+.price-list li::before{content:"✓ ";color:var(--gold);font-weight:700;}
+.razorpay-wrap{margin-top:20px;}
+
+footer{background:var(--navy-deep);color:#B9C0CE;padding:44px 0 28px;font-size:.9rem;}
+footer .container{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;}
+footer a{color:#D8DEE9;}
+footer a:hover{color:var(--gold-light);}
+.footer-motto{color:var(--gold-light);font-family:'Poppins',sans-serif;font-style:italic;margin-top:8px;}
+
+.whatsapp-fab{
+  position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;
+  width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.25);font-size:1.6rem;z-index:60;
+}
+
+/* auth / gated pages */
+.auth-wrap{
+  min-height:100vh;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--navy),var(--navy-deep));padding:24px;
+}
+.auth-card{
+  background:var(--white);border-radius:18px;padding:40px 34px;max-width:420px;width:100%;
+  box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.auth-card h1{font-size:1.4rem;text-align:center;}
+.auth-card .sub{color:var(--muted);text-align:center;font-size:.9rem;margin-bottom:26px;}
+.field{margin-bottom:16px;}
+.field label{display:block;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;margin-bottom:6px;color:var(--navy);}
+.field input{
+  width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:.95rem;font-family:inherit;
+}
+.field input:focus{outline:none;border-color:var(--gold);}
+.error-msg{color:#B3261E;font-size:.85rem;margin:10px 0;display:none;}
+.auth-footer{text-align:center;font-size:.85rem;color:var(--muted);margin-top:18px;}
+
+/* course home */
+.course-home-header{
+  background:var(--navy);color:#fff;padding:34px 0;
+}
+.course-home-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.progress-wrap{background:rgba(255,255,255,.12);border-radius:999px;height:8px;width:220px;overflow:hidden;}
+.progress-bar{height:100%;background:var(--gold);width:0%;transition:width .3s;}
+.module-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+@media(max-width:760px){.module-grid{grid-template-columns:1fr;}}
+.mod-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;
+  display:flex;gap:16px;align-items:flex-start;box-shadow:var(--shadow);
+}
+.mod-card .num{
+  min-width:38px;height:38px;border-radius:50%;background:var(--cream);border:2px solid var(--gold);
+  color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:700;font-family:'Poppins',sans-serif;
+}
+.mod-card.done .num{background:var(--gold);color:var(--navy-deep);}
+.mod-card .ta{font-weight:600;color:var(--navy);}
+.mod-card .en{font-size:.82rem;color:var(--muted);font-family:'Poppins',sans-serif;}
+.mod-card .go{margin-top:10px;display:inline-block;font-size:.85rem;font-weight:600;color:var(--gold);font-family:'Poppins',sans-serif;}
+
+/* module content page */
+.module-header{background:var(--navy);color:#fff;padding:30px 0;}
+.module-header .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.module-header .crumb{font-size:.85rem;color:var(--gold-light);font-family:'Poppins',sans-serif;}
+.module-header h1{color:#fff;font-size:1.5rem;margin-top:6px;}
+.module-header .en-sub{color:#C7CCD8;font-size:.9rem;font-family:'Poppins',sans-serif;}
+
+.lesson-content{max-width:760px;margin:0 auto;padding:44px 24px 20px;}
+.lesson{margin-bottom:38px;}
+.lesson h2{font-size:1.3rem;border-bottom:2px solid var(--gold);padding-bottom:10px;margin-bottom:16px;}
+.lesson h3{font-size:1.08rem;color:var(--navy-soft);margin-top:22px;}
+.lesson h4{font-size:.98rem;color:var(--gold);text-transform:none;margin-top:16px;}
+.lesson p{margin:0 0 12px;color:#2B3340;}
+.lesson p.lead{font-weight:600;color:var(--navy);}
+
+.module-nav{
+  max-width:760px;margin:0 auto;padding:10px 24px 60px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+}
+.complete-bar{
+  max-width:760px;margin:0 auto;padding:0 24px 30px;text-align:center;
+}
+.complete-check{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;font-weight:600;cursor:pointer;}
+.complete-check input{width:20px;height:20px;accent-color:var(--gold);}
+
+@media print{
+  .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
+  body{background:#fff;}
+}
+</style>
+</head>
+<body>
+
+<div class="module-header">
+  <div class="container">
+    <div>
+      <div class="crumb"><a href="course-home.html" style="color:var(--gold-light);">← My Course</a> · Module 3 of 10</div>
+      <h1>மனஅழுத்தம் & கோப மேலாண்மை</h1>
+      <div class="en-sub">Stress & Anger Management for Teachers</div>
+    </div>
+    <div>
+      <button class="btn btn-outline" onclick="window.print()">🖨️ Print / PDF</button>
+    </div>
+  </div>
+</div>
+
+<div class="lesson-content">
+<h3>இந்த Module-ல் நாம் என்ன கற்றுக்கொள்ளப் போகிறோம்?</h3>
+<p class="lead">வணக்கம் ஆசிரியர்களே!</p>
+<p>Module 2-ல் Self-Awareness &amp; Emotional Intelligence பற்றி பார்த்தோம்.</p>
+<p>இப்போது ஆசிரியர்களின் அன்றாட வாழ்க்கையில் மிகவும் முக்கியமான ஒரு விஷயத்தைப் பார்க்கப் போகிறோம்:</p>
+<p>Stress – மனஅழுத்தம்.</p>
+<p>“Teacher வேலைதானே… இதில் என்ன பெரிய stress?”</p>
+<p>என்று வெளியில் இருப்பவர்கள் நினைக்கலாம்.</p>
+<p>ஆனால் ஒரு ஆசிரியரின் ஒரு நாளைப் பாருங்கள்.</p>
+<p>பாடம் நடத்த வேண்டும்.</p>
+<p>மாணவர்களை manage செய்ய வேண்டும்.</p>
+<p>Homework, notebooks, test papers பார்க்க வேண்டும்.</p>
+<p>Records update செய்ய வேண்டும்.</p>
+<p>Parents-க்கு பதில் சொல்ல வேண்டும்.</p>
+<p>School responsibilities இருக்கும்.</p>
+<p>ஒரு குழந்தை emotional-ஆ இருந்தால் அதை handle செய்ய வேண்டும்.</p>
+<p>இவற்றுக்கு நடுவில் நம்முடைய personal responsibilities-யும் இருக்கும்.</p>
+<p>அதனால் ஆசிரியர்களின் stress என்பது வெறும் “வேலை அதிகம்” என்பதால் மட்டும் வருவதில்லை.</p>
+<p>பலவிதமான emotional மற்றும் professional pressures தொடர்ந்து சேர்வதால் உருவாகிறது.</p>
+<p>இந்த Module-ன் நோக்கம்:</p>
+<p>Stress இல்லாமல் வாழ்வது அல்ல; stress நம்மை overwhelm செய்வதற்கு முன்பே அதை கவனித்து கையாளக் கற்றுக்கொள்வது.</p>
+<section class="lesson"><h2>Lesson 1: Teacher Stress எங்கிருந்து வருகிறது?</h2><div class="lesson-body">
+<p class="lead">ஆசிரியர்களின் stress-ஐ புரிந்துகொள்ள நான்கு முக்கிய sources-ஐ பார்க்கலாம்.</p>
+<h3>1. Emotional Labour – உணர்ச்சி சார்ந்த உழைப்பு</h3>
+<p class="lead">ஒரு நாள் காலை நீங்கள் பள்ளிக்கு வருகிறீர்கள்.</p>
+<p>Personal-ஆ ஏதோ ஒரு கவலை இருக்கலாம்.</p>
+<p>தூக்கம் சரியாக இல்லாமல் இருக்கலாம்.</p>
+<p>மனநிலை சரியில்லாமல் இருக்கலாம்.</p>
+<p>ஆனால் class-க்குள் சென்றவுடன்:</p>
+<p>“Good morning children!”</p>
+<p>என்று positive energy-யுடன் பேச வேண்டியிருக்கும்.</p>
+<p>மாணவர்களிடம் patience காட்ட வேண்டும்.</p>
+<p>Encourage செய்ய வேண்டும்.</p>
+<p>Calm-ஆ இருக்க வேண்டும்.</p>
+<p>உள்ளுக்குள் நாம் வேறு ஒரு emotion-ல் இருந்தாலும், profession-க்குத் தேவையான emotion-ஐ வெளியில் காட்ட வேண்டியிருக்கும்.</p>
+<p>இதைத்தான் Emotional Labour என்று புரிந்துகொள்ளலாம்.</p>
+<p>இது physical work போல உடனடியாக தெரியாது.</p>
+<p>ஆனால் தொடர்ந்து நடந்தால்:</p>
+<p>சிறிய விஷயங்களுக்குக் கூட irritation வரலாம்.</p>
+<p>வார இறுதியில் emotional-ஆ drained ஆக உணரலாம்.</p>
+<p>“யாரிடமும் பேச வேண்டாம்; கொஞ்சம் தனியாக இருக்கணும்” என்று தோன்றலாம்.</p>
+<h4>Small Practice</h4>
+<p class="lead">ஒவ்வொரு நாளும் குறைந்தது இரண்டு நிமிடங்களாவது நம்பிக்கையான ஒருவரிடம் எந்த performance-மும் இல்லாமல் இயல்பாகப் பேசக்கூடிய இடத்தை உருவாக்குங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>2. Role Overload – ஒரே நேரத்தில் பல பொறுப்புகள்</h2><div class="lesson-body">
+<p class="lead">ஒரு ஆசிரியர் வெறும் teacher மட்டும் அல்ல.</p>
+<p>சில நேரங்களில்:</p>
+<p>Teacher</p>
+<p>Counsellor</p>
+<p>Administrator</p>
+<p>Parent Liaison</p>
+<p>Discipline Manager</p>
+<p>என்று பல roles-க்கு மாற வேண்டியிருக்கும்.</p>
+<p>உதாரணமாக:</p>
+<p>ஒரு period-ல் Maths நடத்துகிறீர்கள்.</p>
+<p>Bell அடிக்கிறது.</p>
+<p>அடுத்த நிமிடம் ஒரு மாணவர் அழுதுகொண்டு வருகிறார்.</p>
+<p>அதை handle செய்கிறீர்கள்.</p>
+<p>அதற்குள் parent message.</p>
+<p>பிறகு record submission.</p>
+<p>பிறகு next class.</p>
+<p>ஒவ்வொரு வேலையும் தனித்தனியாக manageable-ஆ இருக்கலாம்.</p>
+<p>ஆனால் தொடர்ந்து ஒரு role-லிருந்து இன்னொரு role-க்கு மனதை மாற்றிக்கொண்டே இருப்பது சோர்வை உருவாக்கலாம்.</p>
+<h4>Practical Tip</h4>
+<p class="lead">முடிந்த இடங்களில் ஒரே மாதிரியான வேலைகளை ஒரே block-ல் செய்ய முயற்சி செய்யுங்கள்.</p>
+<p>உதாரணமாக:</p>
+<p>Parent messages → ஒரு குறிப்பிட்ட நேரம்.</p>
+<p>Paper correction → ஒரு தனி நேரம்.</p>
+<p>Planning → ஒரு தனி நேரம்.</p>
+<p>ஒவ்வொரு சில நிமிடங்களுக்கும் task மாற்றுவதை குறைக்க முயற்சி செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>3. Low Control – High Accountability</h2><div class="lesson-body">
+<h4>கட்டுப்பாடு குறைவு; பொறுப்பு அதிகம்</h4>
+<p class="lead">இது ஆசிரியர்களின் stress-ல் முக்கியமான ஒரு காரணம்.</p>
+<p>மாணவரின்:</p>
+<p>Exam result,</p>
+<p>Behaviour,</p>
+<p>Attendance,</p>
+<p>Academic progress</p>
+<p>போன்றவற்றுக்கு ஆசிரியர் accountable ஆக இருக்கலாம்.</p>
+<p>ஆனால் அந்த outcome-ஐ பாதிக்கும் எல்லா காரணங்களும் ஆசிரியரின் control-ல் இருக்காது.</p>
+<p>ஒரு மாணவர் வீட்டில் படிக்கிறாரா?</p>
+<p>தூக்கம் சரியாக இருக்கிறதா?</p>
+<p>Home environment எப்படி இருக்கிறது?</p>
+<p>Regular-ஆ school வருகிறாரா?</p>
+<p>Learning difficulty இருக்கிறதா?</p>
+<p>இவை அனைத்தையும் ஆசிரியர் முழுமையாக control செய்ய முடியாது.</p>
+<p>ஆனால் result குறைந்தால்:</p>
+<p>“Teacher என்ன செய்தார்?”</p>
+<p>என்ற கேள்வி வரலாம்.</p>
+<p>இந்த gap தொடர்ந்து frustration உருவாக்கலாம்.</p>
+<h4>Control Exercise</h4>
+<p class="lead">ஒரு difficult result வந்தால் இரண்டு பகுதிகளாக எழுதுங்கள்.</p>
+<p>என் Control-ல் இருந்தவை</p>
+<p class="lead">என் Control-ல் இல்லாதவை</p>
+<p class="lead">பிறகு உங்கள் performance-ஐ முதல் பட்டியலை வைத்து மட்டும் review செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>4. Compassion Fatigue – தொடர்ந்து Care செய்வதால் வரும் சோர்வு</h2><div class="lesson-body">
+<p class="lead">ஆசிரியர்கள் பல குழந்தைகளின் வாழ்க்கையை அருகில் பார்க்கிறார்கள்.</p>
+<p>ஒரு குழந்தைக்கு family problem.</p>
+<p>இன்னொரு குழந்தைக்கு learning difficulty.</p>
+<p>மற்றொரு மாணவருக்கு confidence இல்லை.</p>
+<p>ஒருவருக்கு வீட்டில் support இல்லை.</p>
+<p>நாம் அவர்களுக்காக கவலைப்படுகிறோம்.</p>
+<p>உதவி செய்ய முயற்சி செய்கிறோம்.</p>
+<p>அது நல்ல விஷயம்தான்.</p>
+<p>ஆனால் பல மாணவர்களின் emotional difficulties-ஐ நீண்ட காலம் மனதில் சுமந்து கொண்டிருந்தால், மெதுவாக emotional energy குறையலாம்.</p>
+<p>இதைத்தான் Compassion Fatigue என்று பார்க்கலாம்.</p>
+<h4>Weekly Practice</h4>
+<p class="lead">வாரம் முடியும் போது நீங்கள் மனதில் சுமந்துகொண்டிருக்கும் ஒரு student concern-ஐ எடுத்துக்கொள்ளுங்கள்.</p>
+<p>“இதில் நான் செய்ய வேண்டிய அடுத்த action என்ன?”</p>
+<p>என்று எழுதுங்கள்.</p>
+<p>செய்ய வேண்டியது இருந்தால் note செய்யுங்கள்.</p>
+<p>அதற்குப் பிறகு அந்த concern-ஐ weekend முழுவதும் மனதில் தொடர்ந்து சுமக்காமல் வைக்க முயற்சி செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>Reflection 1</h2><div class="lesson-body">
+<p class="lead">இந்த நான்கு stress sources-ல் தற்போது உங்களிடம் அதிகமாக இருப்பது எது?</p>
+<p>□ Emotional Labour</p>
+<p>□ Role Overload</p>
+<p>□ Low Control – High Accountability</p>
+<p>□ Compassion Fatigue</p>
+<p>என்னுடைய முக்கிய stress source:</p>
+<p class="lead">அது அதிகமாகத் தெரியும் situation:</p>
+</div></section>
+<section class="lesson"><h2>Lesson 2: Stress எப்படி மெதுவாக சேர்கிறது?</h2><div class="lesson-body">
+<p class="lead">Burnout என்பது பெரும்பாலும் ஒரே ஒரு மோசமான நாளால் உருவாகுவதில்லை.</p>
+<p>சிறிய சிறிய stress…</p>
+<p>Recovery இல்லாமல்…</p>
+<p>தொடர்ந்து…</p>
+<p>வாரங்கள், மாதங்கள் சேரும்போது பெரிய சோர்வாக மாறலாம்.</p>
+<h4>ஒரு ஆசிரியரின் நாள்</h4>
+<p class="lead">Morning rush.</p>
+<p>First period.</p>
+<p>Student behaviour issue.</p>
+<p>No break.</p>
+<p>Parent call.</p>
+<p>Correction pending.</p>
+<p>Meeting.</p>
+<p>Home responsibility.</p>
+<p>இப்படி ஒவ்வொரு stress-மும் சிறியதாகத் தோன்றலாம்.</p>
+<p>ஆனால் recovery இல்லாமல் தொடர்ந்து சேர்ந்தால்:</p>
+<p>Small Stress + Small Stress + Small Stress + No Recovery = Emotional Exhaustion</p>
+<p>அதனால் stress management-ல் முக்கியமான கேள்வி:</p>
+<p>“எனக்கு stress இருக்கிறதா?”</p>
+<p>என்பது மட்டும் அல்ல.</p>
+<p>“Stress வந்த பிறகு நான் recover ஆகிறேனா?”</p>
+<p>என்பதும் முக்கியம்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 3: கோபம் திடீரென்று வருகிறதா?</h2><div class="lesson-body">
+<p class="lead">பல நேரங்களில்:</p>
+<p>“எனக்கு திடீர்னு கோபம் வந்துடுச்சு!”</p>
+<p>என்று சொல்வோம்.</p>
+<p>ஆனால் பல கோப வெடிப்புகளுக்கு முன்பு நமது உடலும் மனமும் சில warning signs கொடுக்கலாம்.</p>
+<h3>Early Warning Signs</h3>
+<h4>1. Jaw அல்லது shoulders tight ஆகுதல்</h4>
+<p class="lead">தாடை இறுக்கமாக இருக்கலாம்.</p>
+<p>Shoulders tension ஆகலாம்.</p>
+<h4>2. Voice உயர ஆரம்பித்தல்</h4>
+<p class="lead">நமக்கே தெரியாமல் குரலின் volume அதிகரிக்கலாம்.</p>
+<h4>3. ஒரே complaint-ஐ மனதில் திரும்பத் திரும்ப ஓட்டுதல்</h4>
+<p class="lead">“எத்தனை தடவை சொல்றது?”</p>
+<p>“இந்த class இப்படித்தான்!”</p>
+<p>என்று ஒரே thought repeat ஆகலாம்.</p>
+<h4>4. Problem-ஐ solve செய்வதைவிட “நான் தான் ஜெயிக்க வேண்டும்” என்று தோன்றுதல்</h4>
+<p class="lead">இந்த stage-ல் conversation solution நோக்கிச் செல்லாமல் power struggle ஆக மாறலாம்.</p>
+<h4>முக்கியமான கேள்வி</h4>
+<p class="lead">உங்களுக்கு கோபம் வரும்போது முதலில் எந்த warning sign வருகிறது?</p>
+<p>My Anger Signal: ____________________</p>
+<p>அதை கண்டுபிடிப்பதே anger management-ன் முக்கியமான ஆரம்பம்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 4: In-the-Moment Anger Reset</h2><div class="lesson-body">
+<p class="lead">கோபம் அதிகரிக்கிறது என்பதை கவனித்துவிட்டீர்கள்.</p>
+<p>அடுத்தது என்ன?</p>
+<h3>RESET 1 – ஒரு சிறிய Step Back</h3>
+<p class="lead">பேசுவதற்கு முன்பு முடிந்தால் உடலை கொஞ்சம் பின்னால் நகர்த்துங்கள்.</p>
+<p>அந்தச் சிறிய physical pause automatic reaction-ஐ உடைக்க உதவும்.</p>
+<h3>RESET 2 – Voice-ஐ Lower செய்யுங்கள்</h3>
+<p class="lead">மாணவர் குரலை உயர்த்துகிறார்.</p>
+<p>நாமும் உயர்த்தினால்:</p>
+<p>Student ↑ + Teacher ↑ = Conflict ↑</p>
+<p>அதற்குப் பதிலாக உங்கள் குரலைக் குறைத்து பேச முயற்சி செய்யுங்கள்.</p>
+<h3>RESET 3 – Time வாங்குங்கள்</h3>
+<p class="lead">எல்லா பிரச்சினைக்கும் அதே நொடியில் தீர்வு சொல்ல வேண்டிய அவசியம் இல்லை.</p>
+<p>தேவைப்பட்டால்:</p>
+<p>“இதைக் குறித்து ஐந்து நிமிடத்தில் பேசலாம்.”</p>
+<p>என்று சொல்லலாம்.</p>
+<h3>RESET 4 – Body Tension Release</h3>
+<p class="lead">கைகளை இறுக்கிப் பிடித்திருக்கிறீர்களா?</p>
+<p>Jaw tight-ஆ இருக்கிறதா?</p>
+<p>கவனித்து consciously relax செய்யுங்கள்.</p>
+<p>இந்தச் சிறிய physical reset கூட அடுத்த response-ஐ மாற்ற உதவும்.</p>
+</div></section>
+<section class="lesson"><h2>Classroom Scenario</h2><div class="lesson-body">
+<p class="lead">ஒரு மாணவர் homework செய்யாமல் வந்திருக்கிறார்.</p>
+<p>இது மூன்றாவது முறை.</p>
+<p>நீங்கள் கேட்டதும்:</p>
+<p>“நான் செய்யல. என்ன பண்ணுறது?”</p>
+<p>என்று careless tone-ல் சொல்கிறார்.</p>
+<p>உங்களுக்கு கோபம் அதிகரிக்கிறது.</p>
+<h4>Automatic Reaction</h4>
+<p class="lead">“என்ன attitude இது? வெளியே போ!”</p>
+<h4>Reset Approach</h4>
+<p class="lead">1. Warning sign</p>
+<p>“என் voice உயர ஆரம்பிக்கிறது.”</p>
+<p>2. Step back</p>
+<p>ஒரு சிறிய pause.</p>
+<p>3. Lower voice</p>
+<p>“இது மூன்றாவது முறை homework complete ஆகவில்லை.”</p>
+<p>4. Delay if needed</p>
+<p>“Class முடிந்ததும் இதைப் பற்றி தனியாக பேசுவோம்.”</p>
+<p>இங்கு issue-ஐ ignore செய்யவில்லை.</p>
+<p>ஆனால் கோபம் issue-ஐ control செய்ய விடவில்லை.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 5: Burnout Self-Check</h2><div class="lesson-body">
+<p class="lead">மாதத்திற்கு ஒருமுறை உங்களையே நேர்மையாகக் கேளுங்கள்:</p>
+<h4>கடந்த வருடத்தைவிட மாணவர்களிடம் அதிக irritation வருகிறதா?</h4>
+<p class="lead">□ Yes
+□ No</p>
+<h4>முன்பு enjoy செய்த சில classes இப்போது avoid செய்ய வேண்டும் போலத் தோன்றுகிறதா?</h4>
+<p class="lead">□ Yes
+□ No</p>
+<h4>Work complete செய்வதற்காக உணவு, தூக்கம் அல்லது ஓய்வை அடிக்கடி sacrifice செய்கிறேனா?</h4>
+<p class="lead">□ Yes
+□ No</p>
+<p>இந்தக் கேள்விகளுக்கு வரும் பதில்களை தீர்ப்பாக அல்ல, தகவலாக எடுத்துக்கொள்ளுங்கள்.</p>
+<p>அவை உங்கள் தற்போதைய stress pattern-ஐ கவனிக்க உதவும்.</p>
+</div></section>
+<section class="lesson"><h2>Lesson 6: Recovery என்பது Vacation மட்டும் அல்ல</h2><div class="lesson-body">
+<p class="lead">“Stress அதிகமாக இருக்கு. ஒரு vacation போனா சரியாகிடும்.”</p>
+<p>Vacation உதவலாம்.</p>
+<p>ஆனால் அன்றாட stress தொடர்ந்து சேரும்போது recovery-யும் அன்றாட வாழ்க்கைக்குள் இருக்க வேண்டும்.</p>
+<p>Recovery என்பது பெரிய விஷயமாக இருக்க வேண்டியதில்லை.</p>
+<h3>Practice 1 – Two-Minute Pause</h3>
+<p class="lead">இரண்டு classes இடையே இரண்டு நிமிடங்கள் கிடைத்தால், அடுத்த task-ஐ உடனே தொடங்காமல் சிறிய அமைதியான இடைவெளி.</p>
+<h3>Practice 2 – No-Work Boundary</h3>
+<p class="lead">ஒவ்வொரு நாளும் ஒரு குறிப்பிட்ட நேரத்திற்குப் பிறகு correction அல்லது planning-ஐ நிறுத்துவதற்கான boundary ஒன்றை உருவாக்க முயற்சி செய்யுங்கள்.</p>
+<h3>Practice 3 – Trusted Colleague</h3>
+<p class="lead">நீங்கள் உண்மையாக:</p>
+<p>“இன்று ரொம்ப difficult day.”</p>
+<p>என்று சொல்லக்கூடிய ஒரு colleague இருக்கிறாரா?</p>
+<p>Stress-ஐ எல்லா நேரமும் தனியாக carry செய்ய வேண்டியதில்லை.</p>
+</div></section>
+<section class="lesson"><h2>My Recovery Plan</h2><div class="lesson-body">
+<p class="lead">இந்த வாரம் எல்லா techniques-ஐயும் முயற்சி செய்ய வேண்டாம்.</p>
+<p>ஒன்றை மட்டும் தேர்வு செய்யுங்கள்.</p>
+<p>□ Two-minute pause between classes</p>
+<p>□ Evening work boundary</p>
+<p>□ Trusted colleague conversation</p>
+<h4>நான் தேர்வு செய்த Recovery Habit:</h4>
+<h4>இதை நான் எப்போது செய்வேன்?</h4>
+<h4>இதை செய்யாமல் தடுக்கும் முக்கிய obstacle என்ன?</h4>
+<h4>அந்த obstacle-ஐ எப்படி handle செய்வேன்?</h4>
+</div></section>
+<section class="lesson"><h2>7-Day Stress Awareness Challenge</h2><div class="lesson-body">
+<p class="lead">அடுத்த 7 நாட்கள் தினமும் school முடிந்த பிறகு இரண்டு நிமிடங்கள்:</p>
+<h4>இன்று என்னுடைய Stress Level?</h4>
+<p class="lead">1 – 10: ______</p>
+<h4>இன்று முக்கிய Stress Trigger என்ன?</h4>
+<h4>என் உடல் கொடுத்த Warning Signal என்ன?</h4>
+<h4>நான் எப்படி Respond செய்தேன்?</h4>
+<h4>இன்று Recovery செய்தேனா?</h4>
+<p class="lead">□ Yes
+□ No</p>
+</div></section>
+<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
+<h4>Question 1</h4>
+<p class="lead">Teacher Stress-ன் source-களில் ஒன்று எது?</p>
+<p>A. Emotional Labour
+B. Memory Power
+C. Reading Speed
+D. IQ</p>
+<p>Correct Answer: A</p>
+<h4>Question 2</h4>
+<p class="lead">Role Overload என்றால்?</p>
+<p>A. ஒரே subject-ஐ நடத்துவது
+B. ஒரே நேரத்தில் பல professional roles-ஐ கையாளுவது
+C. அதிக மாணவர்கள் இருப்பது மட்டும்
+D. விடுமுறை எடுப்பது</p>
+<p>Correct Answer: B</p>
+<h4>Question 3</h4>
+<p class="lead">Anger-ன் early warning sign எது?</p>
+<p>A. Jaw tightening
+B. Voice rising
+C. ஒரே complaint-ஐ மனதில் replay செய்வது
+D. மேலே உள்ள அனைத்தும்</p>
+<p>Correct Answer: D</p>
+<h4>Question 4</h4>
+<p class="lead">Classroom conflict-ல் anger அதிகரிக்கும்போது உதவக்கூடிய response எது?</p>
+<p>A. இன்னும் சத்தமாகப் பேசுவது
+B. உடனே punishment announce செய்வது
+C. குரலைக் குறைத்து ஒரு pause எடுப்பது
+D. மாணவரை அவமானப்படுத்துவது</p>
+<p>Correct Answer: C</p>
+<h4>Question 5</h4>
+<p class="lead">Recovery என்பது?</p>
+<p>A. Vacation மட்டும்
+B. தினசரி சிறிய recovery habits-யும் இருக்கலாம்
+C. Stress வந்த பிறகு வேலை அதிகமாகச் செய்வது
+D. Problems-ஐ ignore செய்வது</p>
+<p>Correct Answer: B</p>
+</div></section>
+<section class="lesson"><h2>Module 3 – முக்கிய Takeaways</h2><div class="lesson-body">
+<p class="lead">1. Teacher Stress-க்கு தனிப்பட்ட காரணங்கள் உள்ளன.</p>
+<p>Emotional Labour, Role Overload, Low Control–High Accountability மற்றும் Compassion Fatigue.</p>
+<p>2. கோபத்திற்கு warning signs இருக்கலாம்.</p>
+<p>Jaw tension, voice rising, complaint replay மற்றும் “win” செய்ய வேண்டும் என்ற மனநிலை போன்ற signals-ஐ ஆரம்பத்திலேயே கவனிக்க வேண்டும்.</p>
+<p>3. Anger அதிகரிக்கும்போது Reset செய்யலாம்.</p>
+<p>Step back.</p>
+<p>Lower your voice.</p>
+<p>தேவைப்பட்டால் time வாங்குங்கள்.</p>
+<p>Body tension-ஐ relax செய்யுங்கள்.</p>
+<p>4. Burnout பெரும்பாலும் மெதுவாக உருவாகிறது.</p>
+<p>சிறிய stress-கள் recovery இல்லாமல் தொடர்ந்து சேரும்போது emotional exhaustion அதிகரிக்கலாம்.</p>
+<p>5. Recovery-ஐ தினசரி வாழ்க்கைக்குள் கொண்டுவருங்கள்.</p>
+<p>ஒரு small, repeatable recovery habit-ஐ முதலில் தேர்வு செய்து practice செய்யுங்கள்.</p>
+</div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
+<p class="lead">“Stress-ஐ முழுமையாக தவிர்க்க முயற்சிப்பதைவிட, அது அதிகரிக்கும் அறிகுறிகளை ஆரம்பத்திலேயே கவனித்து, என் response மற்றும் recovery-ஐ நான் திட்டமிட்டு கையாளப் பழகுவேன்.”</p>
+<h4>Module 3 Complete ✓</h4>
+<h3>அடுத்த Module</h3>
+<h4>பயனுள்ள தகவல் தொடர்புத் திறன்கள்</h4>
+<p class="lead">Communication Skills</p>
+<p>Passive, Aggressive, Passive-Aggressive, Assertive — நான் எந்த communication style-ஐ அதிகம் பயன்படுத்துகிறேன்?</p>
+<p>மாணவர்களையும் பெற்றோர்களையும் உண்மையாகக் கேட்பது எப்படி?</p>
+<p>Difficult conversation-ஐ conflict இல்லாமல் தொடங்குவது எப்படி?</p>
+<p>அடுத்த Module-ல் பார்க்கலாம்.</p>
+</div></section>
+</div>
+
+<div class="complete-bar">
+  <label class="complete-check">
+    <input type="checkbox" id="complete-checkbox">
+    <span id="complete-label">இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)</span>
+  </label>
+</div>
+
+<div class="module-nav">
+  <a class="btn btn-outline" style="color:var(--navy);border-color:var(--navy);" href="module2.html">← Module 2</a><a class="btn btn-navy" href="module4.html">அடுத்த Module 4 →</a>
+</div>
+
+<footer>
+  <div class="container">
+    <div>
+      <div style="font-family:'Poppins',sans-serif;font-weight:600;color:#fff;">N T Somasundaram</div>
+      <div>Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</div>
+      <div class="footer-motto">God is always with u.</div>
+    </div>
+    <div>
+      <div>📞 <a href="tel:+919843702244">+91 98437 02244</a></div>
+      <div>✉️ <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a></div>
+      <div>▶️ <a href="https://www.youtube.com/@Godisalwayswithu" target="_blank" rel="noopener">@Godisalwayswithu</a></div>
+    </div>
+  </div>
+</footer>
+<a class="whatsapp-fab" href="https://wa.me/919843702244?text=Life%20Skills%20Mastery%20for%20Educators%20course%20-%20I%20have%20a%20question" target="_blank" rel="noopener" title="WhatsApp">💬</a>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="auth-guard.js"></script>
+<script>
+var STORAGE_KEY = 'life-skills-educators-tamil-module-3-complete';
+var checkbox = document.getElementById('complete-checkbox');
+var label = document.getElementById('complete-label');
+
+function refreshLabel() {
+  label.textContent = checkbox.checked
+    ? '✓ இந்த Module முடிந்தது'
+    : 'இந்த Module-ஐ முடித்ததாகக் குறிக்கவும் (Mark as complete)';
+}
+
+document.addEventListener('auth-ready', function () {
+  checkbox.checked = localStorage.getItem(STORAGE_KEY) === 'true';
+  refreshLabel();
+});
+
+checkbox.addEventListener('change', function () {
+  localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
+  refreshLabel();
+});
+</script>
+</body>
+</html>
