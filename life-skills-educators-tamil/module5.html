@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -264,403 +330,142 @@ footer a:hover{color:var(--gold-light);}
 <p>Classroom pressure-ல் இருக்கும்போதும்…</p>
 <p>உடனடியாக முடிவு எடுக்க வேண்டியிருக்கும்.</p>
 <p>அந்த நேரத்தில்தான் நம்முடைய Decision-Making Pattern வெளிப்படும்.</p>
-<section class="lesson"><h2>Lesson 1: முடிவு எடுக்கும் நான்கு Patterns</h2><div class="lesson-body">
-<p class="lead">அழுத்தமான சூழலில் நாம் பொதுவாக நான்கு விதங்களில் முடிவு எடுக்கலாம்.</p>
-<h3>1. Impulsive</h3>
-<h4>யோசிப்பதற்கு முன்பே முடிவு செய்துவிடுவது</h4>
-<p class="lead">Emotion அதிகமாக இருக்கும் அந்த நொடியில் மனதில் முதலில் தோன்றிய option-ஐ உடனடியாக தேர்வு செய்வது.</p>
-<h4>Classroom Example</h4>
-<p class="lead">ஒரு மாணவர் teacher-ஐ எதிர்த்துப் பேசுகிறார்.</p>
-<p>Teacher உடனே:</p>
-<p>“ஒரு வாரம் என் class-க்கு வராதே!”</p>
-<p>என்று punishment announce செய்கிறார்.</p>
-<p>சில நிமிடங்களுக்குப் பிறகு:</p>
-<p>“கொஞ்சம் அதிகமாக சொல்லிட்டோமோ?”</p>
-<p>என்று தோன்றலாம்.</p>
-<p>இதுதான் Impulsive Decision-Making.</p>
-<h4>என்ன பிரச்சினை?</h4>
-<p class="lead">அந்த நேரத்தில் issue முடிந்துவிட்டது போலத் தோன்றலாம்.</p>
-<p>ஆனால் decision:</p>
-<p>Proportionate-ஆ இருக்கிறதா?</p>
-<p>Enforce செய்ய முடியுமா?</p>
-<p>இதே behaviour-க்கு மற்ற மாணவர்களிடம் இதே consequence கொடுத்தோமா?</p>
-<p>என்று யோசிக்காமல் போகலாம்.</p>
-<h4>Small Practice</h4>
-<p class="lead">ஒரு consequence announce செய்வதற்கு முன்பு:</p>
-<h3>3-Second Rule</h3>
-<p class="lead">ஒன்று… இரண்டு… மூன்று…</p>
-<p>மூன்று seconds மட்டும் pause செய்யுங்கள்.</p>
-<p>சிறிய gap.</p>
-<p>பெரிய மாற்றத்தை உருவாக்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>2. Avoidant Decision-Making</h2><div class="lesson-body">
-<h4>முடிவைத் தள்ளிப்போடுவது</h4>
-<p class="lead">சிலர் உடனே முடிவு செய்கிறார்கள்.</p>
-<p>சிலர் முடிவே எடுக்காமல் தள்ளிப்போடுகிறார்கள்.</p>
-<p>“பார்க்கலாம்…”</p>
-<p>“அடுத்த வாரம் பேசலாம்…”</p>
-<p>“தானாக சரியாகிவிடும்…”</p>
-<p>என்று ஒரு issue-ஐ தொடர்ந்து postpone செய்வது Avoidant Pattern.</p>
-<h4>Classroom Example</h4>
-<p class="lead">இரண்டு மாணவர்களுக்குள் தொடர்ந்து conflict வருகிறது.</p>
-<p>ஒவ்வொரு முறையும்:</p>
-<p>“இருவரும் வேறு வேறு இடத்தில் உட்காருங்கள்.”</p>
-<p>என்று மட்டும் teacher handle செய்கிறார்.</p>
-<p>ஆனால் root issue பற்றி பேசுவதில்லை.</p>
-<p>“Term முடிந்தால் சரியாகிவிடும்.”</p>
-<p>என்று நினைக்கிறார்.</p>
-<p>ஆனால் unresolved problem மீண்டும் வரலாம்.</p>
-<h4>Practical Tool – Decision Deadline</h4>
-<p class="lead">Avoid செய்து கொண்டிருக்கும் ஒரு issue-க்கு deadline வையுங்கள்.</p>
-<p>“இந்த Friday-க்குள் இதைப் பற்றி நான் பேசுவேன்.”</p>
-<p>என்று எழுதிவையுங்கள்.</p>
-<p>Avoidance-க்கு expiry date கொடுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>3. Over-Analytical Decision-Making</h2><div class="lesson-body">
-<h4>யோசித்துக்கொண்டே இருந்து முடிவு எடுக்காமல் இருப்பது</h4>
-<p class="lead">நல்ல முடிவு எடுக்க information தேவை.</p>
-<p>ஆனால்:</p>
-<p>இன்னொரு strategy…</p>
-<p>இன்னொரு article…</p>
-<p>இன்னொரு opinion…</p>
-<p>இன்னொரு method…</p>
-<p>என்று தொடர்ந்து information மட்டும் collect செய்து decision எடுக்காமல் இருந்தால் அது Over-Analysis.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு class-ல் மாணவர்களின் engagement குறைவாக இருக்கிறது.</p>
-<p>Teacher:</p>
-<p>Five teaching strategies படிக்கிறார்.</p>
-<p>பல videos பார்க்கிறார்.</p>
-<p>பல ideas note செய்கிறார்.</p>
-<p>ஆனால் ஒரு strategy-யையும் class-ல் try செய்யவில்லை.</p>
-<p>“Best method எது?”</p>
-<p>என்று தொடர்ந்து தேடுகிறார்.</p>
-<p>இதற்குள் மாணவர்களின் learning time போய்க்கொண்டிருக்கிறது.</p>
-<h4>Practical Tool – Information Deadline</h4>
-<p class="lead">“Wednesday வரை information collect செய்வேன். Thursday ஒரு method select செய்து try செய்வேன்.”</p>
-<p>என்று deadline வையுங்கள்.</p>
-<p>Perfect answer கிடைக்கும் வரை காத்திருப்பதைவிட, workable option ஒன்றை முயற்சி செய்து அதன் result-ஐப் பார்ப்பது பல சூழல்களில் பயனுள்ளதாக இருக்கும்.</p>
-</div></section>
-<section class="lesson"><h2>4. Deliberate Decision-Making</h2><div class="lesson-body">
-<h4>முக்கியமான காரணிகளை யோசித்து முடிவு செய்வது</h4>
-<p class="lead">Deliberate decision என்றால் எல்லாவற்றையும் பல மணி நேரம் analyse செய்வது அல்ல.</p>
-<p>Situation-க்கு முக்கியமான factors-ஐ கவனித்து, ஒரு reasonable நேரத்தில் decision எடுத்து, தேவையானால் பின்னர் adjust செய்வது.</p>
-<h4>Classroom Example</h4>
-<p class="lead">ஒரு மாணவர் class-ல் inappropriate-ஆ பேசுகிறார்.</p>
-<p>Teacher மூன்று விஷயங்களை விரைவாகக் கவனிக்கிறார்:</p>
-<p>Fairness</p>
-<p>இதே behaviour-க்கு மற்ற மாணவர்களை எப்படி handle செய்தேன்?</p>
-<p>Student History</p>
-<p>இந்த behaviour தொடர்ந்து நடக்கிறதா அல்லது இது முதல் முறையா?</p>
-<p>Class Need</p>
-<p>இப்போது class-ன் learning environment-ஐ பாதுகாக்க என்ன செய்ய வேண்டும்?</p>
-<p>அதை வைத்து teacher ஒரு response தேர்வு செய்கிறார்.</p>
-<p>இதுதான் Deliberate Decision-Making.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 2: உங்கள் Default Decision Style என்ன?</h2><div class="lesson-body">
-<p class="lead">ஒரு முக்கியமான விஷயம்:</p>
-<p>ஒரே ஆசிரியர் எல்லா situations-லுமே ஒரே pattern-ஐ பயன்படுத்த வேண்டியதில்லை.</p>
-<p>Behaviour issue வந்தால் Impulsive ஆக இருக்கலாம்.</p>
-<p>Parent conversation-ஐ Avoid செய்யலாம்.</p>
-<p>Teaching strategy-ல் Over-Analyse செய்யலாம்.</p>
-<p>Administrative decision-ல் Deliberate ஆக இருக்கலாம்.</p>
-<p>அதனால் கேள்வி:</p>
-<p>“நான் எந்த type?”</p>
-<p>என்பதைவிட:</p>
-<p>“எந்த situation என்னை எந்த pattern-க்கு கொண்டு செல்கிறது?”</p>
-<p>என்பதுதான் முக்கியம்.</p>
-</div></section>
-<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
-<h4>Student behaviour issue வந்தால் நான்:</h4>
-<p class="lead">□ Impulsive
-□ Avoidant
-□ Over-Analytical
-□ Deliberate</p>
-<h4>Parent complaint வந்தால் நான்:</h4>
-<p class="lead">□ Impulsive
-□ Avoidant
-□ Over-Analytical
-□ Deliberate</p>
-<h4>புதிய teaching method தேர்வு செய்யும்போது:</h4>
-<p class="lead">□ Impulsive
-□ Avoidant
-□ Over-Analytical
-□ Deliberate</p>
-<h4>என் அதிகமான default pattern:</h4>
-<h4>அதை trigger செய்யும் situation:</h4>
-</div></section>
-<section class="lesson"><h2>Lesson 3: Decision vs Problem</h2><div class="lesson-body">
-<p class="lead">Decision-Making மற்றும் Problem-Solving இரண்டும் ஒன்றல்ல.</p>
-<h4>Decision</h4>
-<p class="lead">பல options-ல் ஒன்றைத் தேர்வு செய்வது.</p>
-<p>உதாரணம்:</p>
-<p>“இந்த மாணவரிடம் இப்போது பேசலாமா அல்லது class முடிந்த பிறகு பேசலாமா?”</p>
-<h4>Problem</h4>
-<p class="lead">தொடர்ந்து நடக்கும் ஒரு difficulty-ஐ systematic-ஆ handle செய்வது.</p>
-<p>உதாரணம்:</p>
-<p>“இந்த மாணவர் தொடர்ந்து late-ஆ வருகிறார். இதை எப்படி improve செய்வது?”</p>
-<p>Decision என்பது ஒரு choice.</p>
-<p>Problem-Solving என்பது ஒரு process.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 4: Practical Problem-Solving Framework</h2><div class="lesson-body">
-<p class="lead">ஒரே problem மீண்டும் மீண்டும் வரும்போது, ஒவ்வொரு முறையும் புதிதாக struggle செய்ய வேண்டியதில்லை.</p>
-<p>இந்த நான்கு steps-ஐ பயன்படுத்தலாம்:</p>
-</div></section>
-<section class="lesson"><h2>DEFINE → GENERATE → TRIAL → REVIEW</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>STEP 1 – DEFINE</h2><div class="lesson-body">
-<h3>உண்மையான Problem என்ன?</h3>
-<p class="lead">Problem-Solving-ல் முதல் step:</p>
-<p>Problem-ஐ தெளிவாக define செய்வது.</p>
-<h4>Vague Problem</h4>
-<p class="lead">“இந்த class ரொம்ப மோசம்.”</p>
-<p>இதைக் கொண்டு என்ன action எடுக்க முடியும்?</p>
-<p>தெளிவாக இல்லை.</p>
-<h4>Better Definition</h4>
-<p class="lead">“Lesson ஆரம்பித்து 15 minutes கழித்து ஆறு மாணவர்கள் activity-ல் participate செய்வதை நிறுத்துகிறார்கள்.”</p>
-<p>இப்போது problem specific.</p>
-<p>நாம் observe செய்யலாம்.</p>
-<p>Measure செய்யலாம்.</p>
-<p>Solution try செய்யலாம்.</p>
-<h4>இன்னொரு Example</h4>
-<p class="lead">Vague:</p>
-<p>“Kavin irresponsible.”</p>
-<p>Specific:</p>
-<p>“Kavin கடந்த இரண்டு வாரங்களில் நான்கு homework assignments submit செய்யவில்லை.”</p>
-<p>Person-ஐ problem ஆக்காதீர்கள்.</p>
-<p>Behaviour அல்லது situation-ஐ define செய்யுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>STEP 2 – GENERATE</h2><div class="lesson-body">
-<h3>குறைந்தது மூன்று Options உருவாக்குங்கள்</h3>
-<p class="lead">Problem வந்ததும் மனதில் முதலில் தோன்றும் solution-ஐ மட்டும் பயன்படுத்த வேண்டாம்.</p>
-<p>குறைந்தது:</p>
-<h3>3 OPTIONS</h3>
-<p class="lead">உருவாக்குங்கள்.</p>
-<h4>Example Problem</h4>
-<p class="lead">“Six students lose participation after 15 minutes.”</p>
-<h4>Option 1</h4>
-<p class="lead">15 minutes கழித்து 3-minute pair activity.</p>
-<h4>Option 2</h4>
-<p class="lead">Visual example பயன்படுத்துதல்.</p>
-<h4>Option 3</h4>
-<p class="lead">Students-க்கு small group task கொடுத்தல்.</p>
-<p>முதல் idea தான் best idea என்று அவசியமில்லை.</p>
-<p>Multiple options உருவாக்குவது creative problem-solving-க்கு உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>STEP 3 – TRIAL</h2><div class="lesson-body">
-<h3>ஒரு Option தேர்வு செய்து ஒரு காலத்திற்கு முயற்சி செய்யுங்கள்</h3>
-<p class="lead">ஒரு புதிய strategy-ஐ ஒரு நாள் try செய்துவிட்டு:</p>
-<p>“இது வேலை செய்யவில்லை.”</p>
-<p>என்று முடிவு செய்துவிடாதீர்கள்.</p>
-<p>Students-க்கும் புதிய approach-க்கு adjust ஆக நேரம் தேவைப்படலாம்.</p>
-<p>அதனால் ஒரு trial period fix செய்யுங்கள்.</p>
-<p>உதாரணம்:</p>
-<p>“அடுத்த 7 school days இந்த strategy-ஐ consistently பயன்படுத்துவேன்.”</p>
-<p>அல்லது:</p>
-<p>“இரண்டு வாரங்கள் முயற்சி செய்து result பார்ப்பேன்.”</p>
-<p>ஒரு genuine trial period கொடுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>STEP 4 – REVIEW</h2><div class="lesson-body">
-<h3>நேர்மையாக Result-ஐ பாருங்கள்</h3>
-<p class="lead">Trial முடிந்த பிறகு:</p>
-<p>Did it help?</p>
-<p>Partly help?</p>
-<p>Not help?</p>
-<p>என்று பாருங்கள்.</p>
-<h4>Helped</h4>
-<p class="lead">Continue.</p>
-<h4>Partly Helped</h4>
-<p class="lead">Modify.</p>
-<h4>Didn’t Help</h4>
-<p class="lead">Option 2 அல்லது Option 3 try செய்யுங்கள்.</p>
-<p>Problem-Solving என்றால்:</p>
-<p>“என் idea வேலை செய்ய வேண்டும்.”</p>
-<p>என்பதல்ல.</p>
-<p>“Problem improve ஆக வேண்டும்.”</p>
-<p>என்பதுதான் நோக்கம்.</p>
-</div></section>
-<section class="lesson"><h2>Classroom Case Study</h2><div class="lesson-body">
-<h3>Situation</h3>
-<p class="lead">Class 8 மாணவர்களில் சிலர் homework தொடர்ந்து submit செய்யவில்லை.</p>
-<h4>பழைய Approach</h4>
-<p class="lead">“Homework கொண்டு வராதவர்கள் எல்லாரும் stand up.”</p>
-<p>Punishment.</p>
-<p>Next day சிலர் கொண்டு வருகிறார்கள்.</p>
-<p>அடுத்த வாரம் problem மீண்டும் வருகிறது.</p>
-<p>இப்போது framework பயன்படுத்தலாம்.</p>
-<h3>STEP 1 – DEFINE</h3>
-<p class="lead">“Class 8-ல் 35 மாணவர்களில் 7 பேர் கடந்த இரண்டு வாரங்களில் மூன்று அல்லது அதற்கு மேற்பட்ட homework assignments submit செய்யவில்லை.”</p>
-<h3>STEP 2 – GENERATE</h3>
-<h4>Option 1</h4>
-<p class="lead">Homework diary check.</p>
-<h4>Option 2</h4>
-<p class="lead">Homework instruction class முடிவில் board-ல் clear-ஆ எழுதுதல்.</p>
-<h4>Option 3</h4>
-<p class="lead">Repeated missing homework உள்ள மாணவர்களிடம் individually reason check செய்தல்.</p>
-<h3>STEP 3 – TRIAL</h3>
-<p class="lead">அடுத்த இரண்டு வாரங்கள்:</p>
-<p>Clear board instruction + diary check.</p>
-<h3>STEP 4 – REVIEW</h3>
-<p class="lead">7 students → 3 students.</p>
-<p>Problem முழுமையாக solve ஆகவில்லை.</p>
-<p>ஆனால் improvement உள்ளது.</p>
-<p>அடுத்ததாக remaining 3 students-க்கு individual reason check.</p>
-<p>இதுதான் systematic Problem-Solving.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 5: Root Cause-ஐ கவனியுங்கள்</h2><div class="lesson-body">
-<p class="lead">ஒரே behaviour-க்கு பல காரணங்கள் இருக்கலாம்.</p>
-<h4>Problem</h4>
-<p class="lead">Student regularly late.</p>
-<p>Possible reasons:</p>
-<p>Transport issue.</p>
-<p>Home routine.</p>
-<p>Sleep pattern.</p>
-<p>School avoidance.</p>
-<p>Morning responsibility.</p>
-<p>அதனால்:</p>
-<p>“Late வந்திருக்கிறாய் → Punishment.”</p>
-<p>என்பது immediate response ஆக இருக்கலாம்.</p>
-<p>ஆனால் recurring problem solve ஆக வேண்டுமென்றால்:</p>
-<p>“Why is this happening repeatedly?”</p>
-<p>என்று பார்க்க வேண்டும்.</p>
-</div></section>
-<section class="lesson"><h2>Four Questions Tool</h2><div class="lesson-body">
-<p class="lead">Recurring problem வந்தால் இந்த நான்கு கேள்விகளைப் பயன்படுத்துங்கள்:</p>
-<h4>1. உண்மையில் என்ன நடக்கிறது?</h4>
-<h4>2. இதுவரை நான் என்ன முயற்சி செய்தேன்?</h4>
-<h4>3. இன்னும் என்ன முயற்சி செய்யவில்லை?</h4>
-<h4>4. அடுத்த சிறிய Step என்ன?</h4>
-</div></section>
-<section class="lesson"><h2>Lesson 6: Fairness &amp; Consistency</h2><div class="lesson-body">
-<p class="lead">Classroom decisions-ல் students கவனிக்கும் ஒரு முக்கியமான விஷயம்:</p>
-<p>Consistency.</p>
-<p>“அவருக்கு மட்டும் ஏன்?”</p>
-<p>“நேற்று இதே விஷயத்திற்கு வேறு punishment கொடுத்தீர்கள்.”</p>
-<p>என்ற கேள்விகள் வரலாம்.</p>
-<p>அதனால் அடிக்கடி வரும் classroom decisions-க்கு முன்பே 2–3 முக்கிய factors-ஐ தீர்மானித்து வைத்துக்கொள்ளலாம்.</p>
-<p>உதாரணமாக:</p>
-<p>Behaviour consequence முடிவு செய்யும்போது:</p>
-<p>1. Behaviour எவ்வளவு serious?</p>
-<p>2. இது first time-ஆ அல்லது repeated behaviour-ஆ?</p>
-<p>3. Learning அல்லது மற்றவர்களின் safety/dignity-ஐ இது எப்படி பாதித்தது?</p>
-<p>இந்த factors-ஐ தொடர்ந்து பயன்படுத்துவது decision consistency-க்கு உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>Activity – My Classroom Problem</h2><div class="lesson-body">
-<p class="lead">நீங்கள் தற்போது எதிர்கொள்ளும் ஒரு recurring classroom problem-ஐ தேர்வு செய்யுங்கள்.</p>
-<h3>Problem</h3>
-<h3>அதை Specific-ஆ Define செய்யுங்கள்</h3>
-<h3>Option 1</h3>
-<h3>Option 2</h3>
-<h3>Option 3</h3>
-<h3>நான் தேர்வு செய்யும் Option</h3>
-<h3>Trial Period</h3>
-<h3>Review Date</h3>
-<h3>Success எப்படி தெரியும்?</h3>
-</div></section>
-<section class="lesson"><h2>Decision Filter</h2><div class="lesson-body">
-<p class="lead">ஒரு முக்கியமான classroom decision எடுப்பதற்கு முன்பு:</p>
-<p>PAUSE</p>
-<p>பிறகு இந்த மூன்று கேள்விகள்:</p>
-<h4>1. இது Fair-ஆ இருக்கிறதா?</h4>
-<h4>2. இது Consistent-ஆ இருக்கிறதா?</h4>
-<h4>3. இதன் short-term மற்றும் long-term consequence என்ன?</h4>
-<p class="lead">பிறகு:</p>
-<p>DECIDE → ACT → REVIEW</p>
-</div></section>
-<section class="lesson"><h2>7-Day Decision Challenge</h2><div class="lesson-body">
-<p class="lead">அடுத்த 7 நாட்களில்:</p>
-<p>Day 1: உங்கள் default decision pattern-ஐ observe செய்யுங்கள்.</p>
-<p>Day 2: ஒரு consequence announce செய்வதற்கு முன்பு 3-second pause.</p>
-<p>Day 3: நீங்கள் avoid செய்து கொண்டிருக்கும் ஒரு decision-க்கு deadline வையுங்கள்.</p>
-<p>Day 4: Overthinking செய்யும் ஒரு decision-க்கு information deadline வையுங்கள்.</p>
-<p>Day 5: ஒரு recurring problem-ஐ specific sentence-ஆ define செய்யுங்கள்.</p>
-<p>Day 6: அதற்கு மூன்று possible solutions எழுதுங்கள்.</p>
-<p>Day 7: ஒரு solution தேர்வு செய்து trial period fix செய்யுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
-<h4>நான் அதிகமாக பயன்படுத்தும் Decision Pattern:</h4>
-<h4>நான் Avoid செய்து கொண்டிருக்கும் ஒரு Decision:</h4>
-<h4>நான் Over-Analyse செய்து கொண்டிருக்கும் ஒரு Decision:</h4>
-<h4>நான் systematic-ஆ solve செய்ய வேண்டிய ஒரு recurring Problem:</h4>
-<h4>இந்த வாரம் நான் எடுக்கும் First Step:</h4>
-</div></section>
-<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">Emotion-ன் அடிப்படையில் உடனடியாக முடிவு செய்வது?</p>
-<p>A. Avoidant
-B. Deliberate
-C. Impulsive
-D. Analytical</p>
-<p>Correct Answer: C</p>
-<h4>Question 2</h4>
-<p class="lead">ஒரு decision-ஐ தொடர்ந்து postpone செய்வது?</p>
-<p>A. Avoidant
-B. Creative
-C. Deliberate
-D. Assertive</p>
-<p>Correct Answer: A</p>
-<h4>Question 3</h4>
-<p class="lead">தொடர்ந்து information collect செய்து decision எடுக்காமல் இருப்பது?</p>
-<p>A. Impulsive
-B. Over-Analytical
-C. Avoidant
-D. Empathy</p>
-<p>Correct Answer: B</p>
-<h4>Question 4</h4>
-<p class="lead">Problem-Solving Framework-ன் சரியான sequence எது?</p>
-<p>A. Punish → Wait → Repeat → Review
-B. Define → Generate → Trial → Review
-C. Decide → Blame → Correct → Finish
-D. Observe → Punish → Report → Repeat</p>
-<p>Correct Answer: B</p>
-<h4>Question 5</h4>
-<p class="lead">“Class ரொம்ப disengaged” என்பதற்குப் பதிலாக “15 minutes கழித்து ஆறு மாணவர்கள் participation நிறுத்துகிறார்கள்” என்று சொல்வதன் நோக்கம்?</p>
-<p>A. Student-ஐ label செய்வது
-B. Problem-ஐ specific-ஆ define செய்வது
-C. Punishment decide செய்வது
-D. Problem-ஐ avoid செய்வது</p>
-<p>Correct Answer: B</p>
-<h4>Question 6</h4>
-<p class="lead">ஒரு strategy-ஐ ஒரு lesson மட்டும் try செய்து உடனே reject செய்வதற்குப் பதிலாக என்ன செய்ய வேண்டும்?</p>
-<p>A. தினமும் strategy மாற்ற வேண்டும்
-B. ஒரு genuine trial period கொடுத்து review செய்ய வேண்டும்
-C. Problem-ஐ ignore செய்ய வேண்டும்
-D. மற்றவரிடம் decision கொடுக்க வேண்டும்</p>
-<p>Correct Answer: B</p>
-</div></section>
-<section class="lesson"><h2>Module 5 – முக்கிய Takeaways</h2><div class="lesson-body">
-<h3>1. Pressure-ல் நான்கு Decision Patterns வெளிப்படலாம்</h3>
-<p class="lead">Impulsive</p>
-<p>Avoidant</p>
-<p>Over-Analytical</p>
-<p>Deliberate</p>
-<p>நம்முடைய நோக்கம் எல்லா முடிவுகளையும் மெதுவாக எடுப்பது அல்ல.</p>
-<p>Default reaction-ஆக அல்லாமல், முடிந்தவரை deliberate-ஆக தேர்வு செய்வது.</p>
-<h3>2. Decision-Making மற்றும் Problem-Solving வேறுபட்டவை</h3>
-<p class="lead">Decision என்பது ஒரு choice.</p>
-<p>Problem-Solving என்பது recurring difficulty-ஐ handle செய்யும் process.</p>
-<h3>3. Recurring Problem-க்கு நான்கு Steps</h3>
-<h4>DEFINE → GENERATE → TRIAL → REVIEW</h4>
-<p class="lead">Problem-ஐ தெளிவாக define செய்யுங்கள்.</p>
-<p>குறைந்தது மூன்று options உருவாக்குங்கள்.</p>
-<p>ஒன்றை ஒரு குறிப்பிட்ட காலத்திற்கு முயற்சி செய்யுங்கள்.</p>
-<p>Result-ஐ நேர்மையாக review செய்து adjust செய்யுங்கள்.</p>
-<h3>4. முதல் முயற்சி வேலை செய்யவில்லை என்றால் அது failure அல்ல</h3>
-<p class="lead">அது information.</p>
-<p>Continue → Modify → Try Another Option.</p>
-</div></section>
-<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“அழுத்தமான நேரத்தில் உடனடி உணர்ச்சியின் அடிப்படையில் மட்டும் முடிவு செய்யாமல், ஒரு சிறிய இடைவெளி எடுத்துப் பார்க்கப் பழகுவேன். மீண்டும் மீண்டும் வரும் பிரச்சினைகளுக்கு உடனடி தீர்வு மட்டும் தேடாமல், காரணத்தைப் புரிந்துகொண்டு ஒரு திட்டமிட்ட தீர்வை முயற்சி செய்வேன்.”</p>
-</div></section>
-<section class="lesson"><h2>Module 5 Complete ✓</h2><div class="lesson-body">
-<h3>அடுத்த Module</h3>
-</div></section>
-<section class="lesson"><h2>Empathy &amp; Relationships</h2><div class="lesson-body">
-<h4>மாணவர்களைப் புரிந்துகொள்வதும் நல்ல உறவை உருவாக்குவதும்</h4>
-<p class="lead">Empathy என்றால் மாணவருக்காக வருத்தப்படுவது மட்டுமா?</p>
-<p>Cognitive Empathy, Emotional Empathy, Compassionate Empathy — இந்த மூன்றுக்கும் என்ன வித்தியாசம்?</p>
-<p>மாணவர்களுடன் நல்ல rapport உருவாக்க தினமும் செய்யக்கூடிய சிறிய செயல்கள் என்ன?</p>
-<p>Module 6-ல் பார்க்கலாம்.</p>
-</div></section>
+<section class="lesson"><h2>Lesson 1: முடிவு எடுக்கும் நான்கு Patterns</h2><div class="lesson-body"><p class="lead">அழுத்தமான சூழலில் நாம் பொதுவாக நான்கு விதங்களில் முடிவு எடுக்கலாம்.</p><h3>1. Impulsive</h3><h4>யோசிப்பதற்கு முன்பே முடிவு செய்துவிடுவது</h4><p class="lead">Emotion அதிகமாக இருக்கும் அந்த நொடியில் மனதில் முதலில் தோன்றிய option-ஐ உடனடியாக தேர்வு செய்வது.</p><h4>Classroom Example</h4><p class="lead">ஒரு மாணவர் teacher-ஐ எதிர்த்துப் பேசுகிறார்.</p><p>Teacher உடனே:</p><p>“ஒரு வாரம் என் class-க்கு வராதே!”</p><p>என்று punishment announce செய்கிறார்.</p><p>சில நிமிடங்களுக்குப் பிறகு:</p><p>“கொஞ்சம் அதிகமாக சொல்லிட்டோமோ?”</p><p>என்று தோன்றலாம்.</p><p>இதுதான் Impulsive Decision-Making.</p><h4>என்ன பிரச்சினை?</h4><p class="lead">அந்த நேரத்தில் issue முடிந்துவிட்டது போலத் தோன்றலாம்.</p><p>ஆனால் decision:</p><p>Proportionate-ஆ இருக்கிறதா?</p><p>Enforce செய்ய முடியுமா?</p><p>இதே behaviour-க்கு மற்ற மாணவர்களிடம் இதே consequence கொடுத்தோமா?</p><p>என்று யோசிக்காமல் போகலாம்.</p><h4>Small Practice</h4><p class="lead">ஒரு consequence announce செய்வதற்கு முன்பு:</p><h3>3-Second Rule</h3><p class="lead">ஒன்று… இரண்டு… மூன்று…</p><p>மூன்று seconds மட்டும் pause செய்யுங்கள்.</p><p>சிறிய gap.</p><p>பெரிய மாற்றத்தை உருவாக்கலாம்.</p></div></section>
+<section class="lesson"><h2>2. Avoidant Decision-Making</h2><div class="lesson-body"><h4>முடிவைத் தள்ளிப்போடுவது</h4><p class="lead">சிலர் உடனே முடிவு செய்கிறார்கள்.</p><p>சிலர் முடிவே எடுக்காமல் தள்ளிப்போடுகிறார்கள்.</p><p>“பார்க்கலாம்…”</p><p>“அடுத்த வாரம் பேசலாம்…”</p><p>“தானாக சரியாகிவிடும்…”</p><p>என்று ஒரு issue-ஐ தொடர்ந்து postpone செய்வது Avoidant Pattern.</p><h4>Classroom Example</h4><p class="lead">இரண்டு மாணவர்களுக்குள் தொடர்ந்து conflict வருகிறது.</p><p>ஒவ்வொரு முறையும்:</p><p>“இருவரும் வேறு வேறு இடத்தில் உட்காருங்கள்.”</p><p>என்று மட்டும் teacher handle செய்கிறார்.</p><p>ஆனால் root issue பற்றி பேசுவதில்லை.</p><p>“Term முடிந்தால் சரியாகிவிடும்.”</p><p>என்று நினைக்கிறார்.</p><p>ஆனால் unresolved problem மீண்டும் வரலாம்.</p><h4>Practical Tool – Decision Deadline</h4><p class="lead">Avoid செய்து கொண்டிருக்கும் ஒரு issue-க்கு deadline வையுங்கள்.</p><p>“இந்த Friday-க்குள் இதைப் பற்றி நான் பேசுவேன்.”</p><p>என்று எழுதிவையுங்கள்.</p><p>Avoidance-க்கு expiry date கொடுங்கள்.</p></div></section>
+<section class="lesson"><h2>3. Over-Analytical Decision-Making</h2><div class="lesson-body"><h4>யோசித்துக்கொண்டே இருந்து முடிவு எடுக்காமல் இருப்பது</h4><p class="lead">நல்ல முடிவு எடுக்க information தேவை.</p><p>ஆனால்:</p><p>இன்னொரு strategy…</p><p>இன்னொரு article…</p><p>இன்னொரு opinion…</p><p>இன்னொரு method…</p><p>என்று தொடர்ந்து information மட்டும் collect செய்து decision எடுக்காமல் இருந்தால் அது Over-Analysis.</p><h4>Example</h4><p class="lead">ஒரு class-ல் மாணவர்களின் engagement குறைவாக இருக்கிறது.</p><p>Teacher:</p><p>Five teaching strategies படிக்கிறார்.</p><p>பல videos பார்க்கிறார்.</p><p>பல ideas note செய்கிறார்.</p><p>ஆனால் ஒரு strategy-யையும் class-ல் try செய்யவில்லை.</p><p>“Best method எது?”</p><p>என்று தொடர்ந்து தேடுகிறார்.</p><p>இதற்குள் மாணவர்களின் learning time போய்க்கொண்டிருக்கிறது.</p><h4>Practical Tool – Information Deadline</h4><p class="lead">“Wednesday வரை information collect செய்வேன். Thursday ஒரு method select செய்து try செய்வேன்.”</p><p>என்று deadline வையுங்கள்.</p><p>Perfect answer கிடைக்கும் வரை காத்திருப்பதைவிட, workable option ஒன்றை முயற்சி செய்து அதன் result-ஐப் பார்ப்பது பல சூழல்களில் பயனுள்ளதாக இருக்கும்.</p></div></section>
+<section class="lesson"><h2>4. Deliberate Decision-Making</h2><div class="lesson-body"><h4>முக்கியமான காரணிகளை யோசித்து முடிவு செய்வது</h4><p class="lead">Deliberate decision என்றால் எல்லாவற்றையும் பல மணி நேரம் analyse செய்வது அல்ல.</p><p>Situation-க்கு முக்கியமான factors-ஐ கவனித்து, ஒரு reasonable நேரத்தில் decision எடுத்து, தேவையானால் பின்னர் adjust செய்வது.</p><h4>Classroom Example</h4><p class="lead">ஒரு மாணவர் class-ல் inappropriate-ஆ பேசுகிறார்.</p><p>Teacher மூன்று விஷயங்களை விரைவாகக் கவனிக்கிறார்:</p><p>Fairness</p><p>இதே behaviour-க்கு மற்ற மாணவர்களை எப்படி handle செய்தேன்?</p><p>Student History</p><p>இந்த behaviour தொடர்ந்து நடக்கிறதா அல்லது இது முதல் முறையா?</p><p>Class Need</p><p>இப்போது class-ன் learning environment-ஐ பாதுகாக்க என்ன செய்ய வேண்டும்?</p><p>அதை வைத்து teacher ஒரு response தேர்வு செய்கிறார்.</p><p>இதுதான் Deliberate Decision-Making.</p></div></section>
+<section class="lesson"><h2>Lesson 2: உங்கள் Default Decision Style என்ன?</h2><div class="lesson-body"><p class="lead">ஒரு முக்கியமான விஷயம்:</p><p>ஒரே ஆசிரியர் எல்லா situations-லுமே ஒரே pattern-ஐ பயன்படுத்த வேண்டியதில்லை.</p><p>Behaviour issue வந்தால் Impulsive ஆக இருக்கலாம்.</p><p>Parent conversation-ஐ Avoid செய்யலாம்.</p><p>Teaching strategy-ல் Over-Analyse செய்யலாம்.</p><p>Administrative decision-ல் Deliberate ஆக இருக்கலாம்.</p><p>அதனால் கேள்வி:</p><p>“நான் எந்த type?”</p><p>என்பதைவிட:</p><p>“எந்த situation என்னை எந்த pattern-க்கு கொண்டு செல்கிறது?”</p><p>என்பதுதான் முக்கியம்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Reflection</h2><div class="lesson-body"><div class="selfcheck-field" data-key="m5-i6-f1">
+  <p class="sc-question">Student behaviour issue வந்தால் நான்:</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m5i6f1" value="0"> Impulsive</label><label class="sc-option"><input type="radio" name="m5i6f1" value="1"> Avoidant</label><label class="sc-option"><input type="radio" name="m5i6f1" value="2"> Over-Analytical</label><label class="sc-option"><input type="radio" name="m5i6f1" value="3"> Deliberate</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m5-i6-f2">
+  <p class="sc-question">Parent complaint வந்தால் நான்:</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m5i6f2" value="0"> Impulsive</label><label class="sc-option"><input type="radio" name="m5i6f2" value="1"> Avoidant</label><label class="sc-option"><input type="radio" name="m5i6f2" value="2"> Over-Analytical</label><label class="sc-option"><input type="radio" name="m5i6f2" value="3"> Deliberate</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m5-i6-f3">
+  <p class="sc-question">புதிய teaching method தேர்வு செய்யும்போது:</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m5i6f3" value="0"> Impulsive</label><label class="sc-option"><input type="radio" name="m5i6f3" value="1"> Avoidant</label><label class="sc-option"><input type="radio" name="m5i6f3" value="2"> Over-Analytical</label><label class="sc-option"><input type="radio" name="m5i6f3" value="3"> Deliberate</label></div>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i6-f4">
+  <p class="act-label">என் அதிகமான default pattern:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i6-f5">
+  <p class="act-label">அதை trigger செய்யும் situation:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>Lesson 3: Decision vs Problem</h2><div class="lesson-body"><p class="lead">Decision-Making மற்றும் Problem-Solving இரண்டும் ஒன்றல்ல.</p><h4>Decision</h4><p class="lead">பல options-ல் ஒன்றைத் தேர்வு செய்வது.</p><p>உதாரணம்:</p><p>“இந்த மாணவரிடம் இப்போது பேசலாமா அல்லது class முடிந்த பிறகு பேசலாமா?”</p><h4>Problem</h4><p class="lead">தொடர்ந்து நடக்கும் ஒரு difficulty-ஐ systematic-ஆ handle செய்வது.</p><p>உதாரணம்:</p><p>“இந்த மாணவர் தொடர்ந்து late-ஆ வருகிறார். இதை எப்படி improve செய்வது?”</p><p>Decision என்பது ஒரு choice.</p><p>Problem-Solving என்பது ஒரு process.</p></div></section>
+<section class="lesson"><h2>Lesson 4: Practical Problem-Solving Framework</h2><div class="lesson-body"><p class="lead">ஒரே problem மீண்டும் மீண்டும் வரும்போது, ஒவ்வொரு முறையும் புதிதாக struggle செய்ய வேண்டியதில்லை.</p><p>இந்த நான்கு steps-ஐ பயன்படுத்தலாம்:</p></div></section>
+<section class="lesson"><h2>DEFINE → GENERATE → TRIAL → REVIEW</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>STEP 1 – DEFINE</h2><div class="lesson-body"><h3>உண்மையான Problem என்ன?</h3><p class="lead">Problem-Solving-ல் முதல் step:</p><p>Problem-ஐ தெளிவாக define செய்வது.</p><h4>Vague Problem</h4><p class="lead">“இந்த class ரொம்ப மோசம்.”</p><p>இதைக் கொண்டு என்ன action எடுக்க முடியும்?</p><p>தெளிவாக இல்லை.</p><h4>Better Definition</h4><p class="lead">“Lesson ஆரம்பித்து 15 minutes கழித்து ஆறு மாணவர்கள் activity-ல் participate செய்வதை நிறுத்துகிறார்கள்.”</p><p>இப்போது problem specific.</p><p>நாம் observe செய்யலாம்.</p><p>Measure செய்யலாம்.</p><p>Solution try செய்யலாம்.</p><h4>இன்னொரு Example</h4><p class="lead">Vague:</p><p>“Kavin irresponsible.”</p><p>Specific:</p><p>“Kavin கடந்த இரண்டு வாரங்களில் நான்கு homework assignments submit செய்யவில்லை.”</p><p>Person-ஐ problem ஆக்காதீர்கள்.</p><p>Behaviour அல்லது situation-ஐ define செய்யுங்கள்.</p></div></section>
+<section class="lesson"><h2>STEP 2 – GENERATE</h2><div class="lesson-body"><h3>குறைந்தது மூன்று Options உருவாக்குங்கள்</h3><p class="lead">Problem வந்ததும் மனதில் முதலில் தோன்றும் solution-ஐ மட்டும் பயன்படுத்த வேண்டாம்.</p><p>குறைந்தது:</p><h3>3 OPTIONS</h3><p class="lead">உருவாக்குங்கள்.</p><h4>Example Problem</h4><p class="lead">“Six students lose participation after 15 minutes.”</p><h4>Option 1</h4><p class="lead">15 minutes கழித்து 3-minute pair activity.</p><h4>Option 2</h4><p class="lead">Visual example பயன்படுத்துதல்.</p><h4>Option 3</h4><p class="lead">Students-க்கு small group task கொடுத்தல்.</p><p>முதல் idea தான் best idea என்று அவசியமில்லை.</p><p>Multiple options உருவாக்குவது creative problem-solving-க்கு உதவும்.</p></div></section>
+<section class="lesson"><h2>STEP 3 – TRIAL</h2><div class="lesson-body"><h3>ஒரு Option தேர்வு செய்து ஒரு காலத்திற்கு முயற்சி செய்யுங்கள்</h3><p class="lead">ஒரு புதிய strategy-ஐ ஒரு நாள் try செய்துவிட்டு:</p><p>“இது வேலை செய்யவில்லை.”</p><p>என்று முடிவு செய்துவிடாதீர்கள்.</p><p>Students-க்கும் புதிய approach-க்கு adjust ஆக நேரம் தேவைப்படலாம்.</p><p>அதனால் ஒரு trial period fix செய்யுங்கள்.</p><p>உதாரணம்:</p><p>“அடுத்த 7 school days இந்த strategy-ஐ consistently பயன்படுத்துவேன்.”</p><p>அல்லது:</p><p>“இரண்டு வாரங்கள் முயற்சி செய்து result பார்ப்பேன்.”</p><p>ஒரு genuine trial period கொடுங்கள்.</p></div></section>
+<section class="lesson"><h2>STEP 4 – REVIEW</h2><div class="lesson-body"><h3>நேர்மையாக Result-ஐ பாருங்கள்</h3><p class="lead">Trial முடிந்த பிறகு:</p><p>Did it help?</p><p>Partly help?</p><p>Not help?</p><p>என்று பாருங்கள்.</p><h4>Helped</h4><p class="lead">Continue.</p><h4>Partly Helped</h4><p class="lead">Modify.</p><h4>Didn’t Help</h4><p class="lead">Option 2 அல்லது Option 3 try செய்யுங்கள்.</p><p>Problem-Solving என்றால்:</p><p>“என் idea வேலை செய்ய வேண்டும்.”</p><p>என்பதல்ல.</p><p>“Problem improve ஆக வேண்டும்.”</p><p>என்பதுதான் நோக்கம்.</p></div></section>
+<section class="lesson"><h2>Classroom Case Study</h2><div class="lesson-body"><h3>Situation</h3><p class="lead">Class 8 மாணவர்களில் சிலர் homework தொடர்ந்து submit செய்யவில்லை.</p><h4>பழைய Approach</h4><p class="lead">“Homework கொண்டு வராதவர்கள் எல்லாரும் stand up.”</p><p>Punishment.</p><p>Next day சிலர் கொண்டு வருகிறார்கள்.</p><p>அடுத்த வாரம் problem மீண்டும் வருகிறது.</p><p>இப்போது framework பயன்படுத்தலாம்.</p><h3>STEP 1 – DEFINE</h3><p class="lead">“Class 8-ல் 35 மாணவர்களில் 7 பேர் கடந்த இரண்டு வாரங்களில் மூன்று அல்லது அதற்கு மேற்பட்ட homework assignments submit செய்யவில்லை.”</p><h3>STEP 2 – GENERATE</h3><h4>Option 1</h4><p class="lead">Homework diary check.</p><h4>Option 2</h4><p class="lead">Homework instruction class முடிவில் board-ல் clear-ஆ எழுதுதல்.</p><h4>Option 3</h4><p class="lead">Repeated missing homework உள்ள மாணவர்களிடம் individually reason check செய்தல்.</p><h3>STEP 3 – TRIAL</h3><p class="lead">அடுத்த இரண்டு வாரங்கள்:</p><p>Clear board instruction + diary check.</p><h3>STEP 4 – REVIEW</h3><p class="lead">7 students → 3 students.</p><p>Problem முழுமையாக solve ஆகவில்லை.</p><p>ஆனால் improvement உள்ளது.</p><p>அடுத்ததாக remaining 3 students-க்கு individual reason check.</p><p>இதுதான் systematic Problem-Solving.</p></div></section>
+<section class="lesson"><h2>Lesson 5: Root Cause-ஐ கவனியுங்கள்</h2><div class="lesson-body"><p class="lead">ஒரே behaviour-க்கு பல காரணங்கள் இருக்கலாம்.</p><h4>Problem</h4><p class="lead">Student regularly late.</p><p>Possible reasons:</p><p>Transport issue.</p><p>Home routine.</p><p>Sleep pattern.</p><p>School avoidance.</p><p>Morning responsibility.</p><p>அதனால்:</p><p>“Late வந்திருக்கிறாய் → Punishment.”</p><p>என்பது immediate response ஆக இருக்கலாம்.</p><p>ஆனால் recurring problem solve ஆக வேண்டுமென்றால்:</p><p>“Why is this happening repeatedly?”</p><p>என்று பார்க்க வேண்டும்.</p></div></section>
+<section class="lesson"><h2>Four Questions Tool</h2><div class="lesson-body"><p class="lead">Recurring problem வந்தால் இந்த நான்கு கேள்விகளைப் பயன்படுத்துங்கள்:</p><h4>1. உண்மையில் என்ன நடக்கிறது?</h4><h4>2. இதுவரை நான் என்ன முயற்சி செய்தேன்?</h4><h4>3. இன்னும் என்ன முயற்சி செய்யவில்லை?</h4><h4>4. அடுத்த சிறிய Step என்ன?</h4></div></section>
+<section class="lesson"><h2>Lesson 6: Fairness &amp; Consistency</h2><div class="lesson-body"><p class="lead">Classroom decisions-ல் students கவனிக்கும் ஒரு முக்கியமான விஷயம்:</p><p>Consistency.</p><p>“அவருக்கு மட்டும் ஏன்?”</p><p>“நேற்று இதே விஷயத்திற்கு வேறு punishment கொடுத்தீர்கள்.”</p><p>என்ற கேள்விகள் வரலாம்.</p><p>அதனால் அடிக்கடி வரும் classroom decisions-க்கு முன்பே 2–3 முக்கிய factors-ஐ தீர்மானித்து வைத்துக்கொள்ளலாம்.</p><p>உதாரணமாக:</p><p>Behaviour consequence முடிவு செய்யும்போது:</p><p>1. Behaviour எவ்வளவு serious?</p><p>2. இது first time-ஆ அல்லது repeated behaviour-ஆ?</p><p>3. Learning அல்லது மற்றவர்களின் safety/dignity-ஐ இது எப்படி பாதித்தது?</p><p>இந்த factors-ஐ தொடர்ந்து பயன்படுத்துவது decision consistency-க்கு உதவும்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – My Classroom Problem</h2><div class="lesson-body"><p class="section-note lead">நீங்கள் தற்போது எதிர்கொள்ளும் ஒரு recurring classroom problem-ஐ தேர்வு செய்யுங்கள்.</p><div class="activity-field" data-key="m5-i18-f1">
+  <p class="act-label">Problem</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f2">
+  <p class="act-label">அதை Specific-ஆ Define செய்யுங்கள்</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f3">
+  <p class="act-label">Option 1</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f4">
+  <p class="act-label">Option 2</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f5">
+  <p class="act-label">Option 3</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f6">
+  <p class="act-label">நான் தேர்வு செய்யும் Option</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f7">
+  <p class="act-label">Trial Period</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f8">
+  <p class="act-label">Review Date</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i18-f9">
+  <p class="act-label">Success எப்படி தெரியும்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>Decision Filter</h2><div class="lesson-body"><p class="lead">ஒரு முக்கியமான classroom decision எடுப்பதற்கு முன்பு:</p><p>PAUSE</p><p>பிறகு இந்த மூன்று கேள்விகள்:</p><h4>1. இது Fair-ஆ இருக்கிறதா?</h4><h4>2. இது Consistent-ஆ இருக்கிறதா?</h4><h4>3. இதன் short-term மற்றும் long-term consequence என்ன?</h4><p class="lead">பிறகு:</p><p>DECIDE → ACT → REVIEW</p></div></section>
+<section class="lesson interactive-section"><h2>📝 7-Day Decision Challenge</h2><div class="lesson-body"><p class="section-note lead">அடுத்த 7 நாட்களில்:</p><p class="section-note ">Day 1: உங்கள் default decision pattern-ஐ observe செய்யுங்கள்.</p><p class="section-note ">Day 2: ஒரு consequence announce செய்வதற்கு முன்பு 3-second pause.</p><p class="section-note ">Day 3: நீங்கள் avoid செய்து கொண்டிருக்கும் ஒரு decision-க்கு deadline வையுங்கள்.</p><p class="section-note ">Day 4: Overthinking செய்யும் ஒரு decision-க்கு information deadline வையுங்கள்.</p><p class="section-note ">Day 5: ஒரு recurring problem-ஐ specific sentence-ஆ define செய்யுங்கள்.</p><p class="section-note ">Day 6: அதற்கு மூன்று possible solutions எழுதுங்கள்.</p><p class="section-note ">Day 7: ஒரு solution தேர்வு செய்து trial period fix செய்யுங்கள்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Reflection</h2><div class="lesson-body"><div class="activity-field" data-key="m5-i21-f1">
+  <p class="act-label">நான் அதிகமாக பயன்படுத்தும் Decision Pattern:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i21-f2">
+  <p class="act-label">நான் Avoid செய்து கொண்டிருக்கும் ஒரு Decision:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i21-f3">
+  <p class="act-label">நான் Over-Analyse செய்து கொண்டிருக்கும் ஒரு Decision:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i21-f4">
+  <p class="act-label">நான் systematic-ஆ solve செய்ய வேண்டிய ஒரு recurring Problem:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m5-i21-f5">
+  <p class="act-label">இந்த வாரம் நான் எடுக்கும் First Step:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m5-quiz22">
+      <div class="quiz-question" data-correct="2">
+  <p class="q-text">1. Emotion-ன் அடிப்படையில் உடனடியாக முடிவு செய்வது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m5quiz22q1" value="0"> Avoidant</label><label class="q-option"><input type="radio" name="m5quiz22q1" value="1"> Deliberate</label><label class="q-option"><input type="radio" name="m5quiz22q1" value="2"> Impulsive</label><label class="q-option"><input type="radio" name="m5quiz22q1" value="3"> Analytical</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="0">
+  <p class="q-text">2. ஒரு decision-ஐ தொடர்ந்து postpone செய்வது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m5quiz22q2" value="0"> Avoidant</label><label class="q-option"><input type="radio" name="m5quiz22q2" value="1"> Creative</label><label class="q-option"><input type="radio" name="m5quiz22q2" value="2"> Deliberate</label><label class="q-option"><input type="radio" name="m5quiz22q2" value="3"> Assertive</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">3. தொடர்ந்து information collect செய்து decision எடுக்காமல் இருப்பது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m5quiz22q3" value="0"> Impulsive</label><label class="q-option"><input type="radio" name="m5quiz22q3" value="1"> Over-Analytical</label><label class="q-option"><input type="radio" name="m5quiz22q3" value="2"> Avoidant</label><label class="q-option"><input type="radio" name="m5quiz22q3" value="3"> Empathy</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">4. Problem-Solving Framework-ன் சரியான sequence எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m5quiz22q4" value="0"> Punish → Wait → Repeat → Review</label><label class="q-option"><input type="radio" name="m5quiz22q4" value="1"> Define → Generate → Trial → Review</label><label class="q-option"><input type="radio" name="m5quiz22q4" value="2"> Decide → Blame → Correct → Finish</label><label class="q-option"><input type="radio" name="m5quiz22q4" value="3"> Observe → Punish → Report → Repeat</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">5. “Class ரொம்ப disengaged” என்பதற்குப் பதிலாக “15 minutes கழித்து ஆறு மாணவர்கள் participation நிறுத்துகிறார்கள்” என்று சொல்வதன் நோக்கம்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m5quiz22q5" value="0"> Student-ஐ label செய்வது</label><label class="q-option"><input type="radio" name="m5quiz22q5" value="1"> Problem-ஐ specific-ஆ define செய்வது</label><label class="q-option"><input type="radio" name="m5quiz22q5" value="2"> Punishment decide செய்வது</label><label class="q-option"><input type="radio" name="m5quiz22q5" value="3"> Problem-ஐ avoid செய்வது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">6. ஒரு strategy-ஐ ஒரு lesson மட்டும் try செய்து உடனே reject செய்வதற்குப் பதிலாக என்ன செய்ய வேண்டும்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m5quiz22q6" value="0"> தினமும் strategy மாற்ற வேண்டும்</label><label class="q-option"><input type="radio" name="m5quiz22q6" value="1"> ஒரு genuine trial period கொடுத்து review செய்ய வேண்டும்</label><label class="q-option"><input type="radio" name="m5quiz22q6" value="2"> Problem-ஐ ignore செய்ய வேண்டும்</label><label class="q-option"><input type="radio" name="m5quiz22q6" value="3"> மற்றவரிடம் decision கொடுக்க வேண்டும்</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>Module 5 – முக்கிய Takeaways</h2><div class="lesson-body"><h3>1. Pressure-ல் நான்கு Decision Patterns வெளிப்படலாம்</h3><p class="lead">Impulsive</p><p>Avoidant</p><p>Over-Analytical</p><p>Deliberate</p><p>நம்முடைய நோக்கம் எல்லா முடிவுகளையும் மெதுவாக எடுப்பது அல்ல.</p><p>Default reaction-ஆக அல்லாமல், முடிந்தவரை deliberate-ஆக தேர்வு செய்வது.</p><h3>2. Decision-Making மற்றும் Problem-Solving வேறுபட்டவை</h3><p class="lead">Decision என்பது ஒரு choice.</p><p>Problem-Solving என்பது recurring difficulty-ஐ handle செய்யும் process.</p><h3>3. Recurring Problem-க்கு நான்கு Steps</h3><h4>DEFINE → GENERATE → TRIAL → REVIEW</h4><p class="lead">Problem-ஐ தெளிவாக define செய்யுங்கள்.</p><p>குறைந்தது மூன்று options உருவாக்குங்கள்.</p><p>ஒன்றை ஒரு குறிப்பிட்ட காலத்திற்கு முயற்சி செய்யுங்கள்.</p><p>Result-ஐ நேர்மையாக review செய்து adjust செய்யுங்கள்.</p><h3>4. முதல் முயற்சி வேலை செய்யவில்லை என்றால் அது failure அல்ல</h3><p class="lead">அது information.</p><p>Continue → Modify → Try Another Option.</p></div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“அழுத்தமான நேரத்தில் உடனடி உணர்ச்சியின் அடிப்படையில் மட்டும் முடிவு செய்யாமல், ஒரு சிறிய இடைவெளி எடுத்துப் பார்க்கப் பழகுவேன். மீண்டும் மீண்டும் வரும் பிரச்சினைகளுக்கு உடனடி தீர்வு மட்டும் தேடாமல், காரணத்தைப் புரிந்துகொண்டு ஒரு திட்டமிட்ட தீர்வை முயற்சி செய்வேன்.”</p></div></section>
+<section class="lesson"><h2>Module 5 Complete ✓</h2><div class="lesson-body"><h3>அடுத்த Module</h3></div></section>
+<section class="lesson"><h2>Empathy &amp; Relationships</h2><div class="lesson-body"><h4>மாணவர்களைப் புரிந்துகொள்வதும் நல்ல உறவை உருவாக்குவதும்</h4><p class="lead">Empathy என்றால் மாணவருக்காக வருத்தப்படுவது மட்டுமா?</p><p>Cognitive Empathy, Emotional Empathy, Compassionate Empathy — இந்த மூன்றுக்கும் என்ன வித்தியாசம்?</p><p>மாணவர்களுடன் நல்ல rapport உருவாக்க தினமும் செய்யக்கூடிய சிறிய செயல்கள் என்ன?</p><p>Module 6-ல் பார்க்கலாம்.</p></div></section>
 </div>
 
 <div class="complete-bar">
@@ -715,6 +520,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 5;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -263,444 +329,114 @@ footer a:hover{color:var(--gold-light);}
 <p>இப்போது ஒரு முக்கியமான கேள்வி:</p>
 <h3>“இந்த skills அனைத்தையும் நான் என் ஆசிரியர் வாழ்க்கையில் எப்படி தொடர்ந்து பயன்படுத்தப் போகிறேன்?”</h3>
 <p class="lead">அதற்கான பதில்தான்:</p>
-<section class="lesson"><h2>Leadership &amp; Professional Growth</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Lesson 1: Leadership என்றால் Position மட்டுமா?</h2><div class="lesson-body">
-<p class="lead">“Leader” என்றால் நமக்கு முதலில் நினைவுக்கு வருவது:</p>
-<p>Principal.</p>
-<p>Vice Principal.</p>
-<p>Coordinator.</p>
-<p>Head of Department.</p>
-<p>Administrator.</p>
-<p>ஆனால் leadership designation கிடைத்த பிறகுதான் தொடங்குகிறதா?</p>
-<p>இல்லை.</p>
-<p>ஒரு classroom teacher-ஆகவே leadership காட்ட முடியும்.</p>
-<p>ஏனென்றால்:</p>
-<h3>Leadership என்பது Position மட்டும் அல்ல; Influence.</h3>
-<p class="lead">ஒரு ஆசிரியர்:</p>
-<p>தன்னுடைய emotions-ஐ எப்படி handle செய்கிறார்?</p>
-<p>Students-ஐ எப்படி நடத்துகிறார்?</p>
-<p>Problems வந்தால் எப்படி respond செய்கிறார்?</p>
-<p>Colleagues-உடன் எப்படி work செய்கிறார்?</p>
-<p>Teaching-ஐ தொடர்ந்து எப்படி improve செய்கிறார்?</p>
-<p>இவை அனைத்தும் leadership-ன் வெளிப்பாடுகள்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 2: Teacher Leadership-ன் மூன்று Levels</h2><div class="lesson-body">
-<p class="lead">இந்த Module-ல் leadership-ஐ மூன்று levels-ல் பார்க்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>1. Personal Leadership</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>2. Peer Leadership</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>3. Instructional Leadership</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>LEVEL 1</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Personal Leadership</h2><div class="lesson-body">
-<h4>முதலில் நம்மை நாம் வழிநடத்துதல்</h4>
-<p class="lead">Leadership மற்றவர்களை வழிநடத்துவதற்கு முன்பு நம்மிடமிருந்து தொடங்குகிறது.</p>
-<p>Personal Leadership என்றால்:</p>
-<p>என் behaviour-க்கு நான் responsibility எடுக்கிறேனா?</p>
-<p>Feedback வந்தால் நான் எப்படி respond செய்கிறேன்?</p>
-<p>Mistake செய்தால் அதை accept செய்து learn செய்கிறேனா?</p>
-<p>Stress வந்தால் மற்றவர்களை blame செய்கிறேனா அல்லது என் response-ஐ manage செய்கிறேனா?</p>
-<p>என்பது.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு lesson சரியாகப் போகவில்லை.</p>
-<p>Personal Leadership இல்லாத response:</p>
-<p>“இந்த class-க்கு interest-ஏ இல்லை. இவர்களுக்கு என்ன சொல்லிக் கொடுத்தாலும் waste.”</p>
-<p>Personal Leadership:</p>
-<p>“இந்த lesson நான் எதிர்பார்த்தபடி போகவில்லை. என்ன மாற்றினால் இந்த class-க்கு better-ஆ work ஆகும்?”</p>
-<p>Problem-ஐ deny செய்யவில்லை.</p>
-<p>ஆனால் responsibility எடுத்துக்கொண்டு learning direction-க்கு செல்கிறோம்.</p>
-</div></section>
-<section class="lesson"><h2>Personal Leadership Self-Check</h2><div class="lesson-body">
-<p class="lead">கீழே உள்ள statements-ஐ உங்களுக்குள் review செய்யுங்கள்.</p>
-<h4>Mistake செய்தால் அதை acknowledge செய்கிறேனா?</h4>
-<p class="lead">□ Often
-□ Sometimes
-□ Rarely</p>
-<h4>Feedback வந்தால் defence-க்கு செல்லாமல் முதலில் கேட்கிறேனா?</h4>
-<p class="lead">□ Often
-□ Sometimes
-□ Rarely</p>
-<h4>Stress-ல் இருந்தாலும் என் behaviour-க்கு responsibility எடுக்கிறேனா?</h4>
-<p class="lead">□ Often
-□ Sometimes
-□ Rarely</p>
-<h4>Improvement-க்கு தொடர்ந்து முயற்சி செய்கிறேனா?</h4>
-<p class="lead">□ Often
-□ Sometimes
-□ Rarely</p>
-<h4>நான் improve செய்ய வேண்டிய Personal Leadership area:</h4>
-</div></section>
-<section class="lesson"><h2>LEVEL 2</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Peer Leadership</h2><div class="lesson-body">
-<h4>சக ஆசிரியர்களுடன் வளர்ச்சியை உருவாக்குதல்</h4>
-<p class="lead">Leadership என்பது:</p>
-<p>“நான் மற்ற ஆசிரியர்களுக்கு instruction கொடுக்க வேண்டும்.”</p>
-<p>என்பது மட்டும் அல்ல.</p>
-<p>ஒரு நல்ல idea share செய்வதும் leadership.</p>
-<p>ஒரு colleague-ஐ support செய்வதும் leadership.</p>
-<p>ஒரு useful resource பகிர்வதும் leadership.</p>
-<p>ஒரு difficult situation-ல் constructive conversation தொடங்குவதும் leadership.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு classroom activity உங்கள் class-ல் நன்றாக வேலை செய்திருக்கிறது.</p>
-<p>அதை உங்களுக்குள் வைத்துக்கொள்ளலாம்.</p>
-<p>அல்லது staff room-ல்:</p>
-<p>“இந்த activity என் class-ல் நல்லா work ஆச்சு. உங்களுக்கும் useful-ஆ இருக்கலாம்.”</p>
-<p>என்று share செய்யலாம்.</p>
-<p>இதுதான் Peer Leadership.</p>
-</div></section>
-<section class="lesson"><h2>Peer Leadership எப்படி இருக்கும்?</h2><div class="lesson-body">
-<h4>Share</h4>
-<p class="lead">ஒரு useful strategy-ஐ share செய்யுங்கள்.</p>
-<h4>Support</h4>
-<p class="lead">ஒரு colleague struggle செய்தால் கேளுங்கள்.</p>
-<h4>Encourage</h4>
-<p class="lead">ஒருவரின் நல்ல practice-ஐ genuine-ஆ acknowledge செய்யுங்கள்.</p>
-<h4>Collaborate</h4>
-<p class="lead">Problem-ஐ:</p>
-<p>“யாருடைய தவறு?”</p>
-<p>என்று பார்க்காமல்:</p>
-<p>“நாம் என்ன செய்யலாம்?”</p>
-<p>என்று அணுகுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Activity – One Contribution</h2><div class="lesson-body">
-<p class="lead">இந்த மாதம் உங்கள் colleagues-க்கு நீங்கள் share செய்யக்கூடிய ஒரு useful resource அல்லது strategy என்ன?</p>
-<h4>யாருடன் share செய்வீர்கள்?</h4>
-<h4>எப்போது?</h4>
-</div></section>
-<section class="lesson"><h2>LEVEL 3</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Instructional Leadership</h2><div class="lesson-body">
-<h4>Teaching &amp; Learning-ஐ மேம்படுத்தும் தலைமைத்துவம்</h4>
-<p class="lead">Instructional Leadership என்றால் Principal அல்லது Academic Coordinator மட்டும் செய்யும் வேலை என்று நினைக்க வேண்டாம்.</p>
-<p>ஒரு classroom teacher-க்கும் instructional leadership இருக்கலாம்.</p>
-<p>எப்படி?</p>
-<p>தன்னுடைய teaching practice-ஐ தொடர்ந்து review செய்வது.</p>
-<p>Students எப்படி learn செய்கிறார்கள் என்பதை observe செய்வது.</p>
-<p>ஒரு method வேலை செய்யவில்லை என்றால் மாற்றுவது.</p>
-<p>Effective practice-ஐ colleagues-உடன் share செய்வது.</p>
-<p>Student learning-ஐ மையமாக வைத்து decisions எடுப்பது.</p>
-<p>இதுதான் Instructional Leadership.</p>
-</div></section>
-<section class="lesson"><h2>Example</h2><div class="lesson-body">
-<p class="lead">ஒரு class-ல் மாணவர்களுக்கு concept புரியவில்லை.</p>
-<p>Teacher:</p>
-<p>“நான் explain பண்ணிட்டேன். அவர்கள் படிக்கவில்லை.”</p>
-<p>என்று நிறுத்தலாம்.</p>
-<p>Instructional Leadership approach:</p>
-<p>“எந்த இடத்தில் students confuse ஆகிறார்கள்?”</p>
-<p>“வேறு example உதவுமா?”</p>
-<p>“Visual பயன்படுத்தலாமா?”</p>
-<p>“Pair discussion try செய்யலாமா?”</p>
-<p>“Understanding check செய்ய என்ன method பயன்படுத்தலாம்?”</p>
-<p>என்று teaching-ஐ review செய்வார்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 3: Leadership என்பது எல்லாவற்றையும் தெரிந்திருப்பது அல்ல</h2><div class="lesson-body">
-<p class="lead">ஒரு leader:</p>
-<p>எல்லா answers-ம் தெரிந்திருக்க வேண்டும்.</p>
-<p>Mistake செய்யக்கூடாது.</p>
-<p>Help கேட்கக்கூடாது.</p>
-<p>என்ற எண்ணம் practical leadership அல்ல.</p>
-<p>Professional growth-க்கு ஒரு முக்கியமான mindset:</p>
-<h3>“I don’t know yet.”</h3>
-<p class="lead">“இது எனக்கு இன்னும் தெரியவில்லை.”</p>
-<p>என்பது weakness அல்ல.</p>
-<p>அதன் அடுத்த sentence:</p>
-<h3>“How can I learn it?”</h3>
-<p class="lead">என்பது growth.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 4: Feedback-ஐ எப்படி பயன்படுத்துவது?</h2><div class="lesson-body">
-<p class="lead">Professional Growth-க்கு feedback முக்கியமானது.</p>
-<p>ஆனால் feedback கிடைக்கும்போது நம்முடைய first reaction:</p>
-<p>“நான் அப்படி செய்யலையே!”</p>
-<p>“அவர்கள் situation-ஐ புரிந்துகொள்ளவில்லை.”</p>
-<p>“என்னை மட்டும் ஏன் சொல்கிறார்கள்?”</p>
-<p>என்று defence ஆக இருக்கலாம்.</p>
-<p>Feedback வந்தால் ஒரு simple process பயன்படுத்தலாம்.</p>
-</div></section>
-<section class="lesson"><h2>LISTEN → CLARIFY → REFLECT → ACT</h2><div class="lesson-body">
-<h3>LISTEN</h3>
-<p class="lead">முழுமையாகக் கேளுங்கள்.</p>
-<h3>CLARIFY</h3>
-<p class="lead">“ஒரு example சொல்ல முடியுமா?”</p>
-<p>என்று கேளுங்கள்.</p>
-<h3>REFLECT</h3>
-<p class="lead">இதில் useful information என்ன?</p>
-<h3>ACT</h3>
-<p class="lead">ஒரு small improvement action தேர்வு செய்யுங்கள்.</p>
-<p>Feedback-ஐ முழுமையாக agree செய்ய வேண்டிய அவசியம் இல்லை.</p>
-<p>ஆனால் useful information இருக்கிறதா என்று பார்க்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 5: Professional Growth ஒரு Workshop-ல் முடிவதில்லை</h2><div class="lesson-body">
-<p class="lead">ஒரு training attend செய்கிறோம்.</p>
-<p>Motivated-ஆ வெளியே வருகிறோம்.</p>
-<p>“இனிமேல் எல்லாம் மாற்றணும்!”</p>
-<p>என்று நினைக்கிறோம்.</p>
-<p>ஒரு வாரம்.</p>
-<p>School routine.</p>
-<p>Workload.</p>
-<p>Deadlines.</p>
-<p>பழைய habits மீண்டும்.</p>
-<p>ஏன்?</p>
-<h3>Knowledge மட்டும் Behaviour Change உருவாக்காது.</h3>
-<p class="lead">அதற்கு:</p>
-<p>Practice.</p>
-<p>Reflection.</p>
-<p>Feedback.</p>
-<p>Consistency.</p>
-<p>தேவை.</p>
-<p>இந்த course-ன் value நீங்கள் எத்தனை modules complete செய்தீர்கள் என்பதில் மட்டும் இல்லை.</p>
-<h3>“இதிலிருந்து எந்த behaviour உங்கள் classroom-ல் மாறுகிறது?”</h3>
-<p class="lead">என்பதில்தான் இருக்கிறது.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 6: STOP – START – CONTINUE</h2><div class="lesson-body">
-<p class="lead">இந்த முழு course-ஐ practical action-ஆக மாற்ற ஒரு simple reflection framework:</p>
-</div></section>
-<section class="lesson"><h2>STOP</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>START</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>CONTINUE</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>STOP</h2><div class="lesson-body">
-<h3>நான் நிறுத்த வேண்டியது என்ன?</h3>
-<p class="lead">இந்த course-க்கு முன்பு நீங்கள் பயன்படுத்திய ஒரு behaviour:</p>
-<p>Students-ஐ label செய்வது.</p>
-<p>Anger-ல் உடனடியாக respond செய்வது.</p>
-<p>Difficult conversations-ஐ postpone செய்வது.</p>
-<p>எல்லா வேலைகளையும் urgent என்று treat செய்வது.</p>
-<p>Sarcasm பயன்படுத்துவது.</p>
-<p>இதில் உங்களுக்கு relevant ஆன ஒன்று:</p>
-<h4>நான் STOP செய்யப்போகும் behaviour:</h4>
-<h4>ஏன்?</h4>
-</div></section>
-<section class="lesson"><h2>START</h2><div class="lesson-body">
-<h3>நான் புதிதாக தொடங்க வேண்டியது என்ன?</h3>
-<p class="lead">Course-ல் கற்ற ஒரு useful behaviour:</p>
-<p>Pause → Name → Ask → Respond.</p>
-<p>Active Listening.</p>
-<p>Fact → Concern → Perspective → Next Step.</p>
-<p>Define → Generate → Trial → Review.</p>
-<p>Connection Before Correction.</p>
-<p>Observation → Feeling → Need → Request.</p>
-<p>Q2 Time Blocking.</p>
-<p>Cognitive Reframing.</p>
-<p>இதில் ஒன்றை தேர்வு செய்யுங்கள்.</p>
-<h4>நான் START செய்யப்போகும் behaviour:</h4>
-<h4>எப்போது தொடங்குவேன்?</h4>
-</div></section>
-<section class="lesson"><h2>CONTINUE</h2><div class="lesson-body">
-<h3>நான் ஏற்கனவே நன்றாகச் செய்கிறதை தொடர வேண்டும்</h3>
-<p class="lead">Professional Growth என்றால்:</p>
-<p>“நான் செய்வது எல்லாம் தவறு.”</p>
-<p>என்று நினைப்பது அல்ல.</p>
-<p>நம்மிடம் ஏற்கனவே இருக்கும் strengths-ஐயும் கவனிக்க வேண்டும்.</p>
-<h4>நான் ஏற்கனவே நன்றாகச் செய்யும் ஒன்று:</h4>
-<h4>அதை எப்படி தொடர்ந்து maintain செய்வேன்?</h4>
-</div></section>
-<section class="lesson"><h2>Lesson 7: இந்த 10 Modules-ஐ ஒன்றாக இணைப்போம்</h2><div class="lesson-body">
-<p class="lead">இந்த course-ல் கற்ற skills தனித்தனி chapters அல்ல.</p>
-<p>அவை ஒன்றோடொன்று connect ஆகின்றன.</p>
-<h3>Self-Awareness</h3>
-<p class="lead">“எனக்கு இப்போது கோபம் வருகிறது.”</p>
-<p>↓</p>
-<h3>Self-Regulation</h3>
-<p class="lead">“உடனே react செய்யாமல் pause செய்கிறேன்.”</p>
-<p>↓</p>
-<h3>Communication</h3>
-<p class="lead">“Behaviour-ஐ clear-ஆக address செய்கிறேன்.”</p>
-<p>↓</p>
-<h3>Empathy</h3>
-<p class="lead">“Student perspective என்ன என்று பார்க்கிறேன்.”</p>
-<p>↓</p>
-<h3>Problem-Solving</h3>
-<p class="lead">“Recurring problem என்றால் root issue-ஐ define செய்கிறேன்.”</p>
-<p>↓</p>
-<h3>Positive Discipline</h3>
-<p class="lead">“Punishment மட்டும் அல்லாமல் self-discipline வளர்க்க முயற்சி செய்கிறேன்.”</p>
-<p>↓</p>
-<h3>Time Management</h3>
-<p class="lead">“Important improvement work-க்கு நேரம் protect செய்கிறேன்.”</p>
-<p>↓</p>
-<h3>Resilience</h3>
-<p class="lead">“Strategy fail ஆனால் adjust செய்து மீண்டும் முயற்சி செய்கிறேன்.”</p>
-<p>↓</p>
-<h3>Leadership</h3>
-<p class="lead">“நான் கற்றதை practice செய்து, மற்றவர்களுடனும் useful learning-ஐ share செய்கிறேன்.”</p>
-<p>இதுதான் Life Skills in Practice.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 8: உங்கள் 90-Day Teacher Growth Plan</h2><div class="lesson-body">
-<p class="lead">ஒரே நேரத்தில் 20 habits மாற்ற முயற்சி செய்ய வேண்டாம்.</p>
-<p>அடுத்த 90 நாட்களை மூன்று பகுதிகளாகப் பிரிக்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>DAYS 1–30</h2><div class="lesson-body">
-<h3>SELF</h3>
-<p class="lead">முதலில் உங்களிடம் focus செய்யுங்கள்.</p>
-<p>இந்த course-லிருந்து ஒரு skill தேர்வு செய்யுங்கள்.</p>
-<p>உதாரணம்:</p>
-<h4>Pause → Name → Ask → Respond</h4>
-<p class="lead">அடுத்த 30 நாட்களுக்கு difficult moments-ல் இதை practice செய்யுங்கள்.</p>
-<h4>My Skill:</h4>
-<h4>எப்படி Track செய்வேன்?</h4>
-</div></section>
-<section class="lesson"><h2>DAYS 31–60</h2><div class="lesson-body">
-<h3>STUDENTS</h3>
-<p class="lead">இப்போது student relationship அல்லது classroom practice-ல் ஒரு skill.</p>
-<p>உதாரணம்:</p>
-<p>Connection Before Correction.</p>
-<p>Active Listening.</p>
-<p>Specific Recognition.</p>
-<p>NVC.</p>
-<h4>My Student-Focused Skill:</h4>
-<h4>எந்த class/student context-ல் practice செய்வேன்?</h4>
-<h4>எப்படி Track செய்வேன்?</h4>
-</div></section>
-<section class="lesson"><h2>DAYS 61–90</h2><div class="lesson-body">
-<h3>PROFESSIONAL GROWTH</h3>
-<p class="lead">இப்போது leadership அல்லது professional development-ல் ஒரு action.</p>
-<p>உதாரணம்:</p>
-<p>ஒரு colleague-உடன் useful strategy share செய்வது.</p>
-<p>ஒரு teaching challenge-க்கு feedback கேட்பது.</p>
-<p>ஒரு Q2 professional learning block வைத்துக்கொள்வது.</p>
-<h4>My Professional Growth Action:</h4>
-<h4>எப்போது?</h4>
-<h4>எப்படி Review செய்வேன்?</h4>
-</div></section>
-<section class="lesson"><h2>90-Day Goal</h2><div class="lesson-body">
-<h4>90 நாட்களின் முடிவில் நான் பார்க்க விரும்பும் முக்கிய மாற்றம்:</h4>
-<h4>என் Review Date:</h4>
-</div></section>
-<section class="lesson"><h2>Lesson 9: ஒரு வாரத்திற்கு ஒரு Reflection</h2><div class="lesson-body">
-<p class="lead">Professional Growth-க்கு தினமும் பெரிய journal தேவையில்லை.</p>
-<p>வாரம் முடிவில் 5 minutes போதும்.</p>
-<p>இந்த நான்கு questions:</p>
-<h3>1. இந்த வாரம் என்ன நன்றாக நடந்தது?</h3>
-<h3>2. என்ன challenging-ஆ இருந்தது?</h3>
-<h3>3. அதிலிருந்து என்ன கற்றுக்கொண்டேன்?</h3>
-<h3>4. அடுத்த வாரம் நான் மாற்றப்போகும் ஒரு விஷயம்?</h3>
-<h4>Reflect → Adjust → Practice → Grow</h4>
-</div></section>
-<section class="lesson"><h2>Final Course Reflection</h2><div class="lesson-body">
-<p class="lead">இந்த 10 Modules முடிந்த பிறகு கீழே உள்ள கேள்விகளுக்கு பதில் எழுதுங்கள்.</p>
-<h4>1. இந்த course-ல் எனக்கு மிகவும் useful ஆன Module:</h4>
-<h4>2. நான் என்னைப் பற்றி புதிதாக புரிந்துகொண்டது:</h4>
-<h4>3. என் classroom practice-ல் மாற்ற வேண்டிய முக்கிய behaviour:</h4>
-<h4>4. Students-உடன் நான் மாற்ற விரும்பும் interaction:</h4>
-<h4>5. Stress வந்தால் நான் பயன்படுத்தப்போகும் technique:</h4>
-<h4>6. நான் STOP செய்யப்போகும் ஒன்று:</h4>
-<h4>7. நான் START செய்யப்போகும் ஒன்று:</h4>
-<h4>8. நான் CONTINUE செய்யப்போகும் ஒன்று:</h4>
-<h4>9. அடுத்த 90 நாட்களில் என் முக்கிய professional goal:</h4>
-</div></section>
-<section class="lesson"><h2>Final Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">Teacher Leadership என்பது?</p>
-<p>A. Designation உள்ளவர்களுக்கு மட்டும்
-B. மற்றவர்களை control செய்வது
-C. Position-ஐத் தாண்டி influence மற்றும் responsibility காட்டுவது
-D. Administration மட்டும்</p>
-<p>Correct Answer: C</p>
-<h4>Question 2</h4>
-<p class="lead">Personal Leadership-ன் முக்கிய அம்சம்?</p>
-<p>A. Mistake-க்கு மற்றவர்களை blame செய்வது
-B. நம்முடைய behaviour-க்கு responsibility எடுப்பது
-C. Feedback avoid செய்வது
-D. Problems மறைப்பது</p>
-<p>Correct Answer: B</p>
-<h4>Question 3</h4>
-<p class="lead">Peer Leadership-க்கு example எது?</p>
-<p>A. Useful classroom strategy-ஐ colleague-உடன் share செய்வது
-B. Colleague-ஐ criticize செய்வது
-C. எல்லா வேலைகளையும் தனியாகச் செய்வது
-D. Ideas share செய்யாமல் இருப்பது</p>
-<p>Correct Answer: A</p>
-<h4>Question 4</h4>
-<p class="lead">Instructional Leadership எதை focus செய்கிறது?</p>
-<p>A. Designation
-B. Student learning மற்றும் teaching improvement
-C. Punishment
-D. Paperwork மட்டும்</p>
-<p>Correct Answer: B</p>
-<h4>Question 5</h4>
-<p class="lead">Professional Growth Reflection Framework எது?</p>
-<p>A. Think → Wait → Forget
-B. Stop → Start → Continue
-C. Work → Stress → Rest
-D. Plan → Punish → Review</p>
-<p>Correct Answer: B</p>
-<h4>Question 6</h4>
-<p class="lead">Feedback-ஐ பயன்படுத்தும் useful sequence?</p>
-<p>A. Defend → Reject → Forget
-B. Listen → Clarify → Reflect → Act
-C. Listen → Argue → Explain → End
-D. Avoid → Delay → Ignore → Continue</p>
-<p>Correct Answer: B</p>
-</div></section>
-<section class="lesson"><h2>MODULE 10 – முக்கிய Takeaways</h2><div class="lesson-body">
-<h3>1. Leadership என்பது Position மட்டும் அல்ல</h3>
-<p class="lead">ஒரு teacher தனது classroom-லேயே leadership காட்ட முடியும்.</p>
-<h4>Leadership = Influence + Responsibility + Growth</h4>
-<h3>2. Teacher Leadership-ன் மூன்று Levels</h3>
-<h4>Personal Leadership</h4>
-<p class="lead">முதலில் நம்முடைய behaviour மற்றும் growth-க்கு responsibility எடுப்பது.</p>
-<h4>Peer Leadership</h4>
-<p class="lead">Colleagues-உடன் knowledge, support மற்றும் useful practices share செய்வது.</p>
-<h4>Instructional Leadership</h4>
-<p class="lead">Student learning improve ஆக teaching practice-ஐ தொடர்ந்து review செய்து மாற்றுவது.</p>
-<h3>3. Professional Growth என்பது Continuous Process</h3>
-<p class="lead">Training complete செய்தது முடிவு அல்ல.</p>
-<h4>Learn → Practice → Reflect → Adjust → Practice Again</h4>
-<p class="lead">இதுதான் growth.</p>
-<h3>4. STOP → START → CONTINUE</h3>
-<p class="lead">எல்லாவற்றையும் ஒரே நேரத்தில் மாற்ற வேண்டாம்.</p>
-<p>ஒரு behaviour-ஐ நிறுத்துங்கள்.</p>
-<p>ஒரு புதிய behaviour-ஐ தொடங்குங்கள்.</p>
-<p>ஏற்கனவே நன்றாக இருக்கும் ஒன்றைத் தொடருங்கள்.</p>
-<h3>5. அடுத்த 90 நாட்கள் முக்கியம்</h3>
-<h4>Days 1–30 → SELF</h4>
-<h4>Days 31–60 → STUDENTS</h4>
-<h4>Days 61–90 → PROFESSIONAL GROWTH</h4>
-<p class="lead">Small actions.</p>
-<p>Consistent practice.</p>
-<p>Regular reflection.</p>
-<p>இதுவே sustainable professional growth.</p>
-</div></section>
-<section class="lesson"><h2>COURSE COMPLETED ✓</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Life Skills Foundation Course for Teachers</h2><div class="lesson-body">
-<h3>ஆசிரியர்களுக்கான வாழ்க்கைத் திறன் அடித்தளப் பயிற்சி</h3>
-<p class="lead">இந்த course முடிந்த பிறகு ஒரு கேள்வி மட்டும் உங்களுடன் இருக்கட்டும்:</p>
-<h3>“நாளை என் classroom-ல் நான் வேறுவிதமாக செய்யப்போகும் ஒரு சிறிய விஷயம் என்ன?”</h3>
-<p class="lead">ஒரு சிறிய Pause.</p>
-<p>ஒரு respectful sentence.</p>
-<p>ஒரு student-ஐ முழுமையாகக் கேட்பது.</p>
-<p>ஒரு clear boundary.</p>
-<p>ஒரு genuine appreciation.</p>
-<p>ஒரு better decision.</p>
-<p>ஒரு mistake-ஐ learning opportunity-ஆக மாற்றுவது.</p>
-<p>இந்தச் சிறிய மாற்றங்கள் தொடர்ந்து நடந்தால் தான் professional growth உருவாகிறது.</p>
-</div></section>
-<section class="lesson"><h2>இறுதி ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“ஒரு ஆசிரியராக நான் மாணவர்களுக்கு பாடங்களை மட்டும் கற்பிப்பதில்லை; என் நடத்தையின் மூலம் வாழ்க்கைத் திறன்களையும் model செய்கிறேன்.</p>
-<p>என் உணர்ச்சிகளைப் புரிந்துகொள்வேன்.</p>
-<p>என் response-க்கு பொறுப்பேற்பேன்.</p>
-<p>மாணவர்களின் dignity-ஐ மதிப்பேன்.</p>
-<p>அன்புடன் உறுதியாக இருப்பேன்.</p>
-<p>தவறுகளை கற்றலுக்கான வாய்ப்பாகப் பார்ப்பேன்.</p>
-<p>மாற்றங்களுக்கு ஏற்ப கற்றுக்கொண்டு வளர்வேன்.</p>
-<p>என் மாணவர்களின் வளர்ச்சியுடன், நானும் தொடர்ந்து வளர்வேன்.”</p>
-</div></section>
-<section class="lesson"><h2>வாழ்த்துகள்!</h2><div class="lesson-body">
-<h4>நீங்கள் 10-Module</h4>
-</div></section>
-<section class="lesson"><h2>Life Skills Foundation Course for Teachers</h2><div class="lesson-body">
-<h4>நிறைவு செய்துள்ளீர்கள்.</h4>
-<h3>Learn. Practice. Reflect. Grow.</h3>
-</div></section>
+<section class="lesson"><h2>Leadership &amp; Professional Growth</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Lesson 1: Leadership என்றால் Position மட்டுமா?</h2><div class="lesson-body"><p class="lead">“Leader” என்றால் நமக்கு முதலில் நினைவுக்கு வருவது:</p><p>Principal.</p><p>Vice Principal.</p><p>Coordinator.</p><p>Head of Department.</p><p>Administrator.</p><p>ஆனால் leadership designation கிடைத்த பிறகுதான் தொடங்குகிறதா?</p><p>இல்லை.</p><p>ஒரு classroom teacher-ஆகவே leadership காட்ட முடியும்.</p><p>ஏனென்றால்:</p><h3>Leadership என்பது Position மட்டும் அல்ல; Influence.</h3><p class="lead">ஒரு ஆசிரியர்:</p><p>தன்னுடைய emotions-ஐ எப்படி handle செய்கிறார்?</p><p>Students-ஐ எப்படி நடத்துகிறார்?</p><p>Problems வந்தால் எப்படி respond செய்கிறார்?</p><p>Colleagues-உடன் எப்படி work செய்கிறார்?</p><p>Teaching-ஐ தொடர்ந்து எப்படி improve செய்கிறார்?</p><p>இவை அனைத்தும் leadership-ன் வெளிப்பாடுகள்.</p></div></section>
+<section class="lesson"><h2>Lesson 2: Teacher Leadership-ன் மூன்று Levels</h2><div class="lesson-body"><p class="lead">இந்த Module-ல் leadership-ஐ மூன்று levels-ல் பார்க்கலாம்.</p></div></section>
+<section class="lesson"><h2>1. Personal Leadership</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>2. Peer Leadership</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>3. Instructional Leadership</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>LEVEL 1</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Personal Leadership</h2><div class="lesson-body"><h4>முதலில் நம்மை நாம் வழிநடத்துதல்</h4><p class="lead">Leadership மற்றவர்களை வழிநடத்துவதற்கு முன்பு நம்மிடமிருந்து தொடங்குகிறது.</p><p>Personal Leadership என்றால்:</p><p>என் behaviour-க்கு நான் responsibility எடுக்கிறேனா?</p><p>Feedback வந்தால் நான் எப்படி respond செய்கிறேன்?</p><p>Mistake செய்தால் அதை accept செய்து learn செய்கிறேனா?</p><p>Stress வந்தால் மற்றவர்களை blame செய்கிறேனா அல்லது என் response-ஐ manage செய்கிறேனா?</p><p>என்பது.</p><h4>Example</h4><p class="lead">ஒரு lesson சரியாகப் போகவில்லை.</p><p>Personal Leadership இல்லாத response:</p><p>“இந்த class-க்கு interest-ஏ இல்லை. இவர்களுக்கு என்ன சொல்லிக் கொடுத்தாலும் waste.”</p><p>Personal Leadership:</p><p>“இந்த lesson நான் எதிர்பார்த்தபடி போகவில்லை. என்ன மாற்றினால் இந்த class-க்கு better-ஆ work ஆகும்?”</p><p>Problem-ஐ deny செய்யவில்லை.</p><p>ஆனால் responsibility எடுத்துக்கொண்டு learning direction-க்கு செல்கிறோம்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Personal Leadership Self-Check</h2><div class="lesson-body"><p class="section-note lead">கீழே உள்ள statements-ஐ உங்களுக்குள் review செய்யுங்கள்.</p><div class="selfcheck-field" data-key="m10-i9-f1">
+  <p class="sc-question">Mistake செய்தால் அதை acknowledge செய்கிறேனா?</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m10i9f1" value="0"> Often</label><label class="sc-option"><input type="radio" name="m10i9f1" value="1"> Sometimes</label><label class="sc-option"><input type="radio" name="m10i9f1" value="2"> Rarely</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m10-i9-f2">
+  <p class="sc-question">Feedback வந்தால் defence-க்கு செல்லாமல் முதலில் கேட்கிறேனா?</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m10i9f2" value="0"> Often</label><label class="sc-option"><input type="radio" name="m10i9f2" value="1"> Sometimes</label><label class="sc-option"><input type="radio" name="m10i9f2" value="2"> Rarely</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m10-i9-f3">
+  <p class="sc-question">Stress-ல் இருந்தாலும் என் behaviour-க்கு responsibility எடுக்கிறேனா?</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m10i9f3" value="0"> Often</label><label class="sc-option"><input type="radio" name="m10i9f3" value="1"> Sometimes</label><label class="sc-option"><input type="radio" name="m10i9f3" value="2"> Rarely</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m10-i9-f4">
+  <p class="sc-question">Improvement-க்கு தொடர்ந்து முயற்சி செய்கிறேனா?</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m10i9f4" value="0"> Often</label><label class="sc-option"><input type="radio" name="m10i9f4" value="1"> Sometimes</label><label class="sc-option"><input type="radio" name="m10i9f4" value="2"> Rarely</label></div>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m10-i9-f5">
+  <p class="act-label">நான் improve செய்ய வேண்டிய Personal Leadership area:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>LEVEL 2</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Peer Leadership</h2><div class="lesson-body"><h4>சக ஆசிரியர்களுடன் வளர்ச்சியை உருவாக்குதல்</h4><p class="lead">Leadership என்பது:</p><p>“நான் மற்ற ஆசிரியர்களுக்கு instruction கொடுக்க வேண்டும்.”</p><p>என்பது மட்டும் அல்ல.</p><p>ஒரு நல்ல idea share செய்வதும் leadership.</p><p>ஒரு colleague-ஐ support செய்வதும் leadership.</p><p>ஒரு useful resource பகிர்வதும் leadership.</p><p>ஒரு difficult situation-ல் constructive conversation தொடங்குவதும் leadership.</p><h4>Example</h4><p class="lead">ஒரு classroom activity உங்கள் class-ல் நன்றாக வேலை செய்திருக்கிறது.</p><p>அதை உங்களுக்குள் வைத்துக்கொள்ளலாம்.</p><p>அல்லது staff room-ல்:</p><p>“இந்த activity என் class-ல் நல்லா work ஆச்சு. உங்களுக்கும் useful-ஆ இருக்கலாம்.”</p><p>என்று share செய்யலாம்.</p><p>இதுதான் Peer Leadership.</p></div></section>
+<section class="lesson"><h2>Peer Leadership எப்படி இருக்கும்?</h2><div class="lesson-body"><h4>Share</h4><p class="lead">ஒரு useful strategy-ஐ share செய்யுங்கள்.</p><h4>Support</h4><p class="lead">ஒரு colleague struggle செய்தால் கேளுங்கள்.</p><h4>Encourage</h4><p class="lead">ஒருவரின் நல்ல practice-ஐ genuine-ஆ acknowledge செய்யுங்கள்.</p><h4>Collaborate</h4><p class="lead">Problem-ஐ:</p><p>“யாருடைய தவறு?”</p><p>என்று பார்க்காமல்:</p><p>“நாம் என்ன செய்யலாம்?”</p><p>என்று அணுகுங்கள்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – One Contribution</h2><div class="lesson-body"><div class="activity-field" data-key="m10-i13-f1">
+  <p class="act-label">இந்த மாதம் உங்கள் colleagues-க்கு நீங்கள் share செய்யக்கூடிய ஒரு useful resource அல்லது strategy என்ன?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m10-i13-f2">
+  <p class="act-label">யாருடன் share செய்வீர்கள்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m10-i13-f3">
+  <p class="act-label">எப்போது?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>LEVEL 3</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Instructional Leadership</h2><div class="lesson-body"><h4>Teaching &amp; Learning-ஐ மேம்படுத்தும் தலைமைத்துவம்</h4><p class="lead">Instructional Leadership என்றால் Principal அல்லது Academic Coordinator மட்டும் செய்யும் வேலை என்று நினைக்க வேண்டாம்.</p><p>ஒரு classroom teacher-க்கும் instructional leadership இருக்கலாம்.</p><p>எப்படி?</p><p>தன்னுடைய teaching practice-ஐ தொடர்ந்து review செய்வது.</p><p>Students எப்படி learn செய்கிறார்கள் என்பதை observe செய்வது.</p><p>ஒரு method வேலை செய்யவில்லை என்றால் மாற்றுவது.</p><p>Effective practice-ஐ colleagues-உடன் share செய்வது.</p><p>Student learning-ஐ மையமாக வைத்து decisions எடுப்பது.</p><p>இதுதான் Instructional Leadership.</p></div></section>
+<section class="lesson"><h2>Example</h2><div class="lesson-body"><p class="lead">ஒரு class-ல் மாணவர்களுக்கு concept புரியவில்லை.</p><p>Teacher:</p><p>“நான் explain பண்ணிட்டேன். அவர்கள் படிக்கவில்லை.”</p><p>என்று நிறுத்தலாம்.</p><p>Instructional Leadership approach:</p><p>“எந்த இடத்தில் students confuse ஆகிறார்கள்?”</p><p>“வேறு example உதவுமா?”</p><p>“Visual பயன்படுத்தலாமா?”</p><p>“Pair discussion try செய்யலாமா?”</p><p>“Understanding check செய்ய என்ன method பயன்படுத்தலாம்?”</p><p>என்று teaching-ஐ review செய்வார்.</p></div></section>
+<section class="lesson"><h2>Lesson 3: Leadership என்பது எல்லாவற்றையும் தெரிந்திருப்பது அல்ல</h2><div class="lesson-body"><p class="lead">ஒரு leader:</p><p>எல்லா answers-ம் தெரிந்திருக்க வேண்டும்.</p><p>Mistake செய்யக்கூடாது.</p><p>Help கேட்கக்கூடாது.</p><p>என்ற எண்ணம் practical leadership அல்ல.</p><p>Professional growth-க்கு ஒரு முக்கியமான mindset:</p><h3>“I don’t know yet.”</h3><p class="lead">“இது எனக்கு இன்னும் தெரியவில்லை.”</p><p>என்பது weakness அல்ல.</p><p>அதன் அடுத்த sentence:</p><h3>“How can I learn it?”</h3><p class="lead">என்பது growth.</p></div></section>
+<section class="lesson"><h2>Lesson 4: Feedback-ஐ எப்படி பயன்படுத்துவது?</h2><div class="lesson-body"><p class="lead">Professional Growth-க்கு feedback முக்கியமானது.</p><p>ஆனால் feedback கிடைக்கும்போது நம்முடைய first reaction:</p><p>“நான் அப்படி செய்யலையே!”</p><p>“அவர்கள் situation-ஐ புரிந்துகொள்ளவில்லை.”</p><p>“என்னை மட்டும் ஏன் சொல்கிறார்கள்?”</p><p>என்று defence ஆக இருக்கலாம்.</p><p>Feedback வந்தால் ஒரு simple process பயன்படுத்தலாம்.</p></div></section>
+<section class="lesson"><h2>LISTEN → CLARIFY → REFLECT → ACT</h2><div class="lesson-body"><h3>LISTEN</h3><p class="lead">முழுமையாகக் கேளுங்கள்.</p><h3>CLARIFY</h3><p class="lead">“ஒரு example சொல்ல முடியுமா?”</p><p>என்று கேளுங்கள்.</p><h3>REFLECT</h3><p class="lead">இதில் useful information என்ன?</p><h3>ACT</h3><p class="lead">ஒரு small improvement action தேர்வு செய்யுங்கள்.</p><p>Feedback-ஐ முழுமையாக agree செய்ய வேண்டிய அவசியம் இல்லை.</p><p>ஆனால் useful information இருக்கிறதா என்று பார்க்கலாம்.</p></div></section>
+<section class="lesson"><h2>Lesson 5: Professional Growth ஒரு Workshop-ல் முடிவதில்லை</h2><div class="lesson-body"><p class="lead">ஒரு training attend செய்கிறோம்.</p><p>Motivated-ஆ வெளியே வருகிறோம்.</p><p>“இனிமேல் எல்லாம் மாற்றணும்!”</p><p>என்று நினைக்கிறோம்.</p><p>ஒரு வாரம்.</p><p>School routine.</p><p>Workload.</p><p>Deadlines.</p><p>பழைய habits மீண்டும்.</p><p>ஏன்?</p><h3>Knowledge மட்டும் Behaviour Change உருவாக்காது.</h3><p class="lead">அதற்கு:</p><p>Practice.</p><p>Reflection.</p><p>Feedback.</p><p>Consistency.</p><p>தேவை.</p><p>இந்த course-ன் value நீங்கள் எத்தனை modules complete செய்தீர்கள் என்பதில் மட்டும் இல்லை.</p><h3>“இதிலிருந்து எந்த behaviour உங்கள் classroom-ல் மாறுகிறது?”</h3><p class="lead">என்பதில்தான் இருக்கிறது.</p></div></section>
+<section class="lesson"><h2>Lesson 6: STOP – START – CONTINUE</h2><div class="lesson-body"><p class="lead">இந்த முழு course-ஐ practical action-ஆக மாற்ற ஒரு simple reflection framework:</p></div></section>
+<section class="lesson"><h2>STOP</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>START</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>CONTINUE</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>STOP</h2><div class="lesson-body"><h3>நான் நிறுத்த வேண்டியது என்ன?</h3><p class="lead">இந்த course-க்கு முன்பு நீங்கள் பயன்படுத்திய ஒரு behaviour:</p><p>Students-ஐ label செய்வது.</p><p>Anger-ல் உடனடியாக respond செய்வது.</p><p>Difficult conversations-ஐ postpone செய்வது.</p><p>எல்லா வேலைகளையும் urgent என்று treat செய்வது.</p><p>Sarcasm பயன்படுத்துவது.</p><p>இதில் உங்களுக்கு relevant ஆன ஒன்று:</p><h4>நான் STOP செய்யப்போகும் behaviour:</h4><h4>ஏன்?</h4></div></section>
+<section class="lesson"><h2>START</h2><div class="lesson-body"><h3>நான் புதிதாக தொடங்க வேண்டியது என்ன?</h3><p class="lead">Course-ல் கற்ற ஒரு useful behaviour:</p><p>Pause → Name → Ask → Respond.</p><p>Active Listening.</p><p>Fact → Concern → Perspective → Next Step.</p><p>Define → Generate → Trial → Review.</p><p>Connection Before Correction.</p><p>Observation → Feeling → Need → Request.</p><p>Q2 Time Blocking.</p><p>Cognitive Reframing.</p><p>இதில் ஒன்றை தேர்வு செய்யுங்கள்.</p><h4>நான் START செய்யப்போகும் behaviour:</h4><h4>எப்போது தொடங்குவேன்?</h4></div></section>
+<section class="lesson"><h2>CONTINUE</h2><div class="lesson-body"><h3>நான் ஏற்கனவே நன்றாகச் செய்கிறதை தொடர வேண்டும்</h3><p class="lead">Professional Growth என்றால்:</p><p>“நான் செய்வது எல்லாம் தவறு.”</p><p>என்று நினைப்பது அல்ல.</p><p>நம்மிடம் ஏற்கனவே இருக்கும் strengths-ஐயும் கவனிக்க வேண்டும்.</p><h4>நான் ஏற்கனவே நன்றாகச் செய்யும் ஒன்று:</h4><h4>அதை எப்படி தொடர்ந்து maintain செய்வேன்?</h4></div></section>
+<section class="lesson"><h2>Lesson 7: இந்த 10 Modules-ஐ ஒன்றாக இணைப்போம்</h2><div class="lesson-body"><p class="lead">இந்த course-ல் கற்ற skills தனித்தனி chapters அல்ல.</p><p>அவை ஒன்றோடொன்று connect ஆகின்றன.</p><h3>Self-Awareness</h3><p class="lead">“எனக்கு இப்போது கோபம் வருகிறது.”</p><p>↓</p><h3>Self-Regulation</h3><p class="lead">“உடனே react செய்யாமல் pause செய்கிறேன்.”</p><p>↓</p><h3>Communication</h3><p class="lead">“Behaviour-ஐ clear-ஆக address செய்கிறேன்.”</p><p>↓</p><h3>Empathy</h3><p class="lead">“Student perspective என்ன என்று பார்க்கிறேன்.”</p><p>↓</p><h3>Problem-Solving</h3><p class="lead">“Recurring problem என்றால் root issue-ஐ define செய்கிறேன்.”</p><p>↓</p><h3>Positive Discipline</h3><p class="lead">“Punishment மட்டும் அல்லாமல் self-discipline வளர்க்க முயற்சி செய்கிறேன்.”</p><p>↓</p><h3>Time Management</h3><p class="lead">“Important improvement work-க்கு நேரம் protect செய்கிறேன்.”</p><p>↓</p><h3>Resilience</h3><p class="lead">“Strategy fail ஆனால் adjust செய்து மீண்டும் முயற்சி செய்கிறேன்.”</p><p>↓</p><h3>Leadership</h3><p class="lead">“நான் கற்றதை practice செய்து, மற்றவர்களுடனும் useful learning-ஐ share செய்கிறேன்.”</p><p>இதுதான் Life Skills in Practice.</p></div></section>
+<section class="lesson"><h2>Lesson 8: உங்கள் 90-Day Teacher Growth Plan</h2><div class="lesson-body"><p class="lead">ஒரே நேரத்தில் 20 habits மாற்ற முயற்சி செய்ய வேண்டாம்.</p><p>அடுத்த 90 நாட்களை மூன்று பகுதிகளாகப் பிரிக்கலாம்.</p></div></section>
+<section class="lesson"><h2>DAYS 1–30</h2><div class="lesson-body"><h3>SELF</h3><p class="lead">முதலில் உங்களிடம் focus செய்யுங்கள்.</p><p>இந்த course-லிருந்து ஒரு skill தேர்வு செய்யுங்கள்.</p><p>உதாரணம்:</p><h4>Pause → Name → Ask → Respond</h4><p class="lead">அடுத்த 30 நாட்களுக்கு difficult moments-ல் இதை practice செய்யுங்கள்.</p><h4>My Skill:</h4><h4>எப்படி Track செய்வேன்?</h4></div></section>
+<section class="lesson"><h2>DAYS 31–60</h2><div class="lesson-body"><h3>STUDENTS</h3><p class="lead">இப்போது student relationship அல்லது classroom practice-ல் ஒரு skill.</p><p>உதாரணம்:</p><p>Connection Before Correction.</p><p>Active Listening.</p><p>Specific Recognition.</p><p>NVC.</p><h4>My Student-Focused Skill:</h4><h4>எந்த class/student context-ல் practice செய்வேன்?</h4><h4>எப்படி Track செய்வேன்?</h4></div></section>
+<section class="lesson"><h2>DAYS 61–90</h2><div class="lesson-body"><h3>PROFESSIONAL GROWTH</h3><p class="lead">இப்போது leadership அல்லது professional development-ல் ஒரு action.</p><p>உதாரணம்:</p><p>ஒரு colleague-உடன் useful strategy share செய்வது.</p><p>ஒரு teaching challenge-க்கு feedback கேட்பது.</p><p>ஒரு Q2 professional learning block வைத்துக்கொள்வது.</p><h4>My Professional Growth Action:</h4><h4>எப்போது?</h4><h4>எப்படி Review செய்வேன்?</h4></div></section>
+<section class="lesson"><h2>90-Day Goal</h2><div class="lesson-body"><h4>90 நாட்களின் முடிவில் நான் பார்க்க விரும்பும் முக்கிய மாற்றம்:</h4><h4>என் Review Date:</h4></div></section>
+<section class="lesson"><h2>Lesson 9: ஒரு வாரத்திற்கு ஒரு Reflection</h2><div class="lesson-body"><p class="lead">Professional Growth-க்கு தினமும் பெரிய journal தேவையில்லை.</p><p>வாரம் முடிவில் 5 minutes போதும்.</p><p>இந்த நான்கு questions:</p><h3>1. இந்த வாரம் என்ன நன்றாக நடந்தது?</h3><h3>2. என்ன challenging-ஆ இருந்தது?</h3><h3>3. அதிலிருந்து என்ன கற்றுக்கொண்டேன்?</h3><h3>4. அடுத்த வாரம் நான் மாற்றப்போகும் ஒரு விஷயம்?</h3><h4>Reflect → Adjust → Practice → Grow</h4></div></section>
+<section class="lesson"><h2>Final Course Reflection</h2><div class="lesson-body"><p class="lead">இந்த 10 Modules முடிந்த பிறகு கீழே உள்ள கேள்விகளுக்கு பதில் எழுதுங்கள்.</p><h4>1. இந்த course-ல் எனக்கு மிகவும் useful ஆன Module:</h4><h4>2. நான் என்னைப் பற்றி புதிதாக புரிந்துகொண்டது:</h4><h4>3. என் classroom practice-ல் மாற்ற வேண்டிய முக்கிய behaviour:</h4><h4>4. Students-உடன் நான் மாற்ற விரும்பும் interaction:</h4><h4>5. Stress வந்தால் நான் பயன்படுத்தப்போகும் technique:</h4><h4>6. நான் STOP செய்யப்போகும் ஒன்று:</h4><h4>7. நான் START செய்யப்போகும் ஒன்று:</h4><h4>8. நான் CONTINUE செய்யப்போகும் ஒன்று:</h4><h4>9. அடுத்த 90 நாட்களில் என் முக்கிய professional goal:</h4></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Final Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m10-quiz36">
+      <div class="quiz-question" data-correct="2">
+  <p class="q-text">1. Teacher Leadership என்பது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m10quiz36q1" value="0"> Designation உள்ளவர்களுக்கு மட்டும்</label><label class="q-option"><input type="radio" name="m10quiz36q1" value="1"> மற்றவர்களை control செய்வது</label><label class="q-option"><input type="radio" name="m10quiz36q1" value="2"> Position-ஐத் தாண்டி influence மற்றும் responsibility காட்டுவது</label><label class="q-option"><input type="radio" name="m10quiz36q1" value="3"> Administration மட்டும்</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">2. Personal Leadership-ன் முக்கிய அம்சம்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m10quiz36q2" value="0"> Mistake-க்கு மற்றவர்களை blame செய்வது</label><label class="q-option"><input type="radio" name="m10quiz36q2" value="1"> நம்முடைய behaviour-க்கு responsibility எடுப்பது</label><label class="q-option"><input type="radio" name="m10quiz36q2" value="2"> Feedback avoid செய்வது</label><label class="q-option"><input type="radio" name="m10quiz36q2" value="3"> Problems மறைப்பது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="0">
+  <p class="q-text">3. Peer Leadership-க்கு example எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m10quiz36q3" value="0"> Useful classroom strategy-ஐ colleague-உடன் share செய்வது</label><label class="q-option"><input type="radio" name="m10quiz36q3" value="1"> Colleague-ஐ criticize செய்வது</label><label class="q-option"><input type="radio" name="m10quiz36q3" value="2"> எல்லா வேலைகளையும் தனியாகச் செய்வது</label><label class="q-option"><input type="radio" name="m10quiz36q3" value="3"> Ideas share செய்யாமல் இருப்பது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">4. Instructional Leadership எதை focus செய்கிறது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m10quiz36q4" value="0"> Designation</label><label class="q-option"><input type="radio" name="m10quiz36q4" value="1"> Student learning மற்றும் teaching improvement</label><label class="q-option"><input type="radio" name="m10quiz36q4" value="2"> Punishment</label><label class="q-option"><input type="radio" name="m10quiz36q4" value="3"> Paperwork மட்டும்</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">5. Professional Growth Reflection Framework எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m10quiz36q5" value="0"> Think → Wait → Forget</label><label class="q-option"><input type="radio" name="m10quiz36q5" value="1"> Stop → Start → Continue</label><label class="q-option"><input type="radio" name="m10quiz36q5" value="2"> Work → Stress → Rest</label><label class="q-option"><input type="radio" name="m10quiz36q5" value="3"> Plan → Punish → Review</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">6. Feedback-ஐ பயன்படுத்தும் useful sequence?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m10quiz36q6" value="0"> Defend → Reject → Forget</label><label class="q-option"><input type="radio" name="m10quiz36q6" value="1"> Listen → Clarify → Reflect → Act</label><label class="q-option"><input type="radio" name="m10quiz36q6" value="2"> Listen → Argue → Explain → End</label><label class="q-option"><input type="radio" name="m10quiz36q6" value="3"> Avoid → Delay → Ignore → Continue</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>MODULE 10 – முக்கிய Takeaways</h2><div class="lesson-body"><h3>1. Leadership என்பது Position மட்டும் அல்ல</h3><p class="lead">ஒரு teacher தனது classroom-லேயே leadership காட்ட முடியும்.</p><h4>Leadership = Influence + Responsibility + Growth</h4><h3>2. Teacher Leadership-ன் மூன்று Levels</h3><h4>Personal Leadership</h4><p class="lead">முதலில் நம்முடைய behaviour மற்றும் growth-க்கு responsibility எடுப்பது.</p><h4>Peer Leadership</h4><p class="lead">Colleagues-உடன் knowledge, support மற்றும் useful practices share செய்வது.</p><h4>Instructional Leadership</h4><p class="lead">Student learning improve ஆக teaching practice-ஐ தொடர்ந்து review செய்து மாற்றுவது.</p><h3>3. Professional Growth என்பது Continuous Process</h3><p class="lead">Training complete செய்தது முடிவு அல்ல.</p><h4>Learn → Practice → Reflect → Adjust → Practice Again</h4><p class="lead">இதுதான் growth.</p><h3>4. STOP → START → CONTINUE</h3><p class="lead">எல்லாவற்றையும் ஒரே நேரத்தில் மாற்ற வேண்டாம்.</p><p>ஒரு behaviour-ஐ நிறுத்துங்கள்.</p><p>ஒரு புதிய behaviour-ஐ தொடங்குங்கள்.</p><p>ஏற்கனவே நன்றாக இருக்கும் ஒன்றைத் தொடருங்கள்.</p><h3>5. அடுத்த 90 நாட்கள் முக்கியம்</h3><h4>Days 1–30 → SELF</h4><h4>Days 31–60 → STUDENTS</h4><h4>Days 61–90 → PROFESSIONAL GROWTH</h4><p class="lead">Small actions.</p><p>Consistent practice.</p><p>Regular reflection.</p><p>இதுவே sustainable professional growth.</p></div></section>
+<section class="lesson"><h2>COURSE COMPLETED ✓</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Life Skills Foundation Course for Teachers</h2><div class="lesson-body"><h3>ஆசிரியர்களுக்கான வாழ்க்கைத் திறன் அடித்தளப் பயிற்சி</h3><p class="lead">இந்த course முடிந்த பிறகு ஒரு கேள்வி மட்டும் உங்களுடன் இருக்கட்டும்:</p><h3>“நாளை என் classroom-ல் நான் வேறுவிதமாக செய்யப்போகும் ஒரு சிறிய விஷயம் என்ன?”</h3><p class="lead">ஒரு சிறிய Pause.</p><p>ஒரு respectful sentence.</p><p>ஒரு student-ஐ முழுமையாகக் கேட்பது.</p><p>ஒரு clear boundary.</p><p>ஒரு genuine appreciation.</p><p>ஒரு better decision.</p><p>ஒரு mistake-ஐ learning opportunity-ஆக மாற்றுவது.</p><p>இந்தச் சிறிய மாற்றங்கள் தொடர்ந்து நடந்தால் தான் professional growth உருவாகிறது.</p></div></section>
+<section class="lesson"><h2>இறுதி ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“ஒரு ஆசிரியராக நான் மாணவர்களுக்கு பாடங்களை மட்டும் கற்பிப்பதில்லை; என் நடத்தையின் மூலம் வாழ்க்கைத் திறன்களையும் model செய்கிறேன்.</p><p>என் உணர்ச்சிகளைப் புரிந்துகொள்வேன்.</p><p>என் response-க்கு பொறுப்பேற்பேன்.</p><p>மாணவர்களின் dignity-ஐ மதிப்பேன்.</p><p>அன்புடன் உறுதியாக இருப்பேன்.</p><p>தவறுகளை கற்றலுக்கான வாய்ப்பாகப் பார்ப்பேன்.</p><p>மாற்றங்களுக்கு ஏற்ப கற்றுக்கொண்டு வளர்வேன்.</p><p>என் மாணவர்களின் வளர்ச்சியுடன், நானும் தொடர்ந்து வளர்வேன்.”</p></div></section>
+<section class="lesson"><h2>வாழ்த்துகள்!</h2><div class="lesson-body"><h4>நீங்கள் 10-Module</h4></div></section>
+<section class="lesson"><h2>Life Skills Foundation Course for Teachers</h2><div class="lesson-body"><h4>நிறைவு செய்துள்ளீர்கள்.</h4><h3>Learn. Practice. Reflect. Grow.</h3></div></section>
 </div>
 
 <div class="complete-bar">
@@ -755,6 +491,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 10;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

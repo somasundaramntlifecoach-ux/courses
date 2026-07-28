@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -263,390 +329,128 @@ footer a:hover{color:var(--gold-light);}
 <p>ஆனால் ஒரு நல்ல ஆசிரியர் இன்னொரு கேள்வியையும் கேட்பார்:</p>
 <h3>“இந்த behaviour-க்கு பின்னால் என்ன இருக்கலாம்?”</h3>
 <p class="lead">அந்த ஒரு கேள்விதான் Empathy-க்கான கதவைத் திறக்கிறது.</p>
-<section class="lesson"><h2>Lesson 1: Empathy என்றால் என்ன?</h2><div class="lesson-body">
-<p class="lead">Empathy என்றால் மாணவர் செய்வது எல்லாம் சரி என்று agree செய்வது அல்ல.</p>
-<p>அவருடைய தவறை ignore செய்வதும் அல்ல.</p>
-<p>அவருக்காக வருத்தப்படுவது மட்டும் அல்ல.</p>
-<p>ஒரு மாணவர் ஒரு situation-ஐ எப்படி அனுபவிக்கிறார் என்பதை அவருடைய பார்வையிலிருந்து புரிந்துகொள்ள முயற்சி செய்வது Empathy.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு மாணவர் test எழுத மறுக்கிறார்.</p>
-<p>“எனக்கு எழுத வேண்டாம்.”</p>
-<p>என்று சொல்கிறார்.</p>
-<p>Teacher:</p>
-<p>“Attitude காட்டாதே. Test எழுது.”</p>
-<p>என்று சொல்லலாம்.</p>
-<p>ஆனால் Empathy ஒரு second question கேட்கச் சொல்கிறது:</p>
-<p>“இந்த மாணவர் ஏன் test எழுத விரும்பவில்லை?”</p>
-<p>அவருக்கு answer தெரியாமல் இருக்கலாம்.</p>
-<p>Failure fear இருக்கலாம்.</p>
-<p>Classmates என்ன நினைப்பார்கள் என்ற embarrassment இருக்கலாம்.</p>
-<p>Empathy behaviour-ஐ excuse செய்யவில்லை.</p>
-<p>Behaviour-ஐ புரிந்துகொள்ள additional information தேடுகிறது.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 2: Empathy-ன் மூன்று பகுதிகள்</h2><div class="lesson-body">
-<p class="lead">Empathy ஒரே ஒரு skill அல்ல.</p>
-<p>மூன்று distinct பகுதிகளாகப் பார்க்கலாம்:</p>
-<h3>1. Cognitive Empathy</h3>
-<p class="lead">“நீ என்ன நினைக்கிறாய் என்பதை நான் புரிந்துகொள்ள முயற்சி செய்கிறேன்.”</p>
-<h3>2. Emotional Empathy</h3>
-<p class="lead">“நீ என்ன உணர்கிறாய் என்பதுடன் நான் உணர்வுபூர்வமாக connect ஆகிறேன்.”</p>
-<h3>3. Compassionate Empathy</h3>
-<p class="lead">“நான் புரிந்துகொண்டேன்; உணர்ந்தேன்; இப்போது உதவக்கூடிய ஒரு action என்ன?”</p>
-<p>இந்த மூன்றையும் தனித்தனியாகப் பார்க்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>1. Cognitive Empathy</h2><div class="lesson-body">
-<h3>மாணவரின் பார்வையைப் புரிந்துகொள்வது</h3>
-<p class="lead">Cognitive Empathy என்பது:</p>
-<p>“இந்த மாணவரின் point of view-ல் இந்த situation எப்படி இருக்கும்?”</p>
-<p>என்று யோசிப்பது.</p>
-<h4>Classroom Example</h4>
-<p class="lead">Test ஆரம்பிக்கப் போகிறது.</p>
-<p>ஒரு மாணவர் unnecessary-ஆ jokes செய்கிறார்.</p>
-<p>மற்ற மாணவர்களை disturb செய்கிறார்.</p>
-<p>Teacher:</p>
-<p>“Test வரும்போதெல்லாம் இவன் இப்படித்தான். Discipline இல்லை.”</p>
-<p>என்று நினைக்கலாம்.</p>
-<p>Cognitive Empathy வேறு possibility-ஐ பார்க்கிறது:</p>
-<p>“Test anxiety-ஐ hide செய்ய jokes use செய்கிறாரோ?”</p>
-<p>இது behaviour சரி என்று சொல்லவில்லை.</p>
-<p>ஆனால் behaviour-ன் possible “why” பற்றி யோசிக்க வைக்கிறது.</p>
-<h4>ஒரு Powerful Question</h4>
-<p class="lead">ஒரு மாணவரின் behaviour உங்களுக்கு புரியவில்லை என்றால்:</p>
-<h3>“இந்த behaviour அவருக்கு meaningful-ஆ இருக்க வேண்டுமென்றால், பின்னால் என்ன காரணம் இருக்கலாம்?”</h3>
-<p class="lead">என்று யோசித்துப் பாருங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>2. Emotional Empathy</h2><div class="lesson-body">
-<h3>மாணவரின் உணர்வுடன் இணைவது</h3>
-<p class="lead">ஒரு மாணவர் மிகவும் முயற்சி செய்து படித்திருக்கிறார்.</p>
-<p>ஆனால் exam-ல் pass ஆகவில்லை.</p>
-<p>அவர்:</p>
-<p>“நான் இவ்வளவு படிச்சும் fail ஆயிட்டேன்.”</p>
-<p>என்று சொல்கிறார்.</p>
-<p>Teacher:</p>
-<p>“அடுத்த தடவை இன்னும் நல்லா படி.”</p>
-<p>என்று உடனே solution சொல்லலாம்.</p>
-<p>ஆனால் Emotional Empathy அந்த மாணவரின் disappointment-ஐ ஒரு நிமிடம் உணர்ந்து acknowledge செய்யச் சொல்கிறது.</p>
-<p>“நீ ரொம்ப முயற்சி செய்த பிறகும் result இப்படியிருக்கிறது; அது disappointing-ஆ இருக்கும்.”</p>
-<p>இந்த sentence problem-ஐ solve செய்யவில்லை.</p>
-<p>ஆனால்:</p>
-<p>“Teacher என்னுடைய feeling-ஐ புரிந்துகொண்டார்.”</p>
-<p>என்ற அனுபவத்தை மாணவருக்கு கொடுக்கலாம்.</p>
-<h4>ஆனால் ஒரு முக்கியமான விஷயம்</h4>
-<p class="lead">Emotional Empathy-யில் மட்டும் நின்றுவிடக் கூடாது.</p>
-<p>ஒவ்வொரு மாணவரின் pain-ஐ நாமும் முழுமையாக carry செய்தால் ஆசிரியரே emotional-ஆ drained ஆகலாம்.</p>
-<p>அதனால் அடுத்தது:</p>
-<p>Compassionate Empathy.</p>
-</div></section>
-<section class="lesson"><h2>3. Compassionate Empathy</h2><div class="lesson-body">
-<h3>புரிதலை உதவியாக மாற்றுவது</h3>
-<p class="lead">Cognitive Empathy:</p>
-<p>“உன் situation புரிகிறது.”</p>
-<p>Emotional Empathy:</p>
-<p>“உன் feeling-ஐ உணர முடிகிறது.”</p>
-<p>Compassionate Empathy:</p>
-<h3>“இப்போது நான் செய்யக்கூடிய ஒரு practical help என்ன?”</h3>
-<h4>Example</h4>
-<p class="lead">ஒரு மாணவர் Maths-ல் தொடர்ந்து struggle செய்கிறார்.</p>
-<p>Teacher புரிந்துகொள்கிறார்:</p>
-<p>“இந்த student-க்கு concept clear இல்லை.”</p>
-<p>Student-ன் frustration-ஐயும் கவனிக்கிறார்.</p>
-<p>அதற்குப் பிறகு:</p>
-<p>“Lunch break-ல் 10 minutes basic concept மட்டும் மறுபடியும் பார்க்கலாம்.”</p>
-<p>என்று practical support கொடுக்கிறார்.</p>
-<p>இதுதான் Compassionate Empathy.</p>
-<h4>Golden Question</h4>
-<p class="lead">ஒரு மாணவருக்காக empathy feel செய்த பிறகு:</p>
-<h3>“இந்த situation-ல் நான் செய்யக்கூடிய ஒரு சிறிய, practical action என்ன?”</h3>
-<p class="lead">என்று கேளுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 3: Sympathy vs Empathy</h2><div class="lesson-body">
-<p class="lead">இந்த வேறுபாட்டை எளிமையாக நினைவில் வைத்துக்கொள்ளுங்கள்.</p>
-<h4>Sympathy</h4>
-<p class="lead">“பாவம்… இந்தக் குழந்தைக்கு கஷ்டம்.”</p>
-<h4>Empathy</h4>
-<p class="lead">“இந்தக் குழந்தை என்ன அனுபவிக்கிறான் என்பதைப் புரிந்துகொள்ள முயற்சி செய்கிறேன்.”</p>
-<h4>Compassionate Empathy</h4>
-<p class="lead">“நான் புரிந்துகொண்டதின் அடிப்படையில் என்ன practical support செய்ய முடியும்?”</p>
-<p>நமது நோக்கம் குழந்தையை helpless-ஆ பார்க்குவது அல்ல.</p>
-<p>அவரை புரிந்துகொண்டு capability-ஐ வளர்க்க உதவுவது.</p>
-</div></section>
-<section class="lesson"><h2>Activity – Three Levels of Empathy</h2><div class="lesson-body">
-<p class="lead">ஒரு மாணவர் தொடர்ந்து classwork complete செய்யவில்லை என்று வைத்துக்கொள்ளுங்கள்.</p>
-<h4>Cognitive Empathy</h4>
-<p class="lead">இந்த behaviour-க்கு பின்னால் என்ன இருக்கலாம்?</p>
-<h4>Emotional Empathy</h4>
-<p class="lead">அந்த மாணவர் என்ன feel செய்துகொண்டிருக்கலாம்?</p>
-<h4>Compassionate Empathy</h4>
-<p class="lead">நான் செய்யக்கூடிய ஒரு practical support என்ன?</p>
-</div></section>
-<section class="lesson"><h2>Lesson 4: Rapport என்றால் என்ன?</h2><div class="lesson-body">
-<p class="lead">Empathy மாணவரைப் புரிந்துகொள்ள உதவுகிறது.</p>
-<p>ஆனால் அந்த understanding தொடர்ச்சியான relationship ஆக மாற வேண்டும்.</p>
-<p>அதற்குப் பெயர்:</p>
-<h3>Rapport</h3>
-<p class="lead">Rapport என்பது:</p>
-<p>“Students என்னை friend மாதிரி பார்க்க வேண்டும்.”</p>
-<p>என்பது அல்ல.</p>
-<p>Rapport என்பது:</p>
-<p>“இந்த teacher என்னை கவனிக்கிறார்.”</p>
-<p>“இந்த teacher என்னை respect செய்கிறார்.”</p>
-<p>“இந்த teacher சொல்வதை நம்பலாம்.”</p>
-<p>என்ற professional trust.</p>
-<p>Rapport ஒரு பெரிய motivational speech-ல் உருவாகாது.</p>
-<p>சிறிய, consistent interactions மூலம் மெதுவாக உருவாகும்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 5: Rapport உருவாக்கும் நான்கு சிறிய பழக்கங்கள்</h2><div class="lesson-body">
-<h3>Habit 1 – மாணவரை பெயர் சொல்லி வரவேற்கவும்</h3>
-<p class="lead">“Good morning.”</p>
-<p>என்பதைவிட:</p>
-<p>“Good morning, Arjun.”</p>
-<p>“Good morning, Nivetha.”</p>
-<p>என்று பெயர் சொல்லுங்கள்.</p>
-<p>சில seconds தான்.</p>
-<p>ஆனால் அது:</p>
-<p>“Teacher என்னை notice செய்கிறார்.”</p>
-<p>என்ற signal கொடுக்கிறது.</p>
-</div></section>
-<section class="lesson"><h2>Habit 2 – ஒரு Non-Academic Detail நினைவில் வைத்துக்கொள்ளுங்கள்</h2><div class="lesson-body">
-<p class="lead">மாணவர் marks மட்டும் அல்ல.</p>
-<p>அவருக்கு:</p>
-<p>Cricket பிடிக்கலாம்.</p>
-<p>Drawing பிடிக்கலாம்.</p>
-<p>Dance பிடிக்கலாம்.</p>
-<p>ஒரு hobby இருக்கலாம்.</p>
-<p>அதை நினைவில் வைத்து சில நேரங்களில்:</p>
-<p>“நேற்று drawing competition எப்படி போச்சு?”</p>
-<p>என்று கேட்பது மாணவரை grades-க்கு அப்பாற்பட்ட ஒரு individual-ஆக நாம் கவனிக்கிறோம் என்பதை காட்டும்.</p>
-</div></section>
-<section class="lesson"><h2>Habit 3 – Small Promises-ஐ Follow Through செய்யுங்கள்</h2><div class="lesson-body">
-<p class="lead">ஒரு மாணவர்:</p>
-<p>“Sir, இந்த book library-ல இருக்கானு check பண்ணிச் சொல்றீங்களா?”</p>
-<p>என்று கேட்கிறார்.</p>
-<p>நாம்:</p>
-<p>“நாளைக்கு சொல்றேன்.”</p>
-<p>என்றால் மறுநாள் சொல்லுங்கள்.</p>
-<p>சிறிய promise.</p>
-<p>ஆனால் அதை தொடர்ந்து நிறைவேற்றுவது trust உருவாக்கும்.</p>
-<p>Trust பெரிய வார்த்தைகளில் மட்டும் உருவாகாது; சிறிய follow-through-களில் உருவாகும்.</p>
-</div></section>
-<section class="lesson"><h2>Habit 4 – Specific, Genuine Recognition</h2><div class="lesson-body">
-<p class="lead">“Good.”</p>
-<p>“Very good.”</p>
-<p>“Excellent.”</p>
-<p>இவை useful.</p>
-<p>ஆனால் specific recognition இன்னும் meaningful.</p>
-<h4>Generic</h4>
-<p class="lead">“Good job.”</p>
-<h4>Specific</h4>
-<p class="lead">“உன் group-க்கு அந்த concept-ஐ நீ explain செய்த விதம் ரொம்ப clear-ஆ இருந்தது.”</p>
-<p>இங்கு மாணவருக்கு:</p>
-<p>“நான் என்ன சரியாக செய்தேன்?”</p>
-<p>என்பது தெளிவாகத் தெரிகிறது.</p>
-<h4>Result மட்டும் அல்ல; Effort-ஐயும் Notice செய்யுங்கள்</h4>
-<p class="lead">“இந்த test-ல் உன் score மட்டும் improve ஆகவில்லை; answer presentation-மும் last test-ஐவிட clear-ஆ இருக்கிறது.”</p>
-<p>இப்படியான recognition learning behaviour-ஐ reinforce செய்ய உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 6: Warmth + Professional Boundary</h2><div class="lesson-body">
-<p class="lead">மாணவர்களுடன் நல்ல relationship வேண்டும்.</p>
-<p>அதே நேரத்தில் teacher-student relationship-க்கு professional boundary அவசியம்.</p>
-<p>Warmth மற்றும் Boundary ஒன்றுக்கொன்று எதிரிகள் அல்ல.</p>
-<p>ஒரு ஆசிரியர்:</p>
-<p>Kind-ஆ இருக்கலாம்.</p>
-<p>Approachable-ஆ இருக்கலாம்.</p>
-<p>Student-ஐ listen செய்யலாம்.</p>
-<p>Encourage செய்யலாம்.</p>
-<p>அதே நேரத்தில்:</p>
-<p>Teacher role clear-ஆ இருக்க வேண்டும்.</p>
-<p>School policies follow செய்ய வேண்டும்.</p>
-<p>Interactions professional-ஆ இருக்க வேண்டும்.</p>
-<p>ஒரு student-ஐ மற்றவர்களிலிருந்து special-ஆ isolate செய்யக்கூடாது.</p>
-<h4>நினைவில் வைத்துக்கொள்ளுங்கள்</h4>
-<h3>Connection without boundary → Problem</h3>
-<h3>Boundary without connection → Distance</h3>
-<h3>Connection + Clear Boundary → Healthy Professional Relationship</h3>
-</div></section>
-<section class="lesson"><h2>Lesson 7: எல்லா மாணவர்களும் Care-ஐ ஒரே மாதிரி உணர மாட்டார்கள்</h2><div class="lesson-body">
-<p class="lead">ஒரு teacher எல்லா மாணவர்களையும் care செய்யலாம்.</p>
-<p>ஆனால் அந்த care ஒவ்வொரு student-க்கும் ஒரே விதமாக register ஆகாது.</p>
-<p>உங்கள் source framework-ல் நான்கு வழிகளைப் பார்க்கிறோம்.</p>
-<h3>1. Words of Affirmation</h3>
-<p class="lead">சில மாணவர்களுக்கு specific verbal encouragement மிகவும் meaningful.</p>
-<p>“நேற்று முடியவில்லை என்றாலும் இன்று மறுபடியும் try செய்தது நல்ல progress.”</p>
-</div></section>
-<section class="lesson"><h2>2. Quality Attention</h2><div class="lesson-body">
-<p class="lead">சில மாணவர்களுக்கு இரண்டு நிமிடம் undivided attention கொடுப்பதே முக்கியம்.</p>
-<p>“நீ நேற்று கொஞ்சம் quiet-ஆ இருந்தாய். எல்லாம் okay-ஆ?”</p>
-<p>என்று genuine-ஆ கேட்பது.</p>
-</div></section>
-<section class="lesson"><h2>3. Acts of Support</h2><div class="lesson-body">
-<p class="lead">சில மாணவர்களுக்கு practical help தான் care-ஆ feel ஆகும்.</p>
-<p>“இந்த concept மட்டும் இன்னொரு example-ல explain பண்ணுகிறேன்.”</p>
-<p>“இந்த first step நாம் சேர்ந்து செய்யலாம்.”</p>
-</div></section>
-<section class="lesson"><h2>4. Recognition</h2><div class="lesson-body">
-<p class="lead">சில மாணவர்களுக்கு effort notice செய்யப்படுவது மிகவும் முக்கியம்.</p>
-<p>“இந்த வாரம் நீ assignment எல்லாமே time-க்கு complete செய்திருக்கிறாய். அந்த consistency-ஐ continue பண்ணு.”</p>
-<p>இது result மட்டும் அல்ல.</p>
-<p>Effort-ஐ notice செய்கிறது.</p>
-</div></section>
-<section class="lesson"><h2>Activity – One Student, One Week</h2><div class="lesson-body">
-<p class="lead">ஒரு student-ஐ தேர்வு செய்யுங்கள்.</p>
-<p>குறிப்பாக உங்களுடன் connection குறைவாக இருக்கும் student.</p>
-<h4>Student:</h4>
-<h4>இந்த மாணவர் care-ஐ அதிகமாக எந்த வழியில் உணரலாம்?</h4>
-<p class="lead">□ Words of Affirmation</p>
-<p>□ Quality Attention</p>
-<p>□ Acts of Support</p>
-<p>□ Recognition</p>
-<h4>இந்த வாரம் நான் செய்யப்போகும் ஒரு சிறிய action:</h4>
-</div></section>
-<section class="lesson"><h2>Lesson 8: Connection Before Correction</h2><div class="lesson-body">
-<p class="lead">ஒரு மாணவர் disruptive behaviour காட்டுகிறார்.</p>
-<p>நாம் correction கொடுக்க வேண்டும்.</p>
-<p>ஆனால் correction-க்கு முன்பு ஒரு சிறிய connection சில நேரங்களில் conversation-ஐ மாற்றலாம்.</p>
-<h4>Direct Correction</h4>
-<p class="lead">“Stop talking. எத்தனை தடவை சொல்றது?”</p>
-<h4>Connection + Correction</h4>
-<p class="lead">“உனக்கு ஏதோ distract ஆகிறது போல தெரிகிறது. ஆனால் lesson நடக்கும்போது side conversation நிறுத்த வேண்டும்.”</p>
-<p>இங்கு boundary மாறவில்லை.</p>
-<p>ஆனால் student attack செய்யப்பட்டதாக feel செய்யாமல் correction receive செய்ய வாய்ப்பு அதிகரிக்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>Classroom Scenario</h2><div class="lesson-body">
-<p class="lead">ஒரு student சில நாட்களாக homework submit செய்யவில்லை.</p>
-<h4>Label Approach</h4>
-<p class="lead">“நீ ரொம்ப irresponsible ஆகிட்ட.”</p>
-<h4>Empathy Approach</h4>
-<p class="lead">“கடந்த சில நாட்களாக homework complete ஆகவில்லை. ஏதாவது difficulty இருக்கிறதா?”</p>
-<p>Student:</p>
-<p>“Sir, வீட்டுக்கு போனதும் தம்பியைப் பார்த்துக்கணும். Amma வேலை முடிச்சு late-ஆ வராங்க.”</p>
-<p>இப்போது teacher-க்கு புதிய information கிடைத்துவிட்டது.</p>
-<p>Problem:</p>
-<p>“Student doesn’t care.”</p>
-<p>என்பதிலிருந்து:</p>
-<p>“Student has a home responsibility affecting homework.”</p>
-<p>என்று மாறிவிட்டது.</p>
-<p>அதற்குப் பிறகு teacher practical next step பற்றி யோசிக்க முடியும்.</p>
-<p>இதுதான் Empathy-ன் value.</p>
-<p>Understanding changes the quality of the solution.</p>
-</div></section>
-<section class="lesson"><h2>My Relationship Audit</h2><div class="lesson-body">
-<p class="lead">உங்கள் class-ஐ நினைத்துப் பாருங்கள்.</p>
-<h4>நான் naturally connect ஆகும் மாணவர்கள்:</h4>
-<h4>நான் குறைவாக interact செய்யும் மாணவர்கள்:</h4>
-<h4>நான் அதிகமாக correct செய்யும் மாணவர்:</h4>
-<h4>அந்த மாணவருடன் non-academic positive interaction கடைசியாக எப்போது நடந்தது?</h4>
-<h4>இந்த வாரம் நான் செய்யப்போகும் small connection:</h4>
-</div></section>
-<section class="lesson"><h2>7-Day Rapport Challenge</h2><div class="lesson-body">
-<p class="lead">அடுத்த 7 school days:</p>
-<h4>Day 1</h4>
-<p class="lead">5 மாணவர்களை பெயர் சொல்லி genuine-ஆ greet செய்யுங்கள்.</p>
-<h4>Day 2</h4>
-<p class="lead">ஒரு student-ன் non-academic interest பற்றி கேளுங்கள்.</p>
-<h4>Day 3</h4>
-<p class="lead">நீங்கள் கொடுத்த ஒரு small promise-ஐ follow through செய்யுங்கள்.</p>
-<h4>Day 4</h4>
-<p class="lead">“Good job” என்பதற்குப் பதிலாக specific recognition கொடுங்கள்.</p>
-<h4>Day 5</h4>
-<p class="lead">ஒரு quiet student-க்கு இரண்டு நிமிடம் quality attention கொடுங்கள்.</p>
-<h4>Day 6</h4>
-<p class="lead">Correction கொடுப்பதற்கு முன்பு ஒரு sentence acknowledgement கொடுங்கள்.</p>
-<h4>Day 7</h4>
-<p class="lead">உங்களுடன் connection குறைவாக இருக்கும் ஒரு student-உடன் ஒரு positive, non-academic conversation செய்யுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
-<h4>Cognitive, Emotional, Compassionate Empathy-ல் எனக்கு இயல்பாக வருவது:</h4>
-<h4>நான் skip செய்யும் பகுதி:</h4>
-<h4>மாணவர்களுடன் rapport உருவாக்க நான் ஏற்கனவே செய்யும் ஒரு நல்ல habit:</h4>
-<h4>இந்த வாரம் புதிதாக சேர்க்கப்போகும் habit:</h4>
-<h4>நான் better relationship உருவாக்க வேண்டிய student/class:</h4>
-</div></section>
-<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">ஒரு student-ன் behaviour-க்கு பின்னால் இருக்கும் perspective-ஐ புரிந்துகொள்ள முயற்சி செய்வது?</p>
-<p>A. Cognitive Empathy
-B. Time Management
-C. Decision-Making
-D. Stress Management</p>
-<p>Correct Answer: A</p>
-<h4>Question 2</h4>
-<p class="lead">மற்றவர் உணரும் emotion-உடன் உணர்வுபூர்வமாக connect ஆவது?</p>
-<p>A. Cognitive Empathy
-B. Emotional Empathy
-C. Problem-Solving
-D. Assertiveness</p>
-<p>Correct Answer: B</p>
-<h4>Question 3</h4>
-<p class="lead">Empathy-ஐ practical action-ஆக மாற்றுவது?</p>
-<p>A. Sympathy
-B. Emotional Empathy
-C. Compassionate Empathy
-D. Passive Communication</p>
-<p>Correct Answer: C</p>
-<h4>Question 4</h4>
-<p class="lead">Rapport எப்படி உருவாகிறது?</p>
-<p>A. ஒரு பெரிய motivational speech மூலம் மட்டும்
-B. மாணவர்களுக்கு எப்போதும் freedom கொடுப்பதால்
-C. Small, consistent, professional interactions மூலம்
-D. Rules இல்லாமல் இருப்பதால்</p>
-<p>Correct Answer: C</p>
-<h4>Question 5</h4>
-<p class="lead">Specific recognition-க்கு சரியான example எது?</p>
-<p>A. “Good.”
-B. “Okay.”
-C. “நீ எப்போதும் best.”
-D. “உன் group-க்கு concept explain செய்த விதம் clear-ஆ இருந்தது.”</p>
-<p>Correct Answer: D</p>
-<h4>Question 6</h4>
-<p class="lead">Healthy teacher-student relationship-க்கு முக்கியமானது?</p>
-<p>A. Connection மட்டும்
-B. Strict boundary மட்டும்
-C. Connection + Professional Boundary
-D. Friendship மட்டும்</p>
-<p>Correct Answer: C</p>
-</div></section>
-<section class="lesson"><h2>Module 6 – முக்கிய Takeaways</h2><div class="lesson-body">
-<h3>1. Empathy-க்கு மூன்று பகுதிகள் உள்ளன</h3>
-<p class="lead">Cognitive Empathy – அவர்களின் perspective-ஐ புரிந்துகொள்வது.</p>
-<p>Emotional Empathy – அவர்களின் feeling-உடன் connect ஆவது.</p>
-<p>Compassionate Empathy – understanding மற்றும் feeling-ஐ practical help-ஆக மாற்றுவது.</p>
-<h3>2. Rapport பெரிய gestures மூலம் மட்டும் உருவாகாது</h3>
-<p class="lead">பெயர் சொல்லி greet செய்வது.</p>
-<p>Non-academic detail நினைவில் வைத்துக்கொள்வது.</p>
-<p>Small promises-ஐ follow through செய்வது.</p>
-<p>Specific, genuine recognition கொடுப்பது.</p>
-<p>இப்படியான சிறிய, consistent habits trust உருவாக்கும்.</p>
-<h3>3. Connection மற்றும் Professional Boundary இரண்டும் தேவை</h3>
-<p class="lead">Warm relationship என்பது teacher-student boundary-ஐ blur செய்வது அல்ல.</p>
-<p>Warmth + Clear Boundary = Healthy Professional Relationship</p>
-<h3>4. எல்லா மாணவர்களும் care-ஐ ஒரே விதமாக உணர மாட்டார்கள்</h3>
-<p class="lead">சிலருக்கு words.</p>
-<p>சிலருக்கு attention.</p>
-<p>சிலருக்கு practical support.</p>
-<p>சிலருக்கு recognition.</p>
-<h3>5. Empathy-ன் இறுதி கேள்வி</h3>
-<h4>“நான் செய்யக்கூடிய ஒரு சிறிய, concrete action என்ன?”</h4>
-<p class="lead">Understanding மட்டும் போதாது.</p>
-<p>அது useful action-ஆக மாறும்போது தான் student outcome-ல் மாற்றம் உருவாகும்.</p>
-</div></section>
-<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“மாணவர்களின் நடத்தையை மட்டும் பார்த்து உடனடியாக முடிவு செய்யாமல், அந்த நடத்தைக்குப் பின்னால் இருக்கும் பார்வையையும் உணர்வையும் புரிந்துகொள்ள முயற்சி செய்வேன். புரிதலை practical support-ஆக மாற்றி, warmth மற்றும் professional boundary இரண்டையும் பாதுகாத்து நல்ல உறவை உருவாக்குவேன்.”</p>
-</div></section>
-<section class="lesson"><h2>Module 6 Complete ✓</h2><div class="lesson-body">
-<h3>அடுத்த Module</h3>
-</div></section>
-<section class="lesson"><h2>Positive Discipline in Practice</h2><div class="lesson-body">
-<h4>தண்டனையைத் தாண்டி சுயஒழுக்கத்தை வளர்ப்பது</h4>
-<p class="lead">Kind and Firm Together</p>
-<p>Connection Before Correction</p>
-<p>Mistakes Are for Learning</p>
-<p>Long-Term Over Short-Term</p>
-<p>இந்த நான்கு Positive Discipline principles-ஐ classroom-ல் எப்படி பயன்படுத்துவது?</p>
-<p>மேலும்,</p>
-<h4>Observation → Feeling → Need → Request</h4>
-<p class="lead">என்ற NVC framework மூலம் blame மற்றும் shame இல்லாமல் student behaviour-ஐ எப்படி correct செய்வது?</p>
-<p>Module 7-ல் பார்க்கலாம்.</p>
-</div></section>
+<section class="lesson"><h2>Lesson 1: Empathy என்றால் என்ன?</h2><div class="lesson-body"><p class="lead">Empathy என்றால் மாணவர் செய்வது எல்லாம் சரி என்று agree செய்வது அல்ல.</p><p>அவருடைய தவறை ignore செய்வதும் அல்ல.</p><p>அவருக்காக வருத்தப்படுவது மட்டும் அல்ல.</p><p>ஒரு மாணவர் ஒரு situation-ஐ எப்படி அனுபவிக்கிறார் என்பதை அவருடைய பார்வையிலிருந்து புரிந்துகொள்ள முயற்சி செய்வது Empathy.</p><h4>Example</h4><p class="lead">ஒரு மாணவர் test எழுத மறுக்கிறார்.</p><p>“எனக்கு எழுத வேண்டாம்.”</p><p>என்று சொல்கிறார்.</p><p>Teacher:</p><p>“Attitude காட்டாதே. Test எழுது.”</p><p>என்று சொல்லலாம்.</p><p>ஆனால் Empathy ஒரு second question கேட்கச் சொல்கிறது:</p><p>“இந்த மாணவர் ஏன் test எழுத விரும்பவில்லை?”</p><p>அவருக்கு answer தெரியாமல் இருக்கலாம்.</p><p>Failure fear இருக்கலாம்.</p><p>Classmates என்ன நினைப்பார்கள் என்ற embarrassment இருக்கலாம்.</p><p>Empathy behaviour-ஐ excuse செய்யவில்லை.</p><p>Behaviour-ஐ புரிந்துகொள்ள additional information தேடுகிறது.</p></div></section>
+<section class="lesson"><h2>Lesson 2: Empathy-ன் மூன்று பகுதிகள்</h2><div class="lesson-body"><p class="lead">Empathy ஒரே ஒரு skill அல்ல.</p><p>மூன்று distinct பகுதிகளாகப் பார்க்கலாம்:</p><h3>1. Cognitive Empathy</h3><p class="lead">“நீ என்ன நினைக்கிறாய் என்பதை நான் புரிந்துகொள்ள முயற்சி செய்கிறேன்.”</p><h3>2. Emotional Empathy</h3><p class="lead">“நீ என்ன உணர்கிறாய் என்பதுடன் நான் உணர்வுபூர்வமாக connect ஆகிறேன்.”</p><h3>3. Compassionate Empathy</h3><p class="lead">“நான் புரிந்துகொண்டேன்; உணர்ந்தேன்; இப்போது உதவக்கூடிய ஒரு action என்ன?”</p><p>இந்த மூன்றையும் தனித்தனியாகப் பார்க்கலாம்.</p></div></section>
+<section class="lesson"><h2>1. Cognitive Empathy</h2><div class="lesson-body"><h3>மாணவரின் பார்வையைப் புரிந்துகொள்வது</h3><p class="lead">Cognitive Empathy என்பது:</p><p>“இந்த மாணவரின் point of view-ல் இந்த situation எப்படி இருக்கும்?”</p><p>என்று யோசிப்பது.</p><h4>Classroom Example</h4><p class="lead">Test ஆரம்பிக்கப் போகிறது.</p><p>ஒரு மாணவர் unnecessary-ஆ jokes செய்கிறார்.</p><p>மற்ற மாணவர்களை disturb செய்கிறார்.</p><p>Teacher:</p><p>“Test வரும்போதெல்லாம் இவன் இப்படித்தான். Discipline இல்லை.”</p><p>என்று நினைக்கலாம்.</p><p>Cognitive Empathy வேறு possibility-ஐ பார்க்கிறது:</p><p>“Test anxiety-ஐ hide செய்ய jokes use செய்கிறாரோ?”</p><p>இது behaviour சரி என்று சொல்லவில்லை.</p><p>ஆனால் behaviour-ன் possible “why” பற்றி யோசிக்க வைக்கிறது.</p><h4>ஒரு Powerful Question</h4><p class="lead">ஒரு மாணவரின் behaviour உங்களுக்கு புரியவில்லை என்றால்:</p><h3>“இந்த behaviour அவருக்கு meaningful-ஆ இருக்க வேண்டுமென்றால், பின்னால் என்ன காரணம் இருக்கலாம்?”</h3><p class="lead">என்று யோசித்துப் பாருங்கள்.</p></div></section>
+<section class="lesson"><h2>2. Emotional Empathy</h2><div class="lesson-body"><h3>மாணவரின் உணர்வுடன் இணைவது</h3><p class="lead">ஒரு மாணவர் மிகவும் முயற்சி செய்து படித்திருக்கிறார்.</p><p>ஆனால் exam-ல் pass ஆகவில்லை.</p><p>அவர்:</p><p>“நான் இவ்வளவு படிச்சும் fail ஆயிட்டேன்.”</p><p>என்று சொல்கிறார்.</p><p>Teacher:</p><p>“அடுத்த தடவை இன்னும் நல்லா படி.”</p><p>என்று உடனே solution சொல்லலாம்.</p><p>ஆனால் Emotional Empathy அந்த மாணவரின் disappointment-ஐ ஒரு நிமிடம் உணர்ந்து acknowledge செய்யச் சொல்கிறது.</p><p>“நீ ரொம்ப முயற்சி செய்த பிறகும் result இப்படியிருக்கிறது; அது disappointing-ஆ இருக்கும்.”</p><p>இந்த sentence problem-ஐ solve செய்யவில்லை.</p><p>ஆனால்:</p><p>“Teacher என்னுடைய feeling-ஐ புரிந்துகொண்டார்.”</p><p>என்ற அனுபவத்தை மாணவருக்கு கொடுக்கலாம்.</p><h4>ஆனால் ஒரு முக்கியமான விஷயம்</h4><p class="lead">Emotional Empathy-யில் மட்டும் நின்றுவிடக் கூடாது.</p><p>ஒவ்வொரு மாணவரின் pain-ஐ நாமும் முழுமையாக carry செய்தால் ஆசிரியரே emotional-ஆ drained ஆகலாம்.</p><p>அதனால் அடுத்தது:</p><p>Compassionate Empathy.</p></div></section>
+<section class="lesson"><h2>3. Compassionate Empathy</h2><div class="lesson-body"><h3>புரிதலை உதவியாக மாற்றுவது</h3><p class="lead">Cognitive Empathy:</p><p>“உன் situation புரிகிறது.”</p><p>Emotional Empathy:</p><p>“உன் feeling-ஐ உணர முடிகிறது.”</p><p>Compassionate Empathy:</p><h3>“இப்போது நான் செய்யக்கூடிய ஒரு practical help என்ன?”</h3><h4>Example</h4><p class="lead">ஒரு மாணவர் Maths-ல் தொடர்ந்து struggle செய்கிறார்.</p><p>Teacher புரிந்துகொள்கிறார்:</p><p>“இந்த student-க்கு concept clear இல்லை.”</p><p>Student-ன் frustration-ஐயும் கவனிக்கிறார்.</p><p>அதற்குப் பிறகு:</p><p>“Lunch break-ல் 10 minutes basic concept மட்டும் மறுபடியும் பார்க்கலாம்.”</p><p>என்று practical support கொடுக்கிறார்.</p><p>இதுதான் Compassionate Empathy.</p><h4>Golden Question</h4><p class="lead">ஒரு மாணவருக்காக empathy feel செய்த பிறகு:</p><h3>“இந்த situation-ல் நான் செய்யக்கூடிய ஒரு சிறிய, practical action என்ன?”</h3><p class="lead">என்று கேளுங்கள்.</p></div></section>
+<section class="lesson"><h2>Lesson 3: Sympathy vs Empathy</h2><div class="lesson-body"><p class="lead">இந்த வேறுபாட்டை எளிமையாக நினைவில் வைத்துக்கொள்ளுங்கள்.</p><h4>Sympathy</h4><p class="lead">“பாவம்… இந்தக் குழந்தைக்கு கஷ்டம்.”</p><h4>Empathy</h4><p class="lead">“இந்தக் குழந்தை என்ன அனுபவிக்கிறான் என்பதைப் புரிந்துகொள்ள முயற்சி செய்கிறேன்.”</p><h4>Compassionate Empathy</h4><p class="lead">“நான் புரிந்துகொண்டதின் அடிப்படையில் என்ன practical support செய்ய முடியும்?”</p><p>நமது நோக்கம் குழந்தையை helpless-ஆ பார்க்குவது அல்ல.</p><p>அவரை புரிந்துகொண்டு capability-ஐ வளர்க்க உதவுவது.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – Three Levels of Empathy</h2><div class="lesson-body"><p class="section-note lead">ஒரு மாணவர் தொடர்ந்து classwork complete செய்யவில்லை என்று வைத்துக்கொள்ளுங்கள்.</p><h4>Cognitive Empathy</h4><div class="activity-field" data-key="m6-i7-f1">
+  <p class="act-label">இந்த behaviour-க்கு பின்னால் என்ன இருக்கலாம்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><h4>Emotional Empathy</h4><div class="activity-field" data-key="m6-i7-f2">
+  <p class="act-label">அந்த மாணவர் என்ன feel செய்துகொண்டிருக்கலாம்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><h4>Compassionate Empathy</h4><div class="activity-field" data-key="m6-i7-f3">
+  <p class="act-label">நான் செய்யக்கூடிய ஒரு practical support என்ன?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>Lesson 4: Rapport என்றால் என்ன?</h2><div class="lesson-body"><p class="lead">Empathy மாணவரைப் புரிந்துகொள்ள உதவுகிறது.</p><p>ஆனால் அந்த understanding தொடர்ச்சியான relationship ஆக மாற வேண்டும்.</p><p>அதற்குப் பெயர்:</p><h3>Rapport</h3><p class="lead">Rapport என்பது:</p><p>“Students என்னை friend மாதிரி பார்க்க வேண்டும்.”</p><p>என்பது அல்ல.</p><p>Rapport என்பது:</p><p>“இந்த teacher என்னை கவனிக்கிறார்.”</p><p>“இந்த teacher என்னை respect செய்கிறார்.”</p><p>“இந்த teacher சொல்வதை நம்பலாம்.”</p><p>என்ற professional trust.</p><p>Rapport ஒரு பெரிய motivational speech-ல் உருவாகாது.</p><p>சிறிய, consistent interactions மூலம் மெதுவாக உருவாகும்.</p></div></section>
+<section class="lesson"><h2>Lesson 5: Rapport உருவாக்கும் நான்கு சிறிய பழக்கங்கள்</h2><div class="lesson-body"><h3>Habit 1 – மாணவரை பெயர் சொல்லி வரவேற்கவும்</h3><p class="lead">“Good morning.”</p><p>என்பதைவிட:</p><p>“Good morning, Arjun.”</p><p>“Good morning, Nivetha.”</p><p>என்று பெயர் சொல்லுங்கள்.</p><p>சில seconds தான்.</p><p>ஆனால் அது:</p><p>“Teacher என்னை notice செய்கிறார்.”</p><p>என்ற signal கொடுக்கிறது.</p></div></section>
+<section class="lesson"><h2>Habit 2 – ஒரு Non-Academic Detail நினைவில் வைத்துக்கொள்ளுங்கள்</h2><div class="lesson-body"><p class="lead">மாணவர் marks மட்டும் அல்ல.</p><p>அவருக்கு:</p><p>Cricket பிடிக்கலாம்.</p><p>Drawing பிடிக்கலாம்.</p><p>Dance பிடிக்கலாம்.</p><p>ஒரு hobby இருக்கலாம்.</p><p>அதை நினைவில் வைத்து சில நேரங்களில்:</p><p>“நேற்று drawing competition எப்படி போச்சு?”</p><p>என்று கேட்பது மாணவரை grades-க்கு அப்பாற்பட்ட ஒரு individual-ஆக நாம் கவனிக்கிறோம் என்பதை காட்டும்.</p></div></section>
+<section class="lesson"><h2>Habit 3 – Small Promises-ஐ Follow Through செய்யுங்கள்</h2><div class="lesson-body"><p class="lead">ஒரு மாணவர்:</p><p>“Sir, இந்த book library-ல இருக்கானு check பண்ணிச் சொல்றீங்களா?”</p><p>என்று கேட்கிறார்.</p><p>நாம்:</p><p>“நாளைக்கு சொல்றேன்.”</p><p>என்றால் மறுநாள் சொல்லுங்கள்.</p><p>சிறிய promise.</p><p>ஆனால் அதை தொடர்ந்து நிறைவேற்றுவது trust உருவாக்கும்.</p><p>Trust பெரிய வார்த்தைகளில் மட்டும் உருவாகாது; சிறிய follow-through-களில் உருவாகும்.</p></div></section>
+<section class="lesson"><h2>Habit 4 – Specific, Genuine Recognition</h2><div class="lesson-body"><p class="lead">“Good.”</p><p>“Very good.”</p><p>“Excellent.”</p><p>இவை useful.</p><p>ஆனால் specific recognition இன்னும் meaningful.</p><h4>Generic</h4><p class="lead">“Good job.”</p><h4>Specific</h4><p class="lead">“உன் group-க்கு அந்த concept-ஐ நீ explain செய்த விதம் ரொம்ப clear-ஆ இருந்தது.”</p><p>இங்கு மாணவருக்கு:</p><p>“நான் என்ன சரியாக செய்தேன்?”</p><p>என்பது தெளிவாகத் தெரிகிறது.</p><h4>Result மட்டும் அல்ல; Effort-ஐயும் Notice செய்யுங்கள்</h4><p class="lead">“இந்த test-ல் உன் score மட்டும் improve ஆகவில்லை; answer presentation-மும் last test-ஐவிட clear-ஆ இருக்கிறது.”</p><p>இப்படியான recognition learning behaviour-ஐ reinforce செய்ய உதவும்.</p></div></section>
+<section class="lesson"><h2>Lesson 6: Warmth + Professional Boundary</h2><div class="lesson-body"><p class="lead">மாணவர்களுடன் நல்ல relationship வேண்டும்.</p><p>அதே நேரத்தில் teacher-student relationship-க்கு professional boundary அவசியம்.</p><p>Warmth மற்றும் Boundary ஒன்றுக்கொன்று எதிரிகள் அல்ல.</p><p>ஒரு ஆசிரியர்:</p><p>Kind-ஆ இருக்கலாம்.</p><p>Approachable-ஆ இருக்கலாம்.</p><p>Student-ஐ listen செய்யலாம்.</p><p>Encourage செய்யலாம்.</p><p>அதே நேரத்தில்:</p><p>Teacher role clear-ஆ இருக்க வேண்டும்.</p><p>School policies follow செய்ய வேண்டும்.</p><p>Interactions professional-ஆ இருக்க வேண்டும்.</p><p>ஒரு student-ஐ மற்றவர்களிலிருந்து special-ஆ isolate செய்யக்கூடாது.</p><h4>நினைவில் வைத்துக்கொள்ளுங்கள்</h4><h3>Connection without boundary → Problem</h3><h3>Boundary without connection → Distance</h3><h3>Connection + Clear Boundary → Healthy Professional Relationship</h3></div></section>
+<section class="lesson"><h2>Lesson 7: எல்லா மாணவர்களும் Care-ஐ ஒரே மாதிரி உணர மாட்டார்கள்</h2><div class="lesson-body"><p class="lead">ஒரு teacher எல்லா மாணவர்களையும் care செய்யலாம்.</p><p>ஆனால் அந்த care ஒவ்வொரு student-க்கும் ஒரே விதமாக register ஆகாது.</p><p>உங்கள் source framework-ல் நான்கு வழிகளைப் பார்க்கிறோம்.</p><h3>1. Words of Affirmation</h3><p class="lead">சில மாணவர்களுக்கு specific verbal encouragement மிகவும் meaningful.</p><p>“நேற்று முடியவில்லை என்றாலும் இன்று மறுபடியும் try செய்தது நல்ல progress.”</p></div></section>
+<section class="lesson"><h2>2. Quality Attention</h2><div class="lesson-body"><p class="lead">சில மாணவர்களுக்கு இரண்டு நிமிடம் undivided attention கொடுப்பதே முக்கியம்.</p><p>“நீ நேற்று கொஞ்சம் quiet-ஆ இருந்தாய். எல்லாம் okay-ஆ?”</p><p>என்று genuine-ஆ கேட்பது.</p></div></section>
+<section class="lesson"><h2>3. Acts of Support</h2><div class="lesson-body"><p class="lead">சில மாணவர்களுக்கு practical help தான் care-ஆ feel ஆகும்.</p><p>“இந்த concept மட்டும் இன்னொரு example-ல explain பண்ணுகிறேன்.”</p><p>“இந்த first step நாம் சேர்ந்து செய்யலாம்.”</p></div></section>
+<section class="lesson"><h2>4. Recognition</h2><div class="lesson-body"><p class="lead">சில மாணவர்களுக்கு effort notice செய்யப்படுவது மிகவும் முக்கியம்.</p><p>“இந்த வாரம் நீ assignment எல்லாமே time-க்கு complete செய்திருக்கிறாய். அந்த consistency-ஐ continue பண்ணு.”</p><p>இது result மட்டும் அல்ல.</p><p>Effort-ஐ notice செய்கிறது.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – One Student, One Week</h2><div class="lesson-body"><p class="section-note lead">ஒரு student-ஐ தேர்வு செய்யுங்கள்.</p><p class="section-note ">குறிப்பாக உங்களுடன் connection குறைவாக இருக்கும் student.</p><div class="activity-field" data-key="m6-i18-f1">
+  <p class="act-label">Student:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m6-i18-f2">
+  <p class="sc-question">இந்த மாணவர் care-ஐ அதிகமாக எந்த வழியில் உணரலாம்?</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m6i18f2" value="0"> Words of Affirmation</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m6-i18-f3">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m6i18f3" value="0"> Quality Attention</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m6-i18-f4">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m6i18f4" value="0"> Acts of Support</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m6-i18-f5">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m6i18f5" value="0"> Recognition</label></div>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m6-i18-f6">
+  <p class="act-label">இந்த வாரம் நான் செய்யப்போகும் ஒரு சிறிய action:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>Lesson 8: Connection Before Correction</h2><div class="lesson-body"><p class="lead">ஒரு மாணவர் disruptive behaviour காட்டுகிறார்.</p><p>நாம் correction கொடுக்க வேண்டும்.</p><p>ஆனால் correction-க்கு முன்பு ஒரு சிறிய connection சில நேரங்களில் conversation-ஐ மாற்றலாம்.</p><h4>Direct Correction</h4><p class="lead">“Stop talking. எத்தனை தடவை சொல்றது?”</p><h4>Connection + Correction</h4><p class="lead">“உனக்கு ஏதோ distract ஆகிறது போல தெரிகிறது. ஆனால் lesson நடக்கும்போது side conversation நிறுத்த வேண்டும்.”</p><p>இங்கு boundary மாறவில்லை.</p><p>ஆனால் student attack செய்யப்பட்டதாக feel செய்யாமல் correction receive செய்ய வாய்ப்பு அதிகரிக்கலாம்.</p></div></section>
+<section class="lesson"><h2>Classroom Scenario</h2><div class="lesson-body"><p class="lead">ஒரு student சில நாட்களாக homework submit செய்யவில்லை.</p><h4>Label Approach</h4><p class="lead">“நீ ரொம்ப irresponsible ஆகிட்ட.”</p><h4>Empathy Approach</h4><p class="lead">“கடந்த சில நாட்களாக homework complete ஆகவில்லை. ஏதாவது difficulty இருக்கிறதா?”</p><p>Student:</p><p>“Sir, வீட்டுக்கு போனதும் தம்பியைப் பார்த்துக்கணும். Amma வேலை முடிச்சு late-ஆ வராங்க.”</p><p>இப்போது teacher-க்கு புதிய information கிடைத்துவிட்டது.</p><p>Problem:</p><p>“Student doesn’t care.”</p><p>என்பதிலிருந்து:</p><p>“Student has a home responsibility affecting homework.”</p><p>என்று மாறிவிட்டது.</p><p>அதற்குப் பிறகு teacher practical next step பற்றி யோசிக்க முடியும்.</p><p>இதுதான் Empathy-ன் value.</p><p>Understanding changes the quality of the solution.</p></div></section>
+<section class="lesson"><h2>My Relationship Audit</h2><div class="lesson-body"><p class="lead">உங்கள் class-ஐ நினைத்துப் பாருங்கள்.</p><h4>நான் naturally connect ஆகும் மாணவர்கள்:</h4><h4>நான் குறைவாக interact செய்யும் மாணவர்கள்:</h4><h4>நான் அதிகமாக correct செய்யும் மாணவர்:</h4><h4>அந்த மாணவருடன் non-academic positive interaction கடைசியாக எப்போது நடந்தது?</h4><h4>இந்த வாரம் நான் செய்யப்போகும் small connection:</h4></div></section>
+<section class="lesson interactive-section"><h2>📝 7-Day Rapport Challenge</h2><div class="lesson-body"><p class="section-note lead">அடுத்த 7 school days:</p><h4>Day 1</h4><p class="section-note lead">5 மாணவர்களை பெயர் சொல்லி genuine-ஆ greet செய்யுங்கள்.</p><div class="activity-field" data-key="m6-i22-f1">
+  <p class="act-label">Day 2 — ஒரு student-ன் non-academic interest பற்றி கேளுங்கள்.</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><h4>Day 3</h4><p class="section-note lead">நீங்கள் கொடுத்த ஒரு small promise-ஐ follow through செய்யுங்கள்.</p><h4>Day 4</h4><p class="section-note lead">“Good job” என்பதற்குப் பதிலாக specific recognition கொடுங்கள்.</p><h4>Day 5</h4><p class="section-note lead">ஒரு quiet student-க்கு இரண்டு நிமிடம் quality attention கொடுங்கள்.</p><h4>Day 6</h4><p class="section-note lead">Correction கொடுப்பதற்கு முன்பு ஒரு sentence acknowledgement கொடுங்கள்.</p><h4>Day 7</h4><p class="section-note lead">உங்களுடன் connection குறைவாக இருக்கும் ஒரு student-உடன் ஒரு positive, non-academic conversation செய்யுங்கள்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Reflection</h2><div class="lesson-body"><div class="activity-field" data-key="m6-i23-f1">
+  <p class="act-label">Cognitive, Emotional, Compassionate Empathy-ல் எனக்கு இயல்பாக வருவது:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m6-i23-f2">
+  <p class="act-label">நான் skip செய்யும் பகுதி:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m6-i23-f3">
+  <p class="act-label">மாணவர்களுடன் rapport உருவாக்க நான் ஏற்கனவே செய்யும் ஒரு நல்ல habit:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m6-i23-f4">
+  <p class="act-label">இந்த வாரம் புதிதாக சேர்க்கப்போகும் habit:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m6-i23-f5">
+  <p class="act-label">நான் better relationship உருவாக்க வேண்டிய student/class:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m6-quiz24">
+      <div class="quiz-question" data-correct="0">
+  <p class="q-text">1. ஒரு student-ன் behaviour-க்கு பின்னால் இருக்கும் perspective-ஐ புரிந்துகொள்ள முயற்சி செய்வது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m6quiz24q1" value="0"> Cognitive Empathy</label><label class="q-option"><input type="radio" name="m6quiz24q1" value="1"> Time Management</label><label class="q-option"><input type="radio" name="m6quiz24q1" value="2"> Decision-Making</label><label class="q-option"><input type="radio" name="m6quiz24q1" value="3"> Stress Management</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">2. மற்றவர் உணரும் emotion-உடன் உணர்வுபூர்வமாக connect ஆவது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m6quiz24q2" value="0"> Cognitive Empathy</label><label class="q-option"><input type="radio" name="m6quiz24q2" value="1"> Emotional Empathy</label><label class="q-option"><input type="radio" name="m6quiz24q2" value="2"> Problem-Solving</label><label class="q-option"><input type="radio" name="m6quiz24q2" value="3"> Assertiveness</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">3. Empathy-ஐ practical action-ஆக மாற்றுவது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m6quiz24q3" value="0"> Sympathy</label><label class="q-option"><input type="radio" name="m6quiz24q3" value="1"> Emotional Empathy</label><label class="q-option"><input type="radio" name="m6quiz24q3" value="2"> Compassionate Empathy</label><label class="q-option"><input type="radio" name="m6quiz24q3" value="3"> Passive Communication</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">4. Rapport எப்படி உருவாகிறது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m6quiz24q4" value="0"> ஒரு பெரிய motivational speech மூலம் மட்டும்</label><label class="q-option"><input type="radio" name="m6quiz24q4" value="1"> மாணவர்களுக்கு எப்போதும் freedom கொடுப்பதால்</label><label class="q-option"><input type="radio" name="m6quiz24q4" value="2"> Small, consistent, professional interactions மூலம்</label><label class="q-option"><input type="radio" name="m6quiz24q4" value="3"> Rules இல்லாமல் இருப்பதால்</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="3">
+  <p class="q-text">5. Specific recognition-க்கு சரியான example எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m6quiz24q5" value="0"> “Good.”</label><label class="q-option"><input type="radio" name="m6quiz24q5" value="1"> “Okay.”</label><label class="q-option"><input type="radio" name="m6quiz24q5" value="2"> “நீ எப்போதும் best.”</label><label class="q-option"><input type="radio" name="m6quiz24q5" value="3"> “உன் group-க்கு concept explain செய்த விதம் clear-ஆ இருந்தது.”</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">6. Healthy teacher-student relationship-க்கு முக்கியமானது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m6quiz24q6" value="0"> Connection மட்டும்</label><label class="q-option"><input type="radio" name="m6quiz24q6" value="1"> Strict boundary மட்டும்</label><label class="q-option"><input type="radio" name="m6quiz24q6" value="2"> Connection + Professional Boundary</label><label class="q-option"><input type="radio" name="m6quiz24q6" value="3"> Friendship மட்டும்</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>Module 6 – முக்கிய Takeaways</h2><div class="lesson-body"><h3>1. Empathy-க்கு மூன்று பகுதிகள் உள்ளன</h3><p class="lead">Cognitive Empathy – அவர்களின் perspective-ஐ புரிந்துகொள்வது.</p><p>Emotional Empathy – அவர்களின் feeling-உடன் connect ஆவது.</p><p>Compassionate Empathy – understanding மற்றும் feeling-ஐ practical help-ஆக மாற்றுவது.</p><h3>2. Rapport பெரிய gestures மூலம் மட்டும் உருவாகாது</h3><p class="lead">பெயர் சொல்லி greet செய்வது.</p><p>Non-academic detail நினைவில் வைத்துக்கொள்வது.</p><p>Small promises-ஐ follow through செய்வது.</p><p>Specific, genuine recognition கொடுப்பது.</p><p>இப்படியான சிறிய, consistent habits trust உருவாக்கும்.</p><h3>3. Connection மற்றும் Professional Boundary இரண்டும் தேவை</h3><p class="lead">Warm relationship என்பது teacher-student boundary-ஐ blur செய்வது அல்ல.</p><p>Warmth + Clear Boundary = Healthy Professional Relationship</p><h3>4. எல்லா மாணவர்களும் care-ஐ ஒரே விதமாக உணர மாட்டார்கள்</h3><p class="lead">சிலருக்கு words.</p><p>சிலருக்கு attention.</p><p>சிலருக்கு practical support.</p><p>சிலருக்கு recognition.</p><h3>5. Empathy-ன் இறுதி கேள்வி</h3><h4>“நான் செய்யக்கூடிய ஒரு சிறிய, concrete action என்ன?”</h4><p class="lead">Understanding மட்டும் போதாது.</p><p>அது useful action-ஆக மாறும்போது தான் student outcome-ல் மாற்றம் உருவாகும்.</p></div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“மாணவர்களின் நடத்தையை மட்டும் பார்த்து உடனடியாக முடிவு செய்யாமல், அந்த நடத்தைக்குப் பின்னால் இருக்கும் பார்வையையும் உணர்வையும் புரிந்துகொள்ள முயற்சி செய்வேன். புரிதலை practical support-ஆக மாற்றி, warmth மற்றும் professional boundary இரண்டையும் பாதுகாத்து நல்ல உறவை உருவாக்குவேன்.”</p></div></section>
+<section class="lesson"><h2>Module 6 Complete ✓</h2><div class="lesson-body"><h3>அடுத்த Module</h3></div></section>
+<section class="lesson"><h2>Positive Discipline in Practice</h2><div class="lesson-body"><h4>தண்டனையைத் தாண்டி சுயஒழுக்கத்தை வளர்ப்பது</h4><p class="lead">Kind and Firm Together</p><p>Connection Before Correction</p><p>Mistakes Are for Learning</p><p>Long-Term Over Short-Term</p><p>இந்த நான்கு Positive Discipline principles-ஐ classroom-ல் எப்படி பயன்படுத்துவது?</p><p>மேலும்,</p><h4>Observation → Feeling → Need → Request</h4><p class="lead">என்ற NVC framework மூலம் blame மற்றும் shame இல்லாமல் student behaviour-ஐ எப்படி correct செய்வது?</p><p>Module 7-ல் பார்க்கலாம்.</p></div></section>
 </div>
 
 <div class="complete-bar">
@@ -701,6 +505,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 6;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

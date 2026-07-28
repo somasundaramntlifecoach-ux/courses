@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -259,305 +325,104 @@ footer a:hover{color:var(--gold-light);}
 <p>மாணவர்களைப் புரிந்துகொள்ளும் திறன்…</p>
 <p>இவை அனைத்தும் வகுப்பறையின் சூழலை மாற்றுகின்றன.</p>
 <p>இதற்கான அடிப்படைதான் Emotional Intelligence – EQ.</p>
-<section class="lesson"><h2>Lesson 1: Emotional Intelligence என்றால் என்ன?</h2><div class="lesson-body">
-<p class="lead">Emotional Intelligence என்றால் எப்போதும் சிரித்துக்கொண்டே இருப்பது அல்ல.</p>
-<p>கோபமே வராமல் இருப்பதும் அல்ல.</p>
-<p>எல்லாவற்றையும் பொறுத்துக்கொள்வதும் அல்ல.</p>
-<p>நமக்குள் என்ன உணர்வு வருகிறது என்பதை உணர்ந்து, அந்த உணர்வு நம்முடைய நடத்தையைத் தீர்மானிப்பதற்கு முன்பு சரியான response-ஐ தேர்வு செய்யும் திறன்.</p>
-<p>உதாரணமாக:</p>
-<p>ஒரு மாணவர் நீங்கள் பாடம் நடத்தும்போது தொடர்ந்து பேசிக்கொண்டிருக்கிறார்.</p>
-<p>உங்களுக்கு irritation வருகிறது.</p>
-<h4>Reaction:</h4>
-<p class="lead">“உனக்கு எத்தனை தடவை சொல்றது? வெளியே போ!”</p>
-<h4>Response:</h4>
-<p class="lead">ஒரு நிமிடம் அமைதியாக இருந்து,</p>
-<p>“நான் lesson நடத்தும்போது தொடர்ந்து பேசுவது மற்ற மாணவர்களின் learning-ஐ பாதிக்கிறது. Class முடிந்ததும் உன்னிடம் பேச வேண்டும்.”</p>
-<p>இரண்டிலும் ஆசிரியருக்கு irritation இருக்கலாம்.</p>
-<p>வேறுபாடு என்ன?</p>
-<p>முதல் situation-ல் emotion response-ஐ தேர்வு செய்கிறது.</p>
-<p>இரண்டாவது situation-ல் ஆசிரியர் response-ஐ தேர்வு செய்கிறார்.</p>
-<p>அதுதான் Emotional Intelligence.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 2: EQ-ன் 5 முக்கிய பகுதிகள்</h2><div class="lesson-body">
-<p class="lead">Emotional Intelligence-ஐ ஐந்து முக்கியமான திறன்களாகப் புரிந்துகொள்ளலாம்.</p>
-<h3>1. Self-Awareness – சுய விழிப்புணர்வு</h3>
-<p class="lead">நம்முடைய emotion உருவாகும்போதே அதை கவனிக்கும் திறன்.</p>
-<p>பல நேரங்களில் நாம்,</p>
-<p>“நான் ஏன் அப்படி பேசினேன்?”</p>
-<p>என்று சம்பவம் முடிந்த பிறகு யோசிக்கிறோம்.</p>
-<p>Self-Awareness வளரும்போது,</p>
-<p>“எனக்கு இப்போ frustration அதிகமாகுது.”</p>
-<p>என்பதை அந்த நேரத்திலேயே கவனிக்க ஆரம்பிப்போம்.</p>
-<h4>Classroom Example</h4>
-<p class="lead">நீங்கள் test papers திருத்துகிறீர்கள்.</p>
-<p>பல மாணவர்கள் குறைந்த மதிப்பெண் எடுத்திருக்கிறார்கள்.</p>
-<p>உங்களுக்குள்:</p>
-<p>“இவ்வளவு சொல்லிக் கொடுத்தும் இப்படி எழுதியிருக்காங்களே!”</p>
-<p>என்ற frustration வருகிறது.</p>
-<p>அந்த நேரத்தில் ஒரு மாணவர் வந்து:</p>
-<p>“Ma’am/Sir, இந்த answer எப்படி எழுதணும்?”</p>
-<p>என்று கேட்கிறார்.</p>
-<p>Self-Awareness இல்லையென்றால் முதல் மாணவர்களின் marks காரணமாக வந்த frustration இந்த மாணவரிடம் வெளிப்படலாம்.</p>
-<p>Self-Awareness இருந்தால்:</p>
-<p>“நான் இப்போ frustrated-ஆ இருக்கிறேன். இந்தக் குழந்தை அதற்குக் காரணம் இல்லை.”</p>
-<p>என்று நம்மை நாமே கவனிக்க முடியும்.</p>
-<h4>Practice</h4>
-<p class="lead">பள்ளி நேரத்தில் மூன்று முறை உங்களையே கேளுங்கள்:</p>
-<p>“இப்போ நான் என்ன emotion feel பண்ணிக்கிட்டு இருக்கேன்?”</p>
-<p>ஒரே ஒரு வார்த்தையில் பெயரிடுங்கள்.</p>
-<p>Happy.</p>
-<p>Calm.</p>
-<p>Tired.</p>
-<p>Frustrated.</p>
-<p>Worried.</p>
-<p>Angry.</p>
-<p>Excited.</p>
-</div></section>
-<section class="lesson"><h2>2. Self-Regulation – சுய கட்டுப்பாடு</h2><div class="lesson-body">
-<p class="lead">Emotion-ஐ உணர்வது Self-Awareness.</p>
-<p>அந்த emotion வந்த பிறகு எப்படி நடக்க வேண்டும் என்பதைத் தேர்வு செய்வது Self-Regulation.</p>
-<p>Self-Regulation என்றால் emotion-ஐ அடக்குவது அல்ல.</p>
-<p>Emotion இருக்கட்டும்; steering wheel மட்டும் அதன் கையில் போகக்கூடாது.</p>
-<h4>Classroom Example</h4>
-<p class="lead">இரண்டு மாணவர்கள் வகுப்பில் சத்தமாக வாக்குவாதம் செய்கிறார்கள்.</p>
-<p>Class முழுவதும் அவர்களைப் பார்க்கிறது.</p>
-<p>ஆசிரியரும் கத்தினால்?</p>
-<p>Room-ல் இருக்கும் emotional intensity இன்னும் அதிகரிக்கும்.</p>
-<p>Self-Regulation உள்ள ஆசிரியர் முதலில் ஒரு மூச்சை எடுத்துவிட்டு, தனது குரலைக் குறைத்து பேசுகிறார்.</p>
-<p>“இருவரும் ஒரு நிமிடம் அமைதியாக இருங்கள். இதைப் பேசித் தீர்ப்போம்.”</p>
-<p>Room-ன் volume அதிகரிக்கும்போது ஆசிரியரின் volume குறைவது பல சூழ்நிலைகளில் de-escalation-க்கு உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>3. Motivation – உள்ளார்ந்த உந்துதல்</h2><div class="lesson-body">
-<p class="lead">ஒரு ஆசிரியராக ஒவ்வொரு நாளும் ஒரே மாதிரி இருக்காது.</p>
-<p>சில நாட்கள்:</p>
-<p>மாணவர்கள் ஆர்வமாக இருப்பார்கள்.</p>
-<p>Lesson அருமையாகப் போகும்.</p>
-<p>Appreciation கிடைக்கும்.</p>
-<p>ஆனால் சில நாட்கள்:</p>
-<p>Class cooperate செய்யாது.</p>
-<p>Lesson plan வேலை செய்யாது.</p>
-<p>Parents complaint வரும்.</p>
-<p>Workload அதிகமாக இருக்கும்.</p>
-<p>அந்த நாட்களிலும்,</p>
-<p>“நான் ஏன் ஆசிரியராக இருக்கிறேன்?”</p>
-<p>என்ற purpose நம்மை தொடர்ந்து செயல்பட வைப்பதுதான் Motivation.</p>
-<h4>Reflection</h4>
-<p class="lead">நீங்கள் முதலில் teaching profession-ஐ ஏன் தேர்வு செய்தீர்கள்?</p>
-<p>ஒரே ஒரு sentence எழுதுங்கள்:</p>
-<p>“நான் ஆசிரியராக இருப்பதற்கான முக்கிய காரணம் ____________________.”</p>
-<p>கடினமான நாட்களில் இந்த sentence-ஐ மீண்டும் படியுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>4. Empathy – மாணவரின் பார்வையில் புரிந்துகொள்ளுதல்</h2><div class="lesson-body">
-<p class="lead">மாணவர் என்ன செய்கிறார் என்பதை மட்டும் பார்க்காமல்,</p>
-<p>“இந்த நடத்தைக்குப் பின்னால் என்ன இருக்கலாம்?”</p>
-<p>என்று யோசிப்பது Empathy.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு மாணவர் activity செய்ய மறுக்கிறார்.</p>
-<p>“எனக்கு வேண்டாம்.”</p>
-<p>என்று சொல்கிறார்.</p>
-<p>நாம் உடனே:</p>
-<p>“Lazy.”</p>
-<p>“Attitude problem.”</p>
-<p>“Interest இல்லை.”</p>
-<p>என்று label செய்யலாம்.</p>
-<p>ஆனால் இன்னொரு possibility:</p>
-<p>அந்த மாணவருக்கு தோல்வி பயம் இருக்கலாம்.</p>
-<p>“நான் செய்தால் தவறாகிவிடுமோ?”</p>
-<p>“எல்லோரும் என்னைப் பார்த்து சிரிப்பார்களோ?”</p>
-<p>என்று நினைத்திருக்கலாம்.</p>
-<p>Empathy உள்ள ஆசிரியர்:</p>
-<p>“முழு activity-யும் வேண்டாம். First step மட்டும் நாம் சேர்ந்து try பண்ணலாமா?”</p>
-<p>என்று approach செய்யலாம்.</p>
-</div></section>
-<section class="lesson"><h2>5. Social Skill – உறவுகளை திறம்பட கையாளுதல்</h2><div class="lesson-body">
-<p class="lead">Self-Awareness, Self-Regulation, Motivation, Empathy ஆகியவற்றை மற்றவர்களுடன் நல்ல உறவை உருவாக்க பயன்படுத்துவதுதான் Social Skill.</p>
-<p>ஒரு ஆசிரியர் ஒரு மாணவரை மட்டும் handle செய்வதில்லை.</p>
-<p>ஒரே நேரத்தில் 30 அல்லது 40 மாணவர்களின் energy-யையும் கவனிக்க வேண்டியிருக்கும்.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு நீண்ட exam முடிந்த பிறகு class-க்கு செல்கிறீர்கள்.</p>
-<p>மாணவர்கள் tired.</p>
-<p>Restless.</p>
-<p>Concentration குறைவாக இருக்கிறது.</p>
-<p>“என் lesson plan இதுதான்; எப்படியாவது முடிக்கணும்.”</p>
-<p>என்று தொடர்வதற்குப் பதிலாக,</p>
-<p>Class-ன் mood-ஐ observe செய்து pace-ஐ மாற்றுவது Social Skill.</p>
-<h4>சிறிய Practice</h4>
-<p class="lead">ஒவ்வொரு class ஆரம்பிக்கும் முன்பும் 5 seconds மட்டும் மாணவர்களைப் பாருங்கள்.</p>
-<p>“இந்த room-ன் energy இப்போ எப்படி இருக்கிறது?”</p>
-<p>என்று கவனியுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 3: PAUSE – NAME – ASK – RESPOND</h2><div class="lesson-body">
-<p class="lead">Theory தெரிந்திருப்பது மட்டும் போதாது.</p>
-<p>ஒரு மாணவர் காலை 11 மணிக்கு எல்லோருக்கும் முன்னால் நம்மை எதிர்த்துப் பேசும்போது என்ன செய்வது?</p>
-<p>அதற்காக ஒரு simple 4-step method:</p>
-<h3>PAUSE → NAME → ASK → RESPOND</h3>
-<h4>Step 1 – PAUSE</h4>
-<p class="lead">உடனே பதில் சொல்லாதீர்கள்.</p>
-<p>முடிந்தால் ஒரு slow breath எடுத்துவிட்டு, வெளியே விடும் மூச்சை கொஞ்சம் நீளமாக விடுங்கள்.</p>
-<p>ஒரு சில seconds இடைவெளி உருவாக்குங்கள்.</p>
-<p>Emotion → Pause → Response</p>
-<p>இந்தச் சிறிய gap மிகவும் முக்கியம்.</p>
-<h4>Step 2 – NAME</h4>
-<p class="lead">உங்களுக்குள் இருக்கும் emotion-க்கு பெயர் கொடுங்கள்.</p>
-<p>“இது கோபம்.”</p>
-<p>“எனக்கு embarrassment ஆகுது.”</p>
-<p>“நான் frustrated-ஆ இருக்கேன்.”</p>
-<p>மனதிற்குள் சொன்னாலே போதும்.</p>
-<h4>Step 3 – ASK</h4>
-<p class="lead">Response கொடுப்பதற்கு முன்பு உங்களையே ஒரு கேள்வி கேளுங்கள்:</p>
-<p>“இந்த மாணவருக்கு இப்போ Correction தேவையா? Connection தேவையா?”</p>
-<p>சில நேரங்களில் correction தேவைப்படும்.</p>
-<p>சில நேரங்களில் குழந்தையின் situation-ஐ முதலில் புரிந்துகொள்ள வேண்டியிருக்கும்.</p>
-<h4>Step 4 – RESPOND</h4>
-<p class="lead">இப்போது பதில் சொல்லுங்கள்.</p>
-<p>ஆனால் உங்கள் வழக்கமான வேகம் மற்றும் volume-ஐ விட மெதுவாக.</p>
-<p>குரலை உயர்த்துவதற்குப் பதிலாக குறைக்க முயற்சி செய்யுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Classroom Scenario</h2><div class="lesson-body">
-<p class="lead">ஒரு மாணவர் class-ல்:</p>
-<p>“இந்த subject-ஏ எனக்குப் பிடிக்காது!”</p>
-<p>என்று எல்லோருக்கும் முன்னால் சொல்கிறார்.</p>
-<p>உங்களுக்கு கோபம் வருகிறது.</p>
-<h4>பழைய Reaction</h4>
-<p class="lead">“பிடிக்கலைன்னா வெளியே போ!”</p>
-<h4>EQ Response</h4>
-<p class="lead">PAUSE</p>
-<p>ஒரு breath.</p>
-<p>NAME</p>
-<p>“எனக்கு irritation வருது.”</p>
-<p>ASK</p>
-<p>“Correction? Connection?”</p>
-<p>RESPOND</p>
-<p>“உனக்கு இந்த subject பிடிக்கவில்லை என்று சொல்ற. ஏன் அப்படித் தோணுது என்று class முடிந்ததும் இரண்டு நிமிடம் பேசலாம். இப்போ lesson-ஐ continue பண்ணலாம்.”</p>
-<p>இங்கு மாணவரின் behaviour-ஐ accept செய்யவில்லை.</p>
-<p>ஆனால் emotion-க்கு emotion கொடுக்காமல் situation-ஐ handle செய்கிறோம்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 4: நான் React செய்துவிட்டால்?</h2><div class="lesson-body">
-<p class="lead">ஒரு முக்கியமான விஷயம்.</p>
-<p>இந்த technique கற்றுக்கொண்ட பிறகு இனிமேல் நீங்கள் ஒருபோதும் கோபப்படமாட்டீர்கள் என்று அர்த்தம் இல்லை.</p>
-<p>சில நேரங்களில் நாம் react செய்துவிடுவோம்.</p>
-<p>குரலை உயர்த்திவிடலாம்.</p>
-<p>தேவையில்லாமல் கடுமையாகப் பேசிவிடலாம்.</p>
-<p>அப்போது,</p>
-<p>“நான் teacher. நான் ஏன் sorry சொல்ல வேண்டும்?”</p>
-<p>என்று நினைக்க வேண்டாம்.</p>
-<p>தேவைப்பட்டால் repair செய்யலாம்.</p>
-<h4>Example</h4>
-<p class="lead">“நேற்று நான் உன்னிடம் கொஞ்சம் கடுமையாகப் பேசிட்டேன். அந்த விதத்தில் பேச வேண்டியதில்லை. நாம் fresh-ஆ start பண்ணலாம்.”</p>
-<p>இது teacher authority-ஐ குறைப்பதில்லை.</p>
-<p>மாறாக மாணவர் நேரடியாக இரண்டு Life Skills-ஐ பார்க்கிறார்:</p>
-<p>Self-Regulation</p>
-<p>மற்றும்</p>
-<p>Accountability.</p>
-</div></section>
-<section class="lesson"><h2>Activity – My Emotional Trigger Map</h2><div class="lesson-body">
-<p class="lead">உங்களை அதிகமாக trigger செய்யும் classroom situations என்ன?</p>
-<h4>Trigger 1</h4>
-<p class="lead">எனக்கு வரும் emotion:
+<section class="lesson"><h2>Lesson 1: Emotional Intelligence என்றால் என்ன?</h2><div class="lesson-body"><p class="lead">Emotional Intelligence என்றால் எப்போதும் சிரித்துக்கொண்டே இருப்பது அல்ல.</p><p>கோபமே வராமல் இருப்பதும் அல்ல.</p><p>எல்லாவற்றையும் பொறுத்துக்கொள்வதும் அல்ல.</p><p>நமக்குள் என்ன உணர்வு வருகிறது என்பதை உணர்ந்து, அந்த உணர்வு நம்முடைய நடத்தையைத் தீர்மானிப்பதற்கு முன்பு சரியான response-ஐ தேர்வு செய்யும் திறன்.</p><p>உதாரணமாக:</p><p>ஒரு மாணவர் நீங்கள் பாடம் நடத்தும்போது தொடர்ந்து பேசிக்கொண்டிருக்கிறார்.</p><p>உங்களுக்கு irritation வருகிறது.</p><h4>Reaction:</h4><p class="lead">“உனக்கு எத்தனை தடவை சொல்றது? வெளியே போ!”</p><h4>Response:</h4><p class="lead">ஒரு நிமிடம் அமைதியாக இருந்து,</p><p>“நான் lesson நடத்தும்போது தொடர்ந்து பேசுவது மற்ற மாணவர்களின் learning-ஐ பாதிக்கிறது. Class முடிந்ததும் உன்னிடம் பேச வேண்டும்.”</p><p>இரண்டிலும் ஆசிரியருக்கு irritation இருக்கலாம்.</p><p>வேறுபாடு என்ன?</p><p>முதல் situation-ல் emotion response-ஐ தேர்வு செய்கிறது.</p><p>இரண்டாவது situation-ல் ஆசிரியர் response-ஐ தேர்வு செய்கிறார்.</p><p>அதுதான் Emotional Intelligence.</p></div></section>
+<section class="lesson"><h2>Lesson 2: EQ-ன் 5 முக்கிய பகுதிகள்</h2><div class="lesson-body"><p class="lead">Emotional Intelligence-ஐ ஐந்து முக்கியமான திறன்களாகப் புரிந்துகொள்ளலாம்.</p><h3>1. Self-Awareness – சுய விழிப்புணர்வு</h3><p class="lead">நம்முடைய emotion உருவாகும்போதே அதை கவனிக்கும் திறன்.</p><p>பல நேரங்களில் நாம்,</p><p>“நான் ஏன் அப்படி பேசினேன்?”</p><p>என்று சம்பவம் முடிந்த பிறகு யோசிக்கிறோம்.</p><p>Self-Awareness வளரும்போது,</p><p>“எனக்கு இப்போ frustration அதிகமாகுது.”</p><p>என்பதை அந்த நேரத்திலேயே கவனிக்க ஆரம்பிப்போம்.</p><h4>Classroom Example</h4><p class="lead">நீங்கள் test papers திருத்துகிறீர்கள்.</p><p>பல மாணவர்கள் குறைந்த மதிப்பெண் எடுத்திருக்கிறார்கள்.</p><p>உங்களுக்குள்:</p><p>“இவ்வளவு சொல்லிக் கொடுத்தும் இப்படி எழுதியிருக்காங்களே!”</p><p>என்ற frustration வருகிறது.</p><p>அந்த நேரத்தில் ஒரு மாணவர் வந்து:</p><p>“Ma’am/Sir, இந்த answer எப்படி எழுதணும்?”</p><p>என்று கேட்கிறார்.</p><p>Self-Awareness இல்லையென்றால் முதல் மாணவர்களின் marks காரணமாக வந்த frustration இந்த மாணவரிடம் வெளிப்படலாம்.</p><p>Self-Awareness இருந்தால்:</p><p>“நான் இப்போ frustrated-ஆ இருக்கிறேன். இந்தக் குழந்தை அதற்குக் காரணம் இல்லை.”</p><p>என்று நம்மை நாமே கவனிக்க முடியும்.</p><h4>Practice</h4><p class="lead">பள்ளி நேரத்தில் மூன்று முறை உங்களையே கேளுங்கள்:</p><p>“இப்போ நான் என்ன emotion feel பண்ணிக்கிட்டு இருக்கேன்?”</p><p>ஒரே ஒரு வார்த்தையில் பெயரிடுங்கள்.</p><p>Happy.</p><p>Calm.</p><p>Tired.</p><p>Frustrated.</p><p>Worried.</p><p>Angry.</p><p>Excited.</p></div></section>
+<section class="lesson"><h2>2. Self-Regulation – சுய கட்டுப்பாடு</h2><div class="lesson-body"><p class="lead">Emotion-ஐ உணர்வது Self-Awareness.</p><p>அந்த emotion வந்த பிறகு எப்படி நடக்க வேண்டும் என்பதைத் தேர்வு செய்வது Self-Regulation.</p><p>Self-Regulation என்றால் emotion-ஐ அடக்குவது அல்ல.</p><p>Emotion இருக்கட்டும்; steering wheel மட்டும் அதன் கையில் போகக்கூடாது.</p><h4>Classroom Example</h4><p class="lead">இரண்டு மாணவர்கள் வகுப்பில் சத்தமாக வாக்குவாதம் செய்கிறார்கள்.</p><p>Class முழுவதும் அவர்களைப் பார்க்கிறது.</p><p>ஆசிரியரும் கத்தினால்?</p><p>Room-ல் இருக்கும் emotional intensity இன்னும் அதிகரிக்கும்.</p><p>Self-Regulation உள்ள ஆசிரியர் முதலில் ஒரு மூச்சை எடுத்துவிட்டு, தனது குரலைக் குறைத்து பேசுகிறார்.</p><p>“இருவரும் ஒரு நிமிடம் அமைதியாக இருங்கள். இதைப் பேசித் தீர்ப்போம்.”</p><p>Room-ன் volume அதிகரிக்கும்போது ஆசிரியரின் volume குறைவது பல சூழ்நிலைகளில் de-escalation-க்கு உதவும்.</p></div></section>
+<section class="lesson"><h2>3. Motivation – உள்ளார்ந்த உந்துதல்</h2><div class="lesson-body"><p class="lead">ஒரு ஆசிரியராக ஒவ்வொரு நாளும் ஒரே மாதிரி இருக்காது.</p><p>சில நாட்கள்:</p><p>மாணவர்கள் ஆர்வமாக இருப்பார்கள்.</p><p>Lesson அருமையாகப் போகும்.</p><p>Appreciation கிடைக்கும்.</p><p>ஆனால் சில நாட்கள்:</p><p>Class cooperate செய்யாது.</p><p>Lesson plan வேலை செய்யாது.</p><p>Parents complaint வரும்.</p><p>Workload அதிகமாக இருக்கும்.</p><p>அந்த நாட்களிலும்,</p><p>“நான் ஏன் ஆசிரியராக இருக்கிறேன்?”</p><p>என்ற purpose நம்மை தொடர்ந்து செயல்பட வைப்பதுதான் Motivation.</p><h4>Reflection</h4><p class="lead">நீங்கள் முதலில் teaching profession-ஐ ஏன் தேர்வு செய்தீர்கள்?</p><p>ஒரே ஒரு sentence எழுதுங்கள்:</p><p>“நான் ஆசிரியராக இருப்பதற்கான முக்கிய காரணம் ____________________.”</p><p>கடினமான நாட்களில் இந்த sentence-ஐ மீண்டும் படியுங்கள்.</p></div></section>
+<section class="lesson"><h2>4. Empathy – மாணவரின் பார்வையில் புரிந்துகொள்ளுதல்</h2><div class="lesson-body"><p class="lead">மாணவர் என்ன செய்கிறார் என்பதை மட்டும் பார்க்காமல்,</p><p>“இந்த நடத்தைக்குப் பின்னால் என்ன இருக்கலாம்?”</p><p>என்று யோசிப்பது Empathy.</p><h4>Example</h4><p class="lead">ஒரு மாணவர் activity செய்ய மறுக்கிறார்.</p><p>“எனக்கு வேண்டாம்.”</p><p>என்று சொல்கிறார்.</p><p>நாம் உடனே:</p><p>“Lazy.”</p><p>“Attitude problem.”</p><p>“Interest இல்லை.”</p><p>என்று label செய்யலாம்.</p><p>ஆனால் இன்னொரு possibility:</p><p>அந்த மாணவருக்கு தோல்வி பயம் இருக்கலாம்.</p><p>“நான் செய்தால் தவறாகிவிடுமோ?”</p><p>“எல்லோரும் என்னைப் பார்த்து சிரிப்பார்களோ?”</p><p>என்று நினைத்திருக்கலாம்.</p><p>Empathy உள்ள ஆசிரியர்:</p><p>“முழு activity-யும் வேண்டாம். First step மட்டும் நாம் சேர்ந்து try பண்ணலாமா?”</p><p>என்று approach செய்யலாம்.</p></div></section>
+<section class="lesson"><h2>5. Social Skill – உறவுகளை திறம்பட கையாளுதல்</h2><div class="lesson-body"><p class="lead">Self-Awareness, Self-Regulation, Motivation, Empathy ஆகியவற்றை மற்றவர்களுடன் நல்ல உறவை உருவாக்க பயன்படுத்துவதுதான் Social Skill.</p><p>ஒரு ஆசிரியர் ஒரு மாணவரை மட்டும் handle செய்வதில்லை.</p><p>ஒரே நேரத்தில் 30 அல்லது 40 மாணவர்களின் energy-யையும் கவனிக்க வேண்டியிருக்கும்.</p><h4>Example</h4><p class="lead">ஒரு நீண்ட exam முடிந்த பிறகு class-க்கு செல்கிறீர்கள்.</p><p>மாணவர்கள் tired.</p><p>Restless.</p><p>Concentration குறைவாக இருக்கிறது.</p><p>“என் lesson plan இதுதான்; எப்படியாவது முடிக்கணும்.”</p><p>என்று தொடர்வதற்குப் பதிலாக,</p><p>Class-ன் mood-ஐ observe செய்து pace-ஐ மாற்றுவது Social Skill.</p><h4>சிறிய Practice</h4><p class="lead">ஒவ்வொரு class ஆரம்பிக்கும் முன்பும் 5 seconds மட்டும் மாணவர்களைப் பாருங்கள்.</p><p>“இந்த room-ன் energy இப்போ எப்படி இருக்கிறது?”</p><p>என்று கவனியுங்கள்.</p></div></section>
+<section class="lesson"><h2>Lesson 3: PAUSE – NAME – ASK – RESPOND</h2><div class="lesson-body"><p class="lead">Theory தெரிந்திருப்பது மட்டும் போதாது.</p><p>ஒரு மாணவர் காலை 11 மணிக்கு எல்லோருக்கும் முன்னால் நம்மை எதிர்த்துப் பேசும்போது என்ன செய்வது?</p><p>அதற்காக ஒரு simple 4-step method:</p><h3>PAUSE → NAME → ASK → RESPOND</h3><h4>Step 1 – PAUSE</h4><p class="lead">உடனே பதில் சொல்லாதீர்கள்.</p><p>முடிந்தால் ஒரு slow breath எடுத்துவிட்டு, வெளியே விடும் மூச்சை கொஞ்சம் நீளமாக விடுங்கள்.</p><p>ஒரு சில seconds இடைவெளி உருவாக்குங்கள்.</p><p>Emotion → Pause → Response</p><p>இந்தச் சிறிய gap மிகவும் முக்கியம்.</p><h4>Step 2 – NAME</h4><p class="lead">உங்களுக்குள் இருக்கும் emotion-க்கு பெயர் கொடுங்கள்.</p><p>“இது கோபம்.”</p><p>“எனக்கு embarrassment ஆகுது.”</p><p>“நான் frustrated-ஆ இருக்கேன்.”</p><p>மனதிற்குள் சொன்னாலே போதும்.</p><h4>Step 3 – ASK</h4><p class="lead">Response கொடுப்பதற்கு முன்பு உங்களையே ஒரு கேள்வி கேளுங்கள்:</p><p>“இந்த மாணவருக்கு இப்போ Correction தேவையா? Connection தேவையா?”</p><p>சில நேரங்களில் correction தேவைப்படும்.</p><p>சில நேரங்களில் குழந்தையின் situation-ஐ முதலில் புரிந்துகொள்ள வேண்டியிருக்கும்.</p><h4>Step 4 – RESPOND</h4><p class="lead">இப்போது பதில் சொல்லுங்கள்.</p><p>ஆனால் உங்கள் வழக்கமான வேகம் மற்றும் volume-ஐ விட மெதுவாக.</p><p>குரலை உயர்த்துவதற்குப் பதிலாக குறைக்க முயற்சி செய்யுங்கள்.</p></div></section>
+<section class="lesson"><h2>Classroom Scenario</h2><div class="lesson-body"><p class="lead">ஒரு மாணவர் class-ல்:</p><p>“இந்த subject-ஏ எனக்குப் பிடிக்காது!”</p><p>என்று எல்லோருக்கும் முன்னால் சொல்கிறார்.</p><p>உங்களுக்கு கோபம் வருகிறது.</p><h4>பழைய Reaction</h4><p class="lead">“பிடிக்கலைன்னா வெளியே போ!”</p><h4>EQ Response</h4><p class="lead">PAUSE</p><p>ஒரு breath.</p><p>NAME</p><p>“எனக்கு irritation வருது.”</p><p>ASK</p><p>“Correction? Connection?”</p><p>RESPOND</p><p>“உனக்கு இந்த subject பிடிக்கவில்லை என்று சொல்ற. ஏன் அப்படித் தோணுது என்று class முடிந்ததும் இரண்டு நிமிடம் பேசலாம். இப்போ lesson-ஐ continue பண்ணலாம்.”</p><p>இங்கு மாணவரின் behaviour-ஐ accept செய்யவில்லை.</p><p>ஆனால் emotion-க்கு emotion கொடுக்காமல் situation-ஐ handle செய்கிறோம்.</p></div></section>
+<section class="lesson"><h2>Lesson 4: நான் React செய்துவிட்டால்?</h2><div class="lesson-body"><p class="lead">ஒரு முக்கியமான விஷயம்.</p><p>இந்த technique கற்றுக்கொண்ட பிறகு இனிமேல் நீங்கள் ஒருபோதும் கோபப்படமாட்டீர்கள் என்று அர்த்தம் இல்லை.</p><p>சில நேரங்களில் நாம் react செய்துவிடுவோம்.</p><p>குரலை உயர்த்திவிடலாம்.</p><p>தேவையில்லாமல் கடுமையாகப் பேசிவிடலாம்.</p><p>அப்போது,</p><p>“நான் teacher. நான் ஏன் sorry சொல்ல வேண்டும்?”</p><p>என்று நினைக்க வேண்டாம்.</p><p>தேவைப்பட்டால் repair செய்யலாம்.</p><h4>Example</h4><p class="lead">“நேற்று நான் உன்னிடம் கொஞ்சம் கடுமையாகப் பேசிட்டேன். அந்த விதத்தில் பேச வேண்டியதில்லை. நாம் fresh-ஆ start பண்ணலாம்.”</p><p>இது teacher authority-ஐ குறைப்பதில்லை.</p><p>மாறாக மாணவர் நேரடியாக இரண்டு Life Skills-ஐ பார்க்கிறார்:</p><p>Self-Regulation</p><p>மற்றும்</p><p>Accountability.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – My Emotional Trigger Map</h2><div class="lesson-body"><div class="activity-field" data-key="m2-i10-f1">
+  <p class="act-label">உங்களை அதிகமாக trigger செய்யும் classroom situations என்ன?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m2-i10-f2">
+  <p class="act-label">Trigger 1 — எனக்கு வரும் emotion:
 ________________________</p>
-<p>என் வழக்கமான reaction:
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">என் வழக்கமான reaction:
+________________________</p><p class="section-note ">இனி நான் தேர்வு செய்ய விரும்பும் response:
+________________________</p><div class="activity-field" data-key="m2-i10-f3">
+  <p class="act-label">Trigger 2 — Emotion:
 ________________________</p>
-<p>இனி நான் தேர்வு செய்ய விரும்பும் response:
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Usual Reaction:
+________________________</p><p class="section-note ">Better Response:
+________________________</p><div class="activity-field" data-key="m2-i10-f4">
+  <p class="act-label">Trigger 3 — Emotion:
 ________________________</p>
-<h4>Trigger 2</h4>
-<p class="lead">Emotion:
-________________________</p>
-<p>Usual Reaction:
-________________________</p>
-<p>Better Response:
-________________________</p>
-<h4>Trigger 3</h4>
-<p class="lead">Emotion:
-________________________</p>
-<p>Usual Reaction:
-________________________</p>
-<p>Better Response:
-________________________</p>
-</div></section>
-<section class="lesson"><h2>7-Day EQ Challenge</h2><div class="lesson-body">
-<p class="lead">அடுத்த 7 நாட்களுக்கு ஒரு simple practice.</p>
-<p>ஒரு difficult classroom moment வந்தால்:</p>
-<p>PAUSE</p>
-<p>NAME</p>
-<p>ASK</p>
-<p>RESPOND</p>
-<p>இந்த நான்கு steps-ஐ முயற்சி செய்யுங்கள்.</p>
-<p>ஒவ்வொரு நாள் முடிவிலும்:</p>
-<p>இன்று எந்த situation-ல் நான் pause செய்தேன்?</p>
-<p class="lead">என்ன emotion?</p>
-<p class="lead">நான் எப்படி respond செய்தேன்?</p>
-<p class="lead">மீண்டும் நடந்தால் என்ன மாற்றுவேன்?</p>
-</div></section>
-<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
-<p class="lead">EQ-ன் ஐந்து பகுதிகளில்:</p>
-<p>Self-Awareness</p>
-<p>Self-Regulation</p>
-<p>Motivation</p>
-<p>Empathy</p>
-<p>Social Skill</p>
-<h4>எனக்கு இயல்பாக வரும் திறன்:</h4>
-<h4>நான் அதிகமாக மேம்படுத்த வேண்டிய திறன்:</h4>
-<h4>எந்த student/class-ல் இதை practice செய்யப் போகிறேன்?</h4>
-</div></section>
-<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">Emotional Intelligence என்றால் என்ன?</p>
-<p>A. Emotion வராமல் இருப்பது
-B. எப்போதும் calm-ஆ இருப்பது
-C. Emotion-ஐ உணர்ந்து சரியான response-ஐ தேர்வு செய்வது
-D. Emotion-ஐ மறைப்பது</p>
-<p>Correct Answer: C</p>
-<h4>Question 2</h4>
-<p class="lead">Emotion உருவாகும்போதே அதை கவனிப்பது?</p>
-<p>A. Motivation
-B. Self-Awareness
-C. Social Skill
-D. Problem-Solving</p>
-<p>Correct Answer: B</p>
-<h4>Question 3</h4>
-<p class="lead">Self-Regulation என்றால்?</p>
-<p>A. கோபமே வராமல் இருப்பது
-B. Emotion-ஐ மறைப்பது
-C. Emotion வந்தாலும் response-ஐ நாம் தேர்வு செய்வது
-D. மற்றவர்களை மாற்றுவது</p>
-<p>Correct Answer: C</p>
-<h4>Question 4</h4>
-<p class="lead">PAUSE – NAME – ASK – RESPOND முறையில் ASK என்பது?</p>
-<p>A. மாணவரிடம் உடனே காரணம் கேட்பது
-B. Principal-ஐ கேட்பது
-C. “Correction தேவையா? Connection தேவையா?” என்று நம்மையே கேட்பது
-D. மற்ற ஆசிரியரிடம் கேட்பது</p>
-<p>Correct Answer: C</p>
-<h4>Question 5</h4>
-<p class="lead">ஒரு மாணவரின் behaviour-க்கு பின்னால் இருக்கும் emotion அல்லது காரணத்தைப் புரிந்துகொள்ள முயற்சிப்பது?</p>
-<p>A. Motivation
-B. Empathy
-C. Time Management
-D. Decision-Making</p>
-<p>Correct Answer: B</p>
-</div></section>
-<section class="lesson"><h2>Module 2 – முக்கிய Takeaways</h2><div class="lesson-body">
-<p class="lead">1. EQ-க்கு ஐந்து முக்கிய பகுதிகள் உள்ளன.</p>
-<p>Self-Awareness, Self-Regulation, Motivation, Empathy மற்றும் Social Skill.</p>
-<p>2. Self-Awareness தான் முதல் படி.</p>
-<p>நாம் கவனிக்காத emotion-ஐ regulate செய்ய முடியாது.</p>
-<p>3. PAUSE → NAME → ASK → RESPOND</p>
-<p>ஒரு difficult classroom moment-ல் உடனடி reaction-ஐ தவிர்த்து, thoughtful response கொடுக்க இந்த நான்கு steps உதவும்.</p>
-<p>4. தவறாக react செய்துவிட்டால் repair செய்யலாம்.</p>
-<p>ஒரு நேர்மையான correction மற்றும் fresh start கூட மாணவர்களுக்கு accountability-ஐ model செய்யும்.</p>
-</div></section>
-<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“என் உணர்ச்சிகளை மறைக்காமல் அவற்றை உணர்ந்து, என் உணர்ச்சிகள் என்னுடைய நடத்தையைத் தீர்மானிப்பதற்கு முன்பு என் response-ஐ நான் தேர்வு செய்யப் பழகுவேன்.”</p>
-<h4>Module 2 Complete ✓</h4>
-<h3>அடுத்த Module</h3>
-<h4>மனஅழுத்தம் &amp; கோப மேலாண்மை</h4>
-<p class="lead">Stress &amp; Anger Management</p>
-<p>ஆசிரியர்களுக்கு stress எங்கிருந்து வருகிறது?</p>
-<p>Burnout எப்படி மெதுவாக உருவாகிறது?</p>
-<p>கோபம் வெடிப்பதற்கு முன்பே உடல் கொடுக்கும் warning signs என்ன?</p>
-<p>Classroom-ல் உடனடியாக பயன்படுத்தக்கூடிய reset techniques என்ன?</p>
-<p>அடுத்த Module-ல் பார்க்கலாம்.</p>
-</div></section>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Usual Reaction:
+________________________</p><p class="section-note ">Better Response:
+________________________</p></div></section>
+<section class="lesson interactive-section"><h2>📝 7-Day EQ Challenge</h2><div class="lesson-body"><p class="section-note lead">அடுத்த 7 நாட்களுக்கு ஒரு simple practice.</p><p class="section-note ">ஒரு difficult classroom moment வந்தால்:</p><p class="section-note ">PAUSE</p><p class="section-note ">NAME</p><p class="section-note ">ASK</p><p class="section-note ">RESPOND</p><p class="section-note ">இந்த நான்கு steps-ஐ முயற்சி செய்யுங்கள்.</p><p class="section-note ">ஒவ்வொரு நாள் முடிவிலும்:</p><div class="activity-field" data-key="m2-i11-f1">
+  <p class="act-label">இன்று எந்த situation-ல் நான் pause செய்தேன்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m2-i11-f2">
+  <p class="act-label">என்ன emotion?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m2-i11-f3">
+  <p class="act-label">நான் எப்படி respond செய்தேன்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m2-i11-f4">
+  <p class="act-label">மீண்டும் நடந்தால் என்ன மாற்றுவேன்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Reflection</h2><div class="lesson-body"><p class="section-note lead">EQ-ன் ஐந்து பகுதிகளில்:</p><p class="section-note ">Self-Awareness</p><p class="section-note ">Self-Regulation</p><p class="section-note ">Motivation</p><p class="section-note ">Empathy</p><p class="section-note ">Social Skill</p><div class="activity-field" data-key="m2-i12-f1">
+  <p class="act-label">எனக்கு இயல்பாக வரும் திறன்:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m2-i12-f2">
+  <p class="act-label">நான் அதிகமாக மேம்படுத்த வேண்டிய திறன்:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m2-i12-f3">
+  <p class="act-label">எந்த student/class-ல் இதை practice செய்யப் போகிறேன்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m2-quiz13">
+      <div class="quiz-question" data-correct="2">
+  <p class="q-text">1. Emotional Intelligence என்றால் என்ன?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m2quiz13q1" value="0"> Emotion வராமல் இருப்பது</label><label class="q-option"><input type="radio" name="m2quiz13q1" value="1"> எப்போதும் calm-ஆ இருப்பது</label><label class="q-option"><input type="radio" name="m2quiz13q1" value="2"> Emotion-ஐ உணர்ந்து சரியான response-ஐ தேர்வு செய்வது</label><label class="q-option"><input type="radio" name="m2quiz13q1" value="3"> Emotion-ஐ மறைப்பது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">2. Emotion உருவாகும்போதே அதை கவனிப்பது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m2quiz13q2" value="0"> Motivation</label><label class="q-option"><input type="radio" name="m2quiz13q2" value="1"> Self-Awareness</label><label class="q-option"><input type="radio" name="m2quiz13q2" value="2"> Social Skill</label><label class="q-option"><input type="radio" name="m2quiz13q2" value="3"> Problem-Solving</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">3. Self-Regulation என்றால்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m2quiz13q3" value="0"> கோபமே வராமல் இருப்பது</label><label class="q-option"><input type="radio" name="m2quiz13q3" value="1"> Emotion-ஐ மறைப்பது</label><label class="q-option"><input type="radio" name="m2quiz13q3" value="2"> Emotion வந்தாலும் response-ஐ நாம் தேர்வு செய்வது</label><label class="q-option"><input type="radio" name="m2quiz13q3" value="3"> மற்றவர்களை மாற்றுவது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">4. PAUSE – NAME – ASK – RESPOND முறையில் ASK என்பது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m2quiz13q4" value="0"> மாணவரிடம் உடனே காரணம் கேட்பது</label><label class="q-option"><input type="radio" name="m2quiz13q4" value="1"> Principal-ஐ கேட்பது</label><label class="q-option"><input type="radio" name="m2quiz13q4" value="2"> “Correction தேவையா? Connection தேவையா?” என்று நம்மையே கேட்பது</label><label class="q-option"><input type="radio" name="m2quiz13q4" value="3"> மற்ற ஆசிரியரிடம் கேட்பது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">5. ஒரு மாணவரின் behaviour-க்கு பின்னால் இருக்கும் emotion அல்லது காரணத்தைப் புரிந்துகொள்ள முயற்சிப்பது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m2quiz13q5" value="0"> Motivation</label><label class="q-option"><input type="radio" name="m2quiz13q5" value="1"> Empathy</label><label class="q-option"><input type="radio" name="m2quiz13q5" value="2"> Time Management</label><label class="q-option"><input type="radio" name="m2quiz13q5" value="3"> Decision-Making</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>Module 2 – முக்கிய Takeaways</h2><div class="lesson-body"><p class="lead">1. EQ-க்கு ஐந்து முக்கிய பகுதிகள் உள்ளன.</p><p>Self-Awareness, Self-Regulation, Motivation, Empathy மற்றும் Social Skill.</p><p>2. Self-Awareness தான் முதல் படி.</p><p>நாம் கவனிக்காத emotion-ஐ regulate செய்ய முடியாது.</p><p>3. PAUSE → NAME → ASK → RESPOND</p><p>ஒரு difficult classroom moment-ல் உடனடி reaction-ஐ தவிர்த்து, thoughtful response கொடுக்க இந்த நான்கு steps உதவும்.</p><p>4. தவறாக react செய்துவிட்டால் repair செய்யலாம்.</p><p>ஒரு நேர்மையான correction மற்றும் fresh start கூட மாணவர்களுக்கு accountability-ஐ model செய்யும்.</p></div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“என் உணர்ச்சிகளை மறைக்காமல் அவற்றை உணர்ந்து, என் உணர்ச்சிகள் என்னுடைய நடத்தையைத் தீர்மானிப்பதற்கு முன்பு என் response-ஐ நான் தேர்வு செய்யப் பழகுவேன்.”</p><h4>Module 2 Complete ✓</h4><h3>அடுத்த Module</h3><h4>மனஅழுத்தம் &amp; கோப மேலாண்மை</h4><p class="lead">Stress &amp; Anger Management</p><p>ஆசிரியர்களுக்கு stress எங்கிருந்து வருகிறது?</p><p>Burnout எப்படி மெதுவாக உருவாகிறது?</p><p>கோபம் வெடிப்பதற்கு முன்பே உடல் கொடுக்கும் warning signs என்ன?</p><p>Classroom-ல் உடனடியாக பயன்படுத்தக்கூடிய reset techniques என்ன?</p><p>அடுத்த Module-ல் பார்க்கலாம்.</p></div></section>
 </div>
 
 <div class="complete-bar">
@@ -612,6 +477,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 2;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

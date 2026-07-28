@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -258,209 +324,81 @@ footer a:hover{color:var(--gold-light);}
 <p>ஆனால் ஒரு சிறந்த ஆசிரியர், மாணவர்களுக்கு பாடத்தை மட்டும் கற்றுக்கொடுப்பதில்லை.</p>
 <p>வாழ்க்கையை எப்படி எதிர்கொள்வது என்பதையும் தனது நடத்தையின் மூலம் கற்றுக்கொடுக்கிறார்.</p>
 <p>அதற்குத்தான் Life Skills மிகவும் முக்கியம்.</p>
-<section class="lesson"><h2>Lesson 1: Life Skills என்றால் என்ன?</h2><div class="lesson-body">
-<p class="lead">Life Skills என்றால் தேர்வுக்குப் படிக்க வேண்டிய இன்னொரு subject கிடையாது.</p>
-<p>நம்முடைய அன்றாட வாழ்க்கையில் வரும் சவால்கள், பிரச்சினைகள், உணர்ச்சிகள், உறவுகள் மற்றும் முடிவுகளை ஆரோக்கியமான முறையில் கையாள உதவும் திறன்கள்தான் Life Skills – வாழ்க்கைத் திறன்கள்.</p>
-<p>உதாரணமாக:</p>
-<p>ஒருவர் நம்மை விமர்சிக்கும்போது எப்படி எதிர்கொள்கிறோம்?</p>
-<p>கோபம் வரும்போது உடனே கத்துகிறோமா அல்லது யோசித்துப் பேசுகிறோமா?</p>
-<p>ஒரு பிரச்சினை வந்தால் பதற்றப்படுகிறோமா அல்லது தீர்வைத் தேடுகிறோமா?</p>
-<p>மற்றவர்களின் உணர்வுகளைப் புரிந்துகொள்கிறோமா?</p>
-<p>சரியான முடிவை எப்படித் தேர்வு செய்கிறோம்?</p>
-<p>இவை அனைத்தும் Life Skills.</p>
-<h3>ஆசிரியர்களுக்கு இது ஏன் முக்கியம்?</h3>
-<p class="lead">ஒரு ஆசிரியர் ஒரு நாளில் பாடம் மட்டும் நடத்துவதில்லை.</p>
-<p>மாணவர்களுடன் பேசுகிறார்.</p>
-<p>பிரச்சினைகளைத் தீர்க்கிறார்.</p>
-<p>மாணவர்களின் நடத்தையைச் சமாளிக்கிறார்.</p>
-<p>பெற்றோருடன் பேசுகிறார்.</p>
-<p>சக ஆசிரியர்களுடன் இணைந்து பணியாற்றுகிறார்.</p>
-<p>மனஅழுத்தத்தையும் நேர அழுத்தத்தையும் சமாளிக்கிறார்.</p>
-<p>பல முடிவுகளை எடுக்கிறார்.</p>
-<p>அதனால் Life Skills என்பது ஆசிரியர்களுக்கு கூடுதல் திறன் அல்ல.</p>
-<p>அது ஆசிரியர் பணியின் அடிப்படைத் திறன்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 2: 10 முக்கிய Life Skills</h2><div class="lesson-body">
-<p class="lead">இந்தப் பயிற்சியின் அடித்தளமாக 10 முக்கிய வாழ்க்கைத் திறன்களைப் பார்க்கிறோம்.</p>
-<h4>1. Self-Awareness – சுய விழிப்புணர்வு</h4>
-<p class="lead">நம்முடைய எண்ணங்கள், உணர்ச்சிகள், தேவைகள் மற்றும் பழக்கமான எதிர்வினைகளை நாமே உணர்ந்து கொள்வது.</p>
-<p>உதாரணம்:</p>
-<p>ஒரு மாணவர் தொடர்ந்து பேசிக்கொண்டிருக்கிறார்.</p>
-<p>உடனே,</p>
-<p>“எத்தனை தடவை சொல்றது?”</p>
-<p>என்று கோபப்படுவதற்கு முன்பு,</p>
-<p>“எனக்கு இப்போ irritation அதிகமாகுது.”</p>
-<p>என்று நம்முடைய உணர்ச்சியை நாமே கவனிப்பது Self-Awareness.</p>
-<h4>2. Empathy – பிறரின் உணர்வைப் புரிந்துகொள்ளுதல்</h4>
-<p class="lead">ஒருவரின் நடத்தையை மட்டும் பார்க்காமல், அந்த நடத்தைக்குப் பின்னால் என்ன உணர்வு இருக்கலாம் என்பதைப் புரிந்துகொள்ள முயற்சிப்பது.</p>
-<p>வழக்கமாக நன்றாகப் பேசும் ஒரு மாணவர் ஒரு வாரமாக அமைதியாக இருக்கிறார்.</p>
-<p>“இவனுக்கு என்ன ஆச்சு? கவனமே இல்லை.”</p>
-<p>என்று முடிவு செய்வதற்குப் பதிலாக,</p>
-<p>“இந்தக் குழந்தைக்கு ஏதாவது பிரச்சினை இருக்குமா?”</p>
-<p>என்று யோசிப்பது Empathy.</p>
-<h4>3. Critical Thinking – விமர்சன சிந்தனை</h4>
-<p class="lead">ஒரு விஷயத்தை உடனடியாக நம்பாமல் அல்லது முடிவு செய்யாமல், தகவல்கள் மற்றும் காரணங்களை ஆராய்ந்து பார்ப்பது.</p>
-<p>ஒரு மாணவர் குறைந்த மதிப்பெண் எடுத்திருக்கிறார்.</p>
-<p>“அவன் படிக்கவே இல்லை.”</p>
-<p>என்று உடனே முடிவு செய்யாமல்,</p>
-<p>“பாடம் புரியவில்லையா?”</p>
-<p>“படிக்கும் முறை சரியில்லையா?”</p>
-<p>“வேறு ஏதாவது சிரமம் இருக்கிறதா?”</p>
-<p>என்று பல காரணங்களை ஆராய்வது Critical Thinking.</p>
-<h4>4. Creative Thinking – படைப்பாற்றல் சிந்தனை</h4>
-<p class="lead">ஒரே பிரச்சினைக்கு ஒரே வழியை மட்டும் பயன்படுத்தாமல், வேறு அணுகுமுறைகளையும் முயற்சி செய்வது.</p>
-<p>ஒரு topic-ஐ ஆசிரியர் விளக்குகிறார்.</p>
-<p>மாணவர்களுக்கு புரியவில்லை.</p>
-<p>அதே explanation-ஐ இன்னும் மூன்று முறை சொல்வதற்குப் பதிலாக,</p>
-<p>ஒரு கதை,</p>
-<p>ஒரு படம்,</p>
-<p>ஒரு activity,</p>
-<p>ஒரு real-life example</p>
-<p>மூலம் விளக்குவது Creative Thinking.</p>
-<h4>5. Decision-Making – முடிவெடுக்கும் திறன்</h4>
-<p class="lead">பல வாய்ப்புகளில் சூழ்நிலைக்கு ஏற்ற சரியான தேர்வை செய்வது.</p>
-<p>ஒரு மாணவர் ஆசிரியரிடம் மரியாதையில்லாமல் பேசிவிட்டார்.</p>
-<p>உடனே எல்லோருக்கும் முன்னால் கண்டிப்பதா?</p>
-<p>தனியாக அழைத்துப் பேசுவதா?</p>
-<p>முதலில் காரணத்தைக் கேட்பதா?</p>
-<p>ஒவ்வொரு தேர்வுக்கும் ஒரு விளைவு இருக்கும்.</p>
-<p>அதை யோசித்து முடிவு செய்வதுதான் Decision-Making.</p>
-<h4>6. Problem-Solving – பிரச்சினை தீர்க்கும் திறன்</h4>
-<p class="lead">ஒரு பிரச்சினையை வெறும் புகாராகப் பார்க்காமல் அதன் காரணத்தைப் புரிந்துகொண்டு தீர்வு காண்பது.</p>
-<p>ஒரு மாணவர் தினமும் தாமதமாக வருகிறார்.</p>
-<p>தினமும் தண்டனை கொடுப்பது மட்டும் Problem-Solving அல்ல.</p>
-<p>முதலில்:</p>
-<p>உண்மையான பிரச்சினை என்ன?</p>
-<p>இதுவரை என்ன முயற்சி செய்தோம்?</p>
-<p>வேறு என்ன செய்யலாம்?</p>
-<p>அடுத்த சிறிய நடவடிக்கை என்ன?</p>
-<p>என்று ஆராய வேண்டும்.</p>
-<h4>7. Effective Communication – பயனுள்ள தகவல் தொடர்பு</h4>
-<p class="lead">நாம் நினைப்பதை மற்றவர் தெளிவாகப் புரிந்துகொள்ளும் வகையில் பேசுவதும், மற்றவர் பேசுவதை கவனமாகக் கேட்பதும் Communication Skill.</p>
-<p>குறிப்பாக மாணவர்களுக்கு instruction கொடுக்கும்போது,</p>
-<p>நீண்ட விளக்கம் கொடுப்பதைவிட,</p>
-<p>Step 1 → Step 2 → Step 3</p>
-<p>என்று தெளிவாகச் சொல்லுவது பயனுள்ளதாக இருக்கும்.</p>
-<h4>8. Interpersonal Relationships – நல்ல மனித உறவுகள்</h4>
-<p class="lead">மாணவர்கள், பெற்றோர் மற்றும் சக ஆசிரியர்களுடன் நம்பிக்கையான, ஆரோக்கியமான உறவை உருவாக்கும் திறன்.</p>
-<p>ஒரு எளிய பழக்கம்:</p>
-<p>ஒவ்வொரு நாளும் மாணவர்களை பெயர் சொல்லி வரவேற்கவும்.</p>
-<p>“Good morning, Kavin.”</p>
-<p>“Good morning, Priya.”</p>
-<p>இது சில விநாடிகள்தான்.</p>
-<p>ஆனால் தொடர்ந்து செய்வதால் மாணவருக்கும் ஆசிரியருக்கும் இடையே நல்ல rapport உருவாகும்.</p>
-<h4>9. Coping with Stress – மனஅழுத்தத்தை கையாளுதல்</h4>
-<p class="lead">Stress வரவே கூடாது என்பதல்ல நோக்கம்.</p>
-<p>Stress அதிகரிக்கும்போது அதை உணர்ந்து, அது நம்மை கட்டுப்படுத்துவதற்கு முன்பு சரியான முறையில் கையாளக் கற்றுக்கொள்வதுதான் முக்கியம்.</p>
-<p>Back-to-back classes இருக்கும் நாளில் இரண்டு classes இடையே இரண்டு நிமிடங்கள் அமைதியாக இருப்பதுகூட ஒரு சிறிய recovery habit ஆக இருக்கலாம்.</p>
-<h4>10. Coping with Emotions – உணர்ச்சிகளை கையாளுதல்</h4>
-<p class="lead">கோபம், ஏமாற்றம், வருத்தம் போன்ற உணர்ச்சிகள் வருவது இயல்பு.</p>
-<p>ஆனால்,</p>
-<p>“எனக்கு கோபம் வந்துவிட்டது; அதனால் நான் எப்படி வேண்டுமானாலும் பேசலாம்”</p>
-<p>என்பது Emotional Management அல்ல.</p>
-<p>உணர்ச்சியை உணர்ந்து,</p>
-<p>“இந்த emotion என்ன சொல்லுகிறது? நான் எப்படி respond செய்ய வேண்டும்?”</p>
-<p>என்று முடிவு செய்வதுதான் Emotional Regulation.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 3: The Mirror Principle</h2><div class="lesson-body">
-<p class="lead">இந்த Module-ல் நீங்கள் நினைவில் வைத்துக்கொள்ள வேண்டிய மிக முக்கியமான கருத்து:</p>
-<h3>“மாணவர்கள் நாம் சொல்வதை மட்டும் கற்றுக்கொள்வதில்லை; நாம் எப்படி நடந்துகொள்கிறோம் என்பதையும் கற்றுக்கொள்கிறார்கள்.”</h3>
-<p class="lead">நாம் மாணவரிடம்,</p>
-<p>“கோபப்படக்கூடாது.”</p>
-<p>என்று சொல்லிவிட்டு, ஒரு சிறிய தவறுக்கு நாமே கத்தினால் குழந்தை எதை கற்றுக்கொள்ளும்?</p>
-<p>நாம்,</p>
-<p>“மற்றவர்களை மதிக்க வேண்டும்.”</p>
-<p>என்று சொல்லிவிட்டு, மாணவரை எல்லோருக்கும் முன்னால் அவமானப்படுத்தினால் எது அவர்களின் மனதில் பதியும்?</p>
-<p>நமது வார்த்தையா?</p>
-<p>நமது நடத்தையா?</p>
-<p>நமது நடத்தையே.</p>
-<p>இதைத்தான் நாம் Mirror Principle என்று புரிந்துகொள்ளலாம்.</p>
-<p>ஆசிரியர் perfect ஆக இருக்க வேண்டும் என்பது இதன் அர்த்தம் அல்ல.</p>
-<p>தவறு நடந்தால்,</p>
-<p>“நான் கொஞ்சம் கடுமையாகப் பேசிட்டேன். அது சரியான முறை இல்லை. மறுபடியும் பேசலாம்.”</p>
-<p>என்று ஆசிரியர் சொல்லுவதுகூட மாணவருக்கு ஒரு Life Skills lesson.</p>
-<p>ஏனென்றால் அவர் Self-Awareness, Accountability மற்றும் Emotional Regulation ஆகியவற்றை நேரடியாகக் காட்டுகிறார்.</p>
-</div></section>
-<section class="lesson"><h2>Reflection Activity</h2><div class="lesson-body">
-<p class="lead">சமீபத்தில் உங்கள் வகுப்பில் நடந்த ஒரு சம்பவத்தை நினைத்துப் பாருங்கள்.</p>
-<p>நீங்கள் யோசிப்பதற்கு முன்பே react செய்த ஒரு situation இருக்கிறதா?</p>
-<p>அந்தச் சூழ்நிலையில் இந்த 10 Life Skills-ல் எந்த ஒரு திறனை பயன்படுத்தியிருந்தால் முடிவு வேறுபட்டிருக்கலாம்?</p>
-<p>என்ன நடந்தது?</p>
-<p class="lead">நான் எப்படி react செய்தேன்?</p>
-<p class="lead">எந்த Life Skill உதவியிருக்கும்?</p>
-<p class="lead">அடுத்த முறை நான் என்ன செய்வேன்?</p>
-</div></section>
-<section class="lesson"><h2>Classroom Challenge</h2><div class="lesson-body">
-<p class="lead">அடுத்த 7 நாட்களுக்கு தினமும் பள்ளி முடிந்ததும் இரண்டு நிமிடங்கள் மட்டும் ஒதுக்குங்கள்.</p>
-<p>இந்த மூன்று கேள்விகளுக்கு பதில் எழுதுங்கள்:</p>
-<p>1. இன்று பள்ளியில் நான் அதிகமாக உணர்ந்த emotion என்ன?</p>
-<p>2. அதை trigger செய்த situation என்ன?</p>
-<p>3. நான் react செய்தேனா அல்லது respond செய்தேனா?</p>
-<p>7 நாட்கள் முடிந்ததும் உங்கள் பதில்களை மீண்டும் பாருங்கள்.</p>
-<p>உங்களுடைய emotional pattern மெதுவாகத் தெரிய ஆரம்பிக்கும்.</p>
-</div></section>
-<section class="lesson"><h2>Self-Assessment</h2><div class="lesson-body">
-<p class="lead">இந்த course-ஐ தொடர்வதற்கு முன்பு உங்கள் தற்போதைய Life Skills நிலையை அறிந்துகொள்வது முக்கியம்.</p>
-<p>“நான் எதில் சிறப்பாக இருக்கிறேன்?”</p>
-<p>“எந்தப் பகுதியில் நான் மேம்பட வேண்டும்?”</p>
-<p>என்பதை நேர்மையாகப் பாருங்கள்.</p>
-<p>இந்தப் பயிற்சியின் நோக்கம் உங்களை judge செய்வது அல்ல.</p>
-<p>உங்களுடைய starting point-ஐ கண்டுபிடிப்பது.</p>
-</div></section>
-<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">Life Skills-ன் முக்கிய நோக்கம் என்ன?</p>
-<p>A. அதிக மதிப்பெண் பெறுவது
-B. வாழ்க்கையின் சவால்களை திறம்பட கையாளுவது
-C. பாடங்களை மனப்பாடம் செய்வது
-D. தேர்வுக்கு மட்டும் தயாராவது</p>
-<p>Correct Answer: B</p>
-<h4>Question 2</h4>
-<p class="lead">மாணவரின் நடத்தைக்குப் பின்னால் இருக்கும் உணர்வைப் புரிந்துகொள்ள முயற்சிப்பது?</p>
-<p>A. Decision-Making
-B. Creative Thinking
-C. Empathy
-D. Time Management</p>
-<p>Correct Answer: C</p>
-<h4>Question 3</h4>
-<p class="lead">ஒரு மாணவரின் குறைந்த மதிப்பெண்ணுக்கு பல காரணங்கள் இருக்கலாம் என்று ஆராய்வது?</p>
-<p>A. Critical Thinking
-B. Stress Management
-C. Communication
-D. Empathy</p>
-<p>Correct Answer: A</p>
-<h4>Question 4</h4>
-<p class="lead">Mirror Principle நமக்கு என்ன சொல்கிறது?</p>
-<p>A. ஆசிரியர் எப்போதும் perfect ஆக இருக்க வேண்டும்
-B. மாணவர்கள் ஆசிரியரின் நடத்தையிலிருந்தும் கற்றுக்கொள்கிறார்கள்
-C. மாணவர்களுக்கு அதிக homework கொடுக்க வேண்டும்
-D. ஆசிரியர் strict ஆக இருக்க வேண்டும்</p>
-<p>Correct Answer: B</p>
-<h4>Question 5</h4>
-<p class="lead">ஒரு strong emotion வந்தவுடன் உடனடியாக react செய்யாமல் அதை உணர்ந்து response-ஐ தேர்வு செய்வது?</p>
-<p>A. Emotional Regulation
-B. Creative Thinking
-C. Academic Skill
-D. Memory Skill</p>
-<p>Correct Answer: A</p>
-</div></section>
-<section class="lesson"><h2>Module 1 – முக்கிய Takeaways</h2><div class="lesson-body">
-<p class="lead">இந்த Module-லிருந்து மூன்று விஷயங்களை நினைவில் வைத்துக்கொள்ளுங்கள்.</p>
-<p>1. Life Skills என்பது பாடப்புத்தக அறிவு மட்டுமல்ல.</p>
-<p>நம்முடைய உணர்ச்சிகள், உறவுகள், முடிவுகள் மற்றும் வாழ்க்கைச் சவால்களை திறம்பட கையாள உதவும் திறன்கள்.</p>
-<p>2. ஆசிரியர் ஒரு Role Model.</p>
-<p>மாணவர்கள் நாம் என்ன சொல்கிறோம் என்பதை மட்டும் அல்ல; நாம் எப்படி வாழ்கிறோம், பேசுகிறோம், கோபத்தை கையாளுகிறோம், தவறை ஏற்றுக்கொள்கிறோம் என்பதையும் கவனிக்கிறார்கள்.</p>
-<p>3. மாற்றத்தின் முதல் படி Self-Awareness.</p>
-<p>மற்றவர்களை மாற்றுவதற்கு முன்பு,</p>
-<p>“நான் இப்போது எங்கே இருக்கிறேன்?”</p>
-<p>என்பதை நாமே புரிந்துகொள்ள வேண்டும்.</p>
-</div></section>
-<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“என் மாணவர்களுக்கு Life Skills-ஐ சொல்லிக் கொடுப்பதோடு நிறுத்தாமல், என் நடத்தையின் மூலம் அதை வாழ்ந்து காட்ட முயற்சி செய்வேன்.”</p>
-<h4>Module 1 Complete ✓</h4>
-<p class="lead">அடுத்த Module: Self-Awareness &amp; Emotional Intelligence (EQ)</p>
-<p>நம்முடைய emotions-ஐ எப்படி உடனடியாகக் கவனிப்பது? கோபம் அல்லது frustration வந்த சில விநாடிகளில் நம்முடைய response-ஐ எப்படி மாற்றுவது? அதை அடுத்த Module-ல் கற்றுக்கொள்வோம்.</p>
-</div></section>
+<section class="lesson"><h2>Lesson 1: Life Skills என்றால் என்ன?</h2><div class="lesson-body"><p class="lead">Life Skills என்றால் தேர்வுக்குப் படிக்க வேண்டிய இன்னொரு subject கிடையாது.</p><p>நம்முடைய அன்றாட வாழ்க்கையில் வரும் சவால்கள், பிரச்சினைகள், உணர்ச்சிகள், உறவுகள் மற்றும் முடிவுகளை ஆரோக்கியமான முறையில் கையாள உதவும் திறன்கள்தான் Life Skills – வாழ்க்கைத் திறன்கள்.</p><p>உதாரணமாக:</p><p>ஒருவர் நம்மை விமர்சிக்கும்போது எப்படி எதிர்கொள்கிறோம்?</p><p>கோபம் வரும்போது உடனே கத்துகிறோமா அல்லது யோசித்துப் பேசுகிறோமா?</p><p>ஒரு பிரச்சினை வந்தால் பதற்றப்படுகிறோமா அல்லது தீர்வைத் தேடுகிறோமா?</p><p>மற்றவர்களின் உணர்வுகளைப் புரிந்துகொள்கிறோமா?</p><p>சரியான முடிவை எப்படித் தேர்வு செய்கிறோம்?</p><p>இவை அனைத்தும் Life Skills.</p><h3>ஆசிரியர்களுக்கு இது ஏன் முக்கியம்?</h3><p class="lead">ஒரு ஆசிரியர் ஒரு நாளில் பாடம் மட்டும் நடத்துவதில்லை.</p><p>மாணவர்களுடன் பேசுகிறார்.</p><p>பிரச்சினைகளைத் தீர்க்கிறார்.</p><p>மாணவர்களின் நடத்தையைச் சமாளிக்கிறார்.</p><p>பெற்றோருடன் பேசுகிறார்.</p><p>சக ஆசிரியர்களுடன் இணைந்து பணியாற்றுகிறார்.</p><p>மனஅழுத்தத்தையும் நேர அழுத்தத்தையும் சமாளிக்கிறார்.</p><p>பல முடிவுகளை எடுக்கிறார்.</p><p>அதனால் Life Skills என்பது ஆசிரியர்களுக்கு கூடுதல் திறன் அல்ல.</p><p>அது ஆசிரியர் பணியின் அடிப்படைத் திறன்.</p></div></section>
+<section class="lesson"><h2>Lesson 2: 10 முக்கிய Life Skills</h2><div class="lesson-body"><p class="lead">இந்தப் பயிற்சியின் அடித்தளமாக 10 முக்கிய வாழ்க்கைத் திறன்களைப் பார்க்கிறோம்.</p><h4>1. Self-Awareness – சுய விழிப்புணர்வு</h4><p class="lead">நம்முடைய எண்ணங்கள், உணர்ச்சிகள், தேவைகள் மற்றும் பழக்கமான எதிர்வினைகளை நாமே உணர்ந்து கொள்வது.</p><p>உதாரணம்:</p><p>ஒரு மாணவர் தொடர்ந்து பேசிக்கொண்டிருக்கிறார்.</p><p>உடனே,</p><p>“எத்தனை தடவை சொல்றது?”</p><p>என்று கோபப்படுவதற்கு முன்பு,</p><p>“எனக்கு இப்போ irritation அதிகமாகுது.”</p><p>என்று நம்முடைய உணர்ச்சியை நாமே கவனிப்பது Self-Awareness.</p><h4>2. Empathy – பிறரின் உணர்வைப் புரிந்துகொள்ளுதல்</h4><p class="lead">ஒருவரின் நடத்தையை மட்டும் பார்க்காமல், அந்த நடத்தைக்குப் பின்னால் என்ன உணர்வு இருக்கலாம் என்பதைப் புரிந்துகொள்ள முயற்சிப்பது.</p><p>வழக்கமாக நன்றாகப் பேசும் ஒரு மாணவர் ஒரு வாரமாக அமைதியாக இருக்கிறார்.</p><p>“இவனுக்கு என்ன ஆச்சு? கவனமே இல்லை.”</p><p>என்று முடிவு செய்வதற்குப் பதிலாக,</p><p>“இந்தக் குழந்தைக்கு ஏதாவது பிரச்சினை இருக்குமா?”</p><p>என்று யோசிப்பது Empathy.</p><h4>3. Critical Thinking – விமர்சன சிந்தனை</h4><p class="lead">ஒரு விஷயத்தை உடனடியாக நம்பாமல் அல்லது முடிவு செய்யாமல், தகவல்கள் மற்றும் காரணங்களை ஆராய்ந்து பார்ப்பது.</p><p>ஒரு மாணவர் குறைந்த மதிப்பெண் எடுத்திருக்கிறார்.</p><p>“அவன் படிக்கவே இல்லை.”</p><p>என்று உடனே முடிவு செய்யாமல்,</p><p>“பாடம் புரியவில்லையா?”</p><p>“படிக்கும் முறை சரியில்லையா?”</p><p>“வேறு ஏதாவது சிரமம் இருக்கிறதா?”</p><p>என்று பல காரணங்களை ஆராய்வது Critical Thinking.</p><h4>4. Creative Thinking – படைப்பாற்றல் சிந்தனை</h4><p class="lead">ஒரே பிரச்சினைக்கு ஒரே வழியை மட்டும் பயன்படுத்தாமல், வேறு அணுகுமுறைகளையும் முயற்சி செய்வது.</p><p>ஒரு topic-ஐ ஆசிரியர் விளக்குகிறார்.</p><p>மாணவர்களுக்கு புரியவில்லை.</p><p>அதே explanation-ஐ இன்னும் மூன்று முறை சொல்வதற்குப் பதிலாக,</p><p>ஒரு கதை,</p><p>ஒரு படம்,</p><p>ஒரு activity,</p><p>ஒரு real-life example</p><p>மூலம் விளக்குவது Creative Thinking.</p><h4>5. Decision-Making – முடிவெடுக்கும் திறன்</h4><p class="lead">பல வாய்ப்புகளில் சூழ்நிலைக்கு ஏற்ற சரியான தேர்வை செய்வது.</p><p>ஒரு மாணவர் ஆசிரியரிடம் மரியாதையில்லாமல் பேசிவிட்டார்.</p><p>உடனே எல்லோருக்கும் முன்னால் கண்டிப்பதா?</p><p>தனியாக அழைத்துப் பேசுவதா?</p><p>முதலில் காரணத்தைக் கேட்பதா?</p><p>ஒவ்வொரு தேர்வுக்கும் ஒரு விளைவு இருக்கும்.</p><p>அதை யோசித்து முடிவு செய்வதுதான் Decision-Making.</p><h4>6. Problem-Solving – பிரச்சினை தீர்க்கும் திறன்</h4><p class="lead">ஒரு பிரச்சினையை வெறும் புகாராகப் பார்க்காமல் அதன் காரணத்தைப் புரிந்துகொண்டு தீர்வு காண்பது.</p><p>ஒரு மாணவர் தினமும் தாமதமாக வருகிறார்.</p><p>தினமும் தண்டனை கொடுப்பது மட்டும் Problem-Solving அல்ல.</p><p>முதலில்:</p><p>உண்மையான பிரச்சினை என்ன?</p><p>இதுவரை என்ன முயற்சி செய்தோம்?</p><p>வேறு என்ன செய்யலாம்?</p><p>அடுத்த சிறிய நடவடிக்கை என்ன?</p><p>என்று ஆராய வேண்டும்.</p><h4>7. Effective Communication – பயனுள்ள தகவல் தொடர்பு</h4><p class="lead">நாம் நினைப்பதை மற்றவர் தெளிவாகப் புரிந்துகொள்ளும் வகையில் பேசுவதும், மற்றவர் பேசுவதை கவனமாகக் கேட்பதும் Communication Skill.</p><p>குறிப்பாக மாணவர்களுக்கு instruction கொடுக்கும்போது,</p><p>நீண்ட விளக்கம் கொடுப்பதைவிட,</p><p>Step 1 → Step 2 → Step 3</p><p>என்று தெளிவாகச் சொல்லுவது பயனுள்ளதாக இருக்கும்.</p><h4>8. Interpersonal Relationships – நல்ல மனித உறவுகள்</h4><p class="lead">மாணவர்கள், பெற்றோர் மற்றும் சக ஆசிரியர்களுடன் நம்பிக்கையான, ஆரோக்கியமான உறவை உருவாக்கும் திறன்.</p><p>ஒரு எளிய பழக்கம்:</p><p>ஒவ்வொரு நாளும் மாணவர்களை பெயர் சொல்லி வரவேற்கவும்.</p><p>“Good morning, Kavin.”</p><p>“Good morning, Priya.”</p><p>இது சில விநாடிகள்தான்.</p><p>ஆனால் தொடர்ந்து செய்வதால் மாணவருக்கும் ஆசிரியருக்கும் இடையே நல்ல rapport உருவாகும்.</p><h4>9. Coping with Stress – மனஅழுத்தத்தை கையாளுதல்</h4><p class="lead">Stress வரவே கூடாது என்பதல்ல நோக்கம்.</p><p>Stress அதிகரிக்கும்போது அதை உணர்ந்து, அது நம்மை கட்டுப்படுத்துவதற்கு முன்பு சரியான முறையில் கையாளக் கற்றுக்கொள்வதுதான் முக்கியம்.</p><p>Back-to-back classes இருக்கும் நாளில் இரண்டு classes இடையே இரண்டு நிமிடங்கள் அமைதியாக இருப்பதுகூட ஒரு சிறிய recovery habit ஆக இருக்கலாம்.</p><h4>10. Coping with Emotions – உணர்ச்சிகளை கையாளுதல்</h4><p class="lead">கோபம், ஏமாற்றம், வருத்தம் போன்ற உணர்ச்சிகள் வருவது இயல்பு.</p><p>ஆனால்,</p><p>“எனக்கு கோபம் வந்துவிட்டது; அதனால் நான் எப்படி வேண்டுமானாலும் பேசலாம்”</p><p>என்பது Emotional Management அல்ல.</p><p>உணர்ச்சியை உணர்ந்து,</p><p>“இந்த emotion என்ன சொல்லுகிறது? நான் எப்படி respond செய்ய வேண்டும்?”</p><p>என்று முடிவு செய்வதுதான் Emotional Regulation.</p></div></section>
+<section class="lesson"><h2>Lesson 3: The Mirror Principle</h2><div class="lesson-body"><p class="lead">இந்த Module-ல் நீங்கள் நினைவில் வைத்துக்கொள்ள வேண்டிய மிக முக்கியமான கருத்து:</p><h3>“மாணவர்கள் நாம் சொல்வதை மட்டும் கற்றுக்கொள்வதில்லை; நாம் எப்படி நடந்துகொள்கிறோம் என்பதையும் கற்றுக்கொள்கிறார்கள்.”</h3><p class="lead">நாம் மாணவரிடம்,</p><p>“கோபப்படக்கூடாது.”</p><p>என்று சொல்லிவிட்டு, ஒரு சிறிய தவறுக்கு நாமே கத்தினால் குழந்தை எதை கற்றுக்கொள்ளும்?</p><p>நாம்,</p><p>“மற்றவர்களை மதிக்க வேண்டும்.”</p><p>என்று சொல்லிவிட்டு, மாணவரை எல்லோருக்கும் முன்னால் அவமானப்படுத்தினால் எது அவர்களின் மனதில் பதியும்?</p><p>நமது வார்த்தையா?</p><p>நமது நடத்தையா?</p><p>நமது நடத்தையே.</p><p>இதைத்தான் நாம் Mirror Principle என்று புரிந்துகொள்ளலாம்.</p><p>ஆசிரியர் perfect ஆக இருக்க வேண்டும் என்பது இதன் அர்த்தம் அல்ல.</p><p>தவறு நடந்தால்,</p><p>“நான் கொஞ்சம் கடுமையாகப் பேசிட்டேன். அது சரியான முறை இல்லை. மறுபடியும் பேசலாம்.”</p><p>என்று ஆசிரியர் சொல்லுவதுகூட மாணவருக்கு ஒரு Life Skills lesson.</p><p>ஏனென்றால் அவர் Self-Awareness, Accountability மற்றும் Emotional Regulation ஆகியவற்றை நேரடியாகக் காட்டுகிறார்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Reflection Activity</h2><div class="lesson-body"><p class="section-note lead">சமீபத்தில் உங்கள் வகுப்பில் நடந்த ஒரு சம்பவத்தை நினைத்துப் பாருங்கள்.</p><div class="activity-field" data-key="m1-i4-f1">
+  <p class="act-label">நீங்கள் யோசிப்பதற்கு முன்பே react செய்த ஒரு situation இருக்கிறதா?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m1-i4-f2">
+  <p class="act-label">அந்தச் சூழ்நிலையில் இந்த 10 Life Skills-ல் எந்த ஒரு திறனை பயன்படுத்தியிருந்தால் முடிவு வேறுபட்டிருக்கலாம்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m1-i4-f3">
+  <p class="act-label">என்ன நடந்தது?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m1-i4-f4">
+  <p class="act-label">நான் எப்படி react செய்தேன்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m1-i4-f5">
+  <p class="act-label">எந்த Life Skill உதவியிருக்கும்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m1-i4-f6">
+  <p class="act-label">அடுத்த முறை நான் என்ன செய்வேன்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson interactive-section"><h2>📝 Classroom Challenge</h2><div class="lesson-body"><p class="section-note lead">அடுத்த 7 நாட்களுக்கு தினமும் பள்ளி முடிந்ததும் இரண்டு நிமிடங்கள் மட்டும் ஒதுக்குங்கள்.</p><p class="section-note ">இந்த மூன்று கேள்விகளுக்கு பதில் எழுதுங்கள்:</p><div class="activity-field" data-key="m1-i5-f1">
+  <p class="act-label">1. இன்று பள்ளியில் நான் அதிகமாக உணர்ந்த emotion என்ன?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m1-i5-f2">
+  <p class="act-label">2. அதை trigger செய்த situation என்ன?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m1-i5-f3">
+  <p class="act-label">3. நான் react செய்தேனா அல்லது respond செய்தேனா?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">7 நாட்கள் முடிந்ததும் உங்கள் பதில்களை மீண்டும் பாருங்கள்.</p><p class="section-note ">உங்களுடைய emotional pattern மெதுவாகத் தெரிய ஆரம்பிக்கும்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Assessment</h2><div class="lesson-body"><p class="section-note lead">இந்த course-ஐ தொடர்வதற்கு முன்பு உங்கள் தற்போதைய Life Skills நிலையை அறிந்துகொள்வது முக்கியம்.</p><p class="section-note ">“நான் எதில் சிறப்பாக இருக்கிறேன்?”</p><p class="section-note ">“எந்தப் பகுதியில் நான் மேம்பட வேண்டும்?”</p><p class="section-note ">என்பதை நேர்மையாகப் பாருங்கள்.</p><p class="section-note ">இந்தப் பயிற்சியின் நோக்கம் உங்களை judge செய்வது அல்ல.</p><p class="section-note ">உங்களுடைய starting point-ஐ கண்டுபிடிப்பது.</p></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m1-quiz7">
+      <div class="quiz-question" data-correct="1">
+  <p class="q-text">1. Life Skills-ன் முக்கிய நோக்கம் என்ன?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m1quiz7q1" value="0"> அதிக மதிப்பெண் பெறுவது</label><label class="q-option"><input type="radio" name="m1quiz7q1" value="1"> வாழ்க்கையின் சவால்களை திறம்பட கையாளுவது</label><label class="q-option"><input type="radio" name="m1quiz7q1" value="2"> பாடங்களை மனப்பாடம் செய்வது</label><label class="q-option"><input type="radio" name="m1quiz7q1" value="3"> தேர்வுக்கு மட்டும் தயாராவது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">2. மாணவரின் நடத்தைக்குப் பின்னால் இருக்கும் உணர்வைப் புரிந்துகொள்ள முயற்சிப்பது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m1quiz7q2" value="0"> Decision-Making</label><label class="q-option"><input type="radio" name="m1quiz7q2" value="1"> Creative Thinking</label><label class="q-option"><input type="radio" name="m1quiz7q2" value="2"> Empathy</label><label class="q-option"><input type="radio" name="m1quiz7q2" value="3"> Time Management</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="0">
+  <p class="q-text">3. ஒரு மாணவரின் குறைந்த மதிப்பெண்ணுக்கு பல காரணங்கள் இருக்கலாம் என்று ஆராய்வது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m1quiz7q3" value="0"> Critical Thinking</label><label class="q-option"><input type="radio" name="m1quiz7q3" value="1"> Stress Management</label><label class="q-option"><input type="radio" name="m1quiz7q3" value="2"> Communication</label><label class="q-option"><input type="radio" name="m1quiz7q3" value="3"> Empathy</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">4. Mirror Principle நமக்கு என்ன சொல்கிறது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m1quiz7q4" value="0"> ஆசிரியர் எப்போதும் perfect ஆக இருக்க வேண்டும்</label><label class="q-option"><input type="radio" name="m1quiz7q4" value="1"> மாணவர்கள் ஆசிரியரின் நடத்தையிலிருந்தும் கற்றுக்கொள்கிறார்கள்</label><label class="q-option"><input type="radio" name="m1quiz7q4" value="2"> மாணவர்களுக்கு அதிக homework கொடுக்க வேண்டும்</label><label class="q-option"><input type="radio" name="m1quiz7q4" value="3"> ஆசிரியர் strict ஆக இருக்க வேண்டும்</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="0">
+  <p class="q-text">5. ஒரு strong emotion வந்தவுடன் உடனடியாக react செய்யாமல் அதை உணர்ந்து response-ஐ தேர்வு செய்வது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m1quiz7q5" value="0"> Emotional Regulation</label><label class="q-option"><input type="radio" name="m1quiz7q5" value="1"> Creative Thinking</label><label class="q-option"><input type="radio" name="m1quiz7q5" value="2"> Academic Skill</label><label class="q-option"><input type="radio" name="m1quiz7q5" value="3"> Memory Skill</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>Module 1 – முக்கிய Takeaways</h2><div class="lesson-body"><p class="lead">இந்த Module-லிருந்து மூன்று விஷயங்களை நினைவில் வைத்துக்கொள்ளுங்கள்.</p><p>1. Life Skills என்பது பாடப்புத்தக அறிவு மட்டுமல்ல.</p><p>நம்முடைய உணர்ச்சிகள், உறவுகள், முடிவுகள் மற்றும் வாழ்க்கைச் சவால்களை திறம்பட கையாள உதவும் திறன்கள்.</p><p>2. ஆசிரியர் ஒரு Role Model.</p><p>மாணவர்கள் நாம் என்ன சொல்கிறோம் என்பதை மட்டும் அல்ல; நாம் எப்படி வாழ்கிறோம், பேசுகிறோம், கோபத்தை கையாளுகிறோம், தவறை ஏற்றுக்கொள்கிறோம் என்பதையும் கவனிக்கிறார்கள்.</p><p>3. மாற்றத்தின் முதல் படி Self-Awareness.</p><p>மற்றவர்களை மாற்றுவதற்கு முன்பு,</p><p>“நான் இப்போது எங்கே இருக்கிறேன்?”</p><p>என்பதை நாமே புரிந்துகொள்ள வேண்டும்.</p></div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“என் மாணவர்களுக்கு Life Skills-ஐ சொல்லிக் கொடுப்பதோடு நிறுத்தாமல், என் நடத்தையின் மூலம் அதை வாழ்ந்து காட்ட முயற்சி செய்வேன்.”</p><h4>Module 1 Complete ✓</h4><p class="lead">அடுத்த Module: Self-Awareness &amp; Emotional Intelligence (EQ)</p><p>நம்முடைய emotions-ஐ எப்படி உடனடியாகக் கவனிப்பது? கோபம் அல்லது frustration வந்த சில விநாடிகளில் நம்முடைய response-ஐ எப்படி மாற்றுவது? அதை அடுத்த Module-ல் கற்றுக்கொள்வோம்.</p></div></section>
 </div>
 
 <div class="complete-bar">
@@ -515,6 +453,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 1;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

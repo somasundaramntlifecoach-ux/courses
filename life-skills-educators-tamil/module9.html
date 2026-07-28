@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -266,487 +332,155 @@ footer a:hover{color:var(--gold-light);}
 <p>Change-ஐ எப்படி handle செய்கிறோம்?</p>
 <p>Setback வந்த பிறகு எப்படி recover ஆகிறோம்?</p>
 <p>அதுதான் Resilience.</p>
-<section class="lesson"><h2>Lesson 1: Resilience என்றால் என்ன?</h2><div class="lesson-body">
-<p class="lead">Resilience என்றால்:</p>
-<p>எனக்கு எந்தப் பிரச்சினையும் வராது.</p>
-<p>என்பது அல்ல.</p>
-<p>எந்த situation வந்தாலும் நான் பாதிக்கப்பட மாட்டேன்.</p>
-<p>என்பதும் அல்ல.</p>
-<p>ஒரு setback நம்மை பாதிக்கலாம்.</p>
-<p>Frustration வரலாம்.</p>
-<p>Disappointment வரலாம்.</p>
-<p>Stress வரலாம்.</p>
-<p>ஆனால் அதற்குப் பிறகு:</p>
-<p>“இங்கிருந்து நான் எப்படி மீண்டு வருவது?”</p>
-<p>“இதிலிருந்து என்ன கற்றுக்கொள்ளலாம்?”</p>
-<p>என்று முன்னேறக்கூடிய திறன்தான் Resilience.</p>
-<h3>Resilience = Never Falling அல்ல</h3>
-<h3>Resilience = Recover + Learn + Adapt</h3>
-</div></section>
-<section class="lesson"><h2>Lesson 2: Resilience-ன் நான்கு Pillars</h2><div class="lesson-body">
-<p class="lead">இந்த Module-ல் நான்கு முக்கிய pillars-ஐ பார்க்கப் போகிறோம்.</p>
-<h4>1. Cognitive Reframing</h4>
-<h4>2. Social Connection</h4>
-<h4>3. Sense of Purpose</h4>
-<h4>4. Adaptive Flexibility</h4>
-</div></section>
-<section class="lesson"><h2>PILLAR 1</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Cognitive Reframing</h2><div class="lesson-body">
-<h4>நிகழ்வை வேறு கோணத்தில் பார்க்கக் கற்றுக்கொள்வது</h4>
-<p class="lead">ஒரு lesson சரியாகப் போகவில்லை.</p>
-<p>Students confused.</p>
-<p>Activity fail.</p>
-<p>Teacher மனதில்:</p>
-<p>“நான் teaching-ல நல்லவரே இல்லை.”</p>
-<p>என்ற thought வரலாம்.</p>
-<p>ஆனால் ஒரு lesson fail ஆனது ஒரு fact.</p>
-<p>“நான் நல்ல teacher இல்லை” என்பது அந்த fact-க்கு நாம் கொடுத்த interpretation.</p>
-<p>Cognitive Reframing என்ன சொல்கிறது?</p>
-<h3>“நடந்தது என்ன?”</h3>
-<p class="lead">மற்றும்</p>
-<h3>“நான் அதற்கு என்ன meaning கொடுக்கிறேன்?”</h3>
-<p class="lead">இரண்டையும் பிரித்துப் பாருங்கள்.</p>
-<h4>Example</h4>
-<p>Event</p>
-<p class="lead">Activity வேலை செய்யவில்லை.</p>
-<p>Automatic Thought</p>
-<p class="lead">“இந்த class-ஐ என்னால் handle செய்ய முடியாது.”</p>
-<p>Reframe</p>
-<p class="lead">“இந்த activity இந்த class-க்கு வேலை செய்யவில்லை. வேறு approach try செய்ய வேண்டும்.”</p>
-<p>முதல் thought:</p>
-<p>Identity-ஐ attack செய்கிறது.</p>
-<p>இரண்டாவது thought:</p>
-<p>Problem-ஐ identify செய்கிறது.</p>
-</div></section>
-<section class="lesson"><h2>Reframing என்பது Fake Positivity அல்ல</h2><div class="lesson-body">
-<p class="lead">Reframing என்றால்:</p>
-<p>“எல்லாமே நல்லதுதான்!”</p>
-<p>என்று உண்மையை மறைப்பது அல்ல.</p>
-<h4>Fake Positivity</h4>
-<p class="lead">“Problem எதுவும் இல்லை.”</p>
-<h4>Reframing</h4>
-<p class="lead">“Problem இருக்கிறது. ஆனால் இதிலிருந்து நான் என்ன செய்ய முடியும்?”</p>
-<p>Problem-ஐ deny செய்யவில்லை.</p>
-<p>Problem-க்கு நாம் கொடுக்கும் interpretation-ஐ useful direction-க்கு மாற்றுகிறோம்.</p>
-</div></section>
-<section class="lesson"><h2>Reframing Practice</h2><div class="lesson-body">
-<p class="lead">ஒரு difficult teaching moment-ஐ நினைத்துப் பாருங்கள்.</p>
-<h4>என்ன நடந்தது?</h4>
-<h4>என் automatic thought என்ன?</h4>
-<h4>அந்த thought முழுமையாக fact-ஆ?</h4>
-<h4>இன்னொரு balanced interpretation என்ன?</h4>
-<h4>இதிலிருந்து நான் கற்றுக்கொள்ளக்கூடியது என்ன?</h4>
-</div></section>
-<section class="lesson"><h2>PILLAR 2</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Social Connection</h2><div class="lesson-body">
-<h4>எல்லாவற்றையும் தனியாகச் சுமக்க வேண்டியதில்லை</h4>
-<p class="lead">Resilience என்பது:</p>
-<p>“எனக்கு யாருடைய help-மும் தேவையில்லை.”</p>
-<p>என்று தனியாக எல்லாவற்றையும் handle செய்வது அல்ல.</p>
-<p>ஒரு difficult day வந்தால்:</p>
-<p>நம்மை judge செய்யாமல் கேட்கக்கூடிய ஒருவர்…</p>
-<p>Practical idea கொடுக்கக்கூடிய ஒருவர்…</p>
-<p>“நானும் இதை face பண்ணியிருக்கேன்.”</p>
-<p>என்று சொல்லக்கூடிய ஒருவர்…</p>
-<p>இருப்பது recovery-க்கு உதவும்.</p>
-<h4>Support Circle</h4>
-<p class="lead">உங்கள் professional life-ல் குறைந்தது:</p>
-<p>ஒரு colleague</p>
-<p>அல்லது</p>
-<p>ஒரு mentor</p>
-<p>அல்லது</p>
-<p>ஒரு trusted professional contact</p>
-<p>இருப்பது பயனுள்ளதாக இருக்கும்.</p>
-</div></section>
-<section class="lesson"><h2>Support கேட்பது Weakness அல்ல</h2><div class="lesson-body">
-<p class="lead">சில நேரங்களில் ஆசிரியர்கள்:</p>
-<p>“நானே handle பண்ணணும்.”</p>
-<p>என்று நினைக்கலாம்.</p>
-<p>ஆனால் ஒரு நல்ல கேள்வி:</p>
-<h3>“இந்த situation-ல் நான் யாரிடம் பேசினால் clarity கிடைக்கும்?”</h3>
-<p class="lead">என்பது.</p>
-<p>Support என்பது problem-ஐ மற்றவரிடம் கொடுத்துவிடுவது அல்ல.</p>
-<p>Problem-ஐ better perspective-ல் பார்க்க உதவி பெறுவது.</p>
-</div></section>
-<section class="lesson"><h2>Activity – My Support Map</h2><div class="lesson-body">
-<h4>ஒரு difficult day-ல் நான் பேசக்கூடிய colleague:</h4>
-<h4>Professional guidance கேட்கக்கூடிய person:</h4>
-<h4>Personal emotional support கிடைக்கும் person:</h4>
-<h4>நான் support கேட்காமல் avoid செய்யும் ஒரு situation:</h4>
-</div></section>
-<section class="lesson"><h2>PILLAR 3</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Sense of Purpose</h2><div class="lesson-body">
-<h4>“நான் ஏன் இந்த வேலையை செய்கிறேன்?”</h4>
-<p class="lead">Teaching profession-ல் எல்லா நாட்களும் rewarding-ஆ இருக்காது.</p>
-<p>சில நாட்கள்:</p>
-<p>Students cooperate செய்ய மாட்டார்கள்.</p>
-<p>Parent complaint வரலாம்.</p>
-<p>Paperwork அதிகமாக இருக்கலாம்.</p>
-<p>Result எதிர்பார்த்தபடி இருக்காது.</p>
-<p>அப்போது:</p>
-<p>“நான் ஏன் இதை செய்கிறேன்?”</p>
-<p>என்ற கேள்வி வரலாம்.</p>
-<p>அந்த நேரத்தில் நம்முடைய purpose முக்கியம்.</p>
-<h4>Purpose என்றால் பெரிய Mission Statement மட்டும் அல்ல</h4>
-<p class="lead">அது simple-ஆ இருக்கலாம்.</p>
-<p>“ஒரு குழந்தைக்கு learning possible என்று feel செய்ய வைக்க வேண்டும்.”</p>
-<p>“Students confidence வளர உதவ வேண்டும்.”</p>
-<p>“என்னிடம் படிக்கும் மாணவர்கள் respect-உடன் நடத்தப்பட வேண்டும்.”</p>
-<p>“என் subject-ஐ குழந்தைகள் புரிந்துகொள்ள உதவ வேண்டும்.”</p>
-<p>இந்த “Why” கடினமான நாட்களில் direction கொடுக்க உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>My Teaching Purpose</h2><div class="lesson-body">
-<p class="lead">இந்த sentence-ஐ complete செய்யுங்கள்:</p>
-<h3>“நான் ஆசிரியராக இருப்பதன் மூலம் ________________________________.”</h3>
-<p class="lead">அல்லது:</p>
-<h3>“என்னிடம் படிக்கும் மாணவர்கள் ________________________________ என்று உணர வேண்டும்.”</h3>
-<p class="lead">உங்கள் பதில்:</p>
-</div></section>
-<section class="lesson"><h2>PILLAR 4</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Adaptive Flexibility</h2><div class="lesson-body">
-<h4>Plan-ஐ மாற்றுவது Failure அல்ல</h4>
-<p class="lead">ஒரு நல்ல teacher plan செய்வார்.</p>
-<p>ஆனால் resilient teacher:</p>
-<p>Plan வேலை செய்யவில்லை என்றால் approach-ஐ மாற்றவும் தயாராக இருப்பார்.</p>
-<h4>Example</h4>
-<p class="lead">நீங்கள் ஒரு group activity plan செய்திருக்கிறீர்கள்.</p>
-<p>Class-ல்:</p>
-<p>Noise அதிகமாகிறது.</p>
-<p>Students confused.</p>
-<p>Learning நடக்கவில்லை.</p>
-<p>Teacher:</p>
-<p>“நான் plan பண்ணிட்டேன். இதைத்தான் complete பண்ணணும்.”</p>
-<p>என்று insist செய்தால்?</p>
-<p>Plan தான் goal ஆகிவிடுகிறது.</p>
-<p>ஆனால் உண்மையான goal என்ன?</p>
-<p>Learning.</p>
-<p>Adaptive Flexibility உள்ள teacher:</p>
-<p>“இந்த activity இப்போது வேலை செய்யவில்லை. Pause. எல்லாரும் seats-க்கு வாங்க. First concept-ஐ board-ல் ஒரு example-ஆ பார்க்கலாம்.”</p>
-<p>என்று method மாற்றுகிறார்.</p>
-<h4>நினைவில் வைத்துக்கொள்ளுங்கள்</h4>
-<h3>Goal-ஐ விட்டுவிடுவது அல்ல.</h3>
-<h3>Goal-ஐ அடையும் பாதையை மாற்றுவது.</h3>
-<p class="lead">இதுதான் Adaptive Flexibility.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 3: மாற்றம் வந்தால் நம்முடைய முதல் Reaction என்ன?</h2><div class="lesson-body">
-<p class="lead">School-ல் ஒரு புதிய policy வருகிறது.</p>
-<p>New reporting system.</p>
-<p>New curriculum.</p>
-<p>New timetable.</p>
-<p>New leadership.</p>
-<p>New technology.</p>
-<p>நம்முடைய first reaction:</p>
-<p>“ஏன் இதை மாற்றணும்?”</p>
-<p>“பழைய system நல்லாதானே இருந்தது?”</p>
-<p>“இது இன்னொரு extra வேலை!”</p>
-<p>என்று இருக்கலாம்.</p>
-<p>இந்த reaction வந்ததற்காக நம்மை judge செய்ய வேண்டியதில்லை.</p>
-<p>Source framework சொல்வது:</p>
-<h3>உங்கள் முதல் Reaction-ஐ பெயரிடுங்கள்.</h3>
-<h4>Example</h4>
-<p class="lead">“எனக்கு irritation.”</p>
-<p>“எனக்கு anxiety.”</p>
-<p>“எனக்கு frustration.”</p>
-<p>“எனக்கு uncertainty.”</p>
-<p>மாற்றத்தை manage செய்வதற்கான முதல் step:</p>
-<p>நம்முடைய reaction-ஐ கவனிப்பது.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 4: Fixed vs Flexible</h2><div class="lesson-body">
-<p class="lead">Change வந்த பிறகு situation-ஐ இரண்டு பகுதிகளாகப் பிரியுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>FIXED</h2><div class="lesson-body">
-<h4>நான் மாற்ற முடியாதவை</h4>
-<p class="lead">மற்றும்</p>
-</div></section>
-<section class="lesson"><h2>FLEXIBLE</h2><div class="lesson-body">
-<h4>நான் influence செய்யக்கூடியவை</h4>
-<h4>Example</h4>
-<p class="lead">School ஒரு புதிய digital reporting system introduce செய்திருக்கிறது.</p>
-<h3>FIXED</h3>
-<p class="lead">System implement ஆகிவிட்டது.</p>
-<p>Deadline.</p>
-<p>Required format.</p>
-<p>School policy.</p>
-<h3>FLEXIBLE</h3>
-<p class="lead">நான் system கற்றுக்கொள்ளும் நேரம்.</p>
-<p>யாரிடம் help கேட்பது.</p>
-<p>என் workflow.</p>
-<p>எந்த shortcuts அல்லது templates பயன்படுத்துவது.</p>
-<p>Practice செய்யும் முறை.</p>
-<p>Stress அதிகமாக வருவதற்கான ஒரு காரணம்:</p>
-<p>Fixed விஷயங்களை மாற்ற முயற்சி செய்வது.</p>
-<p>Resilience நம்முடைய energy-ஐ:</p>
-<p>Flexible area</p>
-<p>மேல் செலுத்த உதவுகிறது.</p>
-</div></section>
-<section class="lesson"><h2>Activity – Fixed vs Flexible</h2><div class="lesson-body">
-<p class="lead">நீங்கள் தற்போது face செய்யும் ஒரு change:</p>
-<h3>FIXED – என்னால் மாற்ற முடியாதவை</h3>
-<h3>FLEXIBLE – நான் influence செய்யக்கூடியவை</h3>
-</div></section>
-<section class="lesson"><h2>Lesson 5: One Thing to Control</h2><div class="lesson-body">
-<p class="lead">ஒரு பெரிய change வந்தால்:</p>
-<p>“எல்லாவற்றையும் எப்படி manage செய்வது?”</p>
-<p>என்று overwhelm ஆகலாம்.</p>
-<p>அதற்குப் பதிலாக:</p>
-<h3>“இன்று நான் control செய்யக்கூடிய ஒரு விஷயம் என்ன?”</h3>
-<p class="lead">என்று கேளுங்கள்.</p>
-<h4>Example</h4>
-<p class="lead">New curriculum வந்துள்ளது.</p>
-<p>முழு வருட syllabus-ஐ நினைத்தால் overwhelming.</p>
-<p>இன்றைய control:</p>
-<p>“இந்த வாரம் முதல் unit-ன் objectives மட்டும் புரிந்துகொள்வேன்.”</p>
-<p>அடுத்தது:</p>
-<p>“ஒரு lesson plan உருவாக்குவேன்.”</p>
-<p>பிறகு:</p>
-<p>“ஒரு lesson try செய்து review செய்வேன்.”</p>
-<h3>Big Change → One Controllable Step</h3>
-<p class="lead">இதுதான் practical resilience.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 6: Change Management Framework</h2><div class="lesson-body">
-<p class="lead">நம்மால் தேர்வு செய்யப்படாத ஒரு change வந்தால் இந்த process-ஐ பயன்படுத்தலாம்:</p>
-</div></section>
-<section class="lesson"><h2>INITIAL REACTION → FIXED vs FLEXIBLE → ONE THING TO CONTROL → REVIEW</h2><div class="lesson-body">
-<h3>STEP 1 – INITIAL REACTION</h3>
-<p class="lead">எனக்கு என்ன reaction வருகிறது?</p>
-<p class="lead">அதை பெயரிடுங்கள்.</p>
-<h3>STEP 2 – FIXED vs FLEXIBLE</h3>
-<p class="lead">என்னால் மாற்ற முடியாதது என்ன?</p>
-<p class="lead">நான் influence செய்யக்கூடியது என்ன?</p>
-<h3>STEP 3 – ONE THING TO CONTROL</h3>
-<p class="lead">இப்போது நான் செய்யக்கூடிய ஒரு practical action:</p>
-<h3>STEP 4 – REVIEW</h3>
-<p class="lead">ஒரு வாரம் கழித்து:</p>
-<p>என்ன வேலை செய்தது?</p>
-<p class="lead">என்ன வேலை செய்யவில்லை?</p>
-<p class="lead">எதை adjust செய்ய வேண்டும்?</p>
-</div></section>
-<section class="lesson"><h2>Classroom Case Study</h2><div class="lesson-body">
-<h3>Situation</h3>
-<p class="lead">ஒரு ஆசிரியர் ஒரு புதிய class-ஐப் பெறுகிறார்.</p>
-<p>அந்த class-ன் behaviour previous class-ஐவிட challenging.</p>
-<p>முதல் இரண்டு lessons சரியாகப் போகவில்லை.</p>
-<h4>Automatic Thought</h4>
-<p class="lead">“இந்த class எனக்கு set ஆகாது.”</p>
-<h4>Reframe</h4>
-<p class="lead">“இந்த class-க்கு என் previous approach முழுமையாக வேலை செய்யவில்லை. இந்த group-க்கு வேறு structure தேவை.”</p>
-<h4>Social Connection</h4>
-<p class="lead">அந்த class-ஐ முன்பு handle செய்த teacher-ிடம்:</p>
-<p>“இந்த class-க்கு எந்த routines வேலை செய்தது?”</p>
-<p>என்று கேட்கிறார்.</p>
-<h4>Purpose</h4>
-<p class="lead">“இந்த class-க்கும் safe, structured learning environment உருவாக்க வேண்டும்.”</p>
-<h4>Adaptive Flexibility</h4>
-<p class="lead">Lesson structure மாற்றுகிறார்.</p>
-<p>Clear entry routine.</p>
-<p>Short instructions.</p>
-<p>Smaller activities.</p>
-<p>Consistent boundaries.</p>
-<h4>Review</h4>
-<p class="lead">ஒரு வாரம் கழித்து:</p>
-<p>எந்த routine வேலை செய்தது?</p>
-<p>எது வேலை செய்யவில்லை?</p>
-<p>எதை modify செய்ய வேண்டும்?</p>
-<p>இதுதான் resilience in practice.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 7: Failure-ஐ Identity ஆக்காதீர்கள்</h2><div class="lesson-body">
-<p class="lead">ஒரு lesson fail ஆனது.</p>
-<p>அதன் அர்த்தம்:</p>
-<p>“நான் failure.”</p>
-<p>அல்ல.</p>
-<p>ஒரு parent conversation சரியாகப் போகவில்லை.</p>
-<p>அதன் அர்த்தம்:</p>
-<p>“எனக்கு communication skill இல்லை.”</p>
-<p>அல்ல.</p>
-<p>ஒரு classroom strategy வேலை செய்யவில்லை.</p>
-<p>அதன் அர்த்தம்:</p>
-<p>“இந்த class impossible.”</p>
-<p>அல்ல.</p>
-<h4>Event ≠ Identity</h4>
-<p class="lead">ஒரு event-ஐ information-ஆகப் பாருங்கள்.</p>
-<h3>“What happened?”</h3>
-<h3>“What can I learn?”</h3>
-<h3>“What will I try next?”</h3>
-<p class="lead">இந்த மூன்று கேள்விகள் setback-ஐ learning cycle-ஆக மாற்ற உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>The 3R Recovery Tool</h2><div class="lesson-body">
-<p class="lead">ஒரு setback வந்த பிறகு:</p>
-</div></section>
-<section class="lesson"><h2>1. RECOGNISE</h2><div class="lesson-body">
-<p class="lead">என்ன நடந்தது?</p>
-<p>எனக்கு என்ன emotion?</p>
-</div></section>
-<section class="lesson"><h2>2. REFRAME</h2><div class="lesson-body">
-<p class="lead">இந்த situation-ஐ balanced-ஆக வேறு எப்படி பார்க்கலாம்?</p>
-</div></section>
-<section class="lesson"><h2>3. RESPOND</h2><div class="lesson-body">
-<p class="lead">அடுத்த small action என்ன?</p>
-<h4>Example</h4>
-<p class="lead">Recognise:
-“Lesson வேலை செய்யவில்லை. நான் frustrated-ஆ இருக்கிறேன்.”</p>
-<p>Reframe:
-“ஒரு strategy fail ஆனது; முழு lesson goal fail ஆகவில்லை.”</p>
-<p>Respond:
-“Tomorrow same concept-ஐ visual example-ல் try செய்வேன்.”</p>
-</div></section>
-<section class="lesson"><h2>Lesson 8: Resilience என்பது Rest இல்லாமல் தொடர்ந்து வேலை செய்வது அல்ல</h2><div class="lesson-body">
-<p class="lead">“Strong teacher” என்றால்:</p>
-<p>எதுவாக இருந்தாலும் வேலை செய்ய வேண்டும்.</p>
-<p>Tired ஆனாலும் continue.</p>
-<p>Emotion இருந்தாலும் ignore.</p>
-<p>Help கேட்கக்கூடாது.</p>
-<p>என்று அர்த்தம் இல்லை.</p>
-<p>Resilience-க்கு recovery தேவை.</p>
-<p>Module 3-ல் பார்த்தது போல:</p>
-<p>Small pauses.</p>
-<p>Boundaries.</p>
-<p>Trusted support.</p>
-<p>Recovery habits.</p>
-<p>இவை resilience-ன் foundation-ஐ support செய்கின்றன.</p>
-<h3>Recovery is part of resilience.</h3>
-</div></section>
-<section class="lesson"><h2>My Resilience Plan</h2><div class="lesson-body">
-<h4>நான் தற்போது face செய்யும் challenge:</h4>
-<h4>என் automatic thought:</h4>
-<h4>Balanced Reframe:</h4>
-<h4>இதில் Fixed:</h4>
-<h4>இதில் Flexible:</h4>
-<h4>நான் பேசக்கூடிய Support Person:</h4>
-<h4>நான் control செய்யக்கூடிய One Small Action:</h4>
-<h4>Review Date:</h4>
-</div></section>
-<section class="lesson"><h2>7-Day Resilience Challenge</h2><div class="lesson-body">
-<h4>Day 1 – Notice</h4>
-<p class="lead">ஒரு setback வந்தபோது உங்கள் automatic thought-ஐ எழுதுங்கள்.</p>
-<h4>Day 2 – Reframe</h4>
-<p class="lead">அந்த thought-க்கு ஒரு balanced alternative எழுதுங்கள்.</p>
-<h4>Day 3 – Connect</h4>
-<p class="lead">ஒரு trusted colleague அல்லது mentor-உடன் ஒரு professional challenge share செய்யுங்கள்.</p>
-<h4>Day 4 – Purpose</h4>
-<p class="lead">“நான் ஏன் ஆசிரியராக இருக்கிறேன்?”</p>
-<p>என்று ஒரு sentence எழுதுங்கள்.</p>
-<h4>Day 5 – Fixed vs Flexible</h4>
-<p class="lead">ஒரு current change-ஐ இரண்டு பகுதிகளாகப் பிரியுங்கள்.</p>
-<h4>Day 6 – One Control</h4>
-<p class="lead">அதில் நீங்கள் control செய்யக்கூடிய ஒரு action எடுங்கள்.</p>
-<h4>Day 7 – Review</h4>
-<p class="lead">“இந்த வாரம் என்ன கற்றுக்கொண்டேன்? அடுத்த வாரம் என்ன adjust செய்வேன்?”</p>
-<p>என்று எழுதுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
-<h4>Setback வந்தால் என் முதல் reaction:</h4>
-<h4>நான் அடிக்கடி சொல்லிக்கொள்ளும் automatic thought:</h4>
-<h4>அதை நான் reframe செய்யக்கூடிய விதம்:</h4>
-<h4>எனக்கு professional support கொடுக்கக்கூடிய ஒருவர்:</h4>
-<h4>என் Teaching Purpose:</h4>
-<h4>Change வந்தால் நான் control செய்யக்கூடிய விஷயங்களில் focus செய்கிறேனா?</h4>
-<p class="lead">□ Yes</p>
-<p>□ Sometimes</p>
-<p>□ Not Yet</p>
-</div></section>
-<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">Resilience என்றால்?</p>
-<p>A. ஒருபோதும் problem வராமல் இருப்பது
-B. எப்போதும் positive-ஆ இருப்பது
-C. Setback-க்கு பிறகு recover செய்து கற்றுக்கொண்டு adapt செய்வது
-D. Emotion-ஐ ignore செய்வது</p>
-<p>Correct Answer: C</p>
-<h4>Question 2</h4>
-<p class="lead">“இந்த activity வேலை செய்யவில்லை; வேறு approach try செய்ய வேண்டும்” என்பது?</p>
-<p>A. Avoidance
-B. Cognitive Reframing
-C. Aggressive Communication
-D. Punishment</p>
-<p>Correct Answer: B</p>
-<h4>Question 3</h4>
-<p class="lead">Resilience-ன் ஒரு முக்கிய pillar எது?</p>
-<p>A. Social Connection
-B. Isolation
-C. Perfectionism
-D. Blame</p>
-<p>Correct Answer: A</p>
-<h4>Question 4</h4>
-<p class="lead">Adaptive Flexibility என்றால்?</p>
-<p>A. Goal-ஐ உடனே விட்டுவிடுவது
-B. எல்லா rules-ஐ மாற்றுவது
-C. Goal-ஐ வைத்துக்கொண்டு அதை அடையும் approach-ஐ மாற்றுவது
-D. Plan-ஐ எந்த சூழலிலும் மாற்றாமல் இருப்பது</p>
-<p>Correct Answer: C</p>
-<h4>Question 5</h4>
-<p class="lead">Change வந்தால் useful approach எது?</p>
-<p>A. Fixed விஷயங்களை மட்டும் மாற்ற முயற்சி செய்வது
-B. Fixed மற்றும் Flexible பகுதிகளை பிரித்துப் பார்ப்பது
-C. Change-ஐ ignore செய்வது
-D. அனைத்தையும் ஒரே நாளில் solve செய்வது</p>
-<p>Correct Answer: B</p>
-<h4>Question 6</h4>
-<p class="lead">Resilience-க்கு recovery தேவையா?</p>
-<p>A. இல்லை
-B. Weak teachers-க்கு மட்டும்
-C. ஆம், recovery resilience-ஐ support செய்கிறது
-D. Vacation மட்டும் போதும்</p>
-<p>Correct Answer: C</p>
-</div></section>
-<section class="lesson"><h2>Module 9 – முக்கிய Takeaways</h2><div class="lesson-body">
-<h3>1. Resilience = Recover + Learn + Adapt</h3>
-<p class="lead">Setback வராமல் இருப்பது resilience அல்ல.</p>
-<p>Setback வந்த பிறகு மீண்டு வந்து, கற்றுக்கொண்டு, தேவையான மாற்றத்தைச் செய்வது.</p>
-<h3>2. Resilience-ன் நான்கு Pillars</h3>
-<h4>Cognitive Reframing</h4>
-<p class="lead">நிகழ்வை balanced perspective-ல் பார்க்கக் கற்றுக்கொள்வது.</p>
-<h4>Social Connection</h4>
-<p class="lead">எல்லா challenges-ஐயும் தனியாகச் சுமக்காமல் support பயன்படுத்துவது.</p>
-<h4>Sense of Purpose</h4>
-<p class="lead">கடினமான நாட்களிலும் நம்முடைய “Why”-ஐ நினைவில் வைத்துக்கொள்வது.</p>
-<h4>Adaptive Flexibility</h4>
-<p class="lead">Goal-ஐ வைத்துக்கொண்டு method-ஐ மாற்றத் தயாராக இருப்பது.</p>
-<h3>3. Change வந்தால்</h3>
-<h4>Initial Reaction</h4>
-<p class="lead">↓
+<section class="lesson"><h2>Lesson 1: Resilience என்றால் என்ன?</h2><div class="lesson-body"><p class="lead">Resilience என்றால்:</p><p>எனக்கு எந்தப் பிரச்சினையும் வராது.</p><p>என்பது அல்ல.</p><p>எந்த situation வந்தாலும் நான் பாதிக்கப்பட மாட்டேன்.</p><p>என்பதும் அல்ல.</p><p>ஒரு setback நம்மை பாதிக்கலாம்.</p><p>Frustration வரலாம்.</p><p>Disappointment வரலாம்.</p><p>Stress வரலாம்.</p><p>ஆனால் அதற்குப் பிறகு:</p><p>“இங்கிருந்து நான் எப்படி மீண்டு வருவது?”</p><p>“இதிலிருந்து என்ன கற்றுக்கொள்ளலாம்?”</p><p>என்று முன்னேறக்கூடிய திறன்தான் Resilience.</p><h3>Resilience = Never Falling அல்ல</h3><h3>Resilience = Recover + Learn + Adapt</h3></div></section>
+<section class="lesson"><h2>Lesson 2: Resilience-ன் நான்கு Pillars</h2><div class="lesson-body"><p class="lead">இந்த Module-ல் நான்கு முக்கிய pillars-ஐ பார்க்கப் போகிறோம்.</p><h4>1. Cognitive Reframing</h4><h4>2. Social Connection</h4><h4>3. Sense of Purpose</h4><h4>4. Adaptive Flexibility</h4></div></section>
+<section class="lesson"><h2>PILLAR 1</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Cognitive Reframing</h2><div class="lesson-body"><h4>நிகழ்வை வேறு கோணத்தில் பார்க்கக் கற்றுக்கொள்வது</h4><p class="lead">ஒரு lesson சரியாகப் போகவில்லை.</p><p>Students confused.</p><p>Activity fail.</p><p>Teacher மனதில்:</p><p>“நான் teaching-ல நல்லவரே இல்லை.”</p><p>என்ற thought வரலாம்.</p><p>ஆனால் ஒரு lesson fail ஆனது ஒரு fact.</p><p>“நான் நல்ல teacher இல்லை” என்பது அந்த fact-க்கு நாம் கொடுத்த interpretation.</p><p>Cognitive Reframing என்ன சொல்கிறது?</p><h3>“நடந்தது என்ன?”</h3><p class="lead">மற்றும்</p><h3>“நான் அதற்கு என்ன meaning கொடுக்கிறேன்?”</h3><p class="lead">இரண்டையும் பிரித்துப் பாருங்கள்.</p><h4>Example</h4><p>Event</p><p class="lead">Activity வேலை செய்யவில்லை.</p><p>Automatic Thought</p><p class="lead">“இந்த class-ஐ என்னால் handle செய்ய முடியாது.”</p><p>Reframe</p><p class="lead">“இந்த activity இந்த class-க்கு வேலை செய்யவில்லை. வேறு approach try செய்ய வேண்டும்.”</p><p>முதல் thought:</p><p>Identity-ஐ attack செய்கிறது.</p><p>இரண்டாவது thought:</p><p>Problem-ஐ identify செய்கிறது.</p></div></section>
+<section class="lesson"><h2>Reframing என்பது Fake Positivity அல்ல</h2><div class="lesson-body"><p class="lead">Reframing என்றால்:</p><p>“எல்லாமே நல்லதுதான்!”</p><p>என்று உண்மையை மறைப்பது அல்ல.</p><h4>Fake Positivity</h4><p class="lead">“Problem எதுவும் இல்லை.”</p><h4>Reframing</h4><p class="lead">“Problem இருக்கிறது. ஆனால் இதிலிருந்து நான் என்ன செய்ய முடியும்?”</p><p>Problem-ஐ deny செய்யவில்லை.</p><p>Problem-க்கு நாம் கொடுக்கும் interpretation-ஐ useful direction-க்கு மாற்றுகிறோம்.</p></div></section>
+<section class="lesson"><h2>Reframing Practice</h2><div class="lesson-body"><p class="lead">ஒரு difficult teaching moment-ஐ நினைத்துப் பாருங்கள்.</p><h4>என்ன நடந்தது?</h4><h4>என் automatic thought என்ன?</h4><h4>அந்த thought முழுமையாக fact-ஆ?</h4><h4>இன்னொரு balanced interpretation என்ன?</h4><h4>இதிலிருந்து நான் கற்றுக்கொள்ளக்கூடியது என்ன?</h4></div></section>
+<section class="lesson"><h2>PILLAR 2</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Social Connection</h2><div class="lesson-body"><h4>எல்லாவற்றையும் தனியாகச் சுமக்க வேண்டியதில்லை</h4><p class="lead">Resilience என்பது:</p><p>“எனக்கு யாருடைய help-மும் தேவையில்லை.”</p><p>என்று தனியாக எல்லாவற்றையும் handle செய்வது அல்ல.</p><p>ஒரு difficult day வந்தால்:</p><p>நம்மை judge செய்யாமல் கேட்கக்கூடிய ஒருவர்…</p><p>Practical idea கொடுக்கக்கூடிய ஒருவர்…</p><p>“நானும் இதை face பண்ணியிருக்கேன்.”</p><p>என்று சொல்லக்கூடிய ஒருவர்…</p><p>இருப்பது recovery-க்கு உதவும்.</p><h4>Support Circle</h4><p class="lead">உங்கள் professional life-ல் குறைந்தது:</p><p>ஒரு colleague</p><p>அல்லது</p><p>ஒரு mentor</p><p>அல்லது</p><p>ஒரு trusted professional contact</p><p>இருப்பது பயனுள்ளதாக இருக்கும்.</p></div></section>
+<section class="lesson"><h2>Support கேட்பது Weakness அல்ல</h2><div class="lesson-body"><p class="lead">சில நேரங்களில் ஆசிரியர்கள்:</p><p>“நானே handle பண்ணணும்.”</p><p>என்று நினைக்கலாம்.</p><p>ஆனால் ஒரு நல்ல கேள்வி:</p><h3>“இந்த situation-ல் நான் யாரிடம் பேசினால் clarity கிடைக்கும்?”</h3><p class="lead">என்பது.</p><p>Support என்பது problem-ஐ மற்றவரிடம் கொடுத்துவிடுவது அல்ல.</p><p>Problem-ஐ better perspective-ல் பார்க்க உதவி பெறுவது.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – My Support Map</h2><div class="lesson-body"><div class="activity-field" data-key="m9-i10-f1">
+  <p class="act-label">ஒரு difficult day-ல் நான் பேசக்கூடிய colleague:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i10-f2">
+  <p class="act-label">Professional guidance கேட்கக்கூடிய person:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i10-f3">
+  <p class="act-label">Personal emotional support கிடைக்கும் person:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i10-f4">
+  <p class="act-label">நான் support கேட்காமல் avoid செய்யும் ஒரு situation:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>PILLAR 3</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Sense of Purpose</h2><div class="lesson-body"><h4>“நான் ஏன் இந்த வேலையை செய்கிறேன்?”</h4><p class="lead">Teaching profession-ல் எல்லா நாட்களும் rewarding-ஆ இருக்காது.</p><p>சில நாட்கள்:</p><p>Students cooperate செய்ய மாட்டார்கள்.</p><p>Parent complaint வரலாம்.</p><p>Paperwork அதிகமாக இருக்கலாம்.</p><p>Result எதிர்பார்த்தபடி இருக்காது.</p><p>அப்போது:</p><p>“நான் ஏன் இதை செய்கிறேன்?”</p><p>என்ற கேள்வி வரலாம்.</p><p>அந்த நேரத்தில் நம்முடைய purpose முக்கியம்.</p><h4>Purpose என்றால் பெரிய Mission Statement மட்டும் அல்ல</h4><p class="lead">அது simple-ஆ இருக்கலாம்.</p><p>“ஒரு குழந்தைக்கு learning possible என்று feel செய்ய வைக்க வேண்டும்.”</p><p>“Students confidence வளர உதவ வேண்டும்.”</p><p>“என்னிடம் படிக்கும் மாணவர்கள் respect-உடன் நடத்தப்பட வேண்டும்.”</p><p>“என் subject-ஐ குழந்தைகள் புரிந்துகொள்ள உதவ வேண்டும்.”</p><p>இந்த “Why” கடினமான நாட்களில் direction கொடுக்க உதவும்.</p></div></section>
+<section class="lesson"><h2>My Teaching Purpose</h2><div class="lesson-body"><p class="lead">இந்த sentence-ஐ complete செய்யுங்கள்:</p><h3>“நான் ஆசிரியராக இருப்பதன் மூலம் ________________________________.”</h3><p class="lead">அல்லது:</p><h3>“என்னிடம் படிக்கும் மாணவர்கள் ________________________________ என்று உணர வேண்டும்.”</h3><p class="lead">உங்கள் பதில்:</p></div></section>
+<section class="lesson"><h2>PILLAR 4</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Adaptive Flexibility</h2><div class="lesson-body"><h4>Plan-ஐ மாற்றுவது Failure அல்ல</h4><p class="lead">ஒரு நல்ல teacher plan செய்வார்.</p><p>ஆனால் resilient teacher:</p><p>Plan வேலை செய்யவில்லை என்றால் approach-ஐ மாற்றவும் தயாராக இருப்பார்.</p><h4>Example</h4><p class="lead">நீங்கள் ஒரு group activity plan செய்திருக்கிறீர்கள்.</p><p>Class-ல்:</p><p>Noise அதிகமாகிறது.</p><p>Students confused.</p><p>Learning நடக்கவில்லை.</p><p>Teacher:</p><p>“நான் plan பண்ணிட்டேன். இதைத்தான் complete பண்ணணும்.”</p><p>என்று insist செய்தால்?</p><p>Plan தான் goal ஆகிவிடுகிறது.</p><p>ஆனால் உண்மையான goal என்ன?</p><p>Learning.</p><p>Adaptive Flexibility உள்ள teacher:</p><p>“இந்த activity இப்போது வேலை செய்யவில்லை. Pause. எல்லாரும் seats-க்கு வாங்க. First concept-ஐ board-ல் ஒரு example-ஆ பார்க்கலாம்.”</p><p>என்று method மாற்றுகிறார்.</p><h4>நினைவில் வைத்துக்கொள்ளுங்கள்</h4><h3>Goal-ஐ விட்டுவிடுவது அல்ல.</h3><h3>Goal-ஐ அடையும் பாதையை மாற்றுவது.</h3><p class="lead">இதுதான் Adaptive Flexibility.</p></div></section>
+<section class="lesson"><h2>Lesson 3: மாற்றம் வந்தால் நம்முடைய முதல் Reaction என்ன?</h2><div class="lesson-body"><p class="lead">School-ல் ஒரு புதிய policy வருகிறது.</p><p>New reporting system.</p><p>New curriculum.</p><p>New timetable.</p><p>New leadership.</p><p>New technology.</p><p>நம்முடைய first reaction:</p><p>“ஏன் இதை மாற்றணும்?”</p><p>“பழைய system நல்லாதானே இருந்தது?”</p><p>“இது இன்னொரு extra வேலை!”</p><p>என்று இருக்கலாம்.</p><p>இந்த reaction வந்ததற்காக நம்மை judge செய்ய வேண்டியதில்லை.</p><p>Source framework சொல்வது:</p><h3>உங்கள் முதல் Reaction-ஐ பெயரிடுங்கள்.</h3><h4>Example</h4><p class="lead">“எனக்கு irritation.”</p><p>“எனக்கு anxiety.”</p><p>“எனக்கு frustration.”</p><p>“எனக்கு uncertainty.”</p><p>மாற்றத்தை manage செய்வதற்கான முதல் step:</p><p>நம்முடைய reaction-ஐ கவனிப்பது.</p></div></section>
+<section class="lesson"><h2>Lesson 4: Fixed vs Flexible</h2><div class="lesson-body"><p class="lead">Change வந்த பிறகு situation-ஐ இரண்டு பகுதிகளாகப் பிரியுங்கள்.</p></div></section>
+<section class="lesson"><h2>FIXED</h2><div class="lesson-body"><h4>நான் மாற்ற முடியாதவை</h4><p class="lead">மற்றும்</p></div></section>
+<section class="lesson"><h2>FLEXIBLE</h2><div class="lesson-body"><h4>நான் influence செய்யக்கூடியவை</h4><h4>Example</h4><p class="lead">School ஒரு புதிய digital reporting system introduce செய்திருக்கிறது.</p><h3>FIXED</h3><p class="lead">System implement ஆகிவிட்டது.</p><p>Deadline.</p><p>Required format.</p><p>School policy.</p><h3>FLEXIBLE</h3><p class="lead">நான் system கற்றுக்கொள்ளும் நேரம்.</p><p>யாரிடம் help கேட்பது.</p><p>என் workflow.</p><p>எந்த shortcuts அல்லது templates பயன்படுத்துவது.</p><p>Practice செய்யும் முறை.</p><p>Stress அதிகமாக வருவதற்கான ஒரு காரணம்:</p><p>Fixed விஷயங்களை மாற்ற முயற்சி செய்வது.</p><p>Resilience நம்முடைய energy-ஐ:</p><p>Flexible area</p><p>மேல் செலுத்த உதவுகிறது.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – Fixed vs Flexible</h2><div class="lesson-body"><p class="section-note lead">நீங்கள் தற்போது face செய்யும் ஒரு change:</p><div class="activity-field" data-key="m9-i20-f1">
+  <p class="act-label">FIXED – என்னால் மாற்ற முடியாதவை</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i20-f2">
+  <p class="act-label">FLEXIBLE – நான் influence செய்யக்கூடியவை</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>Lesson 5: One Thing to Control</h2><div class="lesson-body"><p class="lead">ஒரு பெரிய change வந்தால்:</p><p>“எல்லாவற்றையும் எப்படி manage செய்வது?”</p><p>என்று overwhelm ஆகலாம்.</p><p>அதற்குப் பதிலாக:</p><h3>“இன்று நான் control செய்யக்கூடிய ஒரு விஷயம் என்ன?”</h3><p class="lead">என்று கேளுங்கள்.</p><h4>Example</h4><p class="lead">New curriculum வந்துள்ளது.</p><p>முழு வருட syllabus-ஐ நினைத்தால் overwhelming.</p><p>இன்றைய control:</p><p>“இந்த வாரம் முதல் unit-ன் objectives மட்டும் புரிந்துகொள்வேன்.”</p><p>அடுத்தது:</p><p>“ஒரு lesson plan உருவாக்குவேன்.”</p><p>பிறகு:</p><p>“ஒரு lesson try செய்து review செய்வேன்.”</p><h3>Big Change → One Controllable Step</h3><p class="lead">இதுதான் practical resilience.</p></div></section>
+<section class="lesson"><h2>Lesson 6: Change Management Framework</h2><div class="lesson-body"><p class="lead">நம்மால் தேர்வு செய்யப்படாத ஒரு change வந்தால் இந்த process-ஐ பயன்படுத்தலாம்:</p></div></section>
+<section class="lesson"><h2>INITIAL REACTION → FIXED vs FLEXIBLE → ONE THING TO CONTROL → REVIEW</h2><div class="lesson-body"><h3>STEP 1 – INITIAL REACTION</h3><p class="lead">எனக்கு என்ன reaction வருகிறது?</p><p class="lead">அதை பெயரிடுங்கள்.</p><h3>STEP 2 – FIXED vs FLEXIBLE</h3><p class="lead">என்னால் மாற்ற முடியாதது என்ன?</p><p class="lead">நான் influence செய்யக்கூடியது என்ன?</p><h3>STEP 3 – ONE THING TO CONTROL</h3><p class="lead">இப்போது நான் செய்யக்கூடிய ஒரு practical action:</p><h3>STEP 4 – REVIEW</h3><p class="lead">ஒரு வாரம் கழித்து:</p><p>என்ன வேலை செய்தது?</p><p class="lead">என்ன வேலை செய்யவில்லை?</p><p class="lead">எதை adjust செய்ய வேண்டும்?</p></div></section>
+<section class="lesson"><h2>Classroom Case Study</h2><div class="lesson-body"><h3>Situation</h3><p class="lead">ஒரு ஆசிரியர் ஒரு புதிய class-ஐப் பெறுகிறார்.</p><p>அந்த class-ன் behaviour previous class-ஐவிட challenging.</p><p>முதல் இரண்டு lessons சரியாகப் போகவில்லை.</p><h4>Automatic Thought</h4><p class="lead">“இந்த class எனக்கு set ஆகாது.”</p><h4>Reframe</h4><p class="lead">“இந்த class-க்கு என் previous approach முழுமையாக வேலை செய்யவில்லை. இந்த group-க்கு வேறு structure தேவை.”</p><h4>Social Connection</h4><p class="lead">அந்த class-ஐ முன்பு handle செய்த teacher-ிடம்:</p><p>“இந்த class-க்கு எந்த routines வேலை செய்தது?”</p><p>என்று கேட்கிறார்.</p><h4>Purpose</h4><p class="lead">“இந்த class-க்கும் safe, structured learning environment உருவாக்க வேண்டும்.”</p><h4>Adaptive Flexibility</h4><p class="lead">Lesson structure மாற்றுகிறார்.</p><p>Clear entry routine.</p><p>Short instructions.</p><p>Smaller activities.</p><p>Consistent boundaries.</p><h4>Review</h4><p class="lead">ஒரு வாரம் கழித்து:</p><p>எந்த routine வேலை செய்தது?</p><p>எது வேலை செய்யவில்லை?</p><p>எதை modify செய்ய வேண்டும்?</p><p>இதுதான் resilience in practice.</p></div></section>
+<section class="lesson"><h2>Lesson 7: Failure-ஐ Identity ஆக்காதீர்கள்</h2><div class="lesson-body"><p class="lead">ஒரு lesson fail ஆனது.</p><p>அதன் அர்த்தம்:</p><p>“நான் failure.”</p><p>அல்ல.</p><p>ஒரு parent conversation சரியாகப் போகவில்லை.</p><p>அதன் அர்த்தம்:</p><p>“எனக்கு communication skill இல்லை.”</p><p>அல்ல.</p><p>ஒரு classroom strategy வேலை செய்யவில்லை.</p><p>அதன் அர்த்தம்:</p><p>“இந்த class impossible.”</p><p>அல்ல.</p><h4>Event ≠ Identity</h4><p class="lead">ஒரு event-ஐ information-ஆகப் பாருங்கள்.</p><h3>“What happened?”</h3><h3>“What can I learn?”</h3><h3>“What will I try next?”</h3><p class="lead">இந்த மூன்று கேள்விகள் setback-ஐ learning cycle-ஆக மாற்ற உதவும்.</p></div></section>
+<section class="lesson"><h2>The 3R Recovery Tool</h2><div class="lesson-body"><p class="lead">ஒரு setback வந்த பிறகு:</p></div></section>
+<section class="lesson"><h2>1. RECOGNISE</h2><div class="lesson-body"><p class="lead">என்ன நடந்தது?</p><p>எனக்கு என்ன emotion?</p></div></section>
+<section class="lesson"><h2>2. REFRAME</h2><div class="lesson-body"><p class="lead">இந்த situation-ஐ balanced-ஆக வேறு எப்படி பார்க்கலாம்?</p></div></section>
+<section class="lesson"><h2>3. RESPOND</h2><div class="lesson-body"><p class="lead">அடுத்த small action என்ன?</p><h4>Example</h4><p class="lead">Recognise:
+“Lesson வேலை செய்யவில்லை. நான் frustrated-ஆ இருக்கிறேன்.”</p><p>Reframe:
+“ஒரு strategy fail ஆனது; முழு lesson goal fail ஆகவில்லை.”</p><p>Respond:
+“Tomorrow same concept-ஐ visual example-ல் try செய்வேன்.”</p></div></section>
+<section class="lesson"><h2>Lesson 8: Resilience என்பது Rest இல்லாமல் தொடர்ந்து வேலை செய்வது அல்ல</h2><div class="lesson-body"><p class="lead">“Strong teacher” என்றால்:</p><p>எதுவாக இருந்தாலும் வேலை செய்ய வேண்டும்.</p><p>Tired ஆனாலும் continue.</p><p>Emotion இருந்தாலும் ignore.</p><p>Help கேட்கக்கூடாது.</p><p>என்று அர்த்தம் இல்லை.</p><p>Resilience-க்கு recovery தேவை.</p><p>Module 3-ல் பார்த்தது போல:</p><p>Small pauses.</p><p>Boundaries.</p><p>Trusted support.</p><p>Recovery habits.</p><p>இவை resilience-ன் foundation-ஐ support செய்கின்றன.</p><h3>Recovery is part of resilience.</h3></div></section>
+<section class="lesson"><h2>My Resilience Plan</h2><div class="lesson-body"><h4>நான் தற்போது face செய்யும் challenge:</h4><h4>என் automatic thought:</h4><h4>Balanced Reframe:</h4><h4>இதில் Fixed:</h4><h4>இதில் Flexible:</h4><h4>நான் பேசக்கூடிய Support Person:</h4><h4>நான் control செய்யக்கூடிய One Small Action:</h4><h4>Review Date:</h4></div></section>
+<section class="lesson interactive-section"><h2>📝 7-Day Resilience Challenge</h2><div class="lesson-body"><h4>Day 1 – Notice</h4><p class="section-note lead">ஒரு setback வந்தபோது உங்கள் automatic thought-ஐ எழுதுங்கள்.</p><div class="activity-field" data-key="m9-i32-f1">
+  <p class="act-label">Day 2 – Reframe — அந்த thought-க்கு ஒரு balanced alternative எழுதுங்கள்.</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><h4>Day 3 – Connect</h4><p class="section-note lead">ஒரு trusted colleague அல்லது mentor-உடன் ஒரு professional challenge share செய்யுங்கள்.</p><div class="activity-field" data-key="m9-i32-f2">
+  <p class="act-label">Day 4 – Purpose — “நான் ஏன் ஆசிரியராக இருக்கிறேன்?”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">என்று ஒரு sentence எழுதுங்கள்.</p><div class="activity-field" data-key="m9-i32-f3">
+  <p class="act-label">Day 5 – Fixed vs Flexible — ஒரு current change-ஐ இரண்டு பகுதிகளாகப் பிரியுங்கள்.</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><h4>Day 6 – One Control</h4><p class="section-note lead">அதில் நீங்கள் control செய்யக்கூடிய ஒரு action எடுங்கள்.</p><h4>Day 7 – Review</h4><p class="section-note lead">“இந்த வாரம் என்ன கற்றுக்கொண்டேன்? அடுத்த வாரம் என்ன adjust செய்வேன்?”</p><p class="section-note ">என்று எழுதுங்கள்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Reflection</h2><div class="lesson-body"><div class="activity-field" data-key="m9-i33-f1">
+  <p class="act-label">Setback வந்தால் என் முதல் reaction:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i33-f2">
+  <p class="act-label">நான் அடிக்கடி சொல்லிக்கொள்ளும் automatic thought:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i33-f3">
+  <p class="act-label">அதை நான் reframe செய்யக்கூடிய விதம்:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i33-f4">
+  <p class="act-label">எனக்கு professional support கொடுக்கக்கூடிய ஒருவர்:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m9-i33-f5">
+  <p class="act-label">என் Teaching Purpose:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m9-i33-f6">
+  <p class="sc-question">Change வந்தால் நான் control செய்யக்கூடிய விஷயங்களில் focus செய்கிறேனா?</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m9i33f6" value="0"> Yes</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m9-i33-f7">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m9i33f7" value="0"> Sometimes</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m9-i33-f8">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m9i33f8" value="0"> Not Yet</label></div>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m9-quiz34">
+      <div class="quiz-question" data-correct="2">
+  <p class="q-text">1. Resilience என்றால்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m9quiz34q1" value="0"> ஒருபோதும் problem வராமல் இருப்பது</label><label class="q-option"><input type="radio" name="m9quiz34q1" value="1"> எப்போதும் positive-ஆ இருப்பது</label><label class="q-option"><input type="radio" name="m9quiz34q1" value="2"> Setback-க்கு பிறகு recover செய்து கற்றுக்கொண்டு adapt செய்வது</label><label class="q-option"><input type="radio" name="m9quiz34q1" value="3"> Emotion-ஐ ignore செய்வது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">2. “இந்த activity வேலை செய்யவில்லை; வேறு approach try செய்ய வேண்டும்” என்பது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m9quiz34q2" value="0"> Avoidance</label><label class="q-option"><input type="radio" name="m9quiz34q2" value="1"> Cognitive Reframing</label><label class="q-option"><input type="radio" name="m9quiz34q2" value="2"> Aggressive Communication</label><label class="q-option"><input type="radio" name="m9quiz34q2" value="3"> Punishment</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="0">
+  <p class="q-text">3. Resilience-ன் ஒரு முக்கிய pillar எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m9quiz34q3" value="0"> Social Connection</label><label class="q-option"><input type="radio" name="m9quiz34q3" value="1"> Isolation</label><label class="q-option"><input type="radio" name="m9quiz34q3" value="2"> Perfectionism</label><label class="q-option"><input type="radio" name="m9quiz34q3" value="3"> Blame</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">4. Adaptive Flexibility என்றால்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m9quiz34q4" value="0"> Goal-ஐ உடனே விட்டுவிடுவது</label><label class="q-option"><input type="radio" name="m9quiz34q4" value="1"> எல்லா rules-ஐ மாற்றுவது</label><label class="q-option"><input type="radio" name="m9quiz34q4" value="2"> Goal-ஐ வைத்துக்கொண்டு அதை அடையும் approach-ஐ மாற்றுவது</label><label class="q-option"><input type="radio" name="m9quiz34q4" value="3"> Plan-ஐ எந்த சூழலிலும் மாற்றாமல் இருப்பது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">5. Change வந்தால் useful approach எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m9quiz34q5" value="0"> Fixed விஷயங்களை மட்டும் மாற்ற முயற்சி செய்வது</label><label class="q-option"><input type="radio" name="m9quiz34q5" value="1"> Fixed மற்றும் Flexible பகுதிகளை பிரித்துப் பார்ப்பது</label><label class="q-option"><input type="radio" name="m9quiz34q5" value="2"> Change-ஐ ignore செய்வது</label><label class="q-option"><input type="radio" name="m9quiz34q5" value="3"> அனைத்தையும் ஒரே நாளில் solve செய்வது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">6. Resilience-க்கு recovery தேவையா?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m9quiz34q6" value="0"> இல்லை</label><label class="q-option"><input type="radio" name="m9quiz34q6" value="1"> Weak teachers-க்கு மட்டும்</label><label class="q-option"><input type="radio" name="m9quiz34q6" value="2"> ஆம், recovery resilience-ஐ support செய்கிறது</label><label class="q-option"><input type="radio" name="m9quiz34q6" value="3"> Vacation மட்டும் போதும்</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>Module 9 – முக்கிய Takeaways</h2><div class="lesson-body"><h3>1. Resilience = Recover + Learn + Adapt</h3><p class="lead">Setback வராமல் இருப்பது resilience அல்ல.</p><p>Setback வந்த பிறகு மீண்டு வந்து, கற்றுக்கொண்டு, தேவையான மாற்றத்தைச் செய்வது.</p><h3>2. Resilience-ன் நான்கு Pillars</h3><h4>Cognitive Reframing</h4><p class="lead">நிகழ்வை balanced perspective-ல் பார்க்கக் கற்றுக்கொள்வது.</p><h4>Social Connection</h4><p class="lead">எல்லா challenges-ஐயும் தனியாகச் சுமக்காமல் support பயன்படுத்துவது.</p><h4>Sense of Purpose</h4><p class="lead">கடினமான நாட்களிலும் நம்முடைய “Why”-ஐ நினைவில் வைத்துக்கொள்வது.</p><h4>Adaptive Flexibility</h4><p class="lead">Goal-ஐ வைத்துக்கொண்டு method-ஐ மாற்றத் தயாராக இருப்பது.</p><h3>3. Change வந்தால்</h3><h4>Initial Reaction</h4><p class="lead">↓
 ### Fixed vs Flexible
 ↓
 ### One Thing to Control
 ↓
-### Review</p>
-<p>இந்த process-ஐ பயன்படுத்துங்கள்.</p>
-<h3>4. Failure என்பது Identity அல்ல</h3>
-<p class="lead">ஒரு lesson fail ஆனது:</p>
-<p>“நான் failure”</p>
-<p>என்பதற்கான evidence அல்ல.</p>
-<p>அது:</p>
-<p>“இந்த approach-ல் என்ன மாற்ற வேண்டும்?”</p>
-<p>என்பதற்கான information.</p>
-<h3>5. Recovery is Part of Resilience</h3>
-<p class="lead">Strong teacher என்றால் rest தேவையில்லாத teacher அல்ல.</p>
-<p>தன்னுடைய energy-ஐ recover செய்து, மீண்டும் effective-ஆக செயல்படக்கூடிய teacher.</p>
-</div></section>
-<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“சவால்கள் மற்றும் மாற்றங்கள் வந்தால் அவற்றை என் திறமைக்கான இறுதி தீர்ப்பாகப் பார்க்காமல், கற்றுக்கொள்ள வேண்டிய தகவலாகப் பார்ப்பேன். என்னால் மாற்ற முடியாதவற்றில் என் முழு energy-யையும் செலவிடாமல், என்னால் influence செய்யக்கூடிய அடுத்த சிறிய செயலில் கவனம் செலுத்துவேன்.”</p>
-</div></section>
-<section class="lesson"><h2>Module 9 Complete ✓</h2><div class="lesson-body">
-<h3>அடுத்த Module – Final Module</h3>
-</div></section>
-<section class="lesson"><h2>Leadership &amp; Professional Growth</h2><div class="lesson-body">
-<h4>ஆசிரியரிலிருந்து வழிகாட்டும் தலைவராக</h4>
-<p class="lead">Leadership என்பது designation கிடைத்த பிறகுதான் தொடங்குகிறதா?</p>
-<p>அல்லது ஒரு classroom teacher-ஆகவே நாம் leadership காட்ட முடியுமா?</p>
-<p>அடுத்த Module-ல்:</p>
-<p>Personal Leadership</p>
-<p>Peer Leadership</p>
-<p>Instructional Leadership</p>
-<p>என்ற மூன்று leadership levels,</p>
-<p>மேலும்,</p>
-<h4>STOP → START → CONTINUE</h4>
-<p class="lead">என்ற professional growth framework மூலம் இந்த முழு course-ஐ ஒரு practical 90-Day Teacher Growth Plan ஆக மாற்றுவது எப்படி என்பதைப் பார்க்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>Module 10 – Leadership &amp; Professional Growth</h2><div class="lesson-body">
-<h4>Course Finale</h4>
-</div></section>
+### Review</p><p>இந்த process-ஐ பயன்படுத்துங்கள்.</p><h3>4. Failure என்பது Identity அல்ல</h3><p class="lead">ஒரு lesson fail ஆனது:</p><p>“நான் failure”</p><p>என்பதற்கான evidence அல்ல.</p><p>அது:</p><p>“இந்த approach-ல் என்ன மாற்ற வேண்டும்?”</p><p>என்பதற்கான information.</p><h3>5. Recovery is Part of Resilience</h3><p class="lead">Strong teacher என்றால் rest தேவையில்லாத teacher அல்ல.</p><p>தன்னுடைய energy-ஐ recover செய்து, மீண்டும் effective-ஆக செயல்படக்கூடிய teacher.</p></div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“சவால்கள் மற்றும் மாற்றங்கள் வந்தால் அவற்றை என் திறமைக்கான இறுதி தீர்ப்பாகப் பார்க்காமல், கற்றுக்கொள்ள வேண்டிய தகவலாகப் பார்ப்பேன். என்னால் மாற்ற முடியாதவற்றில் என் முழு energy-யையும் செலவிடாமல், என்னால் influence செய்யக்கூடிய அடுத்த சிறிய செயலில் கவனம் செலுத்துவேன்.”</p></div></section>
+<section class="lesson"><h2>Module 9 Complete ✓</h2><div class="lesson-body"><h3>அடுத்த Module – Final Module</h3></div></section>
+<section class="lesson"><h2>Leadership &amp; Professional Growth</h2><div class="lesson-body"><h4>ஆசிரியரிலிருந்து வழிகாட்டும் தலைவராக</h4><p class="lead">Leadership என்பது designation கிடைத்த பிறகுதான் தொடங்குகிறதா?</p><p>அல்லது ஒரு classroom teacher-ஆகவே நாம் leadership காட்ட முடியுமா?</p><p>அடுத்த Module-ல்:</p><p>Personal Leadership</p><p>Peer Leadership</p><p>Instructional Leadership</p><p>என்ற மூன்று leadership levels,</p><p>மேலும்,</p><h4>STOP → START → CONTINUE</h4><p class="lead">என்ற professional growth framework மூலம் இந்த முழு course-ஐ ஒரு practical 90-Day Teacher Growth Plan ஆக மாற்றுவது எப்படி என்பதைப் பார்க்கலாம்.</p></div></section>
+<section class="lesson"><h2>Module 10 – Leadership &amp; Professional Growth</h2><div class="lesson-body"><h4>Course Finale</h4></div></section>
 </div>
 
 <div class="complete-bar">
@@ -801,6 +535,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 9;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -267,453 +333,119 @@ footer a:hover{color:var(--gold-light);}
 <h3>Control அல்ல — Self-Control</h3>
 <h3>Fear அல்ல — Responsibility</h3>
 <h3>Obedience மட்டும் அல்ல — Self-Discipline</h3>
-<section class="lesson"><h2>Lesson 1: Positive Discipline என்றால் என்ன?</h2><div class="lesson-body">
-<p class="lead">Positive Discipline என்றால்:</p>
-<p>மாணவர் என்ன செய்தாலும் பரவாயில்லை என்று விடுவது அல்ல.</p>
-<p>Rules இல்லாமல் இருப்பதும் அல்ல.</p>
-<p>Punishment கொடுக்கக்கூடாது என்ற ஒரு simple idea மட்டும் அல்ல.</p>
-<p>Positive Discipline-ன் நோக்கம்:</p>
-<p>Warmth-ஐயும் clear limits-ஐயும் ஒரே நேரத்தில் வைத்துக்கொண்டு, மாணவர் தனது behaviour-ன் விளைவுகளைப் புரிந்துகொண்டு நல்ல judgement மற்றும் self-discipline வளர்க்க உதவுவது.</p>
-<p>இதற்கு நான்கு core principles-ஐ இந்த Module-ல் பார்க்கப் போகிறோம்.</p>
-<h4>1. Kind and Firm Together</h4>
-<h4>2. Connection Before Correction</h4>
-<h4>3. Mistakes Are for Learning</h4>
-<h4>4. Long-Term Over Short-Term</h4>
-</div></section>
-<section class="lesson"><h2>PRINCIPLE 1</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Kind and Firm Together</h2><div class="lesson-body">
-<h4>அன்பும் உறுதியும் ஒன்றாக</h4>
-<p class="lead">ஒரு classroom-ல் இரண்டு extremes வரலாம்.</p>
-<h3>Too Kind</h3>
-<p class="lead">“பரவாயில்லை.”</p>
-<p>“அவன் குழந்தைதானே.”</p>
-<p>“இந்த முறை விட்டுவிடலாம்.”</p>
-<p>என்று boundary தெளிவில்லாமல் போவது.</p>
-<p>இது தொடர்ந்து நடந்தால் permissiveness ஆக மாறலாம்.</p>
-<h3>Too Firm</h3>
-<p class="lead">“நான் சொன்னா சொன்னதுதான்.”</p>
-<p>“Question கேட்காதே.”</p>
-<p>“இன்னொரு வார்த்தை பேசினா வெளியே போ.”</p>
-<p>இங்கு limit இருக்கிறது.</p>
-<p>ஆனால் relationship பாதிக்கப்படலாம்.</p>
-<p>Positive Discipline என்ன சொல்கிறது?</p>
-<h3>Kind + Firm</h3>
-<p class="lead">இரண்டும் ஒன்றாக இருக்க வேண்டும்.</p>
-<h4>Classroom Example</h4>
-<p class="lead">ஒரு மாணவர் seating arrangement மாற்றப்பட்டதால் upset-ஆ இருக்கிறார்.</p>
-<h4>Too Kind</h4>
-<p class="lead">“சரி, உனக்கு பிடிக்கலைனா பழைய இடத்திலேயே உட்கார்.”</p>
-<p>Boundary disappears.</p>
-<h4>Too Firm</h4>
-<p class="lead">“நான் சொன்ன இடத்தில்தான் உட்காரணும். பேசாதே.”</p>
-<p>Student’s feeling ignored.</p>
-<h4>Kind and Firm</h4>
-<p class="lead">“Seat change உனக்கு பிடிக்கவில்லை என்று புரிகிறது. ஆனால் இந்த term-க்கு இந்த seating arrangement தான் தொடரும்.”</p>
-<p>முதல் பகுதி:</p>
-<p>Kindness – feeling acknowledged.</p>
-<p>இரண்டாவது பகுதி:</p>
-<p>Firmness – boundary clear.</p>
-<p>Empathy இருக்கிறது.</p>
-<p>Boundary-யும் இருக்கிறது.</p>
-</div></section>
-<section class="lesson"><h2>Reflection</h2><div class="lesson-body">
-<p class="lead">Pressure வரும் நேரத்தில் நீங்கள் எந்தப் பக்கம் அதிகமாக செல்கிறீர்கள்?</p>
-<p>□ Too Kind</p>
-<p>□ Too Firm</p>
-<p>□ Kind and Firm</p>
-<h4>நான் அதிகமாகச் செல்லும் பக்கம்:</h4>
-<h4>நான் சேர்க்க வேண்டிய missing half:</h4>
-</div></section>
-<section class="lesson"><h2>PRINCIPLE 2</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Connection Before Correction</h2><div class="lesson-body">
-<h4>திருத்துவதற்கு முன் தொடர்பை உருவாக்குங்கள்</h4>
-<p class="lead">ஒரு மாணவர் தவறு செய்திருக்கிறார்.</p>
-<p>Teacher correction கொடுக்க வேண்டும்.</p>
-<p>ஆனால் student மனதில்:</p>
-<p>“Teacher என்னை attack செய்கிறார்.”</p>
-<p>என்ற feeling வந்துவிட்டால்?</p>
-<p>அவர் correction-ஐ கேட்பதைவிட தன்னை defend செய்வதில் கவனம் செலுத்தலாம்.</p>
-<p>அதனால் Positive Discipline ஒரு simple principle சொல்கிறது:</p>
-<h3>Connection Before Correction</h3>
-<p class="lead">Correction-க்கு முன்பு ஒரு சிறிய acknowledgement.</p>
-<h4>Example</h4>
-<p class="lead">Student class-ல் disturb செய்கிறார்.</p>
-<h4>Direct Correction</h4>
-<p class="lead">“Stop it! எத்தனை தடவை சொல்றது?”</p>
-<h4>Connection Before Correction</h4>
-<p class="lead">“உனக்கு ஏதோ bother பண்ணுது போல தெரிகிறது. அதைப் பிறகு பேசலாம். இப்போது lesson நடக்கும்போது side conversation நிறுத்த வேண்டும்.”</p>
-<p>கவனியுங்கள்:</p>
-<p>Connection வந்ததால் rule disappear ஆகவில்லை.</p>
-<p>Correction இன்னும் இருக்கிறது.</p>
-<p>ஆனால் correction-ஐ receive செய்ய student-க்கு ஒரு better emotional space உருவாகிறது.</p>
-</div></section>
-<section class="lesson"><h2>The 5-Second Connection</h2><div class="lesson-body">
-<p class="lead">ஒவ்வொரு correction-க்கும் நீண்ட counselling தேவையில்லை.</p>
-<p>சில நேரங்களில் ஒரு sentence போதும்.</p>
-<p>“நீ upset-ஆ இருக்கிறாய் என்று தெரிகிறது…”</p>
-<p>“இது உனக்கு difficult-ஆ இருக்கிறது என்று புரிகிறது…”</p>
-<p>“நீ இதைப் பற்றி frustrated-ஆ இருக்கிறாய் போல…”</p>
-<p>பிறகு boundary.</p>
-<p>“…ஆனால் இப்போது நாம் இந்த rule-ஐ follow செய்ய வேண்டும்.”</p>
-</div></section>
-<section class="lesson"><h2>PRINCIPLE 3</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Mistakes Are for Learning</h2><div class="lesson-body">
-<h4>தவறு என்பது கற்றலுக்கான தகவல்</h4>
-<p class="lead">ஒரு மாணவர் தவறு செய்கிறார்.</p>
-<p>அப்போது நாம் என்ன செய்ய விரும்புகிறோம்?</p>
-<p>“இதைக் எப்படி செய்தாய்?”</p>
-<p>“உனக்கு கொஞ்சமாவது sense இருக்கா?”</p>
-<p>“எப்போதுமே careless!”</p>
-<p>என்று shame உருவாக்கினால், அடுத்த முறை மாணவர் என்ன கற்றுக்கொள்ளலாம்?</p>
-<p>“தவறு செய்தால் அதை மறைக்க வேண்டும்.”</p>
-<p>Positive Discipline வேறு message கொடுக்க முயற்சி செய்கிறது:</p>
-<h3>“தவறு நடந்துவிட்டது. இதிலிருந்து என்ன கற்றுக்கொள்ளலாம்?”</h3>
-<h4>Example</h4>
-<p class="lead">ஒரு மாணவர் project-ஐ careless-ஆ செய்து ஒரு முக்கியமான part miss செய்திருக்கிறார்.</p>
-<h4>Shame Approach</h4>
-<p class="lead">“எவ்வளவு careless-ஆ செய்திருக்கிறாய்!”</p>
-<h4>Learning Approach</h4>
-<p class="lead">“எந்த இடத்தில் problem வந்தது என்று நினைக்கிறாய்? மறுபடியும் செய்தால் என்ன differently செய்வாய்?”</p>
-<p>இந்தக் கேள்விகள் student-ஐ:</p>
-<p>Defence-லிருந்து Reflection-க்கு,</p>
-<p>Shame-லிருந்து Learning-க்கு</p>
-<p>கொண்டு செல்ல உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>Behaviour அல்ல, Character அல்ல</h2><div class="lesson-body">
-<p class="lead">இந்த வேறுபாட்டை நினைவில் வைத்துக்கொள்ளுங்கள்.</p>
-<h4>Character Label</h4>
-<p class="lead">“நீ careless.”</p>
-<h4>Behaviour</h4>
-<p class="lead">“இந்த assignment-ல் இரண்டு instructions miss ஆகியிருக்கிறது.”</p>
-<h4>Character Label</h4>
-<p class="lead">“நீ irresponsible.”</p>
-<h4>Behaviour</h4>
-<p class="lead">“இந்த வாரம் மூன்று homework submit ஆகவில்லை.”</p>
-<p>Student-ஐ problem ஆக்காதீர்கள்.</p>
-<p>Problem-ஐ problem ஆக்குங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>PRINCIPLE 4</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Long-Term Over Short-Term</h2><div class="lesson-body">
-<h4>இப்போதைய அமைதியை விட நீண்டகால கற்றல் முக்கியம்</h4>
-<p class="lead">ஒரு punishment student behaviour-ஐ உடனடியாக நிறுத்தலாம்.</p>
-<p>ஆனால் Positive Discipline இன்னொரு கேள்வி கேட்கிறது:</p>
-<h3>“இந்த response அடுத்த முறை இந்த மாணவர் தானாகவே நல்ல choice எடுக்க உதவுமா?”</h3>
-<h4>Example</h4>
-<p class="lead">ஒரு student class-ல் பேசுகிறார்.</p>
-<p>Teacher:</p>
-<p>“இன்னொரு வார்த்தை பேசினா வெளியே போ!”</p>
-<p>Student அமைதியாகிறார்.</p>
-<p>Short-term result கிடைத்துவிட்டது.</p>
-<p>ஆனால் அவர் என்ன கற்றார்?</p>
-<p>“Teacher கோபப்படும்போது அமைதியாக இருக்க வேண்டும்.”</p>
-<p>Positive Discipline-ன் long-term goal:</p>
-<p>“மற்றவர் பேசும்போது நான் interrupt செய்தால் அவர்களின் learning பாதிக்கிறது. எனவே நான் wait செய்ய வேண்டும்.”</p>
-<p>என்ற judgement வளர்வது.</p>
-<h4>Golden Question</h4>
-<p class="lead">ஒரு behaviour issue-க்கு response கொடுப்பதற்கு முன்பு:</p>
-<h3>“இது student-ஐ நான் பார்க்கும்போது மட்டும் control செய்யுமா?”</h3>
-<p class="lead">அல்லது,</p>
-<h3>“அடுத்த முறை அவர் தானாக நல்ல choice எடுக்க உதவுமா?”</h3>
-<p class="lead">என்று கேளுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 2: Positive Discipline-க்கு ஒரு மொழி தேவை</h2><div class="lesson-body">
-<p class="lead">Positive Discipline ஒரு mindset.</p>
-<p>ஆனால் classroom moment-ல் நாம் என்ன சொல்ல வேண்டும்?</p>
-<p>அதற்காக source course Nonviolent Communication – NVC framework-ஐ பயன்படுத்துகிறது.</p>
-<p>NVC-ன் நான்கு பகுதிகள்:</p>
-</div></section>
-<section class="lesson"><h2>OBSERVATION → FEELING → NEED → REQUEST</h2><div class="lesson-body">
-<p class="lead">இதை ஒவ்வொன்றாகப் பார்க்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>STEP 1 – OBSERVATION</h2><div class="lesson-body">
-<h3>Judgement இல்லாமல் நடந்ததைச் சொல்லுங்கள்</h3>
-<h4>Judgement</h4>
-<p class="lead">“நீ ரொம்ப rude-ஆ இருக்கிறாய்.”</p>
-<p>இது interpretation.</p>
-<h4>Observation</h4>
-<p class="lead">“கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய்.”</p>
-<p>இது நடந்த behaviour.</p>
-<p>Observation என்பது camera record செய்திருந்தால் என்ன பார்த்திருக்கும் என்பதைப் போல இருக்க வேண்டும்.</p>
-<h4>Formula</h4>
-<p class="lead">“நான் கவனித்தது…”</p>
-<p>அல்லது நேரடியாக:</p>
-<p>“கடந்த 10 minutes-ல்…”</p>
-</div></section>
-<section class="lesson"><h2>STEP 2 – FEELING</h2><div class="lesson-body">
-<h3>உங்கள் உணர்வை நேர்மையாகச் சொல்லுங்கள்</h3>
-<p class="lead">Observation பிறகு:</p>
-<p>“இதனால் நான் concerned-ஆ இருக்கிறேன்.”</p>
-<p>அல்லது:</p>
-<p>“எனக்கு frustration ஆகிறது.”</p>
-<p>இது student-ஐ blame செய்வது அல்ல.</p>
-<h4>Better</h4>
-<p class="lead">“நான் concerned-ஆ இருக்கிறேன்.”</p>
-<h4>Avoid</h4>
-<p class="lead">“நீ என்னை கோபப்பட வைக்கிறாய்.”</p>
-<p>முதல் sentence நம்முடைய feeling-க்கு responsibility எடுக்கிறது.</p>
-<p>இரண்டாவது student-ஐ நம்முடைய emotion-க்கு responsible ஆக்குகிறது.</p>
-</div></section>
-<section class="lesson"><h2>STEP 3 – NEED</h2><div class="lesson-body">
-<h3>ஏன் இது முக்கியம்?</h3>
-<p class="lead">Rule மட்டும் சொல்லாமல் அதன் பின்னால் இருக்கும் need அல்லது value-ஐ சொல்லுங்கள்.</p>
-<h4>Example</h4>
-<p class="lead">“எல்லா மாணவர்களுக்கும் பேசுவதற்கும் கேட்கப்படுவதற்கும் வாய்ப்பு இருக்க வேண்டும்.”</p>
-<p>இதுதான் underlying need.</p>
-<p>Rule:</p>
-<p>“Don’t interrupt.”</p>
-<p>Need:</p>
-<p>“Everyone deserves a chance to be heard.”</p>
-<p>Rule-ன் பின்னால் இருக்கும் reason மாணவருக்கு தெளிவாகிறது.</p>
-</div></section>
-<section class="lesson"><h2>STEP 4 – REQUEST</h2><div class="lesson-body">
-<h3>என்ன செய்ய வேண்டும் என்பதைத் தெளிவாகச் சொல்லுங்கள்</h3>
-<h4>Vague</h4>
-<p class="lead">“Behave properly.”</p>
-<p>“Properly” என்றால் என்ன?</p>
-<p>Student interpret செய்ய வேண்டும்.</p>
-<h4>Specific Request</h4>
-<p class="lead">“அடுத்த முறை பேசுவதற்கு முன்பு hand raise செய்து wait செய்ய முடியுமா?”</p>
-<p>இப்போது expected behaviour clear.</p>
-<p>Request:</p>
-<p>Specific.</p>
-<p>Doable.</p>
-<p>Clear.</p>
-</div></section>
-<section class="lesson"><h2>Full NVC Example</h2><div class="lesson-body">
-<p class="lead">ஒரு மாணவர் தொடர்ந்து மற்றவர்கள் பேசும்போது interrupt செய்கிறார்.</p>
-<h3>Observation</h3>
-<p class="lead">“கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய்.”</p>
-<h3>Feeling</h3>
-<p class="lead">“அது எனக்கு concern-ஆ இருக்கிறது…”</p>
-<h3>Need</h3>
-<p class="lead">“…ஏனென்றால் class-ல் எல்லாருக்கும் பேசவும் கேட்கப்படவும் வாய்ப்பு வேண்டும்.”</p>
-<h3>Request</h3>
-<p class="lead">“அடுத்த முறை hand raise செய்து உன் turn வரும் வரை wait செய்ய முடியுமா?”</p>
-<p>முழுமையாக:</p>
-<p>“கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய். அது எனக்கு concern-ஆ இருக்கிறது, ஏனென்றால் class-ல் எல்லாருக்கும் பேசவும் கேட்கப்படவும் வாய்ப்பு வேண்டும். அடுத்த முறை hand raise செய்து உன் turn வரும் வரை wait செய்ய முடியுமா?”</p>
-<p>Behaviour clear.</p>
-<p>Feeling clear.</p>
-<p>Reason clear.</p>
-<p>Expected action clear.</p>
-<p>Character attack இல்லை.</p>
-<p>Shame இல்லை.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 3: NVC vs Blame</h2><div class="lesson-body">
-<h4>Situation 1 – Student Late</h4>
-<p>Blame</p>
-<p class="lead">“நீ எப்போதுமே late தான்!”</p>
-<p>NVC Style</p>
-<p class="lead">“இந்த வாரம் மூன்று நாட்கள் first period ஆரம்பித்த பிறகு வந்திருக்கிறாய். இது தொடர்வது எனக்கு concern-ஆ இருக்கிறது, ஏனென்றால் lesson-ன் ஆரம்ப instruction miss ஆகிறது. நாளை முதல் bell-க்கு முன்பு class-ல் இருக்க என்ன plan செய்யலாம்?”</p>
-<h4>Situation 2 – Homework Missing</h4>
-<p>Blame</p>
-<p class="lead">“உனக்கு responsibility-யே கிடையாது.”</p>
-<p>NVC Style</p>
-<p class="lead">“இந்த வாரம் இரண்டு homework submit ஆகவில்லை. உன் learning continuity பாதிக்கக்கூடாது என்பதால் எனக்கு concern. நாளைக்கு current homework complete செய்து கொண்டு வர முடியுமா?”</p>
-<h4>Situation 3 – Student Interrupting</h4>
-<p>Blame</p>
-<p class="lead">“எப்பவும் நடுவுல பேசிக்கிட்டே இருக்காதே!”</p>
-<p>NVC Style</p>
-<p class="lead">“நான் instruction கொடுக்கும்போது இரண்டு முறை இடையில் பேசினாய். எல்லாரும் instruction முழுமையாகக் கேட்க வேண்டும். நான் finish செய்த பிறகு உன் point சொல்ல முடியுமா?”</p>
-</div></section>
-<section class="lesson"><h2>Activity – Rewrite Using NVC</h2><div class="lesson-body">
-<p class="lead">கீழே உள்ள statements-ஐ:</p>
-<p>Observation → Feeling → Need → Request</p>
-<p>format-ல் rewrite செய்யுங்கள்.</p>
-<h4>Statement 1</h4>
-<p class="lead">“நீ ரொம்ப careless.”</p>
-<p>Observation:</p>
-<p class="lead">Feeling:</p>
-<p class="lead">Need:</p>
-<p class="lead">Request:</p>
-<h4>Statement 2</h4>
-<p class="lead">“Class-ஐ disturb பண்ணாதே!”</p>
-<p>Observation:</p>
-<p class="lead">Feeling:</p>
-<p class="lead">Need:</p>
-<p class="lead">Request:</p>
-<h4>Statement 3</h4>
-<p class="lead">“உனக்கு homework மேல எந்த responsibility-யும் இல்லை.”</p>
-<p>Observation:</p>
-<p class="lead">Feeling:</p>
-<p class="lead">Need:</p>
-<p class="lead">Request:</p>
-</div></section>
-<section class="lesson"><h2>Lesson 4: Correction-க்கு முன்பு ஒரு Quick Check</h2><div class="lesson-body">
-<p class="lead">ஒரு student behaviour உங்களை trigger செய்கிறது.</p>
-<p>உடனே correction கொடுப்பதற்கு முன்பு நான்கு questions:</p>
-<h3>1. என்ன நடந்தது?</h3>
-<p class="lead">Fact மட்டும்.</p>
-<h3>2. Student என்ன feel செய்து கொண்டிருக்கலாம்?</h3>
-<p class="lead">Empathy.</p>
-<h3>3. என்ன boundary தேவை?</h3>
-<p class="lead">Firmness.</p>
-<h3>4. அடுத்த முறை student என்ன behaviour செய்ய வேண்டும்?</h3>
-<p class="lead">Clear Request.</p>
-<p>இந்த நான்கு questions:</p>
-<p>Emotion-லிருந்து intention-க்கு நம்மை மாற்ற உதவும்.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 5: Quick Correction vs Teaching Moment</h2><div class="lesson-body">
-<p class="lead">எல்லா behaviour issue-க்கும் 10-minute conversation தேவையில்லை.</p>
-<p>சில behaviour-களுக்கு quick correction போதும்.</p>
-<p>“Please open page 25.”</p>
-<p>“One person at a time.”</p>
-<p>“Bag கீழே வையுங்கள்.”</p>
-<p>ஆனால் recurring behaviour என்றால்:</p>
-<p>Repeated correction மட்டும் போதாமல் இருக்கலாம்.</p>
-<p>அப்போது:</p>
-<p>“இந்த behaviour ஏன் repeat ஆகிறது?”</p>
-<p>“என்ன skill இன்னும் develop ஆகவில்லை?”</p>
-<p>“என்ன teach செய்ய வேண்டும்?”</p>
-<p>என்று பார்க்க வேண்டும்.</p>
-<h4>Example</h4>
-<p class="lead">Student repeatedly calls out answers.</p>
-<p>Quick correction:</p>
-<p>“Hand raise செய்யுங்கள்.”</p>
-<p>Problem repeat ஆகிறது.</p>
-<p>Teaching moment:</p>
-<p>“Answer தெரிந்தவுடன் உடனே சொல்ல வேண்டும் போல feel ஆகலாம். ஆனால் wait செய்வதும் மற்றவர்களுக்கு chance கொடுப்பதும் classroom skill. அடுத்த question-ல் hand raise செய்து wait try பண்ணலாம்.”</p>
-<p>இப்போது rule மட்டும் இல்லை.</p>
-<p>Skill teaching இருக்கிறது.</p>
-</div></section>
-<section class="lesson"><h2>Positive Discipline Practice Sheet</h2><div class="lesson-body">
-<p class="lead">ஒரு recurring student behaviour-ஐ தேர்வு செய்யுங்கள்.</p>
-<h4>Behaviour:</h4>
-<h4>நான் வழக்கமாக எப்படி respond செய்கிறேன்?</h4>
-<h4>இது short-term-ல் என்ன செய்கிறது?</h4>
-<h4>Student long-term-ல் என்ன கற்றுக்கொள்ள வேண்டும்?</h4>
-<h4>Connection sentence:</h4>
-<h4>Boundary:</h4>
-<h4>NVC Observation:</h4>
-<h4>Feeling:</h4>
-<h4>Need:</h4>
-<h4>Request:</h4>
-</div></section>
-<section class="lesson"><h2>7-Day Positive Discipline Challenge</h2><div class="lesson-body">
-<h4>Day 1 – Observe</h4>
-<p class="lead">ஒரு behaviour-ஐ label இல்லாமல் fact-ஆ describe செய்யுங்கள்.</p>
-<h4>Day 2 – Kind + Firm</h4>
-<p class="lead">ஒரு boundary-யை empathy-யுடன் சொல்லுங்கள்.</p>
-<h4>Day 3 – Connection Before Correction</h4>
-<p class="lead">Correction-க்கு முன்பு ஒரு acknowledgement sentence பயன்படுத்துங்கள்.</p>
-<h4>Day 4 – Mistake to Learning</h4>
-<p class="lead">“Why did you do this?” என்பதற்குப் பதிலாக:</p>
-<p>“அடுத்த முறை என்ன differently செய்யலாம்?”</p>
-<p>என்று கேளுங்கள்.</p>
-<h4>Day 5 – Long-Term Question</h4>
-<p class="lead">ஒரு consequence கொடுப்பதற்கு முன்பு:</p>
-<p>“இதிலிருந்து student என்ன கற்றுக்கொள்வார்?”</p>
-<p>என்று கேளுங்கள்.</p>
-<h4>Day 6 – NVC</h4>
-<p class="lead">ஒரு correction-ஐ:</p>
-<p>Observation → Feeling → Need → Request</p>
-<p>format-ல் சொல்லுங்கள்.</p>
-<h4>Day 7 – Review</h4>
-<p class="lead">இந்த வாரம் எந்த approach student response-ஐ மாற்றியது என்பதை note செய்யுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
-<h4>Positive Discipline-ன் நான்கு principles-ல் நான் ஏற்கனவே நன்றாகப் பயன்படுத்துவது:</h4>
-<h4>Pressure-ல் நான் மறந்துவிடுவது:</h4>
-<h4>நான் அதிகமாக correct செய்யும் student behaviour:</h4>
-<h4>அந்த student-உடன் Connection Before Correction எப்படி இருக்கும்?</h4>
-<h4>நான் மாற்ற வேண்டிய ஒரு sentence:</h4>
-<p class="lead">Old Sentence:</p>
-<p class="lead">Positive Discipline Sentence:</p>
-</div></section>
-<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">Positive Discipline-ன் long-term goal என்ன?</p>
-<p>A. Teacher இருக்கும்போது மட்டும் silence
-B. Punishment அதிகரித்தல்
-C. Self-discipline மற்றும் judgement வளர்த்தல்
-D. Rules நீக்குதல்</p>
-<p>Correct Answer: C</p>
-<h4>Question 2</h4>
-<p class="lead">Kind and Firm Together என்பதன் பொருள்?</p>
-<p>A. எப்போதும் soft-ஆ இருப்பது
-B. Strict-ஆ இருப்பது
-C. Empathy மற்றும் clear boundary இரண்டையும் வைத்திருப்பது
-D. Student கேட்டதை ஏற்றுக்கொள்வது</p>
-<p>Correct Answer: C</p>
-<h4>Question 3</h4>
-<p class="lead">Connection Before Correction என்றால்?</p>
-<p>A. தவறை ignore செய்வது
-B. Correction-க்கு முன்பு student-ஐ briefly acknowledge செய்வது
-C. Rule-ஐ remove செய்வது
-D. Punishment cancel செய்வது</p>
-<p>Correct Answer: B</p>
-<h4>Question 4</h4>
-<p class="lead">Mistakes Are for Learning principle எதை encourage செய்கிறது?</p>
-<p>A. Shame
-B. Blame
-C. Reflection மற்றும் better next choice
-D. Mistake-ஐ hide செய்வது</p>
-<p>Correct Answer: C</p>
-<h4>Question 5</h4>
-<p class="lead">NVC-ன் சரியான sequence எது?</p>
-<p>A. Feeling → Punishment → Rule → Warning
-B. Observation → Feeling → Need → Request
-C. Complaint → Advice → Warning → Result
-D. Observation → Blame → Consequence → Request</p>
-<p>Correct Answer: B</p>
-<h4>Question 6</h4>
-<p class="lead">NVC Observation-க்கு சிறந்த example?</p>
-<p>A. “நீ rude.”
-B. “நீ careless.”
-C. “கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய்.”
-D. “உனக்கு discipline இல்லை.”</p>
-<p>Correct Answer: C</p>
-</div></section>
-<section class="lesson"><h2>Module 7 – முக்கிய Takeaways</h2><div class="lesson-body">
-<h3>1. Positive Discipline-ன் நோக்கம் உடனடி obedience மட்டும் அல்ல</h3>
-<p class="lead">மாணவர் teacher இல்லாதபோதும் நல்ல judgement பயன்படுத்தக்கூடிய self-discipline வளர்ப்பது.</p>
-<h3>2. நான்கு Core Principles</h3>
-<h4>Kind and Firm Together</h4>
-<p class="lead">Warmth + Clear Limit.</p>
-<h4>Connection Before Correction</h4>
-<p class="lead">Correction receive செய்ய student-க்கு emotional space உருவாக்குதல்.</p>
-<h4>Mistakes Are for Learning</h4>
-<p class="lead">Shame-க்கு பதிலாக reflection மற்றும் learning.</p>
-<h4>Long-Term Over Short-Term</h4>
-<p class="lead">“இப்போது behaviour நிறுத்தப்பட்டதா?” என்பதுடன்,</p>
-<p>“அடுத்த முறை student என்ன கற்றுக்கொண்டிருப்பார்?”</p>
-<p>என்ற கேள்வியையும் கேட்பது.</p>
-<h3>3. NVC correction-க்கு practical language கொடுக்கிறது</h3>
-<h4>Observation → Feeling → Need → Request</h4>
-<p class="lead">என்ன நடந்தது?</p>
-<p>நான் என்ன உணர்கிறேன்?</p>
-<p>எந்த need/value முக்கியம்?</p>
-<p>Student என்ன specific action செய்ய வேண்டும்?</p>
-<h3>4. Student-ஐ Problem ஆக்காதீர்கள்</h3>
-<p class="lead">“You are irresponsible.”</p>
-<p>என்பதைவிட:</p>
-<p>“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p>
-<p>Behaviour-ஐ address செய்யுங்கள்.</p>
-<h3>5. Positive Discipline = Mindset + Language + Practice</h3>
-<p class="lead">Student-ஐ control செய்வதிலிருந்து,</p>
-<p>Student தனது behaviour-ஐ regulate செய்ய கற்றுக்கொள்வதற்கு உதவுவது</p>
-<p>என்ற direction-க்கு நகர்வதே முக்கியம்.</p>
-</div></section>
-<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“மாணவர்களின் தவறுகளை வெறும் தண்டனைக்கான காரணமாக மட்டும் பார்க்காமல், கற்றலுக்கான வாய்ப்பாகப் பார்க்க முயற்சி செய்வேன். அன்பும் உறுதியும் ஒன்றாக வைத்துக்கொண்டு, blame மற்றும் shame-ஐ குறைத்து, மாணவர்கள் தங்களுடைய நடத்தைக்கு பொறுப்பேற்க உதவுவேன்.”</p>
-</div></section>
-<section class="lesson"><h2>Module 7 Complete ✓</h2><div class="lesson-body">
-<h3>அடுத்த Module</h3>
-</div></section>
-<section class="lesson"><h2>Time Management &amp; Goal Setting</h2><div class="lesson-body">
-<h4>நேர மேலாண்மை &amp; இலக்கு நிர்ணயம்</h4>
-<p class="lead">Teacher-ன் To-Do List ஏன் எப்போதும் முடிவதில்லை?</p>
-<p>Urgent &amp; Important</p>
-<p>Important, Not Urgent</p>
-<p>Urgent, Not Important</p>
-<p>Neither Urgent nor Important</p>
-<p>என்ற Eisenhower Matrix மூலம் வேலைகளை எப்படி priority செய்யலாம்?</p>
-<p>மேலும் vague goals-ஐ specific, trackable goals-ஆக மாற்றி, ஒரு existing habit-உடன் இணைத்து நடைமுறைப்படுத்துவது எப்படி?</p>
-<p>Module 8-ல் பார்க்கலாம்.</p>
-</div></section>
+<section class="lesson"><h2>Lesson 1: Positive Discipline என்றால் என்ன?</h2><div class="lesson-body"><p class="lead">Positive Discipline என்றால்:</p><p>மாணவர் என்ன செய்தாலும் பரவாயில்லை என்று விடுவது அல்ல.</p><p>Rules இல்லாமல் இருப்பதும் அல்ல.</p><p>Punishment கொடுக்கக்கூடாது என்ற ஒரு simple idea மட்டும் அல்ல.</p><p>Positive Discipline-ன் நோக்கம்:</p><p>Warmth-ஐயும் clear limits-ஐயும் ஒரே நேரத்தில் வைத்துக்கொண்டு, மாணவர் தனது behaviour-ன் விளைவுகளைப் புரிந்துகொண்டு நல்ல judgement மற்றும் self-discipline வளர்க்க உதவுவது.</p><p>இதற்கு நான்கு core principles-ஐ இந்த Module-ல் பார்க்கப் போகிறோம்.</p><h4>1. Kind and Firm Together</h4><h4>2. Connection Before Correction</h4><h4>3. Mistakes Are for Learning</h4><h4>4. Long-Term Over Short-Term</h4></div></section>
+<section class="lesson"><h2>PRINCIPLE 1</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Kind and Firm Together</h2><div class="lesson-body"><h4>அன்பும் உறுதியும் ஒன்றாக</h4><p class="lead">ஒரு classroom-ல் இரண்டு extremes வரலாம்.</p><h3>Too Kind</h3><p class="lead">“பரவாயில்லை.”</p><p>“அவன் குழந்தைதானே.”</p><p>“இந்த முறை விட்டுவிடலாம்.”</p><p>என்று boundary தெளிவில்லாமல் போவது.</p><p>இது தொடர்ந்து நடந்தால் permissiveness ஆக மாறலாம்.</p><h3>Too Firm</h3><p class="lead">“நான் சொன்னா சொன்னதுதான்.”</p><p>“Question கேட்காதே.”</p><p>“இன்னொரு வார்த்தை பேசினா வெளியே போ.”</p><p>இங்கு limit இருக்கிறது.</p><p>ஆனால் relationship பாதிக்கப்படலாம்.</p><p>Positive Discipline என்ன சொல்கிறது?</p><h3>Kind + Firm</h3><p class="lead">இரண்டும் ஒன்றாக இருக்க வேண்டும்.</p><h4>Classroom Example</h4><p class="lead">ஒரு மாணவர் seating arrangement மாற்றப்பட்டதால் upset-ஆ இருக்கிறார்.</p><h4>Too Kind</h4><p class="lead">“சரி, உனக்கு பிடிக்கலைனா பழைய இடத்திலேயே உட்கார்.”</p><p>Boundary disappears.</p><h4>Too Firm</h4><p class="lead">“நான் சொன்ன இடத்தில்தான் உட்காரணும். பேசாதே.”</p><p>Student’s feeling ignored.</p><h4>Kind and Firm</h4><p class="lead">“Seat change உனக்கு பிடிக்கவில்லை என்று புரிகிறது. ஆனால் இந்த term-க்கு இந்த seating arrangement தான் தொடரும்.”</p><p>முதல் பகுதி:</p><p>Kindness – feeling acknowledged.</p><p>இரண்டாவது பகுதி:</p><p>Firmness – boundary clear.</p><p>Empathy இருக்கிறது.</p><p>Boundary-யும் இருக்கிறது.</p></div></section>
+<section class="lesson"><h2>Reflection</h2><div class="lesson-body"><p class="lead">Pressure வரும் நேரத்தில் நீங்கள் எந்தப் பக்கம் அதிகமாக செல்கிறீர்கள்?</p><p>□ Too Kind</p><p>□ Too Firm</p><p>□ Kind and Firm</p><h4>நான் அதிகமாகச் செல்லும் பக்கம்:</h4><h4>நான் சேர்க்க வேண்டிய missing half:</h4></div></section>
+<section class="lesson"><h2>PRINCIPLE 2</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Connection Before Correction</h2><div class="lesson-body"><h4>திருத்துவதற்கு முன் தொடர்பை உருவாக்குங்கள்</h4><p class="lead">ஒரு மாணவர் தவறு செய்திருக்கிறார்.</p><p>Teacher correction கொடுக்க வேண்டும்.</p><p>ஆனால் student மனதில்:</p><p>“Teacher என்னை attack செய்கிறார்.”</p><p>என்ற feeling வந்துவிட்டால்?</p><p>அவர் correction-ஐ கேட்பதைவிட தன்னை defend செய்வதில் கவனம் செலுத்தலாம்.</p><p>அதனால் Positive Discipline ஒரு simple principle சொல்கிறது:</p><h3>Connection Before Correction</h3><p class="lead">Correction-க்கு முன்பு ஒரு சிறிய acknowledgement.</p><h4>Example</h4><p class="lead">Student class-ல் disturb செய்கிறார்.</p><h4>Direct Correction</h4><p class="lead">“Stop it! எத்தனை தடவை சொல்றது?”</p><h4>Connection Before Correction</h4><p class="lead">“உனக்கு ஏதோ bother பண்ணுது போல தெரிகிறது. அதைப் பிறகு பேசலாம். இப்போது lesson நடக்கும்போது side conversation நிறுத்த வேண்டும்.”</p><p>கவனியுங்கள்:</p><p>Connection வந்ததால் rule disappear ஆகவில்லை.</p><p>Correction இன்னும் இருக்கிறது.</p><p>ஆனால் correction-ஐ receive செய்ய student-க்கு ஒரு better emotional space உருவாகிறது.</p></div></section>
+<section class="lesson"><h2>The 5-Second Connection</h2><div class="lesson-body"><p class="lead">ஒவ்வொரு correction-க்கும் நீண்ட counselling தேவையில்லை.</p><p>சில நேரங்களில் ஒரு sentence போதும்.</p><p>“நீ upset-ஆ இருக்கிறாய் என்று தெரிகிறது…”</p><p>“இது உனக்கு difficult-ஆ இருக்கிறது என்று புரிகிறது…”</p><p>“நீ இதைப் பற்றி frustrated-ஆ இருக்கிறாய் போல…”</p><p>பிறகு boundary.</p><p>“…ஆனால் இப்போது நாம் இந்த rule-ஐ follow செய்ய வேண்டும்.”</p></div></section>
+<section class="lesson"><h2>PRINCIPLE 3</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Mistakes Are for Learning</h2><div class="lesson-body"><h4>தவறு என்பது கற்றலுக்கான தகவல்</h4><p class="lead">ஒரு மாணவர் தவறு செய்கிறார்.</p><p>அப்போது நாம் என்ன செய்ய விரும்புகிறோம்?</p><p>“இதைக் எப்படி செய்தாய்?”</p><p>“உனக்கு கொஞ்சமாவது sense இருக்கா?”</p><p>“எப்போதுமே careless!”</p><p>என்று shame உருவாக்கினால், அடுத்த முறை மாணவர் என்ன கற்றுக்கொள்ளலாம்?</p><p>“தவறு செய்தால் அதை மறைக்க வேண்டும்.”</p><p>Positive Discipline வேறு message கொடுக்க முயற்சி செய்கிறது:</p><h3>“தவறு நடந்துவிட்டது. இதிலிருந்து என்ன கற்றுக்கொள்ளலாம்?”</h3><h4>Example</h4><p class="lead">ஒரு மாணவர் project-ஐ careless-ஆ செய்து ஒரு முக்கியமான part miss செய்திருக்கிறார்.</p><h4>Shame Approach</h4><p class="lead">“எவ்வளவு careless-ஆ செய்திருக்கிறாய்!”</p><h4>Learning Approach</h4><p class="lead">“எந்த இடத்தில் problem வந்தது என்று நினைக்கிறாய்? மறுபடியும் செய்தால் என்ன differently செய்வாய்?”</p><p>இந்தக் கேள்விகள் student-ஐ:</p><p>Defence-லிருந்து Reflection-க்கு,</p><p>Shame-லிருந்து Learning-க்கு</p><p>கொண்டு செல்ல உதவும்.</p></div></section>
+<section class="lesson"><h2>Behaviour அல்ல, Character அல்ல</h2><div class="lesson-body"><p class="lead">இந்த வேறுபாட்டை நினைவில் வைத்துக்கொள்ளுங்கள்.</p><h4>Character Label</h4><p class="lead">“நீ careless.”</p><h4>Behaviour</h4><p class="lead">“இந்த assignment-ல் இரண்டு instructions miss ஆகியிருக்கிறது.”</p><h4>Character Label</h4><p class="lead">“நீ irresponsible.”</p><h4>Behaviour</h4><p class="lead">“இந்த வாரம் மூன்று homework submit ஆகவில்லை.”</p><p>Student-ஐ problem ஆக்காதீர்கள்.</p><p>Problem-ஐ problem ஆக்குங்கள்.</p></div></section>
+<section class="lesson"><h2>PRINCIPLE 4</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Long-Term Over Short-Term</h2><div class="lesson-body"><h4>இப்போதைய அமைதியை விட நீண்டகால கற்றல் முக்கியம்</h4><p class="lead">ஒரு punishment student behaviour-ஐ உடனடியாக நிறுத்தலாம்.</p><p>ஆனால் Positive Discipline இன்னொரு கேள்வி கேட்கிறது:</p><h3>“இந்த response அடுத்த முறை இந்த மாணவர் தானாகவே நல்ல choice எடுக்க உதவுமா?”</h3><h4>Example</h4><p class="lead">ஒரு student class-ல் பேசுகிறார்.</p><p>Teacher:</p><p>“இன்னொரு வார்த்தை பேசினா வெளியே போ!”</p><p>Student அமைதியாகிறார்.</p><p>Short-term result கிடைத்துவிட்டது.</p><p>ஆனால் அவர் என்ன கற்றார்?</p><p>“Teacher கோபப்படும்போது அமைதியாக இருக்க வேண்டும்.”</p><p>Positive Discipline-ன் long-term goal:</p><p>“மற்றவர் பேசும்போது நான் interrupt செய்தால் அவர்களின் learning பாதிக்கிறது. எனவே நான் wait செய்ய வேண்டும்.”</p><p>என்ற judgement வளர்வது.</p><h4>Golden Question</h4><p class="lead">ஒரு behaviour issue-க்கு response கொடுப்பதற்கு முன்பு:</p><h3>“இது student-ஐ நான் பார்க்கும்போது மட்டும் control செய்யுமா?”</h3><p class="lead">அல்லது,</p><h3>“அடுத்த முறை அவர் தானாக நல்ல choice எடுக்க உதவுமா?”</h3><p class="lead">என்று கேளுங்கள்.</p></div></section>
+<section class="lesson"><h2>Lesson 2: Positive Discipline-க்கு ஒரு மொழி தேவை</h2><div class="lesson-body"><p class="lead">Positive Discipline ஒரு mindset.</p><p>ஆனால் classroom moment-ல் நாம் என்ன சொல்ல வேண்டும்?</p><p>அதற்காக source course Nonviolent Communication – NVC framework-ஐ பயன்படுத்துகிறது.</p><p>NVC-ன் நான்கு பகுதிகள்:</p></div></section>
+<section class="lesson"><h2>OBSERVATION → FEELING → NEED → REQUEST</h2><div class="lesson-body"><p class="lead">இதை ஒவ்வொன்றாகப் பார்க்கலாம்.</p></div></section>
+<section class="lesson"><h2>STEP 1 – OBSERVATION</h2><div class="lesson-body"><h3>Judgement இல்லாமல் நடந்ததைச் சொல்லுங்கள்</h3><h4>Judgement</h4><p class="lead">“நீ ரொம்ப rude-ஆ இருக்கிறாய்.”</p><p>இது interpretation.</p><h4>Observation</h4><p class="lead">“கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய்.”</p><p>இது நடந்த behaviour.</p><p>Observation என்பது camera record செய்திருந்தால் என்ன பார்த்திருக்கும் என்பதைப் போல இருக்க வேண்டும்.</p><h4>Formula</h4><p class="lead">“நான் கவனித்தது…”</p><p>அல்லது நேரடியாக:</p><p>“கடந்த 10 minutes-ல்…”</p></div></section>
+<section class="lesson"><h2>STEP 2 – FEELING</h2><div class="lesson-body"><h3>உங்கள் உணர்வை நேர்மையாகச் சொல்லுங்கள்</h3><p class="lead">Observation பிறகு:</p><p>“இதனால் நான் concerned-ஆ இருக்கிறேன்.”</p><p>அல்லது:</p><p>“எனக்கு frustration ஆகிறது.”</p><p>இது student-ஐ blame செய்வது அல்ல.</p><h4>Better</h4><p class="lead">“நான் concerned-ஆ இருக்கிறேன்.”</p><h4>Avoid</h4><p class="lead">“நீ என்னை கோபப்பட வைக்கிறாய்.”</p><p>முதல் sentence நம்முடைய feeling-க்கு responsibility எடுக்கிறது.</p><p>இரண்டாவது student-ஐ நம்முடைய emotion-க்கு responsible ஆக்குகிறது.</p></div></section>
+<section class="lesson"><h2>STEP 3 – NEED</h2><div class="lesson-body"><h3>ஏன் இது முக்கியம்?</h3><p class="lead">Rule மட்டும் சொல்லாமல் அதன் பின்னால் இருக்கும் need அல்லது value-ஐ சொல்லுங்கள்.</p><h4>Example</h4><p class="lead">“எல்லா மாணவர்களுக்கும் பேசுவதற்கும் கேட்கப்படுவதற்கும் வாய்ப்பு இருக்க வேண்டும்.”</p><p>இதுதான் underlying need.</p><p>Rule:</p><p>“Don’t interrupt.”</p><p>Need:</p><p>“Everyone deserves a chance to be heard.”</p><p>Rule-ன் பின்னால் இருக்கும் reason மாணவருக்கு தெளிவாகிறது.</p></div></section>
+<section class="lesson"><h2>STEP 4 – REQUEST</h2><div class="lesson-body"><h3>என்ன செய்ய வேண்டும் என்பதைத் தெளிவாகச் சொல்லுங்கள்</h3><h4>Vague</h4><p class="lead">“Behave properly.”</p><p>“Properly” என்றால் என்ன?</p><p>Student interpret செய்ய வேண்டும்.</p><h4>Specific Request</h4><p class="lead">“அடுத்த முறை பேசுவதற்கு முன்பு hand raise செய்து wait செய்ய முடியுமா?”</p><p>இப்போது expected behaviour clear.</p><p>Request:</p><p>Specific.</p><p>Doable.</p><p>Clear.</p></div></section>
+<section class="lesson"><h2>Full NVC Example</h2><div class="lesson-body"><p class="lead">ஒரு மாணவர் தொடர்ந்து மற்றவர்கள் பேசும்போது interrupt செய்கிறார்.</p><h3>Observation</h3><p class="lead">“கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய்.”</p><h3>Feeling</h3><p class="lead">“அது எனக்கு concern-ஆ இருக்கிறது…”</p><h3>Need</h3><p class="lead">“…ஏனென்றால் class-ல் எல்லாருக்கும் பேசவும் கேட்கப்படவும் வாய்ப்பு வேண்டும்.”</p><h3>Request</h3><p class="lead">“அடுத்த முறை hand raise செய்து உன் turn வரும் வரை wait செய்ய முடியுமா?”</p><p>முழுமையாக:</p><p>“கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய். அது எனக்கு concern-ஆ இருக்கிறது, ஏனென்றால் class-ல் எல்லாருக்கும் பேசவும் கேட்கப்படவும் வாய்ப்பு வேண்டும். அடுத்த முறை hand raise செய்து உன் turn வரும் வரை wait செய்ய முடியுமா?”</p><p>Behaviour clear.</p><p>Feeling clear.</p><p>Reason clear.</p><p>Expected action clear.</p><p>Character attack இல்லை.</p><p>Shame இல்லை.</p></div></section>
+<section class="lesson"><h2>Lesson 3: NVC vs Blame</h2><div class="lesson-body"><h4>Situation 1 – Student Late</h4><p>Blame</p><p class="lead">“நீ எப்போதுமே late தான்!”</p><p>NVC Style</p><p class="lead">“இந்த வாரம் மூன்று நாட்கள் first period ஆரம்பித்த பிறகு வந்திருக்கிறாய். இது தொடர்வது எனக்கு concern-ஆ இருக்கிறது, ஏனென்றால் lesson-ன் ஆரம்ப instruction miss ஆகிறது. நாளை முதல் bell-க்கு முன்பு class-ல் இருக்க என்ன plan செய்யலாம்?”</p><h4>Situation 2 – Homework Missing</h4><p>Blame</p><p class="lead">“உனக்கு responsibility-யே கிடையாது.”</p><p>NVC Style</p><p class="lead">“இந்த வாரம் இரண்டு homework submit ஆகவில்லை. உன் learning continuity பாதிக்கக்கூடாது என்பதால் எனக்கு concern. நாளைக்கு current homework complete செய்து கொண்டு வர முடியுமா?”</p><h4>Situation 3 – Student Interrupting</h4><p>Blame</p><p class="lead">“எப்பவும் நடுவுல பேசிக்கிட்டே இருக்காதே!”</p><p>NVC Style</p><p class="lead">“நான் instruction கொடுக்கும்போது இரண்டு முறை இடையில் பேசினாய். எல்லாரும் instruction முழுமையாகக் கேட்க வேண்டும். நான் finish செய்த பிறகு உன் point சொல்ல முடியுமா?”</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – Rewrite Using NVC</h2><div class="lesson-body"><p class="section-note lead">கீழே உள்ள statements-ஐ:</p><p class="section-note ">Observation → Feeling → Need → Request</p><p class="section-note ">format-ல் rewrite செய்யுங்கள்.</p><div class="activity-field" data-key="m7-i21-f1">
+  <p class="act-label">Statement 1 — “நீ ரொம்ப careless.”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Observation:</p><p class="section-note lead">Feeling:</p><p class="section-note lead">Need:</p><p class="section-note lead">Request:</p><div class="activity-field" data-key="m7-i21-f2">
+  <p class="act-label">Statement 2 — “Class-ஐ disturb பண்ணாதே!”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Observation:</p><p class="section-note lead">Feeling:</p><p class="section-note lead">Need:</p><p class="section-note lead">Request:</p><div class="activity-field" data-key="m7-i21-f3">
+  <p class="act-label">Statement 3 — “உனக்கு homework மேல எந்த responsibility-யும் இல்லை.”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Observation:</p><p class="section-note lead">Feeling:</p><p class="section-note lead">Need:</p><p class="section-note lead">Request:</p></div></section>
+<section class="lesson"><h2>Lesson 4: Correction-க்கு முன்பு ஒரு Quick Check</h2><div class="lesson-body"><p class="lead">ஒரு student behaviour உங்களை trigger செய்கிறது.</p><p>உடனே correction கொடுப்பதற்கு முன்பு நான்கு questions:</p><h3>1. என்ன நடந்தது?</h3><p class="lead">Fact மட்டும்.</p><h3>2. Student என்ன feel செய்து கொண்டிருக்கலாம்?</h3><p class="lead">Empathy.</p><h3>3. என்ன boundary தேவை?</h3><p class="lead">Firmness.</p><h3>4. அடுத்த முறை student என்ன behaviour செய்ய வேண்டும்?</h3><p class="lead">Clear Request.</p><p>இந்த நான்கு questions:</p><p>Emotion-லிருந்து intention-க்கு நம்மை மாற்ற உதவும்.</p></div></section>
+<section class="lesson"><h2>Lesson 5: Quick Correction vs Teaching Moment</h2><div class="lesson-body"><p class="lead">எல்லா behaviour issue-க்கும் 10-minute conversation தேவையில்லை.</p><p>சில behaviour-களுக்கு quick correction போதும்.</p><p>“Please open page 25.”</p><p>“One person at a time.”</p><p>“Bag கீழே வையுங்கள்.”</p><p>ஆனால் recurring behaviour என்றால்:</p><p>Repeated correction மட்டும் போதாமல் இருக்கலாம்.</p><p>அப்போது:</p><p>“இந்த behaviour ஏன் repeat ஆகிறது?”</p><p>“என்ன skill இன்னும் develop ஆகவில்லை?”</p><p>“என்ன teach செய்ய வேண்டும்?”</p><p>என்று பார்க்க வேண்டும்.</p><h4>Example</h4><p class="lead">Student repeatedly calls out answers.</p><p>Quick correction:</p><p>“Hand raise செய்யுங்கள்.”</p><p>Problem repeat ஆகிறது.</p><p>Teaching moment:</p><p>“Answer தெரிந்தவுடன் உடனே சொல்ல வேண்டும் போல feel ஆகலாம். ஆனால் wait செய்வதும் மற்றவர்களுக்கு chance கொடுப்பதும் classroom skill. அடுத்த question-ல் hand raise செய்து wait try பண்ணலாம்.”</p><p>இப்போது rule மட்டும் இல்லை.</p><p>Skill teaching இருக்கிறது.</p></div></section>
+<section class="lesson"><h2>Positive Discipline Practice Sheet</h2><div class="lesson-body"><p class="lead">ஒரு recurring student behaviour-ஐ தேர்வு செய்யுங்கள்.</p><h4>Behaviour:</h4><h4>நான் வழக்கமாக எப்படி respond செய்கிறேன்?</h4><h4>இது short-term-ல் என்ன செய்கிறது?</h4><h4>Student long-term-ல் என்ன கற்றுக்கொள்ள வேண்டும்?</h4><h4>Connection sentence:</h4><h4>Boundary:</h4><h4>NVC Observation:</h4><h4>Feeling:</h4><h4>Need:</h4><h4>Request:</h4></div></section>
+<section class="lesson interactive-section"><h2>📝 7-Day Positive Discipline Challenge</h2><div class="lesson-body"><h4>Day 1 – Observe</h4><p class="section-note lead">ஒரு behaviour-ஐ label இல்லாமல் fact-ஆ describe செய்யுங்கள்.</p><div class="activity-field" data-key="m7-i25-f1">
+  <p class="act-label">Day 2 – Kind + Firm — ஒரு boundary-யை empathy-யுடன் சொல்லுங்கள்.</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m7-i25-f2">
+  <p class="act-label">Day 3 – Connection Before Correction — Correction-க்கு முன்பு ஒரு acknowledgement sentence பயன்படுத்துங்கள்.</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><h4>Day 4 – Mistake to Learning</h4><p class="section-note lead">“Why did you do this?” என்பதற்குப் பதிலாக:</p><p class="section-note ">“அடுத்த முறை என்ன differently செய்யலாம்?”</p><p class="section-note ">என்று கேளுங்கள்.</p><div class="activity-field" data-key="m7-i25-f3">
+  <p class="act-label">Day 5 – Long-Term Question — ஒரு consequence கொடுப்பதற்கு முன்பு:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">“இதிலிருந்து student என்ன கற்றுக்கொள்வார்?”</p><p class="section-note ">என்று கேளுங்கள்.</p><div class="activity-field" data-key="m7-i25-f4">
+  <p class="act-label">Day 6 – NVC — ஒரு correction-ஐ:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Observation → Feeling → Need → Request</p><p class="section-note ">format-ல் சொல்லுங்கள்.</p><h4>Day 7 – Review</h4><p class="section-note lead">இந்த வாரம் எந்த approach student response-ஐ மாற்றியது என்பதை note செய்யுங்கள்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Reflection</h2><div class="lesson-body"><div class="activity-field" data-key="m7-i26-f1">
+  <p class="act-label">Positive Discipline-ன் நான்கு principles-ல் நான் ஏற்கனவே நன்றாகப் பயன்படுத்துவது:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m7-i26-f2">
+  <p class="act-label">Pressure-ல் நான் மறந்துவிடுவது:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m7-i26-f3">
+  <p class="act-label">நான் அதிகமாக correct செய்யும் student behaviour:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m7-i26-f4">
+  <p class="act-label">அந்த student-உடன் Connection Before Correction எப்படி இருக்கும்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m7-i26-f5">
+  <p class="act-label">நான் மாற்ற வேண்டிய ஒரு sentence: — Old Sentence:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note lead">Positive Discipline Sentence:</p></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m7-quiz27">
+      <div class="quiz-question" data-correct="2">
+  <p class="q-text">1. Positive Discipline-ன் long-term goal என்ன?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m7quiz27q1" value="0"> Teacher இருக்கும்போது மட்டும் silence</label><label class="q-option"><input type="radio" name="m7quiz27q1" value="1"> Punishment அதிகரித்தல்</label><label class="q-option"><input type="radio" name="m7quiz27q1" value="2"> Self-discipline மற்றும் judgement வளர்த்தல்</label><label class="q-option"><input type="radio" name="m7quiz27q1" value="3"> Rules நீக்குதல்</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">2. Kind and Firm Together என்பதன் பொருள்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m7quiz27q2" value="0"> எப்போதும் soft-ஆ இருப்பது</label><label class="q-option"><input type="radio" name="m7quiz27q2" value="1"> Strict-ஆ இருப்பது</label><label class="q-option"><input type="radio" name="m7quiz27q2" value="2"> Empathy மற்றும் clear boundary இரண்டையும் வைத்திருப்பது</label><label class="q-option"><input type="radio" name="m7quiz27q2" value="3"> Student கேட்டதை ஏற்றுக்கொள்வது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">3. Connection Before Correction என்றால்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m7quiz27q3" value="0"> தவறை ignore செய்வது</label><label class="q-option"><input type="radio" name="m7quiz27q3" value="1"> Correction-க்கு முன்பு student-ஐ briefly acknowledge செய்வது</label><label class="q-option"><input type="radio" name="m7quiz27q3" value="2"> Rule-ஐ remove செய்வது</label><label class="q-option"><input type="radio" name="m7quiz27q3" value="3"> Punishment cancel செய்வது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">4. Mistakes Are for Learning principle எதை encourage செய்கிறது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m7quiz27q4" value="0"> Shame</label><label class="q-option"><input type="radio" name="m7quiz27q4" value="1"> Blame</label><label class="q-option"><input type="radio" name="m7quiz27q4" value="2"> Reflection மற்றும் better next choice</label><label class="q-option"><input type="radio" name="m7quiz27q4" value="3"> Mistake-ஐ hide செய்வது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">5. NVC-ன் சரியான sequence எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m7quiz27q5" value="0"> Feeling → Punishment → Rule → Warning</label><label class="q-option"><input type="radio" name="m7quiz27q5" value="1"> Observation → Feeling → Need → Request</label><label class="q-option"><input type="radio" name="m7quiz27q5" value="2"> Complaint → Advice → Warning → Result</label><label class="q-option"><input type="radio" name="m7quiz27q5" value="3"> Observation → Blame → Consequence → Request</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">6. NVC Observation-க்கு சிறந்த example?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m7quiz27q6" value="0"> “நீ rude.”</label><label class="q-option"><input type="radio" name="m7quiz27q6" value="1"> “நீ careless.”</label><label class="q-option"><input type="radio" name="m7quiz27q6" value="2"> “கடந்த 10 minutes-ல் மூன்று classmates பேசும்போது நீ இடையில் பேசினாய்.”</label><label class="q-option"><input type="radio" name="m7quiz27q6" value="3"> “உனக்கு discipline இல்லை.”</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>Module 7 – முக்கிய Takeaways</h2><div class="lesson-body"><h3>1. Positive Discipline-ன் நோக்கம் உடனடி obedience மட்டும் அல்ல</h3><p class="lead">மாணவர் teacher இல்லாதபோதும் நல்ல judgement பயன்படுத்தக்கூடிய self-discipline வளர்ப்பது.</p><h3>2. நான்கு Core Principles</h3><h4>Kind and Firm Together</h4><p class="lead">Warmth + Clear Limit.</p><h4>Connection Before Correction</h4><p class="lead">Correction receive செய்ய student-க்கு emotional space உருவாக்குதல்.</p><h4>Mistakes Are for Learning</h4><p class="lead">Shame-க்கு பதிலாக reflection மற்றும் learning.</p><h4>Long-Term Over Short-Term</h4><p class="lead">“இப்போது behaviour நிறுத்தப்பட்டதா?” என்பதுடன்,</p><p>“அடுத்த முறை student என்ன கற்றுக்கொண்டிருப்பார்?”</p><p>என்ற கேள்வியையும் கேட்பது.</p><h3>3. NVC correction-க்கு practical language கொடுக்கிறது</h3><h4>Observation → Feeling → Need → Request</h4><p class="lead">என்ன நடந்தது?</p><p>நான் என்ன உணர்கிறேன்?</p><p>எந்த need/value முக்கியம்?</p><p>Student என்ன specific action செய்ய வேண்டும்?</p><h3>4. Student-ஐ Problem ஆக்காதீர்கள்</h3><p class="lead">“You are irresponsible.”</p><p>என்பதைவிட:</p><p>“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p><p>Behaviour-ஐ address செய்யுங்கள்.</p><h3>5. Positive Discipline = Mindset + Language + Practice</h3><p class="lead">Student-ஐ control செய்வதிலிருந்து,</p><p>Student தனது behaviour-ஐ regulate செய்ய கற்றுக்கொள்வதற்கு உதவுவது</p><p>என்ற direction-க்கு நகர்வதே முக்கியம்.</p></div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“மாணவர்களின் தவறுகளை வெறும் தண்டனைக்கான காரணமாக மட்டும் பார்க்காமல், கற்றலுக்கான வாய்ப்பாகப் பார்க்க முயற்சி செய்வேன். அன்பும் உறுதியும் ஒன்றாக வைத்துக்கொண்டு, blame மற்றும் shame-ஐ குறைத்து, மாணவர்கள் தங்களுடைய நடத்தைக்கு பொறுப்பேற்க உதவுவேன்.”</p></div></section>
+<section class="lesson"><h2>Module 7 Complete ✓</h2><div class="lesson-body"><h3>அடுத்த Module</h3></div></section>
+<section class="lesson"><h2>Time Management &amp; Goal Setting</h2><div class="lesson-body"><h4>நேர மேலாண்மை &amp; இலக்கு நிர்ணயம்</h4><p class="lead">Teacher-ன் To-Do List ஏன் எப்போதும் முடிவதில்லை?</p><p>Urgent &amp; Important</p><p>Important, Not Urgent</p><p>Urgent, Not Important</p><p>Neither Urgent nor Important</p><p>என்ற Eisenhower Matrix மூலம் வேலைகளை எப்படி priority செய்யலாம்?</p><p>மேலும் vague goals-ஐ specific, trackable goals-ஆக மாற்றி, ஒரு existing habit-உடன் இணைத்து நடைமுறைப்படுத்துவது எப்படி?</p><p>Module 8-ல் பார்க்கலாம்.</p></div></section>
 </div>
 
 <div class="complete-bar">
@@ -768,6 +500,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 7;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>

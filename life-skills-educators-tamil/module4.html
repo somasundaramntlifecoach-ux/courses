@@ -228,6 +228,72 @@ footer a:hover{color:var(--gold-light);}
   .site-header,.module-header,.module-nav,.complete-bar,.whatsapp-fab,footer{display:none !important;}
   body{background:#fff;}
 }
+
+/* ---- interactive quiz / self-assessment / activity blocks ---- */
+.interactive-section{
+  background:#FBF8EF;
+  border:1px solid var(--line);
+  border-left:5px solid var(--gold);
+  border-radius:var(--radius);
+  padding:26px 28px;
+}
+.interactive-section h2{border-bottom:none;padding-bottom:0;margin-bottom:14px;}
+.quiz-section{background:#F3F6FB;border-left-color:var(--navy-soft);}
+
+.section-note{color:#2B3340;}
+
+/* self-check radio fields */
+.selfcheck-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.sc-question{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.98rem;}
+.sc-options{display:flex;gap:18px;flex-wrap:wrap;}
+.sc-option{display:flex;align-items:center;gap:6px;font-size:.9rem;cursor:pointer;}
+.sc-option input{accent-color:var(--gold);width:17px;height:17px;}
+
+/* activity free-text fields */
+.activity-field{
+  background:#fff;border:1px solid var(--line);border-radius:10px;
+  padding:16px 18px;margin-bottom:14px;
+}
+.act-label{font-weight:600;color:var(--navy);margin:0 0 10px;font-size:.96rem;}
+.act-input{
+  width:100%;border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;
+  font-family:inherit;font-size:.92rem;resize:vertical;min-height:44px;
+}
+.act-input:focus{outline:none;border-color:var(--gold);}
+
+.save-indicator{
+  display:inline-block;font-size:.78rem;color:#1E7B3C;font-family:'Poppins',sans-serif;
+  font-weight:600;opacity:0;transition:opacity .3s;margin-top:6px;
+}
+.save-indicator.show{opacity:1;}
+
+/* quiz block */
+.quiz-block{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px 22px;}
+.quiz-question{margin-bottom:22px;padding-bottom:18px;border-bottom:1px dashed var(--line);}
+.quiz-question:last-of-type{border-bottom:none;}
+.q-text{font-weight:600;color:var(--navy);margin:0 0 12px;font-size:.98rem;}
+.q-options{display:flex;flex-direction:column;gap:8px;}
+.q-option{
+  display:flex;align-items:center;gap:9px;font-size:.92rem;padding:9px 12px;
+  border:1.5px solid var(--line);border-radius:8px;cursor:pointer;transition:.15s;
+}
+.q-option:hover{border-color:var(--gold);}
+.q-option input{accent-color:var(--gold);width:16px;height:16px;}
+.q-option.correct{border-color:#1E7B3C;background:#EAF7EE;}
+.q-option.incorrect{border-color:#B3261E;background:#FBEAEA;}
+.q-feedback{margin-top:8px;font-size:.85rem;font-family:'Poppins',sans-serif;font-weight:600;min-height:18px;}
+.q-feedback.q-correct{color:#1E7B3C;}
+.q-feedback.q-incorrect{color:#B3261E;}
+.q-feedback.q-warn{color:#8A6D1D;}
+.quiz-score{
+  margin-top:16px;padding:12px 18px;background:var(--navy);color:#fff;border-radius:8px;
+  font-family:'Poppins',sans-serif;font-weight:700;text-align:center;
+}
+.quiz-block .btn{margin-top:8px;margin-right:10px;}
+
 </style>
 </head>
 <body>
@@ -264,390 +330,131 @@ footer a:hover{color:var(--gold-light);}
 <p>மற்றவர் பேசும்போது எப்படி கேட்கிறோம்?</p>
 <p>Difficult situation-ல் நம்முடைய தேவையை எப்படி தெளிவாகச் சொல்கிறோம்?</p>
 <p>இவை அனைத்தும் Communication Skill-ன் பகுதிகள்.</p>
-<section class="lesson"><h2>Lesson 1: நம்முடைய Communication Style என்ன?</h2><div class="lesson-body">
-<p class="lead">ஒரே விஷயத்தை நான்கு விதமாகப் பேசலாம்.</p>
-<p>Communication-ல் நான்கு முக்கிய styles-ஐப் பார்க்கலாம்:</p>
-<p>Passive</p>
-<p>Aggressive</p>
-<p>Passive-Aggressive</p>
-<p>Assertive</p>
-<p>இதில் நீங்கள் எந்த style-ஐ அதிகமாகப் பயன்படுத்துகிறீர்கள் என்பது normal situation-ல் தெரியாமல் இருக்கலாம்.</p>
-<p>ஆனால் stress, anger அல்லது conflict வரும் நேரத்தில் நம்முடைய default style தெளிவாகத் தெரியும்.</p>
-</div></section>
-<section class="lesson"><h2>1. Passive Communication</h2><div class="lesson-body">
-<h3>சொல்ல வேண்டியதை சொல்லாமல் இருப்பது</h3>
-<p class="lead">Passive Communication-ல் மற்றவர்களுக்கு பிரச்சினை வரக்கூடாது என்பதற்காக நம்முடைய need அல்லது boundary-ஐ தெளிவாகச் சொல்லாமல் இருப்போம்.</p>
-<h4>Classroom Example</h4>
-<p class="lead">ஒரு மாணவர் தொடர்ந்து homework late-ஆ submit செய்கிறார்.</p>
-<p>ஆசிரியர் ஒவ்வொரு முறையும்:</p>
-<p>“சரி… பரவாயில்லை. அடுத்த தடவை பார்த்துக்கலாம்.”</p>
-<p>என்று சொல்கிறார்.</p>
-<p>ஆனால் உள்ளுக்குள்:</p>
-<p>“இவன் எப்போதும் இப்படித்தான்.”</p>
-<p>என்று frustration அதிகரிக்கிறது.</p>
-<p>வெளியில் “பரவாயில்லை.”</p>
-<p>உள்ளே resentment.</p>
-<p>இதுதான் Passive Communication-ன் ஒரு வடிவம்.</p>
-<h4>என்ன பிரச்சினை?</h4>
-<p class="lead">மாணவருக்கு ஆசிரியரின் உண்மையான boundary புரியாது.</p>
-<p>“Late-ஆ கொடுத்தாலும் பரவாயில்லை போல.”</p>
-<p>என்று நினைக்கலாம்.</p>
-<p>ஆசிரியரின் frustration தொடர்ந்து சேரும்.</p>
-<h4>Better Practice</h4>
-<p class="lead">Boundary cross ஆன முதல் சில நேரங்களிலேயே calm-ஆவும் clear-ஆவும் சொல்லுங்கள்.</p>
-<p>“Assignment Friday-க்குள் submit செய்ய வேண்டும். Delay ஆனால் என்ன பிரச்சினை இருக்கிறது என்று என்னிடம் சொல்ல வேண்டும்.”</p>
-</div></section>
-<section class="lesson"><h2>2. Aggressive Communication</h2><div class="lesson-body">
-<h3>என் தேவைக்காக மற்றவரின் மரியாதையை பாதிப்பது</h3>
-<p class="lead">Aggressive Communication-ல் நம்முடைய need அல்லது frustration வெளிப்படும்.</p>
-<p>ஆனால் அது மற்றவரின் dignity-ஐ பாதிக்கும் விதத்தில் இருக்கலாம்.</p>
-<h4>Classroom Example</h4>
-<p class="lead">“எத்தனை தடவை உனக்குச் சொல்றது?”</p>
-<p>“நான் சொல்றது உனக்குப் புரியாதா?”</p>
-<p>“நீ எப்போதுமே இப்படித்தான்!”</p>
-<p>“Class-ல எல்லாருக்கும் problem நீ தான்!”</p>
-<p>இங்கு issue பற்றி பேசுவதற்கு பதிலாக, student-ன் character-ஐ attack செய்யும் அபாயம் இருக்கிறது.</p>
-<h4>என்ன நடக்கலாம்?</h4>
-<p class="lead">மாணவர் அந்த நேரத்தில் அமைதியாகிவிடலாம்.</p>
-<p>ஆனால் அவர் கற்றுக்கொள்வது:</p>
-<p>“Conflict வந்தால் volume அதிகரிக்க வேண்டும்.”</p>
-<p>என்பதாகவும் இருக்கலாம்.</p>
-<h4>ஒரு Practice</h4>
-<p class="lead">உங்களுடைய frustration அதிகரிக்கும்போது:</p>
-<p>Voice ↑</p>
-<p>செய்வதற்கு பதிலாக:</p>
-<p>Voice ↓</p>
-<p>செய்ய முயற்சி செய்யுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>3. Passive-Aggressive Communication</h2><div class="lesson-body">
-<h3>நேரடியாகச் சொல்லாமல் மறைமுகமாகக் காட்டுவது</h3>
-<p class="lead">Passive-Aggressive Communication-ல் நம்முடைய frustration-ஐ தெளிவாகச் சொல்லமாட்டோம்.</p>
-<p>அதற்குப் பதிலாக:</p>
-<p>Sarcasm,</p>
-<p>Silence,</p>
-<p>Pointed comments,</p>
-<p>Indirect criticism</p>
-<p>போன்ற வழிகளில் வெளிப்படுத்தலாம்.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு மாணவர் மீண்டும் homework submit செய்யவில்லை.</p>
-<p>ஆசிரியர்:</p>
-<p>“ஆமாம்… நீ எப்போ homework submit பண்ணியிருக்க? உனக்கு time கிடைக்கும்போது கொடு!”</p>
-<p>என்று sarcastic-ஆ சொல்கிறார்.</p>
-<p>இதில் ஆசிரியருக்கு frustration இருக்கிறது என்பது மாணவருக்குத் தெரியும்.</p>
-<p>ஆனால் உண்மையான expectation என்ன என்பது தெளிவாகத் தெரியாமல் போகலாம்.</p>
-<h4>Better Alternative</h4>
-<p class="lead">Sarcasm-க்கு கீழே இருக்கும் உண்மையான sentence-ஐ நேரடியாகச் சொல்லுங்கள்:</p>
-<p>“இந்த மாதத்தில் இது மூன்றாவது missed homework. என்ன காரணம் என்று தெரிந்துகொள்ள வேண்டும். இதை எப்படி complete செய்யலாம் என்று பேசலாம்.”</p>
-</div></section>
-<section class="lesson"><h2>4. Assertive Communication</h2><div class="lesson-body">
-<h3>தெளிவும் மரியாதையும் ஒன்றாக</h3>
-<p class="lead">Assertive Communication என்றால்:</p>
-<p>எனது தேவையையும் மதிக்கிறேன்.</p>
-<p>உங்களுடைய dignity-யையும் மதிக்கிறேன்.</p>
-<p>நம்முடைய need, concern அல்லது boundary-ஐ தெளிவாகச் சொல்கிறோம்.</p>
-<p>ஆனால் attack செய்யவில்லை.</p>
-<h4>Example</h4>
-<p class="lead">ஒரு மாணவர் இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.</p>
-<p>Assertive Response:</p>
-<p>“இந்த மாதத்தில் மூன்று assignments submit ஆகவில்லை. Friday-க்குள் current assignment வேண்டும். Complete செய்வதில் என்ன difficulty இருக்கிறது?”</p>
-<p>இதில்:</p>
-<p>Fact இருக்கிறது.</p>
-<p>Expectation இருக்கிறது.</p>
-<p>Student-ஐ attack செய்யவில்லை.</p>
-<p>Conversation-க்கு space இருக்கிறது.</p>
-<p>இதுதான் Assertive Communication.</p>
-</div></section>
-<section class="lesson"><h2>Lesson 2: ஒரே Situation – நான்கு Styles</h2><div class="lesson-body">
-<h4>Situation</h4>
-<p class="lead">ஒரு மாணவர் மூன்றாவது முறையாக homework submit செய்யவில்லை.</p>
-<h4>Passive</h4>
-<p class="lead">“சரி… நாளைக்கு கொண்டு வா.”</p>
-<h4>Aggressive</h4>
-<p class="lead">“உனக்கு responsibility-யே கிடையாதா? எத்தனை தடவை சொல்லணும்?”</p>
-<h4>Passive-Aggressive</h4>
-<p class="lead">“நீ homework கொண்டு வந்தால்தான் அது பெரிய miracle!”</p>
-<h4>Assertive</h4>
-<p class="lead">“இந்த வாரம் மூன்றாவது முறையாக homework submit ஆகவில்லை. நாளைக்கு வேண்டும். Complete செய்ய என்ன தடையாக இருக்கிறது?”</p>
-<h4>Reflection</h4>
-<p class="lead">இந்த நான்கு responses-ல் எது student-ன் dignity-யையும் teacher-ன் boundary-யையும் ஒரே நேரத்தில் பாதுகாக்கிறது?</p>
-<p>Assertive Communication.</p>
-</div></section>
-<section class="lesson"><h2>Activity – My Communication Style</h2><div class="lesson-body">
-<p class="lead">நீங்கள் stress-ல் இருக்கும்போது அதிகமாக எந்த style-க்கு செல்கிறீர்கள்?</p>
-<p>□ Passive</p>
-<p>□ Aggressive</p>
-<p>□ Passive-Aggressive</p>
-<p>□ Assertive</p>
-<h4>நான் tired அல்லது stressed-ஆ இருக்கும்போது பொதுவாக:</h4>
-<h4>நான் அடிக்கடி பயன்படுத்தும் sentence:</h4>
-<h4>அதை Assertive sentence-ஆ மாற்றினால்:</h4>
-</div></section>
-<section class="lesson"><h2>Lesson 3: Active Listening</h2><div class="lesson-body">
-<h3>பதில் சொல்ல கேட்கிறோமா? புரிந்துகொள்ள கேட்கிறோமா?</h3>
-<p class="lead">Communication என்பது பேசுவது மட்டும் அல்ல.</p>
-<p>Listening-ம் Communication.</p>
-<p>பல நேரங்களில் மற்றவர் பேசும்போது நாம் அவரைக் கேட்டுக்கொண்டிருக்கிறோம்.</p>
-<p>ஆனால் மனதிற்குள்:</p>
-<p>“இதற்கு என்ன பதில் சொல்லலாம்?”</p>
-<p>“அது அப்படி இல்லை!”</p>
-<p>“நான் explain பண்ணணும்.”</p>
-<p>என்று நம்முடைய response-ஐ தயார் செய்து கொண்டிருக்கலாம்.</p>
-<p>இது முழுமையான Active Listening அல்ல.</p>
-<p>Active Listening என்றால் முதலில் புரிந்துகொள்ளக் கேட்பது.</p>
-</div></section>
-<section class="lesson"><h2>Active Listening – 4 Practices</h2><div class="lesson-body">
-<h3>Step 1: அவர்கள் பேசும்போது உங்கள் பதிலை தயார் செய்வதை நிறுத்துங்கள்</h3>
-<p class="lead">மாணவர் அல்லது parent பேசும்போது:</p>
-<p>“இதற்கு நான் என்ன சொல்ல வேண்டும்?”</p>
-<p>என்று உடனே மனதில் answer உருவாக்க வேண்டாம்.</p>
-<p>முதலில் முழுமையாகக் கேளுங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Step 2: Reflect Back</h2><div class="lesson-body">
-<h3>நீங்கள் புரிந்துகொண்டதை திரும்பச் சொல்லுங்கள்</h3>
-<p class="lead">உதாரணமாக ஒரு parent சொல்கிறார்:</p>
-<p>“என் மகன் வீட்டுக்கு வந்ததும் school பற்றி பேசவே மாட்டேங்கிறான். இப்போ marks-ம் குறைந்துவிட்டது.”</p>
-<p>உடனே solution சொல்லாமல்:</p>
-<p>“அவர் வீட்டில் school விஷயங்களைப் பகிர்வது குறைந்திருக்கிறது; அதோடு marks-ம் குறைந்ததால் உங்களுக்கு concern-ஆ இருக்கிறது என்று புரிகிறது.”</p>
-<p>என்று சொல்லலாம்.</p>
-<p>இதனால்:</p>
-<p>“நான் சொன்னதை teacher புரிந்துகொண்டார்.”</p>
-<p>என்ற உணர்வு உருவாகும்.</p>
-</div></section>
-<section class="lesson"><h2>Step 3: Feeling-ஐ கவனியுங்கள்</h2><div class="lesson-body">
-<p class="lead">Facts மட்டும் அல்ல.</p>
-<p>அதற்குப் பின்னால் இருக்கும் feeling-ஐயும் கவனியுங்கள்.</p>
-<p>Parent:</p>
-<p>“எத்தனை தடவை சொல்லியும் அவன் படிக்கவே மாட்டேங்கிறான்!”</p>
-<p>Fact:</p>
-<p>Child not studying.</p>
-<p>Possible feeling:</p>
-<p>Frustration.</p>
-<p>Worry.</p>
-<p>Concern.</p>
-<p>Teacher response:</p>
-<p>“நீங்கள் தொடர்ந்து முயற்சி செய்தும் மாற்றம் தெரியாததால் உங்களுக்கு frustration-ஆ இருக்கலாம்.”</p>
-<p>இது agreement அல்ல.</p>
-<p>Acknowledgement.</p>
-</div></section>
-<section class="lesson"><h2>Step 4: Solution கொடுப்பதற்கு முன்பு ஒரு Open Question</h2><div class="lesson-body">
-<p class="lead">உடனே advice கொடுப்பதற்கு முன்பு:</p>
-<p>“இப்போது உங்களுக்கு அதிகமாக concern தருவது என்ன?”</p>
-<p>அல்லது:</p>
-<p>“எந்த மாற்றம் முதலில் வந்தால் உதவியாக இருக்கும் என்று நினைக்கிறீர்கள்?”</p>
-<p>என்று கேட்கலாம்.</p>
-<p>சில நேரங்களில் நாம் நினைத்த problem-க்கும் அவர்கள் உண்மையில் சொல்ல வந்த problem-க்கும் வித்தியாசம் இருக்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>Listening Practice</h2><div class="lesson-body">
-<p class="lead">அடுத்த முறை ஒரு student அல்லது parent ஒரு problem share செய்தால்:</p>
-<h4>1. Listen</h4>
-<p class="lead">முழுமையாகக் கேளுங்கள்.</p>
-<h4>2. Reflect</h4>
-<p class="lead">“நான் புரிந்துகொண்டது…”</p>
-<h4>3. Name the Feeling</h4>
-<p class="lead">“இது உங்களுக்கு frustrating-ஆ இருக்கலாம்.”</p>
-<h4>4. Ask</h4>
-<p class="lead">“இப்போது என்ன உதவி மிகவும் பயனுள்ளதாக இருக்கும்?”</p>
-</div></section>
-<section class="lesson"><h2>Lesson 4: Difficult Conversations</h2><div class="lesson-body">
-<p class="lead">ஒவ்வொரு ஆசிரியருக்கும் avoid செய்ய விரும்பும் சில conversations இருக்கும்.</p>
-<p>Low-performing student’s parent.</p>
-<p>Repeated behaviour issue.</p>
-<p>Defensive teenager.</p>
-<p>Upset parent.</p>
-<p>Colleague conflict.</p>
-<p>Difficult conversation-ன் anxiety-க்கு ஒரு முக்கிய காரணம்:</p>
-<p>“எப்படி ஆரம்பிப்பது?”</p>
-<p>என்று தெரியாமல் இருப்பது.</p>
-<p>அதற்காக ஒரு simple four-part structure.</p>
-</div></section>
-<section class="lesson"><h2>FACT → CONCERN → PERSPECTIVE → NEXT STEP</h2><div class="lesson-body">
-</div></section>
-<section class="lesson"><h2>Step 1: FACT</h2><div class="lesson-body">
-<h3>Judgement அல்ல; நடந்ததைச் சொல்லுங்கள்</h3>
-<p class="lead">Wrong:</p>
-<p>“Meera ரொம்ப careless-ஆ இருக்கிறாள்.”</p>
-<p>Better:</p>
-<p>“Meera இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.”</p>
-<p>“Careless” என்பது judgement.</p>
-<p>“Three assignments missed” என்பது fact.</p>
-</div></section>
-<section class="lesson"><h2>Step 2: CONCERN</h2><div class="lesson-body">
-<h3>உங்கள் உண்மையான கவலையைச் சொல்லுங்கள்</h3>
-<p class="lead">“இது தொடர்ந்தால் exam preparation-ல் அவளுடைய confidence பாதிக்கப்படுமோ என்று எனக்கு concern.”</p>
-<p>இங்கு student-ஐ blame செய்யவில்லை.</p>
-<p>Concern-ஐ தெளிவாகச் சொல்கிறோம்.</p>
-</div></section>
-<section class="lesson"><h2>Step 3: THEIR PERSPECTIVE</h2><div class="lesson-body">
-<h3>அவர்களின் பார்வையை கேளுங்கள்</h3>
-<p class="lead">“வீட்டில் நீங்கள் ஏதாவது change notice செய்திருக்கிறீர்களா?”</p>
-<p>அல்லது:</p>
-<p>“இதற்குக் காரணம் என்னவாக இருக்கலாம் என்று நீங்கள் நினைக்கிறீர்கள்?”</p>
-<p>Teacher-க்கு தெரியாத தகவல் parent-க்கு இருக்கலாம்.</p>
-</div></section>
-<section class="lesson"><h2>Step 4: SHARED NEXT STEP</h2><div class="lesson-body">
-<h3>ஒன்றாக ஒரு சிறிய action முடிவு செய்யுங்கள்</h3>
-<p class="lead">“அடுத்த இரண்டு வாரங்களுக்கு daily homework completion-ஐ school-லும் home-லும் check பண்ணலாம். இரண்டு வாரம் கழித்து progress எப்படி இருக்கிறது என்று review பண்ணலாம்.”</p>
-<p>இதனால் conversation:</p>
-<p>Who is wrong?</p>
-<p>என்பதிலிருந்து,</p>
-<p>What can we do next?</p>
-<p>என்ற திசைக்கு நகர்கிறது.</p>
-</div></section>
-<section class="lesson"><h2>Complete Parent Conversation Example</h2><div class="lesson-body">
-<p class="lead">Teacher:</p>
-<p>“Meera இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.</p>
-<p>இது தொடர்ந்து நடந்தால் exam preparation-ல் அவளுடைய confidence பாதிக்கப்படுமோ என்று எனக்கு concern.</p>
-<p>வீட்டில் நீங்கள் ஏதாவது change notice செய்திருக்கிறீர்களா?”</p>
-<p>Parent:</p>
-<p>“அவள் வீட்டுக்கு வந்ததும் mobile-ல அதிக நேரம் இருக்கிறாள். படிக்கச் சொன்னால் கோபப்படுகிறாள்.”</p>
-<p>Teacher:</p>
-<p>“Mobile use மற்றும் study routine இரண்டும் challenge-ஆ இருக்கிறது என்று புரிகிறது.</p>
-<p>அடுத்த இரண்டு வாரங்களுக்கு ஒரு simple homework routine try பண்ணலாம். School-ல் நானும் completion check செய்கிறேன். வீட்டில் நீங்கள் routine follow ஆகிறதா என்று மட்டும் பார்க்கலாம்.</p>
-<p>இரண்டு வாரம் கழித்து progress review பண்ணலாம்.”</p>
-</div></section>
-<section class="lesson"><h2>Lesson 5: Behaviour-ஐ பேசுங்கள்; Person-ஐ அல்ல</h2><div class="lesson-body">
-<p class="lead">இந்த வேறுபாடு மிகவும் முக்கியம்.</p>
-<h4>Person Attack</h4>
-<p class="lead">“நீ irresponsible.”</p>
-<h4>Behaviour</h4>
-<p class="lead">“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p>
-<h4>Person Attack</h4>
-<p class="lead">“நீ rude.”</p>
-<h4>Behaviour</h4>
-<p class="lead">“நான் பேசிக்கொண்டிருக்கும்போது மூன்று முறை interrupt செய்தாய்.”</p>
-<h4>Person Attack</h4>
-<p class="lead">“உனக்கு கவனமே இல்லை.”</p>
-<h4>Behaviour</h4>
-<p class="lead">“Instruction கொடுத்த பிறகு task இன்னும் start ஆகவில்லை.”</p>
-<p>Person-ஐ label செய்தால் defence அதிகரிக்கலாம்.</p>
-<p>Behaviour-ஐ describe செய்தால் change செய்ய வேண்டியது என்ன என்பது தெளிவாகும்.</p>
-</div></section>
-<section class="lesson"><h2>Activity – Rewrite the Sentence</h2><div class="lesson-body">
-<h4>Sentence 1</h4>
-<p class="lead">“நீ எப்போதுமே careless.”</p>
-<p>Assertive version:</p>
-<h4>Sentence 2</h4>
-<p class="lead">“எத்தனை தடவை சொன்னாலும் உனக்கு புரியாது.”</p>
-<p>Assertive version:</p>
-<h4>Sentence 3</h4>
-<p class="lead">“உன்னால்தான் class disturb ஆகுது.”</p>
-<p>Assertive version:</p>
-<h4>Sentence 4</h4>
-<p class="lead">“உனக்கு homework மேல அக்கறையே இல்லை.”</p>
-<p>Assertive version:</p>
-</div></section>
-<section class="lesson"><h2>Lesson 6: Difficult Conversation-க்கு முன்பே முதல் Sentence தயார் செய்யுங்கள்</h2><div class="lesson-body">
-<p class="lead">ஒரு difficult conversation வரப்போகிறது என்று தெரிந்தால் முழு conversation-ஐ மனதில் rehearse செய்ய வேண்டியதில்லை.</p>
-<p>முதல் sentence மட்டும் தயார் செய்யுங்கள்.</p>
-<h4>Example</h4>
-<p class="lead">Parent meeting இருக்கிறது.</p>
-<p>Opening sentence:</p>
-<p>“கடந்த மூன்று வாரங்களில் Kavin-ன் class participation குறைந்திருப்பதை நான் கவனித்திருக்கிறேன். அதைப் பற்றி உங்களுடன் பேச வேண்டும்.”</p>
-<p>இது:</p>
-<p>Attack அல்ல.</p>
-<p>Blame அல்ல.</p>
-<p>Fact-based opening.</p>
-<p>Conversation தொடங்கிவிட்டது.</p>
-<p>அடுத்ததை கேட்டு respond செய்யலாம்.</p>
-</div></section>
-<section class="lesson"><h2>Practical Worksheet</h2><div class="lesson-body">
-<h3>My Difficult Conversation Plan</h3>
-<p class="lead">நான் postpone செய்து கொண்டிருக்கும் conversation:</p>
-<h4>யாருடன் பேச வேண்டும்?</h4>
-<h4>FACT</h4>
-<p class="lead">Judgement இல்லாமல் என்ன நடந்தது?</p>
-<h4>CONCERN</h4>
-<p class="lead">என்னுடைய genuine concern என்ன?</p>
-<h4>PERSPECTIVE</h4>
-<p class="lead">அவர்களின் பார்வையை அறிய என்ன கேள்வி கேட்பேன்?</p>
-<h4>NEXT STEP</h4>
-<p class="lead">நாம் சேர்ந்து எடுக்கக்கூடிய ஒரு small next step என்ன?</p>
-<h4>என் Opening Sentence</h4>
-</div></section>
-<section class="lesson"><h2>7-Day Communication Challenge</h2><div class="lesson-body">
-<p class="lead">அடுத்த 7 நாட்களுக்கு தினமும் ஒரு communication habit மட்டும் practice செய்யுங்கள்.</p>
-<p>Day 1: உங்கள் default communication style-ஐ கவனியுங்கள்.</p>
-<p>Day 2: ஒரு sarcastic sentence-ஐ direct sentence-ஆ மாற்றுங்கள்.</p>
-<p>Day 3: Frustration அதிகரிக்கும்போது voice-ஐ lower செய்யுங்கள்.</p>
-<p>Day 4: ஒரு student பேசும்போது interrupt செய்யாமல் முழுமையாகக் கேளுங்கள்.</p>
-<p>Day 5: “நான் புரிந்துகொண்டது…” என்று Reflect Back செய்யுங்கள்.</p>
-<p>Day 6: ஒரு student behaviour-ஐ label இல்லாமல் fact-ஆ describe செய்யுங்கள்.</p>
-<p>Day 7: ஒரு difficult conversation-க்கு FACT → CONCERN → PERSPECTIVE → NEXT STEP structure பயன்படுத்துங்கள்.</p>
-</div></section>
-<section class="lesson"><h2>Self-Reflection</h2><div class="lesson-body">
-<h4>நான் அதிகமாக பயன்படுத்தும் Communication Style:</h4>
-<h4>நான் மாற்ற வேண்டிய ஒரு communication habit:</h4>
-<h4>நான் அதிகமாக பயன்படுத்த வேண்டிய Assertive Sentence:</h4>
-<h4>நான் better listener ஆக வேண்டிய ஒரு situation:</h4>
-</div></section>
-<section class="lesson"><h2>Quick Quiz</h2><div class="lesson-body">
-<h4>Question 1</h4>
-<p class="lead">தன்னுடைய need-ஐ சொல்லாமல் தொடர்ந்து avoid செய்வது எந்த style?</p>
-<p>A. Assertive
-B. Passive
-C. Aggressive
-D. Active Listening</p>
-<p>Correct Answer: B</p>
-<h4>Question 2</h4>
-<p class="lead">Sarcasm மூலம் frustration-ஐ indirect-ஆ வெளிப்படுத்துவது?</p>
-<p>A. Assertive
-B. Passive
-C. Passive-Aggressive
-D. Empathy</p>
-<p>Correct Answer: C</p>
-<h4>Question 3</h4>
-<p class="lead">Assertive Communication-ன் முக்கிய அம்சம்?</p>
-<p>A. எப்போதும் agree செய்வது
-B. மற்றவரை control செய்வது
-C. நம்முடைய need-ஐ தெளிவாகச் சொல்லி, மற்றவரின் dignity-யையும் மதிப்பது
-D. Conflict-ஐ avoid செய்வது</p>
-<p>Correct Answer: C</p>
-<h4>Question 4</h4>
-<p class="lead">Active Listening-ல் எது முக்கியம்?</p>
-<p>A. மற்றவர் பேசும்போதே நம்முடைய reply-ஐ தயார் செய்வது
-B. அவர்கள் பேசுவதை நிறுத்துவது
-C. புரிந்துகொண்டதை reflect back செய்வது
-D. உடனே advice கொடுப்பது</p>
-<p>Correct Answer: C</p>
-<h4>Question 5</h4>
-<p class="lead">Difficult Conversation Structure எது?</p>
-<p>A. Blame → Punishment → Warning → End
-B. Fact → Concern → Perspective → Next Step
-C. Question → Argument → Advice → Punishment
-D. Feeling → Complaint → Warning → Result</p>
-<p>Correct Answer: B</p>
-</div></section>
-<section class="lesson"><h2>Module 4 – முக்கிய Takeaways</h2><div class="lesson-body">
-<h3>1. Communication-ல் நான்கு styles உள்ளன</h3>
-<p class="lead">Passive – Aggressive – Passive-Aggressive – Assertive</p>
-<p>Assertive Communication தான் நம்முடைய need-ஐயும் மற்றவரின் dignity-யையும் ஒரே நேரத்தில் மதிக்கிறது.</p>
-<h3>2. Active Listening என்பது அமைதியாக இருப்பது மட்டும் அல்ல</h3>
-<p class="lead">மற்றவர் பேசுவதை முழுமையாகக் கேட்டு, நாம் புரிந்துகொண்டதை reflect back செய்து, அதன் emotional layer-ஐ கவனிப்பது முக்கியம்.</p>
-<h3>3. Difficult Conversation-க்கு ஒரு structure பயன்படுத்தலாம்</h3>
-<h4>FACT → CONCERN → PERSPECTIVE → NEXT STEP</h4>
-<p class="lead">நடந்ததைச் சொல்லுங்கள்.</p>
-<p>உங்கள் concern-ஐ பகிருங்கள்.</p>
-<p>அவர்களின் பார்வையை கேளுங்கள்.</p>
-<p>ஒரு shared next step முடிவு செய்யுங்கள்.</p>
-<h3>4. Person-ஐ attack செய்யாமல் Behaviour-ஐ address செய்யுங்கள்</h3>
-<p class="lead">“You are careless”</p>
-<p>என்பதற்குப் பதிலாக:</p>
-<p>“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p>
-<p>Behaviour specific-ஆ இருந்தால் change செய்ய வேண்டியது என்ன என்பது தெளிவாக இருக்கும்.</p>
-</div></section>
-<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body">
-<p class="lead">“நான் சொல்ல வேண்டியதைத் தெளிவாகவும் மரியாதையாகவும் சொல்வேன். மற்றவர்கள் பேசும்போது பதில் சொல்லுவதற்காக மட்டும் அல்ல, அவர்களைப் புரிந்துகொள்வதற்காகக் கேட்பேன்.”</p>
-</div></section>
-<section class="lesson"><h2>Module 4 Complete ✓</h2><div class="lesson-body">
-<h3>அடுத்த Module</h3>
-</div></section>
-<section class="lesson"><h2>முடிவெடுத்தல் &amp; பிரச்சினை தீர்க்கும் திறன்</h2><div class="lesson-body">
-<h4>Decision-Making &amp; Problem-Solving</h4>
-<p class="lead">Classroom-ல் உடனடியாக முடிவு எடுக்கும்போது நாம் Impulsive, Avoidant, Over-Analytical அல்லது Deliberate — இதில் எந்த pattern-ஐ பயன்படுத்துகிறோம்?</p>
-<p>ஒரே பிரச்சினை மீண்டும் மீண்டும் வந்தால் அதை systematic-ஆ எப்படி solve செய்வது?</p>
-<p>Define → Generate Options → Trial → Review</p>
-<p>என்ற practical framework-ஐ Module 5-ல் பார்க்கலாம்.</p>
-</div></section>
+<section class="lesson"><h2>Lesson 1: நம்முடைய Communication Style என்ன?</h2><div class="lesson-body"><p class="lead">ஒரே விஷயத்தை நான்கு விதமாகப் பேசலாம்.</p><p>Communication-ல் நான்கு முக்கிய styles-ஐப் பார்க்கலாம்:</p><p>Passive</p><p>Aggressive</p><p>Passive-Aggressive</p><p>Assertive</p><p>இதில் நீங்கள் எந்த style-ஐ அதிகமாகப் பயன்படுத்துகிறீர்கள் என்பது normal situation-ல் தெரியாமல் இருக்கலாம்.</p><p>ஆனால் stress, anger அல்லது conflict வரும் நேரத்தில் நம்முடைய default style தெளிவாகத் தெரியும்.</p></div></section>
+<section class="lesson"><h2>1. Passive Communication</h2><div class="lesson-body"><h3>சொல்ல வேண்டியதை சொல்லாமல் இருப்பது</h3><p class="lead">Passive Communication-ல் மற்றவர்களுக்கு பிரச்சினை வரக்கூடாது என்பதற்காக நம்முடைய need அல்லது boundary-ஐ தெளிவாகச் சொல்லாமல் இருப்போம்.</p><h4>Classroom Example</h4><p class="lead">ஒரு மாணவர் தொடர்ந்து homework late-ஆ submit செய்கிறார்.</p><p>ஆசிரியர் ஒவ்வொரு முறையும்:</p><p>“சரி… பரவாயில்லை. அடுத்த தடவை பார்த்துக்கலாம்.”</p><p>என்று சொல்கிறார்.</p><p>ஆனால் உள்ளுக்குள்:</p><p>“இவன் எப்போதும் இப்படித்தான்.”</p><p>என்று frustration அதிகரிக்கிறது.</p><p>வெளியில் “பரவாயில்லை.”</p><p>உள்ளே resentment.</p><p>இதுதான் Passive Communication-ன் ஒரு வடிவம்.</p><h4>என்ன பிரச்சினை?</h4><p class="lead">மாணவருக்கு ஆசிரியரின் உண்மையான boundary புரியாது.</p><p>“Late-ஆ கொடுத்தாலும் பரவாயில்லை போல.”</p><p>என்று நினைக்கலாம்.</p><p>ஆசிரியரின் frustration தொடர்ந்து சேரும்.</p><h4>Better Practice</h4><p class="lead">Boundary cross ஆன முதல் சில நேரங்களிலேயே calm-ஆவும் clear-ஆவும் சொல்லுங்கள்.</p><p>“Assignment Friday-க்குள் submit செய்ய வேண்டும். Delay ஆனால் என்ன பிரச்சினை இருக்கிறது என்று என்னிடம் சொல்ல வேண்டும்.”</p></div></section>
+<section class="lesson"><h2>2. Aggressive Communication</h2><div class="lesson-body"><h3>என் தேவைக்காக மற்றவரின் மரியாதையை பாதிப்பது</h3><p class="lead">Aggressive Communication-ல் நம்முடைய need அல்லது frustration வெளிப்படும்.</p><p>ஆனால் அது மற்றவரின் dignity-ஐ பாதிக்கும் விதத்தில் இருக்கலாம்.</p><h4>Classroom Example</h4><p class="lead">“எத்தனை தடவை உனக்குச் சொல்றது?”</p><p>“நான் சொல்றது உனக்குப் புரியாதா?”</p><p>“நீ எப்போதுமே இப்படித்தான்!”</p><p>“Class-ல எல்லாருக்கும் problem நீ தான்!”</p><p>இங்கு issue பற்றி பேசுவதற்கு பதிலாக, student-ன் character-ஐ attack செய்யும் அபாயம் இருக்கிறது.</p><h4>என்ன நடக்கலாம்?</h4><p class="lead">மாணவர் அந்த நேரத்தில் அமைதியாகிவிடலாம்.</p><p>ஆனால் அவர் கற்றுக்கொள்வது:</p><p>“Conflict வந்தால் volume அதிகரிக்க வேண்டும்.”</p><p>என்பதாகவும் இருக்கலாம்.</p><h4>ஒரு Practice</h4><p class="lead">உங்களுடைய frustration அதிகரிக்கும்போது:</p><p>Voice ↑</p><p>செய்வதற்கு பதிலாக:</p><p>Voice ↓</p><p>செய்ய முயற்சி செய்யுங்கள்.</p></div></section>
+<section class="lesson"><h2>3. Passive-Aggressive Communication</h2><div class="lesson-body"><h3>நேரடியாகச் சொல்லாமல் மறைமுகமாகக் காட்டுவது</h3><p class="lead">Passive-Aggressive Communication-ல் நம்முடைய frustration-ஐ தெளிவாகச் சொல்லமாட்டோம்.</p><p>அதற்குப் பதிலாக:</p><p>Sarcasm,</p><p>Silence,</p><p>Pointed comments,</p><p>Indirect criticism</p><p>போன்ற வழிகளில் வெளிப்படுத்தலாம்.</p><h4>Example</h4><p class="lead">ஒரு மாணவர் மீண்டும் homework submit செய்யவில்லை.</p><p>ஆசிரியர்:</p><p>“ஆமாம்… நீ எப்போ homework submit பண்ணியிருக்க? உனக்கு time கிடைக்கும்போது கொடு!”</p><p>என்று sarcastic-ஆ சொல்கிறார்.</p><p>இதில் ஆசிரியருக்கு frustration இருக்கிறது என்பது மாணவருக்குத் தெரியும்.</p><p>ஆனால் உண்மையான expectation என்ன என்பது தெளிவாகத் தெரியாமல் போகலாம்.</p><h4>Better Alternative</h4><p class="lead">Sarcasm-க்கு கீழே இருக்கும் உண்மையான sentence-ஐ நேரடியாகச் சொல்லுங்கள்:</p><p>“இந்த மாதத்தில் இது மூன்றாவது missed homework. என்ன காரணம் என்று தெரிந்துகொள்ள வேண்டும். இதை எப்படி complete செய்யலாம் என்று பேசலாம்.”</p></div></section>
+<section class="lesson"><h2>4. Assertive Communication</h2><div class="lesson-body"><h3>தெளிவும் மரியாதையும் ஒன்றாக</h3><p class="lead">Assertive Communication என்றால்:</p><p>எனது தேவையையும் மதிக்கிறேன்.</p><p>உங்களுடைய dignity-யையும் மதிக்கிறேன்.</p><p>நம்முடைய need, concern அல்லது boundary-ஐ தெளிவாகச் சொல்கிறோம்.</p><p>ஆனால் attack செய்யவில்லை.</p><h4>Example</h4><p class="lead">ஒரு மாணவர் இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.</p><p>Assertive Response:</p><p>“இந்த மாதத்தில் மூன்று assignments submit ஆகவில்லை. Friday-க்குள் current assignment வேண்டும். Complete செய்வதில் என்ன difficulty இருக்கிறது?”</p><p>இதில்:</p><p>Fact இருக்கிறது.</p><p>Expectation இருக்கிறது.</p><p>Student-ஐ attack செய்யவில்லை.</p><p>Conversation-க்கு space இருக்கிறது.</p><p>இதுதான் Assertive Communication.</p></div></section>
+<section class="lesson"><h2>Lesson 2: ஒரே Situation – நான்கு Styles</h2><div class="lesson-body"><h4>Situation</h4><p class="lead">ஒரு மாணவர் மூன்றாவது முறையாக homework submit செய்யவில்லை.</p><h4>Passive</h4><p class="lead">“சரி… நாளைக்கு கொண்டு வா.”</p><h4>Aggressive</h4><p class="lead">“உனக்கு responsibility-யே கிடையாதா? எத்தனை தடவை சொல்லணும்?”</p><h4>Passive-Aggressive</h4><p class="lead">“நீ homework கொண்டு வந்தால்தான் அது பெரிய miracle!”</p><h4>Assertive</h4><p class="lead">“இந்த வாரம் மூன்றாவது முறையாக homework submit ஆகவில்லை. நாளைக்கு வேண்டும். Complete செய்ய என்ன தடையாக இருக்கிறது?”</p><h4>Reflection</h4><p class="lead">இந்த நான்கு responses-ல் எது student-ன் dignity-யையும் teacher-ன் boundary-யையும் ஒரே நேரத்தில் பாதுகாக்கிறது?</p><p>Assertive Communication.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – My Communication Style</h2><div class="lesson-body"><div class="activity-field" data-key="m4-i7-f1">
+  <p class="act-label">நீங்கள் stress-ல் இருக்கும்போது அதிகமாக எந்த style-க்கு செல்கிறீர்கள்?</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m4-i7-f2">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m4i7f2" value="0"> Passive</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m4-i7-f3">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m4i7f3" value="0"> Aggressive</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m4-i7-f4">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m4i7f4" value="0"> Passive-Aggressive</label></div>
+  <span class="save-indicator"></span>
+</div><div class="selfcheck-field" data-key="m4-i7-f5">
+  <p class="sc-question">தேர்வு செய்யவும் (Choose one):</p>
+  <div class="sc-options"><label class="sc-option"><input type="radio" name="m4i7f5" value="0"> Assertive</label></div>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m4-i7-f6">
+  <p class="act-label">நான் tired அல்லது stressed-ஆ இருக்கும்போது பொதுவாக:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m4-i7-f7">
+  <p class="act-label">நான் அடிக்கடி பயன்படுத்தும் sentence:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m4-i7-f8">
+  <p class="act-label">அதை Assertive sentence-ஆ மாற்றினால்:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson"><h2>Lesson 3: Active Listening</h2><div class="lesson-body"><h3>பதில் சொல்ல கேட்கிறோமா? புரிந்துகொள்ள கேட்கிறோமா?</h3><p class="lead">Communication என்பது பேசுவது மட்டும் அல்ல.</p><p>Listening-ம் Communication.</p><p>பல நேரங்களில் மற்றவர் பேசும்போது நாம் அவரைக் கேட்டுக்கொண்டிருக்கிறோம்.</p><p>ஆனால் மனதிற்குள்:</p><p>“இதற்கு என்ன பதில் சொல்லலாம்?”</p><p>“அது அப்படி இல்லை!”</p><p>“நான் explain பண்ணணும்.”</p><p>என்று நம்முடைய response-ஐ தயார் செய்து கொண்டிருக்கலாம்.</p><p>இது முழுமையான Active Listening அல்ல.</p><p>Active Listening என்றால் முதலில் புரிந்துகொள்ளக் கேட்பது.</p></div></section>
+<section class="lesson"><h2>Active Listening – 4 Practices</h2><div class="lesson-body"><h3>Step 1: அவர்கள் பேசும்போது உங்கள் பதிலை தயார் செய்வதை நிறுத்துங்கள்</h3><p class="lead">மாணவர் அல்லது parent பேசும்போது:</p><p>“இதற்கு நான் என்ன சொல்ல வேண்டும்?”</p><p>என்று உடனே மனதில் answer உருவாக்க வேண்டாம்.</p><p>முதலில் முழுமையாகக் கேளுங்கள்.</p></div></section>
+<section class="lesson"><h2>Step 2: Reflect Back</h2><div class="lesson-body"><h3>நீங்கள் புரிந்துகொண்டதை திரும்பச் சொல்லுங்கள்</h3><p class="lead">உதாரணமாக ஒரு parent சொல்கிறார்:</p><p>“என் மகன் வீட்டுக்கு வந்ததும் school பற்றி பேசவே மாட்டேங்கிறான். இப்போ marks-ம் குறைந்துவிட்டது.”</p><p>உடனே solution சொல்லாமல்:</p><p>“அவர் வீட்டில் school விஷயங்களைப் பகிர்வது குறைந்திருக்கிறது; அதோடு marks-ம் குறைந்ததால் உங்களுக்கு concern-ஆ இருக்கிறது என்று புரிகிறது.”</p><p>என்று சொல்லலாம்.</p><p>இதனால்:</p><p>“நான் சொன்னதை teacher புரிந்துகொண்டார்.”</p><p>என்ற உணர்வு உருவாகும்.</p></div></section>
+<section class="lesson"><h2>Step 3: Feeling-ஐ கவனியுங்கள்</h2><div class="lesson-body"><p class="lead">Facts மட்டும் அல்ல.</p><p>அதற்குப் பின்னால் இருக்கும் feeling-ஐயும் கவனியுங்கள்.</p><p>Parent:</p><p>“எத்தனை தடவை சொல்லியும் அவன் படிக்கவே மாட்டேங்கிறான்!”</p><p>Fact:</p><p>Child not studying.</p><p>Possible feeling:</p><p>Frustration.</p><p>Worry.</p><p>Concern.</p><p>Teacher response:</p><p>“நீங்கள் தொடர்ந்து முயற்சி செய்தும் மாற்றம் தெரியாததால் உங்களுக்கு frustration-ஆ இருக்கலாம்.”</p><p>இது agreement அல்ல.</p><p>Acknowledgement.</p></div></section>
+<section class="lesson"><h2>Step 4: Solution கொடுப்பதற்கு முன்பு ஒரு Open Question</h2><div class="lesson-body"><p class="lead">உடனே advice கொடுப்பதற்கு முன்பு:</p><p>“இப்போது உங்களுக்கு அதிகமாக concern தருவது என்ன?”</p><p>அல்லது:</p><p>“எந்த மாற்றம் முதலில் வந்தால் உதவியாக இருக்கும் என்று நினைக்கிறீர்கள்?”</p><p>என்று கேட்கலாம்.</p><p>சில நேரங்களில் நாம் நினைத்த problem-க்கும் அவர்கள் உண்மையில் சொல்ல வந்த problem-க்கும் வித்தியாசம் இருக்கலாம்.</p></div></section>
+<section class="lesson"><h2>Listening Practice</h2><div class="lesson-body"><p class="lead">அடுத்த முறை ஒரு student அல்லது parent ஒரு problem share செய்தால்:</p><h4>1. Listen</h4><p class="lead">முழுமையாகக் கேளுங்கள்.</p><h4>2. Reflect</h4><p class="lead">“நான் புரிந்துகொண்டது…”</p><h4>3. Name the Feeling</h4><p class="lead">“இது உங்களுக்கு frustrating-ஆ இருக்கலாம்.”</p><h4>4. Ask</h4><p class="lead">“இப்போது என்ன உதவி மிகவும் பயனுள்ளதாக இருக்கும்?”</p></div></section>
+<section class="lesson"><h2>Lesson 4: Difficult Conversations</h2><div class="lesson-body"><p class="lead">ஒவ்வொரு ஆசிரியருக்கும் avoid செய்ய விரும்பும் சில conversations இருக்கும்.</p><p>Low-performing student’s parent.</p><p>Repeated behaviour issue.</p><p>Defensive teenager.</p><p>Upset parent.</p><p>Colleague conflict.</p><p>Difficult conversation-ன் anxiety-க்கு ஒரு முக்கிய காரணம்:</p><p>“எப்படி ஆரம்பிப்பது?”</p><p>என்று தெரியாமல் இருப்பது.</p><p>அதற்காக ஒரு simple four-part structure.</p></div></section>
+<section class="lesson"><h2>FACT → CONCERN → PERSPECTIVE → NEXT STEP</h2><div class="lesson-body"></div></section>
+<section class="lesson"><h2>Step 1: FACT</h2><div class="lesson-body"><h3>Judgement அல்ல; நடந்ததைச் சொல்லுங்கள்</h3><p class="lead">Wrong:</p><p>“Meera ரொம்ப careless-ஆ இருக்கிறாள்.”</p><p>Better:</p><p>“Meera இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.”</p><p>“Careless” என்பது judgement.</p><p>“Three assignments missed” என்பது fact.</p></div></section>
+<section class="lesson"><h2>Step 2: CONCERN</h2><div class="lesson-body"><h3>உங்கள் உண்மையான கவலையைச் சொல்லுங்கள்</h3><p class="lead">“இது தொடர்ந்தால் exam preparation-ல் அவளுடைய confidence பாதிக்கப்படுமோ என்று எனக்கு concern.”</p><p>இங்கு student-ஐ blame செய்யவில்லை.</p><p>Concern-ஐ தெளிவாகச் சொல்கிறோம்.</p></div></section>
+<section class="lesson"><h2>Step 3: THEIR PERSPECTIVE</h2><div class="lesson-body"><h3>அவர்களின் பார்வையை கேளுங்கள்</h3><p class="lead">“வீட்டில் நீங்கள் ஏதாவது change notice செய்திருக்கிறீர்களா?”</p><p>அல்லது:</p><p>“இதற்குக் காரணம் என்னவாக இருக்கலாம் என்று நீங்கள் நினைக்கிறீர்கள்?”</p><p>Teacher-க்கு தெரியாத தகவல் parent-க்கு இருக்கலாம்.</p></div></section>
+<section class="lesson"><h2>Step 4: SHARED NEXT STEP</h2><div class="lesson-body"><h3>ஒன்றாக ஒரு சிறிய action முடிவு செய்யுங்கள்</h3><p class="lead">“அடுத்த இரண்டு வாரங்களுக்கு daily homework completion-ஐ school-லும் home-லும் check பண்ணலாம். இரண்டு வாரம் கழித்து progress எப்படி இருக்கிறது என்று review பண்ணலாம்.”</p><p>இதனால் conversation:</p><p>Who is wrong?</p><p>என்பதிலிருந்து,</p><p>What can we do next?</p><p>என்ற திசைக்கு நகர்கிறது.</p></div></section>
+<section class="lesson"><h2>Complete Parent Conversation Example</h2><div class="lesson-body"><p class="lead">Teacher:</p><p>“Meera இந்த மாதத்தில் மூன்று assignments submit செய்யவில்லை.</p><p>இது தொடர்ந்து நடந்தால் exam preparation-ல் அவளுடைய confidence பாதிக்கப்படுமோ என்று எனக்கு concern.</p><p>வீட்டில் நீங்கள் ஏதாவது change notice செய்திருக்கிறீர்களா?”</p><p>Parent:</p><p>“அவள் வீட்டுக்கு வந்ததும் mobile-ல அதிக நேரம் இருக்கிறாள். படிக்கச் சொன்னால் கோபப்படுகிறாள்.”</p><p>Teacher:</p><p>“Mobile use மற்றும் study routine இரண்டும் challenge-ஆ இருக்கிறது என்று புரிகிறது.</p><p>அடுத்த இரண்டு வாரங்களுக்கு ஒரு simple homework routine try பண்ணலாம். School-ல் நானும் completion check செய்கிறேன். வீட்டில் நீங்கள் routine follow ஆகிறதா என்று மட்டும் பார்க்கலாம்.</p><p>இரண்டு வாரம் கழித்து progress review பண்ணலாம்.”</p></div></section>
+<section class="lesson"><h2>Lesson 5: Behaviour-ஐ பேசுங்கள்; Person-ஐ அல்ல</h2><div class="lesson-body"><p class="lead">இந்த வேறுபாடு மிகவும் முக்கியம்.</p><h4>Person Attack</h4><p class="lead">“நீ irresponsible.”</p><h4>Behaviour</h4><p class="lead">“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p><h4>Person Attack</h4><p class="lead">“நீ rude.”</p><h4>Behaviour</h4><p class="lead">“நான் பேசிக்கொண்டிருக்கும்போது மூன்று முறை interrupt செய்தாய்.”</p><h4>Person Attack</h4><p class="lead">“உனக்கு கவனமே இல்லை.”</p><h4>Behaviour</h4><p class="lead">“Instruction கொடுத்த பிறகு task இன்னும் start ஆகவில்லை.”</p><p>Person-ஐ label செய்தால் defence அதிகரிக்கலாம்.</p><p>Behaviour-ஐ describe செய்தால் change செய்ய வேண்டியது என்ன என்பது தெளிவாகும்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Activity – Rewrite the Sentence</h2><div class="lesson-body"><div class="activity-field" data-key="m4-i22-f1">
+  <p class="act-label">Sentence 1 — “நீ எப்போதுமே careless.”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Assertive version:</p><div class="activity-field" data-key="m4-i22-f2">
+  <p class="act-label">Sentence 2 — “எத்தனை தடவை சொன்னாலும் உனக்கு புரியாது.”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Assertive version:</p><div class="activity-field" data-key="m4-i22-f3">
+  <p class="act-label">Sentence 3 — “உன்னால்தான் class disturb ஆகுது.”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Assertive version:</p><div class="activity-field" data-key="m4-i22-f4">
+  <p class="act-label">Sentence 4 — “உனக்கு homework மேல அக்கறையே இல்லை.”</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><p class="section-note ">Assertive version:</p></div></section>
+<section class="lesson"><h2>Lesson 6: Difficult Conversation-க்கு முன்பே முதல் Sentence தயார் செய்யுங்கள்</h2><div class="lesson-body"><p class="lead">ஒரு difficult conversation வரப்போகிறது என்று தெரிந்தால் முழு conversation-ஐ மனதில் rehearse செய்ய வேண்டியதில்லை.</p><p>முதல் sentence மட்டும் தயார் செய்யுங்கள்.</p><h4>Example</h4><p class="lead">Parent meeting இருக்கிறது.</p><p>Opening sentence:</p><p>“கடந்த மூன்று வாரங்களில் Kavin-ன் class participation குறைந்திருப்பதை நான் கவனித்திருக்கிறேன். அதைப் பற்றி உங்களுடன் பேச வேண்டும்.”</p><p>இது:</p><p>Attack அல்ல.</p><p>Blame அல்ல.</p><p>Fact-based opening.</p><p>Conversation தொடங்கிவிட்டது.</p><p>அடுத்ததை கேட்டு respond செய்யலாம்.</p></div></section>
+<section class="lesson"><h2>Practical Worksheet</h2><div class="lesson-body"><h3>My Difficult Conversation Plan</h3><p class="lead">நான் postpone செய்து கொண்டிருக்கும் conversation:</p><h4>யாருடன் பேச வேண்டும்?</h4><h4>FACT</h4><p class="lead">Judgement இல்லாமல் என்ன நடந்தது?</p><h4>CONCERN</h4><p class="lead">என்னுடைய genuine concern என்ன?</p><h4>PERSPECTIVE</h4><p class="lead">அவர்களின் பார்வையை அறிய என்ன கேள்வி கேட்பேன்?</p><h4>NEXT STEP</h4><p class="lead">நாம் சேர்ந்து எடுக்கக்கூடிய ஒரு small next step என்ன?</p><h4>என் Opening Sentence</h4></div></section>
+<section class="lesson interactive-section"><h2>📝 7-Day Communication Challenge</h2><div class="lesson-body"><p class="section-note lead">அடுத்த 7 நாட்களுக்கு தினமும் ஒரு communication habit மட்டும் practice செய்யுங்கள்.</p><p class="section-note ">Day 1: உங்கள் default communication style-ஐ கவனியுங்கள்.</p><p class="section-note ">Day 2: ஒரு sarcastic sentence-ஐ direct sentence-ஆ மாற்றுங்கள்.</p><p class="section-note ">Day 3: Frustration அதிகரிக்கும்போது voice-ஐ lower செய்யுங்கள்.</p><p class="section-note ">Day 4: ஒரு student பேசும்போது interrupt செய்யாமல் முழுமையாகக் கேளுங்கள்.</p><p class="section-note ">Day 5: “நான் புரிந்துகொண்டது…” என்று Reflect Back செய்யுங்கள்.</p><p class="section-note ">Day 6: ஒரு student behaviour-ஐ label இல்லாமல் fact-ஆ describe செய்யுங்கள்.</p><p class="section-note ">Day 7: ஒரு difficult conversation-க்கு FACT → CONCERN → PERSPECTIVE → NEXT STEP structure பயன்படுத்துங்கள்.</p></div></section>
+<section class="lesson interactive-section"><h2>📝 Self-Reflection</h2><div class="lesson-body"><div class="activity-field" data-key="m4-i26-f1">
+  <p class="act-label">நான் அதிகமாக பயன்படுத்தும் Communication Style:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m4-i26-f2">
+  <p class="act-label">நான் மாற்ற வேண்டிய ஒரு communication habit:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m4-i26-f3">
+  <p class="act-label">நான் அதிகமாக பயன்படுத்த வேண்டிய Assertive Sentence:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div><div class="activity-field" data-key="m4-i26-f4">
+  <p class="act-label">நான் better listener ஆக வேண்டிய ஒரு situation:</p>
+  <textarea class="act-input" rows="2" placeholder="உங்கள் பதிலை இங்கே எழுதுங்கள்... (Write your answer here)"></textarea>
+  <span class="save-indicator"></span>
+</div></div></section>
+<section class="lesson interactive-section quiz-section">
+  <h2>🧠 Quick Quiz</h2>
+  <div class="lesson-body">
+    <div class="quiz-block" data-quiz-id="m4-quiz27">
+      <div class="quiz-question" data-correct="1">
+  <p class="q-text">1. தன்னுடைய need-ஐ சொல்லாமல் தொடர்ந்து avoid செய்வது எந்த style?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m4quiz27q1" value="0"> Assertive</label><label class="q-option"><input type="radio" name="m4quiz27q1" value="1"> Passive</label><label class="q-option"><input type="radio" name="m4quiz27q1" value="2"> Aggressive</label><label class="q-option"><input type="radio" name="m4quiz27q1" value="3"> Active Listening</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">2. Sarcasm மூலம் frustration-ஐ indirect-ஆ வெளிப்படுத்துவது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m4quiz27q2" value="0"> Assertive</label><label class="q-option"><input type="radio" name="m4quiz27q2" value="1"> Passive</label><label class="q-option"><input type="radio" name="m4quiz27q2" value="2"> Passive-Aggressive</label><label class="q-option"><input type="radio" name="m4quiz27q2" value="3"> Empathy</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">3. Assertive Communication-ன் முக்கிய அம்சம்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m4quiz27q3" value="0"> எப்போதும் agree செய்வது</label><label class="q-option"><input type="radio" name="m4quiz27q3" value="1"> மற்றவரை control செய்வது</label><label class="q-option"><input type="radio" name="m4quiz27q3" value="2"> நம்முடைய need-ஐ தெளிவாகச் சொல்லி, மற்றவரின் dignity-யையும் மதிப்பது</label><label class="q-option"><input type="radio" name="m4quiz27q3" value="3"> Conflict-ஐ avoid செய்வது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="2">
+  <p class="q-text">4. Active Listening-ல் எது முக்கியம்?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m4quiz27q4" value="0"> மற்றவர் பேசும்போதே நம்முடைய reply-ஐ தயார் செய்வது</label><label class="q-option"><input type="radio" name="m4quiz27q4" value="1"> அவர்கள் பேசுவதை நிறுத்துவது</label><label class="q-option"><input type="radio" name="m4quiz27q4" value="2"> புரிந்துகொண்டதை reflect back செய்வது</label><label class="q-option"><input type="radio" name="m4quiz27q4" value="3"> உடனே advice கொடுப்பது</label></div>
+  <div class="q-feedback"></div>
+</div><div class="quiz-question" data-correct="1">
+  <p class="q-text">5. Difficult Conversation Structure எது?</p>
+  <div class="q-options"><label class="q-option"><input type="radio" name="m4quiz27q5" value="0"> Blame → Punishment → Warning → End</label><label class="q-option"><input type="radio" name="m4quiz27q5" value="1"> Fact → Concern → Perspective → Next Step</label><label class="q-option"><input type="radio" name="m4quiz27q5" value="2"> Question → Argument → Advice → Punishment</label><label class="q-option"><input type="radio" name="m4quiz27q5" value="3"> Feeling → Complaint → Warning → Result</label></div>
+  <div class="q-feedback"></div>
+</div>
+      <button type="button" class="btn btn-gold quiz-submit">பதில்களைச் சரிபார்க்கவும் ✓ (Check Answers)</button>
+      <button type="button" class="btn btn-outline quiz-retry" style="display:none;color:var(--navy);border-color:var(--navy);">மீண்டும் முயற்சிக்கவும் ↺ (Retry)</button>
+      <div class="quiz-score" style="display:none;"></div>
+    </div>
+  </div>
+</section>
+<section class="lesson"><h2>Module 4 – முக்கிய Takeaways</h2><div class="lesson-body"><h3>1. Communication-ல் நான்கு styles உள்ளன</h3><p class="lead">Passive – Aggressive – Passive-Aggressive – Assertive</p><p>Assertive Communication தான் நம்முடைய need-ஐயும் மற்றவரின் dignity-யையும் ஒரே நேரத்தில் மதிக்கிறது.</p><h3>2. Active Listening என்பது அமைதியாக இருப்பது மட்டும் அல்ல</h3><p class="lead">மற்றவர் பேசுவதை முழுமையாகக் கேட்டு, நாம் புரிந்துகொண்டதை reflect back செய்து, அதன் emotional layer-ஐ கவனிப்பது முக்கியம்.</p><h3>3. Difficult Conversation-க்கு ஒரு structure பயன்படுத்தலாம்</h3><h4>FACT → CONCERN → PERSPECTIVE → NEXT STEP</h4><p class="lead">நடந்ததைச் சொல்லுங்கள்.</p><p>உங்கள் concern-ஐ பகிருங்கள்.</p><p>அவர்களின் பார்வையை கேளுங்கள்.</p><p>ஒரு shared next step முடிவு செய்யுங்கள்.</p><h3>4. Person-ஐ attack செய்யாமல் Behaviour-ஐ address செய்யுங்கள்</h3><p class="lead">“You are careless”</p><p>என்பதற்குப் பதிலாக:</p><p>“இந்த வாரம் இரண்டு assignments submit ஆகவில்லை.”</p><p>Behaviour specific-ஆ இருந்தால் change செய்ய வேண்டியது என்ன என்பது தெளிவாக இருக்கும்.</p></div></section>
+<section class="lesson"><h2>இந்த வார ஆசிரியர் உறுதிமொழி</h2><div class="lesson-body"><p class="lead">“நான் சொல்ல வேண்டியதைத் தெளிவாகவும் மரியாதையாகவும் சொல்வேன். மற்றவர்கள் பேசும்போது பதில் சொல்லுவதற்காக மட்டும் அல்ல, அவர்களைப் புரிந்துகொள்வதற்காகக் கேட்பேன்.”</p></div></section>
+<section class="lesson"><h2>Module 4 Complete ✓</h2><div class="lesson-body"><h3>அடுத்த Module</h3></div></section>
+<section class="lesson"><h2>முடிவெடுத்தல் &amp; பிரச்சினை தீர்க்கும் திறன்</h2><div class="lesson-body"><h4>Decision-Making &amp; Problem-Solving</h4><p class="lead">Classroom-ல் உடனடியாக முடிவு எடுக்கும்போது நாம் Impulsive, Avoidant, Over-Analytical அல்லது Deliberate — இதில் எந்த pattern-ஐ பயன்படுத்துகிறோம்?</p><p>ஒரே பிரச்சினை மீண்டும் மீண்டும் வந்தால் அதை systematic-ஆ எப்படி solve செய்வது?</p><p>Define → Generate Options → Trial → Review</p><p>என்ற practical framework-ஐ Module 5-ல் பார்க்கலாம்.</p></div></section>
 </div>
 
 <div class="complete-bar">
@@ -702,6 +509,114 @@ checkbox.addEventListener('change', function () {
   localStorage.setItem(STORAGE_KEY, checkbox.checked ? 'true' : 'false');
   refreshLabel();
 });
+
+var MODULE_NUM = 4;
+
+// ---- Generic engine for quiz / self-check / activity blocks ----
+(function () {
+  var PREFIX = (typeof COURSE_ID !== 'undefined' ? COURSE_ID : 'course') + '-' + (typeof MODULE_NUM !== 'undefined' ? ('m' + MODULE_NUM) : 'm');
+
+  function flashSaved(el) {
+    if (!el) return;
+    el.textContent = '✓ சேமிக்கப்பட்டது (Saved)';
+    el.classList.add('show');
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove('show'); }, 1400);
+  }
+
+  // Self-check radio fields: restore + live save
+  document.querySelectorAll('.selfcheck-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var saved = localStorage.getItem(key);
+    if (saved !== null) {
+      var input = field.querySelector('input[value="' + saved + '"]');
+      if (input) input.checked = true;
+    }
+    field.querySelectorAll('input[type=radio]').forEach(function (input) {
+      input.addEventListener('change', function () {
+        localStorage.setItem(key, input.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      });
+    });
+  });
+
+  // Activity free-text fields: restore + debounced live save
+  document.querySelectorAll('.activity-field').forEach(function (field) {
+    var key = PREFIX + '-' + field.dataset.key;
+    var textarea = field.querySelector('.act-input');
+    var saved = localStorage.getItem(key);
+    if (saved !== null) textarea.value = saved;
+    var timer = null;
+    textarea.addEventListener('input', function () {
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        localStorage.setItem(key, textarea.value);
+        flashSaved(field.querySelector('.save-indicator'));
+      }, 500);
+    });
+  });
+
+  // Quiz blocks: live scoring
+  document.querySelectorAll('.quiz-block').forEach(function (quiz) {
+    var submitBtn = quiz.querySelector('.quiz-submit');
+    var retryBtn = quiz.querySelector('.quiz-retry');
+    var scoreEl = quiz.querySelector('.quiz-score');
+    var questions = quiz.querySelectorAll('.quiz-question');
+
+    submitBtn.addEventListener('click', function () {
+      var score = 0;
+      var allAnswered = true;
+      questions.forEach(function (q) {
+        var correct = parseInt(q.dataset.correct, 10);
+        var options = q.querySelectorAll('.q-option');
+        var selected = q.querySelector('input[type=radio]:checked');
+        var fb = q.querySelector('.q-feedback');
+        options.forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+
+        if (!selected) {
+          allAnswered = false;
+          fb.textContent = 'ஒரு option-ஐ தேர்வு செய்யவும் (please select an option).';
+          fb.className = 'q-feedback q-warn';
+          return;
+        }
+        var val = parseInt(selected.value, 10);
+        options[correct].classList.add('correct');
+        if (val === correct) {
+          score++;
+          fb.textContent = '✓ சரி! (Correct)';
+          fb.className = 'q-feedback q-correct';
+        } else {
+          options[val].classList.add('incorrect');
+          fb.textContent = '✗ தவறு (Incorrect).';
+          fb.className = 'q-feedback q-incorrect';
+        }
+      });
+
+      if (!allAnswered) return;
+
+      scoreEl.textContent = score + ' / ' + questions.length + ' சரியான பதில்கள் (correct)';
+      scoreEl.style.display = 'block';
+      submitBtn.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = true; });
+
+      try {
+        var qKey = PREFIX + '-' + quiz.dataset.quizId + '-score';
+        localStorage.setItem(qKey, score + '/' + questions.length);
+      } catch (e) {}
+    });
+
+    retryBtn.addEventListener('click', function () {
+      quiz.querySelectorAll('input[type=radio]').forEach(function (r) { r.disabled = false; r.checked = false; });
+      quiz.querySelectorAll('.q-feedback').forEach(function (f) { f.textContent = ''; f.className = 'q-feedback'; });
+      quiz.querySelectorAll('.q-option').forEach(function (o) { o.classList.remove('correct', 'incorrect'); });
+      scoreEl.style.display = 'none';
+      submitBtn.style.display = 'inline-block';
+      retryBtn.style.display = 'none';
+    });
+  });
+})();
+
 </script>
 </body>
 </html>
