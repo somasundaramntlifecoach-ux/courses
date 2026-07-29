@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ஆசிரியர்களுக்கான உணர்ச்சி நுண்ணறிவு | Emotional Intelligence for Teachers</title>
+<meta name="description" content="ஆசிரியர்களுக்கான 10-தொகுதி உணர்ச்சி நுண்ணறிவு பாடநெறி — தமிழில், activities, worksheets மற்றும் quiz-உடன்.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0b1f3a;
+    --navy-2:#122a4d;
+    --navy-light:#1c3a68;
+    --gold:#c9a13b;
+    --gold-light:#e8c876;
+    --cream:#faf6ec;
+    --ink:#1b2430;
+    --muted:#5b6577;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Noto Sans Tamil','Poppins',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.7;
+  }
+  body.en{ font-family:'Poppins','Noto Sans Tamil',sans-serif; }
+  h1,h2,h3{ color:var(--navy); line-height:1.35; }
+  a{color:inherit;}
+  .wrap{ max-width:880px; margin:0 auto; padding:0 20px; }
+
+  .lang-toggle{
+    position:fixed; top:16px; right:16px; z-index:50;
+    display:flex; gap:6px; background:#fff; border-radius:20px; padding:4px;
+    box-shadow:0 4px 14px rgba(11,31,58,0.18);
+  }
+  .lang-toggle button{
+    border:none; background:transparent; color:var(--navy);
+    padding:6px 14px; border-radius:16px; font-size:13px; font-weight:600; cursor:pointer;
+  }
+  .lang-toggle button.active{ background:var(--navy); color:#fff; }
+
+  [data-en]{ display:none; }
+  body.en [data-en]{ display:inline; }
+  body.en [data-ta]{ display:none; }
+
+  .hero{
+    background:radial-gradient(circle at 20% -20%, #1e3f70 0%, var(--navy) 55%, #081527 100%);
+    color:#fff; padding:70px 0 56px; text-align:center;
+  }
+  .hero .eyebrow{ color:var(--gold-light); font-weight:700; letter-spacing:.06em; font-size:13px; text-transform:uppercase; }
+  .hero h1{ color:#fff; font-size:32px; margin:14px 0 8px; }
+  .hero p.sub{ color:#c9d4e6; font-size:16.5px; max-width:620px; margin:0 auto 24px; }
+  .meta-row{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:30px; }
+  .meta-chip{
+    background:rgba(255,255,255,0.09); border:1px solid rgba(255,255,255,0.18);
+    border-radius:999px; padding:6px 14px; font-size:13px; color:#e7ecf5;
+  }
+  .btn-row{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:13px 26px; border-radius:999px; font-weight:700; font-size:15px;
+    text-decoration:none; border:none; cursor:pointer;
+  }
+  .btn-gold{ background:var(--gold); color:var(--navy); }
+  .btn-gold:hover{ background:var(--gold-light); }
+  .btn-outline-light{ background:transparent; border:1.5px solid rgba(255,255,255,0.5); color:#fff; }
+  .btn-outline-light:hover{ background:rgba(255,255,255,0.1); }
+
+  .section{ padding:50px 0; }
+  .section h2{ font-size:24px; text-align:center; margin-bottom:8px; }
+  .section p.section-sub{ text-align:center; color:var(--muted); margin-top:0; margin-bottom:34px; font-size:15px; }
+
+  .pain-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+  .pain-card{
+    background:#fff; border-radius:14px; padding:22px 20px;
+    box-shadow:0 4px 18px rgba(11,31,58,0.07); border:1px solid #eee6d2;
+  }
+  .pain-card .icon{ font-size:26px; margin-bottom:10px; display:block; }
+  .pain-card h3{ font-size:15.5px; margin:0 0 6px; }
+  .pain-card p{ font-size:13.5px; color:var(--muted); margin:0; }
+
+  .module-row{
+    display:flex; gap:16px; align-items:flex-start;
+    background:#fff; border-radius:12px; padding:16px 20px; margin-bottom:12px;
+    border:1px solid #eee6d2;
+  }
+  .module-row .num{
+    flex-shrink:0; width:34px; height:34px; border-radius:9px;
+    background:var(--navy); color:var(--gold-light);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:14px;
+  }
+  .module-row h3{ font-size:15.5px; margin:0 0 4px; }
+  .module-row p{ font-size:13.5px; color:var(--muted); margin:0; }
+
+  .format-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; }
+  .format-card{ text-align:center; padding:20px 14px; }
+  .format-card .icon{ font-size:28px; margin-bottom:8px; display:block; }
+  .format-card h3{ font-size:14.5px; margin:0 0 4px; }
+  .format-card p{ font-size:13px; color:var(--muted); margin:0; }
+
+  .trainer-card{
+    background:#fff; border-radius:16px; padding:32px 28px;
+    box-shadow:0 4px 18px rgba(11,31,58,0.07); border:1px solid #eee6d2;
+    display:flex; gap:22px; align-items:flex-start; flex-wrap:wrap;
+  }
+  .trainer-badge{
+    flex-shrink:0; width:64px; height:64px; border-radius:50%;
+    background:var(--navy); color:var(--gold-light);
+    display:flex; align-items:center; justify-content:center; font-size:26px; font-weight:800;
+  }
+  .trainer-card h3{ margin:0 0 4px; font-size:17px; }
+  .trainer-card p.role{ color:var(--gold); font-weight:600; font-size:13.5px; margin:0 0 10px; }
+  .trainer-card p{ font-size:14px; color:var(--ink); margin:0 0 8px; }
+
+  .final-cta{
+    background:linear-gradient(120deg,var(--navy),var(--navy-2));
+    color:#fff; border-radius:20px; padding:40px 30px; text-align:center;
+  }
+  .final-cta h2{ color:#fff; }
+  .final-cta p{ color:#c9d4e6; margin-bottom:26px; }
+  .already-enrolled{ text-align:center; margin-top:14px; font-size:13.5px; }
+  .already-enrolled a{ color:var(--gold-light); font-weight:700; text-decoration:none; }
+
+  footer{ text-align:center; padding:30px 20px; font-size:12.5px; color:#8a93a6; }
+  footer a{ color:var(--navy); text-decoration:none; }
+
+  @media (max-width:600px){
+    .hero h1{ font-size:24px; }
+    .trainer-card{ flex-direction:column; align-items:center; text-align:center; }
+  }
+
+  /* Enrollment details form */
+  .details-card{
+    background:#fff; border-radius:16px; padding:32px 28px; text-align:left;
+    box-shadow:0 4px 18px rgba(11,31,58,0.07); border:1px solid #eee6d2;
+    max-width:560px; margin:0 auto;
+  }
+  .details-card h3{ margin:0 0 6px; font-size:17px; text-align:center; }
+  .details-card .note{ color:var(--muted); font-size:13.5px; margin:0 0 20px; text-align:center; }
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .form-field{ display:flex; flex-direction:column; gap:6px; }
+  .form-field.full{ grid-column:1 / -1; }
+  .form-field label{ font-size:13.5px; font-weight:600; color:var(--navy); }
+  .form-field input, .form-field textarea{
+    padding:11px 13px; border:1.5px solid #e3dcc8; border-radius:10px;
+    font-family:inherit; font-size:14.5px; color:var(--ink); background:#fbfaf5;
+  }
+  .form-field input:focus, .form-field textarea:focus{ outline:none; border-color:var(--gold); }
+  .form-field textarea{ resize:vertical; min-height:70px; }
+  .form-submit-row{ margin-top:6px; text-align:center; }
+  .btn-submit{ background:var(--navy); color:#fff; border:none; border-radius:999px; padding:13px 28px; font-weight:700; font-size:15px; cursor:pointer; font-family:inherit; }
+  .btn-submit:disabled{ opacity:.6; cursor:not-allowed; }
+  .df-status{ margin-top:12px; font-size:13.5px; font-weight:600; text-align:center; }
+  .df-status.success{ color:#1e7a4d; }
+  .df-status.error{ color:#b3392c; }
+  @media (max-width:600px){ .form-grid{ grid-template-columns:1fr; } }
+</style>
+</head>
+<body class="ta">
+
+<div class="lang-toggle">
+  <button id="btnEN" onclick="setLang('en')">EN</button>
+  <button id="btnTA" class="active" onclick="setLang('ta')">தமிழ்</button>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">N T Somasundaram Life Skills Program</div>
+    <h1>
+      <span data-ta>ஆசிரியர்களுக்கான உணர்ச்சி நுண்ணறிவு</span>
+      <span data-en>Emotional Intelligence for Teachers</span>
+    </h1>
+    <p class="sub">
+      <span data-ta>10 தொகுதிகள் கொண்ட முழுமையான தமிழ் பாடநெறி — வகுப்பறையில் உங்கள் உணர்வுகளையும் மாணவர்களின் உணர்வுகளையும் புரிந்துகொண்டு, அமைதியாகவும் நம்பிக்கையுடனும் கற்பிக்கும் திறனை வளர்த்துக்கொள்ளுங்கள்.</span>
+      <span data-en>A complete 10-module Tamil program to help you understand your own emotions and your students', so you can teach with more calm, patience, and connection.</span>
+    </p>
+    <div class="meta-row">
+      <span class="meta-chip">📖 <span data-ta>Activities + Worksheets</span><span data-en>Activities + Worksheets</span></span>
+      <span class="meta-chip">✅ <span data-ta>ஒவ்வொரு தொகுதிக்கும் Quiz</span><span data-en>Quiz after every module</span></span>
+      <span class="meta-chip">🗣️ <span data-ta>முழுவதும் தமிழில்</span><span data-en>Fully in Tamil</span></span>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-gold" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20access%20to%20the%20Emotional%20Intelligence%20for%20Teachers%20course." target="_blank" rel="noopener">
+        <span data-ta>💬 வாட்ஸ்அப்பில் சேருங்கள்</span>
+        <span data-en>💬 Enroll via WhatsApp</span>
+      </a>
+      <a class="btn btn-outline-light" href="login.html">
+        <span data-ta>ஏற்கனவே சேர்ந்துவிட்டீர்களா? உள்நுழையவும் →</span>
+        <span data-en>Already enrolled? Log in →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<div class="section">
+  <div class="wrap">
+    <h2><span data-ta>இது உங்களுக்கு பரிச்சயமா?</span><span data-en>Does this sound familiar?</span></h2>
+    <p class="section-sub">
+      <span data-ta>கற்பிப்பது அன்பானது — ஆனால் வகுப்பறை உங்கள் பொறுமையையும் சோதிக்கும்.</span>
+      <span data-en>Teaching is rewarding — but the classroom tests your patience too. You're not alone.</span>
+    </p>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <span class="icon">😤</span>
+        <h3><span data-ta>மாணவர்கள் மீது எளிதில் கோபம்</span><span data-en>Quick to anger with students</span></h3>
+        <p><span data-ta>ஒரே behaviour திரும்பத் திரும்ப நடக்கும்போது, யோசிப்பதற்கு முன்பே react செய்கிறீர்களா?</span><span data-en>Do you react before you can think, when the same behaviour repeats?</span></p>
+      </div>
+      <div class="pain-card">
+        <span class="icon">😩</span>
+        <h3><span data-ta>Class முடிந்தபின் தீராத சோர்வு</span><span data-en>Drained by the end of every class</span></h3>
+        <p><span data-ta>ஒரு நாள் முடிவில், emotionally empty-ஆக உணர்கிறீர்களா?</span><span data-en>Do you feel emotionally empty by the time the day ends?</span></p>
+      </div>
+      <div class="pain-card">
+        <span class="icon">🧩</span>
+        <h3><span data-ta>Discipline vs Relationship-க்கு இடையே சிக்கல்</span><span data-en>Stuck between discipline and relationship</span></h3>
+        <p><span data-ta>கண்டிக்க வேண்டுமா, புரிந்துகொள்ள வேண்டுமா என்று தெரியாமல் தடுமாறுகிறீர்களா?</span><span data-en>Unsure whether to correct firmly or understand first?</span></p>
+      </div>
+      <div class="pain-card">
+        <span class="icon">💭</span>
+        <h3><span data-ta>பிறகு வரும் குற்ற உணர்வு</span><span data-en>Guilt after reacting harshly</span></h3>
+        <p><span data-ta>கடுமையாக பேசிய பிறகு, "இப்படி சொல்லியிருக்கக் கூடாது" என்று வருந்துகிறீர்களா?</span><span data-en>Do you regret a harsh reaction, wishing you'd responded differently?</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODULES -->
+<div class="section" style="background:#fff;">
+  <div class="wrap">
+    <h2><span data-ta>பாடநெறியில் என்ன கற்றுக்கொள்வீர்கள்</span><span data-en>What you'll learn — 10 Modules</span></h2>
+    <p class="section-sub">
+      <span data-ta>ஒவ்வொரு தொகுதியிலும்: content, practical activity, reflection worksheet, action plan மற்றும் quiz.</span>
+      <span data-en>Every module includes: content, a practical activity, a reflection worksheet, an action plan, and a quiz.</span>
+    </p>
+    <div>
+      <div class="module-row">
+        <div class="num">1</div>
+        <div>
+          <h3><span data-ta>உணர்ச்சி நுண்ணறிவு என்றால் என்ன?</span><span data-en>What is Emotional Intelligence?</span></h3>
+          <p><span data-ta>ஆசிரியர்களுக்கு அது ஏன் முக்கியம், Feel → Understand → Pause → Respond செயல்முறை.</span><span data-en>Why it matters for teachers, and the Feel → Understand → Pause → Respond process.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">2</div>
+        <div>
+          <h3><span data-ta>வகுப்பறையில் சுய விழிப்புணர்வு</span><span data-en>Classroom Self-Awareness</span></h3>
+          <p><span data-ta>உங்கள் emotional triggers மற்றும் உடல் காட்டும் warning signals-ஐ அறிதல்.</span><span data-en>Recognizing your own emotional triggers and early warning signals.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">3</div>
+        <div>
+          <h3><span data-ta>அழுத்தமான சூழ்நிலைகளில் உணர்ச்சிகளை நிர்வகித்தல்</span><span data-en>Self-Management Under Pressure</span></h3>
+          <p><span data-ta>React செய்வதிலிருந்து Respond செய்வதற்கு மாறுதல் — 3-Second Pause.</span><span data-en>Moving from reacting to responding, using the 3-Second Pause.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">4</div>
+        <div>
+          <h3><span data-ta>Empathy — மாணவர்களின் உணர்ச்சிகளைப் புரிந்துகொள்ளுதல்</span><span data-en>Empathy — Understanding Students' Emotions</span></h3>
+          <p><span data-ta>Behaviour-க்குப் பின்னால் இருக்கும் emotion-ஐ புரிந்துகொள்ள முயற்சித்தல்.</span><span data-en>Looking beyond behaviour to understand what a student may be feeling.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">5</div>
+        <div>
+          <h3><span data-ta>Stressful Moments-ல் Emotional Regulation</span><span data-en>Emotional Regulation in Stressful Moments</span></h3>
+          <p><span data-ta>Box Breathing, 3-2 Grounding போன்ற practical techniques.</span><span data-en>Practical techniques like box breathing and grounding.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">6</div>
+        <div>
+          <h3><span data-ta>மாணவர்களுடன் நல்லுறவும் நம்பிக்கையும்</span><span data-en>Building Rapport & Trust</span></h3>
+          <p><span data-ta>பெயர் அறிதல், consistency, genuine praise மூலம் rapport உருவாக்குதல்.</span><span data-en>Building connection through names, consistency, and genuine praise.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">7</div>
+        <div>
+          <h3><span data-ta>Classroom Discipline & Conflict Resolution</span><span data-en>Classroom Discipline & Conflict Resolution</span></h3>
+          <p><span data-ta>Behaviour-ஐ address செய்தல் + relationship-ஐ protect செய்தல்.</span><span data-en>Addressing behaviour while protecting the relationship.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">8</div>
+        <div>
+          <h3><span data-ta>பெற்றோர் & சக ஆசிரியர்களுடன் Positive Communication</span><span data-en>Positive Communication with Parents & Colleagues</span></h3>
+          <p><span data-ta>Acknowledge → Listen → Clarify → Respond Calmly → Collaborate.</span><span data-en>Acknowledge, listen, clarify, respond calmly, and collaborate.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">9</div>
+        <div>
+          <h3><span data-ta>Self-Motivation & Teacher Burnout Prevention</span><span data-en>Self-Motivation & Burnout Prevention</span></h3>
+          <p><span data-ta>உங்கள் emotional energy-ஐ கண்டறிந்து, முன்கூட்டியே protect செய்தல்.</span><span data-en>Noticing your emotional energy early and protecting it.</span></p>
+        </div>
+      </div>
+      <div class="module-row">
+        <div class="num">10</div>
+        <div>
+          <h3><span data-ta>Emotionally Safe Classroom Culture</span><span data-en>Building an Emotionally Safe Classroom</span></h3>
+          <p><span data-ta>மாணவர்கள் பயமின்றி கேள்வி கேட்கவும், தவறு செய்யவும் முடிந்த சூழல் உருவாக்குதல்.</span><span data-en>Creating a classroom where students feel safe to question and make mistakes.</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORMAT -->
+<div class="section">
+  <div class="wrap">
+    <h2><span data-ta>பாடநெறி வடிவமைப்பு</span><span data-en>Course Format</span></h2>
+    <div class="format-grid">
+      <div class="format-card">
+        <span class="icon">🗣️</span>
+        <h3><span data-ta>முழுவதும் தமிழில்</span><span data-en>Fully in Tamil</span></h3>
+        <p><span data-ta>எளிய, தினசரி பேச்சு தமிழில்</span><span data-en>Simple, everyday spoken Tamil</span></p>
+      </div>
+      <div class="format-card">
+        <span class="icon">🖊️</span>
+        <h3><span data-ta>Live Activities & Worksheets</span><span data-en>Live Activities & Worksheets</span></h3>
+        <p><span data-ta>நேரடியாக type செய்யக்கூடிய fields</span><span data-en>Type your answers directly, no printing needed</span></p>
+      </div>
+      <div class="format-card">
+        <span class="icon">✅</span>
+        <h3><span data-ta>ஒவ்வொரு தொகுதிக்கும் Quiz</span><span data-en>Quiz after every module</span></h3>
+        <p><span data-ta>உடனடி மதிப்பெண் மற்றும் விளக்கம்</span><span data-en>Instant scoring with explanations</span></p>
+      </div>
+      <div class="format-card">
+        <span class="icon">⏱️</span>
+        <h3><span data-ta>உங்கள் வேகத்தில்</span><span data-en>Self-paced</span></h3>
+        <p><span data-ta>எப்போது வேண்டுமானாலும், எங்கிருந்தும்</span><span data-en>Anytime, anywhere access</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TRAINER -->
+<div class="section" style="background:#fff;">
+  <div class="wrap">
+    <h2><span data-ta>உங்கள் பயிற்றுநர்</span><span data-en>Your Trainer</span></h2>
+    <div class="trainer-card">
+      <div class="trainer-badge">NT</div>
+      <div>
+        <h3>N T Somasundaram</h3>
+        <p class="role">
+          <span data-ta>Certified Master Trainer &middot; Career Consultant &middot; Life Skills Educator &middot; Parenting Coach</span>
+          <span data-en>Certified Master Trainer · Career Consultant · Life Skills Educator · Parenting Coach</span>
+        </p>
+        <p>
+          <span data-ta>10 ஆண்டுகளுக்கும் மேலான Corporate Banking அனுபவத்திற்குப் பிறகு, பயிற்சி மற்றும் coaching துறைக்கு மாறியவர். தமிழ்நாடு முழுவதும் ஆசிரியர்கள், பெற்றோர்கள் மற்றும் மாணவர்களுக்கு bilingual (English &amp; Tamil) programs நடத்தி வருகிறார்.</span>
+          <span data-en>After over a decade in corporate banking, transitioned into training and coaching. Delivers bilingual (English and Tamil) programs for teachers, parents, and students across Tamil Nadu.</span>
+        </p>
+        <p><span data-ta>Director &amp; Treasurer, SKV International School</span><span data-en>Director & Treasurer, SKV International School</span> &middot; IATD &middot; Pick My Career &middot; Emocare International &middot; Indian Counseling Service</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ENROLLMENT DETAILS -->
+<div class="section" style="background:#fff;">
+  <div class="wrap">
+    <h2><span data-ta>சேர்க்கை விவரங்களை பகிரவும்</span><span data-en>Share Your Enrollment Details</span></h2>
+    <p class="section-sub">
+      <span data-ta>கீழே உங்கள் விவரங்களை பதிவு செய்யவும் — நாங்கள் WhatsApp வழியாக access-ஐ activate செய்வோம்.</span>
+      <span data-en>Fill in your details below — we'll activate your access and reach out via WhatsApp.</span>
+    </p>
+    <div class="details-card">
+      <h3><span data-ta>📝 உங்கள் விவரங்கள்</span><span data-en>📝 Your Details</span></h3>
+      <p class="note">
+        <span data-ta>Name, Email Id, Course Name, Mobile No, ஏதேனும் கோரிக்கை இருந்தால் பகிரவும்.</span>
+        <span data-en>Please share Name, Email Id, Course Name, Mobile No, and any other request.</span>
+      </p>
+      <form id="detailsForm" class="form-grid" onsubmit="return submitDetailsForm(event)">
+        <div class="form-field">
+          <label for="df-name"><span data-ta>பெயர்</span><span data-en>Name</span> *</label>
+          <input type="text" id="df-name" name="name" required>
+        </div>
+        <div class="form-field">
+          <label for="df-email">Email Id *</label>
+          <input type="email" id="df-email" name="email" required>
+        </div>
+        <div class="form-field">
+          <label for="df-course"><span data-ta>பாடநெறி பெயர்</span><span data-en>Course Name</span> *</label>
+          <input type="text" id="df-course" name="course" value="Emotional Intelligence for Teachers" readonly required>
+        </div>
+        <div class="form-field">
+          <label for="df-mobile"><span data-ta>மொபைல் எண்</span><span data-en>Mobile No</span> *</label>
+          <input type="tel" id="df-mobile" name="mobile" pattern="[0-9+ ]{10,15}" required>
+        </div>
+        <div class="form-field full">
+          <label for="df-request"><span data-ta>ஏதேனும் கோரிக்கை</span><span data-en>Any other Request</span></label>
+          <textarea id="df-request" name="request"></textarea>
+        </div>
+        <div class="form-field full form-submit-row">
+          <button type="submit" class="btn-submit" id="df-submit-btn">
+            <span data-ta>விவரங்களை சமர்ப்பிக்கவும்</span><span data-en>Submit Details</span>
+          </button>
+          <div id="df-status" class="df-status"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="section">
+  <div class="wrap">
+    <div class="final-cta">
+      <h2><span data-ta>இன்றே உங்கள் வகுப்பறையை மாற்ற தொடங்குங்கள்</span><span data-en>Start transforming your classroom today</span></h2>
+      <p>
+        <span data-ta>சேர விரும்புகிறீர்களா? WhatsApp செய்யுங்கள் — உங்கள் access சில நேரங்களில் activate செய்யப்படும்.</span>
+        <span data-en>Ready to join? Message us on WhatsApp — your access will be activated shortly after.</span>
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-gold" href="https://wa.me/919843702244?text=Hi%2C%20I%27d%20like%20access%20to%20the%20Emotional%20Intelligence%20for%20Teachers%20course." target="_blank" rel="noopener">
+          <span data-ta>💬 வாட்ஸ்அப்பில் சேருங்கள்</span>
+          <span data-en>💬 Enroll via WhatsApp</span>
+        </a>
+      </div>
+      <div class="already-enrolled">
+        <span data-ta>ஏற்கனவே சேர்ந்துவிட்டீர்களா?</span> <span data-en>Already enrolled?</span>
+        <a href="login.html"><span data-ta> உள்நுழையவும் →</span><span data-en> Log in →</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span data-ta>N T Somasundaram Life Skills Program</span><span data-en>N T Somasundaram Life Skills Program</span>
+  &middot; <a href="https://wa.me/919843702244" target="_blank">WhatsApp +91 98437 02244</a>
+  &middot; <a href="mailto:somasundaramnt.lifecoach@gmail.com">somasundaramnt.lifecoach@gmail.com</a>
+  <br><span style="opacity:.7">God is always with u</span>
+</footer>
+
+<script>
+function setLang(lang){
+  document.body.classList.toggle('en', lang === 'en');
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnTA').classList.toggle('active', lang === 'ta');
+  try{ localStorage.setItem('site_lang_ei_teachers', lang); }catch(e){}
+}
+(function(){
+  let saved = 'ta';
+  try{ saved = localStorage.getItem('site_lang_ei_teachers') || 'ta'; }catch(e){}
+  setLang(saved);
+})();
+
+// ===== Enrollment details form → shared Google Sheet (image-pixel GET, no CORS) =====
+// Same shared sheet used across all Tamil course landing pages.
+var GAS_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxqiT3X7xEc5rWZMTempde-4jLZ2IjNOp8Ar1QWH6V8yWRa0QWMGqIhehsM6-LEgUWxCw/exec";
+
+function submitDetailsForm(e){
+  e.preventDefault();
+  var btn = document.getElementById('df-submit-btn');
+  var status = document.getElementById('df-status');
+
+  var data = {
+    name: document.getElementById('df-name').value.trim(),
+    email: document.getElementById('df-email').value.trim(),
+    course: document.getElementById('df-course').value.trim(),
+    mobile: document.getElementById('df-mobile').value.trim(),
+    request: document.getElementById('df-request').value.trim(),
+    page: window.location.href,
+    timestamp: new Date().toISOString()
+  };
+
+  if(!data.name || !data.email || !data.course || !data.mobile){
+    status.textContent = "தயவுசெய்து அனைத்து அவசிய விவரங்களையும் நிரப்பவும் / Please fill all required fields.";
+    status.className = "df-status error";
+    return false;
+  }
+
+  btn.disabled = true;
+  btn.innerHTML = document.body.classList.contains('en') ? "Submitting..." : "சமர்ப்பிக்கிறது...";
+
+  var params = Object.keys(data).map(function(k){
+    return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
+  }).join("&");
+
+  var img = new Image();
+  img.onload = img.onerror = function(){
+    status.textContent = "✅ நன்றி! உங்கள் விவரங்கள் பெறப்பட்டன — WhatsApp வழியாக விரைவில் தொடர்பு கொள்வோம். / Thank you! Details received — we'll reach out on WhatsApp shortly.";
+    status.className = "df-status success";
+    btn.innerHTML = document.body.classList.contains('en') ? "Submitted ✓" : "சமர்ப்பிக்கப்பட்டது ✓";
+    document.getElementById('detailsForm').reset();
+    document.getElementById('df-course').value = "Emotional Intelligence for Teachers";
+  };
+  img.src = GAS_WEB_APP_URL + "?" + params;
+
+  return false;
+}
+</script>
+</body>
+</html>
